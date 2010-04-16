@@ -1,0 +1,7 @@
+«EXTENSION javaApplicationExtensions::Extensions»
+«DEFINE definitions FOR uml::InstanceSpecification»
+«IF this.getStereotypeApplications().size>0»	public «EXPAND classDefinition FOREACH this.classifier.typeSelect(uml::Class)»«EXPAND componentDefinition FOREACH this.classifier.typeSelect(uml::Component)» «this.name»;	«ELSE»	public «this.classifier.name.get(0).toString()» «this.name»;«ENDIF»
+«ENDDEFINE»
+«DEFINE classDefinition FOR uml::Class»«convertQualifiedName(this.getQualifiedName())»«ENDDEFINE»
+
+«DEFINE componentDefinition FOR uml::Component»«convertQualifiedName(this.getQualifiedName())»«ENDDEFINE»

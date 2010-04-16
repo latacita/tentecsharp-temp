@@ -1,0 +1,2 @@
+«EXTENSION javaApplicationExtensions::Extensions»
+«DEFINE generateList FOR uml::InstanceSpecification»«IF this.getStereotypeApplications().size>0»«addInstanceElement(this.name,this.classifier.name.get(0).toString(),this.getValue(this.getAppliedStereotypes().get(0),"containedBy").toString())»«ELSE»«addInstanceElement(this.name,this.classifier.name.get(0).toString(),null)»«ENDIF»«ENDDEFINE»

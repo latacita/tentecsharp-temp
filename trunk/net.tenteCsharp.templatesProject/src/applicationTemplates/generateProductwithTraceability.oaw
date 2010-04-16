@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<workflow>
+
+  	<!-- Declaration of properties --> 
+  	<property name='umlModel' />
+    <property name='targetDir'/>
+    <property file='skeleton.properties' />
+	
+	<!-- Activate UML2 compatibility -->
+	<bean class="oaw.uml2.Setup" standardUML2Setup="true"/>
+
+	<!-- Read the input UML file -->	
+	<component class="oaw.emf.XmiReader">
+		<modelFile value="${umlModel}"/>
+		<outputSlot value="applicationModel"/>
+	</component>
+	
+	<!--  
+	<component id="dirCleaner"  class="oaw.workflow.common.DirectoryCleaner"
+		directories="${targetDir}" />
+	-->
+	
+	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">
+		<metaModel id="uml" class="oaw.uml2.UML2MetaModel" />
+		<genPath value="${targetDir}"/>
+		<expand value="applicationTemplates::ApplicationRoot::ApplicationRoot FOR applicationModel" />
+	</component>
+	
+	<!-- Enabling traceability -->
+	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
+		<advices value="traceability::TraceabilityFileProduct"/>
+	</component> 
+		
+</workflow>

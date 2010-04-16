@@ -1,0 +1,14 @@
+Void setDestinationFile(String path) :
+	JAVA javaSkeletonExtensions.TraceableFileExtension.setDestinationFile(java.lang.String);
+
+Void openTraceabilityFile() :
+   JAVA javaSkeletonExtensions.TraceableFileExtension.open();
+   
+Void closeTraceabilityFile() :
+   JAVA javaSkeletonExtensions.TraceableFileExtension.close();
+   
+Void writeTraceabilityFile(String sourceType,String sourceName,String sourceRoute,String targetType,String targetName,String targetRoute) :
+   JAVA javaSkeletonExtensions.TraceableFileExtension.write(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String);
+
+Void writeErrorConsole(String value) :
+   JAVA javaSkeletonExtensions.TraceableFileExtension.writeErrorConsole(java.lang.String);

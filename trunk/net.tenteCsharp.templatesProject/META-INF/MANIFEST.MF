@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tente Plug-in
+Bundle-SymbolicName: net.ample.wp2.tente.plugin;singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime;bundle-version="3.4.0",
+ org.openarchitectureware.core.emftools;bundle-version="4.3.1",
+ org.eclipse.debug.core;bundle-version="3.4.0",
+ org.eclipse.debug.ui;bundle-version="3.4.1",
+ org.eclipse.jdt.core;bundle-version="3.4.2",
+ org.eclipse.jdt.launching;bundle-version="3.4.1",
+ org.eclipse.jface;bundle-version="3.4.1",
+ org.eclipse.ui;bundle-version="3.4.1",
+ org.openarchitectureware.base;bundle-version="4.3.1",
+ org.openarchitectureware.workflow;bundle-version="4.3.1",
+ org.openarchitectureware.uml2.adapter;bundle-version="4.3.1",
+ org.openarchitectureware.uml2.adapter.plugin;bundle-version="4.3.1",
+ org.eclipse.jface,
+ org.eclipse.jdt.core,
+ helptenteplugin.Activator;bundle-version="1.0.0",
+ net.ample.wp2.caseStudies.domain.smartHome;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Eclipse-LazyStart: true
+Bundle-ClassPath: .,
+ src/
+Export-Package: applicationTemplates,
+ javaApplicationExtensions,
+ javaSkeletonExtensions,
+ skeletonTemplates,
+ traceability
+Bundle-Vendor: Component and Aspect-Oriented Software Development Group,  University of Malaga
+Bundle-ActivationPolicy: lazy
+
+

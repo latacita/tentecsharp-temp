@@ -1,0 +1,22 @@
+«EXTENSION javaApplicationExtensions::Extensions»
+«DEFINE inicialization FOR uml::InstanceSpecification»
+«FOREACH this.ownedElement.typeSelect(uml::Slot) AS element»«IF element.definingFeature.upper!=1»«FOREACH element.ownedElement AS slotElement»		
+		«this.name».add«element.definingFeature.name.toFirstUpper()»Element(«EXPAND slotValue FOR slotElement»);«ENDFOREACH»«ELSE»«IF element.definingFeature.type.metaType==uml::Enumeration»		enumAux=new «element.definingFeature.type.name»();
+		enumAux.setValue(«EXPAND enumSlotValue FOREACH element.ownedElement»);
+		«this.name».set«element.definingFeature.name.toFirstUpper()»((«element.definingFeature.type.name»)enumAux);
+«ELSE»		«this.name».set«element.definingFeature.name.toFirstUpper()»(«EXPAND slotValue FOREACH element.ownedElement»);«ENDIF»«ENDIF»
+«ENDFOREACH»«ENDDEFINE»
+
+«DEFINE slotValue FOR uml::LiteralString»"«this.value»"«ENDDEFINE»
+
+«DEFINE slotValue FOR uml::InstanceValue»«this.instance.name»«ENDDEFINE»
+
+«DEFINE slotValue FOR uml::LiteralInteger»«this.value»«ENDDEFINE»
+
+«DEFINE slotValue FOR uml::LiteralBoolean»«IF this.value»true«ELSE»false«ENDIF»«ENDDEFINE»
+
+«DEFINE enumSlotValue FOR uml::InstanceValue»"«this.instance.name»"«ENDDEFINE»
+
+«DEFINE enumSlotValue FOR uml::Element»«ENDDEFINE»
+
+«DEFINE slotValue FOR uml::Element»«ENDDEFINE»
