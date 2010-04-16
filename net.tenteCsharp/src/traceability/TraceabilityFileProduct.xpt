@@ -1,0 +1,22 @@
+«EXTENSION javaApplicationExtensions::TraceableFileExtension»
+
+«AROUND applicationTemplates::ApplicationRoot::ApplicationRoot FOR uml::Model»«openTraceabilityFile()»«targetDef.proceed()»«closeTraceabilityFile()»«ENDAROUND»
+
+
+«AROUND applicationTemplates::ApplicationRoot::finalPackage 
+	FOR uml::Package»
+	«targetDef.proceed()»
+	«LET this.getNearestPackage().nestingPackage.name AS packageName»
+		«writeTraceabilityFile("UMLPackage",this.name,this.getQualifiedName(),"CJFamilyClass",name,""+packageName+"/"+name+".java")»
+	«ENDLET»
+«ENDAROUND»
+
+
+«AROUND applicationTemplates::Inicialization::inicialization
+	FOR uml::InstanceSpecification»
+	«targetDef.proceed()» 
+	«LET this.getNearestPackage().nestingPackage.name AS packageName»
+		«writeTraceabilityFile("UMLInstanceSpecification",this.name,this.getQualifiedName(),"CJVirtualClassMember",name,""+name+".java")»
+	«ENDLET»			
+«ENDAROUND»	 
+

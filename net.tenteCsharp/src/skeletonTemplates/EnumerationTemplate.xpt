@@ -1,0 +1,25 @@
+«DEFINE enumerationTemplate FOR uml::Enumeration»
+«LET this.getNearestPackage().nestingPackage.name AS packageName»
+«FILE "/"+packageName.toFirstLower()+"/"+this.name.toFirstUpper()+".cs"»using System;
+using System.Collections;
+using System.Text;
+
+namespace SmartHome
+{
+	/// <summary>
+    /// Enumeration
+    /// </summary>
+	public class «this.name.toFirstUpper()» : TypeEnum 
+	{
+		public «this.name.toFirstUpper()» () 
+			: base()
+		{«EXPAND literal FOREACH ownedElement.typeSelect(uml::EnumerationLiteral)»
+		}
+	
+	}
+}«ENDFILE»
+«ENDLET»
+«ENDDEFINE»
+
+«DEFINE literal FOR uml::EnumerationLiteral»		
+		values.Add("«this.name»");«ENDDEFINE»

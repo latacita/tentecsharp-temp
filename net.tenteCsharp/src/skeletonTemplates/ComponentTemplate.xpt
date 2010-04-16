@@ -1,0 +1,53 @@
+«EXTENSION javaSkeletonExtensions::TypeExtractorExtension»
+«DEFINE componentTemplate FOR uml::Component»
+«LET this.getNearestPackage().nestingPackage.name AS packageName»
+«FILE packageName.toFirstLower()+"/"+this.name.toFirstUpper()+".cs"»using System;
+using System.Collections;
+using System.Text;
+
+namespace SmartHome
+{«LET this.getNearestPackage().nestingPackage.packageMerge.mergedPackage.ownedElement.typeSelect(uml::Package).ownedElement.typeSelect(uml::Component).select(e|e.name==this.name) AS nom»
+	public«IF nom.size>0» partial«ENDIF» class «this.name.toFirstUpper()» : TypeComponent
+	{
+«ENDLET»«FOREACH ownedElement.typeSelect(uml::Property) AS prop»«IF (this.getNearestPackage().nestingPackage.packageMerge.size>0)»«LET this.getNearestPackage().nestingPackage.packageMerge.mergedPackage.ownedElement.typeSelect(uml::Package).ownedElement.typeSelect(uml::Component).select(e|e.name==this.name) AS comp»«IF (comp.size>0) && (comp.get(0).ownedElement.typeSelect(uml::Property).name.contains(prop.name))»«ELSE»«EXPAND propertiesDefinition FOR prop»«ENDIF»«ENDLET»	«ELSE»«EXPAND propertiesDefinition FOR prop»«ENDIF»«ENDFOREACH»
+		public «this.name.toFirstUpper()» (String id) 
+			: base(id)
+		{
+		}
+«FOREACH ownedElement.typeSelect(uml::Property) AS prop»«IF (this.getNearestPackage().nestingPackage.packageMerge.size>0)»«LET this.getNearestPackage().nestingPackage.packageMerge.mergedPackage.ownedElement.typeSelect(uml::Package).ownedElement.typeSelect(uml::Component).select(e|e.name==this.name) AS comp»«IF (comp.size>0) && (comp.get(0).ownedElement.typeSelect(uml::Property).name.contains(prop.name))»«ELSE»«EXPAND propertiesGettersSetters FOR prop»«ENDIF»«ENDLET»«ELSE»«EXPAND propertiesGettersSetters FOR prop»«ENDIF»«ENDFOREACH»
+«FOREACH ownedElement.typeSelect(uml::Class) AS classElement»«IF ownedElement.typeSelect(uml::Port).type.name.contains(classElement.name)»«EXPAND PortTemplate::portTemplate FOR classElement»«ELSE»«EXPAND InnerClassTemplate::innerClassTemplate FOR classElement»«ENDIF»«ENDFOREACH»«EXPAND operations FOREACH ownedElement.typeSelect(uml::Operation)»
+	}
+}«ENDFILE»
+«ENDLET»
+«ENDDEFINE»
+
+«DEFINE propertiesDefinition FOR uml::Property»		public «IF this.upper!=1» ArrayList «this.name»= new ArrayList()«ELSE»«IF extractTypePlugin(this.type.name)=="boolean"»Boolean«ELSE»«extractTypePlugin(this.type.name)»«ENDIF» «this.name»«ENDIF»;
+«ENDDEFINE»
+
+«DEFINE propertiesGettersSetters FOR uml::Property»		public «IF this.upper!=1» ArrayList«ELSE»«IF extractTypePlugin(this.type.name)=="boolean"»Boolean«ELSE»«extractTypePlugin(this.type.name)»«ENDIF»«ENDIF» get«this.name.toFirstUpper()»()
+		{
+			return «this.name»;
+		}
+	
+«IF !this.isReadOnly»		public void set«this.name.toFirstUpper()»(«IF this.upper!=1»ArrayList«ELSEIF this.type.metaType==uml::Enumeration»«this.getNearestPackage().nestingPackage.name.toFirstUpper()».«this.type.name»«ELSEIF this.type.metaType==uml::Class && this.class.ownedElement.typeSelect(uml::Class).name.contains(this.type.name)»«this.class.name».«this.type.name»«ELSE»«IF extractTypePlugin(this.type.name)=="boolean"»Boolean«ELSE»«extractTypePlugin(this.type.name)»«ENDIF»«ENDIF» value)
+		{
+			this.«this.name»=value;
+		}«IF (this.upper==1) && (extractTypePlugin(this.type.name)=="float")»
+		
+		public void set«this.name.toFirstUpper()»(String value)
+		{
+			this.«this.name.toString()»=float.parse(value);
+		}«ENDIF»«IF this.upper!=1»
+		
+		public void add«this.name.toFirstUpper()»Element(«extractTypePlugin(this.type.name)» value)
+		{
+			this.«this.name».Add(value);
+		}«ENDIF»«ENDIF»
+	
+«ENDDEFINE»
+
+«DEFINE operations FOR uml::Operation»		public «IF extractTypePlugin(this.type.name)=="boolean"»Boolean«ELSE»«extractTypePlugin(this.type.name)»«ENDIF» «this.name»(«FOREACH this.ownedParameter.reject(e|e.direction==uml::ParameterDirectionKind::return) AS param SEPARATOR ','»«IF param.upper==1»«IF extractTypePlugin(this.type.name)=="boolean"»Boolean«ELSE»«extractTypePlugin(param.type.name)»«ENDIF»«ELSE»ArrayList«ENDIF» «param.name»«ENDFOREACH»)
+		{
+«LET extractTypePlugin(this.type.name) AS auxType»«IF auxType!="void"»«IF ((auxType=="int")||(auxType=="float"))»		return 0;«ELSEIF auxType=="boolean"»		return false;«ELSE»		return null;«ENDIF»«ENDIF»«ENDLET»		
+		}
+«ENDDEFINE»

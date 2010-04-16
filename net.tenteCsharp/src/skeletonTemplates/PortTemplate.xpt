@@ -1,0 +1,32 @@
+«EXTENSION javaSkeletonExtensions::TypeExtractorExtension»«DEFINE portTemplate FOR uml::Class»«LET this.getNearestPackage().nestingPackage.name AS packageName»	
+		
+		public class «this.name.toFirstUpper()»«LET this.getNearestPackage().nestingPackage.packageMerge.mergedPackage.ownedElement.typeSelect(uml::Package).ownedElement.typeSelect(uml::Component).ownedElement.typeSelect(uml::Class).select(e|e.name==this.name) AS nom»«IF nom.size>0»_«packageName.toFirstLower()»«ENDIF»«ENDLET» : TypePort«IF this.interfaceRealization.size>0» , «FOREACH this.interfaceRealization AS ir SEPARATOR  ','»«ir.contract.name»«ENDFOREACH»«ENDIF»
+		{
+«LET clientDependency.reject(e|e.metaType==uml::InterfaceRealization).supplier.name.intersect(clientDependency.supplier.name) AS requiredInterfaceList» «FOREACH requiredInterfaceList AS name»		public ArrayList ports«name» = new ArrayList();
+«ENDFOREACH»
+			public «this.name.toFirstUpper()»«LET this.getNearestPackage().nestingPackage.packageMerge.mergedPackage.ownedElement.typeSelect(uml::Package).ownedElement.typeSelect(uml::Component).ownedElement.typeSelect(uml::Class).select(e|e.name==this.name) AS nom»«IF nom.size>0»_«packageName.toFirstLower()»«ENDIF»«ENDLET»()
+				: base()
+			{
+«FOREACH requiredInterfaceList AS name»				ports«name»=new ArrayList();
+«ENDFOREACH»
+			}
+«FOREACH this.interfaceRealization.contract.parents().getAllOperations() AS ops»«EXPAND providedInterfaceMethod FOR ops»«ENDFOREACH»
+«FOREACH interfaceRealization.contract.getOperations() AS op»
+«EXPAND providedInterfaceMethod FOR op»«ENDFOREACH»«FOREACH requiredInterfaceList AS name»
+			public ArrayList getPorts«name»()
+			{
+	        	return ports«name»;
+	        }
+				
+			public void connectPort(«name» port)
+			{
+				ports«name».Add(port);
+			}
+«ENDFOREACH»«ENDLET»«ENDLET»	
+		}«ENDDEFINE»
+
+«DEFINE providedInterfaceMethod FOR uml::Operation»		public «extractTypePlugin(this.type.name)» «this.name»(«FOREACH this.ownedParameter.reject(e|e.direction==uml::ParameterDirectionKind::return) AS param SEPARATOR ','»«IF param.upper==1»«extractTypePlugin(param.type.name)»«ELSE»ArrayList «ENDIF» «param.name»«ENDFOREACH»)
+			{
+«LET extractTypePlugin(this.type.name) AS auxType»«IF auxType!="void"»«IF ((auxType=="int")||(auxType=="float"))»			return 0;«ELSEIF auxType=="Boolean"»			return false;«ELSE»			return null;«ENDIF»«ENDIF»«ENDLET»		
+			}
+«ENDDEFINE»

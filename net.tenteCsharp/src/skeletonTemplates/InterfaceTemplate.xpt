@@ -1,0 +1,22 @@
+«EXTENSION javaSkeletonExtensions::TypeExtractorExtension»
+«DEFINE interfaceTemplate FOR uml::Interface»
+«LET this.getNearestPackage().nestingPackage.name AS packageName»
+«FILE "/"+packageName.toFirstLower()+"/"+name.toFirstUpper()+".cs"»using System;
+using System.Collections;
+using System.Text;
+
+namespace SmartHome
+{
+	public interface «name.toFirstUpper()»«IF this.allParents().size>0» : «FOREACH this.allParents() AS extends SEPARATOR ','» «extends.getNearestPackage().nestingPackage.name.toFirstLower()».«extends.name»«ENDFOREACH»«ENDIF»
+	{
+«EXPAND operations FOREACH this.ownedElement.typeSelect(uml::Operation)»
+	}
+}
+«ENDFILE» 
+«ENDLET»
+«ENDDEFINE»
+
+«DEFINE operations FOR uml::Operation»		«extractTypePlugin(this.type.name)» «this.name»(«FOREACH this.ownedParameter.reject(e|e.direction==uml::ParameterDirectionKind::return) AS param SEPARATOR ', '»«IF param.upper==1»«IF extractTypePlugin(param.type.name)=="boolean"»Boolean«ELSE»«extractTypePlugin(param.type.name)»«ENDIF»«ELSE»ArrayList«ENDIF» «param.name»«ENDFOREACH»);
+«ENDDEFINE»
+	
+	
