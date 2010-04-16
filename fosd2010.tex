@@ -1,0 +1,160 @@
+\documentclass{sig-alt-full}
+
+\usepackage{graphicx}
+
+\begin{document}
+
+\newcommand{\imp}[1]{{\small{\sf #1}}}
+\newcommand{\stereotype}[1]{$<<${\small{\sf #1}}$>>$}
+
+% --- Author Metadata here ---
+\conferenceinfo{FOSD'10,}{October 13, 2010, Eindhoven (The Netherlands)}
+\CopyrightYear{2010} \crdata{...}
+% --- End of Author Metadata ---
+
+\title{C\# Partial Classes as a Mechanisms to Implement Feature-Oriented Designs: An Exploratory Study\thanks{This work has been supported by the Spanish Ministry Project TIN2008-01942/TIN, the EC STREP Project AMPLE IST-033710, and the Junta de Andaluc{\'i}a regional project FarmWare TIC-5231.}}
+
+\numberofauthors{3}
+
+\author{
+% 1st. author
+\alignauthor Lidia Fuentes \\
+       \affaddr{Dpto. Lenguajes y Ciencias de la Computaci{\'o}n}\\
+       \affaddr{Universidad de M{\'a}laga (Spain)}\\
+       \email{lff@lcc.uma.es}
+% 2nd. author
+\alignauthor Elio López \\
+       \affaddr{Dpto. Lenguajes y Ciencias de la Computaci{\'o}n}\\
+       \affaddr{Universidad de M{\'a}laga (Spain)}\\
+       \email{ealopezs@gmail.com}
+% 3rd. author
+\alignauthor Pablo S{\'a}nchez \\
+       \affaddr{Dpto. Matem{\'a}ticas, Estad{\'i}stica y Computaci{\'o}n}\\
+       \affaddr{Universidad de Cantabria (Spain)}\\
+       \email{p.sanchez@unican.es}
+}
+
+\maketitle
+
+\begin{abstract}
+    \input{abstract.tex}
+\end{abstract}
+
+% TODO: Cambiar esto
+\category{D2.2}{Design Tools and Techniques}{}
+
+% TODO: Cambiar esto
+\terms{Design, Languages}
+
+\keywords{Partial Classes, Feature-Oriented Programming, Software-Product Line}
+
+%\begin{figure*}[!tb]
+%  \begin{center}
+%    \includegraphics[width=.80\linewidth]{images/robotExample.eps}
+%    \caption{Robot example}
+%    \label{fig:example}
+%  \end{center}
+%\end{figure*}
+
+
+\section{Introduction}
+\label{sec:introduction}
+
+Pues eso, introduccion.
+
+\section{What we want to find in a feature-oriented programming language}
+\label{sec:fopFeatures}
+
+Básicamente, características que tienen los lenguajes como CaesarJ que nos facilitan la vida para implementar modelos de SPL, tales como lo de reescritura automática de las dependencias entre clases.
+
+\section{Case Study: A Smart Home Software Product Line}
+\label{sec:caseStudy}
+
+Copia y pega de la descripción de la Smart Home más breve explicación de los modelos arquitectónicos. La figura del modelo hay que ponerla después de escribir el artículo, para que contenga todos los elementos que nos hacen falta para explicar los fallos de C\#.
+
+\section{Implementing the Smart Home models using C\# partial classes}
+\label{sec:partialClasses}
+
+Describir como se implementan diferentes situaciones en el modelo de la SmartHome.
+
+\subsection{Scenarios 1: ...}
+
+Descripción de como implementar algo tal como una feature que extiende de otra.
+
+\subsection{Scenarios 2: ...}
+
+Descripción de como implementar otra cosa, tal como una feature que extiende de dos.
+
+\subsection{Scenarios 3: ...}
+
+Otro caso diferente ...
+
+\subsection{Conclusions}
+
+Tabla o bullets comparando lo que querríamos tener y lo que tenemos con las clases parciales.
+
+\section{Sketch of solutions for C\# partial classes pitfalls}
+
+Breves comentarios sobre como solucionar estos problemas. (NOTA: No estoy muy seguro acerca de si poner o no esta sección).
+
+\section{Summary and Future Work}
+
+\bibliographystyle{plain}
+\bibliography{mise08}
+
+\balancecolumns
+
+%\section{Demo screenplay}
+%
+%\input{screenplay}
+%
+%% This section describes the different steps that we will carry out
+%% during the demo presentation as well as the different features of
+%% the tool that will be shown and explained. The demonstration is
+%% divided in 3 three main blocks: (1) introduction and background; (2)
+%% description of \Populo\ and its features; and (3) explanation of how
+%% \Populo\ can be extended for supporting the execution of profiled
+%% UML models.
+%
+%
+%
+%\balancecolumns
+%
+%\newpage
+%
+%\begin{figure*}[t]
+%  \begin{center}
+%    \includegraphics[width=.75\linewidth]{images/image00.eps}\\
+%    \caption{The execution trace, the breakpoint and the object properties}
+%  \end{center}
+%\end{figure*}
+%
+%\begin{figure*}
+%  \begin{center}
+%    \includegraphics[width=.75\linewidth]{images/image01.eps}\\
+%    \caption{Ready and blocked actions and the call stack}
+%  \end{center}
+%\end{figure*}
+%
+%\begin{figure*}
+%  \begin{center}
+%    \includegraphics[width=.75\linewidth]{images/image02.eps}\\
+%    \caption{Instance view}
+%  \end{center}
+%\end{figure*}
+%
+%\begin{figure*}
+%  \begin{center}
+%    \includegraphics[width=.75\linewidth]{images/image03.eps}\\
+%    \caption{The model view}
+%  \end{center}
+%\end{figure*}
+%
+%\begin{figure*}
+%  \begin{center}
+%    \includegraphics[width=.75\linewidth]{images/image04.eps}\\
+%    \caption{Parallel execution flows}
+%  \end{center}
+%\end{figure*}
+
+\end{document}
