@@ -1,0 +1,4 @@
+«DEFINE connection FOR uml::Component»«IF this.getStereotypeApplications().size>0»«IF this.getAppliedStereotypes().name.get(0).toString()=="containerOnly"»«EXPAND connector FOREACH ownedElement.typeSelect(uml::Connector)»«ENDIF»«ENDIF»«ENDDEFINE»
+
+«DEFINE connector FOR uml::Connector»«LET this.ownedElement.typeSelect(uml::ConnectorEnd).get(0) AS con1»«LET this.ownedElement.typeSelect(uml::ConnectorEnd).get(1) AS con2»«IF con1.getAppliedStereotypes().name.get(0).toString()=="requires"»		«con1.partWithPort.name».get«con1.role.name.toFirstUpper()»().connectPort(«con2.partWithPort.name».get«con2.role.name.toFirstUpper()»());«ELSE»		«con2.partWithPort.name».get«con2.role.name.toFirstUpper()»().connectPort(«con1.partWithPort.name».get«con1.role.name.toFirstUpper()»());«ENDIF»«ENDLET»«ENDLET»
+«ENDDEFINE»
