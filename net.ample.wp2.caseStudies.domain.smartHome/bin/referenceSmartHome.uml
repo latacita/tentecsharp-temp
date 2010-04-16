@@ -1,0 +1,1561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http:///schemas/MagicDrawProfile/_kTfsQJb4Ed2tXeyhDhDLig/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xsi:schemaLocation="http:///schemas/MagicDrawProfile/_kTfsQJb4Ed2tXeyhDhDLig/0 UML_Standard_Profile.MagicDraw_Profile.profile.uml#_kTrScpb4Ed2tXeyhDhDLig">
+  <uml:Model xmi:id="eee_1045467100313_135436_1" name="SmartHomeUMA" viewpoint="">
+    <ownedComment xmi:id="_12_1_58601ef_1180016803546_672725_98" body="Author:Pablo.&#xA;Created:24/05/07 16:26.&#xA;Title:.&#xA;Comment:.&#xA;" annotatedElement="eee_1045467100313_135436_1"/>
+    <ownedComment xmi:id="_12_1_58601ef_1180428290421_437269_2058" body="">
+      <ownedComment xmi:id="_12_1_58601ef_1180428422828_53827_2060" body="Iteration 1 -> We have only added the base elements that are present in all Smart Homes&#xA;Iteration 2 -> We have added Light Management support &#xA;Iteration 3 -> We have added Fire Support" annotatedElement="_12_1_58601ef_1180428290421_437269_2058"/>
+    </ownedComment>
+    <packageImport xmi:id="_0primitiveTypesSmartHomeUMA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:id="_0javaPrimitiveTypesSmartHomeUMA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Model" xmi:id="_12_5_1_58601ef_1185270175890_155553_255" name="Architecture" viewpoint="">
+      <packagedElement xmi:type="uml:Package" xmi:id="_12_5_58601ef_1183709734125_525258_1618" name="InitialModel">
+        <packagedElement xmi:type="uml:Package" xmi:id="_12_5_58601ef_1183714980515_727371_2372" name="ComponentView">
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_58601ef_1183714981265_667790_2419" name="HouseGateway" clientDependency="_15_0_1_ea60343_1214905157537_471917_1590" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1185302024015_696487_1507" name="services" visibility="public" type="_12_5_1_58601ef_1185302035921_600852_1517" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1213293559922_615977_1412" name="houseData" visibility="public" type="_15_0_1_ea60343_1213293486016_212911_1391"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1222262227923_95649_5964" name="actuators" visibility="public" type="_12_5_1_58601ef_1185405986968_413573_2622" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1222262257754_524988_5966" name="sensors" visibility="public" type="_15_0_1_ea60343_1216131464068_233067_2169" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1185302035921_600852_1517" name="ServicesPort" clientDependency="_12_5_1_58601ef_1188427790390_495465_5353 _12_5_1_58601ef_1188427722218_869176_5286 _12_5_1_e50094_1207042901296_273147_1541 _12_5_1_e50094_1207038495406_967322_1111 _12_5_1_58601ef_1188427686265_774041_5265 _12_5_1_e50094_1207038490781_575378_1095 _12_5_1_e50094_1207042798328_874328_1422 _12_5_1_e50094_1207043007796_922731_1601 _12_5_1_e50094_1207038457031_832740_1078"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1185405986968_413573_2622" name="ActuatorPort"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1213293486016_212911_1391" name="House">
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1213293594631_267928_1414" name="floors" visibility="public" type="_15_0_1_ea60343_1214907142032_161481_2485">
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1213293644559_632185_1419" name="" value="*"/>
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1213293644558_677395_1418" name="" value="1"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1213293669403_633715_1420" name="name" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1213352182972_218828_1890" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1213351113083_742252_1874" name="getFloorById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213351142348_360732_1876" name="" visibility="public" type="_15_0_1_ea60343_1214907142032_161481_2485" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213351147199_660447_1877" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1213351407848_238117_1878" name="getRoomById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213351421596_366595_1880" name="" visibility="public" type="_12_5_1_e50094_1206616338171_665280_926" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213351425519_188095_1881" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_e50094_1206616338171_665280_926" name="Room">
+              <ownedAttribute xmi:id="_12_5_1_e50094_1206617745562_288457_950" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_12_5_1_e50094_1206617769078_667445_952" name="name" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1214907142032_161481_2485" name="Floor">
+              <ownedAttribute xmi:id="_12_5_1_58601ef_1185304397890_851773_1967" name="rooms" visibility="public" type="_12_5_1_e50094_1206616338171_665280_926">
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_12_5_1_e50094_1206616338234_486926_929" name="" value="*"/>
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_12_5_1_e50094_1206616338234_175839_928" name="" value="1"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_12_5_1_e50094_1206617935046_354826_964" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_12_5_1_e50094_1206617935046_975296_965" name="name" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1213351725446_706739_1882" name="addRoom" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213351735948_10035_1884" name="" visibility="public" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+                </ownedParameter>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213351738549_245813_1885" name="room" visibility="public" type="_12_5_1_e50094_1206616338171_665280_926" direction="inout"/>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1213352100409_326386_1886" name="searchRoomById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213352114954_294360_1888" name="" visibility="public" type="_12_5_1_e50094_1206616338171_665280_926" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213352117744_994839_1889" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216131464068_233067_2169" name="SensorPort"/>
+            <realization xmi:id="_15_0_1_ea60343_1214905157537_471917_1590" name="" supplier="_15_0_1_ea60343_1213293486016_212911_1391" client="_12_5_58601ef_1183714981265_667790_2419" realizingClassifier="_15_0_1_ea60343_1213293486016_212911_1391"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_58601ef_1183714981281_420972_2421" name="FloorGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1185302737859_203064_1724" name="request" visibility="public" type="_12_5_1_58601ef_1185302481296_367989_1722" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_e50094_1207042836437_146305_1476" name="gui" visibility="public" type="_12_5_1_e50094_1207042852921_572895_1487" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216909893245_309316_3893" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216910459052_334779_3926" name="roomGUIs" visibility="public" type="_12_5_58601ef_1183714981281_309483_2422">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1216910482427_132133_3928" name="" value="*"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1216910482427_407259_3927" name=""/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1185302481296_367989_1722" name="NotifyPort" clientDependency="_12_5_1_58601ef_1188427725218_751158_5302">
+              <interfaceRealization xmi:id="_12_5_1_58601ef_1188427725218_751158_5302" name="" supplier="_12_5_1_58601ef_1185406394859_472692_2758" client="_12_5_1_58601ef_1185302481296_367989_1722" contract="_12_5_1_58601ef_1185406394859_472692_2758"/>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_e50094_1207042852921_572895_1487" name="GUIPort" clientDependency="_12_5_1_e50094_1207042852921_581832_1488">
+              <interfaceRealization xmi:id="_12_5_1_e50094_1207042852921_581832_1488" name="" supplier="_12_5_1_e50094_1206699932703_214235_996" client="_12_5_1_e50094_1207042852921_572895_1487" contract="_12_5_1_e50094_1206699932703_214235_996"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_58601ef_1183714981281_309483_2422" name="RoomGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1185302470968_721201_1713" name="request" visibility="public" type="_12_5_1_58601ef_1185303708062_323417_1944" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_e50094_1207042979828_77787_1576" name="gui" visibility="public" type="_12_5_1_e50094_1207042851281_325625_1485" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216909920435_399580_3894" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220206412672_492618_2292" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1185303708062_323417_1944" name="NotifyPort" clientDependency="_12_5_1_58601ef_1188427786890_178152_5336">
+              <interfaceRealization xmi:id="_12_5_1_58601ef_1188427786890_178152_5336" name="" supplier="_12_5_1_58601ef_1185406394859_472692_2758" client="_12_5_1_58601ef_1185303708062_323417_1944" contract="_12_5_1_58601ef_1185406394859_472692_2758"/>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_e50094_1207042851281_325625_1485" name="GUIPort" clientDependency="_12_5_1_e50094_1207042851281_584595_1486">
+              <interfaceRealization xmi:id="_12_5_1_e50094_1207042851281_584595_1486" name="" supplier="_12_5_1_e50094_1206699932703_214235_996" client="_12_5_1_e50094_1207042851281_325625_1485" contract="_12_5_1_e50094_1206699932703_214235_996"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_58601ef_1183715919250_133477_5791" name="CentralGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_58601ef_1183715919265_269470_5793" name="request" visibility="public" type="_12_5_58601ef_1183715919265_388314_5792" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_e50094_1207042550843_961311_1236" name="gui" visibility="public" type="_12_5_1_e50094_1207042514828_650261_1227" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216909805417_627196_3892" name="houseId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216910302741_726560_3918" name="floorGUIs" visibility="public" type="_12_5_58601ef_1183714981281_420972_2421">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1216910328094_692000_3920" name="" value="*"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1216910328094_876382_3919" name=""/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_58601ef_1183715919265_388314_5792" name="NotifyPort" clientDependency="_12_5_1_58601ef_1188427674343_148341_5233">
+              <interfaceRealization xmi:id="_12_5_1_58601ef_1188427674343_148341_5233" name="" supplier="_12_5_1_58601ef_1185406394859_472692_2758" client="_12_5_58601ef_1183715919265_388314_5792" contract="_12_5_1_58601ef_1185406394859_472692_2758"/>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_e50094_1207042514828_650261_1227" name="GUIPort" clientDependency="_12_5_1_e50094_1207042808203_407716_1439">
+              <interfaceRealization xmi:id="_12_5_1_e50094_1207042808203_407716_1439" name="" supplier="_12_5_1_e50094_1206699932703_214235_996" client="_12_5_1_e50094_1207042514828_650261_1227" contract="_12_5_1_e50094_1206699932703_214235_996"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_12_5_1_58601ef_1185402889125_405486_1465" name="IDevice" isAbstract="true">
+            <ownedOperation xmi:id="_12_5_1_58601ef_1185392346406_228927_1263" name="getId" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_58601ef_1185392355875_969580_1265" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1185392365421_222548_1266" name="setRoomId" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_58601ef_1185392389156_53378_1268" name="roomId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1213366083367_977197_1989" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1185392389437_850855_1269" name="getRoomId" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_58601ef_1185392400406_655975_1271" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1185392410062_806362_1272" name="setFloorId" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_58601ef_1185392426593_140588_1276" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1213366031989_798643_1987" name="floorId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1185392417187_584089_1274" name="getFloorId" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_58601ef_1185392431453_594586_1277" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Enumeration" xmi:id="_12_5_1_58601ef_1185406226015_653125_2667" name="DeviceKind"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_12_5_1_58601ef_1185406394859_472692_2758" name="INotify">
+            <ownedOperation xmi:id="_12_5_1_58601ef_1188428035703_731489_5386" name="getId" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_e50094_1206438052546_12_2107" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_58601ef_1188427686265_774041_5265" name="" supplier="_12_5_1_58601ef_1185406394859_472692_2758" client="_12_5_1_58601ef_1185302035921_600852_1517"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_58601ef_1188427722218_869176_5286" name="" supplier="_12_5_1_58601ef_1185406394859_472692_2758" client="_12_5_1_58601ef_1185302035921_600852_1517"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_58601ef_1188427790390_495465_5353" name="" supplier="_12_5_1_58601ef_1185406394859_472692_2758" client="_12_5_1_58601ef_1185302035921_600852_1517"/>
+          <packagedElement xmi:type="uml:Enumeration" xmi:id="_12_5_1_58601ef_1188675821406_389080_5588" name="Deployment">
+            <ownedLiteral xmi:id="_12_5_1_58601ef_1188675855640_831927_5607" name="Lightweight"/>
+            <ownedLiteral xmi:id="_12_5_1_58601ef_1188675867859_176956_5609" name="Heavyweight"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_12_5_1_e50094_1206699932703_214235_996" name="IGUI">
+            <ownedOperation xmi:id="_12_5_1_e50094_1206699942937_606458_997" name="showGUI" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_e50094_1206699973937_223159_998" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_12_5_1_e50094_1207038303140_97843_1017" name="initGUI" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_e50094_1207038325203_13118_1019" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_e50094_1207038457031_832740_1078" name="" supplier="_12_5_1_e50094_1206699932703_214235_996" client="_12_5_1_58601ef_1185302035921_600852_1517"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_e50094_1207038490781_575378_1095" name="" supplier="_12_5_1_e50094_1206699932703_214235_996" client="_12_5_1_58601ef_1185302035921_600852_1517"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_e50094_1207038495406_967322_1111" name="" supplier="_12_5_1_e50094_1206699932703_214235_996" client="_12_5_1_58601ef_1185302035921_600852_1517"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_e50094_1207042798328_874328_1422" name="" supplier="_12_5_1_e50094_1206699932703_214235_996" client="_12_5_1_58601ef_1185302035921_600852_1517"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_e50094_1207042901296_273147_1541" name="" supplier="_12_5_1_e50094_1206699932703_214235_996" client="_12_5_1_58601ef_1185302035921_600852_1517"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_e50094_1207043007796_922731_1601" name="" supplier="_12_5_1_e50094_1206699932703_214235_996" client="_12_5_1_58601ef_1185302035921_600852_1517"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_12_5_1_58601ef_1185382435640_65752_1164" name="LightManagement">
+        <packageMerge xmi:id="_12_5_1_58601ef_1185382477812_54690_1213" mergedPackage="_12_5_58601ef_1183709734125_525258_1618"/>
+        <packagedElement xmi:type="uml:Package" xmi:id="_12_5_1_58601ef_1185384360390_819366_1240" name="ComponentView">
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_1_58601ef_1185384970468_294408_1265" name="Dimmer" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1185392250625_899840_1224" name="request" visibility="public" type="_12_5_1_58601ef_1185392261500_596829_1233" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216910777226_562756_3942" name="lightId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216911208146_242333_4215" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216911208147_743222_4216" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1185392261500_596829_1233" name="RequestPort" clientDependency="_12_5_1_58601ef_1188485290578_847085_6628 _15_0_1_ea60343_1222250582101_427571_5361">
+              <interfaceRealization xmi:id="_12_5_1_58601ef_1188485290578_847085_6628" name="" supplier="_12_5_1_58601ef_1185391601203_931783_1052" client="_12_5_1_58601ef_1185392261500_596829_1233" contract="_12_5_1_58601ef_1185391601203_931783_1052"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_1_58601ef_1185384973468_888841_1266" name="LightController" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1185403445265_476536_2101" name="request" visibility="public" type="_12_5_1_58601ef_1185403456062_488898_2110" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216910897443_878493_4204" name="lightId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216911192842_396274_4210" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216911192843_323018_4211" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1185403456062_488898_2110" name="LightControllerPort" clientDependency="_12_5_1_58601ef_1185405859515_882542_2564">
+              <interfaceRealization xmi:id="_12_5_1_58601ef_1185405859515_882542_2564" name="" supplier="_12_5_1_58601ef_1185403567859_120305_2222" client="_12_5_1_58601ef_1185403456062_488898_2110" contract="_12_5_1_58601ef_1185403567859_120305_2222"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_1_58601ef_1185386577921_697304_1311" name="Switch" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:id="_12_5_1_58601ef_1185386592843_976942_1333" name="status" visibility="public" type="_12_5_1_58601ef_1185386621359_691642_1356"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1185403400578_212768_2082" name="request" visibility="public" type="_12_5_1_58601ef_1185403407625_408006_2091" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216910807729_83500_3943" name="lightId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845768901_819631_2292" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845768905_12894_2294" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1185403407625_408006_2091" name="SwitchPort" clientDependency="_15_0_1_ea60343_1222250540177_566240_5345 _12_5_1_58601ef_1188485339859_662366_6694">
+              <interfaceRealization xmi:id="_12_5_1_58601ef_1188485339859_662366_6694" name="" supplier="_12_5_1_58601ef_1185386599875_813622_1336" client="_12_5_1_58601ef_1185403407625_408006_2091" contract="_12_5_1_58601ef_1185386599875_813622_1336"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_12_5_1_58601ef_1185386599875_813622_1336" name="ISwitch">
+            <generalization xmi:id="_12_5_1_58601ef_1185403542703_855423_2197" isSubstitutable="false" general="_12_5_1_58601ef_1185402889125_405486_1465"/>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1185386611953_908338_1354" name="getStatus" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_58601ef_1185386717656_316432_1379" name="" visibility="public" type="_12_5_1_58601ef_1185386621359_691642_1356" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1207741315915_322531_6577" name="setStatus" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1207741323930_458710_6579" name="value" visibility="public" type="_12_5_1_58601ef_1185386621359_691642_1356"/>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1214906492527_3947_2479" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1207758073053_981928_1800" name="getLightId" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1207758073054_69341_1801" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Enumeration" xmi:id="_12_5_1_58601ef_1185386621359_691642_1356" name="SwitchStatus">
+            <ownedLiteral xmi:id="_12_5_1_58601ef_1185386638500_993491_1375" name="SwitchOn"/>
+            <ownedLiteral xmi:id="_12_5_1_58601ef_1185386645359_754894_1377" name="SwitchOff"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_1_58601ef_1185386753562_555030_1397" name="HouseGateway" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1185392286953_115503_1236" name="services" visibility="public" type="_15_0_1_ea60343_1215445749970_206444_872" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1185405960734_650513_2612" name="actuators" visibility="public" type="_12_5_1_58601ef_1186832211359_144264_793" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1208188737952_808658_1702" name="sensors" visibility="public" type="_12_5_1_58601ef_1185392296984_458842_1245" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1185392296984_458842_1245" name="SensorPort" clientDependency="_15_0_1_ea60343_1208188104795_490810_1638 _15_0_1_ea60343_1208188099429_344017_1622">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1208188099429_344017_1622" name="" supplier="_15_0_1_ea60343_1207760042117_979257_1825" client="_12_5_1_58601ef_1185392296984_458842_1245" contract="_15_0_1_ea60343_1207760042117_979257_1825"/>
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1208188104795_490810_1638" name="" supplier="_15_0_1_ea60343_1207760024982_175016_1806" client="_12_5_1_58601ef_1185392296984_458842_1245" contract="_15_0_1_ea60343_1207760024982_175016_1806"/>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1186832211359_144264_793" name="ActuatorPort" clientDependency="_15_0_1_ea60343_1213614336125_485151_2119 _12_5_1_58601ef_1188485234531_438482_6565 _15_0_1_ea60343_1216214952756_677168_2560 _15_0_1_ea60343_1222192892856_374949_5130 _12_5_1_58601ef_1188485181593_932709_6546">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1213614336125_485151_2119" name="" supplier="_15_0_1_ea60343_1213614307983_971474_2091" client="_12_5_1_58601ef_1186832211359_144264_793" contract="_15_0_1_ea60343_1213614307983_971474_2091"/>
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1216214952756_677168_2560" name="" supplier="_15_0_1_ea60343_1216214507702_706396_2509" client="_12_5_1_58601ef_1186832211359_144264_793" contract="_15_0_1_ea60343_1216214507702_706396_2509"/>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1214905932101_759295_2157" name="House">
+              <ownedOperation xmi:id="_15_0_1_ea60343_1214905806773_999065_2148" name="getLightById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214905806775_952565_2152" name="" visibility="public" type="_15_0_1_ea60343_1207755804295_616813_1582" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214905806775_325453_2153" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1214905946676_323428_2160" name="Floor">
+              <ownedOperation xmi:id="_15_0_1_ea60343_1213359048420_708744_1966" name="getLightById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213359048421_155886_1967" name="" visibility="public" type="_15_0_1_ea60343_1207755804295_616813_1582" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213359048421_61401_1968" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1207755158814_503691_1522" name="Room">
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1207755198201_195289_1529" name="lights" visibility="public" type="_15_0_1_ea60343_1207755804295_616813_1582">
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1207756218969_235745_1619" name="" value="*"/>
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1207756218968_849445_1618" name=""/>
+              </ownedAttribute>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1213355696820_749980_1952" name="addLight" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213355696821_327841_1953" name="light" visibility="public" type="_15_0_1_ea60343_1207755804295_616813_1582" direction="inout"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217928253681_222441_2887" name="" visibility="public" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1213357480717_958160_1958" name="getLightById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213357500944_463263_1960" name="" visibility="public" type="_15_0_1_ea60343_1207755804295_616813_1582" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1213357503837_535198_1961" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1207755804295_616813_1582" name="Light">
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1207755811326_717331_1583" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1207755827373_757923_1584" name="intensity" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1207755900421_358871_1611" name=""/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1207755844620_443104_1585" name="name" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1207755856507_301308_1586" name="lightOn" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_15_0_1_ea60343_1207755872901_795789_1587" name=""/>
+              </ownedAttribute>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1215445749970_206444_872" name="ServicesPort" clientDependency="_15_0_1_ea60343_1222192457495_320540_5114"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_12_5_1_58601ef_1185391601203_931783_1052" name="IDimmer">
+            <generalization xmi:id="_12_5_1_58601ef_1185403016218_880503_2040" isSubstitutable="false" general="_12_5_1_58601ef_1185402889125_405486_1465"/>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1185391614531_218294_1070" name="getValue" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_58601ef_1185391634421_283114_1072" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1207741219707_706244_6574" name="setValue" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1207741241381_330939_6576" name="value" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1214906173394_869670_2460" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1207758080829_604181_1803" name="getLightId" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1207758080830_673018_1804" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_12_5_1_58601ef_1185403567859_120305_2222" name="ILightController">
+            <generalization xmi:id="_15_0_1_ea60343_1207760826016_21014_2017" isSubstitutable="true" general="_12_5_1_58601ef_1185402889125_405486_1465"/>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1185405886640_452766_2583" name="setValue" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_58601ef_1185405894703_498258_2585" name="value" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1214998633773_780077_2485" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1185405870968_175626_2580" name="getValue" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_58601ef_1185405881437_326234_2582" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1207752403259_739144_1018" name="switchOn" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1207752425684_467945_1020" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1207752443567_968248_1021" name="switchOff" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1207752494277_629749_1023" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1207758039191_803130_1797" name="getLightId" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1207758056519_468131_1799" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_12_5_1_58601ef_1185406496812_84662_2861" name="ILightNotifiy">
+            <ownedOperation xmi:id="_12_5_1_58601ef_1185406520953_87768_2879" name="changeLightIntensity" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_24100552_1208450935109_410836_2053" name="lightId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_12_5_1_58601ef_1185406554328_159911_2882" name="value" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1214906466615_782891_2473" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_24100552_1208450769500_398820_2042" name="changeLightState" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_24100552_1208450868250_348042_2045" name="lightId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_24100552_1208450806437_43932_2044" name="state" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1214906481226_220293_2477" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Enumeration" xmi:id="_12_5_1_58601ef_1185406586921_57766_2900" name="DeviceKind">
+            <ownedLiteral xmi:id="_12_5_1_58601ef_1185406598015_437445_2919" name="LightSwitch"/>
+            <ownedLiteral xmi:id="_12_5_1_58601ef_1185406608015_619709_2921" name="LightDimmer"/>
+            <ownedLiteral xmi:id="_12_5_1_58601ef_1185406622000_881836_2923" name="LightController"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_1_58601ef_1185414359843_916340_1567" name="CentralGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1185414359843_507214_1571" name="lightNotifyPort" visibility="public" type="_12_5_1_58601ef_1185414359843_845031_1570" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1185414359843_845031_1570" name="LightNotifyPort" clientDependency="_15_0_1_ea60343_1222190908822_752434_5058"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_1_58601ef_1185414359843_930268_1568" name="FloorGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216658136690_595457_3001" name="lightNotifyPort" visibility="public" type="_15_0_1_ea60343_1216658132106_59428_2998" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216658132106_59428_2998" name="LightNotifyPort" clientDependency="_15_0_1_ea60343_1222190833435_563712_5054 _15_0_1_ea60343_1222190911341_735999_5074"/>
+            <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222190833435_563712_5054" name="" supplier="_15_0_1_ea60343_1216214507702_706396_2509" client="_15_0_1_ea60343_1216658132106_59428_2998"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_1_58601ef_1185414359843_490274_1569" name="LightGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:id="_12_5_1_58601ef_1185414359843_868186_1578" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_12_5_1_58601ef_1185414359843_353372_1579" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1185414359843_561388_1580" name="request" visibility="public" type="_12_5_1_58601ef_1185414359843_574111_1577" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1213612681076_224430_1910" name="services" visibility="public" type="_15_0_1_ea60343_1213612660997_177337_1908" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220344226838_774241_2607" name="lightId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1185414359843_574111_1577" name="RequestPort" clientDependency="_12_5_1_58601ef_1188428923000_644557_5428">
+              <interfaceRealization xmi:id="_12_5_1_58601ef_1188428923000_644557_5428" name="" supplier="_12_5_1_58601ef_1185406496812_84662_2861" client="_12_5_1_58601ef_1185414359843_574111_1577" contract="_12_5_1_58601ef_1185406496812_84662_2861"/>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1213612660997_177337_1908" name="ActuatorPort" clientDependency="_15_0_1_ea60343_1213614339709_241888_2135 _15_0_1_ea60343_1213613003778_393139_2056"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_1_58601ef_1188429528968_276444_5737" name="RoomGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216658148841_273877_3007" name="lightNotifyPort" visibility="public" type="_15_0_1_ea60343_1216658147049_122865_3006" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216911248967_57435_4225" name="listLightGUI" visibility="public" type="_12_5_1_58601ef_1185414359843_490274_1569">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1216911283791_637429_4228" name="" value="*"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1216911283791_683400_4227" name=""/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216658147049_122865_3006" name="LightNotifyPort" clientDependency="_15_0_1_ea60343_1222190914017_35404_5090"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_58601ef_1188485181593_932709_6546" name="" supplier="_12_5_1_58601ef_1185386599875_813622_1336" client="_12_5_1_58601ef_1186832211359_144264_793"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_58601ef_1188485234531_438482_6565" name="" supplier="_12_5_1_58601ef_1185391601203_931783_1052" client="_12_5_1_58601ef_1186832211359_144264_793"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1207760042117_979257_1825" name="IDimmerNotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1208188159816_91471_1685" name="dimmerValueChanged" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1208188263494_326560_1687" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1213627812051_634347_2150" name="lightId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1208190142706_874409_1743" name="value" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1207760024982_175016_1806" name="ISwitchNotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1208188280950_336680_1688" name="switchValueChanged" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1208188300154_877342_1690" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1213627859888_795763_2153" name="lightId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1208190540538_637674_1744" name="value" visibility="public" type="_12_5_1_58601ef_1185386621359_691642_1356" direction="out"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1213613003778_393139_2056" name="" supplier="_12_5_1_58601ef_1185406496812_84662_2861" client="_15_0_1_ea60343_1213612660997_177337_1908"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1213614307983_971474_2091" name="ILightGUINotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1213614323966_525203_2110" name="changeLightIntensity" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1213614323967_537843_2111" name="lightId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1213614323968_151563_2112" name="value" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1214906450646_64141_2469" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1213614326486_743436_2114" name="changeLightState" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1213614326487_340402_2115" name="lightId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1213614326487_897558_2116" name="state" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1214906455152_411481_2471" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1213614339709_241888_2135" name="" supplier="_15_0_1_ea60343_1213614307983_971474_2091" client="_15_0_1_ea60343_1213612660997_177337_1908"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1216214507702_706396_2509" name="IGeneralLightNotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216214544171_868020_2528" name="switchOffAllLights" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216285562562_45191_1996" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216286772695_428420_2490" name="floorId" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216286775072_600100_2491" name="roomId" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216214560282_546719_2531" name="switchOnAllLights" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216285569725_542909_1999" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216286677388_472835_2488" name="floorId" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216286713338_931942_2489" name="roomId" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216214573337_448922_2534" name="changeAllLightsIntensity" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216214589242_502787_2536" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216214592072_796242_2537" name="intensity" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216286778368_625298_2492" name="floorId" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216286780272_178583_2494" name="roomId" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222190908822_752434_5058" name="" supplier="_15_0_1_ea60343_1216214507702_706396_2509" client="_12_5_1_58601ef_1185414359843_845031_1570"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222190911341_735999_5074" name="" supplier="_15_0_1_ea60343_1216214507702_706396_2509" client="_15_0_1_ea60343_1216658132106_59428_2998"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222190914017_35404_5090" name="" supplier="_15_0_1_ea60343_1216214507702_706396_2509" client="_15_0_1_ea60343_1216658147049_122865_3006"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222192457495_320540_5114" name="" supplier="_12_5_1_58601ef_1185406496812_84662_2861" client="_15_0_1_ea60343_1215445749970_206444_872"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222192892856_374949_5130" name="" supplier="_12_5_1_58601ef_1185403567859_120305_2222" client="_12_5_1_58601ef_1186832211359_144264_793"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222250540177_566240_5345" name="" supplier="_15_0_1_ea60343_1207760024982_175016_1806" client="_12_5_1_58601ef_1185403407625_408006_2091"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222250582101_427571_5361" name="" supplier="_15_0_1_ea60343_1207760042117_979257_1825" client="_12_5_1_58601ef_1185392261500_596829_1233"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_12_5_1_58601ef_1188334272421_684922_4136" name="HeaterManagement">
+        <packageMerge xmi:id="_15_0_1_ea60343_1217930959163_985201_5302" mergedPackage="_12_5_58601ef_1183709734125_525258_1618"/>
+        <packagedElement xmi:type="uml:Package" xmi:id="_12_5_1_58601ef_1188332930640_204907_4176" name="ComponentView">
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_1_58601ef_1188337755093_505729_4138" name="HouseGateway" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1188337755109_183340_4142" name="services" visibility="public" type="_12_5_1_58601ef_1188337755093_860348_4139" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1188337755109_28465_4143" name="actuators" visibility="public" type="_12_5_1_58601ef_1188337755109_728743_4140" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1219138857150_527886_2417" name="sensors" visibility="public" type="_15_0_1_ea60343_1219138837475_245045_2415" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1188337755093_860348_4139" name="ServicesPort" clientDependency="_12_5_1_58601ef_1188338716765_593795_4464 _15_0_1_ea60343_1216137237882_136379_3327 _15_0_1_ea60343_1216134052821_272565_2603">
+              <interfaceRealization xmi:id="_12_5_1_58601ef_1188338716765_593795_4464" name="" supplier="_12_5_1_58601ef_1188338492953_45278_4406" client="_12_5_1_58601ef_1188337755093_860348_4139" contract="_12_5_1_58601ef_1188338492953_45278_4406"/>
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1216137237882_136379_3327" name="" supplier="_15_0_1_ea60343_1216136974393_795131_3139" client="_12_5_1_58601ef_1188337755093_860348_4139" contract="_15_0_1_ea60343_1216136974393_795131_3139"/>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1188337755109_728743_4140" name="ActuatorPort" clientDependency="_12_5_1_58601ef_1188339935859_702985_4926 _15_0_1_ea60343_1216134118044_467301_2698 _15_0_1_ea60343_1216137219651_165963_3295 _15_0_1_ea60343_1216137226035_406276_3311 _12_5_1_58601ef_1188409278546_907768_11829 _15_0_1_ea60343_1216134121275_56593_2714 _12_5_1_58601ef_1188409504640_269397_11918 _15_0_1_ea60343_1216727723793_507912_2703">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1216727723793_507912_2703" name="" supplier="_15_0_1_ea60343_1216727694793_310387_2667" client="_12_5_1_58601ef_1188337755109_728743_4140" contract="_15_0_1_ea60343_1216727694793_310387_2667"/>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1217498392493_399972_2723" name="Heater">
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1217498392538_382663_2727" name="heaterId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1217498392540_181654_2729" name="name" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1217498392540_81523_2730" name="state" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_15_0_1_ea60343_1217498392544_740359_2737" name=""/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1218797038856_904332_1534" name="thermometerId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1220383106830_809981_21878" name="power" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1220383172290_125126_21879" name="mode" visibility="public" type="_12_5_1_58601ef_1188339753234_621727_4894"/>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1220383299195_304187_21890" name="temperature" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedAttribute>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1217498392536_436499_2724" name="Room">
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1217498392541_401682_2731" name="heaters" visibility="public" type="_15_0_1_ea60343_1217498392493_399972_2723">
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1217498392544_758672_2739" name="" value="*"/>
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1217498392544_712844_2738" name=""/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1217498665522_163995_2769" name="thermometers" visibility="public" type="_15_0_1_ea60343_1217498438287_416638_2750">
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1217498665523_711042_2771" name="" value="*"/>
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1217498665523_844182_2770" name=""/>
+              </ownedAttribute>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1217498392541_261489_2732" name="addThermometer" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498392544_644256_2740" name="thermometer" visibility="public" type="_15_0_1_ea60343_1217498438287_416638_2750" direction="inout"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498747074_135138_2775" name="" visibility="public" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1217498641555_375783_2757" name="getHeaterById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498641557_820604_2759" name="" visibility="public" type="_15_0_1_ea60343_1217498392493_399972_2723" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498641557_712847_2760" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1217498641556_993130_2758" name="getThermometerById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498641557_159304_2761" name="" visibility="public" type="_15_0_1_ea60343_1217498438287_416638_2750" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498641557_280202_2762" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1217498702440_649675_2772" name="addHeater" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498702441_504033_2773" name="heater" visibility="public" type="_15_0_1_ea60343_1217498392493_399972_2723" direction="inout"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498738301_205746_2774" name="" visibility="public" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+                </ownedParameter>
+              </ownedOperation>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1217498392537_633799_2725" name="Floor">
+              <ownedOperation xmi:id="_15_0_1_ea60343_1217498651563_343689_2763" name="getThermometerById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498651565_367737_2765" name="" visibility="public" type="_15_0_1_ea60343_1217498438287_416638_2750" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498651565_165553_2766" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1217498651564_568094_2764" name="getHeaterById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498651566_957725_2767" name="" visibility="public" type="_15_0_1_ea60343_1217498392493_399972_2723" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498651566_30050_2768" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1217498392538_279769_2726" name="House">
+              <ownedOperation xmi:id="_15_0_1_ea60343_1217498392543_971621_2735" name="getHeaterById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498392546_224039_2745" name="" visibility="public" type="_15_0_1_ea60343_1217498392493_399972_2723" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498392546_559391_2746" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1217498410625_770412_2747" name="getThermometerById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498410626_45062_2748" name="" visibility="public" type="_15_0_1_ea60343_1217498438287_416638_2750" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217498410626_696334_2749" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1217498438287_416638_2750" name="Thermometer">
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1217498438289_569309_2753" name="name" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1217498778628_205504_2776" name="temp" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1217498787778_153522_2777" name="outTemp" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1220383867411_469392_21975" name="thermometerId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1219138837475_245045_2415" name="SensorPort" clientDependency="_15_0_1_ea60343_1219139044951_106918_2473">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1219139044951_106918_2473" name="" supplier="_15_0_1_ea60343_1219138926214_542998_2427" client="_15_0_1_ea60343_1219138837475_245045_2415" contract="_15_0_1_ea60343_1219138926214_542998_2427"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_1_58601ef_1188337794171_857609_4171" name="HeatingController" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1188337992328_786918_4264" name="request" visibility="public" type="_12_5_1_58601ef_1188337976656_207888_4262" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845817235_305175_2319" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845817236_246303_2320" name="heaterId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845817237_540000_2321" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1188337976656_207888_4262" name="RequestPort" clientDependency="_12_5_1_58601ef_1188339944312_737363_4943">
+              <interfaceRealization xmi:id="_12_5_1_58601ef_1188339944312_737363_4943" name="" supplier="_12_5_1_58601ef_1188338439765_741978_4388" client="_12_5_1_58601ef_1188337976656_207888_4262" contract="_12_5_1_58601ef_1188338439765_741978_4388"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_1_58601ef_1188338106250_6455_4274" name="Thermometer" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1188338153359_228661_4298" name="request" visibility="public" type="_12_5_1_58601ef_1188338144531_996725_4296" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845815696_584859_2313" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845815696_930183_2314" name="thermometerId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845815697_325357_2315" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1188338144531_996725_4296" name="RequestPort" clientDependency="_15_0_1_ea60343_1219139040576_912350_2457 _12_5_1_58601ef_1188338202281_717392_4327">
+              <interfaceRealization xmi:id="_12_5_1_58601ef_1188338202281_717392_4327" name="" supplier="_12_5_1_58601ef_1188338182828_845389_4308" client="_12_5_1_58601ef_1188338144531_996725_4296" contract="_12_5_1_58601ef_1188338182828_845389_4308"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_12_5_1_58601ef_1188338182828_845389_4308" name="IThermometer">
+            <ownedOperation xmi:id="_12_5_1_58601ef_1188338270500_596573_4364" name="getTemparature" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_58601ef_1188338337375_368677_4369" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217496087509_45309_2715" name="thermometerId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1188338294906_109740_4366" name="getOutdoorTemparature" visibility="public">
+              <ownedParameter xmi:id="_12_5_1_58601ef_1188338322859_624084_4368" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217496106963_335103_2717" name="thermometerId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Enumeration" xmi:id="_12_5_1_58601ef_1188338216343_766295_4343" name="DeviceKind">
+            <ownedLiteral xmi:id="_12_5_1_58601ef_1188338220359_839979_4344" name="Heating"/>
+            <ownedLiteral xmi:id="_12_5_1_58601ef_1188339607750_630479_4870" name="Thermometer"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_12_5_1_58601ef_1188338439765_741978_4388" name="IHeating">
+            <ownedOperation xmi:id="_12_5_1_58601ef_1188339682515_964181_4889" name="setPower" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217321858094_178191_2717" name="heaterId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_12_5_1_58601ef_1188339706250_583575_4891" name="amount" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216134846416_760996_2746" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1188339786640_721646_4917" name="setMode" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217321902156_549191_2720" name="heaterId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_12_5_1_58601ef_1188339793375_590533_4919" name="mode" visibility="public" type="_12_5_1_58601ef_1188339753234_621727_4894"/>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216134849082_46351_2749" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1188339866750_784290_4920" name="heatingSwitch" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217321929666_519718_2723" name="heaterId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_12_5_1_58601ef_1188339877562_763449_4922" name="on" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_12_5_1_58601ef_1188339890578_258306_4923" name="" value="true"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216814174500_203659_1389" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1219662394132_298865_2076" name="setTemperature" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219662406130_91828_2079" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219662416738_211646_2080" name="heaterId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219662421371_742985_2081" name="temp" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+                <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_15_0_1_ea60343_1219662421372_545475_2082" name="" value="true"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_12_5_1_58601ef_1188338492953_45278_4406" name="IHeaterGUI">
+            <ownedOperation xmi:id="_12_5_1_58601ef_1188340069000_364492_4959" name="setTemperature" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216134191240_690671_2729" name="heaterId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_12_5_1_58601ef_1188340076843_176351_4961" name="value" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217927919442_666603_2745" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1188340093093_871985_4962" name="programSwitchOn" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216134269947_788814_2738" name="heaterId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_12_5_1_58601ef_1188340123000_553012_4965" name="value" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_12_5_1_58601ef_1188340109203_907224_4964" name="time" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217927924174_275508_2746" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1188340161265_650399_4966" name="programSwitchOff" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216134297673_234812_2739" name="heaterId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_12_5_1_58601ef_1188340175562_827968_4968" name="time" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217927930273_639346_2747" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_12_5_1_58601ef_1188338958421_31870_4645" name="ITermometerGUINotify">
+            <ownedOperation xmi:id="_12_5_1_58601ef_1188338958421_418845_4650" name="newTemparature" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216134235091_401754_2732" name="thermometerId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_12_5_1_58601ef_1188338958421_60654_4654" name="value" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216134235128_971788_2733" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_12_5_1_58601ef_1188339270828_366185_4733" name="newOutsideTemperature" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216135362493_487169_2759" name="termometerId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_12_5_1_58601ef_1188339297796_948507_4735" name="value" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216132883553_115752_2222" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216137349325_393375_3359" name="getTermometerId" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216137349325_913350_3360" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Enumeration" xmi:id="_12_5_1_58601ef_1188339753234_621727_4894" name="HeatingModes">
+            <ownedLiteral xmi:id="_12_5_1_58601ef_1188339764375_93745_4913" name="Heating"/>
+            <ownedLiteral xmi:id="_12_5_1_58601ef_1188339771656_199548_4915" name="Cooling"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_58601ef_1188339935859_702985_4926" name="" supplier="_12_5_1_58601ef_1188338439765_741978_4388" client="_12_5_1_58601ef_1188337755109_728743_4140"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_58601ef_1188409278546_907768_11829" name="" supplier="_12_5_1_58601ef_1188338182828_845389_4308" client="_12_5_1_58601ef_1188337755109_728743_4140"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_58601ef_1188409504640_269397_11918" name="" supplier="_12_5_1_58601ef_1188338439765_741978_4388" client="_12_5_1_58601ef_1188337755109_728743_4140"/>
+          <packagedElement xmi:type="uml:Component" xmi:id="_12_5_1_58601ef_1188414208078_136564_12037" name="ThermometerGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_12_5_1_58601ef_1188414236421_722423_12061" name="request" visibility="public" type="_12_5_1_58601ef_1188414223156_467777_12059" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220382297358_618940_21662" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220382297360_278999_21663" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220382297361_759738_21664" name="thermometerId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_12_5_1_58601ef_1188414223156_467777_12059" name="RequestPort" clientDependency="_12_5_1_58601ef_1188414335312_939570_12108 _15_0_1_ea60343_1216137127728_568303_3228">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1216137127728_568303_3228" name="" supplier="_12_5_1_58601ef_1188338958421_31870_4645" client="_12_5_1_58601ef_1188414223156_467777_12059" contract="_12_5_1_58601ef_1188338958421_31870_4645"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_12_5_1_58601ef_1188414335312_939570_12108" name="" supplier="_12_5_1_58601ef_1188338492953_45278_4406" client="_12_5_1_58601ef_1188414223156_467777_12059"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1216134052821_272565_2603" name="" supplier="_12_5_1_58601ef_1188338958421_31870_4645" client="_12_5_1_58601ef_1188337755093_860348_4139"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1216134118044_467301_2698" name="" supplier="_12_5_1_58601ef_1188338439765_741978_4388" client="_12_5_1_58601ef_1188337755109_728743_4140"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1216134121275_56593_2714" name="" supplier="_12_5_1_58601ef_1188338182828_845389_4308" client="_12_5_1_58601ef_1188337755109_728743_4140"/>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1216136251108_642898_2817" name="HeaterGUI">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216136265667_184992_2819" name="request" visibility="public" type="_15_0_1_ea60343_1216136263571_816255_2818" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216136352349_446929_2921" name="services" visibility="public" type="_15_0_1_ea60343_1216136343197_245152_2920" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1216912195892_329806_4603" name="heaterId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220382277565_618442_21657" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220382277567_379722_21658" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216136263571_816255_2818" name="RequestPort" clientDependency="_15_0_1_ea60343_1222254634944_335986_5853">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1222254634944_335986_5853" name="" supplier="_12_5_1_58601ef_1188338439765_741978_4388" client="_15_0_1_ea60343_1216136263571_816255_2818" contract="_12_5_1_58601ef_1188338439765_741978_4388"/>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216136343197_245152_2920" name="ServicesPort" clientDependency="_15_0_1_ea60343_1216137288031_103235_3344"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1216136974393_795131_3139" name="IHeaterGUINotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216202077332_669461_1726" name="heaterTemperatureChanged" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216202100570_494562_1728" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216202114305_884547_1729" name="heaterId" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216202131048_33601_1730" name="newTemp" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216202157743_635375_1731" name="heaterSwitchChanged" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216202173967_729635_1733" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216724429123_889077_2540" name="heaterId" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216202177181_232540_1734" name="on" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1216137219651_165963_3295" name="" supplier="_12_5_1_58601ef_1188338439765_741978_4388" client="_12_5_1_58601ef_1188337755109_728743_4140"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1216137226035_406276_3311" name="" supplier="_12_5_1_58601ef_1188338958421_31870_4645" client="_12_5_1_58601ef_1188337755109_728743_4140"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1216137288031_103235_3344" name="" supplier="_15_0_1_ea60343_1216136974393_795131_3139" client="_15_0_1_ea60343_1216136343197_245152_2920"/>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1216727394849_626852_2543" name="FloorGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216727394891_938230_2550" name="heaterNotifyPort" visibility="public" type="_15_0_1_ea60343_1216727394888_951005_2546" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216727394888_951005_2546" name="HeaterNotifyPort" clientDependency="_15_0_1_ea60343_1222254994616_852769_5885"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1216727394887_743807_2544" name="RoomGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216727394914_65223_2556" name="heaterNotifyPort" visibility="public" type="_15_0_1_ea60343_1216727394911_71370_2551" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220430323809_241344_7989" name="listThermometerGUI" visibility="public" type="_12_5_1_58601ef_1188414208078_136564_12037">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1220430370216_383318_7996" name="" value="*"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1220430370216_431100_7995" name=""/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220430333281_46883_7991" name="listHeaterGUI" visibility="public" type="_15_0_1_ea60343_1216136251108_642898_2817">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1220430356773_164220_7994" name="" value="*"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1220430356773_309743_7993" name=""/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216727394911_71370_2551" name="HeaterNotifyPort" clientDependency="_15_0_1_ea60343_1222254997136_814826_5901"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1216727394888_380453_2545" name="CentralGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216727394916_176633_2559" name="heaterNotifyPort" visibility="public" type="_15_0_1_ea60343_1216727394915_413918_2557" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216727394915_413918_2557" name="HeaterNotifyPort" clientDependency="_15_0_1_ea60343_1222254992158_547613_5869"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1216727694793_310387_2667" name="IGeneralHeaterNotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216727694823_512704_2668" name="switchOnAllHeaters" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216727694826_52697_2672" name="floorId" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216727694826_247022_2673" name="roomId" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216727842323_839281_2766" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216727694824_992489_2669" name="switchOffAllHeaters" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216727694827_31649_2675" name="floorId" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216727694827_405440_2676" name="roomId" visibility="public" direction="out">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216727852876_627281_2767" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216727694825_741632_2670" name="changeAllHeatersTemp" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216727694828_837484_2678" name="temperature" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216727694828_952712_2679" name="floorId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216727694829_382879_2680" name="roomId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216727897290_656451_2768" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1219138926214_542998_2427" name="IThermometerNotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1219138941996_361058_2446" name="newTemperature" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219138966761_485700_2448" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219138974290_584659_2449" name="thermometerId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219138991753_718757_2450" name="value" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1219139012007_45879_2451" name="newOutsideTemp" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219139012008_824770_2452" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219139012008_311588_2453" name="thermometerId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219139012009_396125_2454" name="value" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1219139040576_912350_2457" name="" supplier="_15_0_1_ea60343_1219138926214_542998_2427" client="_12_5_1_58601ef_1188338144531_996725_4296"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222254992158_547613_5869" name="" supplier="_15_0_1_ea60343_1216727694793_310387_2667" client="_15_0_1_ea60343_1216727394915_413918_2557"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222254994616_852769_5885" name="" supplier="_15_0_1_ea60343_1216727694793_310387_2667" client="_15_0_1_ea60343_1216727394888_951005_2546"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222254997136_814826_5901" name="" supplier="_15_0_1_ea60343_1216727694793_310387_2667" client="_15_0_1_ea60343_1216727394911_71370_2551"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_12_5_1_58601ef_1188494477000_388191_7381" name="SmartEnergyControl">
+        <packageMerge xmi:id="_12_5_1_58601ef_1188494732796_44409_7542" mergedPackage="_12_5_1_58601ef_1188494629656_768598_7466"/>
+        <packageMerge xmi:id="_12_5_1_58601ef_1188494745484_221531_7574" mergedPackage="_12_5_1_58601ef_1188334272421_684922_4136"/>
+        <packagedElement xmi:type="uml:Package" xmi:id="_15_0_1_ea60343_1219664304577_148832_2482" name="ComponentView">
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1219664364077_547194_2486" name="CentralGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1219665050805_232194_2707" name="smartEnergyPort" visibility="public" type="_15_0_1_ea60343_1219664992152_36413_2694" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1219746602571_411852_2221" name="smartEnergyNotifyPort" visibility="public" type="_15_0_1_ea60343_1219746588744_385189_2219" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1219664992152_36413_2694" name="SmartPort" clientDependency="_15_0_1_ea60343_1219665189101_522426_2772"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1219746588744_385189_2219" name="SmartNotifyPort" clientDependency="_15_0_1_ea60343_1219746885068_669167_2348">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1219746885068_669167_2348" name="" supplier="_15_0_1_ea60343_1219746548190_219174_2218" client="_15_0_1_ea60343_1219746588744_385189_2219" contract="_15_0_1_ea60343_1219746548190_219174_2218"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1219664364168_545367_2487" name="FloorGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1219665080238_416978_2709" name="smartEnergyPort" visibility="public" type="_15_0_1_ea60343_1219665018159_812970_2695" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1219746627331_778344_2224" name="smartEnergyNotifyPort" visibility="public" type="_15_0_1_ea60343_1219746627330_24242_2223" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1219665018159_812970_2695" name="SmartPort" clientDependency="_15_0_1_ea60343_1222255339663_802769_5917"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1219746627330_24242_2223" name="SmartNotifyPort" clientDependency="_15_0_1_ea60343_1219746890195_541470_2364">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1219746890195_541470_2364" name="" supplier="_15_0_1_ea60343_1219746548190_219174_2218" client="_15_0_1_ea60343_1219746627330_24242_2223" contract="_15_0_1_ea60343_1219746548190_219174_2218"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1219664364168_989767_2488" name="RoomGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1219665083939_644878_2711" name="smartEnergyPort" visibility="public" type="_15_0_1_ea60343_1219665019927_841006_2696" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1219746628333_939466_2228" name="smartEnergyNotifyPort" visibility="public" type="_15_0_1_ea60343_1219746628332_880855_2227" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1219665019927_841006_2696" name="SmartPort" clientDependency="_15_0_1_ea60343_1222255352403_857800_5933"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1219746628332_880855_2227" name="SmartNotifyPort" clientDependency="_15_0_1_ea60343_1219746893130_47030_2380">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1219746893130_47030_2380" name="" supplier="_15_0_1_ea60343_1219746548190_219174_2218" client="_15_0_1_ea60343_1219746628332_880855_2227" contract="_15_0_1_ea60343_1219746548190_219174_2218"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1219664414802_79335_2515" name="HouseGateway" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1219665163071_536873_2745" name="smartEnergyPort" visibility="public" type="_15_0_1_ea60343_1219665158359_816400_2744" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1219746629545_382709_2232" name="smartEnergyNotifyPort" visibility="public" type="_15_0_1_ea60343_1219746629544_225369_2231" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1219664414804_247513_2519" name="Room">
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1219665340141_233880_2825" name="smartControlActive" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+              </ownedAttribute>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1219664414804_772279_2520" name="Floor">
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1219665308678_852355_2823" name="smartControlActive" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+              </ownedAttribute>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1219664414805_496167_2521" name="House">
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1219665338461_372717_2824" name="smartControlActive" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+              </ownedAttribute>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1219665158359_816400_2744" name="SmartPort" clientDependency="_15_0_1_ea60343_1222255492682_516981_5949">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1222255492682_516981_5949" name="" supplier="_15_0_1_ea60343_1219664515587_997039_2668" client="_15_0_1_ea60343_1219665158359_816400_2744" contract="_15_0_1_ea60343_1219664515587_997039_2668"/>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1219746629544_225369_2231" name="SmartNotifyPort" clientDependency="_15_0_1_ea60343_1219746897858_208681_2396"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1219664515587_997039_2668" name="ISmartEnergy">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1219664897245_491780_2687" name="activateSmartControl" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219664909941_890216_2689" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219665243601_46576_2819" name="floorId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219665260696_943035_2820" name="roomId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1219664918669_63419_2690" name="deactivateSmartControl" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219664918670_808438_2691" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219665271937_757135_2821" name="floorId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219665273041_212683_2822" name="roomId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1219665189101_522426_2772" name="" supplier="_15_0_1_ea60343_1219664515587_997039_2668" client="_15_0_1_ea60343_1219664992152_36413_2694"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1219746548190_219174_2218" name="ISmartEnergyNotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1219746866165_5774_2337" name="activateSmartControl" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219746866166_666513_2338" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219746866167_469918_2339" name="floorId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219746866167_878273_2340" name="roomId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1219746867812_987818_2342" name="deactivateSmartControl" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219746867813_276257_2343" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219746867813_18661_2344" name="floorId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1219746867813_995772_2345" name="roomId" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1219746897858_208681_2396" name="" supplier="_15_0_1_ea60343_1219746548190_219174_2218" client="_15_0_1_ea60343_1219746629544_225369_2231"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222255339663_802769_5917" name="" supplier="_15_0_1_ea60343_1219664515587_997039_2668" client="_15_0_1_ea60343_1219665018159_812970_2695"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222255352403_857800_5933" name="" supplier="_15_0_1_ea60343_1219664515587_997039_2668" client="_15_0_1_ea60343_1219665019927_841006_2696"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_12_5_1_58601ef_1188494629656_768598_7466" name="WindowManagement">
+        <packageMerge xmi:id="_12_5_1_58601ef_1188494647328_966031_7477" mergedPackage="_12_5_58601ef_1183709734125_525258_1618"/>
+        <packagedElement xmi:type="uml:Package" xmi:id="_15_0_1_ea60343_1214464718146_48608_1520" name="ComponentView">
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1214466788189_122419_2058" name="HouseGateway" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1215428694100_637033_1496" name="actuators" visibility="public" type="_15_0_1_ea60343_1215169302561_776557_1497" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1215445809078_38555_878" name="services" visibility="public" type="_15_0_1_ea60343_1215445809078_325392_877" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1215448236298_682418_2517" name="sensors" visibility="public" type="_15_0_1_ea60343_1215448236298_815093_2516" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1214466788189_44502_2061" name="House">
+              <ownedOperation xmi:id="_15_0_1_ea60343_1214466788205_332667_2083" name="getWindowById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214466788205_906130_2141" name="" visibility="public" type="_15_0_1_ea60343_1214466810295_111360_2183" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214466788205_877753_2142" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1214911995156_69617_3185" name="getBlindById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214912007052_967657_3187" name="" visibility="public" type="_15_0_1_ea60343_1214909026055_161401_2805" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214912010491_721181_3188" name="id" visibility="public">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1214466788189_899221_2057" name="Room">
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1214910233634_379836_3149" name="windows" visibility="public" type="_15_0_1_ea60343_1214466810295_111360_2183">
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1214910233635_742777_3151" name="" value="*"/>
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1214910233635_573301_3150" name=""/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1214912554878_877776_3204" name="blinds" visibility="public" type="_15_0_1_ea60343_1214909026055_161401_2805">
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1214912554879_959435_3206" name="" value="*"/>
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1214912554878_385830_3205" name=""/>
+              </ownedAttribute>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1214466788189_31357_2067" name="addWindow" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214466788205_889917_2106" name="window" visibility="public" type="_15_0_1_ea60343_1214466810295_111360_2183" direction="inout"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1217928431879_875106_2894" name="" visibility="public" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1214911921386_117757_3172" name="getWindowById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214911921387_197482_3173" name="" visibility="public" type="_15_0_1_ea60343_1214466810295_111360_2183" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214911921387_672497_3174" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1214912596963_542454_3208" name="addBlind" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214912596964_688513_3209" name="" visibility="public" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+                </ownedParameter>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214912596964_439875_3210" name="value" visibility="public" type="_15_0_1_ea60343_1214909026055_161401_2805"/>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1214912599707_450139_3212" name="getBlindById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214912599708_109264_3213" name="" visibility="public" type="_15_0_1_ea60343_1214909026055_161401_2805" direction="return"/>
+              </ownedOperation>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1214466810295_111360_2183" name="Window">
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1214470970057_62364_2236" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1214470974613_513000_2237" name="name" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1214908993478_87566_2760" name="Floor">
+              <ownedOperation xmi:id="_15_0_1_ea60343_1214911928466_857334_3176" name="getWindowById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214911928466_868185_3177" name="" visibility="public" type="_15_0_1_ea60343_1214466810295_111360_2183" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214911928467_63972_3178" name="id" visibility="public" direction="inout">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_15_0_1_ea60343_1214912622394_764154_3219" name="getBlindById" visibility="public">
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214912622394_622336_3220" name="" visibility="public" type="_15_0_1_ea60343_1214909026055_161401_2805" direction="return"/>
+                <ownedParameter xmi:id="_15_0_1_ea60343_1214912622395_504470_3221" name="id" visibility="public">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1214909026055_161401_2805" name="Blind">
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1214910494347_592596_3157" name="name" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_15_0_1_ea60343_1214910494348_199909_3158" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedAttribute>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1215169302561_776557_1497" name="ActuatorPort" clientDependency="_15_0_1_ea60343_1216656029849_538869_2869 _15_0_1_ea60343_1215447415629_587841_2462 _15_0_1_ea60343_1215447101413_720263_2323 _15_0_1_ea60343_1215447179257_612564_2367 _15_0_1_ea60343_1215445870215_159378_888 _15_0_1_ea60343_1215447412072_131713_2446 _15_0_1_ea60343_1215446077305_69493_1006 _15_0_1_ea60343_1216656025690_896137_2853">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1215445870215_159378_888" name="" supplier="_15_0_1_ea60343_1214915511413_873447_7355" client="_15_0_1_ea60343_1215169302561_776557_1497" contract="_15_0_1_ea60343_1214915511413_873447_7355"/>
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1215446077305_69493_1006" name="" supplier="_15_0_1_ea60343_1214915048204_678843_3386" client="_15_0_1_ea60343_1215169302561_776557_1497" contract="_15_0_1_ea60343_1214915048204_678843_3386"/>
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1216656025690_896137_2853" name="" supplier="_15_0_1_ea60343_1216630402848_395992_1994" client="_15_0_1_ea60343_1215169302561_776557_1497" contract="_15_0_1_ea60343_1216630402848_395992_1994"/>
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1216656029849_538869_2869" name="" supplier="_15_0_1_ea60343_1216630415785_642338_2029" client="_15_0_1_ea60343_1215169302561_776557_1497" contract="_15_0_1_ea60343_1216630415785_642338_2029"/>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1215445809078_325392_877" name="ServicesPort" clientDependency="_15_0_1_ea60343_1215445879575_461443_920 _15_0_1_ea60343_1215446081735_908045_1022"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1215448236298_815093_2516" name="SensorPort" clientDependency="_15_0_1_ea60343_1215448575535_119642_2729 _15_0_1_ea60343_1215448578031_922249_2745">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1215448575535_119642_2729" name="" supplier="_15_0_1_ea60343_1214915048201_258988_3381" client="_15_0_1_ea60343_1215448236298_815093_2516" contract="_15_0_1_ea60343_1214915048201_258988_3381"/>
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1215448578031_922249_2745" name="" supplier="_15_0_1_ea60343_1214915048203_114836_3385" client="_15_0_1_ea60343_1215448236298_815093_2516" contract="_15_0_1_ea60343_1214915048203_114836_3385"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1214466788189_310165_2060" name="CentralGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216630515277_27480_2143" name="windowNotifyPort" visibility="public" type="_15_0_1_ea60343_1216630515276_697338_2142" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216655746642_976526_2799" name="blindNotifyPort" visibility="public" type="_15_0_1_ea60343_1216655712308_77452_2798" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216630515276_697338_2142" name="WindowNotifyPort" clientDependency="_15_0_1_ea60343_1222251602389_708136_5803"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216655712308_77452_2798" name="BlindNotifyPort" clientDependency="_15_0_1_ea60343_1222251599767_57046_5787"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1214466788189_567088_2063" name="RoomGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216655821543_31993_2804" name="blindNotifyPort" visibility="public" type="_15_0_1_ea60343_1216655821544_408201_2805" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216655821545_34437_2806" name="windowNotifyPort" visibility="public" type="_15_0_1_ea60343_1216655821542_586382_2803" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220374978359_37780_11828" name="listWindowGUI" visibility="public" type="_15_0_1_ea60343_1214915003553_614241_3378">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1220375012945_233841_11831" name="" value="*"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1220375012944_66874_11830" name=""/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220375020811_745099_11832" name="listBlindGUI" visibility="public" type="_15_0_1_ea60343_1214915010985_693812_3379">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_0_1_ea60343_1220375020822_937911_11834" name="" value="*"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_0_1_ea60343_1220375020822_959551_11833" name=""/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216655821542_586382_2803" name="WindowNotifyPort" clientDependency="_15_0_1_ea60343_1222251607995_666636_5835"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216655821544_408201_2805" name="BlindNotifyPort" clientDependency="_15_0_1_ea60343_1222251594965_120062_5755"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Enumeration" xmi:id="_15_0_1_ea60343_1214466788189_324840_2064" name="DeviceKind">
+            <ownedLiteral xmi:id="_15_0_1_ea60343_1215448699072_223279_2830" name="WindowController"/>
+            <ownedLiteral xmi:id="_15_0_1_ea60343_1215448741207_755316_2832" name="WindowDimmer"/>
+            <ownedLiteral xmi:id="_15_0_1_ea60343_1215448748976_484355_2834" name="BlindDimmer"/>
+            <ownedLiteral xmi:id="_15_0_1_ea60343_1215448758274_649119_2836" name="BlindController"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1214466788189_613929_2065" name="FloorGUI" isIndirectlyInstantiated="false">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216655832373_692380_2810" name="blindNotifyPort" visibility="public" type="_15_0_1_ea60343_1216655832374_776770_2811" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1216655832375_120002_2812" name="windowNotifyPort" visibility="public" type="_15_0_1_ea60343_1216655824622_403321_2809" aggregation="composite"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216655824622_403321_2809" name="WindowNotifyPort" clientDependency="_15_0_1_ea60343_1222251605310_462365_5819"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1216655832374_776770_2811" name="BlindNotifyPort" clientDependency="_15_0_1_ea60343_1222251597492_20528_5771"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1214914939277_713155_3374" name="WindowController">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1215447139899_110549_2338" name="request" visibility="public" type="_15_0_1_ea60343_1215447139899_107048_2339" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845792685_430280_2304" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845792686_517648_2305" name="windowId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845792686_566750_2306" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1215447139899_107048_2339" name="WindowControllerPort" clientDependency="_15_0_1_ea60343_1215447164001_234832_2364">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1215447164001_234832_2364" name="" supplier="_15_0_1_ea60343_1214915048202_475568_3383 _15_0_1_ea60343_1214915048203_185610_3384" client="_15_0_1_ea60343_1215447139899_107048_2339" contract="_15_0_1_ea60343_1214915048203_185610_3384"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1214914950052_966708_3375" name="WindowDimmer">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1215447037173_143522_2296" name="request" visibility="public" type="_15_0_1_ea60343_1215446994475_540530_2294" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845790193_678672_2301" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845790194_474525_2302" name="windowId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845790195_48901_2303" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1215446994475_540530_2294" name="WindowDimmerPort" clientDependency="_15_0_1_ea60343_1215448591572_915949_2793 _15_0_1_ea60343_1215447097373_46944_2307">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1215447097373_46944_2307" name="" supplier="_15_0_1_ea60343_1214915048202_475568_3383" client="_15_0_1_ea60343_1215446994475_540530_2294" contract="_15_0_1_ea60343_1214915048202_475568_3383"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1214914968259_44107_3376" name="BlindController">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1215447308176_544175_2388" name="request" visibility="public" type="_15_0_1_ea60343_1215447308176_401124_2389" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845797441_382301_2310" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845797442_45316_2311" name="blindId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845797442_709402_2312" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1215447308176_401124_2389" name="BlindControllerPort" clientDependency="_15_0_1_ea60343_1215447408250_471637_2430">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1215447408250_471637_2430" name="" supplier="_15_0_1_ea60343_1214915479071_415683_7328" client="_15_0_1_ea60343_1215447308176_401124_2389" contract="_15_0_1_ea60343_1214915479071_415683_7328"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1214914980979_821667_3377" name="BlindDimmer">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1215447303621_248676_2382" name="request" visibility="public" type="_15_0_1_ea60343_1215447303621_271934_2383" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845795864_154767_2307" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845795865_355454_2308" name="blindId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1219845795865_26171_2309" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1215447303621_271934_2383" name="BlindDimmerPort" clientDependency="_15_0_1_ea60343_1215447405504_49364_2414 _15_0_1_ea60343_1215448586939_427418_2777">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1215447405504_49364_2414" name="" supplier="_15_0_1_ea60343_1214915048200_636330_3380" client="_15_0_1_ea60343_1215447303621_271934_2383" contract="_15_0_1_ea60343_1214915048200_636330_3380"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1214915003553_614241_3378" name="WindowGUI">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1215428870619_167750_1532" name="request" visibility="public" type="_15_0_1_ea60343_1215428870619_429445_1531" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1215428870620_496232_1533" name="services" visibility="public" type="_15_0_1_ea60343_1215428870618_249010_1530" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220369679869_799796_10777" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220369704048_115987_10778" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220369704694_352794_10779" name="windowId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1215428870618_249010_1530" name="ActuatorPort" clientDependency="_15_0_1_ea60343_1215446092920_841481_1054"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1215428870619_429445_1531" name="RequestPort" clientDependency="_15_0_1_ea60343_1215446088739_671075_1038">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1215446088739_671075_1038" name="" supplier="_15_0_1_ea60343_1214915048202_102908_3382" client="_15_0_1_ea60343_1215428870619_429445_1531" contract="_15_0_1_ea60343_1214915048202_102908_3382"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Component" xmi:id="_15_0_1_ea60343_1214915010985_693812_3379" name="BlindGUI">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1215428831699_134906_1516" name="request" visibility="public" type="_15_0_1_ea60343_1215428831699_383350_1515" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_15_0_1_ea60343_1215428831700_721953_1517" name="services" visibility="public" type="_15_0_1_ea60343_1215428831698_812867_1514" aggregation="composite"/>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220372628672_434719_11388" name="floorId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220372628674_425734_11389" name="roomId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_15_0_1_ea60343_1220372628675_676221_11390" name="blindId" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1215428831698_812867_1514" name="ActuatorPort" clientDependency="_15_0_1_ea60343_1215445883662_613518_936"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_15_0_1_ea60343_1215428831699_383350_1515" name="RequestPort" clientDependency="_15_0_1_ea60343_1215445874380_855247_904">
+              <interfaceRealization xmi:id="_15_0_1_ea60343_1215445874380_855247_904" name="" supplier="_15_0_1_ea60343_1214915509717_813084_7340" client="_15_0_1_ea60343_1215428831699_383350_1515" contract="_15_0_1_ea60343_1214915509717_813084_7340"/>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1214915048200_636330_3380" name="IBlindDimmer">
+            <generalization xmi:id="_15_0_1_ea60343_1214915048204_668198_3387" isSubstitutable="false" general="_12_5_1_58601ef_1185402889125_405486_1465"/>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215448046571_536224_2498" name="getAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215448046571_118244_2501" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215448046571_726861_2499" name="setAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215448046571_222928_2502" name="value" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217928300915_338548_2890" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216117185884_523395_1256" name="getBlindId" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216117185885_506591_1257" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1214915048201_258988_3381" name="IBlindDimmerNotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215448410690_542659_2719" name="blindDimmerValueChanged" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215448421953_667053_2721" name="value" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215448438146_274271_2722" name="blindId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217928314981_146737_2891" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1214915048202_102908_3382" name="IWindowNotifiy">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215422433019_293233_857" name="changeWindowAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215422433020_567319_860" name="windowId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215422433021_179086_861" name="value" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215422433021_686548_862" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1214915048202_475568_3383" name="IWindowDimmer">
+            <generalization xmi:id="_15_0_1_ea60343_1214915048208_585591_3396" isSubstitutable="false" general="_12_5_1_58601ef_1185402889125_405486_1465"/>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215447778781_539205_2486" name="getAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215447786051_61767_2488" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215447794428_597024_2489" name="setAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215447804006_877764_2491" name="value" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217928345792_611889_2892" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216117124297_61247_1242" name="getWindowId" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216117138332_664032_1244" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1214915048203_185610_3384" name="IWindowController">
+            <generalization xmi:id="_15_0_1_ea60343_1214915048210_245452_3400" isSubstitutable="true" general="_12_5_1_58601ef_1185402889125_405486_1465"/>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215447477779_644195_2477" name="getAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215447487997_551146_2479" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215447539477_387460_2481" name="setAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215447549555_862466_2483" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215447574343_646914_2485" name="value" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216117163877_81198_1250" name="getWindowId" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216117163879_810193_1251" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1214915048203_114836_3385" name="IWindowDimmerNotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215448540217_267414_2724" name="windowDimmerValueChanged" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215448540217_550520_2725" name="value" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215448540217_587007_2726" name="windowId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217928354297_489594_2893" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1214915048204_678843_3386" name="IWindowGUINotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215422520083_69758_868" name="changeWindowAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215422520084_697400_870" name="windowId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215422520085_150380_871" name="value" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215422520085_936909_872" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1214915479071_415683_7328" name="IBlindController">
+            <generalization xmi:id="_15_0_1_ea60343_1214915479072_502938_7329" isSubstitutable="true" general="_12_5_1_58601ef_1185402889125_405486_1465"/>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215448049925_342470_2507" name="getAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215448049940_302985_2510" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215448049925_609260_2508" name="setAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215448049940_373079_2511" name="value" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1217928292797_678351_2889" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216117173381_600838_1253" name="getBlindId" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216117173381_58361_1254" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1214915511413_873447_7355" name="IBlindGUINotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215422560419_348018_876" name="changeBlindAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215422560420_95346_877" name="blindId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215422560420_914766_878" name="value" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215422560421_819421_879" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1215445879575_461443_920" name="" supplier="_15_0_1_ea60343_1214915509717_813084_7340" client="_15_0_1_ea60343_1215445809078_325392_877"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1215445883662_613518_936" name="" supplier="_15_0_1_ea60343_1214915511413_873447_7355" client="_15_0_1_ea60343_1215428831698_812867_1514"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1215446081735_908045_1022" name="" supplier="_15_0_1_ea60343_1214915048202_102908_3382" client="_15_0_1_ea60343_1215445809078_325392_877"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1215446092920_841481_1054" name="" supplier="_15_0_1_ea60343_1214915048204_678843_3386" client="_15_0_1_ea60343_1215428870618_249010_1530"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1215447101413_720263_2323" name="" supplier="_15_0_1_ea60343_1214915048202_475568_3383" client="_15_0_1_ea60343_1215169302561_776557_1497"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1215447179257_612564_2367" name="" supplier="_15_0_1_ea60343_1214915048203_185610_3384" client="_15_0_1_ea60343_1215169302561_776557_1497"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1215447412072_131713_2446" name="" supplier="_15_0_1_ea60343_1214915048200_636330_3380" client="_15_0_1_ea60343_1215169302561_776557_1497"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1215447415629_587841_2462" name="" supplier="_15_0_1_ea60343_1214915479071_415683_7328" client="_15_0_1_ea60343_1215169302561_776557_1497"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1215448586939_427418_2777" name="" supplier="_15_0_1_ea60343_1214915048201_258988_3381" client="_15_0_1_ea60343_1215447303621_271934_2383"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1215448591572_915949_2793" name="" supplier="_15_0_1_ea60343_1214915048203_114836_3385" client="_15_0_1_ea60343_1215446994475_540530_2294"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1216630402848_395992_1994" name="IGeneralWindowNotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216630402852_234370_1997" name="changeAllWindowsAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216630402855_888962_2004" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216630402856_211282_2005" name="aperture" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216630402856_210176_2006" name="floorId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216630402856_826359_2007" name="roomId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1216630415785_642338_2029" name="IGeneralBlindNotify">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1216630415787_23812_2032" name="changeAllBlindsAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216630415789_116374_2039" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216630415789_131446_2040" name="aperture" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216630415790_984749_2041" name="floorId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1216630415790_286431_2042" name="roomId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_15_0_1_ea60343_1214915509717_813084_7340" name="IBlindNotifiy">
+            <ownedOperation xmi:id="_15_0_1_ea60343_1215422279474_23991_842" name="changeBlindAperture" visibility="public">
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215422279478_234611_846" name="blindId" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215422279479_158235_847" name="value" visibility="public" direction="inout">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_15_0_1_ea60343_1215422279479_647840_848" name="" visibility="public" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#eee_1045467100323_249638_60"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222251594965_120062_5755" name="" supplier="_15_0_1_ea60343_1216630415785_642338_2029" client="_15_0_1_ea60343_1216655821544_408201_2805"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222251597492_20528_5771" name="" supplier="_15_0_1_ea60343_1216630415785_642338_2029" client="_15_0_1_ea60343_1216655832374_776770_2811"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222251599767_57046_5787" name="" supplier="_15_0_1_ea60343_1216630415785_642338_2029" client="_15_0_1_ea60343_1216655712308_77452_2798"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222251602389_708136_5803" name="" supplier="_15_0_1_ea60343_1216630402848_395992_1994" client="_15_0_1_ea60343_1216630515276_697338_2142"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222251605310_462365_5819" name="" supplier="_15_0_1_ea60343_1216630402848_395992_1994" client="_15_0_1_ea60343_1216655824622_403321_2809"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_15_0_1_ea60343_1222251607995_666636_5835" name="" supplier="_15_0_1_ea60343_1216630402848_395992_1994" client="_15_0_1_ea60343_1216655821542_586382_2803"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="magicdraw_uml_standard_profile_v_0001" name="UML Standard Profile">
+      <ownedComment xmi:id="_be00301_1078843546940_242228_131" body="UML Standard Profile contains several popular stereotypes, tag definitions and constraints described in UML 1.4 and UML 2.0 Specifications." annotatedElement="magicdraw_uml_standard_profile_v_0001"/>
+    </packagedElement>
+    <profileApplication xmi:id="_12_5_1_58601ef_1185309254843_594248_2554profileApplicationSmartHomeUMA">
+      <eAnnotations xmi:id="_kTtvD5b4Ed2tXeyhDhDLig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="WP2-Profile.profile.uml#_kTuWnpb4Ed2tXeyhDhDLig"/>
+      </eAnnotations>
+      <appliedProfile href="WP2-Profile.profile.uml#_12_5_1_58601ef_1185309254843_594248_2554"/>
+    </profileApplication>
+    <profileApplication xmi:id="_11_5_f720368_1159529670215_231387_1profileApplicationSmartHomeUMA">
+      <eAnnotations xmi:id="_kTtvEZb4Ed2tXeyhDhDLig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.Validation_Profile.profile.uml#_kTu9hZb4Ed2tXeyhDhDLig"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.Validation_Profile.profile.uml#_11_5_f720368_1159529670215_231387_1"/>
+    </profileApplication>
+    <profileApplication xmi:id="_11_5_be00301_1153310565718_226811_161profileApplicationSmartHomeUMA">
+      <eAnnotations xmi:id="_kTtvE5b4Ed2tXeyhDhDLig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.MagicDraw_Profile.DSL_Customization.profile.uml#_kTuWypb4Ed2tXeyhDhDLig"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.MagicDraw_Profile.DSL_Customization.profile.uml#_11_5_be00301_1153310565718_226811_161"/>
+    </profileApplication>
+    <profileApplication xmi:id="_be00301_1073394351331_445580_2profileApplicationSmartHomeUMA">
+      <eAnnotations xmi:id="_kTtvFZb4Ed2tXeyhDhDLig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#_kTrScpb4Ed2tXeyhDhDLig"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#_be00301_1073394351331_445580_2"/>
+    </profileApplication>
+    <profileApplication xmi:id="_9_0_be00301_1108050582343_527400_10847profileApplicationSmartHomeUMA">
+      <eAnnotations xmi:id="_kTtvF5b4Ed2tXeyhDhDLig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.UML_Standard_Profile.profile.uml#_kTtvGpb4Ed2tXeyhDhDLig"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.UML_Standard_Profile.profile.uml#_9_0_be00301_1108050582343_527400_10847"/>
+    </profileApplication>
+  </uml:Model>
+  <MagicDrawProfile:auxiliaryResource xmi:id="_lAc45Zb4Ed2tXeyhDhDLig" base_Element="magicdraw_uml_standard_profile_v_0001" base_Package="magicdraw_uml_standard_profile_v_0001"/>
+</xmi:XMI>

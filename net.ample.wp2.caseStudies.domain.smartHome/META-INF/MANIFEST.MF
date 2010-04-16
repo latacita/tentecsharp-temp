@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Require-Bundle: org.openarchitectureware.dependencies;visibility:=priv
+ ate, org.openarchitectureware.uml2.adapter;visibility:=private, org.o
+ penarchitectureware.uml2.adapter.plugin;visibility:=private, net.ampl
+ e.wp2.tente.plugin;visibility:=private
+Bundle-Version: 1.0.0
+Bundle-Name: net.ample.wp2.caseStudies.domain.smartHome
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: net.ample.wp2.caseStudies.domain.smartHome; singl
+ eton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+
