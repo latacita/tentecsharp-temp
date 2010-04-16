@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HelpTentePlugin Plug-in
+Bundle-SymbolicName: helptenteplugin.Activator;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: helptenteplugin.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.cheatsheets,
+ org.eclipse.help
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: Component and Aspect-Oriented Software Development Group,  University of Málaga
+Import-Package: org.eclipse.jdt.ui
+Bundle-ClassPath: images/,
+ src/,
+ .
+Export-Package: util
