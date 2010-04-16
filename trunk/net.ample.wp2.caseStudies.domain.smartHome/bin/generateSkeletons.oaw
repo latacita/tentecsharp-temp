@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<workflow>
+	
+  	<!-- Declaration of properties --> 
+  	<property name='umlModel' />
+    <property name='targetDir'/>
+    <property file='skeleton.properties' />
+
+    
+	<!-- Activate UML2 compatibility --> 
+	<bean class="oaw.uml2.Setup" standardUML2Setup="true"/>
+	
+	<!-- Read the input UML file -->
+	<component class="oaw.emf.XmiReader">
+		<modelFile value="${umlModel}"/>
+		<outputSlot value="referenceArchitecture"/>
+	</component>
+	 
+	<!--
+	<component id="dirCleaner"	class="oaw.workflow.common.DirectoryCleaner" directory="${targetDir}"/>
+	-->
+	
+	<!-- Compiling VML -->
+	<component id="genFeature" class="oaw.xpand2.Generator" skipOnErrors="true">
+		<metaModel id="uml" class="oaw.uml2.UML2MetaModel"/>
+		<genPath value="${targetDir}"/>
+		<expand value="skeletonTemplates::SkeletonRoot::SkeletonRoot FOR referenceArchitecture" /> 
+	</component> 
+		
+</workflow>
