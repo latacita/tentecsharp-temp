@@ -1,2 +1,0 @@
-«DEFINE initComponents FOR uml::InstanceSpecification»«IF this.getStereotypeApplications().size==0»
-		«this.name.toString()».init();«ENDIF»«ENDDEFINE»

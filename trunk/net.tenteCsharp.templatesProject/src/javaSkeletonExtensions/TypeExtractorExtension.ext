@@ -1,6 +1,0 @@
-String extractType(String value) :
-   JAVA javaSkeletonExtensions.TypeExtractorExtension.extractType(java.lang.String);
-String extractTypePlugin(String value) :
-   JAVA javaSkeletonExtensions.TypeExtractorExtension.extractTypePlugin(java.lang.String);
-Void writeErrorConsole(String value) :
-   JAVA javaSkeletonExtensions.TraceableFileExtension.writeErrorConsole(java.lang.String);

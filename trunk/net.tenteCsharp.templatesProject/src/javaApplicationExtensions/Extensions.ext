@@ -1,8 +1,0 @@
-String convertQualifiedName(String name) :
-   JAVA javaApplicationExtensions.Extensions.convertQualifiedName(java.lang.String);
-Void addInstanceElement(String name, String type, String parent) :
-	JAVA javaApplicationExtensions.Extensions.addInstanceElement(java.lang.String,java.lang.String,java.lang.String);
-Void printConsole(String text):
-	JAVA javaApplicationExtensions.Extensions.printConsole(java.lang.String);
-String getInstantationSentence():
-	JAVA javaApplicationExtensions.Extensions.getInstantationSentence();
