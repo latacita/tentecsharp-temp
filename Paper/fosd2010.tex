@@ -1,6 +1,7 @@
 \documentclass{sig-alt-full}
 
 \usepackage{graphicx}
+\usepackage{url}
 
 \begin{document}
 
@@ -40,13 +41,11 @@
     \input{abstract.tex}
 \end{abstract}
 
-% TODO: Cambiar esto
-\category{D2.2}{Design Tools and Techniques}{}
+\category{D2.3}{Software-Engineering}{Coding Tools and Techniques}
 
-% TODO: Cambiar esto
-\terms{Design, Languages}
+\terms{Experimentation, Languages}
 
-\keywords{Partial Classes, Feature-Oriented Programming, Software-Product Line}
+\keywords{Partial Classes, Feature-Oriented Programming, Software-Product Line, C\#}
 
 %\begin{figure*}[!tb]
 %  \begin{center}
@@ -60,17 +59,19 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Pues eso, introduccion.
+\input{introduction.tex}
+
+\section{Case Study: A Smart Home Software Product Line}
+\label{sec:caseStudy}
+
+Copia y pega de la descripción de la Smart Home más breve explicación de los modelos arquitectónicos. La figura del modelo hay que ponerla después de escribir el artículo, para que contenga todos los elementos que nos hacen falta para explicar los fallos de C\#.
+
 
 \section{What we want to find in a feature-oriented programming language}
 \label{sec:fopFeatures}
 
 Básicamente, características que tienen los lenguajes como CaesarJ que nos facilitan la vida para implementar modelos de SPL, tales como lo de reescritura automática de las dependencias entre clases.
 
-\section{Case Study: A Smart Home Software Product Line}
-\label{sec:caseStudy}
-
-Copia y pega de la descripción de la Smart Home más breve explicación de los modelos arquitectónicos. La figura del modelo hay que ponerla después de escribir el artículo, para que contenga todos los elementos que nos hacen falta para explicar los fallos de C\#.
 
 \section{Implementing the Smart Home models using C\# partial classes}
 \label{sec:partialClasses}
@@ -98,63 +99,11 @@ Tabla o bullets comparando lo que querríamos tener y lo que tenemos con las clas
 Breves comentarios sobre como solucionar estos problemas. (NOTA: No estoy muy seguro acerca de si poner o no esta sección).
 
 \section{Summary and Future Work}
+\label{sec:summary}
 
 \bibliographystyle{plain}
-\bibliography{mise08}
+\bibliography{fosd2010}
 
 \balancecolumns
-
-%\section{Demo screenplay}
-%
-%\input{screenplay}
-%
-%% This section describes the different steps that we will carry out
-%% during the demo presentation as well as the different features of
-%% the tool that will be shown and explained. The demonstration is
-%% divided in 3 three main blocks: (1) introduction and background; (2)
-%% description of \Populo\ and its features; and (3) explanation of how
-%% \Populo\ can be extended for supporting the execution of profiled
-%% UML models.
-%
-%
-%
-%\balancecolumns
-%
-%\newpage
-%
-%\begin{figure*}[t]
-%  \begin{center}
-%    \includegraphics[width=.75\linewidth]{images/image00.eps}\\
-%    \caption{The execution trace, the breakpoint and the object properties}
-%  \end{center}
-%\end{figure*}
-%
-%\begin{figure*}
-%  \begin{center}
-%    \includegraphics[width=.75\linewidth]{images/image01.eps}\\
-%    \caption{Ready and blocked actions and the call stack}
-%  \end{center}
-%\end{figure*}
-%
-%\begin{figure*}
-%  \begin{center}
-%    \includegraphics[width=.75\linewidth]{images/image02.eps}\\
-%    \caption{Instance view}
-%  \end{center}
-%\end{figure*}
-%
-%\begin{figure*}
-%  \begin{center}
-%    \includegraphics[width=.75\linewidth]{images/image03.eps}\\
-%    \caption{The model view}
-%  \end{center}
-%\end{figure*}
-%
-%\begin{figure*}
-%  \begin{center}
-%    \includegraphics[width=.75\linewidth]{images/image04.eps}\\
-%    \caption{Parallel execution flows}
-%  \end{center}
-%\end{figure*}
 
 \end{document}

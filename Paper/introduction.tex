@@ -1,0 +1,51 @@
+%=========================================================================%
+% Author: Pablo Sánchez                                                   %
+% Paper: FOSD2010 (introduction)                                          %
+% Version: 1.0                                                            %
+% Date   : 2010/05/07                                                     %
+%=========================================================================%
+
+%%% Description of Purpose
+%% What problem, issue or question does this research address ?
+
+%% Feature-Oriented Programming using C#
+
+Feature-Oriented Programming (FOP)~\cite{prehofer:1997} is a relatively recent paradigm for programming software systems by composing software modules, which are called \emph{features}.  A feature is considered as an increment on functionality, usually with a coherent purpose, of a software system~\cite{batory:2005,zave:1999}.
+
+C\# partial classes~\cite{Albahari:2007} allows developers to split the implementation of a class into a set of of files, each one containing a slice of, or an increment on, the class functionality. Therefore, as already identified by other authors~\cite{laguna:2007}, C\# partial classes seems a suitable mechanism to implement feature-oriented designs keeping feature implementations well-modularized and appropriately separated. Partial classes can also be found in other modern programming languages, such as Ruby.
+
+%% What limitations or failings of current understanding, knowledge, method, or
+%% technologies does this research resolve ?
+
+Nevertheless, although this idea seems initially promising, it has not been explored in depth. As a consequence, the community lacks of empirical evidence about the strengthens and weaknesses of partial classes as a mechanism to achieve feature-orientation at the code level.
+
+%% What is the significance of the problem issue or question ?
+
+%%=====================================================================================================%%
+%% NOTE (Pablo): This point is skipped for the paper, since I feel we have                             %%
+%%               provided enough argumentations above. Moreover, we are submmiting this paper to a     %% %%               feature-oriented workshop, so we do not need to justify the topic at all.             %%                                                                %%                                                                                                     %%
+%%=====================================================================================================%%
+
+%%% Goal statement
+%% What new understanding, knowledge, methods or technologies will this research generate ?
+%% How this address the purpose of the work ?
+
+This paper provides an exploratory study on this topic, where C\# partial classes are applied to the implementation of a feature-oriented design of an industrial case study, more specifically, to the design of a Smart Home Software Product Line~\cite{Groher:2009,fuentes:2009,sanchez:2007,nebrera:2008}
+\footnote{\url{http://personales.unican.es/sanchezbp/CaseStrudies/SmartHome}}.
+%%=====================================================================================================%% 
+%% NOTA (Pablo): Esta URL no esta funcionando pero en cuanto tenga tiempo la pongo a funcionar         %%                                                                                     %%=====================================================================================================%% 
+
+We have had used this case study during 3 years in the context of the AMPLE project and we have already produced a feature-oriented design, using UML packages and merge relationships~\cite{nebrera:2008,fuentes:2009} and a feature-oriented implementation in CaesarJ~\cite{aracic:2006}. This case study covers different kinds of variability~\cite{sanchez:2007}.
+
+In our experiment, we have tried to derive a feature-oriented implementation from the same feature-oriented design we have used previously. Then, we have compared the obtained result with the feature-oriented implementation in CaesarJ we already had. Finally, by comparing both implementations, we have identified strengthens and weaknesses of C\# partial classes as mechanism to implement feature-oriented designs.
+
+%%% Approach
+%% What experiments, prototypes or studies will be done to achieve the stated goal ?
+%% How will achievement or contribution of the research be demonstrated or validated ?
+
+To check the results obtained in this experiment are meaningful and valid, we have also used C\# partial classes to a second industrial case study, called Sales Scenario~\footnote{\url{http://www.feasiple.de/description/bsp_ss_en.html}}, which is in charge of sales processing in a Customer Relationship Management (CRM) system.
+%%=====================================================================================================%%
+%% NOTA (Pablo): Esto no está hecho pero no debería llevar más de una semana hacerlo                   %% %%=====================================================================================================%%
+We have checked the strengthens and weaknesses identified for the SmartHome case study also appear in the Sales Scenario case study.
+
+After this introduction, this paper is structured as follows: Section~\ref{sec:caseStudy} introduces briefly the Smart Home case study. Section~\ref{sec:fopFeatures} identified desirable language facilities which have found useful when implementing feature.oriented designs. Section~\ref{sec:partialClasses} describes the results obtained from our exploratory study using C\# partial classes. Finally, Section~\ref{sec:summary} outlines some conclusions and future work. 
