@@ -12,7 +12,7 @@
 \CopyrightYear{2010} \crdata{...}
 % --- End of Author Metadata ---
 
-\title{C\# Partial Classes as a Mechanisms to Achieve Feature-Oriented Programming: An Exploroty Study\thanks{This work has been supported by the Spanish Ministry Project TIN2008-01942/TIN, the EC STREP Project AMPLE IST-033710, and the Junta de Andaluc{\'i}a regional project FarmWare TIC-5231.}}
+\title{C\# Partial Classes as a Mechanisms to Implement Feature-Oriented Designs: An Exploratory Study\thanks{This work has been supported by the Spanish Ministry Project TIN2008-01942/TIN, the EC STREP Project AMPLE IST-033710, and the Junta de Andaluc{\'i}a regional project FarmWare TIC-5231.}}
 
 \numberofauthors{3}
 
@@ -37,14 +37,14 @@
 \maketitle
 
 \begin{abstract}
-C\# partial classes allows us to divide a 
+    \input{abstract.tex}
 \end{abstract}
 
-\category{D2.2}{Design Tools and Techniques}{}
+\category{D2.3}{Software-Engineering}{Coding Tools and Techniques}
 
-\terms{Design, Languages}
+\terms{Experimentation, Languages}
 
-\keywords{Partial Classes, Feature-Oriented Programming, Software-Product Line}
+\keywords{Partial Classes, Feature-Oriented Programming, Software-Product Line, C\#}
 
 %\begin{figure*}[!tb]
 %  \begin{center}
@@ -58,62 +58,50 @@ C\# partial classes allows us to divide a
 \section{Introduction}
 \label{sec:introduction}
 
-%\bibliographystyle{plain}
-%\bibliography{mise08}
+\input{introduction.tex}
+
+\section{Case Study: A Smart Home Software Product Line}
+\label{sec:caseStudy}
+
+Copia y pega de la descripción de la Smart Home más breve explicación de los modelos arquitectónicos. La figura del modelo hay que ponerla después de escribir el artículo, para que contenga todos los elementos que nos hacen falta para explicar los fallos de C\#.
+
+
+\section{What we want to find in a feature-oriented programming language}
+\label{sec:fopFeatures}
+
+Básicamente, características que tienen los lenguajes como CaesarJ que nos facilitan la vida para implementar modelos de SPL, tales como lo de reescritura automática de las dependencias entre clases.
+
+
+\section{Implementing the Smart Home models using C\# partial classes}
+\label{sec:partialClasses}
+
+Describir como se implementan diferentes situaciones en el modelo de la SmartHome.
+
+\subsection{Scenarios 1: ...}
+
+Descripción de como implementar algo tal como una feature que extiende de otra.
+
+\subsection{Scenarios 2: ...}
+
+Descripción de como implementar otra cosa, tal como una feature que extiende de dos.
+
+\subsection{Scenarios 3: ...}
+
+Otro caso diferente ...
+
+\subsection{Conclusions}
+
+Tabla o bullets comparando lo que querríamos tener y lo que tenemos con las clases parciales.
+
+\section{Sketch of solutions for C\# partial classes pitfalls}
+
+Breves comentarios sobre como solucionar estos problemas. (NOTA: No estoy muy seguro acerca de si poner o no esta sección).
+
+\section{Summary and Future Work}
+
+\bibliographystyle{plain}
+\bibliography{fosd2010.bib}
 
 \balancecolumns
-
-%\section{Demo screenplay}
-%
-%\input{screenplay}
-%
-%% This section describes the different steps that we will carry out
-%% during the demo presentation as well as the different features of
-%% the tool that will be shown and explained. The demonstration is
-%% divided in 3 three main blocks: (1) introduction and background; (2)
-%% description of \Populo\ and its features; and (3) explanation of how
-%% \Populo\ can be extended for supporting the execution of profiled
-%% UML models.
-%
-%
-%
-%\balancecolumns
-%
-%\newpage
-%
-%\begin{figure*}[t]
-%  \begin{center}
-%    \includegraphics[width=.75\linewidth]{images/image00.eps}\\
-%    \caption{The execution trace, the breakpoint and the object properties}
-%  \end{center}
-%\end{figure*}
-%
-%\begin{figure*}
-%  \begin{center}
-%    \includegraphics[width=.75\linewidth]{images/image01.eps}\\
-%    \caption{Ready and blocked actions and the call stack}
-%  \end{center}
-%\end{figure*}
-%
-%\begin{figure*}
-%  \begin{center}
-%    \includegraphics[width=.75\linewidth]{images/image02.eps}\\
-%    \caption{Instance view}
-%  \end{center}
-%\end{figure*}
-%
-%\begin{figure*}
-%  \begin{center}
-%    \includegraphics[width=.75\linewidth]{images/image03.eps}\\
-%    \caption{The model view}
-%  \end{center}
-%\end{figure*}
-%
-%\begin{figure*}
-%  \begin{center}
-%    \includegraphics[width=.75\linewidth]{images/image04.eps}\\
-%    \caption{Parallel execution flows}
-%  \end{center}
-%\end{figure*}
 
 \end{document}
