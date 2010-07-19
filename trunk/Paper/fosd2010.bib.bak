@@ -145,16 +145,3 @@
   address   = {Denver (Colorado, USA)},
   month     = {October},
 }
-
-@article{Herrmann:2007,
-  author    = {Stephan Herrmann},
-  title     = {A precise model for contextual roles: The programming language
-               ObjectTeams/Java },
-  journal   = {Applied Ontology},
-  volume    = {2},
-  number    = {2},
-  year      = {2007},
-  pages     = {181-207},
-  ee        = {http://iospress.metapress.com/openurl.asp?genre=article{\&}issn=1570-5838{\&}volume=2{\&}issue=2{\&}spage=181},
-  bibsource = {DBLP, http://dblp.uni-trier.de}
-}

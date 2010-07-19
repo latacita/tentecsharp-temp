@@ -1,0 +1,51 @@
+%=========================================================================%
+% Author: Pablo Sánchez                                                   %
+% Paper: FOSD2010 (FOP Features)                                          %
+% Version: 1.0                                                            %
+% Date   : 2010/05/07                                                     %
+%=========================================================================%
+
+This section describes which characteristics are desirable to find in a language to
+support feature-oriented programming.
+
+% Try to find better supporting references
+Feature-Oriented Programming~\cite{prehofer:1997} aims to encapsulates coherent slices of the functionality provided by an application into independent and composable modules called \emph{features}. Therefore, different versions of a same application should be easily obtained by simply combining different set of features. Obviously, not all feature combinations lead to right final applications, so feature-oriented languages should try to ensure the result of composing a set of features produces a safe and correct application. For instance, for the previous
+
+Wit these goals on mind, and based on~\cite{Herrejon:2005,kang:2002,chae:2009,aracic:2006}, we have identified several desirable characteristics we would like to find in a language for supporting feature-oriented programming. We comment on each one of them.
+
+\paragraph{Feature Encapsulation and Extensibility} \ \\
+
+A feature is often considered as an increment on program functionality~\cite{zave:1999,Herrejon:2005}. For instance, in the SmartHome case study, \imp{LightMng}, \imp{WindowMng}, and so forth, are increments on functionality for monitoring and controlling new devices. Thus, feature-oriented languages must provide mechanism for adding new functionality to the existing one. In object-oriented languages, extension is achieved by inheritance. Inheritance is adequate when we need to extend a single class, but commonly, features need to extend several classes at the same time. For instance, the \imp{LightMng} feature needs to add a new class for the light controller (\imp{LightCtrl}) and it needs to add to the \imp{Gateway} class methods for switching on and off lights. So, a language with feature-oriented support must provide extension mechanisms.
+
+Extension is not always achieved by addition, sometimes \emph{substitution} is required. For instance, in the case of the \imp{SmartEnergyMng} feature, it is necessary, for instance, to override the implementation of the method \imp{adjustTemperature} for checking is additional operations are required. For instance, if the command is to cool a room with the windows closed and the outside temperature is lower than the indoor one, windows will be open in addition to switching off heaters. This kind of substitution is achieved in object-oriented languages by method overriding. 
+
+All the extensions belonging to a certain feature must be added in a atomic way, i.e. either all extensions are added or no extension is carried out at all. For instance, the \imp{Gateway} class must not be extended with the 
+\imp{swicthLight} method if the class \imp{Light} is not added at all. Therefore, featured-oriented languages should provide mechanisms to group and ideally encapsulate elements belonging to a same feature in well-identified modules. In Figure~\ref{fig:SH-DM}, we use UML packages with this purpose. 
+
+% I need to modify the example to include a GUI to scenify dependency between classes
+
+Finally, extensions might have unavoidable ripple effects. For instance, sensors might have a reference to the \imp{Gateway} class to send messages with urgent or critic situations are detected, such as fire, for instance. The class \imp{Gateway} is refined through each feature, thus, several versions of the \imp{Gateway} class are created, e.g. \imp{LightMng::Gateway}, \imp{HeaterMng::Gateway}, \imp{HeaterMng::Gateway} and so forth. Thus, depending upon the selected features the customer want to include in the final product, a specific subclass, or combination of subclasses, should be selected. Let us suppose we select the \imp{LightMng} feature. In that case, the version of the \imp{Gateway} to be included in the final product is \imp{LightMng::Gateway}. But, the \imp{Sensor} class references \imp{InitialModel::Gateway}. So, we should update constructors, getters, setters and so forth to reference the subclass, i.e. \imp{LightMng::Gateway}, and get rid of castings and other problems related to the type system. Usually, this need to be done manually. Nevertheless, some languages, such as CeasarJ~\cite{aracic:2006} or ObjectTeams~\cite{} are able to automatically update these dependencies due to the usage of an advanced type system based on virtual clases and mixin composition. So, automatic dependency management is also a desirable characteristic in feature-oriented languages.
+
+
+\paragraph{Dependency checking and automatic management} \ \\
+
+
+\paragraph{Composition and Composition Consistency Checking} \ \\
+
+
+So summarising, a feature-oriented language must provide:
+
+\begin{enumerate}
+    \item Feature Extension by addition and substitution.
+    \item Modules to group and encapsulate feature elements. 
+    \item 
+\end{enumerate}
+
+
+
+
+
+
+
+
+
