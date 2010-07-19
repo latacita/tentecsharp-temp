@@ -1,0 +1,24 @@
+@inproceedings{prehofer:1997,
+  author    = {Christian Prehofer},
+  title     = {{Feature-Oriented Programming: A Fresh Look at Objects}},
+  editor    = {Mehmet Aksit and Satoshi Matsuoka},
+  title     = {Proceedings of the 11th European Conference Object-Oriented Programming (ECOOP),
+  address   = {Jyv{\"a}skyl{\"a} (Finland)},
+  month     = {June},
+  series    = {Lecture Notes in Computer Science (LNCS)},
+  volume    = {1241},
+  year      = {1997},
+  pages     = {419--443}
+}
+
+@MISC{zave:,
+  author       = {},
+  title        = {{FAQ Sheet on Feature Interaction}},
+  howpublished = {},
+  year =         {},
+  month =        {},
+  note =         {},
+  abstract =     {},
+  keywords =     {},
+  source =       {},
+}

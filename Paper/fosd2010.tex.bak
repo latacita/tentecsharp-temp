@@ -1,6 +1,7 @@
 \documentclass{sig-alt-full}
 
 \usepackage{graphicx}
+\usepackage{url}
 
 \begin{document}
 
@@ -17,21 +18,18 @@
 \numberofauthors{3}
 
 \author{
-% 1st. author
-\alignauthor Lidia Fuentes \\
-       \affaddr{Dpto. Lenguajes y Ciencias de la Computaci{\'o}n}\\
-       \affaddr{Universidad de M{\'a}laga (Spain)}\\
-       \email{lff@lcc.uma.es}
-% 2nd. author
 \alignauthor Elio López \\
        \affaddr{Dpto. Lenguajes y Ciencias de la Computaci{\'o}n}\\
        \affaddr{Universidad de M{\'a}laga (Spain)}\\
        \email{ealopezs@gmail.com}
-% 3rd. author
 \alignauthor Pablo S{\'a}nchez \\
        \affaddr{Dpto. Matem{\'a}ticas, Estad{\'i}stica y Computaci{\'o}n}\\
        \affaddr{Universidad de Cantabria (Spain)}\\
        \email{p.sanchez@unican.es}
+\alignauthor Lidia Fuentes \\
+       \affaddr{Dpto. Lenguajes y Ciencias de la Computaci{\'o}n}\\
+       \affaddr{Universidad de M{\'a}laga (Spain)}\\
+       \email{lff@lcc.uma.es}
 }
 
 \maketitle
@@ -63,19 +61,19 @@
 \section{Case Study: A Smart Home Software Product Line}
 \label{sec:caseStudy}
 
-Copia y pega de la descripción de la Smart Home más breve explicación de los modelos arquitectónicos. La figura del modelo hay que ponerla después de escribir el artículo, para que contenga todos los elementos que nos hacen falta para explicar los fallos de C\#.
-
+\input{caseStudy.tex}
 
 \section{What we want to find in a feature-oriented programming language}
 \label{sec:fopFeatures}
 
-Básicamente, características que tienen los lenguajes como CaesarJ que nos facilitan la vida para implementar modelos de SPL, tales como lo de reescritura automática de las dependencias entre clases.
-
+\input{fopFeatures.tex}
 
 \section{Implementing the Smart Home models using C\# partial classes}
 \label{sec:partialClasses}
 
-Describir como se implementan diferentes situaciones en el modelo de la SmartHome.
+This section describes the results of our experiment about using C\# partial classes to implement the feature-oriented design of the Smart Home case study. Before describing how the 
+
+\subsection{C\# partial classes}
 
 \subsection{Scenarios 1: ...}
 
@@ -98,9 +96,10 @@ Tabla o bullets comparando lo que querríamos tener y lo que tenemos con las clas
 Breves comentarios sobre como solucionar estos problemas. (NOTA: No estoy muy seguro acerca de si poner o no esta sección).
 
 \section{Summary and Future Work}
+\label{sec:summary}
 
 \bibliographystyle{plain}
-\bibliography{fosd2010.bib}
+\bibliography{fosd2010}
 
 \balancecolumns
 

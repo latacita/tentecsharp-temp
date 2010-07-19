@@ -1,0 +1,47 @@
+%=========================================================================%
+% Author: Pablo Sánchez                                                   %
+% Paper: FOSD2010 (introduction)                                          %
+% Version: 1.0                                                            %
+% Date   : 2010/05/07                                                     %
+%=========================================================================%
+
+%%% Description of Purpose
+%% What problem, issue or question does this research address ?
+
+%% Feature-Oriented Programming using C#
+
+Feature-Oriented Programming (FOP)~\cite{prehofer:1997} is a relatively recent paradigm for programming software systems by composing software modules, which are called \emph{features}.  A feature is considered as an increment on functionality, usually with a coherent purpose, of a software system~\cite{batory:2005,zave:1999}.
+
+C\# partial classes~\cite{Albahari:2007} allows developers to split the implementation of a class into a set of of files, each one containing a slice of, or an increment on, the class functionality. Therefore, as already identified by other authors~\cite{laguna:2007}, C\# partial classes seems a suitable mechanism to implement feature-oriented designs keeping feature implementations well-modularized and appropriately separated. Partial classes can also be found in other modern programming languages, such as Ruby.
+
+%% What limitations or failings of current understanding, knowledge, method, or
+%% technologies does this research resolve ?
+
+Nevertheless, although this idea seems initially promising, it has not been explored in depth. As a consequence, the community lacks of empirical evidence about the strengthens and weaknesses of partial classes as a mechanism to achieve feature-orientation at the code level. This paper provides an exploratory study on this topic, where C\# partial classes are applied to the implementation of a feature-oriented design of an industrial case study, more specifically, to the design of a Smart Home Software Product Line~\cite{Groher:2009,fuentes:2009,}. We have had used this industrial 
+
+%% What is the significance of the problem issue or question ?
+
+%%========================================================================================================%%
+%% NOTE (Pablo): This point is skipped for the paper, since I feel we have provided enough argumentations %%
+%%  above. Moreover, we are submmiting this paper to a feature-oriented workshop, so we do not need to    %%
+%%  justify the topic at all.                                                                             %%
+%%========================================================================================================%%
+
+%%% Goal statement
+%% What new understanding, knowledge, methods or technologies will this research generate ?
+%% How this address the purpose of the work ?
+
+
+
+
+
+
+%% Approach
+
+    % What experiments, prototypes or studies will be done to achieve the stated goal ?
+
+        %
+
+    % How will achievement or contribution of the research be demonstrated or validated ?
+
+        %

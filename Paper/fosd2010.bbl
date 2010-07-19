@@ -1,0 +1,64 @@
+\begin{thebibliography}{10}
+
+\bibitem{Albahari:2007}
+Joseph Albahari and Ben Albahari.
+\newblock {\em C{\#} {3.0 in a Nutshell}}.
+\newblock O'Reilly, 4 edition, January 2010.
+
+\bibitem{aracic:2006}
+Ivica Aracic, Vaidas Gasiunas, Mira Mezini, and Klaus Ostermann.
+\newblock {An Overview of CaesarJ}.
+\newblock 3880:135--173, 2006.
+
+\bibitem{batory:2005}
+Don~S. Batory.
+\newblock {Feature Models, Grammars, and Propositional Formulas}.
+\newblock In J.~Henk Obbink and Klaus Pohl, editors, {\em Proc. of the 9th Int.
+  Conference on Software Product Lines (SPLC)}, volume 3714 of {\em LNCS},
+  pages 7--20, Rennes (France), September 2005.
+
+\bibitem{fuentes:2009}
+Lidia Fuentes, Carlos Nebrera, and Pablo Sánchez.
+\newblock {Feature-Oriented Model-Driven Software Product Lines: The TENTE
+  Approach}.
+\newblock In Eric Yu, Johann Eder, and Colette Rolland, editors, {\em Proc. of
+  the Forum of the 21st Int. Conference on Advanced Information Systems
+  (CAiSE)}, volume 453 of {\em CEURS Workshops}, pages 67--72, Amsterdam (The
+  Netherlands), June 2009.
+
+\bibitem{Groher:2009}
+Iris Groher and Markus V{\"o}lter.
+\newblock {Aspect-Oriented Model-Driven Software Product Line Engineering}.
+\newblock {\em Transacations on Aspect-Oriented Software Development (Special
+  Issue on Aspects and Model-Driven Engineering)}, 6:111--152, 2009.
+
+\bibitem{laguna:2007}
+Miguel~A. Laguna, Bruno Gonz{\'a}lez-Baixauli, and Jos{\'e}~M. Marqu{\'e}s.
+\newblock {Seamless Development of Software Product Lines}.
+\newblock In {\em Proc. of the 6th Int. Conference on Generative Programming
+  and Component Engineering (GPCE)}, pages 85--94, Salzburg (Austria), October
+  2007.
+
+\bibitem{nebrera:2008}
+Carlos Nebrera, Pablo Sánchez, Lidia Fuentes, Christa Schwanninger, Ludger
+  Fiege, and Michael J\"{a}ger.
+\newblock {Description of Model Transformations from Architecture to Design}.
+\newblock Deliverable D2.3, AMPLE Project, September 2008.
+
+\bibitem{prehofer:1997}
+Christian Prehofer.
+\newblock {Feature-Oriented Programming: A Fresh Look at Objects}.
+
+\bibitem{sanchez:2007}
+Pablo S\'{a}nchez, Nadia G\'{a}mez, Lidia Fuentes, Neil Loughran, and
+  Alessandro Garcia.
+\newblock {A Metamodel for Designing Software Architectures of Aspect-Oriented
+  Software Product Lines}.
+\newblock Deliverable D2.2, AMPLE Project, September 2007.
+
+\bibitem{zave:1999}
+Pamela Zave.
+\newblock {FAQ Sheet on Feature Interaction}.
+\newblock AT\&T, \url{http://www2.research.att.com/~pamela/faq.html}, 1999.
+
+\end{thebibliography}
