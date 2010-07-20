@@ -12,7 +12,7 @@ A Smart Home software aims to improve comfort and security of the inhabitants of
 Figure~\ref{fig:SH-FM} depicts a feature model for our Smart Home case study. It has been simplified for the sake of brevity. A complete version can be found in S{\'a}nchez et al~\cite{sanchez:2007}.
 
 \begin{figure}
-  \begin{center}  
+  \begin{center}
     \includegraphics[width=.85\linewidth]{images/featureModel.eps} \\
     \caption{Smart Home feature model}
     \vspace{-15pt}
@@ -26,10 +26,14 @@ Figure~\ref{fig:SH-DM} shows a UML model depicting a design supporting the varia
 % Improve this
 For instance, \imp{Gateway} classes will be merged to produce a combined version. Fine-grained variations are accommodated using other techniques, such as parametrization. So, variation in heaters measurement units is achieved by setting appropriately up an attribute in the \imp{HeaterCtrl} class.
 
-\begin{figure}
+%% Comment a little bit on the general arquitecture based on a gateway
+
+\begin{figure*}
+  \begin{center}
   \includegraphics[width=\linewidth]{images/umlDesign.eps} \\
   \caption{Smart Home design}
   \label{fig:SH-DM}
-\end{figure}
+  \end{center}
+\end{figure*}
 
 In the following sections, we will try to create an implementation of this feature-oriented design in C\# using partial classes. Strengthens and weaknesses of this technique will be identified.

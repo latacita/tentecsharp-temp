@@ -10,6 +10,10 @@ I was expecting a `,' or a `}'---line 14 of file fosd2010.bib
 I'm skipping whatever remains of this entry
 Warning--I'm ignoring Groher:2009's extra "volume" field
 --line 63 of file fosd2010.bib
+Warning--I'm ignoring Herrejon:2005's extra "year" field
+--line 122 of file fosd2010.bib
+Warning--I'm ignoring chae:2009's extra "booktitle" field
+--line 144 of file fosd2010.bib
 Warning--empty journal in aracic:2006
 Warning--empty booktitle in prehofer:1997
 Warning--empty year in prehofer:1997
