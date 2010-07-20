@@ -75,7 +75,9 @@ This section describes the results of our experiment about using C\# partial cla
 
 \subsection{C\# partial classes}
 
-C\# partial classes allow developers to split the implementation of a class into several files, each one containing an slice of the global functionality of a class. For instance, Figure~\ref{fig:partialClass}
+C\# partial classes allow developers to split the implementation of a class into several files, each one containing an slice of the global functionality of a class. All these slices are combined at compilation time to create a single class, containing all the functionality  specified in the partial classes.To be combined, all partial classes need to belong to same \emph{namespace}, have the same visibility and have been declared as partial by means of using the \imp{partial} keyword.
+
+For instance, Figure~\ref{fig:partialClass}
 
 
 

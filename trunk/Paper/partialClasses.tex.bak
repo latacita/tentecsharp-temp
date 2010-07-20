@@ -1,0 +1,47 @@
+%=========================================================================%
+% Author: Pablo Sánchez                                                   %
+% Paper: FOSD2010 (FOP Features)                                          %
+% Version: 1.0                                                            %
+% Date   : 2010/07/20                                                     %
+%=========================================================================%
+
+C\# partial classes allow developers to split the implementation of a class into several files, each one containing an slice of the global functionality of a class. All these slices are combined at compilation time to create a single class, containing all the functionality  specified in the partial classes.To be combined, all partial classes need to belong to same \emph{namespace}, have the same visibility and have been declared as partial by means of using the \imp{partial} keyword. A \emph{namespace} is simply used to group related classes and avoid name collisions.
+
+What files must be included in a compilation unit is specified in C\# using a XML document which contain information about the project and it specifies which files must be included. Therefore, we can manipulate this file to include partial classes as desired and to produce composed classes with the desired functionality.
+
+Figure~\ref{fig:partialClass} shows an example of usage of partial classes where the implementation of the \imp{Gateway} class for the \imp{InitialModel} and \imp{LightMng} feature split into two separate partial classes. As it can be observed, they are normal classes, except for the use of the \imp{partial} keyword. Figure~\ref{fig:compilation} shows a possible build file which specifies the partial classes for the \imp{InitialModel} and the \imp{LightMng} must be compiled, but the partial class for the \imp{WindowMng} class has been excluded.
+
+\begin{figure}
+    \begin{center}
+    \begin{small}
+    \begin{verbatim}
+File InitialModel/Gateway    
+--------------------------------------------------------    
+namespace SmartHome {
+  public partial class Gateway {
+    protected List<Sensor> sensors;
+    protected List<Actuator> actuators;
+
+    public void emergence(Sensor s, double value) {...}
+    public bool changeValue(int id, double value) {...}
+    } // Gateway 
+}// namespace
+
+File LightMng/Gateway
+--------------------------------------------------------
+namespace SmartHome
+{
+    public partial class Gateway {
+        protected List<LightCtrl> lights;
+
+        public bool switchLight(int id) {...}
+    } // Gateway
+} // namespace
+
+File 
+
+
+    \end{verbatim}
+    \end{small}
+    \end{center}
+\end{figure}

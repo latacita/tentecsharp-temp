@@ -17,6 +17,13 @@ Don~S. Batory.
   Conference on Software Product Lines (SPLC)}, volume 3714 of {\em LNCS},
   pages 7--20, Rennes (France), September 2005.
 
+\bibitem{chae:2009}
+Wonseok Chae and Matthias Blume.
+\newblock {Language Support for Feature-Oriented Poduct Line Engineering}.
+\newblock In Sven Apel, William~R. Cook, Krzysztof Czarnecki, Christian
+  K{\"a}stner, Neil Loughran, and Oscar Nierstrasz, editors, {\em FOSD}, pages
+  3--10, Denver (Colorado, USA), October 2009.
+
 \bibitem{fuentes:2009}
 Lidia Fuentes, Carlos Nebrera, and Pablo Sánchez.
 \newblock {Feature-Oriented Model-Driven Software Product Lines: The TENTE
@@ -32,12 +39,31 @@ Iris Groher and Markus V{\"o}lter.
 \newblock {\em Transacations on Aspect-Oriented Software Development (Special
   Issue on Aspects and Model-Driven Engineering)}, 6:111--152, 2009.
 
+\bibitem{Herrmann:2007}
+Stephan Herrmann.
+\newblock A precise model for contextual roles: The programming language
+  objectteams/java.
+\newblock {\em Applied Ontology}, 2(2):181--207, 2007.
+
+\bibitem{kang:2002}
+Kyo~Chul Kang, Jaejoon Lee, and Patrick Donohoe.
+\newblock {Feature-Oriented Product Line Engineering}.
+\newblock {\em IEEE Software}, 19(4):58--65, July-August 2002.
+
 \bibitem{laguna:2007}
 Miguel~A. Laguna, Bruno Gonz{\'a}lez-Baixauli, and Jos{\'e}~M. Marqu{\'e}s.
 \newblock {Seamless Development of Software Product Lines}.
 \newblock In {\em Proc. of the 6th Int. Conference on Generative Programming
   and Component Engineering (GPCE)}, pages 85--94, Salzburg (Austria), October
   2007.
+
+\bibitem{Herrejon:2005}
+Roberto~E. Lopez-Herrejon, Don~S. Batory, and William~R. Cook.
+\newblock {Evaluating Support for Features in Advanced Modularization
+  Technologies}.
+\newblock In Andrew~P. Black, editor, {\em Proc. of the 19th European
+  Conference on Object-Oriented Programming (ECOOP)}, volume 3586 of {\em
+  LNCS}, pages 169--194, Glasgow (United Kingdom), July 2005.
 
 \bibitem{nebrera:2008}
 Carlos Nebrera, Pablo Sánchez, Lidia Fuentes, Christa Schwanninger, Ludger

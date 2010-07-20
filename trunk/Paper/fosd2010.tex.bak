@@ -71,21 +71,16 @@
 \section{Implementing the Smart Home models using C\# partial classes}
 \label{sec:partialClasses}
 
-This section describes the results of our experiment about using C\# partial classes to implement the feature-oriented design of the Smart Home case study. Before describing how the 
+This section describes the results of our experiment about using C\# partial classes to implement the feature-oriented design of the Smart Home case study. Before describing them, we provide some background on how C\# partial classes work.
 
 \subsection{C\# partial classes}
 
-\subsection{Scenarios 1: ...}
+\input{partialClasses.tex}
 
-Descripción de como implementar algo tal como una feature que extiende de otra.
+\subsection{Evaluation}
 
-\subsection{Scenarios 2: ...}
+\input{Evaluation}
 
-Descripción de como implementar otra cosa, tal como una feature que extiende de dos.
-
-\subsection{Scenarios 3: ...}
-
-Otro caso diferente ...
 
 \subsection{Conclusions}
 

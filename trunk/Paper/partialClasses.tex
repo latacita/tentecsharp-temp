@@ -1,0 +1,60 @@
+%=========================================================================%
+% Author: Pablo Sánchez                                                   %
+% Paper: FOSD2010 (FOP Features)                                          %
+% Version: 1.0                                                            %
+% Date   : 2010/07/20                                                     %
+%=========================================================================%
+
+C\# partial classes allow developers to split the implementation of a class into several files, each one containing an slice of the global functionality of a class. All these slices are combined at compilation time to create a single class, containing all the functionality  specified in the partial classes.To be combined, all partial classes need to belong to same \emph{namespace}, have the same visibility and have been declared as partial by means of using the \imp{partial} keyword. A \emph{namespace} is simply used to group related classes and avoid name collisions.
+
+What files must be included in a compilation unit is specified in C\# using a XML document which contain information about the project and it specifies which files must be included. Therefore, we can manipulate this file to include partial classes as desired and to produce composed classes with the desired functionality.
+
+\begin{figure}
+    \begin{center}
+    \begin{small}
+    \begin{verbatim}
+File InitialModel/Gateway.cs    
+--------------------------------------------------------    
+00 namespace SmartHome {
+01  public partial class Gateway {
+02    protected List<Sensor> sensors;
+03    protected List<Actuator> actuators;
+04
+05    public void emergence(Sensor s, double value) {...}
+06    public bool changeValue(int id, double value) {...}
+07  } // Gateway 
+08 }// namespace
+
+File LightMng/Gateway.cs
+--------------------------------------------------------
+09 namespace SmartHome
+10 {
+11    public partial class Gateway {
+12        protected List<LightCtrl> lights;
+13
+14        public bool switchLight(int id) {...}
+15    } // Gateway
+16 } // namespace
+
+File SmartHome.csproj
+--------------------------------------------------------
+17 </Project>...<ItemGroup>
+18    <Compile Include="InitialModel\Gateway.cs" />
+19    <Compile Include="LightMng\Gateway.cs" />
+20 <!--  <Compile Include="SmartEnergyMng\Gateway.cs" />
+21      <Compile Include="WindowMng\Gateway.cs" /> -->
+22 ...
+23 </ItemGroup></Project>
+    \end{verbatim}
+    \end{small}
+    \caption{\imp{Gateway} implementation using partial classes}
+    \label{fig:partialClass}
+    \vspace{-15pt}
+    \end{center}
+\end{figure}
+
+Figure~\ref{fig:partialClass} shows an example of usage of partial classes where the implementation of the \imp{Gateway} class for the \imp{InitialModel} and \imp{LightMng} feature has been split into two separate files with the same name, but placed in different directories (Figure~\ref{fig:partialClass} lines 00-08 and lines 09-16). The \imp{Gateway} class for the \imp{InitialModel} feature (Figure~\ref{fig:partialClass} lines 00-08) contains collections for sensors and actuators, as well as the \imp{emergence} and \imp{changeValue} methods (see Figure~\ref{fig:SH-DM}). The \imp{Gateway} class  for the \imp{LightMng} feature (Figure~\ref{fig:partialClass} lines 09-16) adds to the previous \imp{Gateway} class the collections for lights as well as the \imp{switchLight} method.
+
+Figure~\ref{fig:compilation} shows a possible build file which specifies the \imp{Gateway} partial classes for the \imp{InitialModel} and the \imp{LightMng} features must be included in the compilation; but the corresponding partial classes for the \imp{WindowMng} or \imp{SmartEnergyMng} features, oppositely, must be excluded. Therefore, the compiler will produce a \imp{Gateway} class with functionality to manage lights, but not to manage windows, heaters or smart energy management.
+
+Motivated by these results, some authors, such as Laguna et al~\cite{laguna:2007} proposed to used C\# partial classes as a mechanisms to implement feature-oriented design. Next section will evaluate strengthens and weaknesses of this approach using the elements presented in Section~\ref{sec:fopFeatures}.
