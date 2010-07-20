@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smartHomeImplementationCsharp", "smartHomeImplementationCsharp\smartHomeImplementationCsharp.csproj", "{4BCB8408-2406-496F-8AA3-06445BD3227A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		InitialModel|Any CPU = InitialModel|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BCB8408-2406-496F-8AA3-06445BD3227A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BCB8408-2406-496F-8AA3-06445BD3227A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BCB8408-2406-496F-8AA3-06445BD3227A}.InitialModel|Any CPU.ActiveCfg = InitialModel|Any CPU
+		{4BCB8408-2406-496F-8AA3-06445BD3227A}.InitialModel|Any CPU.Build.0 = InitialModel|Any CPU
+		{4BCB8408-2406-496F-8AA3-06445BD3227A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BCB8408-2406-496F-8AA3-06445BD3227A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
