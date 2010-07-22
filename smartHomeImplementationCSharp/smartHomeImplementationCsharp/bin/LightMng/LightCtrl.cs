@@ -18,7 +18,8 @@ namespace SmartHome
         protected const double OFF = 0.0;
 
                 // Constructor
-        public LightCtrl() : base() { 
+        public LightCtrl() : base() {
+            this.deviceValue = OFF;
         } // LightCtrl
 
         public LightCtrl(int id) : base(id) {
@@ -35,6 +36,17 @@ namespace SmartHome
                 this.deviceValue = ON;
             } // if      
         } // lightSwitch
-        
+
+        public void sayHello() { 
+            String status;
+
+            if (deviceValue == 0.0) {
+                status = "OFF";
+            } else {
+                status = "ON";
+            } // if
+            System.Console.Out.WriteLine("I am the light " + id + " and I am " + status);
+        } // sayHello
+
     } // LightCtrl
 } // nameSpace smartHome

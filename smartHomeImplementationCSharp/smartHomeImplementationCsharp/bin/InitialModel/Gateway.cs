@@ -62,6 +62,10 @@ namespace SmartHome
             return result;
 
         } // changeValue
+    
+        public void sayHello() {
+            System.Console.Out.WriteLine("I am the gateway and I am ON");
+        }  //say Hello
 
         
     } // Gateway
