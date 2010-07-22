@@ -42,7 +42,11 @@
   </Target>
   -->
   <ItemGroup>
+    <Compile Include="bin\Gateway.cs" />
     <Compile Include="bin\GeneralTest.cs" />
+    <Compile Include="bin\HeaterMng\Gateway.cs" />
+    <Compile Include="bin\HeaterMng\Test.cs" />
+    <Compile Include="bin\HeaterMng\HeaterCtrl.cs" />
     <Compile Include="bin\InitialModel\Actuator.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -52,10 +56,16 @@
     <Compile Include="bin\InitialModel\Sensor.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="bin\InitialModel\Test.cs" />
     <Compile Include="bin\LightMng\Gateway.cs" />
     <Compile Include="bin\LightMng\LightCtrl.cs" />
+    <Compile Include="bin\LightMng\Test.cs" />
     <Compile Include="bin\SmartEnergyMng\Gateway.cs" />
+    <Compile Include="bin\SmartEnergyMng\Test.cs" />
+    <Compile Include="bin\SmartEnergyMng\ThermometerCtrl.cs" />
     <Compile Include="bin\WindowMng\Gateway.cs" />
+    <Compile Include="bin\WindowMng\Test.cs" />
+    <Compile Include="bin\WindowMng\WindowCtrl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -63,7 +73,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\HeaterMng\" />
     <Folder Include="Properties\" />
   </ItemGroup>
 </Project>

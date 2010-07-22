@@ -28,18 +28,17 @@ namespace SmartHome
             this.id = id;
         } // Actuator(int)
 
-        public void setId(int id) {
+        public virtual void setId(int id) {
             this.id = id;
         } // setId
 
-        public int getId() {
+        public virtual int getId() {
            return this.id;     
         } // getId
 
-        public void setValue(double value) {
+        public virtual void setValue(double value) {
             this.deviceValue = value;
-        }
-
+        } // setValue
 
     } // Actuator
 

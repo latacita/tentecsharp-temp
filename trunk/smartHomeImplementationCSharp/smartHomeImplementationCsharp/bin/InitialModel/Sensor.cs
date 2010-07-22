@@ -8,7 +8,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace SmartHome
@@ -32,26 +31,29 @@ namespace SmartHome
         } // Sensor(int)
 
         // Getters and setters 
-        public void setId(int id) {
+        public virtual void setId(int id) {
             this.id = id;
         } // setId
 
-        public int getId() {
+        public virtual int getId()
+        {
            return this.id;     
         } // getId
 
-        public double getValue() {
+        public virtual double getValue()
+        {
             return this.deviceValue;
         }
 
-        public void setGateway(Gateway gtw) {
+        public virtual void setGateway(Gateway gtw)
+        {
             this.gtw = gtw;
         } 
 
         // Class methods
-        public void setUrgentSignal() { 
-            gtw.urgentsignal()
+        public virtual void setUrgentSignal()
+        {
+            gtw.emergence(this, this.deviceValue);
         }
-
     }
 } // namespace SmartHome
