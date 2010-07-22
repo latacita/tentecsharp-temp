@@ -1,7 +1,53 @@
 %=========================================================================%
 % Author: Pablo Sánchez                                                   %
-% Paper: FOSD2010 (FOP Features)                                          %
+% Paper: FOSD2010 (Evaluation)                                            %
 % Version: 1.0                                                            %
-% Date   : 2010/05/07                                                     %
+% Date   : 2010/07/20                                                     %
 %=========================================================================%
 
+\paragraph{Feature Encapsulation and Extensibility} \ \\
+
+C\# partial classes does not seem to provide any mechanism to group an encapsulate features. We might use namespaces for this purpose. We might opt for placing all classes related to the \imp{InitialModel} and \imp{LightMng} features in the \imp{SmartHome.InitialModel} and \imp{SmartHome.LightMng} namespaces respectively. Nevertheless, in this case the \imp{Gateway} partial classes belonging to separate features will be not combined. Thus, partial classes force us to place all classes in a same namespace, so we can not use this mechanisms to group feature-related code.
+
+Any other workaround, such as creating one coarse-grained class per feature and managing feature-specific classes as internal classes of the coarse-grained one will not work either, since the outer class serves as namespace for the internal classes. Thus, each internal class, although declared as partial, it is placed in a different namespace and they are not merge.
+
+\begin{figure}
+    \begin{center}
+    \begin{small}
+    \begin{verbatim}
+File InitialModel/Gateway.cs
+--------------------------------------------------------
+01 public partial class Gateway {
+02   ...
+03   public Gateway() {
+04     this.actuators = new List<Actuator>();
+05     this.sensors = new List<Sensor>();
+06   }
+07 }
+File LightMng/Gateway.cs
+--------------------------------------------------------
+08 public partial class Gateway {
+09   protected List<LightCtrl> lights;
+10   public Gateway() {
+11       this.lights = new List<LightCtrl>();
+12   }
+13 }
+    \end{verbatim}
+    \end{small}
+    \caption{\imp{Gateway} implementation using partial classes}
+    \label{fig:constructor}
+    \vspace{-15pt}
+    \end{center}
+\end{figure}
+
+Regarding extensibility, partial classes allows us to add new attributes and methods to existing partial classes, but they do not allow us to extend or override existing ones. For instance, in the \imp{LightMng} feature, we have added a new attribute \imp{lights} to the \imp{Gateway} class. So, we should extend the \imp{Gateway} constructor to appropriately initialize this attribute. So, we write the code depicted in Figure~\ref{fig:constructor}. This excerpt of code contains the constructor for the most basic \imp{Gateway} class (Figure~\ref{fig:constructor}, lines 03-06), which is extended with new functionality in the \imp{LightMng} feature (Figure~\ref{fig:constructor}, lines 03-06). Nevertheless, this is not possible, since the compiler reports an error because the method \imp{Gateway()}, i.e. the class constructor, is duplicated. This means we can not split the implementation of a method into several files, since we can not have methods with the same signature into two separate files of a partial class. This reduces extensibility to the addition of new methods and attributes (as shown in Figure~\ref{fig:partialClass}), but we cannot add functionality to existing methods. It would be interesting if C\# supported \emph{partial methods} in addition to partial classes.
+
+In the case of extensibility by substitution, the problem will be the same. Let us consider now the case of the \imp{SmartEnergyMng} feature. The \imp{Gateway} class for this feature must override, for instance, the \imp{adjustTemperature} method to check if additional operations involving the windows must be executed before adjusting the temperature. Nevertheless, since we can not declared a method \imp{adjustTemperature} in the partial class belonging to the \imp{SmartEnergyMng} feature with the signature as the method declared for the \imp{HeaterMng} feature, there is no way to override the latter one. Indeed, normal object-oriented overriding is somehow more complex than usual in C\# because, as in C++, for a method being effectively overridden, we need to declared it as \emph{virtual}. Thus, we need somehow to foresee a method is going to be overridden to declare it as virtual, or declare all methods as virtual, independently if we know they are going to be overridden or not. This last practice is the recommended one by authors, although it is tedious and verbose.
+
+Regarding automatic management of dependencies between classes, C\# partial classes do not present the problem described in Section~\ref{sec:fopFeatures}. The problem was a class \imp{A}, e.g. \imp{Sensor} in Figure~\ref{fig:SH-DM}, has a reference to a class \imp{B}, e.g. \imp{Gateway}, which is refined by means of inheritance through different features. When a final product is created, this reference should be changed to the deepest child belonging to a selected feature in the inheritance tree to avoid castings and other problems related to the type system. This problem does not appear when using C\# partial classes because we are not using subclassing by inheritance. We are simply merging slices of the same class, so the type of a class is not changed although a class is refined through several features. Moreover, when a instance of a class, e.g. \imp{Gateway}, is created, this instance will be an instance of a class containing the functionality belonging to the all the selected features. So, regarding this particular point, C\# partial classes seems to provide a performance similar to languages such as CaesarJ or ObjectTeams.
+
+\paragraph{Feature Level Composition} \ \\
+
+Since they are not specific mechanisms to group and encapsulate a bundle of classes related to a same feature, it is not possible either to compose products at the feature level. Composition of specific products is achieved by means of including/excluding (partial) classes from the compilation unit, such as shown Figure~\ref{fig:partialClass}. This means we need to manage the elements belonging to a same feature individually, and take care of producing consistent configurations. For instance, we should check the \imp{LightCtrl} class is included in the compilation unit if and only if the partial class of \imp{Gateway} belonging to the \imp{LightMng} feature is also included. So, several actions must be carried out each time a feature is selected and deselected.
+
+In the same way, C\# does not provide explicit mechanisms to guarantee a build file contains a valid selection of features. Nevertheless, if a feature uses classes and methods declared in another feature, the compiler will report an error about we are using some undefined elements. For instance, if the \imp{Gateway} partial class belonging to the \imp{SmartEnergyMng} feature use some classes called \imp{WindowCtrl} and \imp{HeaterCtrl} and we have not included them in the compilation unit, the compilation process will fail until we include these classes in the compilation unit. Nevertheless, we should not include only these classes, we should also include all the classes belonging to the \imp{LightMng} and \imp{HeaterMng} features. So, using C\# partial classes we can detect dependencies between classes, but not dependencies at the feature level, which would be the ideal case. If errors are detected, the compiler reports it, but it need to be solved manually, i.e. if the feature \imp{SmartEnergyMng} is included, the \imp{WindowMng} and \imp{HeaterMng} features need to be manually included. Finally, there is not support to detect and solve mutual exclusion constraints, i.e. situations where if a feature \imp{A} is selected, a feature \imp{B} must not be selected. Anyway, to the best of our knowledge, this kind of support is rarely found in feature-oriented languages.  
