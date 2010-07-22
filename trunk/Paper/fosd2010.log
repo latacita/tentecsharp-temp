@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2010.1.18)  20 JUL 2010 15:11
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2010.1.18)  22 JUL 2010 19:04
 entering extended mode
 **fosd2010.tex
 
@@ -265,7 +265,17 @@ Overfull \hbox (14.4807pt too wide) in paragraph at lines 66--66
 
 
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Elio\FOSD2010\fopFe
-atures.tex" [2]
+atures.tex"
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+
 Overfull \hbox (1.94208pt too wide) in paragraph at lines 29--31
 \T1/aer/m/n/9 guage would pro-vide lan-guage con-structs for spec-i-fy-ing whic
 h
@@ -308,8 +318,44 @@ LaTeX Warning: Reference `fig:compilation' on page \thepage  undefined on input
  line 58.
 
 )
+("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Elio\FOSD2010\evalu
+ation.tex"
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+
+Overfull \hbox (57.18216pt too wide) in paragraph at lines 10--11
+\T1/aer/m/n/9 re-lated to the \T1/aess/m/n/8 Ini-tialModel \T1/aer/m/n/9 and \T
+1/aess/m/n/8 LightMng \T1/aer/m/n/9 fea-tures in the \T1/aess/m/n/8 SmartHome.I
+nitialModel
+ []
+
+
+Underfull \hbox (badness 1325) in paragraph at lines 37--37
+[][]\T1/aer/bx/n/9 Figure 4: \T1/aess/m/n/8 Gate-way \T1/aer/bx/n/9 im-ple-men-
+ta-tion us-ing par-tial
+ []
+
+[4]
+Overfull \hbox (4.81364pt too wide) in paragraph at lines 47--48
+[][]\T1/aer/m/n/9 Regarding au-to-matic man-age-ment of de-pen-den-cies be-twee
+n
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
+
+ []
+
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Elio\FOSD2010\discu
+ssion.tex")
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Elio\FOSD2010\fosd2
-010.bbl" [4]) [5
+010.bbl" [5]) [6
 
 ]
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Elio\FOSD2010\fosd2
@@ -319,12 +365,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 1973 strings out of 495286
- 23192 string characters out of 3181048
+ 1980 strings out of 495286
+ 23573 string characters out of 3181048
  80341 words of memory out of 3000000
- 5132 multiletter control sequences out of 15000+200000
+ 5133 multiletter control sequences out of 15000+200000
  46327 words of font info for 57 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  39i,10n,26p,1468b,305s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on fosd2010.dvi (5 pages, 38296 bytes).
+Output written on fosd2010.dvi (6 pages, 49496 bytes).

@@ -79,16 +79,15 @@ This section describes the results of our experiment about using C\# partial cla
 
 \subsection{Evaluation}
 
-\input{Evaluation}
-
+\input{evaluation.tex}
 
 \subsection{Conclusions}
 
-Tabla o bullets comparando lo que querríamos tener y lo que tenemos con las clases parciales.
+\input{discussion.tex}
 
-\section{Sketch of solutions for C\# partial classes pitfalls}
-
-Breves comentarios sobre como solucionar estos problemas. (NOTA: No estoy muy seguro acerca de si poner o no esta sección).
+%\section{Sketch of solutions for C\# partial classes pitfalls}
+%
+%Breves comentarios sobre como solucionar estos problemas. (NOTA: No estoy muy seguro acerca de si poner o no esta sección).
 
 \section{Summary and Future Work}
 \label{sec:summary}
