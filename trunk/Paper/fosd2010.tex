@@ -1,0 +1,102 @@
+\documentclass{sig-alt-full}
+
+\usepackage{graphicx}
+\usepackage{url}
+
+\begin{document}
+
+\newcommand{\imp}[1]{{\small{\sf #1}}}
+\newcommand{\stereotype}[1]{$<<${\small{\sf #1}}$>>$}
+
+% --- Author Metadata here ---
+\conferenceinfo{FOSD'10,}{October 13, 2010, Eindhoven (The Netherlands)}
+\CopyrightYear{2010} \crdata{...}
+% --- End of Author Metadata ---
+
+\title{C\# Partial Classes as a Mechanisms to Implement Feature-Oriented Designs: An Exploratory Study\thanks{This work has been supported by the Spanish Ministry Project TIN2008-01942/TIN, the EC STREP Project AMPLE IST-033710, and the Junta de Andaluc{\'i}a regional project FarmWare TIC-5231.}}
+
+\numberofauthors{3}
+
+\author{
+\alignauthor Elio López \\
+       \affaddr{Dpto. Lenguajes y Ciencias de la Computaci{\'o}n}\\
+       \affaddr{Universidad de M{\'a}laga (Spain)}\\
+       \email{ealopezs@gmail.com}
+\alignauthor Pablo S{\'a}nchez \\
+       \affaddr{Dpto. Matem{\'a}ticas, Estad{\'i}stica y Computaci{\'o}n}\\
+       \affaddr{Universidad de Cantabria (Spain)}\\
+       \email{p.sanchez@unican.es}
+\alignauthor Lidia Fuentes \\
+       \affaddr{Dpto. Lenguajes y Ciencias de la Computaci{\'o}n}\\
+       \affaddr{Universidad de M{\'a}laga (Spain)}\\
+       \email{lff@lcc.uma.es}
+}
+
+\maketitle
+
+\begin{abstract}
+    \input{abstract.tex}
+\end{abstract}
+
+\category{D2.3}{Software-Engineering}{Coding Tools and Techniques}
+
+\terms{Experimentation, Languages}
+
+\keywords{Partial Classes, Feature-Oriented Programming, Software-Product Line, C\#}
+
+%\begin{figure*}[!tb]
+%  \begin{center}
+%    \includegraphics[width=.80\linewidth]{images/robotExample.eps}
+%    \caption{Robot example}
+%    \label{fig:example}
+%  \end{center}
+%\end{figure*}
+
+
+\section{Introduction}
+\label{sec:introduction}
+
+\input{introduction.tex}
+
+\section{Case Study: A Smart Home Software Product Line}
+\label{sec:caseStudy}
+
+\input{caseStudy.tex}
+
+\section{What we want to find in a feature-oriented programming language}
+\label{sec:fopFeatures}
+
+\input{fopFeatures.tex}
+
+\section{Implementing the Smart Home models using C\# partial classes}
+\label{sec:partialClasses}
+
+This section describes the results of our experiment about using C\# partial classes to implement the feature-oriented design of the Smart Home case study. Before describing them, we provide some background on how C\# partial classes work.
+
+\subsection{C\# partial classes}
+
+\input{partialClasses.tex}
+
+\subsection{Evaluation}
+
+\input{evaluation.tex}
+
+\subsection{Conclusions}
+
+\input{discussion.tex}
+
+%\section{Sketch of solutions for C\# partial classes pitfalls}
+%
+%Breves comentarios sobre como solucionar estos problemas. (NOTA: No estoy muy seguro acerca de si poner o no esta sección).
+
+\section{Summary and Future Work}
+\input{SummaryFutureWork.tex}
+
+\label{sec:summary}
+
+\bibliographystyle{plain}
+\bibliography{fosd2010}
+
+\balancecolumns
+
+\end{document}
