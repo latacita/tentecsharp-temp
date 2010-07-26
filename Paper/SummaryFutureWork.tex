@@ -1,0 +1,35 @@
+%=========================================================================%
+% Author: Pablo Sánchez                                                   %
+% Paper: FOSD2010 (Sumary And Future Work)                                %
+% Version: 1.0                                                            %
+% Date   : 2010/07/25                                                     %
+%=========================================================================%
+
+\paragraph{Sumary} \ \\
+
+This work has evaluated the characteristics that should ideally be supported in a feature-oriented programming language. It proposes the following:
+
+\begin{enumerate}
+\item The feature-oriented languages should provide mechanisms to group and encapsulate those elements that integrate a characteristic in order to facilitate other elements such as the capacity for extension and refinement of features. This type of language should take into account some form of adding new functionalities to the existing ones. For example, LightMng and HeaterMng are extensions of functionality for controlling and monitoring new devices. At the same time, on certain occasions it is also necessary to rely on a sufficiently-flexible mechanism of substitution. For instance, in the case of the feature SmartEnergyMng, it is necessary to override the method implementation adjustTemperature in order to verify if it is necessary to perform additional operations according to the data collected by sensors.
+
+\item Ideally, a feature-oriented language should provide constructions at level of features in order to specify which features should be instantiated or composed to produce a specific product. It should identify which modules should be included rather than having to specify the individual elements of each feature. Moreover, all of the included feature combinations should make up a secure and valid entity. For instance, if the feature SmartEnergyMng is selected, the features HeaterMng and WindowMng should implicitly be selected and composed before. This is known as composition and checking of features. 
+
+\item This project has evaluated the utilization of partial classes C\# for feature-oriented implementations providing critical point of view thereof. In order to do so, it has employed the SmartHome case study as model to specify elements belonging to a software product-line and manage of variability. This evaluation has determined, in the first case, that the partial classes lack a grouping mechanism for encapsulating features. As such, it is not possible to compose products at the level of features as is described in section 4.3. With regard to the extensibility capacity, the partial classes allow us to add new attributes and methods to the existing partial classes; however, they do not allow us to extend or replace those that already exist. For this reason, the capacity to substitute elements is limited. Another aspect is that C\# lacks a mechanism that allows for the automatic composition of dependencies, which would allow referencing the most specialised classes in a feature-selection for a specific product.
+\end{enumerate} 
+
+\paragraph{Future Work} \ \\
+
+As future work to undertake, would be to perform the necessary task such that partial classes provide a flexible and consistent manner of feature-oriented implementation, which could be to extend the C\# language in an optimal way that includes the following recommendations:
+
+\begin{enumerate}
+\item Provide an additional encapsulation unit that groups the classes contained in the features, such that can be compose products from this level. It would take into account the restrictions and the ideal consistency of the model for each included class.
+\item Introduce a refining mechanism that supports overwriting methods defined in partial classes contained in distinct features without inheritance neither virtual methods declaration. 
+
+\item Solve the manual rebinding of dependencies, automatically updating constructors and other methods to make reference to the sub-class, dependent upon the characteristics included in the final product. 
+
+\item Provide checking of consistency of the compositions at the feature level.
+\end{enumerate} 
+
+Currently MS. Visual Studio .Net has at users disposal, tools for creating its own extensions .Net. The index of utilities is called Automization Model. By means of this index, it is possible to extend the basic functionality of IDE with certain tools directed principally at the creation of add-ins, macros and program integrations attachable to the environment of development. For this reason, part of the future work will also be to investigate the scope of these tools and to evaluate the appropriate way for which to implement the relevant extensions. 
+
+
