@@ -1,0 +1,119 @@
+%==================================================================%
+% Author : Perez Ruiz, Alejandro                                   %
+% Version: 1.0, 08/02/2011                                         %                   %                                                                  %  
+% Memoria del Proyecto Fin de Carrera                              %
+%==================================================================%
+
+\documentclass[a4paper,11pt]{itsas_pfc}
+
+%=====================================================================%
+%                       My imported packages                          %
+%=====================================================================%
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{url}
+\usepackage{amsfonts}
+\usepackage[spanish,activeacute]{babel}
+
+
+% File with main configuration
+\input{config/pfc_options.tex}
+% File with some names
+\input{config/rename.tex}
+
+%=====================================================================%
+%                           Thesis's details                          %
+%=====================================================================%
+\newcommand{\myname}{Alejandro Ruiz Pérez}  % name of author
+\newcommand{\myboss}{Pablo Sánchez Barreiro} % name of supervisor
+\newcommand{\thesistitle}{Desarrollo de una Línea de Productos Software para Automatización de Hogares usando Clases Parciales de C#}
+												  % work title
+\newcommand{\worktype}{Proyecto Fin de Carrera}   % work type
+\newcommand{\logo}{images/ucLogo.eps}            % logo file (e.g. for the cover)
+
+%=====================================================================%
+%                     Definition of my own commands                   %
+%=====================================================================%
+\newcommand{\nota}[1]{\color{red}$\ll$#1$\gg$\color{black}}
+\newcommand{\imp}[1]{{\small{\sf #1}}}
+\newcommand{\stereotype}[1]{$\ll${\small{\sf #1}}$\gg$}
+
+\hyphenation{orien-ted}
+\hyphenation{aspect-orien-ted}
+\hyphenation{wea-ver}
+\hyphenation{demons-tration}
+\hyphenation{indepen-dent}
+\hyphenation{platform-indepen-dent}
+
+\setcounter{minitocdepth}{1}
+
+\begin{document}
+
+% Cover page
+\input{cover/cover.tex}
+
+\input{cover/supervisorApproval.tex}
+
+% reset page numbering
+\input{config/begin.tex}
+
+% acknowledgement
+\input{cover/acknowledgements.tex} % acknowledgements
+
+% Preface
+\input{introduction/preface-lff.tex}   % preface
+
+% Toc
+\input{config/toc.tex}
+
+\input{Config/headers.tex}
+
+\input{config/chapters.tex}
+
+% Chapter 1: Introduction
+\input{introduction/introduction.tex} % Chapter 1
+
+% Chapter 2: Foundations
+\input{background/background.tex}
+
+% Chapter 3: Related Work
+\input{related/relatedWork.tex}
+
+%=================================================================================================%
+% NOTE (Pablo): This should be removed when the final and unofficial version of the thesis is     %
+%               created                                                                           %
+%=================================================================================================%
+
+% Chapter 6: The AOEM modelling Profile
+\input{staticWeaving/staticWeaving.tex}
+
+% Chapter 7: Dynamic Weaving
+\input{dynamicWeaving/dynamicWeaving.tex}
+
+% Chapter 4: Aspect-Oriented Requirements Engineering
+\input{fromAOREtoAOAD/fromAOREtoAOAD.tex}
+
+% Chapter 5: Enhancing software architectures with aspects
+\input{mddAOSA/mddAOSA.tex}
+
+%=================================================================================================%
+% ENDNOTE (Pablo)                                                                                 %
+%=================================================================================================%
+
+% Chapter 9: Discussion and Conclusions
+\input{conclusions/conclusions.tex}
+
+% CONTENT: Appendices, if desired
+\input{config/appendix.tex}
+
+% CONTENT: List of publications
+\input{publications.tex}
+
+% Appendix A: Pópulo
+% \input{populo/populo.tex} % Appendix I
+
+% CONFIG: Bibliography style
+\input{config/bibliography.tex}
+\bibliography{references/tesisReferences}
+
+\end{document}
