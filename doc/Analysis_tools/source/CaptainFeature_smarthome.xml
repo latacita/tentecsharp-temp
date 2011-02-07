@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE CFRepository SYSTEM "cfrepository1_0.dtd">
+<CFRepository name="Smart Home" version="1.0" idCounter="225" guid="ID_C0A802640000012DFCF0854700000001">
+ <ModelSpace name="Model" guid="ID_C0A802640000012DFCF0854800000002">
+  <MetaLevel name="META" guid="ID_C0A802640000012DFCF0854E00000003">
+   <MetaFeature guid="ID_C0A802640000012DFCF0855C00000004">
+   </MetaFeature>
+   <MetaFeatureNode guid="ID_C0A802640000012DFCF0857C00000021"/>
+   <MetaCardinality guid="ID_C0A802640000012DFCF085870000002F">
+   </MetaCardinality>
+   <MetaGroup guid="ID_C0A802640000012DFCF085920000003E">
+   </MetaGroup>
+  </MetaLevel>
+  <ModelLevel name="MODEL" guid="ID_C0A802640000012DFCF0859A0000004D">
+   <FeatureSpace name="smarthome" guid="ID_C0A802640000012DFD1A4A6000000078">
+    <Feature name="Smart Home" description="" premature="false" guid="ID_C0A802640000012DFD1A9A1F0000007A" constraintId="25">
+    </Feature>
+    <Feature name="Floor" description="" premature="false" guid="ID_C0A802640000012DFD1ADFF10000007C" constraintId="27">
+     <SpecializationParameter type="int"/>
+    </Feature>
+    <Feature name="Staircase" description="" premature="false" guid="ID_C0A802640000012DFD1BC65D0000007F" constraintId="30">
+    </Feature>
+    <Feature name="upperRoom" description="" premature="false" guid="ID_C0A802640000012DFD1C2B1800000081" constraintId="32">
+     <SpecializationParameter type="string"/>
+    </Feature>
+    <Feature name="lowerRoom" description="" premature="false" guid="ID_C0A802640000012DFD1CA86E00000083" constraintId="34">
+     <SpecializationParameter type="string"/>
+    </Feature>
+    <Feature name="Room" description="" premature="false" guid="ID_C0A802640000012DFD1ED98600000088" constraintId="39">
+     <SpecializationParameter type="string"/>
+    </Feature>
+    <Feature name="Door" description="" premature="false" guid="ID_C0A802640000012DFD2101B900000046" constraintId="42">
+    </Feature>
+    <Feature name="DoorSensor" description="" premature="false" guid="ID_C0A802640000012DFD21ACAD00000048" constraintId="44">
+    </Feature>
+    <Feature name="DoorOpener" description="" premature="false" guid="ID_C0A802640000012DFD21DD010000004A" constraintId="46">
+    </Feature>
+    <Feature name="ExternalDoor" description="" premature="false" guid="ID_C0A802640000012DFD24667F0000004F" constraintId="52">
+    </Feature>
+    <Feature name="FireSensor" description="" premature="false" guid="ID_C0A802640000012DFD249DBC00000051" constraintId="54">
+    </Feature>
+    <Feature name="Heater" description="" premature="false" guid="ID_C0A802640000012DFD24D30400000053" constraintId="56">
+    </Feature>
+    <Feature name="Ligth" description="" premature="false" guid="ID_C0A802640000012DFD24FEAA00000055" constraintId="58">
+    </Feature>
+    <Feature name="Window" description="" premature="false" guid="ID_C0A802640000012DFD252F8000000057" constraintId="60">
+    </Feature>
+    <Feature name="Alarm" description="" premature="false" guid="ID_C0A802640000012DFD2560B100000059" constraintId="62">
+    </Feature>
+    <Feature name="Thermostat" description="" premature="false" guid="ID_C0A802640000012DFD2A34D100000061" constraintId="71">
+    </Feature>
+    <Feature name="MeasurementUnits" description="" premature="false" guid="ID_C0A802640000012DFD2AAFF600000064" constraintId="74">
+    </Feature>
+    <Feature name="LigthSwitch" description="" premature="false" guid="ID_C0A802640000012DFD2B8FDC00000067" constraintId="77">
+    </Feature>
+    <Feature name="Dimmer" description="" premature="false" guid="ID_C0A802640000012DFD2BBE0D00000069" constraintId="79">
+    </Feature>
+    <Feature name="WindowSensor" description="" premature="false" guid="ID_C0A802640000012DFD2D43D20000006D" constraintId="84">
+    </Feature>
+    <Feature name="WindowActuator" description="" premature="false" guid="ID_C0A802640000012DFD2D904E0000006F" constraintId="86">
+    </Feature>
+    <Feature name="Blind" description="" premature="false" guid="ID_C0A802640000012DFD2DD8A200000071" constraintId="88">
+    </Feature>
+    <Feature name="BlindActuator" description="" premature="false" guid="ID_C0A802640000012DFD2E2A3800000073" constraintId="90">
+    </Feature>
+    <Feature name="FloorGUI" description="" premature="false" guid="ID_C0A802640000012DFD304CED00000079" constraintId="96">
+    </Feature>
+    <Feature name="RoomDevice" description="" premature="false" guid="ID_C0A802640000012DFF5633610000007C" constraintId="100">
+    </Feature>
+    <Feature name="WaterSprinkler" description="" premature="false" guid="ID_C0A802640000012DFF568E5D0000007E" constraintId="102">
+    </Feature>
+    <Feature name="CentralGUI" description="" premature="false" guid="ID_C0A802640000012DFF5864B500000082" constraintId="106">
+    </Feature>
+    <Feature name="RoomGUI" description="" premature="false" guid="ID_C0A802640000012DFF5965AA00000084" constraintId="108">
+    </Feature>
+    <Feature name="GUI" description="" premature="false" guid="ID_C0A802640000012DFF5A790800000088" constraintId="112">
+    </Feature>
+    <Feature name="prueba" description="" premature="false" guid="ID_C0A802640000012DFF5B7ABE0000008B" constraintId="115">
+    </Feature>
+    <Feature name="FloorGUI" description="" premature="false" guid="ID_C0A802640000012DFF5D75650000008F" constraintId="119">
+    </Feature>
+    <Feature name="CentralGUI" description="" premature="false" guid="ID_C0A802640000012DFF5DDFBF00000091" constraintId="121">
+    </Feature>
+    <Feature name="GUI" description="" premature="false" guid="ID_C0A802640000012DFF5E648C00000095" constraintId="125">
+    </Feature>
+    <Feature name="BasicFacilities" description="" premature="false" guid="ID_C0A802640000012DFF65B16D0000009A" constraintId="131">
+    </Feature>
+    <Feature name="DoorManagement" description="" premature="false" guid="ID_C0A802640000012DFF6606320000009C" constraintId="133">
+    </Feature>
+    <Feature name="AutomaticOpen" description="" premature="false" guid="ID_C0A802640000012DFF6970520000009F" constraintId="136">
+    </Feature>
+    <Feature name="Authentication" description="" premature="false" guid="ID_C0A802640000012DFF69BB3E000000A1" constraintId="138">
+    </Feature>
+    <Feature name="Keypad" description="" premature="false" guid="ID_C0A802640000012DFF6A48CB000000A5" constraintId="142">
+    </Feature>
+    <Feature name="EyeRecognition" description="" premature="false" guid="ID_C0A802640000012DFF6A8CE5000000A7" constraintId="144">
+    </Feature>
+    <Feature name="FingerPrint" description="" premature="false" guid="ID_C0A802640000012DFF6AC8E7000000A9" constraintId="146">
+    </Feature>
+    <Feature name="Keypad" description="" premature="false" guid="ID_C0A802640000012DFF6AF69E000000AB" constraintId="148">
+    </Feature>
+    <Feature name="Keypad" description="" premature="false" guid="ID_C0A802640000012DFF6C8102000000B0" constraintId="153">
+    </Feature>
+    <Feature name="HeatingManagement" description="" premature="false" guid="ID_C0A802640000012DFF6D6CEB000000B4" constraintId="157">
+    </Feature>
+    <Feature name="LightManagement" description="" premature="false" guid="ID_C0A802640000012DFF6E0119000000B6" constraintId="159">
+    </Feature>
+    <Feature name="SimpleControl" description="" premature="false" guid="ID_C0A802640000012DFF6EB056000000BA" constraintId="164">
+    </Feature>
+    <Feature name="PredefinedValues" description="" premature="false" guid="ID_C0A802640000012DFF6EE6C4000000BC" constraintId="166">
+    </Feature>
+    <Feature name="TVWatching" description="" premature="false" guid="ID_C0A802640000012DFF718395000000C1" constraintId="171">
+    </Feature>
+    <Feature name="Reading" description="" premature="false" guid="ID_C0A802640000012DFF71A86E000000C3" constraintId="173">
+    </Feature>
+    <Feature name="Normal" description="" premature="false" guid="ID_C0A802640000012DFF71DCB9000000C5" constraintId="175">
+    </Feature>
+    <Feature name="Ambient" description="" premature="false" guid="ID_C0A802640000012DFF724B58000000C7" constraintId="177">
+    </Feature>
+    <Feature name="WindowManagement" description="" premature="false" guid="ID_C0A802640000012DFF7392D5000000CE" constraintId="184">
+    </Feature>
+    <Feature name="FireDetection" description="" premature="false" guid="ID_C0A802640000012DFF73C3DB000000D0" constraintId="186">
+    </Feature>
+    <Feature name="SprinklingWater" description="" premature="false" guid="ID_C0A802640000012DFF750AC1000000D5" constraintId="192">
+    </Feature>
+    <Feature name="ComplexFacilities" description="" premature="false" guid="ID_C0A802640000012DFF77053B000000D8" constraintId="195">
+    </Feature>
+    <Feature name="BasicFacilities" description="" premature="false" guid="ID_C0A802640000012DFF794E69000000DC" constraintId="199">
+    </Feature>
+    <Feature name="PresenceSimulation" description="" premature="false" guid="ID_C0A802640000012DFF7A7A8F000000E0" constraintId="203">
+    </Feature>
+    <Feature name="ComplexFacilities" description="" premature="false" guid="ID_C0A802640000012DFF7B79C7000000E3" constraintId="206">
+    </Feature>
+    <Feature name="SmartHeaterManagement" description="" premature="false" guid="ID_C0A802640000012DFF7BBC5A000000E5" constraintId="208">
+    </Feature>
+    <Feature name="SmartLigthManagement" description="" premature="false" guid="ID_C0A802640000012DFF7C080E000000E7" constraintId="210">
+    </Feature>
+    <Feature name="PresenceSimulation" description="" premature="false" guid="ID_C0A802640000012DFF7C85A0000000EB" constraintId="214">
+    </Feature>
+    <Feature name="LigthSimulation" description="" premature="false" guid="ID_C0A802640000012DFF7CF394000000EE" constraintId="217">
+    </Feature>
+    <Feature name="BlindSimulation" description="" premature="false" guid="ID_C0A802640000012DFF7D2391000000F0" constraintId="219">
+    </Feature>
+    <Diagram name="smarthome" guid="ID_C0A802640000012DFD1A650000000079" xpos="0" ypos="0" width="1065" height="683">
+     <FeatureNode guid="ID_C0A802640000012DFD1A9A220000007B" refFeatureName="Smart Home" refGuidFeatureTree="ID_C0A802640000012DFD1A9A1F0000007A" xpos="260" ypos="30" constraintId="26">
+      <Cardinality guid="ID_C0A802640000012DFD1B03280000007E" constraintId="29">
+       <Limit min="1" max="2147483647"/>
+       <FeatureNode guid="ID_C0A802640000012DFD1ADFF40000007D" refFeatureName="Floor" refGuidFeatureTree="ID_C0A802640000012DFD1ADFF10000007C" xpos="217" ypos="92" constraintId="28">
+        <SpecializationParameter type="int"/>
+        <Cardinality guid="ID_C0A802640000012DFD1F08AD0000008A" constraintId="41">
+         <Limit min="1" max="2147483647"/>
+         <FeatureNode guid="ID_C0A802640000012DFD1ED98800000089" refFeatureName="Room" refGuidFeatureTree="ID_C0A802640000012DFD1ED98600000088" xpos="78" ypos="167" constraintId="40">
+          <SpecializationParameter type="string"/>
+          <Cardinality guid="ID_C0A802640000012DFD2589230000005B" constraintId="64">
+           <Limit min="0" max="2147483647"/>
+           <FeatureNode guid="ID_C0A802640000012DFD24668100000050" refFeatureName="ExternalDoor" refGuidFeatureTree="ID_C0A802640000012DFD24667F0000004F" xpos="5" ypos="236" constraintId="53">
+           </FeatureNode>
+          </Cardinality>
+          <Cardinality guid="ID_C0A802640000012DFD259FC50000005C" constraintId="65">
+           <Limit min="0" max="2147483647"/>
+           <FeatureNode guid="ID_C0A802640000012DFD249DBF00000052" refFeatureName="FireSensor" refGuidFeatureTree="ID_C0A802640000012DFD249DBC00000051" xpos="81" ypos="285" constraintId="55">
+           </FeatureNode>
+          </Cardinality>
+          <Cardinality guid="ID_C0A802640000012DFD25B9E50000005D" constraintId="66">
+           <Limit min="0" max="1"/>
+           <FeatureNode guid="ID_C0A802640000012DFD24D30600000054" refFeatureName="Heater" refGuidFeatureTree="ID_C0A802640000012DFD24D30400000053" xpos="168" ypos="297" constraintId="57">
+            <Cardinality guid="ID_C0A802640000012DFD2A670700000063" constraintId="73">
+             <Limit min="1" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFD2A34D300000062" refFeatureName="Thermostat" refGuidFeatureTree="ID_C0A802640000012DFD2A34D100000061" xpos="120" ypos="355" constraintId="72">
+              <Cardinality guid="ID_C0A802640000012DFD2ADB2A00000066" constraintId="76">
+               <Limit min="1" max="1"/>
+               <FeatureNode guid="ID_C0A802640000012DFD2AAFF700000065" refFeatureName="MeasurementUnits" refGuidFeatureTree="ID_C0A802640000012DFD2AAFF600000064" xpos="63" ypos="409" constraintId="75">
+               </FeatureNode>
+              </Cardinality>
+             </FeatureNode>
+            </Cardinality>
+           </FeatureNode>
+          </Cardinality>
+          <Cardinality guid="ID_C0A802640000012DFD25DDA60000005E" constraintId="67">
+           <Limit min="0" max="2147483647"/>
+           <FeatureNode guid="ID_C0A802640000012DFD24FEAE00000056" refFeatureName="Ligth" refGuidFeatureTree="ID_C0A802640000012DFD24FEAA00000055" xpos="253" ypos="300" constraintId="59">
+            <Cardinality guid="ID_C0A802640000012DFD2C05610000006B" constraintId="81">
+             <Limit min="0" max="2147483647"/>
+             <FeatureNode guid="ID_C0A802640000012DFD2B8FDF00000068" refFeatureName="LigthSwitch" refGuidFeatureTree="ID_C0A802640000012DFD2B8FDC00000067" xpos="212" ypos="372" constraintId="78">
+             </FeatureNode>
+            </Cardinality>
+            <Cardinality guid="ID_C0A802640000012DFD2C14640000006C" constraintId="82">
+             <Limit min="0" max="2147483647"/>
+             <FeatureNode guid="ID_C0A802640000012DFD2BBE100000006A" refFeatureName="Dimmer" refGuidFeatureTree="ID_C0A802640000012DFD2BBE0D00000069" xpos="310" ypos="372" constraintId="80">
+             </FeatureNode>
+            </Cardinality>
+           </FeatureNode>
+          </Cardinality>
+          <Cardinality guid="ID_C0A802640000012DFD2604920000005F" constraintId="68">
+           <Limit min="0" max="1"/>
+           <FeatureNode guid="ID_C0A802640000012DFD2560B40000005A" refFeatureName="Alarm" refGuidFeatureTree="ID_C0A802640000012DFD2560B100000059" xpos="437" ypos="296" constraintId="63">
+           </FeatureNode>
+          </Cardinality>
+          <Cardinality guid="ID_C0A802640000012DFD265CF700000060" constraintId="69">
+           <Limit min="0" max="2147483647"/>
+           <FeatureNode guid="ID_C0A802640000012DFD252F8300000058" refFeatureName="Window" refGuidFeatureTree="ID_C0A802640000012DFD252F8000000057" xpos="388" ypos="356" constraintId="61">
+            <Cardinality guid="ID_C0A802640000012DFD2E50EC00000075" constraintId="92">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFD2D43D40000006E" refFeatureName="WindowSensor" refGuidFeatureTree="ID_C0A802640000012DFD2D43D20000006D" xpos="316" ypos="426" constraintId="85">
+             </FeatureNode>
+            </Cardinality>
+            <Cardinality guid="ID_C0A802640000012DFD2E646F00000076" constraintId="93">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFD2D905200000070" refFeatureName="WindowActuator" refGuidFeatureTree="ID_C0A802640000012DFD2D904E0000006F" xpos="441" ypos="427" constraintId="87">
+             </FeatureNode>
+            </Cardinality>
+            <Cardinality guid="ID_C0A802640000012DFD2E7AA600000077" constraintId="94">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFD2DD8A300000072" refFeatureName="Blind" refGuidFeatureTree="ID_C0A802640000012DFD2DD8A200000071" xpos="568" ypos="426" constraintId="89">
+              <Cardinality guid="ID_C0A802640000012DFD2EA20A00000078" constraintId="95">
+               <Limit min="1" max="1"/>
+               <FeatureNode guid="ID_C0A802640000012DFD2E2A3B00000074" refFeatureName="BlindActuator" refGuidFeatureTree="ID_C0A802640000012DFD2E2A3800000073" xpos="546" ypos="485" constraintId="91">
+               </FeatureNode>
+              </Cardinality>
+             </FeatureNode>
+            </Cardinality>
+           </FeatureNode>
+          </Cardinality>
+          <Cardinality guid="ID_C0A802640000012DFF56CF0B00000080" constraintId="104">
+           <Limit min="0" max="2147483647"/>
+           <FeatureNode guid="ID_C0A802640000012DFF5633650000007D" refFeatureName="RoomDevice" refGuidFeatureTree="ID_C0A802640000012DFF5633610000007C" xpos="522" ypos="252" constraintId="101">
+           </FeatureNode>
+          </Cardinality>
+          <Cardinality guid="ID_C0A802640000012DFF572F6D00000081" constraintId="105">
+           <Limit min="0" max="2147483647"/>
+           <FeatureNode guid="ID_C0A802640000012DFF568E600000007F" refFeatureName="WaterSprinkler" refGuidFeatureTree="ID_C0A802640000012DFF568E5D0000007E" xpos="498" ypos="293" constraintId="103">
+           </FeatureNode>
+          </Cardinality>
+          <Cardinality guid="ID_C0A802640000012DFF59A9EF00000086" constraintId="110">
+           <Limit min="0" max="1"/>
+           <FeatureNode guid="ID_C0A802640000012DFF5965AD00000085" refFeatureName="RoomGUI" refGuidFeatureTree="ID_C0A802640000012DFF5965AA00000084" xpos="480" ypos="355" constraintId="109">
+            <Cardinality guid="ID_C0A802640000012DFF5E83C500000097" constraintId="127">
+             <Limit min="1" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFF5E648E00000096" refFeatureName="GUI" refGuidFeatureTree="ID_C0A802640000012DFF5E648C00000095" xpos="726" ypos="274" constraintId="126">
+             </FeatureNode>
+            </Cardinality>
+           </FeatureNode>
+          </Cardinality>
+          <Cardinality guid="ID_C0A802640000012DFF7484FB000000D4" constraintId="191">
+           <Limit min="0" max="1"/>
+           <FeatureNode guid="ID_C0A802640000012DFF65B1720000009B" refFeatureName="BasicFacilities" refGuidFeatureTree="ID_C0A802640000012DFF65B16D0000009A" xpos="701" ypos="514" constraintId="132">
+            <Cardinality guid="ID_C0A802640000012DFF68C3490000009E" constraintId="135">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFF6606350000009D" refFeatureName="DoorManagement" refGuidFeatureTree="ID_C0A802640000012DFF6606320000009C" xpos="551" ypos="563" constraintId="134">
+              <Cardinality guid="ID_C0A802640000012DFF69D7A5000000A3" constraintId="140">
+               <Limit min="0" max="1"/>
+               <FeatureNode guid="ID_C0A802640000012DFF697054000000A0" refFeatureName="AutomaticOpen" refGuidFeatureTree="ID_C0A802640000012DFF6970520000009F" xpos="495" ypos="613" constraintId="137">
+               </FeatureNode>
+              </Cardinality>
+              <Cardinality guid="ID_C0A802640000012DFF69E612000000A4" constraintId="141">
+               <Limit min="0" max="1"/>
+               <FeatureNode guid="ID_C0A802640000012DFF69BB40000000A2" refFeatureName="Authentication" refGuidFeatureTree="ID_C0A802640000012DFF69BB3E000000A1" xpos="633" ypos="613" constraintId="139">
+                <Group guid="ID_C0A802640000012DFF6CCD8F000000B3" constraintId="156">
+                 <Limit min="1" max="4"/>
+                 <FeatureNode guid="ID_C0A802640000012DFF6C8103000000B1" refFeatureName="Keypad" refGuidFeatureTree="ID_C0A802640000012DFF6C8102000000B0" xpos="895" ypos="661" constraintId="154">
+                 </FeatureNode>
+                 <FeatureNode guid="ID_C0A802640000012DFF6AC8E8000000AA" refFeatureName="FingerPrint" refGuidFeatureTree="ID_C0A802640000012DFF6AC8E7000000A9" xpos="801" ypos="663" constraintId="147">
+                 </FeatureNode>
+                 <FeatureNode guid="ID_C0A802640000012DFF6A8CE6000000A8" refFeatureName="EyeRecognition" refGuidFeatureTree="ID_C0A802640000012DFF6A8CE5000000A7" xpos="688" ypos="681" constraintId="145">
+                 </FeatureNode>
+                 <FeatureNode guid="ID_C0A802640000012DFF6A48D0000000A6" refFeatureName="Keypad" refGuidFeatureTree="ID_C0A802640000012DFF6A48CB000000A5" xpos="613" ypos="663" constraintId="143">
+                 </FeatureNode>
+                </Group>
+               </FeatureNode>
+              </Cardinality>
+             </FeatureNode>
+            </Cardinality>
+            <Cardinality guid="ID_C0A802640000012DFF6E14E9000000B8" constraintId="161">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFF6D6CED000000B5" refFeatureName="HeatingManagement" refGuidFeatureTree="ID_C0A802640000012DFF6D6CEB000000B4" xpos="690" ypos="563" constraintId="158">
+             </FeatureNode>
+            </Cardinality>
+            <Cardinality guid="ID_C0A802640000012DFF6E55C0000000B9" constraintId="163">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFF6E011B000000B7" refFeatureName="LightManagement" refGuidFeatureTree="ID_C0A802640000012DFF6E0119000000B6" xpos="849" ypos="564" constraintId="160">
+              <Group guid="ID_C0A802640000012DFF6F7705000000C0" constraintId="170">
+               <Limit min="1" max="2"/>
+               <FeatureNode guid="ID_C0A802640000012DFF6EE6C5000000BD" refFeatureName="PredefinedValues" refGuidFeatureTree="ID_C0A802640000012DFF6EE6C4000000BC" xpos="964" ypos="599" constraintId="167">
+                <Group guid="ID_C0A802640000012DFF72D730000000CD" constraintId="183">
+                 <Limit min="1" max="4"/>
+                 <FeatureNode guid="ID_C0A802640000012DFF718398000000C2" refFeatureName="TVWatching" refGuidFeatureTree="ID_C0A802640000012DFF718395000000C1" xpos="906" ypos="637" constraintId="172">
+                 </FeatureNode>
+                 <FeatureNode guid="ID_C0A802640000012DFF71A870000000C4" refFeatureName="Reading" refGuidFeatureTree="ID_C0A802640000012DFF71A86E000000C3" xpos="1003" ypos="669" constraintId="174">
+                 </FeatureNode>
+                 <FeatureNode guid="ID_C0A802640000012DFF71DCBB000000C6" refFeatureName="Normal" refGuidFeatureTree="ID_C0A802640000012DFF71DCB9000000C5" xpos="1084" ypos="653" constraintId="176">
+                 </FeatureNode>
+                 <FeatureNode guid="ID_C0A802640000012DFF724B5B000000C8" refFeatureName="Ambient" refGuidFeatureTree="ID_C0A802640000012DFF724B58000000C7" xpos="1148" ypos="652" constraintId="178">
+                 </FeatureNode>
+                </Group>
+               </FeatureNode>
+               <FeatureNode guid="ID_C0A802640000012DFF6EB05C000000BB" refFeatureName="SimpleControl" refGuidFeatureTree="ID_C0A802640000012DFF6EB056000000BA" xpos="816" ypos="607" constraintId="165">
+               </FeatureNode>
+              </Group>
+             </FeatureNode>
+            </Cardinality>
+            <Cardinality guid="ID_C0A802640000012DFF73E867000000D2" constraintId="188">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFF7392D7000000CF" refFeatureName="WindowManagement" refGuidFeatureTree="ID_C0A802640000012DFF7392D5000000CE" xpos="992" ypos="562" constraintId="185">
+             </FeatureNode>
+            </Cardinality>
+            <Cardinality guid="ID_C0A802640000012DFF73F813000000D3" constraintId="189">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFF73C3DE000000D1" refFeatureName="FireDetection" refGuidFeatureTree="ID_C0A802640000012DFF73C3DB000000D0" xpos="1140" ypos="560" constraintId="187">
+             </FeatureNode>
+            </Cardinality>
+           </FeatureNode>
+          </Cardinality>
+          <Cardinality guid="ID_C0A802640000012DFF7853C8000000DB" constraintId="198">
+           <Limit min="0" max="1"/>
+           <FeatureNode guid="ID_C0A802640000012DFF65B1720000009B" refFeatureName="BasicFacilities" refGuidFeatureTree="ID_C0A802640000012DFF65B16D0000009A" xpos="701" ypos="514" constraintId="132">
+            <Cardinality guid="ID_C0A802640000012DFF68C3490000009E" constraintId="135">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFF6606350000009D" refFeatureName="DoorManagement" refGuidFeatureTree="ID_C0A802640000012DFF6606320000009C" xpos="551" ypos="563" constraintId="134">
+              <Cardinality guid="ID_C0A802640000012DFF69D7A5000000A3" constraintId="140">
+               <Limit min="0" max="1"/>
+               <FeatureNode guid="ID_C0A802640000012DFF697054000000A0" refFeatureName="AutomaticOpen" refGuidFeatureTree="ID_C0A802640000012DFF6970520000009F" xpos="495" ypos="613" constraintId="137">
+               </FeatureNode>
+              </Cardinality>
+              <Cardinality guid="ID_C0A802640000012DFF69E612000000A4" constraintId="141">
+               <Limit min="0" max="1"/>
+               <FeatureNode guid="ID_C0A802640000012DFF69BB40000000A2" refFeatureName="Authentication" refGuidFeatureTree="ID_C0A802640000012DFF69BB3E000000A1" xpos="633" ypos="613" constraintId="139">
+                <Group guid="ID_C0A802640000012DFF6CCD8F000000B3" constraintId="156">
+                 <Limit min="1" max="4"/>
+                 <FeatureNode guid="ID_C0A802640000012DFF6C8103000000B1" refFeatureName="Keypad" refGuidFeatureTree="ID_C0A802640000012DFF6C8102000000B0" xpos="895" ypos="661" constraintId="154">
+                 </FeatureNode>
+                 <FeatureNode guid="ID_C0A802640000012DFF6AC8E8000000AA" refFeatureName="FingerPrint" refGuidFeatureTree="ID_C0A802640000012DFF6AC8E7000000A9" xpos="801" ypos="663" constraintId="147">
+                 </FeatureNode>
+                 <FeatureNode guid="ID_C0A802640000012DFF6A8CE6000000A8" refFeatureName="EyeRecognition" refGuidFeatureTree="ID_C0A802640000012DFF6A8CE5000000A7" xpos="688" ypos="681" constraintId="145">
+                 </FeatureNode>
+                 <FeatureNode guid="ID_C0A802640000012DFF6A48D0000000A6" refFeatureName="Keypad" refGuidFeatureTree="ID_C0A802640000012DFF6A48CB000000A5" xpos="613" ypos="663" constraintId="143">
+                 </FeatureNode>
+                </Group>
+               </FeatureNode>
+              </Cardinality>
+             </FeatureNode>
+            </Cardinality>
+            <Cardinality guid="ID_C0A802640000012DFF6E14E9000000B8" constraintId="161">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFF6D6CED000000B5" refFeatureName="HeatingManagement" refGuidFeatureTree="ID_C0A802640000012DFF6D6CEB000000B4" xpos="690" ypos="563" constraintId="158">
+             </FeatureNode>
+            </Cardinality>
+            <Cardinality guid="ID_C0A802640000012DFF6E55C0000000B9" constraintId="163">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFF6E011B000000B7" refFeatureName="LightManagement" refGuidFeatureTree="ID_C0A802640000012DFF6E0119000000B6" xpos="849" ypos="564" constraintId="160">
+              <Group guid="ID_C0A802640000012DFF6F7705000000C0" constraintId="170">
+               <Limit min="1" max="2"/>
+               <FeatureNode guid="ID_C0A802640000012DFF6EE6C5000000BD" refFeatureName="PredefinedValues" refGuidFeatureTree="ID_C0A802640000012DFF6EE6C4000000BC" xpos="964" ypos="599" constraintId="167">
+                <Group guid="ID_C0A802640000012DFF72D730000000CD" constraintId="183">
+                 <Limit min="1" max="4"/>
+                 <FeatureNode guid="ID_C0A802640000012DFF718398000000C2" refFeatureName="TVWatching" refGuidFeatureTree="ID_C0A802640000012DFF718395000000C1" xpos="906" ypos="637" constraintId="172">
+                 </FeatureNode>
+                 <FeatureNode guid="ID_C0A802640000012DFF71A870000000C4" refFeatureName="Reading" refGuidFeatureTree="ID_C0A802640000012DFF71A86E000000C3" xpos="1003" ypos="669" constraintId="174">
+                 </FeatureNode>
+                 <FeatureNode guid="ID_C0A802640000012DFF71DCBB000000C6" refFeatureName="Normal" refGuidFeatureTree="ID_C0A802640000012DFF71DCB9000000C5" xpos="1084" ypos="653" constraintId="176">
+                 </FeatureNode>
+                 <FeatureNode guid="ID_C0A802640000012DFF724B5B000000C8" refFeatureName="Ambient" refGuidFeatureTree="ID_C0A802640000012DFF724B58000000C7" xpos="1148" ypos="652" constraintId="178">
+                 </FeatureNode>
+                </Group>
+               </FeatureNode>
+               <FeatureNode guid="ID_C0A802640000012DFF6EB05C000000BB" refFeatureName="SimpleControl" refGuidFeatureTree="ID_C0A802640000012DFF6EB056000000BA" xpos="816" ypos="607" constraintId="165">
+               </FeatureNode>
+              </Group>
+             </FeatureNode>
+            </Cardinality>
+            <Cardinality guid="ID_C0A802640000012DFF73E867000000D2" constraintId="188">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFF7392D7000000CF" refFeatureName="WindowManagement" refGuidFeatureTree="ID_C0A802640000012DFF7392D5000000CE" xpos="992" ypos="562" constraintId="185">
+             </FeatureNode>
+            </Cardinality>
+            <Cardinality guid="ID_C0A802640000012DFF73F813000000D3" constraintId="189">
+             <Limit min="0" max="1"/>
+             <FeatureNode guid="ID_C0A802640000012DFF73C3DE000000D1" refFeatureName="FireDetection" refGuidFeatureTree="ID_C0A802640000012DFF73C3DB000000D0" xpos="1140" ypos="560" constraintId="187">
+             </FeatureNode>
+            </Cardinality>
+           </FeatureNode>
+          </Cardinality>
+          <Cardinality guid="ID_C0A802640000012DFF7A0A58000000DF" constraintId="202">
+           <Limit min="0" max="1"/>
+           <FeatureNode guid="ID_C0A802640000012DFF77053D000000D9" refFeatureName="ComplexFacilities" refGuidFeatureTree="ID_C0A802640000012DFF77053B000000D8" xpos="651" ypos="318" constraintId="196">
+           </FeatureNode>
+          </Cardinality>
+         </FeatureNode>
+        </Cardinality>
+        <Cardinality guid="ID_C0A802640000012DFD22895F0000004E" constraintId="50">
+         <Limit min="0" max="2147483647"/>
+         <FeatureNode guid="ID_C0A802640000012DFD2101BD00000047" refFeatureName="Door" refGuidFeatureTree="ID_C0A802640000012DFD2101B900000046" xpos="323" ypos="145" constraintId="43">
+          <Cardinality guid="ID_C0A802640000012DFD22086C0000004C" constraintId="48">
+           <Limit min="0" max="1"/>
+           <FeatureNode guid="ID_C0A802640000012DFD21DD040000004B" refFeatureName="DoorOpener" refGuidFeatureTree="ID_C0A802640000012DFD21DD010000004A" xpos="364" ypos="186" constraintId="47">
+           </FeatureNode>
+          </Cardinality>
+          <Cardinality guid="ID_C0A802640000012DFD2244FE0000004D" constraintId="49">
+           <Limit min="0" max="1"/>
+           <FeatureNode guid="ID_C0A802640000012DFD21ACAE00000049" refFeatureName="DoorSensor" refGuidFeatureTree="ID_C0A802640000012DFD21ACAD00000048" xpos="262" ypos="183" constraintId="45">
+           </FeatureNode>
+          </Cardinality>
+         </FeatureNode>
+        </Cardinality>
+       </FeatureNode>
+      </Cardinality>
+      <Cardinality guid="ID_C0A802640000012DFD1DA2AA00000087" constraintId="38">
+       <Limit min="0" max="2147483647"/>
+       <FeatureNode guid="ID_C0A802640000012DFD1BC66500000080" refFeatureName="Staircase" refGuidFeatureTree="ID_C0A802640000012DFD1BC65D0000007F" xpos="645" ypos="86" constraintId="31">
+        <Cardinality guid="ID_C0A802640000012DFD1CD8B400000085" constraintId="36">
+         <Limit min="1" max="1"/>
+         <FeatureNode guid="ID_C0A802640000012DFD1C2B1B00000082" refFeatureName="upperRoom" refGuidFeatureTree="ID_C0A802640000012DFD1C2B1800000081" xpos="564" ypos="143" constraintId="33">
+          <SpecializationParameter type="string"/>
+         </FeatureNode>
+        </Cardinality>
+        <Cardinality guid="ID_C0A802640000012DFD1D0C1600000086" constraintId="37">
+         <Limit min="1" max="1"/>
+         <FeatureNode guid="ID_C0A802640000012DFD1CA87000000084" refFeatureName="lowerRoom" refGuidFeatureTree="ID_C0A802640000012DFD1CA86E00000083" xpos="718" ypos="138" constraintId="35">
+          <SpecializationParameter type="string"/>
+         </FeatureNode>
+        </Cardinality>
+       </FeatureNode>
+      </Cardinality>
+      <Cardinality guid="ID_C0A802640000012DFF5DFBD700000093" constraintId="123">
+       <Limit min="1" max="1"/>
+       <FeatureNode guid="ID_C0A802640000012DFF5DDFC100000092" refFeatureName="CentralGUI" refGuidFeatureTree="ID_C0A802640000012DFF5DDFBF00000091" xpos="828" ypos="91" constraintId="122">
+        <Cardinality guid="ID_C0A802640000012DFF5EB42400000099" constraintId="129">
+         <Limit min="1" max="1"/>
+         <FeatureNode guid="ID_C0A802640000012DFF5E648E00000096" refFeatureName="GUI" refGuidFeatureTree="ID_C0A802640000012DFF5E648C00000095" xpos="726" ypos="274" constraintId="126">
+         </FeatureNode>
+        </Cardinality>
+        <Cardinality guid="ID_C0A802640000012DFF79A418000000DE" constraintId="201">
+         <Limit min="0" max="1"/>
+         <FeatureNode guid="ID_C0A802640000012DFF794E6A000000DD" refFeatureName="BasicFacilities" refGuidFeatureTree="ID_C0A802640000012DFF794E69000000DC" xpos="820" ypos="272" constraintId="200">
+         </FeatureNode>
+        </Cardinality>
+       </FeatureNode>
+      </Cardinality>
+      <Cardinality guid="ID_C0A802640000012DFF5E138100000094" constraintId="124">
+       <Limit min="1" max="1"/>
+       <FeatureNode guid="ID_C0A802640000012DFF5D756600000090" refFeatureName="FloorGUI" refGuidFeatureTree="ID_C0A802640000012DFF5D75650000008F" xpos="481" ypos="164" constraintId="120">
+        <Cardinality guid="ID_C0A802640000012DFF5E93DF00000098" constraintId="128">
+         <Limit min="1" max="1"/>
+         <FeatureNode guid="ID_C0A802640000012DFF5E648E00000096" refFeatureName="GUI" refGuidFeatureTree="ID_C0A802640000012DFF5E648C00000095" xpos="726" ypos="274" constraintId="126">
+         </FeatureNode>
+        </Cardinality>
+       </FeatureNode>
+      </Cardinality>
+      <Cardinality guid="ID_C0A802640000012DFF7A9788000000E2" constraintId="205">
+       <Limit min="0" max="1"/>
+       <FeatureNode guid="ID_C0A802640000012DFF7A7A92000000E1" refFeatureName="PresenceSimulation" refGuidFeatureTree="ID_C0A802640000012DFF7A7A8F000000E0" xpos="942" ypos="90" constraintId="204">
+       </FeatureNode>
+      </Cardinality>
+      <Cardinality guid="ID_C0A802640000012DFF7E44D2000000F5" constraintId="224">
+       <Limit min="0" max="1"/>
+       <FeatureNode guid="ID_C0A802640000012DFF7B79C9000000E4" refFeatureName="ComplexFacilities" refGuidFeatureTree="ID_C0A802640000012DFF7B79C7000000E3" xpos="1141" ypos="113" constraintId="207">
+        <Cardinality guid="ID_C0A802640000012DFF7C2D77000000E9" constraintId="212">
+         <Limit min="0" max="1"/>
+         <FeatureNode guid="ID_C0A802640000012DFF7C0811000000E8" refFeatureName="SmartLigthManagement" refGuidFeatureTree="ID_C0A802640000012DFF7C080E000000E7" xpos="1125" ypos="193" constraintId="211">
+         </FeatureNode>
+        </Cardinality>
+        <Cardinality guid="ID_C0A802640000012DFF7C3A49000000EA" constraintId="213">
+         <Limit min="0" max="1"/>
+         <FeatureNode guid="ID_C0A802640000012DFF7BBC5D000000E6" refFeatureName="SmartHeaterManagement" refGuidFeatureTree="ID_C0A802640000012DFF7BBC5A000000E5" xpos="940" ypos="192" constraintId="209">
+         </FeatureNode>
+        </Cardinality>
+        <Cardinality guid="ID_C0A802640000012DFF7CA5F9000000ED" constraintId="216">
+         <Limit min="0" max="1"/>
+         <FeatureNode guid="ID_C0A802640000012DFF7C85A2000000EC" refFeatureName="PresenceSimulation" refGuidFeatureTree="ID_C0A802640000012DFF7C85A0000000EB" xpos="1295" ypos="189" constraintId="215">
+          <Group guid="ID_C0A802640000012DFF7D91F0000000F4" constraintId="223">
+           <Limit min="1" max="2"/>
+           <FeatureNode guid="ID_C0A802640000012DFF7CF396000000EF" refFeatureName="LigthSimulation" refGuidFeatureTree="ID_C0A802640000012DFF7CF394000000EE" xpos="1255" ypos="307" constraintId="218">
+           </FeatureNode>
+           <FeatureNode guid="ID_C0A802640000012DFF7D2393000000F1" refFeatureName="BlindSimulation" refGuidFeatureTree="ID_C0A802640000012DFF7D2391000000F0" xpos="1373" ypos="307" constraintId="220">
+           </FeatureNode>
+          </Group>
+         </FeatureNode>
+        </Cardinality>
+       </FeatureNode>
+      </Cardinality>
+     </FeatureNode>
+     <FreeNodes>
+      <FeatureNode guid="ID_C0A802640000012DFF750AC3000000D6" refFeatureName="SprinklingWater" refGuidFeatureTree="ID_C0A802640000012DFF750AC1000000D5" xpos="1195" ypos="598" constraintId="193">
+      </FeatureNode>
+     </FreeNodes>
+    </Diagram>
+   </FeatureSpace>
+  </ModelLevel>
+ </ModelSpace>
+</CFRepository>
