@@ -236,76 +236,7 @@
            <FeatureNode guid="ID_C0A802640000012DFF5965AD00000085" refFeatureName="RoomGUI" refGuidFeatureTree="ID_C0A802640000012DFF5965AA00000084" xpos="480" ypos="355" constraintId="109">
             <Cardinality guid="ID_C0A802640000012DFF5E83C500000097" constraintId="127">
              <Limit min="1" max="1"/>
-             <FeatureNode guid="ID_C0A802640000012DFF5E648E00000096" refFeatureName="GUI" refGuidFeatureTree="ID_C0A802640000012DFF5E648C00000095" xpos="726" ypos="274" constraintId="126">
-             </FeatureNode>
-            </Cardinality>
-           </FeatureNode>
-          </Cardinality>
-          <Cardinality guid="ID_C0A802640000012DFF7484FB000000D4" constraintId="191">
-           <Limit min="0" max="1"/>
-           <FeatureNode guid="ID_C0A802640000012DFF65B1720000009B" refFeatureName="BasicFacilities" refGuidFeatureTree="ID_C0A802640000012DFF65B16D0000009A" xpos="701" ypos="514" constraintId="132">
-            <Cardinality guid="ID_C0A802640000012DFF68C3490000009E" constraintId="135">
-             <Limit min="0" max="1"/>
-             <FeatureNode guid="ID_C0A802640000012DFF6606350000009D" refFeatureName="DoorManagement" refGuidFeatureTree="ID_C0A802640000012DFF6606320000009C" xpos="551" ypos="563" constraintId="134">
-              <Cardinality guid="ID_C0A802640000012DFF69D7A5000000A3" constraintId="140">
-               <Limit min="0" max="1"/>
-               <FeatureNode guid="ID_C0A802640000012DFF697054000000A0" refFeatureName="AutomaticOpen" refGuidFeatureTree="ID_C0A802640000012DFF6970520000009F" xpos="495" ypos="613" constraintId="137">
-               </FeatureNode>
-              </Cardinality>
-              <Cardinality guid="ID_C0A802640000012DFF69E612000000A4" constraintId="141">
-               <Limit min="0" max="1"/>
-               <FeatureNode guid="ID_C0A802640000012DFF69BB40000000A2" refFeatureName="Authentication" refGuidFeatureTree="ID_C0A802640000012DFF69BB3E000000A1" xpos="633" ypos="613" constraintId="139">
-                <Group guid="ID_C0A802640000012DFF6CCD8F000000B3" constraintId="156">
-                 <Limit min="1" max="4"/>
-                 <FeatureNode guid="ID_C0A802640000012DFF6C8103000000B1" refFeatureName="Keypad" refGuidFeatureTree="ID_C0A802640000012DFF6C8102000000B0" xpos="895" ypos="661" constraintId="154">
-                 </FeatureNode>
-                 <FeatureNode guid="ID_C0A802640000012DFF6AC8E8000000AA" refFeatureName="FingerPrint" refGuidFeatureTree="ID_C0A802640000012DFF6AC8E7000000A9" xpos="801" ypos="663" constraintId="147">
-                 </FeatureNode>
-                 <FeatureNode guid="ID_C0A802640000012DFF6A8CE6000000A8" refFeatureName="EyeRecognition" refGuidFeatureTree="ID_C0A802640000012DFF6A8CE5000000A7" xpos="688" ypos="681" constraintId="145">
-                 </FeatureNode>
-                 <FeatureNode guid="ID_C0A802640000012DFF6A48D0000000A6" refFeatureName="Keypad" refGuidFeatureTree="ID_C0A802640000012DFF6A48CB000000A5" xpos="613" ypos="663" constraintId="143">
-                 </FeatureNode>
-                </Group>
-               </FeatureNode>
-              </Cardinality>
-             </FeatureNode>
-            </Cardinality>
-            <Cardinality guid="ID_C0A802640000012DFF6E14E9000000B8" constraintId="161">
-             <Limit min="0" max="1"/>
-             <FeatureNode guid="ID_C0A802640000012DFF6D6CED000000B5" refFeatureName="HeatingManagement" refGuidFeatureTree="ID_C0A802640000012DFF6D6CEB000000B4" xpos="690" ypos="563" constraintId="158">
-             </FeatureNode>
-            </Cardinality>
-            <Cardinality guid="ID_C0A802640000012DFF6E55C0000000B9" constraintId="163">
-             <Limit min="0" max="1"/>
-             <FeatureNode guid="ID_C0A802640000012DFF6E011B000000B7" refFeatureName="LightManagement" refGuidFeatureTree="ID_C0A802640000012DFF6E0119000000B6" xpos="849" ypos="564" constraintId="160">
-              <Group guid="ID_C0A802640000012DFF6F7705000000C0" constraintId="170">
-               <Limit min="1" max="2"/>
-               <FeatureNode guid="ID_C0A802640000012DFF6EE6C5000000BD" refFeatureName="PredefinedValues" refGuidFeatureTree="ID_C0A802640000012DFF6EE6C4000000BC" xpos="964" ypos="599" constraintId="167">
-                <Group guid="ID_C0A802640000012DFF72D730000000CD" constraintId="183">
-                 <Limit min="1" max="4"/>
-                 <FeatureNode guid="ID_C0A802640000012DFF718398000000C2" refFeatureName="TVWatching" refGuidFeatureTree="ID_C0A802640000012DFF718395000000C1" xpos="906" ypos="637" constraintId="172">
-                 </FeatureNode>
-                 <FeatureNode guid="ID_C0A802640000012DFF71A870000000C4" refFeatureName="Reading" refGuidFeatureTree="ID_C0A802640000012DFF71A86E000000C3" xpos="1003" ypos="669" constraintId="174">
-                 </FeatureNode>
-                 <FeatureNode guid="ID_C0A802640000012DFF71DCBB000000C6" refFeatureName="Normal" refGuidFeatureTree="ID_C0A802640000012DFF71DCB9000000C5" xpos="1084" ypos="653" constraintId="176">
-                 </FeatureNode>
-                 <FeatureNode guid="ID_C0A802640000012DFF724B5B000000C8" refFeatureName="Ambient" refGuidFeatureTree="ID_C0A802640000012DFF724B58000000C7" xpos="1148" ypos="652" constraintId="178">
-                 </FeatureNode>
-                </Group>
-               </FeatureNode>
-               <FeatureNode guid="ID_C0A802640000012DFF6EB05C000000BB" refFeatureName="SimpleControl" refGuidFeatureTree="ID_C0A802640000012DFF6EB056000000BA" xpos="816" ypos="607" constraintId="165">
-               </FeatureNode>
-              </Group>
-             </FeatureNode>
-            </Cardinality>
-            <Cardinality guid="ID_C0A802640000012DFF73E867000000D2" constraintId="188">
-             <Limit min="0" max="1"/>
-             <FeatureNode guid="ID_C0A802640000012DFF7392D7000000CF" refFeatureName="WindowManagement" refGuidFeatureTree="ID_C0A802640000012DFF7392D5000000CE" xpos="992" ypos="562" constraintId="185">
-             </FeatureNode>
-            </Cardinality>
-            <Cardinality guid="ID_C0A802640000012DFF73F813000000D3" constraintId="189">
-             <Limit min="0" max="1"/>
-             <FeatureNode guid="ID_C0A802640000012DFF73C3DE000000D1" refFeatureName="FireDetection" refGuidFeatureTree="ID_C0A802640000012DFF73C3DB000000D0" xpos="1140" ypos="560" constraintId="187">
+             <FeatureNode guid="ID_C0A802640000012DFF5E648E00000096" refFeatureName="GUI" refGuidFeatureTree="ID_C0A802640000012DFF5E648C00000095" xpos="642" ypos="394" constraintId="126">
              </FeatureNode>
             </Cardinality>
            </FeatureNode>
@@ -425,7 +356,7 @@
        <FeatureNode guid="ID_C0A802640000012DFF5DDFC100000092" refFeatureName="CentralGUI" refGuidFeatureTree="ID_C0A802640000012DFF5DDFBF00000091" xpos="828" ypos="91" constraintId="122">
         <Cardinality guid="ID_C0A802640000012DFF5EB42400000099" constraintId="129">
          <Limit min="1" max="1"/>
-         <FeatureNode guid="ID_C0A802640000012DFF5E648E00000096" refFeatureName="GUI" refGuidFeatureTree="ID_C0A802640000012DFF5E648C00000095" xpos="726" ypos="274" constraintId="126">
+         <FeatureNode guid="ID_C0A802640000012DFF5E648E00000096" refFeatureName="GUI" refGuidFeatureTree="ID_C0A802640000012DFF5E648C00000095" xpos="894" ypos="204" constraintId="126">
          </FeatureNode>
         </Cardinality>
         <Cardinality guid="ID_C0A802640000012DFF79A418000000DE" constraintId="201">
@@ -440,7 +371,7 @@
        <FeatureNode guid="ID_C0A802640000012DFF5D756600000090" refFeatureName="FloorGUI" refGuidFeatureTree="ID_C0A802640000012DFF5D75650000008F" xpos="481" ypos="164" constraintId="120">
         <Cardinality guid="ID_C0A802640000012DFF5E93DF00000098" constraintId="128">
          <Limit min="1" max="1"/>
-         <FeatureNode guid="ID_C0A802640000012DFF5E648E00000096" refFeatureName="GUI" refGuidFeatureTree="ID_C0A802640000012DFF5E648C00000095" xpos="726" ypos="274" constraintId="126">
+         <FeatureNode guid="ID_C0A802640000012DFF5E648E00000096" refFeatureName="GUI" refGuidFeatureTree="ID_C0A802640000012DFF5E648C00000095" xpos="577" ypos="203" constraintId="126">
          </FeatureNode>
         </Cardinality>
        </FeatureNode>
