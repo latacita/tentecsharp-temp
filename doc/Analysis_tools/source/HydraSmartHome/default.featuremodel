@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<featureModel:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:featureModel="http://featuremodel">
+  <features xsi:type="featureModel:Feature" name="Smart Home" children="//@features.1 //@features.24 //@features.27 //@features.51 //@features.59 //@features.52 //@features.28"/>
+  <features xsi:type="featureModel:Feature" father="//@features.0" name="Floor(Int)" children="//@features.2 //@features.20 //@features.23"/>
+  <features xsi:type="featureModel:Feature" father="//@features.1" name="Room(String)" children="//@features.3 //@features.4 //@features.5 //@features.8 //@features.11 //@features.16 //@features.17 //@features.18 //@features.19 //@features.60 //@features.61"/>
+  <features xsi:type="featureModel:Feature" father="//@features.2" name="ExternalDoor"/>
+  <features xsi:type="featureModel:Feature" father="//@features.2" name="FireSensor"/>
+  <features xsi:type="featureModel:Feature" father="//@features.2" name="Heater" children="//@features.6"/>
+  <features xsi:type="featureModel:Feature" father="//@features.5" name="Thermostat" children="//@features.7"/>
+  <features xsi:type="featureModel:Feature" father="//@features.6" name="MeasurementUnits"/>
+  <features xsi:type="featureModel:Feature" father="//@features.2" name="Ligth" children="//@features.9 //@features.10"/>
+  <features xsi:type="featureModel:Feature" father="//@features.8" name="LigthSwitch"/>
+  <features xsi:type="featureModel:Feature" father="//@features.8" name="Dimmer"/>
+  <features xsi:type="featureModel:Feature" father="//@features.2" name="Window" children="//@features.12 //@features.13 //@features.14"/>
+  <features xsi:type="featureModel:Feature" father="//@features.11" name="WindowSensor"/>
+  <features xsi:type="featureModel:Feature" father="//@features.11" name="WindowActuator"/>
+  <features xsi:type="featureModel:Feature" father="//@features.11" name="Blind" children="//@features.15"/>
+  <features xsi:type="featureModel:Feature" father="//@features.14" name="BlindActuator"/>
+  <features xsi:type="featureModel:Feature" father="//@features.2" name="RoomDevice"/>
+  <features xsi:type="featureModel:Feature" father="//@features.2" name="WaterSprinkler"/>
+  <features xsi:type="featureModel:Feature" father="//@features.2" name="RoomGUI"/>
+  <features xsi:type="featureModel:Feature" father="//@features.2" name="Alarm"/>
+  <features xsi:type="featureModel:Feature" father="//@features.1" name="Door" children="//@features.21 //@features.22"/>
+  <features xsi:type="featureModel:Feature" father="//@features.20" name="DoorSensor"/>
+  <features xsi:type="featureModel:Feature" father="//@features.20" name="DoorOpener"/>
+  <features xsi:type="featureModel:Feature" father="//@features.1" name="FloorGUI"/>
+  <features xsi:type="featureModel:Feature" father="//@features.0" name="Staircase" children="//@features.25 //@features.26"/>
+  <features xsi:type="featureModel:Feature" father="//@features.24" name="upperRoom(String)"/>
+  <features xsi:type="featureModel:Feature" father="//@features.24" name="lowerRoom(String)"/>
+  <features xsi:type="featureModel:Feature" father="//@features.0" name="CentralGUI"/>
+  <features xsi:type="featureModel:Feature" father="//@features.0" name="BasicFacilities" children="//@features.29 //@features.30 //@features.31 //@features.32 //@features.33" referenciated="//@features.61"/>
+  <features xsi:type="featureModel:Feature" father="//@features.28" name="DoorManagement" children="//@features.34 //@features.35"/>
+  <features xsi:type="featureModel:Feature" father="//@features.28" name="HeatingManagement"/>
+  <features xsi:type="featureModel:Feature" father="//@features.28" name="LigthManagement" children="//@features.43"/>
+  <features xsi:type="featureModel:Feature" father="//@features.28" name="WindowManagement" children="//@features.49"/>
+  <features xsi:type="featureModel:Feature" father="//@features.28" name="FireDetection" children="//@features.50"/>
+  <features xsi:type="featureModel:Feature" father="//@features.29" name="AutomaticOpen"/>
+  <features xsi:type="featureModel:Feature" father="//@features.29" name="Authentication" children="//@features.40"/>
+  <features xsi:type="featureModel:Feature" father="//@features.40" name="KeyPad"/>
+  <features xsi:type="featureModel:Feature" father="//@features.40" name="KeyPad"/>
+  <features xsi:type="featureModel:Feature" father="//@features.40" name="EyeRecognition"/>
+  <features xsi:type="featureModel:Feature" father="//@features.40" name="FingerPrint"/>
+  <features xsi:type="featureModel:FeatureGroup" father="//@features.35" lowerBound="1" upperBound="1" children="//@features.39 //@features.36 //@features.38 //@features.37"/>
+  <features xsi:type="featureModel:Feature" father="//@features.43" name="SimpleControl"/>
+  <features xsi:type="featureModel:Feature" father="//@features.43" name="PredefinedValues" children="//@features.48"/>
+  <features xsi:type="featureModel:FeatureGroup" father="//@features.31" lowerBound="1" upperBound="2" type="SIMPLEGROUP" children="//@features.42 //@features.41"/>
+  <features xsi:type="featureModel:Feature" father="//@features.48" name="TVWatching"/>
+  <features xsi:type="featureModel:Feature" father="//@features.48" name="Reading"/>
+  <features xsi:type="featureModel:Feature" father="//@features.48" name="Normal"/>
+  <features xsi:type="featureModel:Feature" father="//@features.48" name="Ambient"/>
+  <features xsi:type="featureModel:FeatureGroup" father="//@features.42" lowerBound="1" upperBound="4" type="SIMPLEGROUP" children="//@features.44 //@features.45 //@features.46 //@features.47"/>
+  <features xsi:type="featureModel:Feature" father="//@features.32" name="BlindManagement"/>
+  <features xsi:type="featureModel:Feature" father="//@features.33" name="SprinklingWater"/>
+  <features xsi:type="featureModel:Feature" father="//@features.0" name="PresenceSimulation"/>
+  <features xsi:type="featureModel:Feature" father="//@features.0" name="ComplexFacilities" children="//@features.53 //@features.54 //@features.55" referenciated="//@features.60"/>
+  <features xsi:type="featureModel:Feature" father="//@features.52" name="SmartHeaterManagement"/>
+  <features xsi:type="featureModel:Feature" father="//@features.52" name="SmartLigthManagement"/>
+  <features xsi:type="featureModel:Feature" father="//@features.52" name="PresenceSimulation" children="//@features.58"/>
+  <features xsi:type="featureModel:Feature" father="//@features.58" name="LigthSimulation"/>
+  <features xsi:type="featureModel:Feature" father="//@features.58" name="BlindSimulation"/>
+  <features xsi:type="featureModel:FeatureGroup" father="//@features.55" lowerBound="1" upperBound="2" type="ORGROUP" children="//@features.56 //@features.57"/>
+  <features xsi:type="featureModel:Feature" father="//@features.0" name="CentralGUI"/>
+  <features xsi:type="featureModel:Feature" father="//@features.2" name="ComplexFacilities_room" references="//@features.52"/>
+  <features xsi:type="featureModel:Feature" father="//@features.2" name="BasicFacilities_room" references="//@features.28"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.0" target="//@features.1" lowerBound="1" upperBound="-1" type="SIMPLE"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.1" target="//@features.2" lowerBound="1" upperBound="-1" type="SIMPLE"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.3" upperBound="-1" type="SIMPLE"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.4" upperBound="-1" type="SIMPLE"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.5" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.5" target="//@features.6" lowerBound="1" upperBound="1" type="MANDATORY"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.6" target="//@features.7" lowerBound="1" upperBound="1" type="MANDATORY"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.8" upperBound="-1" type="SIMPLE"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.8" target="//@features.9" upperBound="-1" type="SIMPLE"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.8" target="//@features.10" upperBound="-1" type="SIMPLE"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.11" upperBound="-1" type="SIMPLE"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.11" target="//@features.12" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.11" target="//@features.13" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.11" target="//@features.14" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.14" target="//@features.15" lowerBound="1" upperBound="1" type="MANDATORY"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.16" upperBound="-1" type="SIMPLE"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.17" upperBound="-1" type="SIMPLE"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.18" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.19" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.20" target="//@features.21" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.20" target="//@features.22" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.1" target="//@features.20" upperBound="-1" type="SIMPLE"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.1" target="//@features.23" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.24" target="//@features.25" lowerBound="1" upperBound="1" type="MANDATORY"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.24" target="//@features.26" lowerBound="1" upperBound="1" type="MANDATORY"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.0" target="//@features.24" upperBound="-1" type="SIMPLE"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.0" target="//@features.27" lowerBound="1" upperBound="1" type="MANDATORY"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.28" target="//@features.29" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.28" target="//@features.30" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.28" target="//@features.31" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.28" target="//@features.32" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.28" target="//@features.33" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.29" target="//@features.34" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.29" target="//@features.35" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.35" target="//@features.40"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.40" target="//@features.39"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.40" target="//@features.36"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.40" target="//@features.38"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.40" target="//@features.37"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.31" target="//@features.43"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.43" target="//@features.42"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.43" target="//@features.41"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.42" target="//@features.48"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.48" target="//@features.44"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.48" target="//@features.45"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.48" target="//@features.46"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.48" target="//@features.47"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.32" target="//@features.49" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.33" target="//@features.50" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.0" target="//@features.51" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.52" target="//@features.53" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.52" target="//@features.54" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.52" target="//@features.55" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.55" target="//@features.58"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.58" target="//@features.56"/>
+  <relations xsi:type="featureModel:RelationFG" source="//@features.58" target="//@features.57"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.0" target="//@features.59" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.60" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.0" target="//@features.52" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.61" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.0" target="//@features.28" upperBound="1"/>
+</featureModel:Project>
