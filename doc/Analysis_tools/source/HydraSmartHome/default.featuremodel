@@ -116,7 +116,7 @@
   <relations xsi:type="featureModel:RelationFG" source="//@features.54" target="//@features.57"/>
   <relations xsi:type="featureModel:RelationFG" source="//@features.57" target="//@features.55"/>
   <relations xsi:type="featureModel:RelationFG" source="//@features.57" target="//@features.56"/>
-  <relations xsi:type="featureModel:RelationFeature" source="//@features.0" target="//@features.58" upperBound="1"/>
+  <relations xsi:type="featureModel:RelationFeature" source="//@features.0" target="//@features.58" lowerBound="1" upperBound="1" type="MANDATORY"/>
   <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.59" upperBound="1"/>
   <relations xsi:type="featureModel:RelationFeature" source="//@features.0" target="//@features.51" upperBound="1"/>
   <relations xsi:type="featureModel:RelationFeature" source="//@features.2" target="//@features.60" upperBound="1"/>
