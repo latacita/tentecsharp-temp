@@ -8,7 +8,7 @@
   <features xsi:type="featureModel:Feature" father="//@features.2" name="Heater" children="//@features.6"/>
   <features xsi:type="featureModel:Feature" father="//@features.5" name="Thermostat" children="//@features.7"/>
   <features xsi:type="featureModel:Feature" father="//@features.6" name="MeasurementUnits"/>
-  <features xsi:type="featureModel:Feature" father="//@features.2" name="Ligth" children="//@features.9 //@features.10"/>
+  <features xsi:type="featureModel:Feature" father="//@features.2" name=" Light" children="//@features.9 //@features.10"/>
   <features xsi:type="featureModel:Feature" father="//@features.8" name="LigthSwitch"/>
   <features xsi:type="featureModel:Feature" father="//@features.8" name="Dimmer"/>
   <features xsi:type="featureModel:Feature" father="//@features.2" name="Window" children="//@features.12 //@features.13 //@features.14"/>
