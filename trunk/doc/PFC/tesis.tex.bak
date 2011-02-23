@@ -1,6 +1,6 @@
 %==================================================================%
 % Author : Perez Ruiz, Alejandro                                   %
-% Version: 1.0, 08/02/2011                                         %                   %                                                                  %  
+% Version: 1.0, 08/02/2011                                         %                   %                                                                  %
 % Memoria del Proyecto Fin de Carrera                              %
 %==================================================================%
 
@@ -15,6 +15,11 @@
 \usepackage{url}
 \usepackage{amsfonts}
 \usepackage[spanish,activeacute]{babel}
+
+% Esto se añade porque a algún gracioso le apetecía que la fuente
+% de la portada fuese Aria
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{uarial}
 
 
 % File with main configuration
@@ -40,13 +45,6 @@
 \newcommand{\nota}[1]{\color{red}$\ll$#1$\gg$\color{black}}
 \newcommand{\imp}[1]{{\small{\sf #1}}}
 \newcommand{\stereotype}[1]{$\ll${\small{\sf #1}}$\gg$}
-
-\hyphenation{orien-ted}
-\hyphenation{aspect-orien-ted}
-\hyphenation{wea-ver}
-\hyphenation{demons-tration}
-\hyphenation{indepen-dent}
-\hyphenation{platform-indepen-dent}
 
 \setcounter{minitocdepth}{1}
 
@@ -74,13 +72,13 @@
 \input{config/chapters.tex}
 
 % Capítulo 1: Introducción
-%\input{introduction/introduction.tex} % Chapter 1
+% \input{introduction/introduction.tex} % Chapter 1
 
 % Capítulo 2: Resumen del Estado del Arte
 % \input{background/background.tex}
 
 % Capítulo 3: Descripción General del Proceso
-%\input{staticWeaving/staticWeaving.tex}
+% \input{staticWeaving/staticWeaving.tex}
 
 % Capítulo 4: Definición y Planificación del Proyecto
 % \input{dynamicWeaving/dynamicWeaving.tex}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2010.1.18)  23 FEB 2011 10:33
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2010.1.18)  23 FEB 2011 12:12
 entering extended mode
 **tesis.tex
 
@@ -104,6 +104,19 @@ Package babel Info: Making . an active character on input line 585.
 Package babel Info: Making < an active character on input line 630.
 Package babel Info: Making > an active character on input line 630.
 Package babel Info: Making ' an active character on input line 657.
+)) (C:\Escritura\Miktex\tex\latex\base\fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(C:\Escritura\Miktex\tex\latex\base\t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+(C:\Escritura\Miktex\tex\latex\arial\uarial.sty
+Package: uarial 2006/03/21 1.0 (WaS)
+
+(C:\Escritura\Miktex\tex\latex\graphics\keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks20
 ))
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\c
 onfig/pfc_options.tex" (C:\Escritura\Miktex\tex\latex\fancyhdr\fancyhdr.sty
@@ -137,10 +150,6 @@ Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
 (C:\Escritura\Miktex\tex\latex\graphics\graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Escritura\Miktex\tex\latex\graphics\keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks20
-)
 (C:\Escritura\Miktex\tex\latex\graphics\graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
@@ -245,18 +254,18 @@ TextBlockOrigin set to 0pt x 0pt
 onfig/rename.tex")
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\t
 esis.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
 Package minitoc(hints) Info: I0049
 (minitoc(hints))             ==> You requested the hints option. 
 (minitoc(hints))             Some hints are eventually given below.
@@ -274,80 +283,43 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 38.
 
 (C:\Escritura\Miktex\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-) [1
+)
+Overfull \hbox (64.1971pt too wide) in paragraph at lines 38--38
+ [][] 
+ []
+
+[1
 
 ] [2
 
 ])
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\c
-over/supervisorApproval.tex"
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
+over/firstPage.tex"
+File: images/uc.eps Graphic file (type eps)
+ <images/uc.eps>
+Overfull \hbox (41.0pt too wide) in paragraph at lines 16--22
+[][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-
+Overfull \hbox (10.32182pt too wide) in paragraph at lines 43--44
+[][]\T1/cmr/m/n/10.95 Este Tri-bunal ha re-suel-to otor-gar la cal-i-fi-cación 
+de: ...................................... 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
-
+Overfull \hbox (17.83658pt too wide) in paragraph at lines 46--65
+ [][] 
  []
 
 )
@@ -356,21 +328,24 @@ onfig/begin.tex")
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\c
 over/acknowledgements.tex" [1
 
-] [2] [3
-
+] [2
 
 ])
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\c
 onfig/toc.tex"
 Package minitoc Info: I0024
 (minitoc)             PREPARING MINITOCS FROM tesis.toc on input line 2.
- [4]
+Package minitoc Info: I0033
+(minitoc)             Writing tesis.mtc1.
+ [3
+
+] [4
+
+]
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\t
 esis.toc")
 \tf@toc=\write4
- [5
-
-] [6
+ [5] [6
 
 ]
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\t
@@ -389,32 +364,78 @@ esis.lot")
 onfig/headers.tex")
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\c
 onfig/chapters.tex")
+("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\i
+ntroduction/introduction.tex"
+Cap\'{\i }tulo 1.
+
+("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\t
+esis.mtc1")
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+
+ []
+
+[1
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
+
+ []
+
+)
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\c
 onfig/appendix.tex")
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the tesis.maf file.
-
-
-Package minitoc(hints) Warning: W0078
-(minitoc(hints))                You have used \dominitoc, 
-(minitoc(hints))                but not \minitoc.
-
-
-Package minitoc(hints) Warning: W0024
-(minitoc(hints))                Some hints have been written 
-(minitoc(hints))                in the tesis.log file.
-
-
+Package minitoc(hints) Info: I0019
+(minitoc(hints))             No hints have been written 
+(minitoc(hints))             in the tesis.log file..
+ [2]
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\t
 esis.aux") ) 
 Here is how much of TeX's memory you used:
- 3665 strings out of 495286
- 50366 string characters out of 3181048
- 126641 words of memory out of 3000000
- 6590 multiletter control sequences out of 15000+200000
- 11155 words of font info for 41 fonts, out of 3000000 for 9000
+ 3918 strings out of 495286
+ 52934 string characters out of 3181048
+ 127875 words of memory out of 3000000
+ 6813 multiletter control sequences out of 15000+200000
+ 21690 words of font info for 55 fonts, out of 3000000 for 9000
  15 hyphenation exceptions out of 8191
- 34i,8n,43p,751b,324s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,11n,43p,318b,360s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on tesis.dvi (12 pages, 15100 bytes).
+Output written on tesis.dvi (14 pages, 16240 bytes).
