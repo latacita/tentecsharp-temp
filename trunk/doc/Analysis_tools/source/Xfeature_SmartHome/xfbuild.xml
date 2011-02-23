@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="generate" name="SmartHome.xfp">
+   <description>Ant Build file for the XFeature</description>
+   <property name="MetaModel" location="C:\eclipse\plugins\com.pnp.xfeature_2.1.3\src\FD_configuration_files\FD.xfmm"/>
+   <property name="DisplayModel" location="C:\eclipse\plugins\com.pnp.xfeature_2.1.3\src\FD_configuration_files\FD.xdm"/>
+   <property name="TmpLoc" location="tmp"/>
+   <property name="FamilyXFMM" location="C:\eclipse\plugins\com.pnp.xfeature_2.1.3\src\FD_configuration_files\FD.xfmm"/>
+   <property name="FamilyXDM" location="C:\eclipse\plugins\com.pnp.xfeature_2.1.3\src\FD_configuration_files\FD.xdm"/>
+   <target name="validateMetaModel">
+      <echo>Test the configuration</echo>
+      <ant target="ValidateFeatureMetaModel" antfile="build.xml" dir="." inheritall="false">
+         <property name="MetaModel" location="${MetaModel}"/>
+         <property name="DisplayModel" location="${DisplayModel}"/>
+         <property name="TmpLoc" location="${TmpLoc}"/>
+      </ant>
+   </target>
+   <target name="validate" depends="clean">
+      <fail unless="FileXFM" message="The XFeature Validation: Feature model filename has to specified."/>
+      <fail unless="FileXFMM" message="The XFeature Validation: Meta-model filename has to specified."/>
+      <fail unless="FileXGCC" message="The XFeature Validation: Filename of the application global constraints checker has to specified."/>
+      <fail unless="TmpLoc" message="The XFeature Validation: Temp directory not specified."/>
+      <fail unless="PluginFolder" message="XFeature Plugin not specified"/>
+      <xmlvalidate file="${FileXFM}" lenient="false" failonerror="true" warn="true">
+         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
+         <attribute name="http://apache.org/xml/features/validation/schema" value="true"/>
+         <property name="http://apache.org/xml/properties/schema/external-schemaLocation" value="http://www.pnp-software.com/XFeature/fmm ${FileXFMM}"/>
+      </xmlvalidate>
+      <echo>Model successfully validated against meta-model.</echo>
+      <ant target="doIfXgccFileExists" antfile="xfbuild.xml"/>
+      <ant target="doIfXgccFileDoesNotExists" antfile="xfbuild.xml"/>
+   </target>
+   <target name="doIfXgccFileExists" depends="myTarget.check" if="myTarget.run">
+      <echo>Global constraints were defined. Validating...</echo>
+      <xslt force="true" style="${PluginFolder}/src/general_files/xfmRemoveUniqueNames.xsl" in="${FileXFM}" out="${TmpLoc}/gcValueAppTmp.xfm">
+         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+      </xslt>
+      <xslt force="true" style="${FileXGCC}" in="${TmpLoc}//gcValueAppTmp.xfm" out="${TmpLoc}/gcResult.txt">
+         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+      </xslt><!---->
+   </target>
+   <target name="doIfXgccFileDoesNotExists" depends="myTarget.check" unless="myTarget.run">
+      <echo>No global constraints defined for this feature model ... skipping.</echo>
+   </target>
+   <target name="myTarget.check">
+      <condition property="myTarget.run">
+         <and>
+            <available file="${FileXGCC}"/>
+         </and>
+      </condition>
+   </target>
+   <target name="generate" depends="clean">
+      <fail unless="FamilyXFM" message="The Application-Level Model Generator: Family model filename has to specified."/>
+      <fail unless="FamilyXGC" message="The Application-Level Model Generator: Family global constraintd filename has to specified."/>
+      <fail unless="FamilyXDM" message="The Application-Level Model Generator: Family display model filename has to specified."/>
+      <fail unless="AppXFMM" message="The Application-Level Model Generator: Filename of the application meta-model has to specified."/>
+      <fail unless="AppXDM" message="The Application-Level Model Generator: Filename of the application display model has to specified."/>
+      <fail unless="AppXGCC" message="The Application-Level Model Generator: Filename of the application global constraints checker has to specified."/>
+      <fail unless="TmpLoc" message="The Application-Level Model Generator: Temp directory not specified."/>
+      <fail unless="PluginFolder" message="XFeature Plugin not specified"/>
+      <ant target="GenerateApplicationSchema" antfile="xfbuild.xml"/>
+      <ant target="GenerateAndCheckDisplayModel" antfile="xfbuild.xml"/>
+      <echo>All files generated successfully.</echo>
+   </target>
+   <target name="doIfXgcFileExists" depends="xgc.file.check" if="xgc.file.run">
+      <xmlvalidate file="${FamilyXGC}" lenient="false" failonerror="true" warn="true">
+         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
+         <attribute name="http://apache.org/xml/features/validation/schema" value="true"/>
+         <property name="http://apache.org/xml/properties/schema/external-noNamespaceSchemaLocation" value="${PluginFolder}/src/general_files/GlobalConstraintsMetaModel.xsd"/>
+      </xmlvalidate>
+      <echo>Global constraints were defined and are valid. Generating...</echo><!--Add target names to XFM ... family specific-->
+      <xslt force="true" style="" in="${FamilyXFM}" out="${TmpLoc}/gcValueTmp.xfm">
+         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+      </xslt><!--Add target names to XGC ... family invariant-->
+      <xslt force="true" style="${PluginFolder}/src/general_files/XgcNamesTranslator.xsl" in="${FamilyXGC}" out="${TmpLoc}/gcValueTmp.xgc">
+         <param name="gcValue" expression="${TmpLoc}/gcValueTmp.xfm"/>
+         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+      </xslt><!--Generate the constraint checker ... family invariant-->
+      <xslt force="true" style="${PluginFolder}/src/general_files/GlobalConstraintCompiler.xsl" in="${TmpLoc}/gcValueTmp.xgc" out="${AppXGCC}">
+         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+      </xslt>
+      <echo>Application global constraints checker generated successfully.</echo>
+   </target>
+   <target name="doIfXgcFileDoesNotExists" depends="xgc.file.check" unless="xgc.file.run">
+      <echo>No global constraints defined for this feature model ... skipping.</echo>
+   </target>
+   <target name="xgc.file.check">
+      <condition property="xgc.file.run">
+         <and>
+            <available file="${FamilyXGC}"/>
+         </and>
+      </condition>
+   </target>
+   <target name="GenerateApplicationSchema" description="Generates the application metamodel (*.xfmm) from family model (*.xfm).">
+      <xslt force="true" style="C:\eclipse\plugins\com.pnp.xfeature_2.1.3\src\FD_configuration_files\FdXfmmGenAddUniqueNames.xsl" in="${FamilyXFM}" out="${TmpLoc}/AppGenTmp(1).xml">
+         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+      </xslt>
+      <xslt force="true" style="C:\eclipse\plugins\com.pnp.xfeature_2.1.3\src\FD_configuration_files\FdXfmmGen.xsl" in="${TmpLoc}/AppGenTmp(1).xml" out="${AppXFMM}">
+         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+      </xslt>
+      <echo>Application meta-model generated successfully.</echo>
+      <ant target="doIfXgcFileExists" antfile="xfbuild.xml"/>
+      <ant target="doIfXgcFileDoesNotExists" antfile="xfbuild.xml"/>
+   </target>
+   <target name="GenerateAndCheckDisplayModel" description="Generates the application display model (*.xdm) from family display model (*.xdm) and family meta-model (*.xfmm). Then it checks that the generated display model is complete.">
+      <fail unless="PluginFolder" message="XFeature Plugin not specified"/><!--Generator is in one file only-->
+      <xslt force="true" style="C:\eclipse\plugins\com.pnp.xfeature_2.1.3\src\FD_configuration_files\FdXdmGen.xsl" in="${FamilyXDM}" out="${TmpLoc}/xfmm2xdm.xsl">
+         <param name="FamilyFeatureModel" expression="$"/>
+         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+      </xslt>
+      <xslt force="true" style="${TmpLoc}/xfmm2xdm.xsl" in="${AppXFMM}" out="${AppXDM}">
+         <param name="FamilyFeatureModel" expression="$"/>
+         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+      </xslt>
+      <xslt force="true" style="${PluginFolder}/src/general_files/DisplayModelCompiler.xsl" in="${AppXFMM}" out="${TmpLoc}/DisplayModelVerifier.xsl">
+         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+      </xslt>
+      <xslt force="true" style="${TmpLoc}/DisplayModelVerifier.xsl" in="${AppXDM}" out="${TmpLoc}/DisplayModelVerificationResults.txt">
+         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+      </xslt>
+      <echo>Application display model generated successfully.</echo>
+   </target>
+   <target name="project">
+      <fail unless="PluginFolder" message="XFeature Plugin not specified"/>
+      <pathconvert dirsep="/" property="xsd.file">
+         <path>
+            <pathelement location="${PluginFolder}/src/general_files/xfproject.xsd"/>
+         </path>
+      </pathconvert>
+      <xmlvalidate file="xfproject.xfp" lenient="false" failonerror="true" warn="true">
+         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
+         <attribute name="http://apache.org/xml/features/validation/schema" value="true"/>
+         <property name="http://apache.org/xml/properties/schema/external-noNamespaceSchemaLocation" value="${xsd.file}"/>
+      </xmlvalidate>
+   </target>
+   <target name="clean">
+      <delete file="${TmpLoc}/DisplayModelVerifier.xsl"/>
+      <delete file="${TmpLoc}/xfmAddUniqueNames.xfm"/>
+      <delete file="${TmpLoc}/xfmm2xdm.xsl"/>
+      <delete file="${TmpLoc}/xfmMacroProcessing.xfm"/>
+   </target>
+</project>

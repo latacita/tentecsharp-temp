@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XFeatureProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Program Files/eclipse/plugins/com.pnp.xfeature_2.1.3/src/general_files/xfproject.xsd" name="SmartHome.xfp" description="Smart Home Project">
+  <FamilyXFM location="" />
+  <FamilyXFMM location="C:\eclipse\plugins\com.pnp.xfeature_2.1.3\src\FD_configuration_files\FD.xfmm" />
+  <FamilyXDM location="C:\eclipse\plugins\com.pnp.xfeature_2.1.3\src\FD_configuration_files\FD.xdm" />
+  <AppXFMM location="" />
+  <AppXDM location="" />
+  <TmpLoc location="tmp" />
+  <AppMetaModelGen>
+    <File location="C:\eclipse\plugins\com.pnp.xfeature_2.1.3\src\FD_configuration_files\FdXfmmGenAddUniqueNames.xsl" />
+    <File location="C:\eclipse\plugins\com.pnp.xfeature_2.1.3\src\FD_configuration_files\FdXfmmGen.xsl" />
+  </AppMetaModelGen>
+  <AppDisplayModelGen>
+    <File location="C:\eclipse\plugins\com.pnp.xfeature_2.1.3\src\FD_configuration_files\FdXdmGen.xsl" />
+  </AppDisplayModelGen>
+  <AppGlobalConstraintsGen />
+</XFeatureProject>
+
