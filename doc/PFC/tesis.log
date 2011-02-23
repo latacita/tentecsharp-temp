@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2010.1.18)  2 FEB 2011 13:44
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2010.1.18)  21 FEB 2011 09:31
 entering extended mode
 **tesis.tex
 
@@ -245,18 +245,18 @@ TextBlockOrigin set to 0pt x 0pt
 onfig/rename.tex")
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\t
 esis.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
 Package minitoc(hints) Info: I0049
 (minitoc(hints))             ==> You requested the hints option. 
 (minitoc(hints))             Some hints are eventually given below.
@@ -409,12 +409,12 @@ Package minitoc(hints) Warning: W0024
 ("C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Alejandro\Doc\PFC\t
 esis.aux") ) 
 Here is how much of TeX's memory you used:
- 3671 strings out of 495286
- 50443 string characters out of 3181048
+ 3665 strings out of 495286
+ 50366 string characters out of 3181048
  126641 words of memory out of 3000000
  6590 multiletter control sequences out of 15000+200000
  11155 words of font info for 41 fonts, out of 3000000 for 9000
- 21 hyphenation exceptions out of 8191
+ 15 hyphenation exceptions out of 8191
  34i,8n,43p,751b,324s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on tesis.dvi (12 pages, 15100 bytes).
