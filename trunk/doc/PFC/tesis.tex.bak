@@ -9,6 +9,7 @@
 %=====================================================================%
 %                       My imported packages                          %
 %=====================================================================%
+\usepackage[latin1]{inputenc}
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{url}
@@ -26,10 +27,12 @@
 %=====================================================================%
 \newcommand{\myname}{Alejandro Ruiz Pérez}  % name of author
 \newcommand{\myboss}{Pablo Sánchez Barreiro} % name of supervisor
-\newcommand{\thesistitle}{Desarrollo de una Línea de Productos Software para Automatización de Hogares usando Clases Parciales de C#}
+\newcommand{\thesistitle}{Desarrollo de una Línea de Productos Software para Automatización de Hogares usando Clases Parciales de C\#}
+
+\newcommand{\englishtitle}{Development of a Software Product Line for Automated Homes using C\# Partial Classes}
 												  % work title
 \newcommand{\worktype}{Proyecto Fin de Carrera}   % work type
-\newcommand{\logo}{images/ucLogo.eps}            % logo file (e.g. for the cover)
+\newcommand{\logo}{images/uc.eps}            % logo file (e.g. for the cover)
 
 %=====================================================================%
 %                     Definition of my own commands                   %
@@ -61,7 +64,7 @@
 \input{cover/acknowledgements.tex} % acknowledgements
 
 % Preface
-\input{introduction/preface-lff.tex}   % preface
+%\input{introduction/preface-lff.tex}   % preface
 
 % Toc
 \input{config/toc.tex}
@@ -70,50 +73,44 @@
 
 \input{config/chapters.tex}
 
-% Chapter 1: Introduction
-\input{introduction/introduction.tex} % Chapter 1
+% Capítulo 1: Introducción
+%\input{introduction/introduction.tex} % Chapter 1
 
-% Chapter 2: Foundations
-\input{background/background.tex}
+% Capítulo 2: Resumen del Estado del Arte
+% \input{background/background.tex}
 
-% Chapter 3: Related Work
-\input{related/relatedWork.tex}
+% Capítulo 3: Descripción General del Proceso
+%\input{staticWeaving/staticWeaving.tex}
 
-%=================================================================================================%
-% NOTE (Pablo): This should be removed when the final and unofficial version of the thesis is     %
-%               created                                                                           %
-%=================================================================================================%
+% Capítulo 4: Definición y Planificación del Proyecto
+% \input{dynamicWeaving/dynamicWeaving.tex}
 
-% Chapter 6: The AOEM modelling Profile
-\input{staticWeaving/staticWeaving.tex}
+% Capítulo 5: Ingeniería de Requisitos
+% \input{fromAOREtoAOAD/fromAOREtoAOAD.tex}
 
-% Chapter 7: Dynamic Weaving
-\input{dynamicWeaving/dynamicWeaving.tex}
+% Capítulo 6: Definición Arquitectónica y Diseño Software
+% \input{mddAOSA/mddAOSA.tex}
 
-% Chapter 4: Aspect-Oriented Requirements Engineering
-\input{fromAOREtoAOAD/fromAOREtoAOAD.tex}
+% Capítulo 7: Construcción e Implementación
+% \input{conclusions/conclusions.tex}
 
-% Chapter 5: Enhancing software architectures with aspects
-\input{mddAOSA/mddAOSA.tex}
+% Capítulo 8: Pruebas
+% \input{conclusions/conclusions.tex}
 
-%=================================================================================================%
-% ENDNOTE (Pablo)                                                                                 %
-%=================================================================================================%
+% Capítulo 9: Despliegue y Aceptación
+% \input{conclusions/conclusions.tex}
 
-% Chapter 9: Discussion and Conclusions
-\input{conclusions/conclusions.tex}
+% Capítulo 10: Discusión, Conclusiones y Trabajos Futuros
+% \input{conclusions/conclusions.tex}
 
 % CONTENT: Appendices, if desired
 \input{config/appendix.tex}
-
-% CONTENT: List of publications
-\input{publications.tex}
 
 % Appendix A: Pópulo
 % \input{populo/populo.tex} % Appendix I
 
 % CONFIG: Bibliography style
-\input{config/bibliography.tex}
-\bibliography{references/tesisReferences}
+% \input{config/bibliography.tex}
+% \bibliography{references/references}
 
 \end{document}
