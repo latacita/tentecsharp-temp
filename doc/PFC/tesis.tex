@@ -16,6 +16,11 @@
 \usepackage{amsfonts}
 \usepackage[spanish,activeacute]{babel}
 
+% Esto se añade porque a algún gracioso le apetecía que la fuente
+% de la portada fuese Arial
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{uarial}
+
 
 % File with main configuration
 \input{config/pfc_options.tex}
@@ -48,7 +53,9 @@
 % Cover page
 \input{cover/cover.tex}
 
-\input{cover/supervisorApproval.tex}
+% \input{cover/supervisorApproval.tex}
+
+\input{cover/firstPage.tex}
 
 % reset page numbering
 \input{config/begin.tex}
@@ -67,39 +74,31 @@
 \input{config/chapters.tex}
 
 % Capítulo 1: Introducción
-% \input{introduction/introduction.tex} % Chapter 1
+\input{introduction/introduction.tex} % Chapter 1
 
 % Capítulo 2: Resumen del Estado del Arte
 % \input{background/background.tex}
 
 % Capítulo 3: Descripción General del Proceso
-% \input{staticWeaving/staticWeaving.tex}
 
 % Capítulo 4: Definición y Planificación del Proyecto
-% \input{dynamicWeaving/dynamicWeaving.tex}
 
 % Capítulo 5: Ingeniería de Requisitos
-% \input{fromAOREtoAOAD/fromAOREtoAOAD.tex}
 
 % Capítulo 6: Definición Arquitectónica y Diseño Software
-% \input{mddAOSA/mddAOSA.tex}
 
 % Capítulo 7: Construcción e Implementación
-% \input{conclusions/conclusions.tex}
 
 % Capítulo 8: Pruebas
-% \input{conclusions/conclusions.tex}
 
 % Capítulo 9: Despliegue y Aceptación
-% \input{conclusions/conclusions.tex}
 
 % Capítulo 10: Discusión, Conclusiones y Trabajos Futuros
-% \input{conclusions/conclusions.tex}
 
 % CONTENT: Appendices, if desired
 \input{config/appendix.tex}
 
-% Appendix A: Pópulo
+% Appendix A: 
 % \input{populo/populo.tex} % Appendix I
 
 % CONFIG: Bibliography style
