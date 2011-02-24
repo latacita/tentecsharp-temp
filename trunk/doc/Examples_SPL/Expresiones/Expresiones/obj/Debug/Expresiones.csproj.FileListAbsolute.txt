@@ -1,0 +1,5 @@
+C:\Users\Iskander\Documents\Visual Studio 2008\Projects\Expresiones\Expresiones\bin\Debug\Expresiones.exe
+C:\Users\Iskander\Documents\Visual Studio 2008\Projects\Expresiones\Expresiones\bin\Debug\Expresiones.pdb
+C:\Users\Iskander\Documents\Visual Studio 2008\Projects\Expresiones\Expresiones\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Iskander\Documents\Visual Studio 2008\Projects\Expresiones\Expresiones\obj\Debug\Expresiones.exe
+C:\Users\Iskander\Documents\Visual Studio 2008\Projects\Expresiones\Expresiones\obj\Debug\Expresiones.pdb
