@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		<struct>
+			<and mandatory="true" name="SmartHome">
+				<and mandatory="true" name="Floor">
+					<and mandatory="true" name="Room">
+						<feature name="ExternalDoor"/>
+						<feature name="FireSensor"/>
+						<and name="Heater">
+							<and mandatory="true" name="Thermostat">
+								<feature mandatory="true" name="MeasurementUnits"/>
+							</and>
+						</and>
+						<and name="Ligth">
+							<feature name="LigthSwitch"/>
+							<feature name="Dimmer"/>
+						</and>
+						<and name="Window">
+							<feature name="WindowSensor"/>
+							<feature name="WindowActuator"/>
+							<and name="Blind">
+								<feature mandatory="true" name="BlindActuator"/>
+							</and>
+						</and>
+						<feature name="Basic_facilities_room"/>
+						<feature name="Complex_facilities_room"/>
+						<feature name="Alarm"/>
+						<feature name="RoomGUI"/>
+						<feature name="WaterSprinkler"/>
+						<feature name="RoomDevice"/>
+					</and>
+					<and name="Door">
+						<feature name="DoorSensor"/>
+						<feature name="DoorOpener"/>
+					</and>
+					<feature name="FloorGUI"/>
+				</and>
+				<and name="Staircase">
+					<feature mandatory="true" name="upperRoom"/>
+					<feature mandatory="true" name="lowerRoom"/>
+				</and>
+				<feature mandatory="true" name="CentralGUI"/>
+				<and name="ComplexFacilities">
+					<feature name="SmartHeaterManagement"/>
+					<feature name="SmartLigthManagement"/>
+					<or name="Presence_Simulation">
+						<feature mandatory="true" name="LigthSimulation"/>
+						<feature mandatory="true" name="BlindSimulation"/>
+					</or>
+				</and>
+				<and name="BasicFacilities">
+					<and name="DoorManagement">
+						<feature name="AutomaitcOpen"/>
+						<alt name="Authentication">
+							<feature mandatory="true" name="Keypad"/>
+							<feature mandatory="true" name="EyeRecognition"/>
+							<feature mandatory="true" name="FingerPrint"/>
+						</alt>
+					</and>
+					<feature name="HeatingManagement"/>
+					<or name="LigthManagement">
+						<feature mandatory="true" name="SimpleControl"/>
+						<or mandatory="true" name="PredefinedValues">
+							<feature mandatory="true" name="TVWatching"/>
+							<feature mandatory="true" name="Reading"/>
+							<feature mandatory="true" name="Normal"/>
+							<feature mandatory="true" name="Ambient"/>
+						</or>
+					</or>
+					<and name="WindowManagement">
+						<feature name="BlindManagement"/>
+					</and>
+					<and name="FireDetection">
+						<feature name="SprinklingWater"/>
+					</and>
+				</and>
+				<feature name="PresenceSimulation"/>
+			</and>
+		</struct>
+		<constraints/>
+		<comments/>
+	</featureModel>

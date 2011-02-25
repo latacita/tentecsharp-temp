@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<featureModel dslVersion="1.0.0.0" Id="6b5728df-2b6c-48b2-966e-43ea302e459c" validationState="Valid" xmlns="http://schemas.microsoft.com/dsltools/ProductLinesDSL">
+  <rootFeature>
+    <feature Id="0ef3c3e6-7eaa-4a93-a988-0956f0235f51" min="1" max="1" configurationState="MACHINE_SELECTED" valueType="NONE" typedValue="" featureName="SmartHome">
+      <features>
+        <feature Id="1d9d307d-95f4-47d5-8d87-5227f8f65d85" min="1" max="1000" configurationState="MACHINE_SELECTED" valueType="INTEGER" typedValue="" featureName="Floor(Int)">
+          <features>
+            <feature Id="78c3086a-9a67-4740-893e-3057ea70aa43" min="1" max="1000" configurationState="MACHINE_SELECTED" valueType="STRING" typedValue="" featureName="Room(String)">
+              <features>
+                <feature Id="a3cd5dd4-d9a8-4481-b34d-1ebd4b11b325" min="0" max="1000" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="ExternalDoor">
+                  <inPort>
+                    <fInPort Id="747390e6-0677-4bec-95ac-08d9f24ddf64" />
+                  </inPort>
+                </feature>
+                <feature Id="6b2dbaf4-e5da-4cf0-b2a7-76927ec9c60c" min="0" max="1000" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="FireSensor">
+                  <inPort>
+                    <fInPort Id="6c9fcf9b-8fd6-432a-89e8-ccf6bb88ae4d" />
+                  </inPort>
+                </feature>
+                <feature Id="cbcfcd52-cb5c-4cf3-80ba-f69c1b1122dc" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Heater">
+                  <features>
+                    <feature Id="bd52239e-6df1-4067-a8d4-18f43720881e" min="1" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Thermostat">
+                      <features>
+                        <feature Id="fd2b3e55-67cc-49a6-b852-77edceea47c9" min="1" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="MeasurementUnits">
+                          <inPort>
+                            <fInPort Id="0c35a6a4-78bf-4d0a-87df-f3470430f0ec" />
+                          </inPort>
+                        </feature>
+                      </features>
+                      <inPort>
+                        <fInPort Id="eff15d11-193d-4251-856d-d76c60442343" />
+                      </inPort>
+                      <fInPorts>
+                        <fInPortMoniker Id="0c35a6a4-78bf-4d0a-87df-f3470430f0ec" />
+                      </fInPorts>
+                    </feature>
+                  </features>
+                  <inPort>
+                    <fInPort Id="cbb5513d-1001-4000-9ba3-008d591911d4" />
+                  </inPort>
+                  <fInPorts>
+                    <fInPortMoniker Id="eff15d11-193d-4251-856d-d76c60442343" />
+                  </fInPorts>
+                </feature>
+                <feature Id="a92590f6-3a69-4278-bd25-98000305048a" min="0" max="1000" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Light">
+                  <features>
+                    <feature Id="5f3359a5-2152-4793-95a4-d84ace3e9e53" min="0" max="1000" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="LightSwitch">
+                      <inPort>
+                        <fInPort Id="5bc70150-1c94-4dd6-b078-8d2b0de8f9e9" />
+                      </inPort>
+                    </feature>
+                    <feature Id="88d3b564-cbc7-4e0e-8786-e2abc3699b76" min="0" max="1000" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Dimmer">
+                      <inPort>
+                        <fInPort Id="dfff291d-b2b6-4a4f-b9b7-9ee443048541" />
+                      </inPort>
+                    </feature>
+                  </features>
+                  <inPort>
+                    <fInPort Id="ab3ba6ad-d4a9-4fe0-8c92-66f8a6e1ea91" />
+                  </inPort>
+                  <fInPorts>
+                    <fInPortMoniker Id="5bc70150-1c94-4dd6-b078-8d2b0de8f9e9" />
+                    <fInPortMoniker Id="dfff291d-b2b6-4a4f-b9b7-9ee443048541" />
+                  </fInPorts>
+                </feature>
+                <feature Id="e7fc97c7-87d0-4ba8-a737-cfc72c3e578d" min="0" max="1000" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Window">
+                  <features>
+                    <feature Id="3d31f77c-ee88-411f-87bb-51555f5a47dd" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="WindowSensor">
+                      <inPort>
+                        <fInPort Id="e17e281f-6104-44d0-80df-5aaef4113f2b" />
+                      </inPort>
+                    </feature>
+                    <feature Id="fa0caa7b-488f-42bf-90f6-731ce4f98d62" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="WindowActuator">
+                      <inPort>
+                        <fInPort Id="20bb16f3-c7ae-49f1-bb8f-a2e47114254d" />
+                      </inPort>
+                    </feature>
+                    <feature Id="9a2ed706-76d4-4565-84bc-fbb2851f9958" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Blind">
+                      <features>
+                        <feature Id="94fcacc8-cde0-4705-9fc0-e9bb94ad5b72" min="1" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="BlindActuator">
+                          <inPort>
+                            <fInPort Id="bcc6659a-9d1c-4534-9358-d183acc02bd2" />
+                          </inPort>
+                        </feature>
+                      </features>
+                      <inPort>
+                        <fInPort Id="72cf230b-2236-4b53-88ef-f0bc7c3ce8a5" />
+                      </inPort>
+                      <fInPorts>
+                        <fInPortMoniker Id="bcc6659a-9d1c-4534-9358-d183acc02bd2" />
+                      </fInPorts>
+                    </feature>
+                  </features>
+                  <inPort>
+                    <fInPort Id="b2115ba7-1ccb-4c6e-9781-dd98a4287110" />
+                  </inPort>
+                  <fInPorts>
+                    <fInPortMoniker Id="e17e281f-6104-44d0-80df-5aaef4113f2b" />
+                    <fInPortMoniker Id="20bb16f3-c7ae-49f1-bb8f-a2e47114254d" />
+                    <fInPortMoniker Id="72cf230b-2236-4b53-88ef-f0bc7c3ce8a5" />
+                  </fInPorts>
+                </feature>
+                <feature Id="c0c9a735-79cd-404d-acf6-0e77aba92655" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Alarm">
+                  <inPort>
+                    <fInPort Id="1ce69b4f-84ae-4506-b6dd-8704803d79dd" />
+                  </inPort>
+                </feature>
+                <feature Id="f2a1ac67-7963-4328-80a5-605e707053be" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="RoomGUI">
+                  <inPort>
+                    <fInPort Id="cf0c674c-b3da-4152-8474-dc26fdc0c486" />
+                  </inPort>
+                </feature>
+                <feature Id="dc470897-c326-4c47-80c1-4e68731de763" min="0" max="1000" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="WaterSprinkler">
+                  <inPort>
+                    <fInPort Id="6d71d5c5-a390-4941-9d73-17be03b45a46" />
+                  </inPort>
+                </feature>
+                <feature Id="bbaaf08c-352a-44fa-961d-024eb5c92300" min="0" max="1000" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="RoomDevice">
+                  <inPort>
+                    <fInPort Id="b12153dd-05b7-4af5-a864-17672322b36d" />
+                  </inPort>
+                </feature>
+                <feature Id="301e3f5a-0b4e-4b86-8527-774f2fc68fba" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="BasicFacilities">
+                  <features>
+                    <feature Id="9f639547-22ad-4880-97ab-acdd04688763" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="DoorManagement">
+                      <features>
+                        <feature Id="f9be6f0e-b3ab-4ce2-bf1d-44cba058a701" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="AutomaticOpen">
+                          <inPort>
+                            <fInPort Id="19f7683f-19d9-4482-9c81-7b4a69559f6f" />
+                          </inPort>
+                        </feature>
+                      </features>
+                      <featureGroups>
+                        <featureGroup Id="a25c2548-1cd8-454b-a00b-86062267f03b" min="1" max="1" fGName="Authentication">
+                          <features>
+                            <feature Id="af1873ff-998e-4127-bd89-e037566040c7" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="EyeRecognition">
+                              <inPort>
+                                <fInPort Id="52f90d23-7ab0-4a70-bc56-39b35ede2ac4" />
+                              </inPort>
+                            </feature>
+                            <feature Id="22e84e00-61d5-4d77-a864-24baefd88cea" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="FingerPrint">
+                              <inPort>
+                                <fInPort Id="b6a225a5-0b55-4112-a02e-09b838d06276" />
+                              </inPort>
+                            </feature>
+                            <feature Id="9653d4aa-77a5-4735-835f-ba1546798f07" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Keypad">
+                              <inPort>
+                                <fInPort Id="7bf79aa3-3214-403a-b215-6b2ed8f74141" />
+                              </inPort>
+                            </feature>
+                          </features>
+                          <inPort>
+                            <fGInPort Id="48b50a9e-d9fe-4e5d-b574-e3fd042bd8b6" />
+                          </inPort>
+                          <outPort>
+                            <fGOutPort Id="cf1fccd8-0da1-4597-ba13-7f1b2fb42663">
+                              <fInPorts>
+                                <fInPortMoniker Id="52f90d23-7ab0-4a70-bc56-39b35ede2ac4" />
+                                <fInPortMoniker Id="b6a225a5-0b55-4112-a02e-09b838d06276" />
+                                <fInPortMoniker Id="7bf79aa3-3214-403a-b215-6b2ed8f74141" />
+                              </fInPorts>
+                            </fGOutPort>
+                          </outPort>
+                        </featureGroup>
+                      </featureGroups>
+                      <inPort>
+                        <fInPort Id="7be842c3-2247-4454-9728-11d05df9a658" />
+                      </inPort>
+                      <fInPorts>
+                        <fInPortMoniker Id="19f7683f-19d9-4482-9c81-7b4a69559f6f" />
+                      </fInPorts>
+                      <fGInPorts>
+                        <fGInPortMoniker Id="48b50a9e-d9fe-4e5d-b574-e3fd042bd8b6" />
+                      </fGInPorts>
+                    </feature>
+                    <feature Id="969b8bd5-244c-4b8d-b6d4-4e538981de02" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="HeatingManagement">
+                      <inPort>
+                        <fInPort Id="6ae47146-cf0b-4ff4-ba46-eabc44ee83a4" />
+                      </inPort>
+                    </feature>
+                    <feature Id="ec54ead5-c89f-4798-8e69-53ca924f1b0b" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="WindowManagement">
+                      <features>
+                        <feature Id="0581c370-86b8-47f1-8024-c7c31785f3c6" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="BlindManagment">
+                          <inPort>
+                            <fInPort Id="6f8e7ea5-7fe2-4f48-b275-abe2550cd110" />
+                          </inPort>
+                        </feature>
+                      </features>
+                      <inPort>
+                        <fInPort Id="f9b03874-0ef4-4e3d-bc8c-cd099a507695" />
+                      </inPort>
+                      <fInPorts>
+                        <fInPortMoniker Id="6f8e7ea5-7fe2-4f48-b275-abe2550cd110" />
+                      </fInPorts>
+                    </feature>
+                    <feature Id="0b554939-547b-40dc-80f0-afee9cddd1dc" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="FireDetection">
+                      <features>
+                        <feature Id="386da08d-a372-4295-bae2-bae840363a8c" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="SprinklingWater">
+                          <inPort>
+                            <fInPort Id="461d94fb-ef28-4b2b-8820-aa3b886593b5" />
+                          </inPort>
+                        </feature>
+                      </features>
+                      <inPort>
+                        <fInPort Id="20904adc-cbb7-47cd-8f70-f42bbb93287a" />
+                      </inPort>
+                      <fInPorts>
+                        <fInPortMoniker Id="461d94fb-ef28-4b2b-8820-aa3b886593b5" />
+                      </fInPorts>
+                    </feature>
+                  </features>
+                  <featureGroups>
+                    <featureGroup Id="10ab9bcc-7003-4a73-9dff-daf64ce1d34a" min="1" max="1" fGName="LightManagement">
+                      <features>
+                        <feature Id="16d7b40e-33ca-484f-927a-1c5dd37032fd" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="SimpleControl">
+                          <inPort>
+                            <fInPort Id="8daf2498-3920-4734-941b-9d894ccd50b0" />
+                          </inPort>
+                        </feature>
+                        <feature Id="d7b96f3f-512a-4c0e-8fa4-a6dfaaedaf54" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="PredefinedValues">
+                          <featureGroups>
+                            <featureGroup Id="e43b9c2a-e453-428a-973a-f89e4fdffecd" min="1" max="4" fGName="Values">
+                              <features>
+                                <feature Id="2972f432-c8b4-4406-be57-8b9059f5947d" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="TVWatching">
+                                  <inPort>
+                                    <fInPort Id="149b3f14-e588-4f62-8f24-a7fe05abd0ed" />
+                                  </inPort>
+                                </feature>
+                                <feature Id="81fe4f2a-c5b5-44f1-bcc0-137233750e77" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Reading">
+                                  <inPort>
+                                    <fInPort Id="26e04481-7501-4cb9-95af-f2606e8a19f4" />
+                                  </inPort>
+                                </feature>
+                                <feature Id="5bdec496-599a-4480-84a6-998d4a74fa9f" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Normal">
+                                  <inPort>
+                                    <fInPort Id="abfad8d6-e8ea-4332-acc8-aaf6201a29cf" />
+                                  </inPort>
+                                </feature>
+                                <feature Id="e15d9e64-ed23-471a-aedb-7fb3be4ffaab" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Ambient">
+                                  <inPort>
+                                    <fInPort Id="4b330312-ff7d-4c2d-82dd-54bc637f3da3" />
+                                  </inPort>
+                                </feature>
+                              </features>
+                              <inPort>
+                                <fGInPort Id="5ad41157-a02a-4fac-a84d-9d2e4ba46f76" />
+                              </inPort>
+                              <outPort>
+                                <fGOutPort Id="1eaeb687-4446-4900-a531-df9edc4c804f">
+                                  <fInPorts>
+                                    <fInPortMoniker Id="149b3f14-e588-4f62-8f24-a7fe05abd0ed" />
+                                    <fInPortMoniker Id="26e04481-7501-4cb9-95af-f2606e8a19f4" />
+                                    <fInPortMoniker Id="abfad8d6-e8ea-4332-acc8-aaf6201a29cf" />
+                                    <fInPortMoniker Id="4b330312-ff7d-4c2d-82dd-54bc637f3da3" />
+                                  </fInPorts>
+                                </fGOutPort>
+                              </outPort>
+                            </featureGroup>
+                          </featureGroups>
+                          <inPort>
+                            <fInPort Id="8d365700-8c34-4392-9bd3-84e9dd6be019" />
+                          </inPort>
+                          <fGInPorts>
+                            <fGInPortMoniker Id="5ad41157-a02a-4fac-a84d-9d2e4ba46f76" />
+                          </fGInPorts>
+                        </feature>
+                      </features>
+                      <inPort>
+                        <fGInPort Id="87391efc-de90-492c-8133-cbeb58fdecb9" />
+                      </inPort>
+                      <outPort>
+                        <fGOutPort Id="071b7404-1104-4445-bab1-11c16ba3a26a">
+                          <fInPorts>
+                            <fInPortMoniker Id="8daf2498-3920-4734-941b-9d894ccd50b0" />
+                            <fInPortMoniker Id="8d365700-8c34-4392-9bd3-84e9dd6be019" />
+                          </fInPorts>
+                        </fGOutPort>
+                      </outPort>
+                    </featureGroup>
+                  </featureGroups>
+                  <inPort>
+                    <fInPort Id="192dbdfb-6cb4-43bd-983a-6ae2fe67bb4e" />
+                  </inPort>
+                  <fInPorts>
+                    <fInPortMoniker Id="7be842c3-2247-4454-9728-11d05df9a658" />
+                    <fInPortMoniker Id="6ae47146-cf0b-4ff4-ba46-eabc44ee83a4" />
+                    <fInPortMoniker Id="f9b03874-0ef4-4e3d-bc8c-cd099a507695" />
+                    <fInPortMoniker Id="20904adc-cbb7-47cd-8f70-f42bbb93287a" />
+                  </fInPorts>
+                  <fGInPorts>
+                    <fGInPortMoniker Id="87391efc-de90-492c-8133-cbeb58fdecb9" />
+                  </fGInPorts>
+                </feature>
+                <feature Id="64e494fe-976a-4b69-94da-c1a853ad8d6b" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="ComplexFacilities">
+                  <features>
+                    <feature Id="d4079a2a-9434-4586-a305-c9dce7891ca4" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="SmartHeaterManagement">
+                      <inPort>
+                        <fInPort Id="2b1fbe30-35c1-4d77-99db-9160c107ce2b" />
+                      </inPort>
+                    </feature>
+                    <feature Id="32ef7a6e-ac94-4e49-9d14-992ac4e13b6e" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="SmartLightManagement">
+                      <inPort>
+                        <fInPort Id="b6c6ce37-cb5f-40ff-bd3a-f917ac6d61ad" />
+                      </inPort>
+                    </feature>
+                  </features>
+                  <featureGroups>
+                    <featureGroup Id="a7118d7c-e8a5-427e-9f5a-12b9a8ed0fcc" min="1" max="2" fGName="PresenceSimulation2">
+                      <features>
+                        <feature Id="3241de94-9ccb-4abf-aab5-60af8acf9ea0" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="LigthSimulation">
+                          <inPort>
+                            <fInPort Id="79f62f5a-3840-4aaf-b056-25594d27b097" />
+                          </inPort>
+                        </feature>
+                        <feature Id="2c9fb8ac-675c-4a43-8e54-fe711dcf7a19" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="BlindSimulation">
+                          <inPort>
+                            <fInPort Id="35d7709a-4d39-496d-bdfd-4bb4ecaf29d4" />
+                          </inPort>
+                        </feature>
+                      </features>
+                      <inPort>
+                        <fGInPort Id="c7410b0a-77ee-4b18-b6b2-90f6bb157e43" />
+                      </inPort>
+                      <outPort>
+                        <fGOutPort Id="cc145a29-d5c8-40be-b906-44cbce75f7ea">
+                          <fInPorts>
+                            <fInPortMoniker Id="79f62f5a-3840-4aaf-b056-25594d27b097" />
+                            <fInPortMoniker Id="35d7709a-4d39-496d-bdfd-4bb4ecaf29d4" />
+                          </fInPorts>
+                        </fGOutPort>
+                      </outPort>
+                    </featureGroup>
+                  </featureGroups>
+                  <inPort>
+                    <fInPort Id="088f7f97-10d6-4f4c-b35b-339725c27769" />
+                  </inPort>
+                  <fInPorts>
+                    <fInPortMoniker Id="2b1fbe30-35c1-4d77-99db-9160c107ce2b" />
+                    <fInPortMoniker Id="b6c6ce37-cb5f-40ff-bd3a-f917ac6d61ad" />
+                  </fInPorts>
+                  <fGInPorts>
+                    <fGInPortMoniker Id="c7410b0a-77ee-4b18-b6b2-90f6bb157e43" />
+                  </fGInPorts>
+                </feature>
+                <feature Id="cf637a8e-4690-4a71-83c1-7375624efcca" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="PresenceSimulation">
+                  <inPort>
+                    <fInPort Id="3bfc29dd-a961-4e59-8ca5-1f46104fcda6" />
+                  </inPort>
+                </feature>
+              </features>
+              <inPort>
+                <fInPort Id="52ea5df1-9168-4b4f-86f7-e6a163352d90" />
+              </inPort>
+              <fInPorts>
+                <fInPortMoniker Id="747390e6-0677-4bec-95ac-08d9f24ddf64" />
+                <fInPortMoniker Id="6c9fcf9b-8fd6-432a-89e8-ccf6bb88ae4d" />
+                <fInPortMoniker Id="cbb5513d-1001-4000-9ba3-008d591911d4" />
+                <fInPortMoniker Id="ab3ba6ad-d4a9-4fe0-8c92-66f8a6e1ea91" />
+                <fInPortMoniker Id="b2115ba7-1ccb-4c6e-9781-dd98a4287110" />
+                <fInPortMoniker Id="1ce69b4f-84ae-4506-b6dd-8704803d79dd" />
+                <fInPortMoniker Id="cf0c674c-b3da-4152-8474-dc26fdc0c486" />
+                <fInPortMoniker Id="6d71d5c5-a390-4941-9d73-17be03b45a46" />
+                <fInPortMoniker Id="b12153dd-05b7-4af5-a864-17672322b36d" />
+                <fInPortMoniker Id="192dbdfb-6cb4-43bd-983a-6ae2fe67bb4e" />
+                <fInPortMoniker Id="088f7f97-10d6-4f4c-b35b-339725c27769" />
+                <fInPortMoniker Id="3bfc29dd-a961-4e59-8ca5-1f46104fcda6" />
+              </fInPorts>
+            </feature>
+            <feature Id="a03fd1b7-1aa0-4f64-bb9d-adf99de80af8" min="0" max="1000" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Door">
+              <features>
+                <feature Id="2b27970e-b74c-4272-9781-81b577f256b0" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="DoorSensor">
+                  <inPort>
+                    <fInPort Id="8a790e42-1f1e-4d86-a41a-b07218814bff" />
+                  </inPort>
+                </feature>
+                <feature Id="23c29007-e63e-4150-97ce-51a0b5696427" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="DoorOpener">
+                  <inPort>
+                    <fInPort Id="c6bbbe2e-a611-43f9-bf0b-4127678f5d8f" />
+                  </inPort>
+                </feature>
+              </features>
+              <inPort>
+                <fInPort Id="3b5a506f-6884-4033-b075-7073388a1a1d" />
+              </inPort>
+              <fInPorts>
+                <fInPortMoniker Id="8a790e42-1f1e-4d86-a41a-b07218814bff" />
+                <fInPortMoniker Id="c6bbbe2e-a611-43f9-bf0b-4127678f5d8f" />
+              </fInPorts>
+            </feature>
+            <feature Id="16c55181-e620-44a3-9a1d-5681c34b90b2" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="FloorGUI">
+              <inPort>
+                <fInPort Id="bf232480-1088-4857-9d4f-58cdc2e258a1" />
+              </inPort>
+            </feature>
+          </features>
+          <inPort>
+            <fInPort Id="f2649564-ff8a-4dea-afd5-e3d49e16a87b" />
+          </inPort>
+          <fInPorts>
+            <fInPortMoniker Id="52ea5df1-9168-4b4f-86f7-e6a163352d90" />
+            <fInPortMoniker Id="3b5a506f-6884-4033-b075-7073388a1a1d" />
+            <fInPortMoniker Id="bf232480-1088-4857-9d4f-58cdc2e258a1" />
+          </fInPorts>
+        </feature>
+        <feature Id="19476d0c-6ffd-485e-98e7-3be3ee128ae2" min="0" max="1000" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Staircase">
+          <features>
+            <feature Id="0651530d-3f83-48fc-8a93-6500cdb06dec" min="1" max="1" configurationState="UNDECIDED" valueType="STRING" typedValue="" featureName="upperRoom">
+              <inPort>
+                <fInPort Id="d346cc70-3ba8-4d12-ab7e-48302230cc39" />
+              </inPort>
+            </feature>
+            <feature Id="b5f981e8-1f97-49e8-a5a4-74b2dce3df96" min="1" max="1" configurationState="UNDECIDED" valueType="STRING" typedValue="" featureName="lowerRoom">
+              <inPort>
+                <fInPort Id="c2183e28-0218-4ce7-b1e4-3a15f5fa65e2" />
+              </inPort>
+            </feature>
+          </features>
+          <inPort>
+            <fInPort Id="d6663e3e-fd64-4410-9bf9-64881ef10ce3" />
+          </inPort>
+          <fInPorts>
+            <fInPortMoniker Id="d346cc70-3ba8-4d12-ab7e-48302230cc39" />
+            <fInPortMoniker Id="c2183e28-0218-4ce7-b1e4-3a15f5fa65e2" />
+          </fInPorts>
+        </feature>
+        <feature Id="252740da-6910-4a67-a26d-be656c021a5e" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="CentralGUI">
+          <inPort>
+            <fInPort Id="8a040ed2-596d-422f-a623-3a124739554c" />
+          </inPort>
+        </feature>
+        <feature Id="25867b2c-7646-44bb-bd2e-8151867d18c6" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="BasicFacilities2">
+          <inPort>
+            <fInPort Id="f8a62279-cbe6-4253-95d2-3257fc7d9198" />
+          </inPort>
+        </feature>
+        <feature Id="dcb5c228-4056-4931-9f22-05508876d811" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="ComplexFacilities2">
+          <inPort>
+            <fInPort Id="8610dc24-fc48-4107-bf97-74b61fb1097b" />
+          </inPort>
+        </feature>
+        <feature Id="ddfb4afd-439f-4b73-8a9a-c01e6e2ba521" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="PresenceSimulation3">
+          <inPort>
+            <fInPort Id="2926b353-9262-49f7-9ba8-56928bb1788f" />
+          </inPort>
+        </feature>
+      </features>
+      <fInPorts>
+        <fInPortMoniker Id="f2649564-ff8a-4dea-afd5-e3d49e16a87b" />
+        <fInPortMoniker Id="d6663e3e-fd64-4410-9bf9-64881ef10ce3" />
+        <fInPortMoniker Id="8a040ed2-596d-422f-a623-3a124739554c" />
+        <fInPortMoniker Id="f8a62279-cbe6-4253-95d2-3257fc7d9198" />
+        <fInPortMoniker Id="8610dc24-fc48-4107-bf97-74b61fb1097b" />
+        <fInPortMoniker Id="2926b353-9262-49f7-9ba8-56928bb1788f" />
+      </fInPorts>
+    </feature>
+  </rootFeature>
+</featureModel>
