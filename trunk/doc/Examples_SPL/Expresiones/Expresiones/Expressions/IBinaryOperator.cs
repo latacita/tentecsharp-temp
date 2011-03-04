@@ -4,9 +4,9 @@ using Expresiones;
 namespace Expresiones
 {
     /**
-     * Clase que implementa BinaryOperation
+     * Interfaz que define BinaryOperation
      * */
-    public interface BinaryOperator: Expressions
+    public interface IBinaryOperator: IExpressions
     {
     }
 }

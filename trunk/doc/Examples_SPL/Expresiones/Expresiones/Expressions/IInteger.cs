@@ -5,11 +5,9 @@ using Expresiones;
 namespace Expresiones
 {
     /**
-     * Interface que implementa Add
+     * Interfaz que define un entero
      * */
-    public interface Add : BinaryOperator
+    public interface IInteger : IExpressions
     {
-       
     }
 }
-

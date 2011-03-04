@@ -7,7 +7,7 @@ namespace Expresiones
     /**
      * Clase que define IntegerPosfix
      **/
-    public class IntegerPosfix : BinaryOperatorPosfix, Integer
+    public class IntegerPosfix : IBinaryOperatorPosfix, IInteger
     {
         int constante;
         /**
@@ -21,7 +21,7 @@ namespace Expresiones
         /**
          * Método que imprime en formato infijo
          * */
-        void ExpressionPosfix.printPosfix()
+        void IExpressionPosfix.print()
         {
             Console.Write(constante);
         }

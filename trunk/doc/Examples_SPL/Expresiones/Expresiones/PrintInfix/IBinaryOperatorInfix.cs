@@ -7,7 +7,7 @@ namespace Expresiones
     /**
      * Clase que define un entero
      * */
-    public interface BinaryOperatorEval : BinaryOperator, IExpressionEval
+    public interface IBinaryOperatorInfix : IBinaryOperator, IExpressionInfix
     {
     }
 }

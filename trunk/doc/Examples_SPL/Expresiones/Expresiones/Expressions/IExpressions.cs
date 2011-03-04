@@ -5,8 +5,10 @@ using System.Text;
 
 namespace Expresiones
 {
-    //Interfaz para las expresiones
-    public interface Expressions
+    /**
+     * Interfaz para las expresiones
+     * */
+    public interface IExpressions
     {
        
     }   

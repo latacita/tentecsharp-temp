@@ -7,7 +7,7 @@ namespace Expresiones
     /**
      * Clase que define IntegerInfix
      **/
-    public class IntegerInfix : BinaryOperatorInfix, Integer
+    public class IntegerInfix : IBinaryOperatorInfix, IInteger
     {
         int constante;
         /**
@@ -21,7 +21,7 @@ namespace Expresiones
         /**
          * Método que imprime en formato infijo
          * */
-        void ExpressionInfix.printInfix()
+        void IExpressionInfix.print()
         {
             Console.Write(constante);
         }

@@ -7,7 +7,7 @@ namespace Expresiones
     /**
      * Clase que define IntegerEval
      **/
-    public class IntegerEval : BinaryOperatorEval, Integer
+    public class IntegerEval : IBinaryOperatorEval, IInteger
     {
         protected static int constante;
         /**
@@ -21,7 +21,7 @@ namespace Expresiones
         /**
        * Método que retorna el valor del entero
        * */
-        public int eval()
+        public virtual int eval()
         {
             return constante;
         }

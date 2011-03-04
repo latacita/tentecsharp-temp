@@ -5,14 +5,14 @@ using Expresiones;
 namespace Expresiones
 {
     
-    public class MultPosfix : BinaryOperatorPosfix, Mult
+    public class MultPosfix : IBinaryOperatorPosfix, IMult
     {
-        ExpressionPosfix exp_izquierda;
-        ExpressionPosfix exp_derecha;
+        IExpressionPosfix exp_izquierda;
+        IExpressionPosfix exp_derecha;
         /**
          * Constructor
          * */
-        public MultPosfix(ExpressionPosfix izq, ExpressionPosfix derch)
+        public MultPosfix(IExpressionPosfix izq, IExpressionPosfix derch)
         {
             this.exp_izquierda = izq;
             this.exp_derecha = derch;
@@ -20,11 +20,11 @@ namespace Expresiones
         /**
          * Método que imprime en formato infijo
          * */
-        void ExpressionPosfix.printPosfix()
+        void IExpressionPosfix.print()
         {
-            exp_izquierda.printPosfix();
+            exp_izquierda.print();
             Console.Write(" ");
-            exp_derecha.printPosfix();
+            exp_derecha.print();
             Console.Write(" ");
             Console.Write("* ");
          }
