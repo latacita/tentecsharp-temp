@@ -1,13 +1,15 @@
 ﻿using System;
 using Expresiones;
 
+
 namespace Expresiones
 {
     /**
-     * Clase que implementa mult
+     * Interface que implementa IAdd
      * */
-    public interface Mult : BinaryOperator
+    public interface IAdd : IBinaryOperator
     {
-        
+       
     }
 }
+

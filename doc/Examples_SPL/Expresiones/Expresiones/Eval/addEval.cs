@@ -7,12 +7,10 @@ namespace Expresiones
     /**
      * Clase que define un entero
      * */
-    public class AddEval : BinaryOperatorEval, Add, IAddEval
+    public class AddEval : IBinaryOperatorEval, IAdd, IAddEval
     {
-        // NOTA(Pablo): Las variables no se declaran estáticas salvo que sea
-        //              muy necesario, elimina los statics
-        protected static IExpressionEval exp_izquierda;
-        protected static IExpressionEval exp_derecha;
+        protected IExpressionEval exp_izquierda;
+        protected IExpressionEval exp_derecha;
         /**
          * Constructor
          * */
@@ -24,7 +22,7 @@ namespace Expresiones
         /**
          * Método que retorna el resultado de evaluar la expresion
          * */
-        public int eval()
+        public virtual int eval()
         {
             return exp_izquierda.eval() + exp_derecha.eval();
         }

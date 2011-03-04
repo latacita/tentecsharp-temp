@@ -1,13 +1,13 @@
 ﻿using System;
 using Expresiones;
 
-
 namespace Expresiones
 {
     /**
-     * Clase que define un entero
+     * Interfaz que define Mult
      * */
-    public interface Integer : Expressions
+    public interface IMult : IBinaryOperator
     {
+        
     }
 }

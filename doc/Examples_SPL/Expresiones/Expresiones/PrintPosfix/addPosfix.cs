@@ -5,16 +5,16 @@ using Expresiones;
 namespace Expresiones
 {
     /**
-     * Clase que define un entero
+     * Clase que define AddPosfix
      * */
-    public class AddPosfix : BinaryOperatorPosfix, Add
+    public class AddPosfix : IBinaryOperatorPosfix, IAdd
     {
-        ExpressionPosfix exp_izquierda;
-        ExpressionPosfix exp_derecha;
+        IExpressionPosfix exp_izquierda;
+        IExpressionPosfix exp_derecha;
         /**
          * Constructor
          * */
-        public AddPosfix(ExpressionPosfix izq, ExpressionPosfix derch)
+        public AddPosfix(IExpressionPosfix izq, IExpressionPosfix derch)
         {
             this.exp_izquierda = izq;
             this.exp_derecha = derch;
@@ -22,11 +22,11 @@ namespace Expresiones
         /**
          * Método que imprime en formato posfijo
          * */
-        void ExpressionPosfix.printPosfix()
+        void IExpressionPosfix.print()
         {
-            exp_izquierda.printPosfix();
+            exp_izquierda.print();
             Console.Write(" ");
-            exp_derecha.printPosfix();
+            exp_derecha.print();
             Console.Write(" ");
             Console.Write("+ ");
             

@@ -7,13 +7,13 @@ namespace Expresiones
     /**
      * Clase que define IntegerShortEval
      **/
-    public class IntegerShortEval : IntegerEval, BinaryOperatorEval
+    public class IntegerShortEval : IntegerEval, IBinaryOperatorEval
     {
         //int constante;
         /**
          * Constructor
          * */
-        public IntegerShortEval ()
+        public IntegerShortEval (int constante)
             : base(constante)
         {
             //constan = constante;
@@ -22,7 +22,7 @@ namespace Expresiones
         /**
        * Método que retorna el valor del entero
        * */
-        public int eval()
+        public override int eval()
         {
             return constante;
         }

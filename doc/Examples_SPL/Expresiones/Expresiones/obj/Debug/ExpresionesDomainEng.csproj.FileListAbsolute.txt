@@ -3,3 +3,8 @@ C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\Exp
 C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\Expresiones\obj\Debug\Expresiones.pdb
 C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\Expresiones\bin\Debug\Expresiones.dll
 C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\Expresiones\obj\Debug\Expresiones.dll
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\Expresiones\bin\Debug\Expresiones.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\Expresiones\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\Expresiones\obj\Debug\Expresiones.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\Expresiones\bin\Debug\Expresiones.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\Expresiones\obj\Debug\Expresiones.exe

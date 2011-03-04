@@ -5,9 +5,9 @@ using Expresiones;
 namespace Expresiones
 {
     /**
-     * Interfaz ExpressionShortEval
+     * Interfaz IExpressionShortEval
      * */
-    public interface ExpressionShortEval : IExpressionEval
+    public interface IExpressionShortEval : IExpressionEval
     {
         
     }

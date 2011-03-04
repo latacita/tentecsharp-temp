@@ -5,21 +5,22 @@ using Expresiones;
 namespace Expresiones
 {
     
-    public class MultShortEval : MultEval,BinaryOperatorShortEval
+    public class MultShortEval : MultEval,IBinaryOperatorShortEval
     {
-        //ExpressionShortEval exp_izquierda;
-        //ExpressionShortEval exp_derecha;
+        //IExpressionShortEval exp_izquierda;
+        //IExpressionShortEval exp_derecha;
         /**
          * Constructor
          * */
-        public MultShortEval() :base (exp_izquierda, exp_derecha)
+        public MultShortEval(IExpressionEval exp_izquierda, IExpressionEval exp_derecha)
+            : base(exp_izquierda, exp_derecha)
         {
             
         }
         /**
         * Método que retorna el resultado de evaluar la expresion
         * */
-        public int eval()
+        public override int eval()
         {
             if (exp_izquierda.eval() == 0)
             {

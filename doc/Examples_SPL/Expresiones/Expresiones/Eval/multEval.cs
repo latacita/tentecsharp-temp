@@ -5,10 +5,10 @@ using Expresiones;
 namespace Expresiones
 {
     
-    public class MultEval : BinaryOperatorEval, Mult
+    public class MultEval : IBinaryOperatorEval, IMult
     {
-        protected static IExpressionEval exp_izquierda;
-        protected static IExpressionEval exp_derecha;
+        protected IExpressionEval exp_izquierda;
+        protected IExpressionEval exp_derecha;
         /**
          * Constructor
          * */
@@ -20,7 +20,7 @@ namespace Expresiones
         /**
         * Método que retorna el resultado de evaluar la expresion
         * */
-        public int eval()
+        public virtual int eval()
         {
             return exp_izquierda.eval() * exp_derecha.eval();
         }

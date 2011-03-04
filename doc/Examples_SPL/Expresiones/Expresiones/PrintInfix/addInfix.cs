@@ -5,14 +5,14 @@ using Expresiones;
 namespace Expresiones
 {
     
-    public class AddInfix : BinaryOperatorInfix, IAddInfix, Add
+    public class AddInfix : IBinaryOperatorInfix, IAddInfix, IAdd
     {
-        ExpressionInfix exp_izquierda;
-        ExpressionInfix exp_derecha;
+        IExpressionInfix exp_izquierda;
+        IExpressionInfix exp_derecha;
         /**
          * Constructor
          * */
-        public AddInfix(ExpressionInfix izq, ExpressionInfix derch)
+        public AddInfix(IExpressionInfix izq, IExpressionInfix derch)
         {
             this.exp_izquierda = izq;
             this.exp_derecha = derch;
@@ -20,18 +20,14 @@ namespace Expresiones
         /**
          * Método que imprime en formato infijo
          * */
-        public void printInfix()
+        public void print()
         {
             Console.Write("(");
-            exp_izquierda.printInfix();
+            exp_izquierda.print();
             Console.Write("+");
-            exp_derecha.printInfix();
+            exp_derecha.print();
             Console.Write(")");
         }        
-
-        public void print() {
-            this.printInfix();
-        }  // print 
-
+       
     }
 }

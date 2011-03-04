@@ -5,3 +5,10 @@ C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\Pro
 C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\ProductA-ShortcircuitInfix\obj\x86\Debug\ProductA-ShortcircuitInfix.pdb
 C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\ProductA-ShortcircuitInfix\bin\Debug\Expresiones.dll
 C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\ProductA-ShortcircuitInfix\bin\Debug\Expresiones.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductA-ShortcircuitInfix\bin\Debug\ProductA-ShortcircuitInfix.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductA-ShortcircuitInfix\bin\Debug\ProductA-ShortcircuitInfix.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductA-ShortcircuitInfix\bin\Debug\Expresiones.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductA-ShortcircuitInfix\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductA-ShortcircuitInfix\obj\x86\Debug\ProductA-ShortcircuitInfix.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductA-ShortcircuitInfix\obj\x86\Debug\ProductA-ShortcircuitInfix.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductA-ShortcircuitInfix\bin\Debug\Expresiones.exe

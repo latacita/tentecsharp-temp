@@ -1,12 +1,14 @@
 ﻿using System;
+using Expresiones;
+
 
 namespace Expresiones
 {
     /**
      * Interfaz IExpressionInfix
      * */
-    public interface IExpressionEval : IExpressions
+    public interface IExpressionInfix : IExpressions
     {
-        int eval();
+        void print();
     }
 }

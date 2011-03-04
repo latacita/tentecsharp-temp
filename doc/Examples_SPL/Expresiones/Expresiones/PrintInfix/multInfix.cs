@@ -5,16 +5,16 @@ using Expresiones;
 namespace Expresiones
 {
     /**
-     * Clase que define un entero
+     * Clase que define MultInfix
      * */
-    public class MultInfix : BinaryOperatorInfix, Mult
+    public class MultInfix : IBinaryOperatorInfix, IMult
     {
-        ExpressionInfix exp_izquierda;
-        ExpressionInfix exp_derecha;
+        IExpressionInfix exp_izquierda;
+        IExpressionInfix exp_derecha;
         /**
          * Constructor
          * */
-        public MultInfix(ExpressionInfix izq, ExpressionInfix derch)
+        public MultInfix(IExpressionInfix izq, IExpressionInfix derch)
         {
             this.exp_izquierda = izq;
             this.exp_derecha = derch;
@@ -22,12 +22,12 @@ namespace Expresiones
         /**
          * Método que imprime en formato infijo
          * */
-        void ExpressionInfix.printInfix()
+        void IExpressionInfix.print()
         {
             Console.Write("(");
-            exp_izquierda.printInfix();
+            exp_izquierda.print();
             Console.Write("*");
-            exp_derecha.printInfix();
+            exp_derecha.print();
             Console.Write(")");
         }
     }
