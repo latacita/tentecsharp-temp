@@ -1,18 +1,18 @@
 ﻿using System;
-using expresiones;
+using Expresiones;
 
 
-namespace expresiones
+namespace Expresiones
 {
     
     public class MultEval : BinaryOperatorEval, Mult
     {
-        protected static ExpressionEval exp_izquierda;
-        protected static ExpressionEval exp_derecha;
+        protected static IExpressionEval exp_izquierda;
+        protected static IExpressionEval exp_derecha;
         /**
          * Constructor
          * */
-        public MultEval(ExpressionEval izq, ExpressionEval derch)
+        public MultEval(IExpressionEval izq, IExpressionEval derch)
         {
             exp_izquierda = izq;
             exp_derecha = derch;
@@ -20,7 +20,7 @@ namespace expresiones
         /**
         * Método que retorna el resultado de evaluar la expresion
         * */
-        int ExpressionEval.eval()
+        public int eval()
         {
             return exp_izquierda.eval() * exp_derecha.eval();
         }

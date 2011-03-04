@@ -1,8 +1,8 @@
 ﻿using System;
-using expresiones;
+using Expresiones;
 
 
-namespace expresiones
+namespace Expresiones
 {
 
     public class AddShortEval : AddEval,BinaryOperatorShortEval
@@ -20,7 +20,7 @@ namespace expresiones
         /**
          * Método que retorna el resultado de evaluar la expresion
          * */
-        int ExpressionEval.eval()
+        public int eval()
         {
             return exp_izquierda.eval() + exp_derecha.eval();
         }

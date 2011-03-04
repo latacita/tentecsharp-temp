@@ -1,8 +1,7 @@
 ﻿using System;
-using expresiones;
 
 
-namespace expresiones
+namespace Expresiones
 {
     public interface BinaryOperatorPosfix : BinaryOperator, ExpressionPosfix
     {

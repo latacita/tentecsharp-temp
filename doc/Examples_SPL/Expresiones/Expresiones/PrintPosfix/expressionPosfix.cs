@@ -1,8 +1,8 @@
 ﻿using System;
-using expresiones;
+using Expresiones;
 
 
-namespace expresiones
+namespace Expresiones
 {
     /**
      * Interfaz ExpressionPosfix

@@ -1,8 +1,8 @@
 ﻿using System;
-using expresiones;
+using Expresiones;
 
 
-namespace expresiones
+namespace Expresiones
 {
     /**
      * Clase que define IntegerEval
@@ -21,7 +21,7 @@ namespace expresiones
         /**
        * Método que retorna el valor del entero
        * */
-        int ExpressionEval.eval()
+        public int eval()
         {
             return constante;
         }

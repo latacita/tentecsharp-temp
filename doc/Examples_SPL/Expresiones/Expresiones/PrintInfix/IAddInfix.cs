@@ -1,8 +1,8 @@
-﻿namespace expresiones
+﻿namespace Expresiones
 {
   
     public interface IAddInfix
     {
-        
+        void print();
     }
 }
