@@ -8,8 +8,6 @@ namespace expresiones
     //Interfaz para las expresiones
     public interface Expressions
     {
-        void print();
-        int eval();
-        void getResult();
+       
     }   
 }
