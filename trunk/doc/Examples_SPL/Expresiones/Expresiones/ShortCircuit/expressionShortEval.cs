@@ -1,13 +1,13 @@
 ﻿using System;
-using expresiones;
+using Expresiones;
 
 
-namespace expresiones
+namespace Expresiones
 {
     /**
      * Interfaz ExpressionShortEval
      * */
-    public interface ExpressionShortEval : ExpressionEval
+    public interface ExpressionShortEval : IExpressionEval
     {
         
     }

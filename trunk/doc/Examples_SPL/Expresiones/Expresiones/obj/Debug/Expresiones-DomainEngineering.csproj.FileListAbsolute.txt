@@ -1,0 +1,2 @@
+C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\Expresiones\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\Expresiones\obj\Debug\Expresiones.exe

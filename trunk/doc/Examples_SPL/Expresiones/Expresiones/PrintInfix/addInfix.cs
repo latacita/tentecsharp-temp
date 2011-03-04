@@ -1,8 +1,8 @@
 ﻿using System;
-using expresiones;
+using Expresiones;
 
 
-namespace expresiones
+namespace Expresiones
 {
     
     public class AddInfix : BinaryOperatorInfix, IAddInfix, Add
@@ -20,7 +20,7 @@ namespace expresiones
         /**
          * Método que imprime en formato infijo
          * */
-        void ExpressionInfix.printInfix()
+        public void printInfix()
         {
             Console.Write("(");
             exp_izquierda.printInfix();
@@ -28,5 +28,10 @@ namespace expresiones
             exp_derecha.printInfix();
             Console.Write(")");
         }        
+
+        public void print() {
+            this.printInfix();
+        }  // print 
+
     }
 }

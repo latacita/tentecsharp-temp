@@ -1,7 +1,7 @@
 ﻿using System;
-using expresiones;
+using Expresiones;
 
-namespace expresiones
+namespace Expresiones
 {
     /**
      * Clase que implementa BinaryOperation

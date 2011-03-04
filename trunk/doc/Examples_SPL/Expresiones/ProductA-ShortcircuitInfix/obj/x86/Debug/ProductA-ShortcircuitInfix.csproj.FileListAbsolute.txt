@@ -1,0 +1,7 @@
+C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\ProductA-ShortcircuitInfix\bin\Debug\ProductA-ShortcircuitInfix.exe
+C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\ProductA-ShortcircuitInfix\bin\Debug\ProductA-ShortcircuitInfix.pdb
+C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\ProductA-ShortcircuitInfix\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\ProductA-ShortcircuitInfix\obj\x86\Debug\ProductA-ShortcircuitInfix.exe
+C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\ProductA-ShortcircuitInfix\obj\x86\Debug\ProductA-ShortcircuitInfix.pdb
+C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\ProductA-ShortcircuitInfix\bin\Debug\Expresiones.dll
+C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Expresiones\ProductA-ShortcircuitInfix\bin\Debug\Expresiones.pdb

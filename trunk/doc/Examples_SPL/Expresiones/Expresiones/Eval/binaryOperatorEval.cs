@@ -1,13 +1,13 @@
 ﻿using System;
-using expresiones;
+using Expresiones;
 
 
-namespace expresiones
+namespace Expresiones
 {
     /**
      * Clase que define un entero
      * */
-    public interface BinaryOperatorEval : BinaryOperator, ExpressionEval
+    public interface BinaryOperatorEval : BinaryOperator, IExpressionEval
     {
     }
 }

@@ -1,13 +1,11 @@
 ﻿using System;
-using expresiones;
 
-
-namespace expresiones
+namespace Expresiones
 {
     /**
      * Interfaz ExpressionInfix
      * */
-    public interface ExpressionEval : Expressions
+    public interface IExpressionEval : Expressions
     {
         int eval();
     }
