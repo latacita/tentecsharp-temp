@@ -5,7 +5,7 @@ using expresiones;
 namespace expresiones
 {
     
-    public class AddInfix : BinaryOperatorInfix, Add
+    public class AddInfix : BinaryOperatorInfix, IAddInfix, Add
     {
         ExpressionInfix exp_izquierda;
         ExpressionInfix exp_derecha;
@@ -27,6 +27,6 @@ namespace expresiones
             Console.Write("+");
             exp_derecha.printInfix();
             Console.Write(")");
-        }
+        }        
     }
 }
