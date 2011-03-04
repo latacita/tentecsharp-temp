@@ -3,3 +3,5 @@ C:\Documents and Settings\Pablo\Mis documentos\Visual Studio 2008\Projects\smart
 C:\Documents and Settings\Pablo\Mis documentos\Visual Studio 2008\Projects\smartHome\smartHomeImplementationCsharp\bin\Release\smartHomeImplementationCsharp.pdb
 C:\Documents and Settings\Pablo\Mis documentos\Visual Studio 2008\Projects\smartHome\smartHomeImplementationCsharp\obj\Release\smartHomeImplementationCsharp.exe
 C:\Documents and Settings\Pablo\Mis documentos\Visual Studio 2008\Projects\smartHome\smartHomeImplementationCsharp\obj\Release\smartHomeImplementationCsharp.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\smartHomeImplementationCSharp\smartHomeImplementationCsharp\obj\Release\smartHomeImplementationCsharp.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\smartHomeImplementationCSharp\smartHomeImplementationCsharp\obj\Release\smartHomeImplementationCsharp.pdb
