@@ -7,7 +7,7 @@ namespace Expresiones
     /**
      * Clase que define IntegerShortEval
      **/
-    public class IntegerShortEval : IntegerEval, IBinaryOperatorEval
+    public class IntegerShortEval : IntegerEval, IBinaryOperatorEval, IIntegerShortEval
     {
         //int constante;
         /**

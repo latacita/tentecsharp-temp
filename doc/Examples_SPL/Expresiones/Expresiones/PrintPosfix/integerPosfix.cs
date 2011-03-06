@@ -21,7 +21,7 @@ namespace Expresiones
         /**
          * Método que imprime en formato infijo
          * */
-        void IExpressionPosfix.print()
+        public void print()
         {
             Console.Write(constante);
         }

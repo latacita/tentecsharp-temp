@@ -5,7 +5,7 @@ using Expresiones;
 namespace Expresiones
 {
     
-    public class MultPosfix : IBinaryOperatorPosfix, IMult
+    public class MultPosfix : IBinaryOperatorPosfix, IMult, IMultPosfix
     {
         IExpressionPosfix exp_izquierda;
         IExpressionPosfix exp_derecha;
@@ -20,7 +20,7 @@ namespace Expresiones
         /**
          * Método que imprime en formato infijo
          * */
-        void IExpressionPosfix.print()
+        public void print()
         {
             exp_izquierda.print();
             Console.Write(" ");

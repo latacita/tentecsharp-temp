@@ -5,14 +5,14 @@ using Expresiones;
 namespace Expresiones
 {
     
-    public class MultShortEval : MultEval,IBinaryOperatorShortEval
+    public class MultShortEval : MultEval,IBinaryOperatorShortEval,IMultShortEval
     {
         //IExpressionShortEval exp_izquierda;
         //IExpressionShortEval exp_derecha;
         /**
          * Constructor
          * */
-        public MultShortEval(IExpressionEval exp_izquierda, IExpressionEval exp_derecha)
+        public MultShortEval(IExpressionShortEval exp_izquierda, IExpressionShortEval exp_derecha)
             : base(exp_izquierda, exp_derecha)
         {
             
