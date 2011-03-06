@@ -1,0 +1,7 @@
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductB-ShortCircuitPostFix\bin\Debug\ProductB-ShortCircuitPostFix.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductB-ShortCircuitPostFix\bin\Debug\ProductB-ShortCircuitPostFix.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductB-ShortCircuitPostFix\bin\Debug\Expresiones.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductB-ShortCircuitPostFix\bin\Debug\Expresiones.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductB-ShortCircuitPostFix\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductB-ShortCircuitPostFix\obj\x86\Debug\ProductB-ShortCircuitPostFix.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\ProductB-ShortCircuitPostFix\obj\x86\Debug\ProductB-ShortCircuitPostFix.pdb
