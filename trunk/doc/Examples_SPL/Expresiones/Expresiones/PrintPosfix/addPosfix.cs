@@ -7,7 +7,7 @@ namespace Expresiones
     /**
      * Clase que define AddPosfix
      * */
-    public class AddPosfix : IBinaryOperatorPosfix, IAdd
+    public class AddPosfix : IBinaryOperatorPosfix, IAdd, IAddPosfix
     {
         IExpressionPosfix exp_izquierda;
         IExpressionPosfix exp_derecha;
@@ -22,7 +22,7 @@ namespace Expresiones
         /**
          * Método que imprime en formato posfijo
          * */
-        void IExpressionPosfix.print()
+        public void print()
         {
             exp_izquierda.print();
             Console.Write(" ");

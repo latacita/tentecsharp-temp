@@ -1,7 +1,7 @@
 ﻿namespace Expresiones
 {
   
-    public interface IAddInfix
+    public interface IAddInfix: IExpressionInfix
     {
        
     } //IAddInfix

@@ -5,7 +5,7 @@ using Expresiones;
 namespace Expresiones
 {
 
-    public class AddShortEval : AddEval,IBinaryOperatorShortEval
+    public class AddShortEval : AddEval,IBinaryOperatorShortEval,IAddShorEval
     {
         
         /**
