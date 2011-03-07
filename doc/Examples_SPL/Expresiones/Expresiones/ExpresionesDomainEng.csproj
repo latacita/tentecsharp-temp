@@ -92,7 +92,7 @@
     <Compile Include="ShortCircuit\IBinaryOperatorShortEval.cs" />
     <Compile Include="ShortCircuit\IExpressionShortEval.cs" />
     <Compile Include="ShortCircuit\IntegerShortEval.cs" />
-    <Compile Include="ShortCircuit\IAddShorEval.cs" />
+    <Compile Include="ShortCircuit\IAddShortEval.cs" />
     <Compile Include="ShortCircuit\IMultShortEval.cs" />
     <Compile Include="ShortCircuit\IIntegerShortEval.cs" />
     <Compile Include="ShortCircuit\MulShortEval.cs" />

@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Add.cs" />
+    <Compile Include="AddPostFixEval.cs" />
     <Compile Include="BinaryOperator.cs" />
     <Compile Include="IExpressionShortCircuitPostFix.cs" />
     <Compile Include="ShortCircuitPostfix.cs" />
