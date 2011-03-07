@@ -15,14 +15,14 @@ namespace ProductA_ShortcircuitInfix
             Console.Write("\n");
             integer2.print();
             Console.Write("\n");
-            //Example: 10 2 +
+            //Example: (10+2)
             AddInfixEval add1 = new AddInfixEval(integer1, integer2);
             Console.Write("Add Expression\n");
             add1.print();
             Console.Write("\n");
             Console.Write("Expression Value is:\n");
             Console.WriteLine(add1.eval());
-            //Example 8 9 *
+            //Example (8*9)
             MultInfixEval mult1 = new MultInfixEval(integer1, integer2);
             Console.Write("Mult Expression\n");
             mult1.print();
