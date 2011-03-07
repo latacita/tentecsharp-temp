@@ -16,8 +16,8 @@ namespace Expresiones
          * */
         public AddEval(IExpressionEval izq, IExpressionEval derch)
         {
-            exp_izquierda = izq;
-            exp_derecha = derch;
+            this.exp_izquierda = izq;
+            this.exp_derecha = derch;
         }
         /**
          * Método que retorna el resultado de evaluar la expresion

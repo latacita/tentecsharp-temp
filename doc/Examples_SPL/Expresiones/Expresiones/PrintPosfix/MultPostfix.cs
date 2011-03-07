@@ -4,23 +4,21 @@ using Expresiones;
 
 namespace Expresiones
 {
-    /**
-     * Clase que define AddPosfix
-     * */
-    public class AddPosfix : IBinaryOperatorPosfix, IAdd, IAddPosfix
+    
+    public class MultPostfix : IBinaryOperatorPostfix, IMult, IMultPostfix
     {
-        IExpressionPosfix exp_izquierda;
-        IExpressionPosfix exp_derecha;
+        IExpressionPostfix exp_izquierda;
+        IExpressionPostfix exp_derecha;
         /**
          * Constructor
          * */
-        public AddPosfix(IExpressionPosfix izq, IExpressionPosfix derch)
+        public MultPostfix(IExpressionPostfix izq, IExpressionPostfix derch)
         {
             this.exp_izquierda = izq;
             this.exp_derecha = derch;
         }
         /**
-         * Método que imprime en formato posfijo
+         * Método que imprime en formato infijo
          * */
         public void print()
         {
@@ -28,8 +26,7 @@ namespace Expresiones
             Console.Write(" ");
             exp_derecha.print();
             Console.Write(" ");
-            Console.Write("+ ");
-            
-        }
+            Console.Write("* ");
+         }
     }
 }

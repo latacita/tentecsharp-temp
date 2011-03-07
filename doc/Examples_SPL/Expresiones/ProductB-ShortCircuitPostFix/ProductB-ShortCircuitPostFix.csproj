@@ -45,8 +45,9 @@
   <ItemGroup>
     <Compile Include="AddPostFixEval.cs" />
     <Compile Include="BinaryOperator.cs" />
+    <Compile Include="MultPostFixEval.cs" />
     <Compile Include="IExpressionShortCircuitPostFix.cs" />
-    <Compile Include="ShortCircuitPostfix.cs" />
+    <Compile Include="IntegerPostFixEval.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -3,10 +3,10 @@ using Expresiones;
 
 namespace ProductB_ShortCircuitPostFix
 {
-    public abstract class BinaryOperator : IBinaryOperatorShortEval, IBinaryOperatorPosfix
+    public abstract class BinaryOperator : IBinaryOperatorShortEval, IBinaryOperatorPostfix
     {
         protected IBinaryOperatorShortEval mixinBinaryOperatorShortEval = null;
-        protected IBinaryOperatorPosfix mixinBinaryOperatorPosfix = null;
+        protected IBinaryOperatorPostfix mixinBinaryOperatorPosfix = null;
 
         public int eval () {
             return this.mixinBinaryOperatorShortEval.eval();
