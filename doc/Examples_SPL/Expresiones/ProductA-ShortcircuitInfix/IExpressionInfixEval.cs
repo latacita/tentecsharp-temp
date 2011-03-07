@@ -3,7 +3,7 @@ using Expresiones;
 
 namespace ProductA_ShortcircuitInfix
 {
-    public interface IExpressionInfixEval : IExpressionEval, IExpressionInfix
+    public interface IExpressionInfixEval : IExpressionShortEval, IExpressionInfix
     {
     }
 }

@@ -68,6 +68,8 @@
     <Compile Include="Expressions\IInteger.cs" />
     <Compile Include="Expressions\IExpressions.cs" />
     <Compile Include="PrintInfix\AddInfix.cs" />
+    <Compile Include="PrintInfix\IIntegerInfix.cs" />
+    <Compile Include="PrintInfix\IMultInfix.cs" />
     <Compile Include="PrintInfix\IAddInfix.cs" />
     <Compile Include="PrintInfix\IntegerInfix.cs" />
     <Compile Include="PrintInfix\MultInfix.cs" />

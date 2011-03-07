@@ -34,7 +34,7 @@ namespace ProductB_ShortCircuitPostFix
             Console.WriteLine(mult1.eval());
             //Combined expressions
             MultPostFixEval multCombined = new MultPostFixEval(add1, mult1);
-            Console.Write("Combined Expression\n:");
+            Console.Write("Combined Expression:\n");
             multCombined.print();
             Console.Write("\n");
             Console.Write("Expression Value is:\n");

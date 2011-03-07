@@ -7,7 +7,7 @@ namespace Expresiones
     /**
      * Clase que define MultInfix
      * */
-    public class MultInfix : IBinaryOperatorInfix, IMult
+    public class MultInfix : IBinaryOperatorInfix, IMult,IMultInfix
     {
         IExpressionInfix exp_izquierda;
         IExpressionInfix exp_derecha;
