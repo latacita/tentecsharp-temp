@@ -7,7 +7,7 @@ namespace Expresiones
     /**
      * Clase que define IntegerInfix
      **/
-    public class IntegerInfix : IBinaryOperatorInfix, IInteger
+    public class IntegerInfix : IBinaryOperatorInfix, IInteger,IIntegerInfix
     {
         int constante;
         /**

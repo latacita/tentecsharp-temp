@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpresionesDomainEng", "Expresiones\ExpresionesDomainEng.csproj", "{5F789492-AB4F-4E53-BD23-ADE61A6EAEFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductA-ShortcircuitInfix", "ProductA-ShortcircuitInfix\ProductA-ShortcircuitInfix.csproj", "{51AA0C6E-9DC6-4829-A03B-6EA862D4DF39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductA-ShortCircuitInfix", "ProductA-ShortcircuitInfix\ProductA-ShortCircuitInfix.csproj", "{51AA0C6E-9DC6-4829-A03B-6EA862D4DF39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductB-ShortCircuitPostFix", "ProductB-ShortCircuitPostFix\ProductB-ShortCircuitPostFix.csproj", "{78AD630A-A914-495F-8354-3AD2DE1AF21F}"
 EndProject

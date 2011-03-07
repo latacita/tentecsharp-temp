@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddInfixEval.cs" />
+    <Compile Include="BinaryOperator.cs" />
+    <Compile Include="IntegerInfixEval.cs" />
+    <Compile Include="MultInfixEval.cs" />
     <Compile Include="IExpressionInfixEval.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
