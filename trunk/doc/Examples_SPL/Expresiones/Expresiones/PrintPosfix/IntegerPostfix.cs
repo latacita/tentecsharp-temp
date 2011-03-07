@@ -5,15 +5,15 @@ using Expresiones;
 namespace Expresiones
 {
     /**
-     * Clase que define IntegerPosfix
+     * Clase que define IntegerPostfix
      **/
-    public class IntegerPosfix : IBinaryOperatorPosfix, IInteger
+    public class IntegerPostfix : IBinaryOperatorPostfix, IInteger, IIntegerPostfix
     {
         int constante;
         /**
          * Constructor
          * */
-        public IntegerPosfix(int constante)
+        public IntegerPostfix(int constante)
         {
             this.constante = constante;
             

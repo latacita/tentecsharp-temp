@@ -9,7 +9,7 @@ namespace Expresiones
      **/
     public class IntegerEval : IBinaryOperatorEval, IInteger
     {
-        protected static int constante;
+        protected int constante;
         /**
          * Constructor
          * */

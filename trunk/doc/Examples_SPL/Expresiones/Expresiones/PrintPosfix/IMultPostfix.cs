@@ -6,7 +6,8 @@ using Expresiones;
 
 namespace Expresiones
 {
-    public interface IIntegerPosfix:IExpressionPosfix
+    public interface IMultPostfix:IExpressionPostfix
     {
+        
     }
 }

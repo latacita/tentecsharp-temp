@@ -5,9 +5,9 @@ using Expresiones;
 namespace Expresiones
 {
     /**
-     * Interfaz IExpressionPosfix
+     * Interfaz IExpressionPostfix
      * */
-    public interface IExpressionPosfix : IExpressions
+    public interface IExpressionPostfix : IExpressions
     {
         void print();
     }

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Expresiones;
 
-namespace ProductB_ShortCircuitPostFix
+namespace Expresiones
 {
-    class Integer
+    public interface IIntegerPostfix:IExpressionPostfix
     {
     }
 }

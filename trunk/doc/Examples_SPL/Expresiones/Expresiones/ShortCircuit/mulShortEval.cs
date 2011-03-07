@@ -28,7 +28,7 @@ namespace Expresiones
             }
             else
             {
-                return exp_izquierda.eval() * exp_derecha.eval();
+                return (this.exp_izquierda.eval() * this.exp_derecha.eval());
             }
         }
     }

@@ -3,7 +3,7 @@ using Expresiones;
 
 namespace ProductB_ShortCircuitPostFix
 {
-    public interface IExpressionShortCircuitPostFix : IExpressionShortEval, IExpressionPosfix
+    public interface IExpressionShortCircuitPostFix : IExpressionShortEval, IExpressionPostfix
     {
     } // IExpressionShortCircuitPosfix 
 
