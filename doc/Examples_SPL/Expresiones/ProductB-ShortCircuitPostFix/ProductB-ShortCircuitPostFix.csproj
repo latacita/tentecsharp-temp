@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="Add.cs" />
     <Compile Include="BinaryOperator.cs" />
-    <Compile Include="IExpression.cs" />
+    <Compile Include="IExpressionShortCircuitPostFix.cs" />
     <Compile Include="ShortCircuitPostfix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
