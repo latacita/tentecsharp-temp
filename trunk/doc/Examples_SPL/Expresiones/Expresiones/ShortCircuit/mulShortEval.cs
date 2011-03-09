@@ -1,14 +1,11 @@
 ﻿using System;
 using Expresiones;
 
-
 namespace Expresiones
 {
     
     public class MultShortEval : MultEval,IBinaryOperatorShortEval,IMultShortEval
     {
-        //IExpressionShortEval exp_izquierda;
-        //IExpressionShortEval exp_derecha;
         /**
          * Constructor
          * */
@@ -16,20 +13,21 @@ namespace Expresiones
             : base(exp_izquierda, exp_derecha)
         {
             
-        }
+        }//Constructor
+
         /**
-        * Método que retorna el resultado de evaluar la expresion
+        * Method to evaluate an expression
         * */
         public override int eval()
         {
             if (exp_izquierda.eval() == 0)
             {
                 return 0;
-            }
+            }//if
             else
             {
                 return (this.exp_izquierda.eval() * this.exp_derecha.eval());
-            }
-        }
-    }
-}
+            }//else
+        }//eval
+    }//MultShortEval
+}//Expresiones

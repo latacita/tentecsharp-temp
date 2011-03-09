@@ -4,9 +4,6 @@ using Expresiones;
 
 namespace Expresiones
 {
-    /**
-     * Clase que define IntegerInfix
-     **/
     public class IntegerInfix : IBinaryOperatorInfix, IInteger,IIntegerInfix
     {
         int constante;
@@ -17,13 +14,13 @@ namespace Expresiones
         {
             this.constante = constante;
             
-        }
+        }//Constructor
         /**
-         * Método que imprime en formato infijo
+         * Method to print a constant
          * */
         void IExpressionInfix.print()
         {
             Console.Write(constante);
-        }
-    }
-}
+        }//IExpressionInfix.print
+    }//IntegerInfix
+}//Expresiones

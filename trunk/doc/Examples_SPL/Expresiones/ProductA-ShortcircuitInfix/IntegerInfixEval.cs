@@ -3,6 +3,9 @@ using Expresiones;
 
 namespace ProductA_ShortcircuitInfix
 {
+    /**
+     * Class for a new Integer configuration: IntegerInfix+ShortEval
+     * */
     public class IntegerInfixEval :IIntegerShortEval, IIntegerInfix, IExpressionInfixEval
     {
         protected IIntegerInfix mixinIntegerInfix;
@@ -23,5 +26,5 @@ namespace ProductA_ShortcircuitInfix
         {
             return this.mixinIntegerShortEval.eval();
         }//eval
-    }
-}
+    }//IntegerInfixEval
+}//ProductA_ShortcircuitInfix

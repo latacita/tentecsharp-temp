@@ -4,7 +4,6 @@ using Expresiones;
 
 namespace Expresiones
 {
-
     public class AddShortEval : AddEval,IBinaryOperatorShortEval,IAddShortEval
     {
         
@@ -15,13 +14,13 @@ namespace Expresiones
             :base(exp_izquierda,exp_derecha)
         {
             
-        }
+        }//Constructor
         /**
-         * Método que retorna el resultado de evaluar la expresion
+         * Method to evaluate an expression
          * */
         public override int eval()
         {
             return this.exp_izquierda.eval() + this.exp_derecha.eval();           
-        }
-    }
-}
+        }//eval
+    }//AddShortEval
+}//Expresiones

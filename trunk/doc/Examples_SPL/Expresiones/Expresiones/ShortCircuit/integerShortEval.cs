@@ -4,27 +4,23 @@ using Expresiones;
 
 namespace Expresiones
 {
-    /**
-     * Clase que define IntegerShortEval
-     **/
     public class IntegerShortEval : IntegerEval, IBinaryOperatorEval, IIntegerShortEval
     {
-        //int constante;
         /**
          * Constructor
          * */
         public IntegerShortEval (int constante)
             : base(constante)
         {
-            //constan = constante;
-            
-        }
+                        
+        }//Constructor
+
         /**
-       * Método que retorna el valor del entero
-       * */
+         * Method to return the constant
+         **/
         public override int eval()
         {
             return constante;
-        }
-    }
-}
+        }//eval
+    }//IntegerShortEval
+}//Expresiones

@@ -4,9 +4,6 @@ using Expresiones;
 
 namespace Expresiones
 {
-    /**
-     * Clase que define IntegerEval
-     **/
     public class IntegerEval : IBinaryOperatorEval, IInteger
     {
         protected int constante;
@@ -17,13 +14,14 @@ namespace Expresiones
         {
             constante = constan;
             
-        }
+        }//Constructor
+
         /**
-       * Método que retorna el valor del entero
-       * */
+         * Method to return the constant
+         * */
         public virtual int eval()
         {
             return constante;
-        }
-    }
-}
+        }//eval
+    }//IntegerEval
+}//Expresiones

@@ -22,7 +22,7 @@ namespace ProductA_ShortcircuitInfix
             Console.Write("\n");
             Console.Write("Expression Value is:\n");
             Console.WriteLine(add1.eval());
-            //Example (8*9)
+            //Example (10*2)
             MultInfixEval mult1 = new MultInfixEval(integer1, integer2);
             Console.Write("Mult Expression\n");
             mult1.print();
@@ -37,6 +37,6 @@ namespace ProductA_ShortcircuitInfix
             Console.Write("Expression Value is:\n");
             Console.WriteLine(multCombined.eval());
             Console.ReadLine();
-        }
-    }
-}
+        }//Main
+    }//Program
+}//ProductA_ShortcircuitInfix

@@ -4,9 +4,7 @@ using Expresiones;
 
 namespace Expresiones
 {
-    /**
-     * Clase que define AddPostfix
-     * */
+   
     public class AddPostfix : IBinaryOperatorPostfix, IAdd, IAddPostfix
     {
         IExpressionPostfix exp_izquierda;
@@ -18,9 +16,9 @@ namespace Expresiones
         {
             this.exp_izquierda = izq;
             this.exp_derecha = derch;
-        }
+        }//Constructor
         /**
-         * Método que imprime en formato posfijo
+         * Method to print an expression in postfix format
          * */
         public void print()
         {
@@ -30,6 +28,6 @@ namespace Expresiones
             Console.Write(" ");
             Console.Write("+ ");
             
-        }
-    }
-}
+        }//print
+    }//AddPostfix
+}//Expresiones

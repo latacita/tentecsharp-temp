@@ -16,13 +16,13 @@ namespace Expresiones
         {
             exp_izquierda = izq;
             exp_derecha = derch;
-        }
+        }//Constructor
         /**
-        * Método que retorna el resultado de evaluar la expresion
-        * */
+         * Method to evaluate an expression
+         * */
         public virtual int eval()
         {
             return exp_izquierda.eval() * exp_derecha.eval();
-        }
-    }
-}
+        }//eval
+    }//MultEval
+}//Expresiones
