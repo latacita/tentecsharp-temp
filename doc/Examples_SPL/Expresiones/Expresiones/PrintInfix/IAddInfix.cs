@@ -1,8 +1,7 @@
-﻿namespace Expresiones
+﻿
+namespace Expresiones
 {
-  
-    public interface IAddInfix: IExpressionInfix
-    {
-       
+      public interface IAddInfix: IExpressionInfix
+    {       
     } //IAddInfix
 } //Expresiones

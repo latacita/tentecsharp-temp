@@ -4,9 +4,6 @@ using Expresiones;
 
 namespace Expresiones
 {
-    /**
-     * Clase que define MultInfix
-     * */
     public class MultInfix : IBinaryOperatorInfix, IMult,IMultInfix
     {
         IExpressionInfix exp_izquierda;
@@ -18,9 +15,9 @@ namespace Expresiones
         {
             this.exp_izquierda = izq;
             this.exp_derecha = derch;
-        }
+        }//Constructor
         /**
-         * Método que imprime en formato infijo
+         * Method to print an expression in infix format
          * */
         void IExpressionInfix.print()
         {
@@ -29,6 +26,6 @@ namespace Expresiones
             Console.Write("*");
             exp_derecha.print();
             Console.Write(")");
-        }
-    }
-}
+        }//IExpressionInfix.print
+    }//MultInfix
+}//Expresiones

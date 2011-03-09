@@ -4,9 +4,6 @@ using Expresiones;
 
 namespace Expresiones
 {
-    /**
-     * Clase que define IntegerPostfix
-     **/
     public class IntegerPostfix : IBinaryOperatorPostfix, IInteger, IIntegerPostfix
     {
         int constante;
@@ -19,11 +16,11 @@ namespace Expresiones
             
         }
         /**
-         * Método que imprime en formato infijo
+         * Method to print a constant
          * */
         public void print()
         {
             Console.Write(constante);
-        }
-    }
-}
+        }//print
+    }//IntegerPostfix
+}//Expresiones

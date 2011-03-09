@@ -3,6 +3,9 @@ using Expresiones;
 
 namespace ProductB_ShortCircuitPostFix
 {
+    /**
+     * Class for a new Integer configuration: IntegerPostFix+ShortEval
+     * */
     public class IntegerPostFixEval :IIntegerShortEval, IIntegerPostfix, IExpressionShortCircuitPostFix
     {
         protected IIntegerPostfix mixinIntegerPosfix;
@@ -23,5 +26,5 @@ namespace ProductB_ShortCircuitPostFix
         {
             return this.mixinIntegerShortEval.eval();
         }//eval
-    }
-}
+    }//IntegerPostfixEval
+}//ProductB_ShortCircuitPostFix

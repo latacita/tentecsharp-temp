@@ -1,15 +1,14 @@
-﻿
-using System;
-using Expresiones;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-public class Program
+namespace Expresiones
 {
-    /**
-     * Método main, que prueba una serie de ejemplos de expresiones
-     * */
-    public static void Main()
+    class Program
     {
-        // Pablo: Esto en realidad en domain engineering no es necesario
-    }
-}
-
+        public static void Main(String[] args)
+        {
+        }//Main
+    }//Program
+}//Expresiones

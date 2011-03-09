@@ -16,9 +16,9 @@ namespace Expresiones
         {
             this.exp_izquierda = izq;
             this.exp_derecha = derch;
-        }
+        }//Constructor
         /**
-         * Método que imprime en formato infijo
+         * Method to print an expression in infix format
          * */
         public void print()
         {
@@ -27,6 +27,6 @@ namespace Expresiones
             exp_derecha.print();
             Console.Write(" ");
             Console.Write("* ");
-         }
-    }
-}
+         }//print
+    }//MultPostfix
+}//Expresiones
