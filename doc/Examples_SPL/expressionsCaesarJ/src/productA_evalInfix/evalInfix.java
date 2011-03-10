@@ -1,5 +1,5 @@
 package productA_evalInfix;
-import eval.*;
+import Eval.*;
 import printInfix.*;
 
 public cclass EvalInfix extends PrintInfix & Eval{

@@ -1,5 +1,5 @@
 package shortCircuit;
-import eval.Eval;
+import Eval.Eval;
 public cclass ShortCircuit extends Eval {
 
 }

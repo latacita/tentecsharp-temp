@@ -1,6 +1,8 @@
+package eval;
+
 cclass eval.Eval;
 
-public cclass AddEval extends BinaryOperatorEval & Add {
+public cclass Add extends BinaryOperator {
 	protected ExpressionEval op1;
 	protected ExpressionEval op2;
 	public AddEval(ExpressionEval op1, ExpressionEval op2){
