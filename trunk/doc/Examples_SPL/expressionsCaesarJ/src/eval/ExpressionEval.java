@@ -1,6 +1,7 @@
 cclass eval.Eval;
 
-abstract public cclass ExpressionEval extends Expression{
+// Declaras la clase solo, 
+abstract public cclass Expression  {
 	abstract public int eval();
 }
 

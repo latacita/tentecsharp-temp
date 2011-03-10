@@ -1,5 +1,5 @@
 cclass eval.Eval;
 
-abstract public cclass BinaryOperatorEval extends ExpressionEval {
+abstract public cclass BinaryOperatorEval {
 
 }
