@@ -1,6 +1,6 @@
-cclass Expressions;
+cclass expressions.Expressions;
 
-public abstract cclass Add extends BinaryOperator {
+public cclass Add extends BinaryOperator {
 	
 	protected Expression op1;
 	protected Expression op2; 
