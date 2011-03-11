@@ -1,6 +1,9 @@
 cclass shortCircuit.ShortCircuit;
 
 public cclass Mult {
+	/**
+	 * Method to evaluate a mult expression
+	 */
 	public int eval(){
 		if (op1.eval() == 0){
             return 0;

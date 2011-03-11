@@ -6,5 +6,5 @@ public cclass Mult extends BinaryOperator {
 	public Mult(Expression op1, Expression op2){
 		this.op1=op1;
 		this.op2=op2;
-	}
-}
+	}//Constructor
+}//Mult
