@@ -1,5 +1,8 @@
-This is BibTeX, Version 0.99cThe top-level auxiliary file: pfc.aux
-I found no \citation commands---while reading file pfc.aux
-I found no \bibdata command---while reading file pfc.aux
-I found no \bibstyle command---while reading file pfc.aux
-(There were 3 error messages)
+This is BibTeX, Version 0.99dThe top-level auxiliary file: pfc.aux
+The style file: alpha.bst
+Database file #1: references/pfc.bib
+Warning--empty publisher in albahari:2010
+Warning--empty publisher in batory:2004
+Warning--empty publisher in clements:2002
+Warning--empty publisher in pohl:2005
+(There were 4 warnings)
