@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.3.10)  14 MAR 2011 10:53
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.3.10)  14 MAR 2011 18:11
 entering extended mode
 **pfc.tex
 (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.tex
@@ -324,28 +324,23 @@ File: t1ua1.fd 2006/03/21 Fontinst v1.928 font definitions for T1/ua1.
 LaTeX Font Info:    Font shape `T1/ua1/m/n' will be
 (Font)              scaled to size 9.49997pt on input line 44.
  [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 59--63
+Underfull \hbox (badness 10000) in paragraph at lines 59--68
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--63
+Underfull \hbox (badness 10000) in paragraph at lines 59--68
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 69--71
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4])
+) [5]
 (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\config/bibliography.t
-ex [5] [6
-
-]) (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.bbl)
+ex [6]) (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.bbl)
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the pfc.maf file.
@@ -368,6 +363,7 @@ Package minitoc(hints) Warning: W0024
 
 [7
 
+
 ] (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.aux) ) 
 Here is how much of TeX's memory you used:
  3904 strings out of 494020
@@ -378,4 +374,4 @@ Here is how much of TeX's memory you used:
  715 hyphenation exceptions out of 8191
  34i,11n,43p,1273b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on pfc.dvi (7 pages, 20776 bytes).
+Output written on pfc.dvi (7 pages, 21808 bytes).
