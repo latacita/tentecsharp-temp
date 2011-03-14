@@ -1,11 +1,13 @@
 %=============================================================================%
 % Author : Alejandro Pérez Ruiz                                               %
-% Author : Pablo Sánchez Barreiro                                             %  % Version: 1.0, 07/03/2011                                                    %
+% Author : Pablo Sánchez Barreiro                                             %
+% Version: 1.0, 07/03/2011                                                    %
 % Master Thesis: Background, master file                                      %
 %=============================================================================%
-
 \chapterheader{Antecedentes}{Antecedentes}
-\label{chap:introduction}
+
+\label{chap:background}
+
 
 % Introducción al capítulo
 
@@ -14,32 +16,67 @@
 \section{Líneas de Productos Software}
 
 % Explica que es una línea de productos software, objetivos y terminología
-% \footnote{} 
+% \footnote{}
+Una línea de productos software (SPL) es un conjunto de sistemas de software que comparten un conjunto común y gestionado de aspectos que satisfacen las necesidades específicas de un segmento de mercado o misión y
+que son desarrollados a partir de un conjunto común de activos fundamentales [de software] de una manera prescrita \cite{clements:2002}\\\\
+El objetivo de una Línea de Productos Software \cite{pohl:2005} es crear una infraestructura adecuada a partir de la cual se puedan derivar, tan automáticamente como sea posible, productos concretos pertenecientes a una familia de productos software. Una familia de productos software es un conjunto de aplicaciones software similares, que por tanto comparten una serie de características comunes, pero que también presentan variaciones entre ellos.\\\\
+Un ejemplo clásico de familia de productos software es el software que se entrega con un teléfono móvil. Dicho software contiene una serie de facilidades comunes, tales como agenda, recepción de llamadas, envío de mensajes de texto, etc. No obstante, dependiendo de las capacidades y coste asociado al dispositivo móvil, éste puede presentar diversas funcionalidades opcionales, tales como envío de correos electrónicos, posibilidad de conectarse a Internet mediante red inalámbrica, radio, etc.\\\\
+La idea de una Línea de Productos Software es proporcionar una forma automatizada y sistemática de construir un producto concreto dentro de una familia de productos software mediante la simple especificación de que características deseamos incluir dentro de dicho producto. Esto representa una alternativa al enfoque tradicional, el cual se basaba simplemente en seleccionar el producto más parecido dentro de la familia al que queremos construir y adaptarlo manualmente.
+
 
 \section{Programación Orientada a Características}
 
 % Objetivos de la orientación a características
+Los lenguajes orientados a características, tienen como objetivo encapsular conjuntos coherentes de la funcionalidad de un sistema software en módulos independientes y fácilmente componibles para permitirnos alcanzar una mejor extensibilidad y reusabilidad. Estos módulos reciben el nombre de característica.
+Una característica se puede definir como un incremento de la funcionalidad de un sistema \cite{batory:2004}.\\
+Estos lenguajes son especialmente útiles en el contexto del desarrollo de líneas de producción software, ya que nos permiten separar las características comunes de la mayoría de los productos de la línea de producción de las características que varían de producto a producto.
 
-\subsection{Limitaciones de la Orientación a Objetos para la Programación Orientada a Características}
+
+\subsection{Limitaciones de la Orientación a Objetos frente a la Programación Orientada a Características}
 
 % Limitaciones de los lenguajes OO para FOP
+Para analizar las limitaciones que posee la programación orientada a objetos frente a la programación orientada a características se ha hecho uso del problema estándar de las líneas de productos de las expresiones(en inglés, Expression Product-Line). Éste es un problema fundamental en el diseño del software, que consiste en la extensión de nuevas operaciones y representación de los datos para su posterior combinación. Ha sido ampliamente estudiado dentro del contexto del diseño de los lenguajes de programación, donde se enfocaba en lograr la extensibilidad de los tipos de datos y las operaciones de una manera segura.Pero en vez de concentrarnos en este tema, consideraremos los aspectos del diseño y la síntesis del problema de producir una familia de productos. Más concretamente, ¿qué características están presentes en el problema?¿Cómo las podemos modularizar? Y ¿cómo podemos construir diferentes configuraciones?
+\subsubsection{Descripción del problema de las expresiones}
+El objetivo es definir los diferentes tipos de datos para representar la siguiente gramática:\\\\
+\begin{math}
+Exp :: = Integer | AddInfix | MultInfix | AddPostfix | MulltPostfix | AddPrefix | MultPrefix\\Integer :: <positive-negative integers>\\AddInfix :: = Exp "+" Exp \\MultInfix :: = Exp "*" Exp \\AddPostfix ::= Exp Exp "+"\\MultPostfix ::= Exp Exp "*"\\AddPrefix ::= "+" Exp Exp\\ MultPrefix ::= "*" Exp Exp
+\end{math}\\
+Tres operaciones para las expresiones serán definidas en esta gramática: \begin{enumerate} \item \imp{Print}: mostrará por consola la expresión en el formato correspondiente(infijo, prefijo o posfijo).\item \imp{Eval}: evaluará la expresión y retornará el valor numérico. \item \imp{ShortEval}: evaluará la expresión realizando la operación de multiplicación cortocircuitada, es decir, si el primer operando es 0 directamente retornará el valor 0 para la expresión.
+\end{enumerate}
+Teniendo el problema presente podemos identificar dos conjuntos de características, por un lado las operaciones \imp{\{Print, Eval, ShortEval\}} y por otro los tipos de datos \imp{\{AddInfix, MultInfix, AddPostfix...\}}. Por lo tanto, el objetivo es implementar una línea de productos software que nos permita crear las distintas configuraciones posibles para este problema.
+\subsubsection{Resolviendo el problema con C\#}
+La figura 1 representa el diseño de clases UML que soporta las variabilidades identificadas anteriormente. Este diseño es replicado para cada tipo de operación(la figura 2 muestra el diagrama de clases para la operación de imprimir expresión en formato infijo).\\
+Tras trasladar estos diagramas a C\# se observan las carencias que posee un lenguaje orientado a objetos cuando implementamos un problema propio de la programación orientada a características.
+Por un lado he utilizado el mecanismo de herencia para añadir funcionalidades a una clase existente, pero este mecanismo es jerárquico, lo que hace que la clase hija herede toda la funcionalidad de su clase padre.\\Por ejemplo, para crear una nueva configuración que contenga las operaciones evaluar e imprimir en formato infijo se necesitaría crear una nueva subclase que heredase de las dos clases que contienen las operaciones citadas anteriormente, pero esto no es posible, ya que C\#, como la mayoría de los lenguajes orientados a objetos, solo permiten hacer uso de la herencia múltiple entre interfaces. Por lo tanto, por cada clase que se quiera heredar debemos crear una nueva interfaz que sea extendida por la clase a heredar y por la subclase que contendrá la nueva configuración.\\
+El uso de esta técnica hace que, un incremento de funcionalidad representado por un conjunto de nuevas subclases que heredan de un conjunto de clases superiores, no sea posible manejarlo consistentemente como una unidad encapsulada. La insuficiente unidad de encapsulación, deriva en un problema de complejidad en el manejo de la selección de características para la composición. Aun cuando, las clases separadas en paquetes pertenezcan a una misma característica, es necesario seleccionar clases concretas que van a ser usadas en un producto específico.\\
+Otro problema es el manejo de las dependencias, ya que la herencia tradicional obliga a que las clases y subclases tengan diferentes nombres. Por lo tanto, las referencias a las clases concretas deben ser actualizadas. A mayor número de características en una línea de productos, las relaciones entre clases concretas se complican potencialmente, lo que resulta una situación indeseable. Esto incrementa la complejidad en las relaciones y dependencias entre clases.
+
 % - Cuentas el ejemplo de las expresiones
 % - Muestras la solución en C#.
 % - Resumes los problemas
 
 \subsection{Ventajas de los lenguajes orientados a características}
+Los lenguajes orientados a características nos otorgan una mayor flexibilidad, ya que nos permiten que clases individuales puedan ser compuestas por un conjunto de características, por tanto son especialmente recomendados para utilizarlos con las líneas de producción software.\\\\
+Para estudiar las ventajas de los lenguajes orientados a características se trabajará con CaesarJ que es un lenguaje de programación basado en Java, que nos proporciona una mayor modularidad y el desarrollo a través de componentes reusables.Para ello trabaja con conceptos como clases y paquetes en única entidad, llamada familia de clases, que constituye unidades de encapsulamiento adicional para agrupar clases relacionadas. Una familia de clases también es, en sí misma una clase. Así mismo, se introduce el concepto de clases virtuales, que son clases internas (de familias de clases) propensas a ser refinadas a nivel de subclases. En el refinamiento de una clase virtual, implícitamente se hereda de la clase que refina, por lo que también esto es visto como una relación adjunta. También, en un refinamiento pueden ser añadidos nuevos métodos, campos, relaciones de herencia y sobreescritura de métodos. Puesto que en cada familia de clases, las referencias a las clases virtuales siempre apuntarán al refinamiento más específico. Esto significa que, por medio de las clases virtuales se aplica sobre escritura de métodos, permitiendo redefinir el comportamiento de cualquier subclase de una familia de clases.\\
+En términos de programación orientada a características, cada funcionalidad es modelada como una familia de clases. Mientras que los componentes y objetos del dominio específico, son correspondidos por sus clases virtuales. Así mismo, las clases virtuales pueden ser declaradas como clases abstractas, lo que habilita la definición de interfaces en la implementación modular de características.\\\\
+Para hacer uso de lo citado anteriormente y ver su beneficio con las líneas de producción software se ha vuelto a utilizar el ya comentado problema de las expresiones de la subsección anterior. Pero en este caso, el diseño cambia significativamente debido a la características expuestas de CaesarJ.//
+Por un lado en la figura 3(diagrama de clases con paquetes)
 
 % Párrafo introducción
-% Introducción CaesarJ 
+% Introducción CaesarJ
 % Ejemplo en CeasrJ, resaltando ventajas
 
-\section{Clases Parciales C#}
+\section{Clases Parciales C\#}
+Las clases parciales C\# \cite{albahari:2010} nos permiten dividir la implementación de una clase, estructura o interfaz en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan en tiempo de compilación para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. Por lo tanto,las clases parciales C\# pueden utilizarse como un mecanismo adecuado para implementar características, dado que cada incremento en funcionalidad para una clase se podría encapsular en una clase parcial separada.\\\\
+Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con el indicador clave partial. En C\#, un espacio de nombre es simplemente empleado para agrupar clases relacionadas y evitar conflictos de nombres. Para especificar los archivos C\# que deben ser incluidos en una compilación, se emplea un documento XML que contiene información acerca del proyecto y que especifica que ficheros deben ser compilados para generar el proyecto. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML (Figura x--> Que será la que contenga lo de las expresiones).
 
 % Qué hace esto aquí
 
 % Explicar que son brevemente, y ejemplo usando las expresiones
 
-\section{Caso de Estudio: Hogares \emph{Inteligentes} Automatizados}
+\section{Caso de Estudio: Hogares Inteligentes Automatizados}
 
 % Resumir lo que aparece en diversos documentos
-
+El objetivo de estos hogares es el aumento de la comodidad y seguridad de sus habitantes, así como hacer un uso más eficiente de la energía consumida. Se ha elegido este dominio por ser un dominio donde el uso de un enfoque basado en Líneas de Productos Software se hace casi imperativo, debido a la gran variabilidad existente en estos productos. Esta variabilidad se debe tanto a motivos de hardware, dado que los dispositivos a ser controlados e interconectados pueden variar enormemente, como funcionales, dado que existen multitud de funcionalidades que se pueden ofrecer de manera opcional o alternativa al usuario, no siendo necesario que un determinado hogar las posea todas ellas.
+Los ejemplos más comunes de tareas automatizadas dentro de un hogar inteligente son el control de luces, ventanas, puertas, persianas, calefacción, etc. Del mismo modo, se puede incrementar la seguridad de sus habitantes mediante sistemas automatizados de vigilancia y alertas de potenciales situaciones de riesgo, tales como detección de humos o ventanas abiertas cuando se abandona el hogar.
+%>>>>>>> .r136

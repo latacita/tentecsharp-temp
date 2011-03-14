@@ -1,0 +1,63 @@
+303 Patch Control
+
+0
+0
+1
+pfc.tex
+12
+5
+4
+
+
+
+
+
+
+pfc.tex
+TeX:ES
+152055803 0 -1 3523 -1 2676 0 0 982 421 0 217 187 -1 -1 0 0 68 -1 -1 68 1 0 2676 -1   0
+config\appendix.tex
+TeX:UNIX
+1159163 0 -1 0 -1 0 0 0 982 421 0 25 0 -1 -1 0 0 100 -1 -1 100 1 0 0 -1   0
+references\pfc.bib
+BibTeX
+1049586 0 33 18 28 1 0 0 982 421 0 25 272 -1 -1 0 0 1 6 6 1 1 0 1 28   0
+config\bibliography.tex
+TeX
+17838075 0 -1 460 -1 465 0 0 982 421 0 217 119 -1 -1 0 0 70 -1 -1 70 1 0 465 -1   0
+background\background.tex
+TeX
+286273531 0 -1 5017 -1 8473 0 0 982 421 0 665 51 -1 -1 0 0 79 -1 -1 79 1 0 8473 -1   0
+config\rename.tex
+TeX:UNIX
+269594619 0 -1 0 -1 0 0 0 982 421 0 25 0 -1 -1 0 0 -1 -1 -1 -1 1 0 0 -1   0
+:\Users\Iskander\AppData\Roaming\WinEdt Team\WinEdt 6\ConfigEx\Dictionaries.ini
+DATA:INI:EDT
+269484282 0 215 12 218 17 0 0 982 421 1 201 255 -1 -1 0 0 83 0 0 83 1 0 17 218   0
+introduction\introduction.tex
+TeX
+269496315 0 -1 1373 -1 488 0 0 982 421 0 25 119 -1 -1 0 0 79 -1 -1 79 1 0 488 -1   0
+:\Users\Iskander\AppData\Roaming\WinEdt Team\WinEdt 6\Samples\Examples\Demo.tex
+TeX:Hard
+403714043 0 0 1 0 1 0 0 982 605 0 25 0 -1 -1 0 0 -1 -1 -1 -1 1 0 1 0   0
+:\Users\Iskander\AppData\Roaming\WinEdt Team\WinEdt 6\ConfigEx\Language.ini
+DATA:INI:EDT
+269484282 0 0 1 14 21 0 0 889 605 1 233 238 -1 -1 0 0 83 0 0 83 1 0 21 14   0
+cover\supervisorApproval.tex
+TeX
+269496315 0 -1 0 -1 0 0 0 988 605 0 25 0 -1 -1 0 0 87 -1 -1 87 1 0 0 -1   0
+itsas_pfc.cls
+TeX:STY:UNIX
+269594618 0 0 1 0 1 0 0 988 605 0 25 -1428 -1 -1 0 0 -1 -1 -1 -1 1 0 1 0   0
+
+*pfc.tex
+>
+*config/pfc_options.tex
+*config/rename.tex
+*config/begin.tex
+*Config/headers.tex
+*config/chapters.tex
+*background/background.tex
+*config/bibliography.tex
+*references/pfc.bib
+<
