@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.3.10)  15 MAR 2011 11:18
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.3.10)  15 MAR 2011 18:27
 entering extended mode
 **pfc.tex
 (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.tex
@@ -338,9 +338,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
-) [5]
+[5] [6])
 (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\config/bibliography.t
-ex [6]) (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.bbl)
+ex [7] [8
+
+]) (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.bbl)
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the pfc.maf file.
@@ -361,17 +363,16 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the pfc.log file.
 
-[7
-
+[9
 
 ] (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.aux) ) 
 Here is how much of TeX's memory you used:
- 3905 strings out of 494020
- 52272 string characters out of 3143896
- 131468 words of memory out of 3000000
- 6916 multiletter control sequences out of 15000+200000
+ 3909 strings out of 494020
+ 52328 string characters out of 3143896
+ 132468 words of memory out of 3000000
+ 6920 multiletter control sequences out of 15000+200000
  21577 words of font info for 45 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 34i,11n,43p,1273b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,11n,43p,1273b,431s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on pfc.dvi (7 pages, 21972 bytes).
+Output written on pfc.dvi (9 pages, 27140 bytes).
