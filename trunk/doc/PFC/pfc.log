@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.3.10)  14 MAR 2011 18:11
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.3.10)  15 MAR 2011 11:18
 entering extended mode
 **pfc.tex
 (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.tex
@@ -250,18 +250,18 @@ Grid set 16 x 16 = 37.34424pt x 52.81541pt
 TextBlockOrigin set to 0pt x 0pt
 )) (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\config/rename.tex)
 (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
 Package minitoc(hints) Info: I0049
 (minitoc(hints))             ==> You requested the hints option. 
 (minitoc(hints))             Some hints are eventually given below.
@@ -366,12 +366,12 @@ Package minitoc(hints) Warning: W0024
 
 ] (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.aux) ) 
 Here is how much of TeX's memory you used:
- 3904 strings out of 494020
- 52262 string characters out of 3143896
+ 3905 strings out of 494020
+ 52272 string characters out of 3143896
  131468 words of memory out of 3000000
- 6915 multiletter control sequences out of 15000+200000
+ 6916 multiletter control sequences out of 15000+200000
  21577 words of font info for 45 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  34i,11n,43p,1273b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on pfc.dvi (7 pages, 21808 bytes).
+Output written on pfc.dvi (7 pages, 21972 bytes).
