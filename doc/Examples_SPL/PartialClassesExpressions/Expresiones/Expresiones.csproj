@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{313E8493-17F8-44EB-81B0-2F62D9F4EDD0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Expresiones</RootNamespace>
+    <AssemblyName>Expresiones</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--Eval-->
+    <Compile Include="Eval\Add.cs" />
+    <Compile Include="Eval\IExpressionsEval.cs" />
+    <Compile Include="Eval\IExpressions.cs" />
+    <Compile Include="Eval\Integer.cs" />
+    <Compile Include="Eval\Mult.cs" />
+    <!--Expressions-->
+    <Compile Include="Expressions\Add.cs" />
+    <Compile Include="Expressions\IBinaryOperator.cs" />
+    <Compile Include="Expressions\IExpressions.cs" />
+    <Compile Include="Expressions\Integer.cs" />
+    <Compile Include="Expressions\Mult.cs" />
+    <!--Infix-->
+    <!--<Compile Include="Infix\Add.cs" />
+    <Compile Include="Infix\IExpressionInfix.cs" />
+    <Compile Include="Infix\IExpressions.cs" />
+    <Compile Include="Infix\Integer.cs" />
+    <Compile Include="Infix\Mult.cs" />-->
+    <!--Postfix-->
+    <!--<Compile Include="Postfix\Add.cs" />
+    <Compile Include="Postfix\IExpressionPostfix.cs" />
+    <Compile Include="Postfix\IExpressions.cs" />
+    <Compile Include="Postfix\Integer.cs" />
+    <Compile Include="Postfix\Mult.cs" />-->
+    <!--Prefix-->
+    <Compile Include="Prefix\Add.cs" />
+    <Compile Include="Prefix\IExpressionsPrefix.cs" />
+    <Compile Include="Prefix\IExpressions.cs" />
+    <Compile Include="Prefix\Integer.cs" />
+    <Compile Include="Prefix\Mult.cs" />
+    <!--ShortEval-->
+    <!--<Compile Include="ShortEval\Add.cs" />
+    <Compile Include="ShortEval\IExpressionShortEval.cs" />
+    <Compile Include="ShortEval\IExpressions.cs" />
+    <Compile Include="ShortEval\Integer.cs" />
+    <Compile Include="ShortEval\Mult.cs" />-->
+    <!--Program-->
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

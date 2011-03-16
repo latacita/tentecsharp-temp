@@ -1,0 +1,10 @@
+C:\Users\Iskander\Desktop\PartialClassesExpressions\Expressions\Expresiones\Expresiones\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Iskander\Desktop\PartialClassesExpressions\Expressions\Expresiones\Expresiones\bin\Debug\Expresiones.exe
+C:\Users\Iskander\Desktop\PartialClassesExpressions\Expressions\Expresiones\Expresiones\bin\Debug\Expresiones.pdb
+C:\Users\Iskander\Desktop\PartialClassesExpressions\Expressions\Expresiones\Expresiones\obj\x86\Debug\Expresiones.exe
+C:\Users\Iskander\Desktop\PartialClassesExpressions\Expressions\Expresiones\Expresiones\obj\x86\Debug\Expresiones.pdb
+C:\Users\Iskander\Desktop\PartialClassesExpressions\Expresiones\obj\x86\Debug\Expresiones.exe
+C:\Users\Iskander\Desktop\PartialClassesExpressions\Expresiones\obj\x86\Debug\Expresiones.pdb
+C:\Users\Iskander\Desktop\PartialClassesExpressions\Expresiones\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Iskander\Desktop\PartialClassesExpressions\Expresiones\bin\Debug\Expresiones.exe
+C:\Users\Iskander\Desktop\PartialClassesExpressions\Expresiones\bin\Debug\Expresiones.pdb
