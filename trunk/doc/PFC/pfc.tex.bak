@@ -82,10 +82,8 @@
 \input{background/background.tex}
 
 % Capítulo 3: Descripción General del Proceso
-% De momento no se sabe
 
 % Capítulo 4: Definición y Planificación del Proyecto
-\input{planificacion/planificacion.tex}
 
 % Capítulo 5: Ingeniería de Requisitos
 
