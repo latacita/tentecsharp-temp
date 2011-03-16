@@ -1,12 +1,12 @@
-303 Patch Control
+275 Patch Control
 
 0
 0
 1
 pfc.tex
-12
-5
-4
+15
+11
+0
 
 
 
@@ -15,49 +15,58 @@ pfc.tex
 
 pfc.tex
 TeX:ES
-152055803 0 -1 3523 -1 2676 0 0 982 421 0 217 187 -1 -1 0 0 68 -1 -1 68 1 0 2676 -1   0
-config\appendix.tex
+420491259 0 -1 2938 -1 1377 0 0 690 749 0 282 190 -1 -1 0 0 68 -1 -1 68 1 0 1377 -1   0
+config\begin.tex
 TeX:UNIX
-1159163 0 -1 0 -1 0 0 0 982 421 0 25 0 -1 -1 0 0 100 -1 -1 100 1 0 0 -1   0
-references\pfc.bib
-BibTeX
-1049586 0 33 18 28 1 0 0 982 421 0 25 272 -1 -1 0 0 1 6 6 1 1 0 1 28   0
-config\bibliography.tex
-TeX
-17838075 0 -1 460 -1 465 0 0 982 421 0 217 119 -1 -1 0 0 70 -1 -1 70 1 0 465 -1   0
+1159163 0 -1 0 -1 0 308 322 854 1071 0 22 0 -1 -1 0 0 69 -1 -1 69 1 0 0 -1   0
 background\background.tex
 TeX
-286273531 2 -1 11328 -1 11340 0 0 982 421 0 545 2397 -1 -1 0 0 79 -1 -1 79 1 0 11340 -1   0
-config\rename.tex
-TeX:UNIX
-269594619 0 -1 0 -1 0 0 0 982 421 0 25 0 -1 -1 0 0 -1 -1 -1 -1 1 0 0 -1   0
-:\Users\Iskander\AppData\Roaming\WinEdt Team\WinEdt 6\ConfigEx\Dictionaries.ini
-DATA:INI:EDT
-269484282 0 215 12 218 17 0 0 982 421 1 201 255 -1 -1 0 0 83 0 0 83 1 0 17 218   0
+17838075 0 -1 1389 -1 1510 286 299 832 1048 0 22 874 -1 -1 0 0 79 -1 -1 79 1 0 1510 -1   0
 introduction\introduction.tex
 TeX
-269496315 0 -1 1373 -1 488 0 0 982 421 0 25 119 -1 -1 0 0 79 -1 -1 79 1 0 488 -1   0
-:\Users\Iskander\AppData\Roaming\WinEdt Team\WinEdt 6\Samples\Examples\Demo.tex
-TeX:Hard
-403714043 0 0 1 0 1 0 0 982 605 0 25 0 -1 -1 0 0 -1 -1 -1 -1 1 0 1 0   0
-:\Users\Iskander\AppData\Roaming\WinEdt Team\WinEdt 6\ConfigEx\Language.ini
-DATA:INI:EDT
-269484282 0 0 1 14 21 0 0 889 605 1 233 238 -1 -1 0 0 83 0 0 83 1 0 21 14   0
+17838075 1 -1 1273 -1 1389 286 299 854 993 0 22 589 -1 -1 0 0 79 -1 -1 79 1 0 1389 -1   0
+config\chapters.tex
+TeX:UNIX
+1159163 0 -1 0 -1 0 264 276 832 970 0 22 0 -1 -1 0 0 64 -1 -1 64 1 0 0 -1   0
+config\pfc_options.tex
+TeX
+1060859 0 -1 0 -1 2351 44 46 590 795 0 32 532 -1 -1 0 0 1 -1 -1 1 1 0 2351 -1   0
+config\rename.tex
+TeX:UNIX
+1159163 0 -1 0 -1 0 66 69 612 818 0 22 0 -1 -1 0 0 1 -1 -1 1 1 0 0 -1   0
+cover\cover.tex
+TeX:UNIX
+1159163 0 -1 1136 -1 918 22 23 568 772 0 32 570 -1 -1 0 0 1 -1 -1 1 1 0 918 -1   0
+cover\firstPage.tex
+TeX
+1060859 0 -1 1042 -1 1040 220 230 766 979 0 42 798 -1 -1 0 0 65 -1 -1 65 1 0 1040 -1   0
+cover\acknowledgements.tex
+TeX:UNIX
+1159163 0 -1 12 -1 27 242 253 810 947 0 292 0 -1 -1 0 0 28 -1 -1 28 1 0 27 -1   0
 cover\supervisorApproval.tex
 TeX
-269496315 0 -1 0 -1 0 0 0 988 605 0 25 0 -1 -1 0 0 87 -1 -1 87 1 0 0 -1   0
-itsas_pfc.cls
-TeX:STY:UNIX
-269594618 0 0 1 0 1 0 0 988 605 0 25 -1428 -1 -1 0 0 -1 -1 -1 -1 1 0 1 0   0
+1060859 1 -1 1576 -1 1551 88 92 634 841 0 22 912 -1 -1 0 0 87 -1 -1 87 1 0 1551 -1   0
+C:\Documents and Settings\Pablo\Mis documentos\Docencia\20092010\ISII\Tema8\Slides\is2tema8.tex
+TeX:ES:UNIX:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES:ES
+286371835 0 -1 5936 -1 937 198 207 1045 714 0 22 190 -1 -1 0 0 79 -1 -1 79 1 0 937 -1   0
+C:\Documents and Settings\Pablo\Mis documentos\Docencia\20092010\ISII\Tema8\Slides\is2-tema8.bib
+BibTeX:UNIX
+269583346 0 245 114 245 1 22 22 1080 518 0 22 532 -1 -1 0 0 81 0 0 81 1 0 1 245   0
+C:\Documents and Settings\Pablo\Mis documentos\My Dropbox\Reviews\EA@AOSD\reviews\review_form_1.txt
+ASCII:UNIX
+273786746 0 73 1 76 53 44 46 590 795 0 542 1444 -1 -1 0 0 -1 -1 -1 -1 1 0 53 76   0
+C:\Escritura\WinEdt\Exec\Acrobat OpenDoc.edt
+ASCII:EDT
+269494138 7 106 87 106 1 110 115 656 864 1 80 1045 -1 -1 0 0 -1 -1 -1 -1 1 0 1 106   0
 
 *pfc.tex
 >
 *config/pfc_options.tex
 *config/rename.tex
+*cover/cover.tex
 *config/begin.tex
 *Config/headers.tex
 *config/chapters.tex
 *background/background.tex
-*config/bibliography.tex
-*references/pfc.bib
+*config/appendix.tex
 <
