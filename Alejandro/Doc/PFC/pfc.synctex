@@ -1,6 +1,6 @@
 SyncTeX Version:1
-Input:1:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/pfc.tex
-Input:2:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/itsas_pfc.cls
+Input:1:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/pfc.tex
+Input:2:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/itsas_pfc.cls
 Input:3:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/base/bk11.clo
 Input:4:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/base/inputenc.sty
 Input:5:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/base/latin1.def
@@ -16,7 +16,7 @@ Input:14:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/base/fontenc.sty
 Input:15:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/base/t1enc.def
 Input:16:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/arial/uarial.sty
 Input:17:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/graphics/keyval.sty
-Input:18:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/config/pfc_options.tex
+Input:18:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/config/pfc_options.tex
 Input:19:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/fancyhdr/fancyhdr.sty
 Input:20:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/graphics/color.sty
 Input:21:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/00miktex/color.cfg
@@ -30,25 +30,25 @@ Input:28:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/00miktex/graphics.cfg
 Input:29:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/base/ifthen.sty
 Input:30:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/minitoc/minitoc.sty
 Input:31:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/minitoc/mtcmess.sty
-Input:32:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/pfc.mtc0
+Input:32:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/pfc.mtc0
 Input:33:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/minitoc/english.mld
 Input:34:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/minitoc/english.mld
 Input:35:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/epsf/epsf.sty
 Input:36:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/textpos/textpos.sty
 Input:37:C:/Program Files (x86)/MiKTeX 2.9/tex/latex/ms/everyshi.sty
-Input:38:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/config/rename.tex
-Input:39:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/pfc.aux
-Input:40:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/config/begin.tex
-Input:41:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/Config/headers.tex
-Input:42:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/config/chapters.tex
-Input:43:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/background/background.tex
+Input:38:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/config/rename.tex
+Input:39:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/pfc.aux
+Input:40:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/config/begin.tex
+Input:41:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/Config/headers.tex
+Input:42:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/config/chapters.tex
+Input:43:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/background/background.tex
 Output:dvi
 Magnification:1000
 Unit:1
 X Offset:4736287
 Y Offset:4736287
 Content:
-!3351
+!3381
 {1
 [43,33:0,44573459:25034752,44573459,0
 [43,33:1441792,44573459:23592960,43131667,0
@@ -6235,8 +6235,8 @@ g43,104:25034752,44573459
 ]
 !42510
 }5
-Input:46:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/planificacion/planificacion.tex
-!115
+Input:46:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/planificacion/planificacion.tex
+!118
 {6
 [46,8:0,44573459:28180480,44573459,0
 [46,8:4587520,44573459:23592960,43131667,0
@@ -10548,8 +10548,8 @@ g46,46:28180480,44573459
 ]
 !33918
 }10
-Input:47:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/config/bibliography.tex
-!108
+Input:47:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/config/bibliography.tex
+!111
 {11
 [47,1:0,44573459:25034752,44573459,0
 [47,1:1441792,44573459:23592960,43131667,0
@@ -11322,8 +11322,8 @@ g47,1:28180480,44573459
 ]
 !2659
 }12
-Input:48:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/pfc.bbl
-!91
+Input:48:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/pfc.bbl
+!94
 {13
 [1,112:0,44573459:25034752,44573459,0
 [1,112:1441792,44573459:23592960,43131667,0
@@ -11577,8 +11577,8 @@ k1,112:25034752,44573459:11439706
 ]
 !6444
 }13
-Input:49:C:/Users/Iskander/Desktop/Universidad/PFC/Backup/Source/doc/PFC/pfc.aux
-!91
+Input:49:C:/Users/Iskander/Desktop/Universidad/PFC/Source/Alejandro/Doc/PFC/pfc.aux
+!94
 Postamble:
 Count:5058
 !26

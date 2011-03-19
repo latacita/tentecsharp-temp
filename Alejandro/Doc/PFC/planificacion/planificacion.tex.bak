@@ -42,9 +42,10 @@ Las \emph{funciones complejas} son:
 \item \emph{Control inteligente de luces:} Las luces deberán automáticamente apagarse/encenderse dependiendo de diversos factores. Si no hay luz natural fuera de la casa, las luces deberán automáticamente encenderse. Cada vez que un habitante entre a una habitación donde no haya iluminación suficiente, las luces automáticamente se encenderán, a menos que la habitación esté en modo "sleep". Este modo previene el alumbrado automático de una habitación,en el caso de que alguien estuviese durmiendo.
 \item \emph{Presencia simulada:} Para evitar posibles robos, cuando los habitantes dejen la casa por un periodo largo de tiempo, la presencia de personas podrá ser simulada. Hay dos opciones(no exclusivas entre ellas):
     \begin{enumerate}
-    \item Simulación de las luces: Las luces podrán ser apagadas/encendidas para simular presencia. Se usará un esquema semi-aleatorio, por ejemplo el esquema variará cada día acorde a unos parametros aleatorios, pero las luces no serán apagadas/encendidas sin sentido, serán encendidas más por la tarde/noche que durante el día.  
+    \item Simulación de las luces: Las luces podrán ser apagadas/encendidas para simular presencia. Se usará un esquema semi-aleatorio, por ejemplo el esquema variará cada día acorde a unos parametros aleatorios, pero las luces no serán apagadas/encendidas sin sentido, serán encendidas más por la tarde/noche que durante el día.
     \item Simulación de persianas: Las persianas serán subidas y bajadas, acorde con un esquema semi-aleatorio.Por ejemplo,las persianas de los dormitorios principales serán bajadas por la noche y subidas por la mañana,y las otras habitaciones, algunas noches se bajarán y otras noches no.
     \end{enumerate}
+\item \emph{Detección de incendios:} Si alguno de los sensores instalados por las habitaciones detecta un fuego, procederá activar los aspersores de agua instalados en la habitación, además se activará la alarma de fuego y se avisará a través de la puerta de enlace(Gateway) en que habitaciones se ha detectado el fuego.
 \end{enumerate}
 
 Cada una de estas funciones son opcionales. Las personas interesadas en adquirir el sistema podrán seleccionar el numero de funciones que ellos deseen.

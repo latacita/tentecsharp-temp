@@ -23,9 +23,9 @@ namespace SmartHome
 
         private void listBoxFloors_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listBoxRooms.Items.Clear(); //Clean all room items
-            int i = listBoxFloors.SelectedIndex;
-            addRooms(floors[i].getRooms());            
+            //listBoxRooms.Items.Clear(); //Clean all room items
+            //int i = listBoxFloors.SelectedIndex;
+            //addRooms(floors[i].getRooms());            
         }
     }
 }
