@@ -6,3 +6,4 @@ C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplement
 C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\obj\x86\Debug\smartHome.exe
 C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\obj\x86\Debug\smartHome.pdb
 C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\obj\x86\Debug\SmartHome.GatewayGUI.resources
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\obj\x86\Debug\smartHome.Properties.Resources.resources
