@@ -1,0 +1,8 @@
+\cleardoublepage                            % start in right side page
+\addcontentsline{toc}{chapter}{References}  % add this "chapter" to the ToC, with the name "Bibliography"
+pohl:2005\bibliographystyle{alpha}                  % bibliography style
+clements:2002\bibliographystyle{alpha}
+batory:2004\bibliographystyle{alpha}
+albahari:2010:2010\bibliographystyle{alpha}
+%\bibliographystyle{abbrv}                  % bibliography style
+%\bibliographystyle{apalike}
