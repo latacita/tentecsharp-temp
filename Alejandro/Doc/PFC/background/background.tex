@@ -66,11 +66,23 @@ Teniendo el problema presente podemos identificar dos conjuntos de característic
 
 \subsubsection{Resolviendo el problema con C\#}
 
-La figura 1 representa el diseño de clases UML que soporta las variabilidades identificadas anteriormente. Este diseño es replicado para cada tipo de operación(la figura 2 muestra el diagrama de clases para la operación de imprimir expresión en formato infijo).\\
+La figura ~\ref{back:fig:expr} representa el diseño de clases UML que soporta las variabilidades identificadas anteriormente. Este diseño es replicado para cada tipo de operación(la figura ~\ref{back:fig:printInfix} muestra el diagrama de clases para la operación de imprimir expresión en formato infijo).\\
+\begin{figure}[ht!]
+  % Requires \usepackage{graphicx}
+  \centering \includegraphics[width=.60\linewidth]{background/images/Expressions.eps} \\
+  \caption{Diagrama de clases para el problema de las expresiones}
+  \label{back:fig:expr}
+\end{figure}
+\begin{figure}[ht!]
+  % Requires \usepackage{graphicx}
+  \centering \includegraphics[width=.80\linewidth]{background/images/PrintInfix.eps} \\
+  \caption{Diagrama de clases para la operación de imprimir en formato infijo}
+  \label{back:fig:printInfix}
+\end{figure}
 Tras trasladar estos diagramas a C\# se observan las carencias que posee un lenguaje orientado a objetos cuando implementamos un problema propio de la programación orientada a características.\\
 Por un lado he utilizado el mecanismo de herencia para añadir funcionalidades a una clase existente, pero este mecanismo es jerárquico, lo que hace que la clase hija herede toda la funcionalidad de su clase padre.
-Por ejemplo, para crear una nueva configuración que contenga las operaciones evaluar e imprimir en formato infijo se necesitaría crear una nueva subclase que heredase de las dos clases que contienen las operaciones citadas anteriormente, pero esto no es posible, ya que C\#, como la mayoría de los lenguajes orientados a objetos, solo permiten hacer uso de la herencia múltiple entre interfaces. Por lo tanto, por cada clase que se quiera heredar debemos crear una nueva interfaz que sea extendida por la clase a heredar y por la subclase que contendrá la nueva configuración.\\
-El uso de esta técnica hace que, un incremento de funcionalidad representado por un conjunto de nuevas subclases que heredan de un conjunto de clases superiores, no sea posible manejarlo consistentemente como una unidad encapsulada. La insuficiente unidad de encapsulación, deriva en un problema de complejidad en el manejo de la selección de características para la composición. Aun cuando, las clases separadas en paquetes pertenezcan a una misma característica, es necesario seleccionar clases concretas que van a ser usadas en un producto específico.
+Por ejemplo, para crear una nueva configuración que contenga las operaciones evaluar e imprimir en formato infijo se necesitaría crear una nueva subclase que heredase de las clases que contienen las operaciones citadas anteriormente, pero esto no es posible, ya que C\#, como la mayoría de los lenguajes orientados a objetos, solo permiten hacer uso de la herencia múltiple entre interfaces. Por lo tanto, por cada clase que se quiera heredar debemos crear una nueva interfaz que sea extendida por la clase a heredar y por la subclase que contendrá la nueva configuración, a través de esto y la creación de objetos de las clases a heredar podremos acceder a los métodos definidos por las interfaces, con lo que se consigue simular la herencia múltiple.\\
+Pero el uso de esta técnica hace que, un incremento de funcionalidad representado por un conjunto de nuevas subclases que heredan de un conjunto de clases superiores, no sea posible manejarlo consistentemente como una unidad encapsulada. La insuficiente unidad de encapsulación, deriva en un problema de complejidad en el manejo de la selección de características para la composición. Aun cuando, las clases separadas en paquetes pertenezcan a una misma característica, es necesario seleccionar clases concretas que van a ser usadas en un producto específico.
 Otro problema es el manejo de las dependencias, ya que la herencia tradicional obliga a que las clases y subclases tengan diferentes nombres. Por lo tanto, las referencias a las clases concretas deben ser actualizadas. A mayor número de características en una línea de productos, las relaciones entre clases concretas se complican potencialmente, lo que resulta una situación indeseable. Esto incrementa la complejidad en las relaciones y dependencias entre clases.
 % - Cuentas el ejemplo de las expresiones
 % - Muestras la solución en C#.
@@ -81,7 +93,7 @@ Otro problema es el manejo de las dependencias, ya que la herencia tradicional o
 
 \subsection{Ventajas de los lenguajes orientados a características}
 Los lenguajes orientados a características nos otorgan una mayor flexibilidad, ya que nos permiten que clases individuales puedan ser compuestas por un conjunto de características, por tanto son especialmente recomendados para utilizarlos con las líneas de producción software.\\
-Para estudiar las ventajas de los lenguajes orientados a características se trabajará con CaesarJ que es un lenguaje de programación basado en Java, que nos proporciona una mayor modularidad y el desarrollo a través de componentes reusables.Para ello trabaja con conceptos como clases y paquetes en única entidad, llamada familia de clases, que constituye unidades de encapsulamiento adicional para agrupar clases relacionadas. Una familia de clases también es, en sí misma una clase. Así mismo, se introduce el concepto de clases virtuales, que son clases internas (de familias de clases) propensas a ser refinadas a nivel de subclases. En el refinamiento de una clase virtual, implícitamente se hereda de la clase que refina, por lo que también esto es visto como una relación adjunta. También, en un refinamiento pueden ser añadidos nuevos métodos, campos, relaciones de herencia y sobreescritura de métodos. Puesto que en cada familia de clases, las referencias a las clases virtuales siempre apuntarán al refinamiento más específico. Esto significa que, por medio de las clases virtuales se aplica sobre escritura de métodos, permitiendo redefinir el comportamiento de cualquier subclase de una familia de clases.\\
+Para estudiar las ventajas de los lenguajes orientados a características se trabajará con CaesarJ que es un lenguaje de programación basado en Java, que nos proporciona una mayor modularidad y el desarrollo a través de componentes reusables.Para ello trabaja con conceptos como clases y paquetes en una única entidad, llamada familia de clases, que constituye unidades de encapsulamiento adicional para agrupar clases relacionadas. Una familia de clases también es, en sí misma una clase. Así mismo, se introduce el concepto de clases virtuales, que son clases internas (de familias de clases) propensas a ser refinadas a nivel de subclases. En el refinamiento de una clase virtual, implícitamente se hereda de la clase que refina, por lo que también esto es visto como una relación adjunta. También, en un refinamiento pueden ser añadidos nuevos métodos, campos, relaciones de herencia y sobreescritura de métodos. Puesto que en cada familia de clases, las referencias a las clases virtuales siempre apuntarán al refinamiento más específico. Esto significa que, por medio de las clases virtuales se aplica sobre escritura de métodos, permitiendo redefinir el comportamiento de cualquier subclase de una familia de clases.\\
 En términos de programación orientada a características, cada funcionalidad es modelada como una familia de clases. Mientras que los componentes y objetos del dominio específico, son correspondidos por sus clases virtuales. Así mismo, las clases virtuales pueden ser declaradas como clases abstractas, lo que habilita la definición de interfaces en la implementación modular de características.\\\\
 Para hacer uso de lo citado anteriormente y ver su beneficio con las líneas de producción software se ha vuelto a utilizar el ya comentado problema de las expresiones de la subsección anterior. Pero en este caso, el diseño cambia significativamente debido a la características expuestas de CaesarJ.\\
 Por un lado en la figura 3(diagrama de clases con paquetes)se muestra que por cada operación, tenemos una familia de clases, siendo la familia de clases que encapsula a todas las demás, la denominada \imp{Expressions}. Ésta tiene la estructura de clases representado en la figura 4(Diagrama de clases de Expressions), y cada familia de clases lo que hace es redefinir las clases virtuales de \imp{Expressions} con las operaciones necesarias en cada caso.\\
@@ -92,7 +104,36 @@ Para realizar configuraciones, únicamente se tiene que crear una nueva clase que
 
 \section{Clases Parciales C\#}
 Las clases parciales C\# \cite{albahari:2010} nos permiten dividir la implementación de una clase, estructura o interfaz en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan en tiempo de compilación para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. Por lo tanto,las clases parciales C\# pueden utilizarse como un mecanismo adecuado para implementar características, dado que cada incremento en funcionalidad para una clase se podría encapsular en una clase parcial separada.\\\\
-Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con el indicador clave partial. En C\#, un espacio de nombre es simplemente empleado para agrupar clases relacionadas y evitar conflictos de nombres. Para especificar los archivos C\# que deben ser incluidos en una compilación, se emplea un documento XML que contiene información acerca del proyecto y que especifica que ficheros deben ser compilados para generar el proyecto. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML (Figura x--> Que será la que contenga lo de las expresiones).
+Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con el indicador clave partial. En C\#, un espacio de nombre es simplemente empleado para agrupar clases relacionadas y evitar conflictos de nombres. Para especificar los archivos C\# que deben ser incluidos en una compilación, se emplea un documento XML que contiene información acerca del proyecto y que especifica que ficheros deben ser compilados para generar el proyecto. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML.\\\\
+Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo con clases parciales. La figura \ref{back:fig:partialClass} muestra como hemos excluido de la compilación la característica que representa la operación de imprimir una expresión en formato infijo.
+Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que no precisan estar relacionadas mediante ningún tipo de relación jerárquica, tal como ocurre con la herencia.\\
+Por lo tanto, algunos autores (Laguna et al, 2007) sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada programación orientada a características. 
+\begin{figure}[!t]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+01    <itemgroup>
+02    <!--Eval-->
+03    <Compile Include="Eval\Add.cs" />
+04    <Compile Include="Eval\IExpressionsEval.cs" />
+05    <Compile Include="Eval\IExpressions.cs" />
+06    <Compile Include="Eval\Integer.cs" />
+07    <Compile Include="Eval\Mult.cs" />
+08    <!--Infix-->
+09    <!--<Compile Include="Infix\Add.cs" />
+10    <Compile Include="Infix\IExpressionInfix.cs" />
+11    <Compile Include="Infix\IExpressions.cs" />
+12    <Compile Include="Infix\Integer.cs" />
+13    <Compile Include="Infix\Mult.cs" />-->
+14    ...
+15    </itemgroup>
+16    </Project>
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Implementación del archivo XML que guarda la información para la compilación}
+\label{back:fig:partialClass}
+\end{figure}
 
 % Qué hace esto aquí
 

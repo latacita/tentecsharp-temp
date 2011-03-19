@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.3.10)  16 MAR 2011 20:01
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.3.10)  19 MAR 2011 16:54
 entering extended mode
 **pfc.tex
-(C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.tex
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\pfc.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +13,9 @@ an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese,
 romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
 sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
 senglishmax, welsh, loaded.
-(C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\itsas_pfc.cls
+
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\itsas_pfc.c
+ls
 Document Class: itsas_pfc 2007/03/06 Itsas document class
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\bk11.clo"
 File: bk11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
@@ -117,8 +119,9 @@ Package: uarial 2006/03/21 1.0 (WaS)
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks20
 ))
-(C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\config/pfc_options.te
-x ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\config/pfc_
+options.tex ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty
+"
 \fancy@headwidth=\skip49
 \f@ncyO@elh=\skip50
 \f@ncyO@erh=\skip51
@@ -128,8 +131,7 @@ x ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
 \f@ncyO@erf=\skip55
 \f@ncyO@olf=\skip56
 \f@ncyO@orf=\skip57
-)
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
@@ -195,7 +197,7 @@ Package minitoc Info: I0003
 Package minitoc Info: I0002
 (minitoc)             Autoconfiguration of extensions.
 
-(C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.mtc0)
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\pfc.mtc0)
 Package minitoc Info: I0012
 (minitoc)             Long extensions (Unix-like) will be used.
 Package minitoc Info: I0031
@@ -248,8 +250,10 @@ Grid set 16 x 16 = 37.34424pt x 52.81541pt
 \TP@tbargs=\toks23
 \TP@prevdepth=\dimen124
 TextBlockOrigin set to 0pt x 0pt
-)) (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\config/rename.tex)
-(C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.aux)
+))
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\config/rena
+me.tex)
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\pfc.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
@@ -267,11 +271,14 @@ Package minitoc(hints) Info: I0049
 (minitoc(hints))             Some hints are eventually given below.
 
 ABD: EveryShipout initializing macros
-(C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\config/begin.tex)
-(C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\Config/headers.tex)
-(C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\config/chapters.tex)
-(C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\background/background
-.tex
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\config/begi
+n.tex)
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\Config/head
+ers.tex)
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\config/chap
+ters.tex)
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\background/
+background.tex
 Cap\'{\i }tulo 1.
 Package minitoc Info: I0006
 (minitoc)             pfc.mtc1 is empty on input line 15.
@@ -321,8 +328,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 94--96
  []
 
 )
-(C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\planificacion/planifi
-cacion.tex [5] [6
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\planificaci
+on/planificacion.tex [5] [6
 
 ]
 Cap\'{\i }tulo 2.
@@ -333,15 +340,14 @@ Package minitoc Info: I0006
 ]
 File: planificacion/images/gantt.eps Graphic file (type eps)
  <planificacion/images/gantt.eps>)
-(C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\config/bibliography.t
-ex [8] [9] [10
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\config/bibl
+iography.tex [8] [9] [10
 
 ])
-(C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.bbl)
+No file pfc.bbl.
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the pfc.maf file.
-
 
 Package minitoc(hints) Warning: W0059
 (minitoc(hints))                You have used \minitoc, 
@@ -358,16 +364,14 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the pfc.log file.
 
-[11
-
-] (C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\PFC\pfc.aux) ) 
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\pfc.aux) ) 
 Here is how much of TeX's memory you used:
- 3906 strings out of 494020
- 52756 string characters out of 3143896
+ 3897 strings out of 494020
+ 52848 string characters out of 3143896
  132468 words of memory out of 3000000
- 6919 multiletter control sequences out of 15000+200000
- 18307 words of font info for 30 fonts, out of 3000000 for 9000
+ 6913 multiletter control sequences out of 15000+200000
+ 17535 words of font info for 29 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  34i,11n,43p,1273b,362s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on pfc.dvi (11 pages, 29216 bytes).
+Output written on pfc.dvi (10 pages, 28172 bytes).
