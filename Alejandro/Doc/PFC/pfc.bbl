@@ -1,0 +1,24 @@
+\begin{thebibliography}{PBvdL05}
+
+\bibitem[AA10]{albahari:2010}
+Joseph Albahari and Ben Albahari.
+\newblock {\em C\# 4.0 in a Nutshell: The Definitive Reference}.
+\newblock 2010.
+
+\bibitem[BSR04]{batory:2004}
+D.~Batory, J.~N. Sarvela, and A.~Rauschmayer.
+\newblock {\em Scaling Step-Wise Refinement. IEEE Transactions on Software
+  Engineering}.
+\newblock 2004.
+
+\bibitem[CN02]{clements:2002}
+Paul Clements and Linda Northrop.
+\newblock {\em Software Product Lines: Practices and Patternspohl}.
+\newblock 2002.
+
+\bibitem[PBvdL05]{pohl:2005}
+Klaus Pohl, Gunter Bockle, and Frank van~der Linden.
+\newblock {\em Software Product Line Engineering}.
+\newblock 2005.
+
+\end{thebibliography}
