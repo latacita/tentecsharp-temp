@@ -40,7 +40,18 @@ namespace SmartHome
         {
             return this.floors;
         }//getFloors
-
+        public Floor getFloorByRoom(int id_room)
+        {
+            Room aux=null;
+            for (int i = 0; i < floors.Count; i++)
+            {
+                aux=floors[i].getRoomById(id_room);
+                if(aux!=null){
+                    return floors[i];
+                }//if
+            }//for
+            return null;
+        }
         // Class methods
         public void emergence(Sensor s, double value)
         {

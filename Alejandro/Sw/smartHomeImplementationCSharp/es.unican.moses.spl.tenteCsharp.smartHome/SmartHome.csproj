@@ -47,15 +47,22 @@
   <ItemGroup>
     <Compile Include="BaseSystem\Actuator.cs" />
     <Compile Include="BaseSystem\Floor.cs" />
-    <Compile Include="GUI\GatewayGUI.cs">
+    <Compile Include="BaseSystem\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\GatewayGUI.Designer.cs">
+    <Compile Include="BaseSystem\GUI\GatewayGUI.Designer.cs">
       <DependentUpon>GatewayGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="BaseSystem\Gateway.cs" />
     <Compile Include="BaseSystem\Room.cs" />
     <Compile Include="BaseSystem\Sensor.cs" />
+    <Compile Include="HeaterMng\GUI\GatewayGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeaterMng\Thermometer.cs" />
+    <Compile Include="HeaterMng\GUI\GatewayGUI.Designer.cs" />
+    <Compile Include="HeaterMng\HeaterCtrl.cs" />
+    <Compile Include="HeaterMng\Gateway.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -65,7 +72,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GUI\GatewayGUI.resx">
+    <EmbeddedResource Include="BaseSystem\GUI\GatewayGUI.resx">
       <DependentUpon>GatewayGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -74,6 +81,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\thermometer.jpg" />
     <Content Include="Images\windowIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
