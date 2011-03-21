@@ -7,8 +7,8 @@ namespace SmartHome
 {
     public partial class Room
     {
-        public String name;
-        public int id;
+        protected String name;
+        protected int id;
 
         public Room(String name)
         {
