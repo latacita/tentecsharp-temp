@@ -40,6 +40,7 @@ namespace SmartHome
         {
             return this.floors;
         }//getFloors
+
         public Floor getFloorByRoom(int id_room)
         {
             Room aux=null;
@@ -52,6 +53,7 @@ namespace SmartHome
             }//for
             return null;
         }
+
         // Class methods
         public void emergence(Sensor s, double value)
         {
@@ -86,11 +88,25 @@ namespace SmartHome
 
         } // changeValue
 
+         /// <summary>
+         ///  
+         /// </summary>
         public void sayHello()
         {
             System.Console.Out.WriteLine("I am the gateway and I am ON");
         }  //say Hello
 
+        public void initializeAll() { 
+            // Pone todos los sensores y actuadores en modo funcionar
+        }
+
+        public void checkAll() { 
+            // Manda un "ping" a todos los sensores y actuadores para ver que respiran
+        }
+
+        public void switchDown() { 
+            // Apaga todos los sensores y actuadores
+        } 
 
     } // Gateway
 
