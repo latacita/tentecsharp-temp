@@ -56,6 +56,12 @@ namespace SmartHome
         {
             this.deviceValue = value;
         } // setValue
+
+        public virtual double getValue()
+        {
+            return deviceValue;
+        }//getValue
+
         public virtual void switchOn()
         {
             this.on = true;
@@ -65,6 +71,10 @@ namespace SmartHome
         {
             this.on = false;
         }// switchOff
+        public virtual bool status()
+        {
+            return on;
+        }
     } // Actuator
 
 } // namespace SmartHome
