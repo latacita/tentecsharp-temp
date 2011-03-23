@@ -67,15 +67,15 @@ Teniendo el problema presente podemos identificar dos conjuntos de característic
 \subsubsection{Resolviendo el problema con C\#}
 
 La figura ~\ref{back:fig:expr} representa el diseño de clases UML que soporta las variabilidades identificadas anteriormente. Este diseño es replicado para cada tipo de operación(la figura ~\ref{back:fig:printInfix} muestra el diagrama de clases para la operación de imprimir expresión en formato infijo).\\
-\begin{figure}[!htb]
+\begin{figure}[ht!]
   % Requires \usepackage{graphicx}
   \centering \includegraphics[width=.60\linewidth]{background/images/Expressions.eps} \\
   \caption{Diagrama de clases para el problema de las expresiones}
   \label{back:fig:expr}
 \end{figure}
-\begin{figure}[tb]
+\begin{figure}[ht!]
   % Requires \usepackage{graphicx}
-  \centering \includegraphics[width=.70\linewidth]{background/images/PrintInfix.eps} \\
+  \centering \includegraphics[width=.80\linewidth]{background/images/PrintInfix.eps} \\
   \caption{Diagrama de clases para la operación de imprimir en formato infijo}
   \label{back:fig:printInfix}
 \end{figure}
@@ -89,7 +89,21 @@ Otro problema es el manejo de las dependencias, ya que la herencia tradicional o
 
 \subsubsection{Conclusiones}
 
-% - Resumes los problemas
+Tras analizar el problema con un lenguaje orientado a objetos como es C\# se podría determinar que sería deseable encontrar en un lenguaje de programación que estuviese orientado a características para obtener fácilmente diferentes versiones de una misma aplicación con la simple combinación de diferentes conjuntos de características. Obviamente no todas las combinaciones serán válidas, por lo tanto, un lenguaje orientado a características debería de intentar asegurarse de que el resultado de la composición produce una aplicación segura y bien configurada.
+Con lo citado anteriormente, vamos a identificar una serie de características deseables que deberíamos encontrar en un lenguaje orientado a características:
+
+\emph{Extensibilidad a través de la adición y la substitución}
+Como ya hemos comentado, una característica es normalmente considerada como un incremento en la funcionalidad de un programa. Por lo tanto, los lenguajes orientados a características deben proveer mecanismos para añadir nuevas funcionalidades a una existente. En los lenguajes orientados a objetos, la extensión es realizada a través de la herencia, pero ésta es adecuada cuando queremos extender una sola clase, pero comúnmente, las características necesitan ser extendidas por varias clases al mismo tiempo.
+Además la extensibilidad no siempre se alcanza por adición, en ocasiones es necesario el uso de la substitución. En los lenguajes orientados a objetos la substitución es llevada a través de métodos de sobre escritura (override en inglés).
+
+\emph{Encapsulación de características}
+Todas las extensiones pertenecientes a una característica concreta deben ser añadidas de una forma atómica. Por lo tanto, los lenguajes orientados a características deberían proveer de mecanismo para agrupar y encapsular los módulos pertenecientes a una misma característica. Por otra parte, estos módulos deberían poderse compilar independientemente.
+
+\emph{Composición a nivel de característica}
+Productos específicos, o configuraciones de una descomposición orientada a características, son obtenidos por la selección y composición de unas características específicas. Por lo tanto, sería deseable que un lenguaje orientado a características tuviese construcciones del lenguaje para producir un producto en particular. Esto debería ser realizado a nivel de característica, especificando que características deberían ser incluidas, en lugar de tener que especificar los elementos individuales de cada característica.
+4. Composición de características comprobando la coherencia
+No todas las combinaciones de características son válidas. Por lo tanto, un lenguaje orientado a características debería detectar las restricciones, evitando así la implementación de configuraciones no válidas y manejar automáticamente las dependencias en la medida de lo posible.
+
 
 \subsection{Ventajas de los lenguajes orientados a características}
 Los lenguajes orientados a características nos otorgan una mayor flexibilidad, ya que nos permiten que clases individuales puedan ser compuestas por un conjunto de características, por tanto son especialmente recomendados para utilizarlos con las líneas de producción software.\\
@@ -105,12 +119,14 @@ Para realizar configuraciones, únicamente se tiene que crear una nueva clase que
 \section{Clases Parciales C\#}
 Las clases parciales C\# \cite{albahari:2010} nos permiten dividir la implementación de una clase, estructura o interfaz en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan en tiempo de compilación para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. Por lo tanto,las clases parciales C\# pueden utilizarse como un mecanismo adecuado para implementar características, dado que cada incremento en funcionalidad para una clase se podría encapsular en una clase parcial separada.\\\\
 Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con el indicador clave partial. En C\#, un espacio de nombre es simplemente empleado para agrupar clases relacionadas y evitar conflictos de nombres. Para especificar los archivos C\# que deben ser incluidos en una compilación, se emplea un documento XML que contiene información acerca del proyecto y que especifica que ficheros deben ser compilados para generar el proyecto. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML.\\\\
-Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo con clases parciales(Figura x--> Que será la que contenga lo de las expresiones).
-\begin{figure}
+Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo con clases parciales. La figura \ref{back:fig:partialClass} muestra como hemos excluido de la compilación la característica que representa la operación de imprimir una expresión en formato infijo.
+Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que no precisan estar relacionadas mediante ningún tipo de relación jerárquica, tal como ocurre con la herencia.\\
+Por lo tanto, algunos autores (Laguna et al, 2007) sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada programación orientada a características.
+\begin{figure}[!t]
 \begin{center}
 \begin{footnotesize}
 \begin{verbatim}
-01  <itemgroup>
+01    <itemgroup>
 02    <!--Eval-->
 03    <Compile Include="Eval\Add.cs" />
 04    <Compile Include="Eval\IExpressionsEval.cs" />
@@ -129,9 +145,10 @@ Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las
 \end{verbatim}
 \end{footnotesize}
 \end{center}
-\caption{Implementación del archivo Expresiones.csproj}
+\caption{Implementación del archivo XML que guarda la información para la compilación}
 \label{back:fig:partialClass}
 \end{figure}
+
 % Qué hace esto aquí
 
 % Explicar que son brevemente, y ejemplo usando las expresiones
