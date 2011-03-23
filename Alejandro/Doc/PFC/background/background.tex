@@ -89,15 +89,48 @@ Otro problema es el manejo de las dependencias, ya que la herencia tradicional o
 
 \subsubsection{Conclusiones}
 
-% - Resumes los problemas
+Tras analizar el problema con un lenguaje orientado a objetos como es C\# se podría determinar que sería deseable encontrar en un lenguaje de programación que estuviese orientado a características para obtener fácilmente diferentes versiones de una misma aplicación con la simple combinación de diferentes conjuntos de características. Obviamente no todas las combinaciones serán válidas, por lo tanto, un lenguaje orientado a características debería de intentar asegurarse de que el resultado de la composición produce una aplicación segura y bien configurada.
+Con lo citado anteriormente, vamos a identificar una serie de características deseables que deberíamos encontrar en un lenguaje orientado a características:\\\\
+\emph{Extensibilidad a través de la adición y la substitución}\\
+Como ya hemos comentado, una característica es normalmente considerada como un incremento en la funcionalidad de un programa. Por lo tanto, los lenguajes orientados a características deben proveer mecanismos para añadir nuevas funcionalidades a una existente. En los lenguajes orientados a objetos, la extensión es realizada a través de la herencia, pero ésta es adecuada cuando queremos extender una sola clase, pero comúnmente, las características necesitan ser extendidas por varias clases al mismo tiempo.
+Además la extensibilidad no siempre se alcanza por adición, en ocasiones es necesario el uso de la substitución. En los lenguajes orientados a objetos la substitución es llevada a través de métodos de sobre escritura (override en inglés).\\\\
+\emph{Encapsulación de características}\\
+Todas las extensiones pertenecientes a una característica concreta deben ser añadidas de una forma atómica. Por lo tanto, los lenguajes orientados a características deberían proveer de mecanismo para agrupar y encapsular los módulos pertenecientes a una misma característica. Por otra parte, estos módulos deberían poderse compilar independientemente.\\\\
+\emph{Composición a nivel de característica}\\
+Productos específicos, o configuraciones de una descomposición orientada a características, son obtenidos por la selección y composición de unas características específicas. Por lo tanto, sería deseable que un lenguaje orientado a características tuviese construcciones del lenguaje para producir un producto en particular. Esto debería ser realizado a nivel de característica, especificando que características deberían ser incluidas, en lugar de tener que especificar los elementos individuales de cada característica.\\\\\\
+\emph{Composición de características comprobando la coherencia}\\
+No todas las combinaciones de características son válidas. Por lo tanto, un lenguaje orientado a características debería detectar las restricciones, evitando así la implementación de configuraciones no válidas y manejar automáticamente las dependencias en la medida de lo posible.
 
 \subsection{Ventajas de los lenguajes orientados a características}
 Los lenguajes orientados a características nos otorgan una mayor flexibilidad, ya que nos permiten que clases individuales puedan ser compuestas por un conjunto de características, por tanto son especialmente recomendados para utilizarlos con las líneas de producción software.\\
 Para estudiar las ventajas de los lenguajes orientados a características se trabajará con CaesarJ que es un lenguaje de programación basado en Java, que nos proporciona una mayor modularidad y el desarrollo a través de componentes reusables.Para ello trabaja con conceptos como clases y paquetes en una única entidad, llamada familia de clases, que constituye unidades de encapsulamiento adicional para agrupar clases relacionadas. Una familia de clases también es, en sí misma una clase. Así mismo, se introduce el concepto de clases virtuales, que son clases internas (de familias de clases) propensas a ser refinadas a nivel de subclases. En el refinamiento de una clase virtual, implícitamente se hereda de la clase que refina, por lo que también esto es visto como una relación adjunta. También, en un refinamiento pueden ser añadidos nuevos métodos, campos, relaciones de herencia y sobreescritura de métodos. Puesto que en cada familia de clases, las referencias a las clases virtuales siempre apuntarán al refinamiento más específico. Esto significa que, por medio de las clases virtuales se aplica sobre escritura de métodos, permitiendo redefinir el comportamiento de cualquier subclase de una familia de clases.\\
 En términos de programación orientada a características, cada funcionalidad es modelada como una familia de clases. Mientras que los componentes y objetos del dominio específico, son correspondidos por sus clases virtuales. Así mismo, las clases virtuales pueden ser declaradas como clases abstractas, lo que habilita la definición de interfaces en la implementación modular de características.\\\\
 Para hacer uso de lo citado anteriormente y ver su beneficio con las líneas de producción software se ha vuelto a utilizar el ya comentado problema de las expresiones de la subsección anterior. Pero en este caso, el diseño cambia significativamente debido a la características expuestas de CaesarJ.\\
-Por un lado en la figura 3(diagrama de clases con paquetes)se muestra que por cada operación, tenemos una familia de clases, siendo la familia de clases que encapsula a todas las demás, la denominada \imp{Expressions}. Ésta tiene la estructura de clases representado en la figura 4(Diagrama de clases de Expressions), y cada familia de clases lo que hace es redefinir las clases virtuales de \imp{Expressions} con las operaciones necesarias en cada caso.\\
-Para realizar configuraciones, únicamente se tiene que crear una nueva clase que extienda a las características que se deseen.A modo de ejemplo,la figura 6 muestra el código necesario para crear una nueva configuración que contenga las operaciones de impresión en formato posfijo y evaluación de una expresión.Con todo esto, vemos como CaesarJ otorga un gran nivel de encapsulamiento y de reusabilidad de los componentes
+Por un lado en la figura \ref{back:fig:caesarJExpressions} se muestra que por cada operación, tenemos una familia de clases, siendo la familia de clases que encapsula a todas las demás, la denominada \imp{Expressions}. Ésta tiene la estructura de clases representado en la figura \ref{back:fig:expr}, y cada familia de clases lo que hace es redefinir las clases virtuales de \imp{Expressions} con las operaciones necesarias en cada caso.\\
+\begin{figure}[ht!]
+  % Requires \usepackage{graphicx}
+  \centering \includegraphics[width=.60\linewidth]{background/images/CaesarJExpressions.eps} \\
+  \caption{Diseño para resolver el problema de las expresiones con CaesarJ}
+  \label{back:fig:caesarJExpressions}
+\end{figure} 
+\begin{figure}[ht!]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+00 import eval.Eval;
+01 import printPostfix.PrintPostfix;
+02 import printInfix.PrintInfix;
+03 import printPrefix.PrintPrefix;
+04 public cclass EvalInfix extends PrintPrefix & Eval {}
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Configuración que incluye las operaciones de evaluar e imprimir en formato infijo con CaesarJ}
+\label{back:fig:codCaesarJ}
+\end{figure}
+
+Para realizar configuraciones, únicamente se tiene que crear una nueva clase que extienda a las características que se deseen.A modo de ejemplo,la figura \ref{back:fig:codCaesarJ} muestra el código necesario para crear una nueva configuración que contenga las operaciones de impresión en formato posfijo y evaluación de una expresión.Con todo esto, vemos como CaesarJ otorga un gran nivel de encapsulamiento y de reusabilidad de los componentes.
+
 % Párrafo introducción
 % Introducción CaesarJ
 % Ejemplo en CeasrJ, resaltando ventajas
@@ -107,7 +140,7 @@ Las clases parciales C\# \cite{albahari:2010} nos permiten dividir la implementa
 Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con el indicador clave partial. En C\#, un espacio de nombre es simplemente empleado para agrupar clases relacionadas y evitar conflictos de nombres. Para especificar los archivos C\# que deben ser incluidos en una compilación, se emplea un documento XML que contiene información acerca del proyecto y que especifica que ficheros deben ser compilados para generar el proyecto. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML.\\\\
 Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo con clases parciales. La figura \ref{back:fig:partialClass} muestra como hemos excluido de la compilación la característica que representa la operación de imprimir una expresión en formato infijo.
 Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que no precisan estar relacionadas mediante ningún tipo de relación jerárquica, tal como ocurre con la herencia.\\
-Por lo tanto, algunos autores (Laguna et al, 2007) sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada programación orientada a características. 
+Por lo tanto, algunos autores (Laguna et al, 2007) sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada programación orientada a características.
 \begin{figure}[!t]
 \begin{center}
 \begin{footnotesize}
