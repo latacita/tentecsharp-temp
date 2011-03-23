@@ -42,22 +42,15 @@ namespace SmartHome
             return heaters;
         }//getHeaters
         // Helper methods
-        protected HeaterCtrl findHeater(int id)
-        {
-            HeaterCtrl heater = null;
-
-            List<HeaterCtrl>.Enumerator it = heaters.GetEnumerator();
-            
-            while ((it.MoveNext() == true) && (heater == null))
+        public HeaterCtrl findHeater(int id)
+        {            
+            for (int i = 0; i < heaters.Count; i++)
             {
-                if (it.Current.getId() == id)
-                {
-                    heater = it.Current;
-                } // if
-            } //while
-
-            return heater;
-
+                if (heaters[i].getId() == id){
+                    return heaters[i];
+                }//if
+            }//for
+            return null;
         } // findHeater
 
         // Class methods
@@ -68,11 +61,17 @@ namespace SmartHome
             HeaterCtrl heater = findHeater(id);
             if (heater != null)
             {
-                heater.switchOn();
-                heater.setValue(temperature);                
+                if (heater.getValue() != temperature)
+                {
+                    heater.switchOn();
+                    heater.setValue(temperature);                    
+                }// if
+                else
+                {
+                    heater.switchOff();                   
+                }// else
                 result = true;
             } // if
-
             return result;
         } // adjustTemparature
 
@@ -80,11 +79,31 @@ namespace SmartHome
         {
             for (int i = 0; i < heaters.Count; i++)
             {
-                heaters[i].switchOn();
-                heaters[i].setValue(temperature);                
+                Thermometer t=findThermometerByRoom(heaters[i].getIdRoom());
+                if (t.getValue() != temperature)
+                {
+                    heaters[i].switchOn();
+                    heaters[i].setValue(temperature);
+                }//if
+                else
+                {
+                    heaters[i].switchOff();
+                }//else
             }//for
             allThermometerAdjustTemperature(temperature);
         }//allHeaterAdjustTemperature
+
+        public virtual Thermometer findThermometerByRoom(int id_room)
+        {
+            for (int i = 0; i < thermometers.Count; i++)
+            {
+                if (thermometers[i].getIdRoom() == id_room)
+                {
+                    return thermometers[i];
+                }//if
+            }//for
+            return null;
+        }//findThermometerByRoom
 
         private void allThermometerAdjustTemperature(double temperature)
         {

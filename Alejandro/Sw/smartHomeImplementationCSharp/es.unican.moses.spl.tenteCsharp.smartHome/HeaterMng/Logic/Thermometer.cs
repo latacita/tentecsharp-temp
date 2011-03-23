@@ -8,6 +8,15 @@ namespace SmartHome
     public partial class Thermometer : Sensor
     {
         protected double outsideTemp = 0;
+        // Standard average temperature in earth surface
+        protected const double DEFAULT_TEMP = 25.0;
+
+        public Thermometer(int id, int id_room)
+            : base(id, id_room)
+        {
+            this.outsideTemp = DEFAULT_TEMP;
+            
+        }// HeaterCtrl(int, int)
                 
         //This method is called each time the temperature changes
         public void setOutsideTemp(double outsideTemp)
