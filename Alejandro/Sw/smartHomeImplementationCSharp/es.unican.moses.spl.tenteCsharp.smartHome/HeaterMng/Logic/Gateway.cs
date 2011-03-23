@@ -59,12 +59,14 @@ namespace SmartHome
             bool result = false;
 
             HeaterCtrl heater = findHeater(id);
+            Thermometer t = findThermometerByRoom(heater.getIdRoom());
             if (heater != null)
             {
-                if (heater.getValue() != temperature)
+                if (heater.getValue() != t.getValue())
                 {
                     heater.switchOn();
-                    heater.setValue(temperature);                    
+                    heater.setValue(temperature);
+                    t.setValue(temperature);
                 }// if
                 else
                 {
@@ -84,6 +86,7 @@ namespace SmartHome
                 {
                     heaters[i].switchOn();
                     heaters[i].setValue(temperature);
+                    t.setValue(temperature);
                 }//if
                 else
                 {

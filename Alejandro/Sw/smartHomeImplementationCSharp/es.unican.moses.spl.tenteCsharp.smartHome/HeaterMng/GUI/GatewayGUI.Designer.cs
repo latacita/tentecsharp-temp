@@ -6,6 +6,7 @@ namespace SmartHome
 {
     partial class GatewayGUI
     {
+        //Atributes
         private TabPage tabPage_heaters;
         private TrackBar trackBar_main;
         private Button buttonSwitch;
@@ -46,7 +47,7 @@ namespace SmartHome
             tabPage_heaters.Controls.Add(buttonSwitch);
             buttonSwitch.Location = new System.Drawing.Point(width/2, height/6);
             buttonSwitch.Click += new System.EventHandler(this.buttonSwitch_Click);
-        }//addButton      
+        }// addButton      
 
         private void addTrackBar()
         {
@@ -58,7 +59,7 @@ namespace SmartHome
             tabPage_heaters.Controls.Add(trackBar_main);
             trackBar_main.Visible = false;
             trackBar_main.Scroll += new System.EventHandler(this.trackbar_Scroll);            
-        }//addTrackBar
+        }// addTrackBar
 
         private void addLabelTemp()
         {
@@ -68,7 +69,7 @@ namespace SmartHome
             labTemp.Location = new System.Drawing.Point((width-30)/3, (height+80)/3);
             tabPage_heaters.Controls.Add(labTemp);
             labTemp.Visible = false;
-        }//addLabelTemp
+        }// addLabelTemp
 
         private void addTextTemp()
         {
@@ -81,7 +82,7 @@ namespace SmartHome
             tabPage_heaters.Controls.Add(textTemp);
             textTemp.Visible = false;
 
-        }//addTextTemp
+        }// addTextTemp
 
         private void addThermometer()
         {
@@ -92,7 +93,7 @@ namespace SmartHome
             tabPage_heaters.Controls.Add(pictureTherm);
         }
 
-       //By Room
+       // By Room
        private void addHeaterByRoom(List<HeaterCtrl> heaters)
         {
             for (int i = 0; i < heaters.Count; i++)
@@ -135,28 +136,21 @@ namespace SmartHome
         {
             List<HeaterCtrl> h = gateway.getHeaters();
             for (int i = 0; i < h.Count; i++)
-            {
-                if (h[i].status() == true)
-                {
-                    dictionaryTextTempByRoom[h[i].getId()].Text = temp;
-                }
-            }//for
-            
-        }
+            {                
+                    dictionaryTextTempByRoom[h[i].getId()].Text = temp;                
+            }//for            
+        }// allChangeTextTemp
 
         private void allChangeTrackBar(int temp)
         {
             List<HeaterCtrl> h = gateway.getHeaters();
             for (int i = 0; i < h.Count; i++)
-            {
-                if (h[i].status() == true)
-                {
+            {                
                     dictionaryTrackBarByRoom[h[i].getId()].Value = temp;
-                    dictionaryTextTempByRoom[h[i].getId()].Text = temp + ",0";
-                }
-            }//for          
+                    dictionaryTextTempByRoom[h[i].getId()].Text = temp + ",0";                
+            }// for          
 
-        }//allChangeTrackBar
+        }// allChangeTrackBar
 
         private void changeSwitch(int id_heater, bool status)
         {
@@ -177,7 +171,7 @@ namespace SmartHome
                 dictionaryLabelByRoom[id_heater].Visible = false;
             }// else
 
-        }//changeSwitch
+        }// changeSwitch
 
         private void addTrackBarByRoom(int id_heater)
         {
@@ -190,7 +184,7 @@ namespace SmartHome
             dictionaryTrackBarByRoom[id_heater].Visible = false;
             DictionaryTabPageDevice[id_heater].Controls.Add(dictionaryTrackBarByRoom[id_heater]);            
             dictionaryTrackBarByRoom[id_heater].Scroll += new System.EventHandler(this.trackbarByRoom_Scroll);            
-        }//addTrackBarByRoom
+        }// addTrackBarByRoom
 
         private void addLabelTempByRoom(int id_heater)
         {
@@ -200,7 +194,7 @@ namespace SmartHome
             dictionaryLabelByRoom[id_heater].Location = new System.Drawing.Point((width - 30) / 3, (height) / 3);
             dictionaryLabelByRoom[id_heater].Visible = false;
             DictionaryTabPageDevice[id_heater].Controls.Add(dictionaryLabelByRoom[id_heater]);            
-        }//addLabelTempByRoom
+        }// addLabelTempByRoom
 
         private void addTextTempByRoom(int id_heater)
         {
@@ -209,12 +203,11 @@ namespace SmartHome
             dictionaryTextTempByRoom[id_heater].Text = "20,0";
             dictionaryTextTempByRoom[id_heater].Size = new System.Drawing.Size(30, 20);
             dictionaryTextTempByRoom[id_heater].Location = new System.Drawing.Point((width-25) / 4, (height + 50) / 3);
-            //textTemp.Enabled = false;
             dictionaryTextTempByRoom[id_heater].KeyDown += new KeyEventHandler(textTempByRoom_KeyDown);
             DictionaryTabPageDevice[id_heater].Controls.Add(dictionaryTextTempByRoom[id_heater]);
             dictionaryTextTempByRoom[id_heater].Visible = false;
 
-        }//addTextTempByRoom
+        }// addTextTempByRoom
 
         private void addThermometerByRoom(int id_heater)
         {
@@ -223,7 +216,7 @@ namespace SmartHome
             pictureThermByRoom.Location = new System.Drawing.Point(width/8, height/16);
             pictureThermByRoom.Size = new System.Drawing.Size(75, 84);
             DictionaryTabPageDevice[id_heater].Controls.Add(pictureThermByRoom);            
-        }//addThermometerByRoom
+        }// addThermometerByRoom
     }
 }
 

@@ -29,12 +29,13 @@ namespace SmartHome
                 buttonSwitch.Text = "ON";
                 buttonSwitch.BackColor = System.Drawing.Color.Green;
                 gateway.allHeaterAdjustTemperature(defaultTemp);
+                allChangeTrackBar(defaultTemp);
+                allChangeTextTemp(defaultTemp.ToString() + ",0");
                 allChangeSwitch(true);
                 trackBar_main.Visible = true;
                 labTemp.Visible = true;
                 textTemp.Visible = true;
-                textTemp.Text = defaultTemp.ToString()+",0";
-                allChangeTrackBar(defaultTemp);
+                textTemp.Text = defaultTemp.ToString()+",0";               
                 trackBar_main.Value = defaultTemp;
             }// if
             else
