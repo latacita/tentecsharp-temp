@@ -11,8 +11,8 @@ namespace SmartHome
         // Standard average temperature in earth surface
         protected const double DEFAULT_TEMP = 25.0;
 
-        public Thermometer(int id, int id_room)
-            : base(id, id_room)
+        public Thermometer(int id, int id_heater)
+            : base(id, id_heater)
         {
             this.outsideTemp = DEFAULT_TEMP;
             

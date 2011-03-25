@@ -9,6 +9,7 @@ namespace SmartHome
         protected const double MAX_TEMP = 40.0;
         // Standard average temperature in earth surface
         protected const double DEFAULT_TEMP = 25.0;
+        protected bool work=false;
       
         // Constructor
         public HeaterCtrl()
@@ -39,6 +40,12 @@ namespace SmartHome
             } // if
         } // setValue
 
+        public override void switchOff()
+        {
+            base.switchOff();
+            setWork(false);
+        }//switchOff
+
         // Class methods
         
         public void sayHello()
@@ -46,7 +53,14 @@ namespace SmartHome
             System.Console.Out.WriteLine("I am the heater " + id + " and I am at " + deviceValue + " degrees");
         } // sayHello
 
+        public bool getWork(){
+            return work;
+        }// getWork
 
+        public void setWork(bool work)
+        {
+            this.work = work;
+        }// setWork
     } // LightCtrl
 
 

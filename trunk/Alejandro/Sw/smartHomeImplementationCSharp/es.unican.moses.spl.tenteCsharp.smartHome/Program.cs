@@ -21,8 +21,8 @@ namespace SmartHome
             Floor f3 = new Floor("Planta alta", 2);
             HeaterCtrl h1 = new HeaterCtrl(0, 0);
             Thermometer t1 = new Thermometer(1, 0);
-            HeaterCtrl h2 = new HeaterCtrl(2, 3);
-            Thermometer t2 = new Thermometer(3, 3);
+            HeaterCtrl h2 = new HeaterCtrl(1, 3);
+            Thermometer t2 = new Thermometer(3, 1);
             f1.addRoom(r1);
             f1.addRoom(r2);
             f2.addRoom(r3);
@@ -37,10 +37,16 @@ namespace SmartHome
             g.addThermometer(t1);
             g.addHeaterCtrl(h2);
             g.addThermometer(t2);
-            GatewayGUI gatewayGUI = new GatewayGUI(g);
+            SimulatorGUI simulatorGUI = new SimulatorGUI(g);
+            GatewayGUI gatewayGUI = new GatewayGUI(g,simulatorGUI);
             gatewayGUI.addBaseSystem();
             gatewayGUI.addHeaterMng();
-            Application.Run(gatewayGUI);
+            simulatorGUI.addBaseSimulator();
+            simulatorGUI.addHeaterMng();
+            simulatorGUI.Show();
+            gatewayGUI.Show();            
+            Application.Run(simulatorGUI);
+            Application.Run(gatewayGUI);            
         }
     }
 }

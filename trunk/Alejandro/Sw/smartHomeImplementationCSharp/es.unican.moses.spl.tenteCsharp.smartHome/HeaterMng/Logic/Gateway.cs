@@ -53,24 +53,39 @@ namespace SmartHome
             return null;
         } // findHeater
 
+        public List<HeaterCtrl> findHeatersByRoom(int id_room)
+        {
+            List<HeaterCtrl> h = new List<HeaterCtrl>();
+            for (int i = 0; i < heaters.Count; i++)
+            {
+                if (heaters[i].getIdRoom() == id_room)
+                {
+                    h.Add(heaters[i]);
+                }//if
+            }//for
+            return h;
+        } // findHeaterByRoom
+
         // Class methods
         public virtual bool heaterAdjustTemparature(int id, double temperature)
         {
             bool result = false;
 
             HeaterCtrl heater = findHeater(id);
-            Thermometer t = findThermometerByRoom(heater.getIdRoom());
+            Thermometer t = findThermometerByHeater(id);
             if (heater != null)
             {
+                heater.switchOn();
+                heater.setValue(temperature); 
                 if (heater.getValue() != t.getValue())
                 {
-                    heater.switchOn();
-                    heater.setValue(temperature);
-                    t.setValue(temperature);
+                    heater.setWork(true);
+                                      
                 }// if
                 else
                 {
-                    heater.switchOff();                   
+                    heater.setWork(false);
+                    //heater.switchOff();                   
                 }// else
                 result = true;
             } // if
@@ -81,26 +96,27 @@ namespace SmartHome
         {
             for (int i = 0; i < heaters.Count; i++)
             {
-                Thermometer t=findThermometerByRoom(heaters[i].getIdRoom());
+                Thermometer t=findThermometerByHeater(heaters[i].getId());
+                heaters[i].setValue(temperature);
                 if (t.getValue() != temperature)
                 {
-                    heaters[i].switchOn();
-                    heaters[i].setValue(temperature);
-                    t.setValue(temperature);
+                    heaters[i].switchOn();                    
+                    heaters[i].setWork(true);
                 }//if
                 else
                 {
-                    heaters[i].switchOff();
+                    heaters[i].setWork(false);
+                    //heaters[i].switchOff();
                 }//else
             }//for
-            allThermometerAdjustTemperature(temperature);
+            //allThermometerAdjustTemperature(temperature);
         }//allHeaterAdjustTemperature
 
-        public virtual Thermometer findThermometerByRoom(int id_room)
+        public virtual Thermometer findThermometerByHeater(int id_heater)
         {
             for (int i = 0; i < thermometers.Count; i++)
             {
-                if (thermometers[i].getIdRoom() == id_room)
+                if (thermometers[i].getIdActuator() == id_heater)
                 {
                     return thermometers[i];
                 }//if
@@ -116,11 +132,23 @@ namespace SmartHome
             }//for
         }//allThermometerAdjustTemperature
 
+        public void changeThermometer(int id_heater, double temp)
+        {
+            Thermometer t = findThermometerByHeater(id_heater);
+            HeaterCtrl h = findHeater(id_heater);
+            t.setValue(temp);
+            if (h.status() == true)
+            {
+                if (h.getValue() == temp) h.setWork(false);
+                else h.setWork(true);
+            }
+        }// changeThermometer
         public virtual void allSwitchOffHeaters()
         {
             for (int i = 0; i < heaters.Count; i++)
             {
                 heaters[i].switchOff();
+                heaters[i].setWork(false);
             }//for
         }//allSwitchOffHeaters
     } // Gateway
