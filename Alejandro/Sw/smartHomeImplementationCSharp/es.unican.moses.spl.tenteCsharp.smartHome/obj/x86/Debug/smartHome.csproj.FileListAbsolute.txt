@@ -16,3 +16,4 @@ E:\es.unican.moses.spl.tenteCsharp.smartHome\obj\x86\Debug\SmartHome.GatewayGUI.
 E:\es.unican.moses.spl.tenteCsharp.smartHome\obj\x86\Debug\smartHome.Properties.Resources.resources
 E:\es.unican.moses.spl.tenteCsharp.smartHome\obj\x86\Debug\GenerateResource.read.1.tlog
 E:\es.unican.moses.spl.tenteCsharp.smartHome\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\obj\x86\Debug\SmartHome.SimulatorGUI.resources

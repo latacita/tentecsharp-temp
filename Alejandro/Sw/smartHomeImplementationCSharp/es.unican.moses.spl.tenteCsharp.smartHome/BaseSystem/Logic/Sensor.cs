@@ -12,7 +12,7 @@ namespace SmartHome
         protected double deviceValue = 0.0;
         // Gateway reference
         protected Gateway gtw = null;
-        protected int roomId;
+        protected int id_actuator;
         
         // Class emprty constructor
         public Sensor()
@@ -25,10 +25,10 @@ namespace SmartHome
             this.id = id;
         } // Sensor(int)
 
-        public Sensor(int id, int roomId)
+        public Sensor(int id, int id_actuator)
         {
             this.id = id;
-            this.roomId = roomId;
+            this.id_actuator = id_actuator;
         }
 
         // Getters and setters 
@@ -63,14 +63,14 @@ namespace SmartHome
             gtw.emergence(this, this.deviceValue);
         }//setUrgentSignal
 
-        public virtual void setIdRoom(int roomId)
+        public virtual void setIdActuator(int id_actuator)
         {
-            this.roomId = roomId;
+            this.id_actuator = id_actuator;
         }//setIdRoom
 
-        public virtual int getIdRoom()
+        public virtual int getIdActuator()
         {
-            return roomId;
+            return id_actuator;
         }//roomId
     }
 } // namespace SmartHome

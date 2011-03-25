@@ -16,7 +16,7 @@ namespace SmartHome
         protected int id_room;
         //switchOn, default value is false
         protected bool on = false;
-
+       
         public Actuator()
         {
         } // Actuator()

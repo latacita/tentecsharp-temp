@@ -56,6 +56,12 @@
     <Compile Include="BaseSystem\Logic\Gateway.cs" />
     <Compile Include="BaseSystem\Logic\Room.cs" />
     <Compile Include="BaseSystem\Logic\Sensor.cs" />
+    <Compile Include="BaseSystem\Simulator\SimulatorGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseSystem\Simulator\SimulatorGUI.Designer.cs">
+      <DependentUpon>SimulatorGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeaterMng\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     <Compile Include="HeaterMng\GUI\GatewayGUI.Designer.cs" />
     <Compile Include="HeaterMng\Logic\HeaterCtrl.cs" />
     <Compile Include="HeaterMng\Logic\Gateway.cs" />
+    <Compile Include="HeaterMng\Simulator\SimulatorGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeaterMng\Simulator\SimulatorGUI.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -75,6 +87,9 @@
     <EmbeddedResource Include="BaseSystem\GUI\GatewayGUI.resx">
       <DependentUpon>GatewayGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaseSystem\Simulator\SimulatorGUI.resx">
+      <DependentUpon>SimulatorGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -84,6 +99,7 @@
     <Content Include="Images\thermometer.jpg" />
     <Content Include="Images\windowIcon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

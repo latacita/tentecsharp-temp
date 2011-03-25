@@ -41,6 +41,30 @@ namespace SmartHome
             return this.floors;
         }//getFloors
 
+        public List<Actuator> getActuatorsByRoom(int id_room)
+        {
+            List<Actuator> actuatorsRoom = new List<Actuator>();
+            for (int i = 0; i < actuators.Count; i++)
+            {
+                if (actuators[i].getIdRoom() == id_room) actuatorsRoom.Add(actuators[i]);
+            }
+            if (actuatorsRoom.Count != 0) return actuatorsRoom;
+            else return null;
+        }// getActuatorsByRoom
+
+        public Floor getFloorById(int id_floor)
+        {
+            for (int i = 0; i < floors.Count; i++)
+            {
+                if (floors[i].getId() == id_floor)
+                {
+
+                    return floors[i];
+                }// if
+            }// for
+            return null;
+        }// getFloorById
+
         public Floor getFloorByRoom(int id_room)
         {
             Room aux=null;
