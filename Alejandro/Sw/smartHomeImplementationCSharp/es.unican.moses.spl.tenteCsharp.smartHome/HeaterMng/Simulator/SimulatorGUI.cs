@@ -9,26 +9,6 @@ namespace SmartHome
     partial class SimulatorGUI
 
     {
-        private void listBoxRooms_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cleanRichTextBoxSimulated();
-            richTextBoxStatus.Clear();
-            int index = listBoxRooms.SelectedIndex;
-            int id_room = dictionaryListRooms[index];
-            addHeaters(id_room);
-        }// listBoxRooms_SelectedIndexChanged
-
-        private void listBoxDevices_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cleanRichTextBoxSimulated();
-            richTextBoxStatus.Clear();
-            int index = listDevices.SelectedIndex;
-            int id_heater = dictionaryListHeater[index];
-            addStatusHeaters(id_heater);
-            addLabelTemperature();
-            addTextBoxTemperature(id_heater);
-        }// listBoxDevices_SelectedIndexChanged
-
         private void textTemp_KeyDown(Object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13) //Enter Key
@@ -37,8 +17,7 @@ namespace SmartHome
                 {
                     double temp = Convert.ToDouble(textBoxTemperature.Text);
                     gateway.changeThermometer(currentIdHeater, temp);
-                    addStatusHeaters(currentIdHeater);
-                    //gateway.heaterAdjustTemparature(currentIdHeater, temp);                    
+                    addStatusHeaters(currentIdHeater);                                       
                 }// try
                 catch (Exception exception)
                 {

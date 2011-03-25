@@ -37,12 +37,24 @@ namespace SmartHome
         }
        
 
-        private void cleanRichTextBoxSimulated()
+        private void listBoxRooms_SelectedIndexChanged(object sender, EventArgs e)
         {
-            for (int i = richTextBoxSimulated.Controls.Count; i>0; i--)
-            {
-                richTextBoxSimulated.Controls.RemoveAt(i-1);
-            }// for
-        }// cleanRichTextBoxSimulated
+            cleanRichTextBoxSimulated();
+            richTextBoxStatus.Clear();
+            int index = listBoxRooms.SelectedIndex;
+            int id_room = dictionaryListRooms[index];
+            addHeaters(id_room);
+        }// listBoxRooms_SelectedIndexChanged
+
+        private void listBoxDevices_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cleanRichTextBoxSimulated();
+            richTextBoxStatus.Clear();
+            int index = listDevices.SelectedIndex;
+            int id_heater = dictionaryListHeater[index];
+            addStatusHeaters(id_heater);
+            addLabelTemperature();
+            addTextBoxTemperature(id_heater);
+        }// listBoxDevices_SelectedIndexChanged
     }
 }
