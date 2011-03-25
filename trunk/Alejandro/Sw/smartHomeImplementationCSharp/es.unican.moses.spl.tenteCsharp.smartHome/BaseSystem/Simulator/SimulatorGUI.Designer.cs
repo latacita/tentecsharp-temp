@@ -201,6 +201,14 @@ namespace SmartHome
             }//for
         }//addRooms
 
+        private void cleanRichTextBoxSimulated()
+        {
+            for (int i = richTextBoxSimulated.Controls.Count; i > 0; i--)
+            {
+                richTextBoxSimulated.Controls.RemoveAt(i - 1);
+            }// for
+        }// cleanRichTextBoxSimulated
+
         
     }
 }
