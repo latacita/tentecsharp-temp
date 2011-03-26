@@ -18,7 +18,7 @@ namespace SmartHome
             allChangeTrackBar(trackBar_main.Value);
             gateway.allHeaterAdjustTemperature(trackBar_main.Value);
             //SimulatorGUI
-            simulator.updateCurrentSelected();
+            simulator.fillDataGridViewHeaters();
             
         }// trackbar_Scroll
 
@@ -52,7 +52,7 @@ namespace SmartHome
                 
             }// else
             //SimulatorGUI
-            simulator.updateCurrentSelected();
+            simulator.fillDataGridViewHeaters();
             
         }// buttonSwitch_Click
 
@@ -69,7 +69,7 @@ namespace SmartHome
                     allChangeTrackBar(roundTemp);
                     allChangeTextTemp(textTemp.Text);
                     //SimulatorGUI
-                    simulator.updateCurrentSelected();
+                    simulator.fillDataGridViewHeaters();
                 }
                 catch (Exception exception)
                 {
@@ -102,7 +102,7 @@ namespace SmartHome
                 dictionaryTextTempByRoom[id_heater].Visible = false;               
             }//else
             //SimulatorGUI
-            simulator.updateCurrentSelected();
+            simulator.fillDataGridViewHeaters();
 
         }//buttonSwitchByRoom_Click
 
@@ -112,7 +112,7 @@ namespace SmartHome
             gateway.heaterAdjustTemparature(id_heater, dictionaryTrackBarByRoom[id_heater].Value);
             dictionaryTextTempByRoom[id_heater].Text = dictionaryTrackBarByRoom[id_heater].Value.ToString() + ",0";
             //SimulatorGUI
-            simulator.updateCurrentSelected();
+            simulator.fillDataGridViewHeaters();
         }// trackbarByRoom_Scroll
 
         private void textTempByRoom_KeyDown(Object sender, KeyEventArgs e)
@@ -127,7 +127,7 @@ namespace SmartHome
                     int roundTemp = Convert.ToInt32(temp);
                     dictionaryTrackBarByRoom[id_heater].Value = roundTemp;
                     //SimulatorGUI
-                    simulator.updateCurrentSelected();
+                    simulator.fillDataGridViewHeaters();
                 }// try
                 catch (Exception exception)
                 {

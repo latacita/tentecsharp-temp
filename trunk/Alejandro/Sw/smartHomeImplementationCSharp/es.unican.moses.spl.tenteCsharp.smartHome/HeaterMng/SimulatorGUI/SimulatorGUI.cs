@@ -7,7 +7,6 @@ using System.Windows.Forms;
 namespace SmartHome
 {
     partial class SimulatorGUI
-
     {
         private void textTemp_KeyDown(Object sender, KeyEventArgs e)
         {
@@ -15,9 +14,11 @@ namespace SmartHome
             {
                 try
                 {
+                    int id_heater = int.Parse(dataGridViewHeaters.Rows[dataGridViewHeaters.SelectedRows[0].Index].Cells[0].Value.ToString());
+                    //Console.WriteLine(id_heater);
                     double temp = Convert.ToDouble(textBoxTemperature.Text);
-                    gateway.changeThermometer(currentIdHeater, temp);
-                    addStatusHeaters(currentIdHeater);                                       
+                    gateway.changeThermometer(id_heater, temp);
+                    fillDataGridViewHeaters();                    
                 }// try
                 catch (Exception exception)
                 {
@@ -25,5 +26,5 @@ namespace SmartHome
                 }// catch
             }//if            
         }//textTemp_KeyDown
-    }//SimulatroGUI
-}//SmartHome
+    }
+}
