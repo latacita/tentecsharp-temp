@@ -37,16 +37,17 @@ namespace SmartHome
             g.addThermometer(t1);
             g.addHeaterCtrl(h2);
             g.addThermometer(t2);
-            SimulatorGUI simulatorGUI = new SimulatorGUI(g);
-            GatewayGUI gatewayGUI = new GatewayGUI(g,simulatorGUI);
+            SimulatorGUI sim = new SimulatorGUI(g);
+            GatewayGUI gatewayGUI = new GatewayGUI(g,sim);
             gatewayGUI.addBaseSystem();
             gatewayGUI.addHeaterMng();
-            simulatorGUI.addBaseSimulator();
-            simulatorGUI.addHeaterMng();
-            simulatorGUI.Show();
+            sim.addHeaterMng();
+            sim.Show();
+            //simulatorGUI.Show();
             gatewayGUI.Show();            
-            Application.Run(simulatorGUI);
-            Application.Run(gatewayGUI);            
+           // Application.Run(simulatorGUI);
+            Application.Run(gatewayGUI);
+            Application.Run(sim); 
         }
     }
 }

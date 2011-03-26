@@ -97,10 +97,10 @@ namespace SmartHome
             for (int i = 0; i < heaters.Count; i++)
             {
                 Thermometer t=findThermometerByHeater(heaters[i].getId());
-                heaters[i].setValue(temperature);
+                heaters[i].switchOn();
+                heaters[i].setValue(temperature);                
                 if (t.getValue() != temperature)
                 {
-                    heaters[i].switchOn();                    
                     heaters[i].setWork(true);
                 }//if
                 else

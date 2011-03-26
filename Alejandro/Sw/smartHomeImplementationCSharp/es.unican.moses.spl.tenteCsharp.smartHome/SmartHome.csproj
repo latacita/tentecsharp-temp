@@ -56,12 +56,6 @@
     <Compile Include="BaseSystem\Logic\Gateway.cs" />
     <Compile Include="BaseSystem\Logic\Room.cs" />
     <Compile Include="BaseSystem\Logic\Sensor.cs" />
-    <Compile Include="BaseSystem\Simulator\SimulatorGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BaseSystem\Simulator\SimulatorGUI.Designer.cs">
-      <DependentUpon>SimulatorGUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="HeaterMng\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,10 +63,14 @@
     <Compile Include="HeaterMng\GUI\GatewayGUI.Designer.cs" />
     <Compile Include="HeaterMng\Logic\HeaterCtrl.cs" />
     <Compile Include="HeaterMng\Logic\Gateway.cs" />
-    <Compile Include="HeaterMng\Simulator\SimulatorGUI.cs">
+    <Compile Include="BaseSystem\SimulatorGUI\SimulatorGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HeaterMng\Simulator\SimulatorGUI.Designer.cs">
+    <Compile Include="BaseSystem\SimulatorGUI\SimulatorGUI.Designer.cs">
+      <DependentUpon>SimulatorGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeaterMng\SimulatorGUI\SimulatorGUI.Designer.cs" />
+    <Compile Include="HeaterMng\SimulatorGUI\SimulatorGUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -87,7 +85,7 @@
     <EmbeddedResource Include="BaseSystem\GUI\GatewayGUI.resx">
       <DependentUpon>GatewayGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BaseSystem\Simulator\SimulatorGUI.resx">
+    <EmbeddedResource Include="BaseSystem\SimulatorGUI\SimulatorGUI.resx">
       <DependentUpon>SimulatorGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
