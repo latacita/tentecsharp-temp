@@ -12,12 +12,6 @@ namespace SmartHome
         protected bool work=false;
       
         // Constructor
-        public HeaterCtrl()
-            : base()
-        {
-            this.deviceValue = DEFAULT_TEMP;
-        } // HeaterCtrl
-
         public HeaterCtrl(int id)
             : base(id)
         {

@@ -15,10 +15,10 @@ namespace SmartHome
                 try
                 {
                     int id_heater = int.Parse(dataGridViewHeaters.Rows[dataGridViewHeaters.SelectedRows[0].Index].Cells[0].Value.ToString());
-                    //Console.WriteLine(id_heater);
                     double temp = Convert.ToDouble(textBoxTemperature.Text);
                     gateway.changeThermometer(id_heater, temp);
-                    fillDataGridViewHeaters();                    
+                    fillDataGridViewHeaters();
+                    textBoxTemperature.Clear();
                 }// try
                 catch (Exception exception)
                 {
