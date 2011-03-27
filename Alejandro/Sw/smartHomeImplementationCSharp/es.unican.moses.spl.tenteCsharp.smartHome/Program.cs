@@ -22,7 +22,11 @@ namespace SmartHome
             HeaterCtrl h1 = new HeaterCtrl(0, 0);
             Thermometer t1 = new Thermometer(1, 0);
             HeaterCtrl h2 = new HeaterCtrl(1, 3);
-            Thermometer t2 = new Thermometer(3, 1);
+            Thermometer t2 = new Thermometer(2, 1);
+            WindowCtrl w1 = new WindowCtrl(2, 0);
+            WindowCtrl w2 = new WindowCtrl(3, 2);
+            WindowSensor ws1 = new WindowSensor(3, 2);
+            WindowSensor ws2 = new WindowSensor(4, 3);
             f1.addRoom(r1);
             f1.addRoom(r2);
             f2.addRoom(r3);
@@ -30,6 +34,7 @@ namespace SmartHome
             Gateway g = new Gateway();
             g.initBaseSystem();
             g.initHeaterMng();
+            g.initWindowMng();
             g.addFloor(f1);
             g.addFloor(f2);
             g.addFloor(f3);
@@ -37,15 +42,18 @@ namespace SmartHome
             g.addThermometer(t1);
             g.addHeaterCtrl(h2);
             g.addThermometer(t2);
+            g.addWindowCtrl(w1);
+            g.addWindowCtrl(w2);
+            g.addWindowSensor(ws1);
+            g.addWindowSensor(ws2);
             SimulatorGUI sim = new SimulatorGUI(g);
             GatewayGUI gatewayGUI = new GatewayGUI(g,sim);
             gatewayGUI.addBaseSystem();
             gatewayGUI.addHeaterMng();
-            sim.addHeaterMng();
+            gatewayGUI.addWindowMng();
+            sim.addHeaterMng();            
             sim.Show();
-            //simulatorGUI.Show();
             gatewayGUI.Show();            
-           // Application.Run(simulatorGUI);
             Application.Run(gatewayGUI);
             Application.Run(sim); 
         }

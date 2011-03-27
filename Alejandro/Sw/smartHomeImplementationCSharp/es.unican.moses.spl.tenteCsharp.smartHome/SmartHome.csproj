@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseSystem\Logic\Actuator.cs" />
+    <Compile Include="BaseSystem\Logic\Device.cs" />
     <Compile Include="BaseSystem\Logic\Floor.cs" />
     <Compile Include="BaseSystem\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
@@ -80,6 +81,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="WindowMng\GUI\GatewayGUI.Designer.cs" />
+    <Compile Include="WindowMng\GUI\GatewayGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowMng\Logic\WindowSensor.cs" />
+    <Compile Include="WindowMng\Logic\Gateway.cs" />
+    <Compile Include="WindowMng\Logic\WindowCtrl.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BaseSystem\GUI\GatewayGUI.resx">
@@ -95,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\thermometer.jpg" />
+    <Content Include="Images\window.jpg" />
     <Content Include="Images\windowIcon.ico" />
   </ItemGroup>
   <ItemGroup />

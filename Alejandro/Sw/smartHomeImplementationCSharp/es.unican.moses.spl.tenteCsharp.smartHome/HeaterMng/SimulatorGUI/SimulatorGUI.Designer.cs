@@ -20,10 +20,7 @@ namespace SmartHome
         private System.Windows.Forms.Label labelTemperature = new System.Windows.Forms.Label();
         private System.Windows.Forms.RichTextBox richTextBoxSimulated = new RichTextBox();
         private System.Windows.Forms.Label labelSimulated = new Label();
-        private int selected = 0;
         
-        
-
         public void addHeaterMng()
         {
             initTabPageHeaters();
@@ -32,7 +29,7 @@ namespace SmartHome
             {
                 this.labelTemperature.Visible = true;
                 this.textBoxTemperature.Visible = true;
-            }
+            }//if
             
         }//addHeaterMng
 
@@ -43,6 +40,9 @@ namespace SmartHome
             String status;
             String degrees;
             String work;
+            int numRowSelected = 0;
+            if(dataGridViewHeaters.RowCount>0)
+                numRowSelected=int.Parse(dataGridViewHeaters.Rows[dataGridViewHeaters.SelectedRows[0].Index].Cells[0].Value.ToString());
             //Clear the dataGridViewHeaters
             dataGridViewHeaters.Rows.Clear();            
             for (int i = 0; i < f.Count; i++)
@@ -75,10 +75,9 @@ namespace SmartHome
                                                                     t.getValue().ToString()});
                     }//for                    
                 }//for
-            }//for
-   
-            //dataGridViewHeaters.ClearSelection();
-            
+            }//for 
+            if (dataGridViewHeaters.RowCount > 0)
+                dataGridViewHeaters.Rows[numRowSelected].Selected = true;
         }//fillDataGridViewHeaters
 
 

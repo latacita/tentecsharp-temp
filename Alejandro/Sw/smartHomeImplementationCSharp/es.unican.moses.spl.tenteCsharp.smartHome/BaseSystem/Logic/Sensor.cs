@@ -4,43 +4,30 @@ using System.Text;
 
 namespace SmartHome
 {
-    public abstract partial class Sensor
+    public abstract partial class Sensor: Device
     {
-        // Device identifier
-        protected int id = 0;
         // Device currrent value
         protected double deviceValue = 0.0;
         // Gateway reference
         protected Gateway gtw = null;
+        // Actuator id
         protected int id_actuator;
         
-        // Class emprty constructor
-        public Sensor()
-        {
-        } // Sensor()
+        
 
         // Class constructor with device identifier 
         public Sensor(int id)
+            :base(id)
         {
             this.id = id;
         } // Sensor(int)
 
         public Sensor(int id, int id_actuator)
+            :base(id)
         {
             this.id = id;
             this.id_actuator = id_actuator;
         }
-
-        // Getters and setters 
-        public virtual void setId(int id)
-        {
-            this.id = id;
-        } // setId
-
-        public virtual int getId()
-        {
-            return this.id;
-        } // getId
 
         public virtual void setValue(double value)
         {
