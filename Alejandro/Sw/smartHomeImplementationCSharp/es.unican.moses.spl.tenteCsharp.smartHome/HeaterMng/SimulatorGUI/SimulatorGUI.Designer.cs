@@ -42,7 +42,7 @@ namespace SmartHome
             String work;
             int numRowSelected = 0;
             if(dataGridViewHeaters.RowCount>0)
-                numRowSelected=int.Parse(dataGridViewHeaters.Rows[dataGridViewHeaters.SelectedRows[0].Index].Cells[0].Value.ToString());
+                numRowSelected = dataGridViewHeaters.SelectedRows[0].Index;           
             //Clear the dataGridViewHeaters
             dataGridViewHeaters.Rows.Clear();            
             for (int i = 0; i < f.Count; i++)
@@ -54,7 +54,7 @@ namespace SmartHome
                     for (int k = 0; k < h.Count; k++)
                     {
 
-                        if (h[k].status())
+                        if (h[k].getStatus())
                         {
                             status = "ON";
                             degrees = h[k].getValue().ToString();

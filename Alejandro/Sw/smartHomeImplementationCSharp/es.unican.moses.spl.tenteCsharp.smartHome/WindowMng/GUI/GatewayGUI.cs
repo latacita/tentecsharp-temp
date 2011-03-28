@@ -15,11 +15,10 @@ namespace SmartHome
         private void trackbar_Scroll_aperture(object sender, EventArgs e)
         {
             text_aperture.Text = trackBar_aperture.Value.ToString();
-            //allChangeTrackBar(trackBar_main.Value);
             gateway.allAdjustWindows(trackBar_aperture.Value);
-            //gateway.allHeaterAdjustTemperature(trackBar_main.Value);
+            allChangeTrackBarAperture(trackBar_aperture.Value);            
             //SimulatorGUI
-            //simulator.fillDataGridViewHeaters();
+            refreshSimulator(); 
 
         }// trackbar_Scroll_aperture
 
@@ -30,19 +29,19 @@ namespace SmartHome
                 try
                 {
                     int aperture = Convert.ToInt32(text_aperture.Text);
-                    gateway.allAdjustWindows(trackBar_aperture.Value);
+                    gateway.allAdjustWindows(aperture);
                     trackBar_aperture.Value = aperture;
-                    //allChangeTrackBar(roundTemp);
-                    //allChangeTextTemp(textTemp.Text);
+                    allChangeTrackBarAperture(aperture);
+                    allChangeTextAperture(aperture.ToString());
                     //SimulatorGUI
-                    //simulator.fillDataGridViewHeaters();
+                    refreshSimulator();
                 }
                 catch (Exception exception)
                 {
                     MessageBox.Show("Insert a correct aperture value(integer between 0 and 100 degrees)", "Input error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }// catch
             }//if            
-        }//textTemp_KeyDown
+        }//textAperture_KeyDown
 
         private void textApertureByRoom_KeyDown(Object sender, KeyEventArgs e)
         {
@@ -52,26 +51,26 @@ namespace SmartHome
                 try
                 {
                     int aperture = Convert.ToInt32(dictionaryTextApertureByRoom[id_window].Text);
-                    gateway.ajustWindow(id_window, aperture);
+                    gateway.adjustWindow(id_window, aperture);
                     dictionaryTrackBarApertureByRoom[id_window].Value = aperture;
                     //SimulatorGUI
-                    //simulator.fillDataGridViewHeaters();
+                    refreshSimulator();
                 }// try
                 catch (Exception exception)
                 {
                     MessageBox.Show("Insert a correct aperture value(integer between 0 and 100 degrees)", "Input error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }// catch
             }//if            
-        }//textTemp_KeyDown
+        }//textApertureByRoom_KeyDown
 
         private void trackbarApertureByRoom_Scroll(object sender, EventArgs e)
         {
             int id_window = inverseDictionaryTrackBarAperture[(TrackBar)sender];
-            gateway.ajustWindow(id_window, dictionaryTrackBarApertureByRoom[id_window].Value);
+            gateway.adjustWindow(id_window, dictionaryTrackBarApertureByRoom[id_window].Value);
             dictionaryTextApertureByRoom[id_window].Text = dictionaryTrackBarApertureByRoom[id_window].Value.ToString();
             //SimulatorGUI
-            //simulator.fillDataGridViewHeaters();
-        }// trackbarByRoom_Scroll
+            refreshSimulator();
+        }// trackbarApertureByRoom_Scroll
 
     }
 }
