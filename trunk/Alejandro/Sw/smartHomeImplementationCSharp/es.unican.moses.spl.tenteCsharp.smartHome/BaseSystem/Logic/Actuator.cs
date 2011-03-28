@@ -60,7 +60,7 @@ namespace SmartHome
         {
             this.on = false;
         }// switchOff
-        public virtual bool status()
+        public virtual bool getStatus()
         {
             return on;
         }

@@ -23,9 +23,9 @@ namespace SmartHome
             return windows;
         }//getWindows
 
-        public List<WindowSensor> getSensors(){
+        public List<WindowSensor> getWindowsSensors(){
             return windowsSensors;
-        }//getSensors
+        }//getWindowsSensors
 
         public void addWindowCtrl(WindowCtrl w)
         {
@@ -81,12 +81,12 @@ namespace SmartHome
 
         }//findWindowCtrl
 
-        public void ajustWindow(int id_window, int aperture)
+        public void adjustWindow(int id_window, int aperture)
         {
             //Change the window actuator
             findWindowCtrl(id_window).setValue(aperture);
             //Change the window sensor
             findWindowSensorByidWindow(id_window).setValue(aperture);
-        }//ajustWindow
+        }//adjustWindow
     }
 }

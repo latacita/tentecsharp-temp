@@ -130,5 +130,32 @@ namespace SmartHome
             pict_window.Size = new System.Drawing.Size(100, 94);
             DictionaryTabPageDevice[id_window].Controls.Add(pict_window);
         }
+
+        private void allChangeTextAperture(String aperture)
+        {
+            List<WindowCtrl> w = gateway.getWindows();
+            for (int i = 0; i < w.Count; i++)
+            {
+                dictionaryTextApertureByRoom[w[i].getId()].Text = aperture;
+            }//for            
+        }// allChangeTextTemp
+
+        private void allChangeTrackBarAperture(int aperture)
+        {
+            List<WindowCtrl> w = gateway.getWindows();
+            for (int i = 0; i < w.Count; i++)
+            {
+                dictionaryTrackBarApertureByRoom[w[i].getId()].Value = aperture;
+                dictionaryTextApertureByRoom[w[i].getId()].Text = aperture.ToString();
+            }// for          
+
+        }// allChangeTrackBar
+
+        public void refreshWindow(int aperture, int id_window)
+        {
+
+            dictionaryTextApertureByRoom[id_window].Text = aperture.ToString();
+            dictionaryTrackBarApertureByRoom[id_window].Value = aperture;
+        }
     }
 }

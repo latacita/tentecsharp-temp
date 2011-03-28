@@ -66,10 +66,10 @@ namespace SmartHome
             return h;
         } // findHeaterByRoom
 
-        // Class methods
-        public virtual bool heaterAdjustTemparature(int id, double temperature)
+       
+        public virtual void heaterMngHeaterAdjustTemperature(int id, double temperature)
         {
-            bool result = false;
+            //bool result = false;
 
             HeaterCtrl heater = findHeater(id);
             Thermometer t = findThermometerByHeater(id);
@@ -87,27 +87,16 @@ namespace SmartHome
                     heater.setWork(false);
                     //heater.switchOff();                   
                 }// else
-                result = true;
+                //result = true;
             } // if
-            return result;
+            //return result;
         } // adjustTemparature
 
         public virtual void allHeaterAdjustTemperature(double temperature)
         {
             for (int i = 0; i < heaters.Count; i++)
             {
-                Thermometer t=findThermometerByHeater(heaters[i].getId());
-                heaters[i].switchOn();
-                heaters[i].setValue(temperature);                
-                if (t.getValue() != temperature)
-                {
-                    heaters[i].setWork(true);
-                }//if
-                else
-                {
-                    heaters[i].setWork(false);
-                    //heaters[i].switchOff();
-                }//else
+                heaterAdjustTemperature(heaters[i].getId(), temperature);
             }//for
             //allThermometerAdjustTemperature(temperature);
         }//allHeaterAdjustTemperature
@@ -132,17 +121,17 @@ namespace SmartHome
             }//for
         }//allThermometerAdjustTemperature
 
-        public void changeThermometer(int id_heater, double temp)
+        public void adjustThermometer(int id_heater, double temp)
         {
             Thermometer t = findThermometerByHeater(id_heater);
             HeaterCtrl h = findHeater(id_heater);
             t.setValue(temp);
-            if (h.status() == true)
+            if (h.getStatus() == true)
             {
                 if (h.getValue() == temp) h.setWork(false);
                 else h.setWork(true);
             }
-        }// changeThermometer
+        }// adjustThermometer
         public virtual void allSwitchOffHeaters()
         {
             for (int i = 0; i < heaters.Count; i++)
