@@ -53,6 +53,7 @@ namespace Program
             gatewayGUI.addBaseSystem();
             gatewayGUI.addHeaterMng();
             gatewayGUI.addWindowMng();
+            gatewayGUI.addSmartEnergy();
             sim.addHeaterMng();
             sim.addWindowMng();
             sim.Show();
