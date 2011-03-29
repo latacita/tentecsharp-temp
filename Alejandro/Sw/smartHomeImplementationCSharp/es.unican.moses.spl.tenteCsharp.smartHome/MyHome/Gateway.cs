@@ -3,9 +3,9 @@
     partial class Gateway
     {
         // Class methods
-        public void heaterAdjustTemperature(int id, double temperature)
+        public virtual void heaterAdjustTemperature(int id, double temperature)
         {
-            this.smartEnergyHeaterAdjustTemperature(id, temperature);
+            //this.smartEnergyHeaterAdjustTemperature(id, temperature);
         }
     }
 }

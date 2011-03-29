@@ -7,10 +7,10 @@ namespace SmartHome
 {
     partial class GatewayGUI
     {
-        public void refreshSimulator()
+        public virtual void refreshSimulator()
         {
-            simulator.fillDataGridViewHeaters();
-            simulator.fillDataGridViewWindows();
+            //simulator.fillDataGridViewHeaters();
+            //simulator.fillDataGridViewWindows();
         }//refreshSimulator
     }//GatewayGUI
 }
