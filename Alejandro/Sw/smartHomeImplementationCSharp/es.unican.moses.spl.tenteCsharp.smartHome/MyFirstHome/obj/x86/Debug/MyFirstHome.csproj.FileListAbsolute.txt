@@ -1,0 +1,10 @@
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\MyFirstHome\bin\Debug\MyFirstHome.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\MyFirstHome\bin\Debug\MyFirstHome.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\MyFirstHome\bin\Debug\smartHome.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\MyFirstHome\bin\Debug\smartHome.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\MyFirstHome\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\MyFirstHome\obj\x86\Debug\MyFirstHome.Properties.Resources.resources
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\MyFirstHome\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\MyFirstHome\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\MyFirstHome\obj\x86\Debug\MyFirstHome.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\MyFirstHome\obj\x86\Debug\MyFirstHome.pdb
