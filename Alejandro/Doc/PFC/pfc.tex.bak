@@ -53,7 +53,7 @@
 \begin{document}
 
 % Cover page
-\input{cover/cover.tex}
+%\input{cover/cover.tex}
 
 % \input{cover/supervisorApproval.tex}
 
@@ -76,14 +76,16 @@
 \input{config/chapters.tex}
 
 % Capítulo 1: Introducción
-% \input{introduction/introduction.tex} % Chapter 1
+\input{introduction/introduction.tex} % Chapter 1
 
 % Capítulo 2: Resumen del Estado del Arte
 \input{background/background.tex}
 
 % Capítulo 3: Descripción General del Proceso
+% De momento no se sabe
 
 % Capítulo 4: Definición y Planificación del Proyecto
+\input{planificacion/planificacion.tex}
 
 % Capítulo 5: Ingeniería de Requisitos
 
