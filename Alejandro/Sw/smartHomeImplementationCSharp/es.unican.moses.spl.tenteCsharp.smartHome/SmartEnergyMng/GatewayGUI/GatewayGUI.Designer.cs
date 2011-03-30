@@ -36,7 +36,7 @@ namespace SmartHome
             //Image
             //
             pictSmartEnergy = new PictureBox();
-            pictSmartEnergy.Image = System.Drawing.Image.FromFile(".\\ImagesDebug\\smartEnergy.jpg"); //TEMPORAL
+            pictSmartEnergy.Image = System.Drawing.Image.FromFile("..\\..\\Images\\smartEnergy.jpg"); //TEMPORAL
             pictSmartEnergy.Location = new System.Drawing.Point((width + 84) / 3, height / 3);
             pictSmartEnergy.Size = new System.Drawing.Size(100, 94);
             tabPage_smartEnergy.Controls.Add(pictSmartEnergy);
