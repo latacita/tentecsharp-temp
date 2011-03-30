@@ -1,8 +1,9 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: pfc.aux
 The style file: alpha.bst
 Database file #1: references/pfc.bib
+Warning--I didn't find a database entry for "prehofer:2001"
 Warning--empty publisher in albahari:2010
 Warning--empty publisher in batory:2004
-Warning--empty publisher in clements:2002
 Warning--empty publisher in pohl:2005
-(There were 4 warnings)
+Warning--empty journal in wadler:1998
+(There were 5 warnings)

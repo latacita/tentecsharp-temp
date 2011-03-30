@@ -11,14 +11,15 @@ D.~Batory, J.~N. Sarvela, and A.~Rauschmayer.
   Engineering}.
 \newblock 2004.
 
-\bibitem[CN02]{clements:2002}
-Paul Clements and Linda Northrop.
-\newblock {\em Software Product Lines: Practices and Patternspohl}.
-\newblock 2002.
-
 \bibitem[PBvdL05]{pohl:2005}
 Klaus Pohl, Gunter Bockle, and Frank van~der Linden.
 \newblock {\em Software Product Line Engineering}.
 \newblock 2005.
+
+\bibitem[Wea98]{wadler:1998}
+P.~Wadler and et~al.
+\newblock The expression problem. discussion on the java-genericity mailing
+  list.
+\newblock 1998.
 
 \end{thebibliography}
