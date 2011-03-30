@@ -9,23 +9,21 @@
 \label{chap:background}
 
 %=============================================================================%
-% NOTA(Pablo): Aquí habría que poner un pequeño párrafo introductorio         %
+% HECHO(Pablo): Aquí habría que poner un pequeño párrafo introductorio         %
 %=============================================================================%
-
+En este capítulo se ofrece una visión general de que son las líneas de productos software, cuales son sus principales objetivos y se realiza un análisis sobre las técnicas actuales existentes que se podrían utilizar para trabajar con las líneas de productos software con la ayuda de un problema concreto.
 \chaptertoc
 
 \section{Líneas de Productos Software}
 
 % Explica que es una línea de productos software, objetivos y terminología
-
 %=============================================================================%
 % NOTA(Pablo): Cuando traduzcas del inglés, procura hacerlo menos literal     %
 %=============================================================================%
-Una línea de productos software (SPL) es un conjunto de sistemas de software que comparten un conjunto común y controlado de características que satisfacen las necesidades específicas de un segmento de mercado específico y
-cuyos productos son desarrollados a partir de un conjunto común de artefactos software siguiendo unas reglas específicas~\cite{clements:2002}.
-
+%Una línea de productos software (SPL) es un conjunto de sistemas de software que comparten un conjunto común y %controlado de características que satisfacen las necesidades específicas de un segmento de mercado específico y
+%cuyos productos son desarrollados a partir de un conjunto común de artefactos software siguiendo unas reglas %específicas~\cite{clements:2002}.
 %=============================================================================%
-% NOTA(Pablo): Las dos definiciones serían redundantes, deja la segunda que   %
+% HECHO(Pablo): Las dos definiciones serían redundantes, deja la segunda que   %
 %              me gusta más. La primera aparece mucho en los informes del     %
 %              AMPLE por motivos más bien políticos, porque técnicos          %
 %=============================================================================%
@@ -35,42 +33,51 @@ Un ejemplo clásico de familia de productos software es el software que se encuen
 
 La idea de una Línea de Productos Software es proporcionar una forma automatizada y sistemática de construir un producto concreto dentro de una familia de productos software mediante la simple especificación de qué características deseamos incluir dentro de dicho producto. Esto representa una alternativa al enfoque tradicional de desarrollo software, el cual se basaba simplemente en seleccionar el producto más parecido dentro de la familia al que queremos construir y adaptarlo manualmente.
 
-\todo{Poner aquí una gráfica de un proceso de desarrollo software y habla de \emph{domain engineeering} y \emph{application engineering}. En los informes del AMPLE tienes varios ejemplos de ello, es sólo copiar y traducir. Si te hace falta la fuente de alguna imagen, me lo comentas y te la busco}
+El proceso de creación de líneas de producto Software conlleva dos fases: \emph{ingeniería de dominio} (en inglés,  \emph{Domain Engineering}) e \emph{ingeniería de aplicación} (en inglés, \emph{Application Engineering}) (la figura~\ref{back:fig:domainAplicEng} ilustra el proceso para ambas fases). La \emph{ingeniería de dominio} tiene como objetivo la creación de la infraestructura o arquitectura de la línea de productos, la cual permitirá la rápida, o incluso automática, construcción del sistema software específico dentro de la familia de productos. La ingeniería de aplicación utiliza la infraestructura creada anteriormente para crear aplicaciones específicas adaptadas a las necesidades de los usuarios.
+%\todo{Poner aquí una gráfica de un proceso de desarrollo software y habla de \emph{domain engineering} y %\emph{application engineering}. En los informes del AMPLE tienes varios ejemplos de ello, es sólo copiar y %traducir. Si te hace falta la fuente de alguna imagen, me lo comentas y te la busco}
+\begin{figure}[!tb]
+  \centering \includegraphics[width=.95\linewidth]{background/images/domainAplicationEngineering.eps} \\
+  \caption{Proceso de desarrollo de una línea de productos software}
+  \label{back:fig:domainAplicEng}
+\end{figure}
 
-\todo{Poner un párrafo de enlace con la sección siguiente}
+%HECHO \todo{Poner un párrafo de enlace con la sección siguiente}
+La siguiente sección describe los principales objetivos y características que presenta la programación orientada a características.
 
 \section{Programación Orientada a Características}
 
 % Objetivos de la orientación a características
-Los lenguajes orientados a características tienen como objetivo encapsular conjuntos coherentes de la funcionalidad de un sistema software en módulos independientes y fácilmente componibles de forma que se incremente su capacidad de extensión y reutilización. Estos módulos reciben el nombre de \emph{característica}. Una característica se puede definir como un incremento de la funcionalidad de un sistema~\cite{batory:2004}.
+Los lenguajes orientados a características~\cite{prehofer:2001} tienen como objetivo encapsular conjuntos coherentes de la funcionalidad de un sistema software en módulos independientes y fácilmente componibles de forma que se incremente su capacidad de extensión y reutilización. Estos módulos reciben el nombre de \emph{característica}. Una característica se puede definir como un incremento de la funcionalidad de un sistema~\cite{batory:2004}.
 
 Los lenguajes orientados a características son especialmente útiles en el contexto de las líneas de producción software, ya que nos permiten encapsular en módulos bien definidos las diferentes características, tanto comunes como variables, que pueden aparecer en cada uno de los productos software pertenecientes a una misma familia. Los lenguajes orientados a características tratan de facilitar además la composición de dichos módulos, contribuyendo así a que productos específicos dentro de una familia puedan ser creados mediante la simple composición o ensamblado de módulos software.
 
-\todo{Poner un ejemplo concreto pero a alto nivel explicando como funcionaría la orientación a características}
+%HECHO\todo{Poner un ejemplo concreto pero a alto nivel explicando como funcionaría la orientación a características}
+Consideremos el siguiente ejemplo de modelado de una pila con las siguientes características:
+\begin{enumerate}
+\item \emph{Pila}: Característica común a todas las configuraciones,que posee las operaciones de apilar y desapilar.
+\item \emph{Contador}: añade un contador local(usado para conocer el tamaño de la pila).
+\item \emph{Bloqueo}: permite añadir un interruptor que permita o no las modificaciones de un objeto de la pila.
+\item \emph{Deshacer}: agrega la funcionalidad de restaurar el estado de la pila antes del último acceso a la misma.
+\item
+\end{enumerate}
+Por un lado al abstraer un programa en términos de características facilita su entendimiento, como por ejemplo en el caso del programa que implementa una pila.Pero más importante, es conseguir construir diferentes programas que ofrezcan diferentes combinaciones de características. Para el caso del modelado de la pila a un usuario en concreto, le puede interesar combinar la característica común denominada \emph{pila} y \emph{contador} y descartar todas las demás. Por lo tanto, un lenguaje orientado a características nos debe permiter descomponer fácilmente de un modo encapsulado un programa en características, para su posterior composición y creación en diferentes combinaciones que se adapten a las necesidades de los usuarios.
 
-\todo{Poner un párrafo de enlace con la sección siguiente}
+La siguiente sección abordará las limitaciones que poseen los lenguajes orientados a objetos para tratar problemas típicos de líneas de producción software frente a los lenguajes orientados a características.
 
 \subsection{Limitaciones de la Orientación a Objetos frente a la Programación Orientada a Características}
 
 % Limitaciones de los lenguajes OO para FOP
 Para analizar las limitaciones que posee la programación orientada a objetos frente a la programación orientada a características nos basaremos en un problema típico de las líneas de productos, que es el \emph{problema de las
 %=============================================================================%
-% NOTA(Pablo): Citation needed                                                %
+% HECHO(Pablo): Citation needed                                                %
 %=============================================================================%
-expresiones}~\cite{}. Dicho problema es un problema clásico en el diseño software.
-
+expresiones} ~\cite{wadler:1998}. Dicho problema es un problema clásico en el diseño software.
 %=============================================================================%
-% NOTA(Pablo): Esta frase no se entiende, redáctala de nuevo                  %
+% HECHO(Pablo): Esta frase no se entiende, redáctala de nuevo                  %
 %=============================================================================%
-Consiste en la extensión de nuevas operaciones y representación de los datos para su posterior combinación.
-
-El problema de las expresiones sido ampliamente estudiado dentro del contexto del diseño de los lenguajes de programación.
-%=============================================================================%
-% NOTA(Pablo): Esta frase no se entiende, redáctala de nuevo                  %
-%=============================================================================%
-donde se enfocaba en lograr la extensibilidad de los tipos de datos y las operaciones de una manera segura.
-
-\todo{Párrafo de enlace con la siguiente subsección}
+Consiste en que la aplicación que implemente el problema esté estructurada de tal modo que el modelo de los datos y el conjunto de operaciones pueda se extendidos sin las necesidad de modificar el código existente, sin que existan repeticiones de código y sin errores en tiempo de ejecución.
+%HECHO \todo{Párrafo de enlace con la siguiente subsección}
+En la siguiente sección se procederá a detallar de una manera más exhaustiva el problema aquí mencionado.
 
 \subsubsection{Descripción del problema de las expresiones}
 
@@ -111,10 +118,10 @@ Identificamos en este problema dos conjuntos diferenciados de características: (
 % NOTA(Pablo): En ningún momento se ha dicho que estos operadores sean        %
 %              variables, ¿verdad? Deberías comentarlo                        %                                           %              Quizás sea necesario también comentar algo de los feature      %
 %              models, pero eso de momento lo dejamos aparcado                % %=============================================================================%
-Por lo tanto, el objetivo es implementar una línea de productos software que nos permita crear las distintas configuraciones posibles para este problema.
-
+Por lo tanto, el objetivo es implementar una línea de productos software que permita combinar las distintas operaciones y operadores de tal modo que por cada elección de elementos a combinar tengamos una aplicación funcional sin necesidad de reescribir código, únicamente componiendo los elementos seleccionados.
 %=============================================================================%
-% NOTA(Pablo): Esta frase no se entiende, redáctala de nuevo                  %
+% HECHO
+%(Pablo): Esta frase no se entiende, redáctala de nuevo                  %
 %=============================================================================%
 De acuerdo con los objetivos generales de una Línea de Productos Software, usaremos dicho problema para dar respuesta a las siguientes preguntas:
 \begin{enumerate}
@@ -122,15 +129,16 @@ De acuerdo con los objetivos generales de una Línea de Productos Software, usare
 	\item ¿Cómo las podemos modularizar?
 	\item ¿Cómo podemos construir diferentes configuraciones?
 \end{enumerate}
-
+En la siguiente subsección se procederá a detallar como se ha resuelto el problema de las expresiones utilizando el lenguaje C\#.
 \subsubsection{Resolviendo el problema con C\#}
 
 %=============================================================================%
 % NOTA(Pablo): Lo del UML no queda claro, y la segunda figura sale con la     %
 %              marca de agua. No se entiende que intención hay tras este      %
-%              diseño                                                         %              %              Lo que habría que explicar es cual es la idea que 
-%              subyace tras ese diseño y decir que es la forma normal de 
-%              diseñar/implementar products lines usando OO
+%              diseño                                                         %                       
+%     Lo que habría que explicar es cual es la idea que                       %
+%              subyace tras ese diseño y decir que es la forma normal de      %
+%              diseñar/implementar products lines usando OO                   %
 %=============================================================================%
 La Figura~\ref{back:fig:expr} representa el diseño de clases UML que soporta las variabilidades identificadas anteriormente. Este diseño es replicado para cada tipo de operación (la figura~\ref{back:fig:printInfix} muestra el diagrama de clases para la operación de imprimir expresión en formato infijo).
 
@@ -148,28 +156,28 @@ La Figura~\ref{back:fig:expr} representa el diseño de clases UML que soporta las
 
 %=============================================================================%
 % NOTA(Pablo): En realidad los problemas emergen directamente del diseño,     %
-%              por lo cual el siguiente párrafo habría que modificarlo 
+%              por lo cual el siguiente párrafo habría que modificarlo
 %=============================================================================%
 Al intentar implementar esta idea en C\# usando los mecanismos típicos de la orientación a objetos florecen las carencias que posee los lenguajes de este estilo orientado a objetos cuando implementamos un problema propio de la programación orientada a características.
 
 %=============================================================================%
-% NOTA(Pablo): Nunca se habla en primera persona del singular. Las frases o 
+% NOTA(Pablo): Nunca se habla en primera persona del singular. Las frases o
 %              son impersonales o en plural mayestático
 %=============================================================================%
-% NOTA(Pablo): ¿Cual es el problema en que herede toda la funcionalidad de la 
+% NOTA(Pablo): ¿Cual es el problema en que herede toda la funcionalidad de la
 %              clase padre
 %=============================================================================%
 Por un lado,  el mecanismo de herencia para añadir funcionalidades a una clase existente, pero este mecanismo es jerárquico, lo que hace que la clase hija herede toda la funcionalidad de su clase padre.
 
 %=============================================================================%
-% NOTA(Pablo): Esta es una limitación específica de C#. Hay lenguajes con 
+% NOTA(Pablo): Esta es una limitación específica de C#. Hay lenguajes con
 %              herencia múltiple. Te escribo un párrafo más acorde debajo.
 %=============================================================================%
-% Por ejemplo, para crear una nueva configuración que contenga las operaciones 
-% evaluar e imprimir en formato infijo se necesitaría crear una nueva subclase 
-% que heredase de las clases que contienen las operaciones citadas 
-% anteriormente, pero esto no es posible, ya que C\#, como la mayoría de los 
-% lenguajes orientados a objetos, solo permiten hacer uso de la herencia 
+% Por ejemplo, para crear una nueva configuración que contenga las operaciones
+% evaluar e imprimir en formato infijo se necesitaría crear una nueva subclase
+% que heredase de las clases que contienen las operaciones citadas
+% anteriormente, pero esto no es posible, ya que C\#, como la mayoría de los
+% lenguajes orientados a objetos, solo permiten hacer uso de la herencia
 % múltiple entre interfaces.
 
 Por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{} o C\#~\cite{}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple es un mecanismo muy útil~\cite{}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
@@ -179,9 +187,9 @@ Por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareci
 %=============================================================================%
 No obstante, la solución para trabajar con herencia múltiple en lenguajes orientados a objetos con herencia simple, sería aplicar el \emph{patrón mixin}~\cite{}. De acuerdo con dicho patrón, que se ilustra en la Figura XX
 
-% Por lo tanto, por cada clase que se quiera heredar debemos crear una nueva 
-% interfaz que sea extendida por la clase a heredar y por la subclase que 
-% contendrá la nueva configuración, a través de esto y la creación de objetos de % las clases a heredar podremos acceder a los métodos definidos por las 
+% Por lo tanto, por cada clase que se quiera heredar debemos crear una nueva
+% interfaz que sea extendida por la clase a heredar y por la subclase que
+% contendrá la nueva configuración, a través de esto y la creación de objetos de % las clases a heredar podremos acceder a los métodos definidos por las
 % interfaces, con lo que se consigue simular la herencia múltiple.
 
 
@@ -195,15 +203,15 @@ Pero el uso de esta técnica hace que, un incremento de funcionalidad representad
 %=============================================================================%
 
 %=============================================================================%
-% NOTA(Pablo): El concepto de dependencia ha surgido de repente, habría que 
+% NOTA(Pablo): El concepto de dependencia ha surgido de repente, habría que
 %              introducirlo o explicarlo antes
-%              También hace falta un ejemplo concreto que ilustre el problema  
+%              También hace falta un ejemplo concreto que ilustre el problema
 %=============================================================================%
 Otro problema es el manejo de las dependencias, ya que la herencia tradicional obliga a que las clases y subclases tengan diferentes nombres. Por lo tanto, las referencias a las clases concretas deben ser actualizadas. A mayor número de características en una línea de productos, las relaciones entre clases concretas se complican potencialmente, lo que resulta una situación indeseable. Esto incrementa la complejidad en las relaciones y dependencias entre clases.
 
 \subsubsection{Conclusiones}
 
-Tras analizar el problema con un lenguaje orientado a objetos como es C\# se podría determinar que sería deseable encontrar un nuevo paradigma de  programación, orientado a características,  donde se pudiesen obtener fácilmente diferentes versiones de una misma aplicación mediante la simple composición de características. Obviamente no todas las combinaciones de características serían válidas, por ejemplo\todo{Poner un ejemplo}. Por tanto, un lenguaje orientado a características debería asegurarse de que el resultado de la composición de un conjunto de características da lugar a aplicaciones válidas y consistentes. 
+Tras analizar el problema con un lenguaje orientado a objetos como es C\# se podría determinar que sería deseable encontrar un nuevo paradigma de  programación, orientado a características,  donde se pudiesen obtener fácilmente diferentes versiones de una misma aplicación mediante la simple composición de características. Obviamente no todas las combinaciones de características serían válidas, por ejemplo\todo{Poner un ejemplo}. Por tanto, un lenguaje orientado a características debería asegurarse de que el resultado de la composición de un conjunto de características da lugar a aplicaciones válidas y consistentes.
 
 A tenor de lo expuesto anteriormente, identificamos una serie de elementos que sería deseable encontrar en un lenguaje orientado a características:
 
@@ -214,8 +222,8 @@ Como ya hemos comentado, una característica es normalmente considerada como un i
 Además la extensibilidad no siempre se realiza por adición, en ocasiones es necesario el uso de la sustitución. En los lenguajes orientados a objetos la sustitución se realiza mediante la  sobreescritura (\emph{overriding}, en inglés).
 
 %=============================================================================%
-% NOTA(Pablo): A partir de aquí intenta que el castellano suena mejor de lo 
-%              que suena, que de momento parece una traducción demasiado 
+% NOTA(Pablo): A partir de aquí intenta que el castellano suena mejor de lo
+%              que suena, que de momento parece una traducción demasiado
 %              literal del inglés
 %=============================================================================%
 
