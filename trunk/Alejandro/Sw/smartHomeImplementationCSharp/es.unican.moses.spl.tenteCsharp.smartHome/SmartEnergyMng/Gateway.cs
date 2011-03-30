@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml;
 
 namespace SmartHome
 {
@@ -13,10 +14,13 @@ namespace SmartHome
     {
         protected bool statusSmartEnergyMng = false;
         protected GatewayGUI gGUI;
+        //<Name-LastName, timeTable>
+        protected Dictionary<String, String> timeTables = new Dictionary<String, String>();
 
         public void initSmartEnergyMng(GatewayGUI gGUI)
         {
             this.gGUI = gGUI;
+            readTimeTables();
         }// initSmartEnergyMng
 
         public void switchOnSmartEnergyMng()
@@ -62,6 +66,36 @@ namespace SmartHome
             this.heaterMngHeaterAdjustTemperature(id, temperature);
         }//smartEnergyHeaterAdjustTemperature
 
-    } // Gateway
+        public void readTimeTables()
+        {
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load("..\\..\\xml\\timetables.xml"); //RUTA TEMPORAL
+            XmlNodeList users = xDoc.GetElementsByTagName("users");
+            XmlNodeList list = ((XmlElement)users[0]).GetElementsByTagName("user");
+
+            foreach (XmlElement node in list)
+            {
+
+                
+                int i = 0;
+
+                XmlNodeList nName =
+                node.GetElementsByTagName("name");
+
+                XmlNodeList nLastName =
+                node.GetElementsByTagName("lastname");
+
+                XmlNodeList nTimeTable =
+                node.GetElementsByTagName("timetable");
+                Console.WriteLine("Elemento nombre ... {0} {1} {2}",
+                             nName[i].InnerText,
+                             nLastName[i].InnerText,
+                             nTimeTable[i++].InnerText);
+               
+                timeTables.Add(nName[i].ToString()+nLastName[i].ToString(), nTimeTable[i++].ToString());
+            }// foreach
+        }// readTimeTable
+
+    }// Gateway
 
 } // namespace

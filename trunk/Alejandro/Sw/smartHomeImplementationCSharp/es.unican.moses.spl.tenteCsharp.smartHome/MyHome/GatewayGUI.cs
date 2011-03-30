@@ -9,8 +9,8 @@ namespace SmartHome
     {
         public virtual void refreshSimulator()
         {
-            //simulator.fillDataGridViewHeaters();
-            //simulator.fillDataGridViewWindows();
+            simulator.fillDataGridViewHeaters();
+            simulator.fillDataGridViewWindows();
         }//refreshSimulator
     }//GatewayGUI
 }
