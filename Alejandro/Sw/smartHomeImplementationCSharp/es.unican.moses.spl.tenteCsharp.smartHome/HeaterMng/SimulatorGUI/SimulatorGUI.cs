@@ -16,7 +16,7 @@ namespace SmartHome
                 {
                     int id_heater = int.Parse(dataGridViewHeaters.Rows[dataGridViewHeaters.SelectedRows[0].Index].Cells[0].Value.ToString());
                     double temp = Convert.ToDouble(textBoxTemperature.Text);
-                    gateway.adjustThermometer(id_heater, temp);
+                    gateway.heaterMng_adjustThermometer(id_heater, temp);
                     fillDataGridViewHeaters();
                     textBoxTemperature.Clear();
                 }// try

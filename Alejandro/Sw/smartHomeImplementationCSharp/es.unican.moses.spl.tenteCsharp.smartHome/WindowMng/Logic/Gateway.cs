@@ -19,47 +19,47 @@ namespace SmartHome
             this.windowsSensors = new List<WindowSensor>();
         }//initWindowMng
 
-        public List<WindowCtrl> getWindows(){
+        public List<WindowCtrl> windowMng_getWindows(){
             return windows;
-        }//getWindows
+        }//windowMng_getWindows
 
-        public List<WindowSensor> getWindowsSensors(){
+        public List<WindowSensor> windowMng_getWindowsSensors(){
             return windowsSensors;
-        }//getWindowsSensors
+        }//windowMng_getWindowsSensors
 
-        public void addWindowCtrl(WindowCtrl w)
+        public void windowMng_addWindowCtrl(WindowCtrl w)
         {
             this.actuators.Add(w);
             this.windows.Add(w);
-        } // addWindowCtrl
+        } // windowMng_addWindowCtrl
 
-        public void addWindowSensor(WindowSensor ws)
+        public void windowMng_addWindowSensor(WindowSensor ws)
         {
             this.sensors.Add(ws);
             this.windowsSensors.Add(ws);
-        }// addWindowSensor
+        }// windowMng_addWindowSensor
 
-        public void allAdjustWindows(int aperture)
+        public void windowMng_allAdjustWindows(int aperture)
         {
             for (int i = 0; i < windows.Count; i++)
             {
                 //Change the window actuator
                 windows[i].setValue(aperture);
                 //Change the window sensor
-                findWindowSensorByidWindow(windows[i].getId()).setValue(aperture);                
+                windowMng_findWindowSensorByidWindow(windows[i].getId()).setValue(aperture);                
             }//for
         }//adjustAllWindows
 
-        public WindowSensor findWindowSensorByidWindow(int id_window)
+        public WindowSensor windowMng_findWindowSensorByidWindow(int id_window)
         {
             for (int i = 0; i < windowsSensors.Count; i++)
             {
                 if (windowsSensors[i].getIdActuator() == id_window) return windowsSensors[i];
             }
             return null;
-        }//findWindowSensorByidWindow
+        }//windowMng_findWindowSensorByidWindow
 
-        public List<WindowCtrl> findWindowsCtrlByRoom(int id_room)
+        public List<WindowCtrl> windowMng_findWindowsCtrlByRoom(int id_room)
         {
             List<WindowCtrl> w=new List<WindowCtrl>();
             for (int i = 0; i < windows.Count; i++)
@@ -68,9 +68,9 @@ namespace SmartHome
                 
             }//for
             return w;
-        }//findWindowsCtrlByRoom
+        }//windowMng_findWindowsCtrlByRoom
 
-        public WindowCtrl findWindowCtrl(int id_window)
+        public WindowCtrl windowMng_findWindowCtrl(int id_window)
         {
             for (int i = 0; i < windows.Count; i++)
             {
@@ -79,14 +79,14 @@ namespace SmartHome
             }//for
             return null;
 
-        }//findWindowCtrl
+        }//windowMng_findWindowCtrl
 
-        public void adjustWindow(int id_window, int aperture)
+        public void windowMng_adjustWindow(int id_window, int aperture)
         {
             //Change the window actuator
-            findWindowCtrl(id_window).setValue(aperture);
+            windowMng_findWindowCtrl(id_window).setValue(aperture);
             //Change the window sensor
-            findWindowSensorByidWindow(id_window).setValue(aperture);
-        }//adjustWindow
+            windowMng_findWindowSensorByidWindow(id_window).setValue(aperture);
+        }//windowMng_adjustWindow
     }
 }
