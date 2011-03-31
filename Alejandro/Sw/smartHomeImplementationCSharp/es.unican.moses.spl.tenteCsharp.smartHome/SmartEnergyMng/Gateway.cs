@@ -20,10 +20,10 @@ namespace SmartHome
         public void initSmartEnergyMng(GatewayGUI gGUI)
         {
             this.gGUI = gGUI;
-            readTimeTables();
+            smartEnergy_readTimeTables();
         }// initSmartEnergyMng
 
-        public void switchOnSmartEnergyMng()
+        public void smartEnergy_switchOnSmartEnergyMng()
         {
             this.statusSmartEnergyMng = true;
             List<HeaterCtrl> h = heaterMng_getHeaters();
@@ -42,12 +42,12 @@ namespace SmartHome
                     }//for
                 }//if
             }//for            
-        }//switchOnSmartEnergyMng
+        }//smartEnergy_switchOnSmartEnergyMng
 
-        public void switchOffSmartEnergyMng()
+        public void smartEnergy_switchOffSmartEnergyMng()
         {
             this.statusSmartEnergyMng = false;
-        }//switchOffSmartEnergyMng
+        }//smartEnergy_switchOffSmartEnergyMng
 
         public void smartEnergy_HeaterAdjustTemperature(int id, double temperature)
         {
@@ -66,7 +66,7 @@ namespace SmartHome
             this.heaterMng_HeaterAdjustTemperature(id, temperature);
         }//smartEnergy_HeaterAdjustTemperature
 
-        public void readTimeTables()
+        public void smartEnergy_readTimeTables()
         {
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load("..\\..\\xml\\timetables.xml"); //RUTA TEMPORAL
@@ -94,7 +94,7 @@ namespace SmartHome
                
                 //timeTables.Add(nName[i].ToString()+nLastName[i].ToString(), nTimeTable[i++].ToString());
             }// foreach
-        }// readTimeTable
+        }// smartEnergy_readTimeTable
 
     }// Gateway
 
