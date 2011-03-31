@@ -16,7 +16,7 @@ namespace SmartHome
         {
             textTemp.Text = trackBar_main.Value.ToString() + ",0";
             allChangeTrackBar(trackBar_main.Value);
-            gateway.allHeaterAdjustTemperature(trackBar_main.Value);
+            gateway.heaterMng_allHeaterAdjustTemperature(trackBar_main.Value);
             //SimulatorGUI
             refreshSimulator();
             
@@ -30,7 +30,7 @@ namespace SmartHome
                 int defaultTemp = 20;
                 buttonSwitch.Text = "ON";
                 buttonSwitch.BackColor = System.Drawing.Color.Green;
-                gateway.allHeaterAdjustTemperature(defaultTemp);
+                gateway.heaterMng_allHeaterAdjustTemperature(defaultTemp);
                 allChangeTrackBar(defaultTemp);
                 allChangeTextTemp(defaultTemp.ToString() + ",0");
                 allChangeSwitch(true);
@@ -44,7 +44,7 @@ namespace SmartHome
             {
                 buttonSwitch.Text = "OFF";
                 buttonSwitch.BackColor = System.Drawing.Color.Red;
-                gateway.allSwitchOffHeaters();
+                gateway.heaterMng_allSwitchOffHeaters();
                 allChangeSwitch(false);
                 trackBar_main.Visible = false;
                 labTemp.Visible = false;
@@ -63,7 +63,7 @@ namespace SmartHome
                 try
                 {
                     double temp = Convert.ToDouble(textTemp.Text);
-                    gateway.allHeaterAdjustTemperature(temp);
+                    gateway.heaterMng_allHeaterAdjustTemperature(temp);
                     int roundTemp = Convert.ToInt32(temp);
                     trackBar_main.Value = roundTemp;
                     allChangeTrackBar(roundTemp);
@@ -95,7 +95,7 @@ namespace SmartHome
             else
             {
                 dictionaryButtonSwitchByRoom[id_heater].Text = "OFF";
-                gateway.findHeater(id_heater).switchOff();
+                gateway.heaterMng_findHeater(id_heater).switchOff();
                 dictionaryButtonSwitchByRoom[id_heater].BackColor = System.Drawing.Color.Red;
                 dictionaryTrackBarByRoom[id_heater].Visible = false;
                 dictionaryLabelByRoom[id_heater].Visible = false;

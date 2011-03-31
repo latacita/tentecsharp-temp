@@ -24,25 +24,25 @@ namespace SmartHome
         } // Gateway()
 
         
-        public void addHeaterCtrl(HeaterCtrl h)
+        public void heaterMng_addHeaterCtrl(HeaterCtrl h)
         {
            this.actuators.Add(h);
            this.heaters.Add(h);           
-        } // addHeaterCtrl
+        } // heaterMng_addHeaterCtrl
 
-        public void addThermometer(Thermometer t)
+        public void heaterMng_addThermometer(Thermometer t)
         {
             this.sensors.Add(t);
             this.thermometers.Add(t);            
-        }// addThermometer
+        }// heaterMng_addThermometer
 
 
-        public List<HeaterCtrl> getHeaters()
+        public List<HeaterCtrl> heaterMng_getHeaters()
         {
             return heaters;
-        }//getHeaters
+        }//heaterMng_getHeaters
         // Helper methods
-        public HeaterCtrl findHeater(int id)
+        public HeaterCtrl heaterMng_findHeater(int id)
         {            
             for (int i = 0; i < heaters.Count; i++)
             {
@@ -51,9 +51,9 @@ namespace SmartHome
                 }//if
             }//for
             return null;
-        } // findHeater
+        } // heaterMng_findHeater
 
-        public List<HeaterCtrl> findHeatersByRoom(int id_room)
+        public List<HeaterCtrl> heaterMng_findHeatersByRoom(int id_room)
         {
             List<HeaterCtrl> h = new List<HeaterCtrl>();
             for (int i = 0; i < heaters.Count; i++)
@@ -67,12 +67,12 @@ namespace SmartHome
         } // findHeaterByRoom
 
        
-        public virtual void heaterMngHeaterAdjustTemperature(int id, double temperature)
+        public virtual void heaterMng_HeaterAdjustTemperature(int id, double temperature)
         {
             //bool result = false;
 
-            HeaterCtrl heater = findHeater(id);
-            Thermometer t = findThermometerByHeater(id);
+            HeaterCtrl heater = heaterMng_findHeater(id);
+            Thermometer t = heaterMng_findThermometerByHeater(id);
             if (heater != null)
             {
                 heater.switchOn();
@@ -92,16 +92,16 @@ namespace SmartHome
             //return result;
         } // adjustTemparature
 
-        public virtual void allHeaterAdjustTemperature(double temperature)
+        public virtual void heaterMng_allHeaterAdjustTemperature(double temperature)
         {
             for (int i = 0; i < heaters.Count; i++)
             {
                 heaterAdjustTemperature(heaters[i].getId(), temperature);
             }//for
-            //allThermometerAdjustTemperature(temperature);
-        }//allHeaterAdjustTemperature
+            //heaterMng_allThermometerAdjustTemperature(temperature);
+        }//heaterMng_allHeaterAdjustTemperature
 
-        public virtual Thermometer findThermometerByHeater(int id_heater)
+        public virtual Thermometer heaterMng_findThermometerByHeater(int id_heater)
         {
             for (int i = 0; i < thermometers.Count; i++)
             {
@@ -113,33 +113,33 @@ namespace SmartHome
             return null;
         }//findThermometerByRoom
 
-        private void allThermometerAdjustTemperature(double temperature)
+        private void heaterMng_allThermometerAdjustTemperature(double temperature)
         {
             for (int i = 0; i < thermometers.Count; i++)
             {
                 thermometers[i].setValue(temperature);
             }//for
-        }//allThermometerAdjustTemperature
+        }//heaterMng_allThermometerAdjustTemperature
 
-        public void adjustThermometer(int id_heater, double temp)
+        public void heaterMng_adjustThermometer(int id_heater, double temp)
         {
-            Thermometer t = findThermometerByHeater(id_heater);
-            HeaterCtrl h = findHeater(id_heater);
+            Thermometer t = heaterMng_findThermometerByHeater(id_heater);
+            HeaterCtrl h = heaterMng_findHeater(id_heater);
             t.setValue(temp);
             if (h.getStatus() == true)
             {
                 if (h.getValue() == temp) h.setWork(false);
                 else h.setWork(true);
             }
-        }// adjustThermometer
-        public virtual void allSwitchOffHeaters()
+        }// heaterMng_adjustThermometer
+        public virtual void heaterMng_allSwitchOffHeaters()
         {
             for (int i = 0; i < heaters.Count; i++)
             {
                 heaters[i].switchOff();
                 heaters[i].setWork(false);
             }//for
-        }//allSwitchOffHeaters
+        }//heaterMng_allSwitchOffHeaters
     } // Gateway
 
 } // namespace

@@ -50,7 +50,7 @@ namespace SmartHome
                 List<Room> r = f[i].getRooms();
                 for (int j = 0; j < r.Count; j++)
                 {
-                    List<HeaterCtrl> h = gateway.findHeatersByRoom(r[j].getId());                    
+                    List<HeaterCtrl> h = gateway.heaterMng_findHeatersByRoom(r[j].getId());                    
                     for (int k = 0; k < h.Count; k++)
                     {
 
@@ -66,7 +66,7 @@ namespace SmartHome
                         }//else
                         if (h[k].getWork()) work = "ON";
                         else work = "OFF";
-                        Thermometer t = gateway.findThermometerByHeater(h[k].getId());
+                        Thermometer t = gateway.heaterMng_findThermometerByHeater(h[k].getId());
                         dataGridViewHeaters.Rows.Add(new string[] { h[k].getId().ToString(), 
                                                                     r[j].getName(),
                                                                     status,

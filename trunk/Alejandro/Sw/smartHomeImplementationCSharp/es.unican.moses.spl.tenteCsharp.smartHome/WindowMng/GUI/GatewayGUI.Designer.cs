@@ -28,7 +28,7 @@ namespace SmartHome
             tabPage_window.BorderStyle = BorderStyle.Fixed3D;
             tabControl_main.Controls.Add(tabPage_window);
             initWindowMng();
-            addWindowByRoom(gateway.getWindows());
+            addWindowByRoom(gateway.windowMng_getWindows());
         }//addWindowMng
 
         public void initWindowMng()
@@ -133,7 +133,7 @@ namespace SmartHome
 
         private void allChangeTextAperture(String aperture)
         {
-            List<WindowCtrl> w = gateway.getWindows();
+            List<WindowCtrl> w = gateway.windowMng_getWindows();
             for (int i = 0; i < w.Count; i++)
             {
                 dictionaryTextApertureByRoom[w[i].getId()].Text = aperture;
@@ -142,7 +142,7 @@ namespace SmartHome
 
         private void allChangeTrackBarAperture(int aperture)
         {
-            List<WindowCtrl> w = gateway.getWindows();
+            List<WindowCtrl> w = gateway.windowMng_getWindows();
             for (int i = 0; i < w.Count; i++)
             {
                 dictionaryTrackBarApertureByRoom[w[i].getId()].Value = aperture;
@@ -156,6 +156,6 @@ namespace SmartHome
 
             dictionaryTextApertureByRoom[id_window].Text = aperture.ToString();
             dictionaryTrackBarApertureByRoom[id_window].Value = aperture;
-        }
+        }//refreshWindow
     }
 }

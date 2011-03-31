@@ -15,7 +15,7 @@ namespace SmartHome
         private void trackbar_Scroll_aperture(object sender, EventArgs e)
         {
             text_aperture.Text = trackBar_aperture.Value.ToString();
-            gateway.allAdjustWindows(trackBar_aperture.Value);
+            gateway.windowMng_allAdjustWindows(trackBar_aperture.Value);
             allChangeTrackBarAperture(trackBar_aperture.Value);            
             //SimulatorGUI
             refreshSimulator(); 
@@ -29,7 +29,7 @@ namespace SmartHome
                 try
                 {
                     int aperture = Convert.ToInt32(text_aperture.Text);
-                    gateway.allAdjustWindows(aperture);
+                    gateway.windowMng_allAdjustWindows(aperture);
                     trackBar_aperture.Value = aperture;
                     allChangeTrackBarAperture(aperture);
                     allChangeTextAperture(aperture.ToString());
@@ -51,7 +51,7 @@ namespace SmartHome
                 try
                 {
                     int aperture = Convert.ToInt32(dictionaryTextApertureByRoom[id_window].Text);
-                    gateway.adjustWindow(id_window, aperture);
+                    gateway.windowMng_adjustWindow(id_window, aperture);
                     dictionaryTrackBarApertureByRoom[id_window].Value = aperture;
                     //SimulatorGUI
                     refreshSimulator();
@@ -66,7 +66,7 @@ namespace SmartHome
         private void trackbarApertureByRoom_Scroll(object sender, EventArgs e)
         {
             int id_window = inverseDictionaryTrackBarAperture[(TrackBar)sender];
-            gateway.adjustWindow(id_window, dictionaryTrackBarApertureByRoom[id_window].Value);
+            gateway.windowMng_adjustWindow(id_window, dictionaryTrackBarApertureByRoom[id_window].Value);
             dictionaryTextApertureByRoom[id_window].Text = dictionaryTrackBarApertureByRoom[id_window].Value.ToString();
             //SimulatorGUI
             refreshSimulator();

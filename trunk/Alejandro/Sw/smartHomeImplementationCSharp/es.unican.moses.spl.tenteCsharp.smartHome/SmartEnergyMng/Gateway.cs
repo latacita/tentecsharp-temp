@@ -26,17 +26,17 @@ namespace SmartHome
         public void switchOnSmartEnergyMng()
         {
             this.statusSmartEnergyMng = true;
-            List<HeaterCtrl> h = getHeaters();
+            List<HeaterCtrl> h = heaterMng_getHeaters();
             for (int i = 0; i < h.Count; i++)
             {
                 if (h[i].getStatus())
                 {
-                    List<WindowCtrl> w = findWindowsCtrlByRoom(h[i].getIdRoom());
+                    List<WindowCtrl> w = windowMng_findWindowsCtrlByRoom(h[i].getIdRoom());
                     for (int j = 0; j < w.Count; j++)
                     {
                         if (w[j].getValue() > 0)
                         {
-                            adjustWindow(w[j].getId(), 0);                     
+                            windowMng_adjustWindow(w[j].getId(), 0);                     
                         }//if
                        
                     }//for
@@ -49,22 +49,22 @@ namespace SmartHome
             this.statusSmartEnergyMng = false;
         }//switchOffSmartEnergyMng
 
-        public void smartEnergyHeaterAdjustTemperature(int id, double temperature)
+        public void smartEnergy_HeaterAdjustTemperature(int id, double temperature)
         {
 
             if (this.statusSmartEnergyMng)
             {
-                HeaterCtrl h = findHeater(id);
+                HeaterCtrl h = heaterMng_findHeater(id);
                 int id_room = h.getIdRoom();
-                List<WindowCtrl> w = findWindowsCtrlByRoom(id_room);
+                List<WindowCtrl> w = windowMng_findWindowsCtrlByRoom(id_room);
                 for (int i = 0; i < w.Count; i++)
                 {
-                    adjustWindow(w[i].getId(), 0);
+                    windowMng_adjustWindow(w[i].getId(), 0);
                     gGUI.refreshWindow(0, w[i].getId());
                 }//for
             }//if
-            this.heaterMngHeaterAdjustTemperature(id, temperature);
-        }//smartEnergyHeaterAdjustTemperature
+            this.heaterMng_HeaterAdjustTemperature(id, temperature);
+        }//smartEnergy_HeaterAdjustTemperature
 
         public void readTimeTables()
         {
@@ -92,7 +92,7 @@ namespace SmartHome
                              nLastName[i].InnerText,
                              nTimeTable[i++].InnerText);
                
-                timeTables.Add(nName[i].ToString()+nLastName[i].ToString(), nTimeTable[i++].ToString());
+                //timeTables.Add(nName[i].ToString()+nLastName[i].ToString(), nTimeTable[i++].ToString());
             }// foreach
         }// readTimeTable
 

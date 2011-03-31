@@ -24,7 +24,7 @@ namespace SmartHome
 
         public void addHeaterMng()
         {
-            List<HeaterCtrl> heaters = gateway.getHeaters();
+            List<HeaterCtrl> heaters = gateway.heaterMng_getHeaters();
             tabPage_heaters = new TabPage();
             tabPage_heaters.Text = "Heaters";
             tabPage_heaters.BorderStyle = BorderStyle.Fixed3D;
@@ -157,7 +157,7 @@ namespace SmartHome
 
        private void allChangeSwitch(bool status)
         {
-            List<HeaterCtrl> h = gateway.getHeaters();
+            List<HeaterCtrl> h = gateway.heaterMng_getHeaters();
             for (int i = 0; i < h.Count; i++)
             {
                 changeSwitch(h[i].getId(), status);
@@ -166,7 +166,7 @@ namespace SmartHome
         }//allChangeSwitch
         private void allChangeTextTemp(String temp)
         {
-            List<HeaterCtrl> h = gateway.getHeaters();
+            List<HeaterCtrl> h = gateway.heaterMng_getHeaters();
             for (int i = 0; i < h.Count; i++)
             {
                 dictionaryTextTempByRoom[h[i].getId()].Text = temp;
@@ -175,7 +175,7 @@ namespace SmartHome
 
         private void allChangeTrackBar(int temp)
         {
-            List<HeaterCtrl> h = gateway.getHeaters();
+            List<HeaterCtrl> h = gateway.heaterMng_getHeaters();
             for (int i = 0; i < h.Count; i++)
             {
                 dictionaryTrackBarByRoom[h[i].getId()].Value = temp;

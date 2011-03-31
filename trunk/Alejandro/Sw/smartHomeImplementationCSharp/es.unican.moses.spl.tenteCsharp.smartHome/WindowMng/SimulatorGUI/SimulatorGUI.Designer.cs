@@ -93,7 +93,7 @@ namespace SmartHome
                 List<Room> r = f[i].getRooms();
                 for (int j = 0; j < r.Count; j++)
                 {
-                    List<WindowCtrl> w = gateway.findWindowsCtrlByRoom(r[j].getId());
+                    List<WindowCtrl> w = gateway.windowMng_findWindowsCtrlByRoom(r[j].getId());
                     
                     for (int k = 0; k < w.Count; k++)
                     {
