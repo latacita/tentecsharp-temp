@@ -13,14 +13,14 @@ namespace SmartHome
             {
                 buttonSmartEnergy.Text = "ON";
                 buttonSmartEnergy.BackColor = System.Drawing.Color.Green;
-                gateway.switchOnSmartEnergyMng();
+                gateway.smartEnergy_switchOnSmartEnergyMng();
                 
             }// if
             else
             {
                 buttonSmartEnergy.Text = "OFF";
                 buttonSmartEnergy.BackColor = System.Drawing.Color.Red;
-                gateway.switchOffSmartEnergyMng();
+                gateway.smartEnergy_switchOffSmartEnergyMng();
 
             }// else
             //SimulatorGUI
