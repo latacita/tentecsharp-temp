@@ -5,7 +5,7 @@
         // Class methods
         public virtual void heaterAdjustTemperature(int id, double temperature)
         {
-            this.smartEnergyHeaterAdjustTemperature(id, temperature);
+            this.smartEnergy_HeaterAdjustTemperature(id, temperature);
         }
     }
 }
