@@ -8,10 +8,8 @@
 
 \label{chap:background}
 
-%=============================================================================%
-% HECHO(Pablo): Aquí habría que poner un pequeño párrafo introductorio         %
-%=============================================================================%
 En este capítulo se ofrece una visión general de que son las líneas de productos software, cuales son sus principales objetivos y se realiza un análisis sobre las técnicas actuales existentes que se podrían utilizar para trabajar con las líneas de productos software con la ayuda de un problema concreto.
+
 \chaptertoc
 
 \section{Líneas de Productos Software}
@@ -27,22 +25,24 @@ En este capítulo se ofrece una visión general de que son las líneas de productos
 %              me gusta más. La primera aparece mucho en los informes del     %
 %              AMPLE por motivos más bien políticos, porque técnicos          %
 %=============================================================================%
+
 El objetivo de una Línea de Productos Software~\cite{pohl:2005} es crear una infraestructura adecuada a partir de la cual se puedan derivar, tan automáticamente como sea posible, productos concretos pertenecientes a una familia de productos software. Una familia de productos software es un conjunto de aplicaciones software similares, que por tanto comparten una serie de características comunes, pero que también presentan variaciones entre ellos.
 
 Un ejemplo clásico de familia de productos software es el software que se encuentra instalado por defecto en un teléfono móvil. Dicho software contiene una serie de facilidades comunes, tales como agenda, recepción de llamadas, envío de mensajes de texto, etc. No obstante, dependiendo de las capacidades y la gama del producto, éste puede presentar diversas funcionalidades opcionales, tales como envío de correos electrónicos, posibilidad de conectarse a Internet mediante red inalámbrica, radio, etc.
 
-La idea de una Línea de Productos Software es proporcionar una forma automatizada y sistemática de construir un producto concreto dentro de una familia de productos software mediante la simple especificación de qué características deseamos incluir dentro de dicho producto. Esto representa una alternativa al enfoque tradicional de desarrollo software, el cual se basaba simplemente en seleccionar el producto más parecido dentro de la familia al que queremos construir y adaptarlo manualmente.
+La idea de una línea de productos software es proporcionar una forma automatizada y sistemática de construir un producto concreto dentro de una familia de productos software mediante la simple especificación de qué características deseamos incluir dentro de dicho producto. Esto representa una alternativa al enfoque tradicional de desarrollo software, el cual se basaba simplemente en seleccionar el producto más parecido dentro de la familia al que queremos construir y adaptarlo manualmente.
 
-El proceso de creación de líneas de producto Software conlleva dos fases: \emph{ingeniería de dominio} (en inglés,  \emph{Domain Engineering}) e \emph{ingeniería de aplicación} (en inglés, \emph{Application Engineering}) (la figura~\ref{back:fig:domainAplicEng} ilustra el proceso para ambas fases). La \emph{ingeniería de dominio} tiene como objetivo la creación de la infraestructura o arquitectura de la línea de productos, la cual permitirá la rápida, o incluso automática, construcción del sistema software específico dentro de la familia de productos. La ingeniería de aplicación utiliza la infraestructura creada anteriormente para crear aplicaciones específicas adaptadas a las necesidades de los usuarios.
-%\todo{Poner aquí una gráfica de un proceso de desarrollo software y habla de \emph{domain engineering} y %\emph{application engineering}. En los informes del AMPLE tienes varios ejemplos de ello, es sólo copiar y %traducir. Si te hace falta la fuente de alguna imagen, me lo comentas y te la busco}
+El proceso de creación de líneas de producto software conlleva dos fases: \emph{ingeniería de dominio} (en inglés,  \emph{Domain Engineering}) e \emph{ingeniería de aplicación} (en inglés, \emph{Application Engineering}) (la figura~\ref{back:fig:domainAplicEng} ilustra el proceso para ambas fases). La \emph{ingeniería de dominio} tiene como objetivo la creación de la infraestructura o arquitectura de la línea de productos, la cual permitirá la rápida, o incluso automática, construcción del sistema software específico dentro de la familia de productos. La ingeniería de aplicación utiliza la infraestructura creada anteriormente para crear aplicaciones específicas adaptadas a las necesidades de los usuarios.
+
 \begin{figure}[!tb]
-  \centering \includegraphics[width=.95\linewidth]{background/images/domainAplicationEngineering.eps} \\
+  \centering
+  %  \includegraphics[width=.95\linewidth]{background/images/domainAplicationEngineering.eps} \\
   \caption{Proceso de desarrollo de una línea de productos software}
   \label{back:fig:domainAplicEng}
 \end{figure}
 
 %HECHO \todo{Poner un párrafo de enlace con la sección siguiente}
-La siguiente sección describe los principales objetivos y características que presenta la programación orientada a características.
+Cuando se trabaja con líneas de productos software, los lenguajes de programación orientados a objetos resultan muchas veces insuficientes. Con objeto de paliar estas deficiencias, en los últimos años han ido surgiendo unos nuevos tipos de lenguajes denominados \emph{orientados a características}. La siguiente sección introduce los programación orientada a características para a continuación explicar sus ventajas con respecto a las técnicas tradicionales orientadas a objetos.
 
 \section{Programación Orientada a Características}
 
@@ -71,7 +71,7 @@ Para analizar las limitaciones que posee la programación orientada a objetos fre
 %=============================================================================%
 % HECHO(Pablo): Citation needed                                                %
 %=============================================================================%
-expresiones} ~\cite{wadler:1998}. Dicho problema es un problema clásico en el diseño software.
+expresiones}~\cite{togersen:2004}. Dicho problema es un problema clásico en el diseño software.
 %=============================================================================%
 % HECHO(Pablo): Esta frase no se entiende, redáctala de nuevo                  %
 %=============================================================================%
@@ -114,10 +114,7 @@ Para la gramática de la Figura~\ref{back:fig:gramExpr} se definen las siguientes
 
 
 Identificamos en este problema dos conjuntos diferenciados de características: (1) las operaciones \imp{\{Print, Eval, ShortEval\}} que se pueden realizar sobre la gramática; y (2) los diferentes operadores que ésta puede contener \imp{\{AddInfix, MultInfix, AddPostfix...\}}.
-%=============================================================================%
-% NOTA(Pablo): En ningún momento se ha dicho que estos operadores sean        %
-%              variables, ¿verdad? Deberías comentarlo                        %                                           %              Quizás sea necesario también comentar algo de los feature      %
-%              models, pero eso de momento lo dejamos aparcado                % %=============================================================================%
+
 Por lo tanto, el objetivo es implementar una línea de productos software que permita combinar las distintas operaciones y operadores de tal modo que por cada elección de elementos a combinar tengamos una aplicación funcional sin necesidad de reescribir código, únicamente componiendo los elementos seleccionados.
 %=============================================================================%
 % HECHO
@@ -135,7 +132,7 @@ En la siguiente subsección se procederá a detallar como se ha resuelto el proble
 %=============================================================================%
 % NOTA(Pablo): Lo del UML no queda claro, y la segunda figura sale con la     %
 %              marca de agua. No se entiende que intención hay tras este      %
-%              diseño                                                         %                       
+%              diseño                                                         %
 %     Lo que habría que explicar es cual es la idea que                       %
 %              subyace tras ese diseño y decir que es la forma normal de      %
 %              diseñar/implementar products lines usando OO                   %
@@ -271,7 +268,9 @@ Para realizar configuraciones, únicamente se tiene que crear una nueva clase que
 % Ejemplo en CeasrJ, resaltando ventajas
 
 \section{Clases Parciales C\#}
-Las clases parciales C\# \cite{albahari:2010} nos permiten dividir la implementación de una clase, estructura o interfaz en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan en tiempo de compilación para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. Por lo tanto,las clases parciales C\# pueden utilizarse como un mecanismo adecuado para implementar características, dado que cada incremento en funcionalidad para una clase se podría encapsular en una clase parcial separada.\\\\
+Las clases parciales C\# \cite{albahari:2010} nos permiten dividir la implementación de una clase, estructura o interfaz en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan en tiempo de compilación para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. Por lo tanto,las clases parciales C\# pueden utilizarse como un mecanismo adecuado para implementar características, dado que cada incremento en funcionalidad para una clase se podría encapsular en una clase parcial separada.
+
+
 Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con el indicador clave partial. En C\#, un espacio de nombre es simplemente empleado para agrupar clases relacionadas y evitar conflictos de nombres. Para especificar los archivos C\# que deben ser incluidos en una compilación, se emplea un documento XML que contiene información acerca del proyecto y que especifica que ficheros deben ser compilados para generar el proyecto. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML.\\\\
 Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo con clases parciales. La figura \ref{back:fig:partialClass} muestra como hemos excluido de la compilación la característica que representa la operación de imprimir una expresión en formato infijo.
 Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que no precisan estar relacionadas mediante ningún tipo de relación jerárquica, tal como ocurre con la herencia.\\
@@ -307,3 +306,5 @@ Por lo tanto, algunos autores (Laguna et al, 2007) sostienen que, las clases par
 
 % Explicar que son brevemente, y ejemplo usando las expresiones
 
+
+\section{Sumario}
