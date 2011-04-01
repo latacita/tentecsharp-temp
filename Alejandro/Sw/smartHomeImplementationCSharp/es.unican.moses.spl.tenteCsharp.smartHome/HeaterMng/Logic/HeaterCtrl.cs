@@ -36,12 +36,16 @@ namespace SmartHome
             {
                 base.setValue(value);
             } // if
+            // We notify the change to the observers
+            this.notifyChangeToObsevers();
         } // setValue
 
         public override void switchOff()
         {
             base.switchOff();
             setWork(false);
+            // We notify the change to the observers
+            this.notifyChangeToObsevers();
         }//switchOff
 
         // Class methods
@@ -58,6 +62,8 @@ namespace SmartHome
         public void setWork(bool work)
         {
             this.work = work;
+            // We notify the change to the observers
+            this.notifyChangeToObsevers();
         }// setWork
 
     } // LightCtrl
