@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseSystem\Logic\ISubject.cs" />
     <Compile Include="BaseSystem\Logic\Actuator.cs" />
     <Compile Include="BaseSystem\Logic\Device.cs" />
     <Compile Include="BaseSystem\Logic\Floor.cs" />
@@ -55,6 +56,7 @@
       <DependentUpon>GatewayGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="BaseSystem\Logic\Gateway.cs" />
+    <Compile Include="BaseSystem\Logic\IDeviceObserver.cs" />
     <Compile Include="BaseSystem\Logic\Room.cs" />
     <Compile Include="BaseSystem\Logic\Sensor.cs" />
     <Compile Include="HeaterMng\GUI\GatewayGUI.cs">

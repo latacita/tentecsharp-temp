@@ -12,12 +12,14 @@ namespace SmartHome
         protected Gateway gtw = null;
         // Actuator id
         protected int id_actuator;
-        
-        
 
-        // Class constructor with device identifier 
-        public Sensor(int id)
-            :base(id)
+        #region Constructors
+        /// <summary>
+        ///  Class  constructor accepting a device id as input parameter 
+        /// </summary>
+        /// <param name="id">Unique identifier for the sensor. All devices in the house
+        /// are uniquely identified by an id</param>
+        public Sensor(int id)  :base(id)
         {
             this.id = id;
         } // Sensor(int)
@@ -28,7 +30,16 @@ namespace SmartHome
             this.id = id;
             this.id_actuator = id_actuator;
         }
+        #endregion
 
+        #region Getters and Setters
+
+        /// <summary>
+        ///  Set method for the sensor. In a real setting, *sensors are never set values*,
+        ///  but this method has been included here for simulation purposes, as we need 
+        ///  to alter manually the values perceived by sensors to check how the house works
+        /// </summary>
+        /// <param name="value">The value to be set in this sensors</param>
         public virtual void setValue(double value)
         {
             this.deviceValue=value;
@@ -44,12 +55,6 @@ namespace SmartHome
             this.gtw = gtw;
         }//setGateway
 
-        // Class methods
-        public virtual void setUrgentSignal()
-        {
-            gtw.emergence(this, this.deviceValue);
-        }//setUrgentSignal
-
         public virtual void setIdActuator(int id_actuator)
         {
             this.id_actuator = id_actuator;
@@ -59,5 +64,24 @@ namespace SmartHome
         {
             return id_actuator;
         }//roomId
-    }
+
+        #endregion
+
+
+        /// <summary>
+        ///   NOTA(Pablo): ¿Estos métodos los estamos usando para algo, o son arrastrados de 
+        ///   la versión de la casa para el artículo del FOSD 2010?
+        /// </summary>
+        public virtual void sentUrgentSignal()
+        {
+            gtw.emergence(this, this.deviceValue);
+        }//setUrgentSignal
+
+
+        #region ISubject<ISensorObserver> Members
+
+   
+
+        #endregion
+    } // Sensor
 } // namespace SmartHome

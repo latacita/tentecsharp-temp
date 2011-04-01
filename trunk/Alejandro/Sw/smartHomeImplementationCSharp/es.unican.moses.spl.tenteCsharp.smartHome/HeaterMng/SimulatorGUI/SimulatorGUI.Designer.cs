@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
-    partial class SimulatorGUI
+    partial class SimulatorGUI : IDeviceObserver
     {
         private TabPage tabPageHeaters = new TabPage();
         private DataGridView dataGridViewHeaters= new DataGridView();
@@ -201,8 +201,17 @@ namespace SmartHome
             this.tabPageHeaters.Controls.Add(labelSimulated);
         }
 
-       
-             
-        
+
+
+
+
+        #region IDeviceObserver Members
+
+        void IDeviceObserver.deviceValueChanged(Device dev)
+        {
+            fillDataGridViewHeaters();
+        }
+
+        #endregion
     }//SimulatorGUI
 }//SmartHome

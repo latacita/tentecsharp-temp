@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace SmartHome
 {
+    /// <summary>
+    ///     Class representing a heater device. Heaters are temperature controlling actuators,
+    ///     which are able to heat and cool rooms. 
+    /// </summary>
     public partial class HeaterCtrl : Actuator
     {
         // Maximum allowed temparature
@@ -55,8 +59,8 @@ namespace SmartHome
         {
             this.work = work;
         }// setWork
-    } // LightCtrl
 
+    } // LightCtrl
 
 }
 
