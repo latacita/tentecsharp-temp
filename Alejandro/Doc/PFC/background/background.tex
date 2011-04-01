@@ -15,16 +15,6 @@ En este capítulo se ofrece una visión general de que son las líneas de productos
 \section{Líneas de Productos Software}
 
 % Explica que es una línea de productos software, objetivos y terminología
-%=============================================================================%
-% NOTA(Pablo): Cuando traduzcas del inglés, procura hacerlo menos literal     %
-%=============================================================================%
-%Una línea de productos software (SPL) es un conjunto de sistemas de software que comparten un conjunto común y %controlado de características que satisfacen las necesidades específicas de un segmento de mercado específico y
-%cuyos productos son desarrollados a partir de un conjunto común de artefactos software siguiendo unas reglas %específicas~\cite{clements:2002}.
-%=============================================================================%
-% HECHO(Pablo): Las dos definiciones serían redundantes, deja la segunda que   %
-%              me gusta más. La primera aparece mucho en los informes del     %
-%              AMPLE por motivos más bien políticos, porque técnicos          %
-%=============================================================================%
 
 El objetivo de una Línea de Productos Software~\cite{pohl:2005} es crear una infraestructura adecuada a partir de la cual se puedan derivar, tan automáticamente como sea posible, productos concretos pertenecientes a una familia de productos software. Una familia de productos software es un conjunto de aplicaciones software similares, que por tanto comparten una serie de características comunes, pero que también presentan variaciones entre ellos.
 
@@ -36,7 +26,7 @@ El proceso de creación de líneas de producto software conlleva dos fases: \emph{
 
 \begin{figure}[!tb]
   \centering
-  %  \includegraphics[width=.95\linewidth]{background/images/domainAplicationEngineering.eps} \\
+    \includegraphics[width=.95\linewidth]{background/images/domainAplicationEngineering.eps} \\
   \caption{Proceso de desarrollo de una línea de productos software}
   \label{back:fig:domainAplicEng}
 \end{figure}
@@ -58,26 +48,22 @@ Consideremos el siguiente ejemplo de modelado de una pila con las siguientes car
 \item \emph{Contador}: añade un contador local(usado para conocer el tamaño de la pila).
 \item \emph{Bloqueo}: permite añadir un interruptor que permita o no las modificaciones de un objeto de la pila.
 \item \emph{Deshacer}: agrega la funcionalidad de restaurar el estado de la pila antes del último acceso a la misma.
-\item
 \end{enumerate}
-Por un lado al abstraer un programa en términos de características facilita su entendimiento, como por ejemplo en el caso del programa que implementa una pila.Pero más importante, es conseguir construir diferentes programas que ofrezcan diferentes combinaciones de características. Para el caso del modelado de la pila a un usuario en concreto, le puede interesar combinar la característica común denominada \emph{pila} y \emph{contador} y descartar todas las demás. Por lo tanto, un lenguaje orientado a características nos debe permiter descomponer fácilmente de un modo encapsulado un programa en características, para su posterior composición y creación en diferentes combinaciones que se adapten a las necesidades de los usuarios.
+Por un lado al abstraer un programa en términos de características facilita su entendimiento, como por ejemplo en el caso del programa que implementa una pila.Pero más importante, es conseguir construir diferentes programas que ofrezcan diferentes combinaciones de características. Para el caso del modelado de la pila a un usuario en concreto, le puede interesar combinar la característica común denominada \emph{pila} y \emph{contador} y descartar todas las demás. Por lo tanto, un lenguaje orientado a características nos debe permitir descomponer fácilmente de un modo encapsulado un programa en características, para su posterior composición y creación en diferentes combinaciones que se adapten a las necesidades de los usuarios.
 
-La siguiente sección abordará las limitaciones que poseen los lenguajes orientados a objetos para tratar problemas típicos de líneas de producción software frente a los lenguajes orientados a características.
+Para probar que la programación orientada a características posee ventajas sustanciales frente a la programación orientada a objetos para tratar con las líneas de productos software,la siguiente sección abordará las limitaciones que poseen los lenguajes orientados a objetos en este ámbito.
 
 \subsection{Limitaciones de la Orientación a Objetos frente a la Programación Orientada a Características}
 
 % Limitaciones de los lenguajes OO para FOP
 Para analizar las limitaciones que posee la programación orientada a objetos frente a la programación orientada a características nos basaremos en un problema típico de las líneas de productos, que es el \emph{problema de las
-%=============================================================================%
-% HECHO(Pablo): Citation needed                                                %
-%=============================================================================%
 expresiones}~\cite{togersen:2004}. Dicho problema es un problema clásico en el diseño software.
 %=============================================================================%
 % HECHO(Pablo): Esta frase no se entiende, redáctala de nuevo                  %
 %=============================================================================%
 Consiste en que la aplicación que implemente el problema esté estructurada de tal modo que el modelo de los datos y el conjunto de operaciones pueda se extendidos sin las necesidad de modificar el código existente, sin que existan repeticiones de código y sin errores en tiempo de ejecución.
 %HECHO \todo{Párrafo de enlace con la siguiente subsección}
-En la siguiente sección se procederá a detallar de una manera más exhaustiva el problema aquí mencionado.
+En la siguiente subsección se procederá a detallar de una manera más exhaustiva el problema aquí mencionado.
 
 \subsubsection{Descripción del problema de las expresiones}
 
@@ -109,7 +95,7 @@ Para la gramática de la Figura~\ref{back:fig:gramExpr} se definen las siguientes
 \begin{enumerate}
 	\item \imp{Print}: debe mostrar por consola la expresión en el formato correspondiente (infijo, prefijo o posfijo).
 	\item \imp{Eval}: debe evaluar la expresión y retornar el correspondiente resultado.
-	\item \imp{ShortEval}: debe evaluar la expresión realizando las operaciones \emph{cortocircuitadas}. Es decir, tan pronto como el valor de un operando determine el resultado de la expresión, se deberá dejar de evaluar el resto de los operandos. Por ejemplo, en el caso de la multiplicación, si el primer operando es 0, se retornará el valor 0 directamente, sin llegar a evaluar el segundo operando.
+	\item \imp{ShortEval}: debe evaluar la expresión realizando las operaciones \emph{cortocircuitadas}. Es decir, tan pronto como el valor de un operando determine el resultado de la expresión, se deberá dejar de evaluar el resto de los operandos. Es decir cuando se presenta una multiplicación si el primer operando es 0, se retornará el valor 0 directamente, sin llegar a evaluar el segundo operando.
 \end{enumerate}
 
 
@@ -120,13 +106,14 @@ Por lo tanto, el objetivo es implementar una línea de productos software que per
 % HECHO
 %(Pablo): Esta frase no se entiende, redáctala de nuevo                  %
 %=============================================================================%
-De acuerdo con los objetivos generales de una Línea de Productos Software, usaremos dicho problema para dar respuesta a las siguientes preguntas:
+De acuerdo con los objetivos generales de una línea de productos software, usaremos dicho problema para dar respuesta a las siguientes preguntas:
 \begin{enumerate}
 	\item ¿Qué características están presentes en el problema?
 	\item ¿Cómo las podemos modularizar?
 	\item ¿Cómo podemos construir diferentes configuraciones?
 \end{enumerate}
-En la siguiente subsección se procederá a detallar como se ha resuelto el problema de las expresiones utilizando el lenguaje C\#.
+
+En la siguiente subsección se procederá a detallar como se ha resuelto el problema de las expresiones utilizando el lenguaje orientado a objetos C\#.
 \subsubsection{Resolviendo el problema con C\#}
 
 %=============================================================================%
@@ -137,7 +124,7 @@ En la siguiente subsección se procederá a detallar como se ha resuelto el proble
 %              subyace tras ese diseño y decir que es la forma normal de      %
 %              diseñar/implementar products lines usando OO                   %
 %=============================================================================%
-La Figura~\ref{back:fig:expr} representa el diseño de clases UML que soporta las variabilidades identificadas anteriormente. Este diseño es replicado para cada tipo de operación (la figura~\ref{back:fig:printInfix} muestra el diagrama de clases para la operación de imprimir expresión en formato infijo).
+Para resolver el problema que se presenta, se ha seguido la forma natural de diseñar e implementar las líneas de productos software mediante un lenguaje orientado a objetos. Por un lado se diseña un diagrama UML que soporte los operandos básicos(\emph{Integer, Add y Mult}), tal y como se muestra en la figura ~\ref{back:fig:expr}. A partir de éste, por cada operación: \emph{printInfix}(\emph{print} en formato infijo),\emph{printPostfix} ( \emph{print} en formato posfijo), \emph{printPrefix} (\emph{print} en formato prefijo),\emph{eval}, y \emph{shortEval}(que será una especialización de la propia operación \emph{eval}), se debe realizar un diseño que herede de las clases e interfaces de las que se componía la figura ~\ref{back:fig:expr}. A modo de ejemplo se incluye la figura ~\ref{back:fig:printInfix} que muestra el diseño para la operación \emph{printInfix}.
 
 \begin{figure}[!tb]
   \centering \includegraphics[width=.60\linewidth]{background/images/Expressions.eps} \\
@@ -151,44 +138,11 @@ La Figura~\ref{back:fig:expr} representa el diseño de clases UML que soporta las
   \label{back:fig:printInfix}
 \end{figure}
 
-%=============================================================================%
-% NOTA(Pablo): En realidad los problemas emergen directamente del diseño,     %
-%              por lo cual el siguiente párrafo habría que modificarlo
-%=============================================================================%
-Al intentar implementar esta idea en C\# usando los mecanismos típicos de la orientación a objetos florecen las carencias que posee los lenguajes de este estilo orientado a objetos cuando implementamos un problema propio de la programación orientada a características.
+Con el diseño anteriormente mencionado y el objetivo de poder crear diferentes productos a través de la composición de diferentes características, por ejemplo combinar \emph{printInfix} con \emph{eval} para obtener una nueva aplicación que pueda utilizar ambas características, necesitamos hacer uso de la herencia múltiple.
 
-%=============================================================================%
-% NOTA(Pablo): Nunca se habla en primera persona del singular. Las frases o
-%              son impersonales o en plural mayestático
-%=============================================================================%
-% NOTA(Pablo): ¿Cual es el problema en que herede toda la funcionalidad de la
-%              clase padre
-%=============================================================================%
-Por un lado,  el mecanismo de herencia para añadir funcionalidades a una clase existente, pero este mecanismo es jerárquico, lo que hace que la clase hija herede toda la funcionalidad de su clase padre.
+Pero por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{arnold:2005} o C\#~\cite{albahari:2010}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple es un mecanismo muy útil~\cite{}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
 
-%=============================================================================%
-% NOTA(Pablo): Esta es una limitación específica de C#. Hay lenguajes con
-%              herencia múltiple. Te escribo un párrafo más acorde debajo.
-%=============================================================================%
-% Por ejemplo, para crear una nueva configuración que contenga las operaciones
-% evaluar e imprimir en formato infijo se necesitaría crear una nueva subclase
-% que heredase de las clases que contienen las operaciones citadas
-% anteriormente, pero esto no es posible, ya que C\#, como la mayoría de los
-% lenguajes orientados a objetos, solo permiten hacer uso de la herencia
-% múltiple entre interfaces.
-
-Por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{} o C\#~\cite{}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple es un mecanismo muy útil~\cite{}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
-
-%=============================================================================%
-% NOTA(Pablo): Este párrafo hay que mejorarlo. Te dejo la entradilla
-%=============================================================================%
-No obstante, la solución para trabajar con herencia múltiple en lenguajes orientados a objetos con herencia simple, sería aplicar el \emph{patrón mixin}~\cite{}. De acuerdo con dicho patrón, que se ilustra en la Figura XX
-
-% Por lo tanto, por cada clase que se quiera heredar debemos crear una nueva
-% interfaz que sea extendida por la clase a heredar y por la subclase que
-% contendrá la nueva configuración, a través de esto y la creación de objetos de % las clases a heredar podremos acceder a los métodos definidos por las
-% interfaces, con lo que se consigue simular la herencia múltiple.
-
+No obstante, la solución para trabajar con herencia múltiple en lenguajes orientados a objetos con herencia simple, sería aplicar el \emph{patrón mixin}~\cite{david:1986}. De acuerdo con dicho patrón, que se ilustra en la Figura XX, se utilizan las interfaces para simular la herencia múltiple. Por lo tanto, cada clase a heredar implementará una nueva interfaz que defina los métodos de esta clase, a su vez la nueva clase que se quiere crear para que herede la funcionalidad de sendas clases implementará las dos nuevas interfaces creadas anteriormente, y tendrá una relación de agregación con las clases a heredar.
 
 %=============================================================================%
 % NOTA(Pablo): Qué técnica, los mixins o la herencia
@@ -212,7 +166,7 @@ Tras analizar el problema con un lenguaje orientado a objetos como es C\# se pod
 
 A tenor de lo expuesto anteriormente, identificamos una serie de elementos que sería deseable encontrar en un lenguaje orientado a características:
 
-\paragraph{Extensibilidad a través de la adición y la sustitución} \ \\
+\paragraph{Extensibilidad a través de la adición y la sustitución}
 
 Como ya hemos comentado, una característica es normalmente considerada como un incremento en la funcionalidad de un sistema software~\cite{batory:2004}. Por lo tanto, los lenguajes orientados a características deberían  proporcionar mecanismos para añadir nuevas funcionalidades a las ya existentes dentro de un sistema. En los lenguajes orientados a objetos, la extensión se realiza a través de la herencia, pero como ya hemos expuesto, ésta sólo resulta adecuada cuando queremos extender la funcionalidad de una sola clase. No obstante, la implementación de una característica necesita extender varias clases al mismo tiempo.
 
@@ -225,20 +179,29 @@ Además la extensibilidad no siempre se realiza por adición, en ocasiones es nece
 %=============================================================================%
 
 
-\emph{Encapsulación de características} \ \\
+\emph{Encapsulación de características}
 
-Todas las extensiones pertenecientes a una característica concreta deben ser añadidas de una forma atómica. Por lo tanto, los lenguajes orientados a características deberían proveer de mecanismo para agrupar y encapsular los módulos pertenecientes a una misma característica. Por otra parte, estos módulos deberían poderse compilar independientemente.\\\\
-\emph{Composición a nivel de característica}\\
-Productos específicos, o configuraciones de una descomposición orientada a características, son obtenidos por la selección y composición de unas características específicas. Por lo tanto, sería deseable que un lenguaje orientado a características tuviese construcciones del lenguaje para producir un producto en particular. Esto debería ser realizado a nivel de característica, especificando que características deberían ser incluidas, en lugar de tener que especificar los elementos individuales de cada característica.\\\\\\
-\emph{Composición de características comprobando la coherencia}\\
+Todas las extensiones pertenecientes a una característica concreta deben ser añadidas de una forma atómica. Por lo tanto, los lenguajes orientados a características deberían proveer de mecanismo para agrupar y encapsular los módulos pertenecientes a una misma característica. Por otra parte, estos módulos deberían poderse compilar independientemente.
+
+\emph{Composición a nivel de característica}
+
+Productos específicos, o configuraciones de una descomposición orientada a características, son obtenidos por la selección y composición de unas características específicas. Por lo tanto, sería deseable que un lenguaje orientado a características tuviese construcciones del lenguaje para producir un producto en particular. Esto debería ser realizado a nivel de característica, especificando que características deberían ser incluidas, en lugar de tener que especificar los elementos individuales de cada característica.
+
+\emph{Composición de características comprobando la coherencia}
+
 No todas las combinaciones de características son válidas. Por lo tanto, un lenguaje orientado a características debería detectar las restricciones, evitando así la implementación de configuraciones no válidas y manejar automáticamente las dependencias en la medida de lo posible.
 
 \subsection{Ventajas de los lenguajes orientados a características}
-Los lenguajes orientados a características nos otorgan una mayor flexibilidad, ya que nos permiten que clases individuales puedan ser compuestas por un conjunto de características, por tanto son especialmente recomendados para utilizarlos con las líneas de producción software.\\
-Para estudiar las ventajas de los lenguajes orientados a características se trabajará con CaesarJ que es un lenguaje de programación basado en Java, que nos proporciona una mayor modularidad y el desarrollo a través de componentes reusables.Para ello trabaja con conceptos como clases y paquetes en una única entidad, llamada familia de clases, que constituye unidades de encapsulamiento adicional para agrupar clases relacionadas. Una familia de clases también es, en sí misma una clase. Así mismo, se introduce el concepto de clases virtuales, que son clases internas (de familias de clases) propensas a ser refinadas a nivel de subclases. En el refinamiento de una clase virtual, implícitamente se hereda de la clase que refina, por lo que también esto es visto como una relación adjunta. También, en un refinamiento pueden ser añadidos nuevos métodos, campos, relaciones de herencia y sobreescritura de métodos. Puesto que en cada familia de clases, las referencias a las clases virtuales siempre apuntarán al refinamiento más específico. Esto significa que, por medio de las clases virtuales se aplica sobre escritura de métodos, permitiendo redefinir el comportamiento de cualquier subclase de una familia de clases.\\
-En términos de programación orientada a características, cada funcionalidad es modelada como una familia de clases. Mientras que los componentes y objetos del dominio específico, son correspondidos por sus clases virtuales. Así mismo, las clases virtuales pueden ser declaradas como clases abstractas, lo que habilita la definición de interfaces en la implementación modular de características.\\\\
-Para hacer uso de lo citado anteriormente y ver su beneficio con las líneas de producción software se ha vuelto a utilizar el ya comentado problema de las expresiones de la subsección anterior. Pero en este caso, el diseño cambia significativamente debido a la características expuestas de CaesarJ.\\
-Por un lado en la figura \ref{back:fig:caesarJExpressions} se muestra que por cada operación, tenemos una familia de clases, siendo la familia de clases que encapsula a todas las demás, la denominada \imp{Expressions}. Ésta tiene la estructura de clases representado en la figura \ref{back:fig:expr}, y cada familia de clases lo que hace es redefinir las clases virtuales de \imp{Expressions} con las operaciones necesarias en cada caso.\\
+Los lenguajes orientados a características nos otorgan una mayor flexibilidad, ya que nos permiten que clases individuales puedan ser compuestas por un conjunto de características, por tanto son especialmente recomendados para utilizarlos con las líneas de producción software.
+
+Para estudiar las ventajas de los lenguajes orientados a características se trabajará con CaesarJ que es un lenguaje de programación basado en Java, que nos proporciona una mayor modularidad y el desarrollo a través de componentes reusables.Para ello trabaja con conceptos como clases y paquetes en una única entidad, llamada familia de clases, que constituye unidades de encapsulamiento adicional para agrupar clases relacionadas. Una familia de clases también es, en sí misma una clase. Así mismo, se introduce el concepto de clases virtuales, que son clases internas (de familias de clases) propensas a ser refinadas a nivel de subclases. En el refinamiento de una clase virtual, implícitamente se hereda de la clase que refina, por lo que también esto es visto como una relación adjunta. También, en un refinamiento pueden ser añadidos nuevos métodos, campos, relaciones de herencia y sobreescritura de métodos. Puesto que en cada familia de clases, las referencias a las clases virtuales siempre apuntarán al refinamiento más específico. Esto significa que, por medio de las clases virtuales se aplica sobre escritura de métodos, permitiendo redefinir el comportamiento de cualquier subclase de una familia de clases.
+
+En términos de programación orientada a características, cada funcionalidad es modelada como una familia de clases. Mientras que los componentes y objetos del dominio específico, son correspondidos por sus clases virtuales. Así mismo, las clases virtuales pueden ser declaradas como clases abstractas, lo que habilita la definición de interfaces en la implementación modular de características.
+
+Para hacer uso de lo citado anteriormente y ver su beneficio con las líneas de producción software se ha vuelto a utilizar el ya comentado problema de las expresiones de la subsección anterior. Pero en este caso, el diseño cambia significativamente debido a la características expuestas de CaesarJ.
+
+Por un lado en la figura \ref{back:fig:caesarJExpressions} se muestra que por cada operación, tenemos una familia de clases, siendo la familia de clases que encapsula a todas las demás, la denominada \imp{Expressions}. Ésta tiene la estructura de clases representado en la figura \ref{back:fig:expr}, y cada familia de clases lo que hace es redefinir las clases virtuales de \imp{Expressions} con las operaciones necesarias en cada caso.
+
 \begin{figure}[ht!]
   % Requires \usepackage{graphicx}
   \centering \includegraphics[width=.60\linewidth]{background/images/CaesarJExpressions.eps} \\
@@ -271,10 +234,12 @@ Para realizar configuraciones, únicamente se tiene que crear una nueva clase que
 Las clases parciales C\# \cite{albahari:2010} nos permiten dividir la implementación de una clase, estructura o interfaz en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan en tiempo de compilación para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. Por lo tanto,las clases parciales C\# pueden utilizarse como un mecanismo adecuado para implementar características, dado que cada incremento en funcionalidad para una clase se podría encapsular en una clase parcial separada.
 
 
-Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con el indicador clave partial. En C\#, un espacio de nombre es simplemente empleado para agrupar clases relacionadas y evitar conflictos de nombres. Para especificar los archivos C\# que deben ser incluidos en una compilación, se emplea un documento XML que contiene información acerca del proyecto y que especifica que ficheros deben ser compilados para generar el proyecto. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML.\\\\
+Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con el indicador clave partial. En C\#, un espacio de nombre es simplemente empleado para agrupar clases relacionadas y evitar conflictos de nombres. Para especificar los archivos C\# que deben ser incluidos en una compilación, se emplea un documento XML que contiene información acerca del proyecto y que especifica que ficheros deben ser compilados para generar el proyecto. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML.
+
 Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo con clases parciales. La figura \ref{back:fig:partialClass} muestra como hemos excluido de la compilación la característica que representa la operación de imprimir una expresión en formato infijo.
-Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que no precisan estar relacionadas mediante ningún tipo de relación jerárquica, tal como ocurre con la herencia.\\
-Por lo tanto, algunos autores (Laguna et al, 2007) sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada programación orientada a características.
+Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que no precisan estar relacionadas mediante ningún tipo de relación jerárquica, tal como ocurre con la herencia.
+
+Por lo tanto, algunos autores \cite{laguna:2007} sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada programación orientada a características.
 \begin{figure}[!t]
 \begin{center}
 \begin{footnotesize}
