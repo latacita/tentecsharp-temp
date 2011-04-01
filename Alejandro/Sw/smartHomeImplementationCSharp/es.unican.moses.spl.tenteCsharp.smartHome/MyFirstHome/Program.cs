@@ -55,9 +55,15 @@ namespace MyFirstHome
             sim.addHeaterMng();
             sim.addWindowMng();
             sim.Show();
+            
             gatewayGUI.Show();
             Application.Run(gatewayGUI);
             Application.Run(sim);
+
+            // Observers are registered properly
+            h1.registerObserver(sim);
+            h2.registerObserver(sim);
+
         }
     }
 }

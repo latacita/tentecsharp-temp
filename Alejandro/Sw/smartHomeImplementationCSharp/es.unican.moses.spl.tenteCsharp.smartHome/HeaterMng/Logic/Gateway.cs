@@ -132,6 +132,7 @@ namespace SmartHome
                 else h.setWork(true);
             }
         }// heaterMng_adjustThermometer
+
         public virtual void heaterMng_allSwitchOffHeaters()
         {
             for (int i = 0; i < heaters.Count; i++)

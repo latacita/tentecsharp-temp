@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace SmartHome
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class WindowSensor: Sensor
     {
         public WindowSensor(int id)
@@ -19,5 +21,9 @@ namespace SmartHome
             this.id = id;
             this.id_actuator = id_windowCtrl;
         }// WindowSensor(id,id_windowCtrl)
+
+
+
+
     }// WindowSensor
 }// SmartHome
