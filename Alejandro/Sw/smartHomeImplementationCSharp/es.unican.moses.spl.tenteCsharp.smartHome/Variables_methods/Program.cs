@@ -55,9 +55,10 @@ namespace Program
             gatewayGUI.addHeaterMng();
             gatewayGUI.addWindowMng();
             gatewayGUI.addSmartEnergy();
+           // sim.initSimulatorGUI();
             sim.addHeaterMng();
             sim.addWindowMng();
-            sim.addSmartEnergyMng();
+            sim.addSmartEnergyMng(time);
             sim.Show();
             gatewayGUI.Show();            
             Application.Run(gatewayGUI);

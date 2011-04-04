@@ -5,7 +5,7 @@ using System.Text;
 namespace SmartHome
 {
     /// <summary>
-    ///     Interface which must be implemented by time observers according to the 
+    ///     Interface which must be implemented by timer observers according to the 
     ///     Subject-Obsever pattern. 
     ///     For further information on this design pattern, refer to 
     ///     Erich Gamma, Richard Helm, Ralph Johnson and John M. Vlissides. 
@@ -15,10 +15,10 @@ namespace SmartHome
     public interface ITimeObserver
     {
         /// <summary>
-        ///     This method is onvoked when the time changes to notify
-        ///     time obsevers the times goes ...
+        ///     This method is onvoked when the timer changes to notify
+        ///     timer obsevers the times goes ...
         /// </summary>
-        /// <param name="time">The new timestamp</param>
+        /// <param name="timer">The new timestamp</param>
         void timeChanged(double time); 
     
     } // ITimeObserver

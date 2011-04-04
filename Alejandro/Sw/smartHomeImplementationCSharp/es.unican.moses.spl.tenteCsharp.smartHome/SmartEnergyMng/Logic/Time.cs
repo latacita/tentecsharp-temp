@@ -43,7 +43,7 @@ namespace SmartHome
         } // registerObserver
 
         /// <summary>
-        ///     Notify to all registered observers that the time has changed
+        ///     Notify to all registered observers that the timer has changed
         /// </summary>
         protected void notifyObservers() {
             foreach (ITimeObserver obs in observers) { 

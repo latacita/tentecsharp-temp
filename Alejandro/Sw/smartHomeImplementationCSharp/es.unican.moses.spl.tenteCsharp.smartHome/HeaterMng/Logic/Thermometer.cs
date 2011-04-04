@@ -18,7 +18,7 @@ namespace SmartHome
             
         }// HeaterCtrl(int, int)
                 
-        //This method is called each time the temperature changes
+        //This method is called each timer the temperature changes
         public void setOutsideTemp(double outsideTemp)
         {
             this.outsideTemp = outsideTemp;
