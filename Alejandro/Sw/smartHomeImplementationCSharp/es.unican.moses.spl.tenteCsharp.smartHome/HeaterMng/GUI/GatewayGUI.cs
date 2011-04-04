@@ -14,8 +14,6 @@ namespace SmartHome
         //Method to control scroll trackbar event
         private void trackbar_Scroll(object sender, EventArgs e)
         {
-            textTemp.Text = trackBar_main.Value.ToString() + ",0";
-            allChangeTrackBar(trackBar_main.Value);
             gateway.heaterMng_allHeaterAdjustTemperature(trackBar_main.Value);           
         }// trackbar_Scroll
 
@@ -24,29 +22,11 @@ namespace SmartHome
         {
             if (buttonSwitch.Text.Equals("OFF"))
             {
-                int defaultTemp = 20;
-                buttonSwitch.Text = "ON";
-                buttonSwitch.BackColor = System.Drawing.Color.Green;
-                gateway.heaterMng_allHeaterAdjustTemperature(defaultTemp);
-                allChangeTrackBar(defaultTemp);
-                allChangeTextTemp(defaultTemp.ToString() + ",0");
-                allChangeSwitch(true);
-                trackBar_main.Visible = true;
-                labTemp.Visible = true;
-                textTemp.Visible = true;
-                textTemp.Text = defaultTemp.ToString()+",0";               
-                trackBar_main.Value = defaultTemp;
+                gateway.heaterMng_allSwitchOnHeaters();               
             }// if
             else
             {
-                buttonSwitch.Text = "OFF";
-                buttonSwitch.BackColor = System.Drawing.Color.Red;
-                gateway.heaterMng_allSwitchOffHeaters();
-                allChangeSwitch(false);
-                trackBar_main.Visible = false;
-                labTemp.Visible = false;
-                textTemp.Visible = false;
-                
+                gateway.heaterMng_allSwitchOffHeaters();               
             }// else          
         }// buttonSwitch_Click
 
@@ -57,11 +37,7 @@ namespace SmartHome
                 try
                 {
                     double temp = Convert.ToDouble(textTemp.Text);
-                    gateway.heaterMng_allHeaterAdjustTemperature(temp);
-                    int roundTemp = Convert.ToInt32(temp);
-                    trackBar_main.Value = roundTemp;
-                    allChangeTrackBar(roundTemp);
-                    allChangeTextTemp(textTemp.Text);                   
+                    gateway.heaterMng_allHeaterAdjustTemperature(temp);                                   
                 }
                 catch (Exception exception)
                 {
@@ -70,38 +46,28 @@ namespace SmartHome
             }//if            
         }//textTemp_KeyDown
 
+       
+
         private void buttonSwitchByRoom_Click(object sender, EventArgs e)
         {
             int id_heater = inverseDictionaryButton[(Button)sender];
             if (dictionaryButtonSwitchByRoom[id_heater].Text.Equals("OFF"))
             {
-                dictionaryButtonSwitchByRoom[id_heater].Text = "ON";
-                dictionaryButtonSwitchByRoom[id_heater].BackColor = System.Drawing.Color.Green;
-                gateway.heaterAdjustTemperature(id_heater, 20.0); //Default temperature=20.0
-                dictionaryTrackBarByRoom[id_heater].Value = 20;
-                dictionaryTextTempByRoom[id_heater].Text = "20,0";
-                dictionaryTrackBarByRoom[id_heater].Visible = true;
-                dictionaryLabelByRoom[id_heater].Visible = true;
-                dictionaryTextTempByRoom[id_heater].Visible = true;                
+                gateway.heaterMng_switchOnHeater(id_heater);                              
             }//if
             else
-            {
-                dictionaryButtonSwitchByRoom[id_heater].Text = "OFF";
-                gateway.heaterMng_findHeater(id_heater).switchOff();
-                dictionaryButtonSwitchByRoom[id_heater].BackColor = System.Drawing.Color.Red;
-                dictionaryTrackBarByRoom[id_heater].Visible = false;
-                dictionaryLabelByRoom[id_heater].Visible = false;
-                dictionaryTextTempByRoom[id_heater].Visible = false;               
+            {                
+                gateway.heaterMng_switchOffHeater(id_heater);
+                           
             }//else
         }//buttonSwitchByRoom_Click
+
+    
 
         private void trackbarByRoom_Scroll(object sender, EventArgs e)
         {
             int id_heater = inverseDictionaryTrackBar[(TrackBar)sender];
-            gateway.heaterAdjustTemperature(id_heater, dictionaryTrackBarByRoom[id_heater].Value);
-            dictionaryTextTempByRoom[id_heater].Text = dictionaryTrackBarByRoom[id_heater].Value.ToString() + ",0";
-            //SimulatorGUI
-            refreshSimulator();
+            gateway.heaterAdjustTemperature(id_heater, dictionaryTrackBarByRoom[id_heater].Value);            
         }// trackbarByRoom_Scroll
 
         private void textTempByRoom_KeyDown(Object sender, KeyEventArgs e)
@@ -112,9 +78,7 @@ namespace SmartHome
                 try
                 {
                     double temp = Convert.ToDouble(dictionaryTextTempByRoom[id_heater].Text);
-                    gateway.heaterAdjustTemperature(id_heater,temp);
-                    int roundTemp = Convert.ToInt32(temp);
-                    dictionaryTrackBarByRoom[id_heater].Value = roundTemp;                   
+                    gateway.heaterAdjustTemperature(id_heater,temp);                                     
                 }// try
                 catch (Exception exception)
                 {

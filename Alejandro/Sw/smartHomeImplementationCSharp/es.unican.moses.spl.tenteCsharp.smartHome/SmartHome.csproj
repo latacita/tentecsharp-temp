@@ -62,6 +62,8 @@
     <Compile Include="HeaterMng\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HeaterMng\Logic\ISubjectGatewayHeater.cs" />
+    <Compile Include="HeaterMng\Logic\IGatewayGUIHeaterObserver.cs" />
     <Compile Include="HeaterMng\Logic\Thermometer.cs" />
     <Compile Include="HeaterMng\GUI\GatewayGUI.Designer.cs" />
     <Compile Include="HeaterMng\Logic\HeaterCtrl.cs" />
