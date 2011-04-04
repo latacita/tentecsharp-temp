@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
-    partial class GatewayGUI:IGatewayGUIObserver
+    partial class GatewayGUI
     {
         private TabPage tabPage_smartEnergy;
         private Button buttonSmartEnergy;
@@ -18,8 +18,7 @@ namespace SmartHome
             tabPage_smartEnergy.Text = "Smart energy";
             tabPage_smartEnergy.BorderStyle = BorderStyle.Fixed3D;
             tabControl_main.Controls.Add(tabPage_smartEnergy);
-            initSmartEnergy();
-            smartEnergy_registerObserver();
+            initSmartEnergy();            
         }//addSmartEnergy
 
         private void initSmartEnergy()
@@ -42,14 +41,6 @@ namespace SmartHome
             pictSmartEnergy.Size = new System.Drawing.Size(100, 94);
             tabPage_smartEnergy.Controls.Add(pictSmartEnergy);
 
-        }//initSmartEnergy
-
-        #region IDeviceObserver Members
-
-        void smartEnergy_registerObserver()
-        {
-            gateway.registerObserver(this);   
-        }//smartEnergy_registerObserver
-        #endregion
+        }//initSmartEnergy     
     }
 }

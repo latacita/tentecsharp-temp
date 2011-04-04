@@ -5,12 +5,14 @@ using System.Text;
 
 namespace SmartHome
 {
-    public partial class Gateway
+    public partial class Gateway: ISubjectGatewayWindow
     {
         // WindowCtrl collection
         protected List<WindowCtrl> windows = null;
         // WindowSensor collection
         protected List<WindowSensor> windowsSensors = null;
+        //List of observers
+        ICollection<IGatewayGUIWindowObserver> observersGatewayWindow = new LinkedList<IGatewayGUIWindowObserver>();
 
         //Constructor
         public void initWindowMng()
@@ -44,10 +46,11 @@ namespace SmartHome
             for (int i = 0; i < windows.Count; i++)
             {
                 //Change the window actuator
-                windows[i].setValue(aperture);
+                windowMng_adjustWindow(windows[i].getId(), aperture);
                 //Change the window sensor
                 windowMng_findWindowSensorByidWindow(windows[i].getId()).setValue(aperture);                
             }//for
+            notifyAdjustAllWindowToObsevers(aperture);
         }//adjustAllWindows
 
         public WindowSensor windowMng_findWindowSensorByidWindow(int id_window)
@@ -87,6 +90,39 @@ namespace SmartHome
             windowMng_findWindowCtrl(id_window).setValue(aperture);
             //Change the window sensor
             windowMng_findWindowSensorByidWindow(id_window).setValue(aperture);
+            notifyAdjustWindowByRoomToObsevers(id_window,aperture);
         }//windowMng_adjustWindow
+
+        #region Subject-Observer Pattern
+        /// <summary>
+        ///     Register a new observer in the observer list
+        /// </summary>
+        /// <param name="obs">The observer to be registered</param>
+        public void registerObserverWindow(IGatewayGUIWindowObserver observer)
+        {
+            this.observersGatewayWindow.Add(observer);
+        }// registerObserverWindow
+
+        /// <summary>
+        ///     Notify that the value of the sensor has changed to all the observers registered
+        ///     in the observer list
+        /// </summary>
+        protected void notifyAdjustWindowByRoomToObsevers(int id_window, int aperture)
+         {
+             foreach (IGatewayGUIWindowObserver observer in observersGatewayHeater)
+             {
+                 observer.adjustWindowByRoom(id_window,aperture);
+             } // foreach
+         } // notifyAdjustWindowByRoomToObsevers
+
+        protected void notifyAdjustAllWindowToObsevers(int aperture)
+        {
+            foreach (IGatewayGUIWindowObserver observer in observersGatewayHeater)
+            {
+                observer.adjustAllWindow(aperture);
+            } // foreach
+        } // notifySwitchOnByRoomToObsevers
+
+        #endregion
     }
 }

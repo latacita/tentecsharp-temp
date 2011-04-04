@@ -10,15 +10,13 @@ namespace SmartHome
     // This file only contains the functionality related to the SmartEnergyMng feature                 //
     //=================================================================================================//
 
-    public partial class Gateway : ISubject<IGatewayGUIObserver>, ITimeObserver
+    public partial class Gateway : ITimeObserver
     {
         protected bool statusSmartEnergyMng = false;
         protected GatewayGUI gGUI;
         protected List<String> timeTables = new List<String>();
         protected Dictionary<int, List<double>> dictTimesTables = new Dictionary<int, List<double>>();
         protected List<Double> emptyTime = new List<double>();
-        // Observers list
-        ICollection<IGatewayGUIObserver> observers = new LinkedList<IGatewayGUIObserver>();
         protected int id_window;
        
         #region Constructor
@@ -40,16 +38,14 @@ namespace SmartHome
         /// </summary>
         public void smartEnergy_checkTime(double time)
         {
-            Console.WriteLine("Prueba");
-            Console.WriteLine(time);
             if (statusSmartEnergyMng == true)
             {
                 for (int i = 0; i < emptyTime.Count; i = i + 2)
                 {
                     if (emptyTime[i] <= time && time<= emptyTime[i + 1])
                     {
-                        if ((emptyTime[i + 1] - time) <= 0.60) //20 minutes before             
-                            heaterMng_allHeaterAdjustTemperature(20);                        
+                        if ((emptyTime[i + 1] - time) <= 0.60) //20 minutes before    
+                            heaterMng_allSwitchOnHeaters();                                                  
                         else
                             heaterMng_allSwitchOffHeaters();
                     }//if                
@@ -78,8 +74,7 @@ namespace SmartHome
                         if (w[j].getValue() > 0)
                         {
                             this.id_window = w[j].getId();
-                            windowMng_adjustWindow(id_window, 0);
-                            notifyChangeToObservers();
+                            windowMng_adjustWindow(id_window, 0);                           
                         }//if
                        
                     }//for
@@ -105,8 +100,7 @@ namespace SmartHome
                 for (int i = 0; i < w.Count; i++)
                 {
                     this.id_window = w[i].getId();
-                    windowMng_adjustWindow(id_window, 0);
-                    notifyChangeToObservers();
+                    windowMng_adjustWindow(id_window, 0);                   
                 }//for
             }//if
             this.heaterMng_HeaterAdjustTemperature(id, temperature);
@@ -207,32 +201,6 @@ namespace SmartHome
         }//prueba
 
         #endregion
-
-
-        #region Subject-Observer Pattern for Windows
-
-        /// <summary>
-        ///     Register a new observer in the observer list
-        /// </summary>
-        /// <param name="obs">The observer to be registered</param>
-        public void registerObserver(IGatewayGUIObserver observer)
-        {
-            this.observers.Add(observer);
-        }
-
-        /// <summary>
-        ///     Notify that the value of the sensor has changed to all the observers registered
-        ///     in the observer list
-        /// </summary>
-        protected void notifyChangeToObservers()
-        {
-            foreach (IGatewayGUIObserver observer in observers)
-            {
-                observer.refreshWindow(0, id_window);
-            } // foreach
-        } // notifyChangeToObsevers
-
-        #endregion for 
 
 
         #region Subject-Obsever Pattern for Time

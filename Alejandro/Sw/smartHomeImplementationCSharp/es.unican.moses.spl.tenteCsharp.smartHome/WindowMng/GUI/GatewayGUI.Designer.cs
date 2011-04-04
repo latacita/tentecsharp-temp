@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
-    public partial class GatewayGUI
+    public partial class GatewayGUI : IGatewayGUIWindowObserver
     {
         //Atributes
         private TabPage tabPage_window;
@@ -23,16 +23,21 @@ namespace SmartHome
 
         public void addWindowMng()
         {
-            tabPage_window = new TabPage();
-            tabPage_window.Text = "Windows";
-            tabPage_window.BorderStyle = BorderStyle.Fixed3D;
-            tabControl_main.Controls.Add(tabPage_window);
+            
             initWindowMng();
             addWindowByRoom(gateway.windowMng_getWindows());
+            gateway.registerObserverWindow(this);
         }//addWindowMng
 
         public void initWindowMng()
         {
+            //
+            //TabPage
+            //
+            tabPage_window = new TabPage();
+            tabPage_window.Text = "Windows";
+            tabPage_window.BorderStyle = BorderStyle.Fixed3D;
+            tabControl_main.Controls.Add(tabPage_window);
             //
             //TrackBar
             //
@@ -131,31 +136,17 @@ namespace SmartHome
             DictionaryTabPageDevice[id_window].Controls.Add(pict_window);
         }
 
-        private void allChangeTextAperture(String aperture)
+        public void adjustWindowByRoom(int id_window, int aperture)
         {
-            List<WindowCtrl> w = gateway.windowMng_getWindows();
-            for (int i = 0; i < w.Count; i++)
-            {
-                dictionaryTextApertureByRoom[w[i].getId()].Text = aperture;
-            }//for            
-        }// allChangeTextTemp
-
-        private void allChangeTrackBarAperture(int aperture)
-        {
-            List<WindowCtrl> w = gateway.windowMng_getWindows();
-            for (int i = 0; i < w.Count; i++)
-            {
-                dictionaryTrackBarApertureByRoom[w[i].getId()].Value = aperture;
-                dictionaryTextApertureByRoom[w[i].getId()].Text = aperture.ToString();
-            }// for          
-
-        }// allChangeTrackBar
-
-        public void refreshWindow(int aperture, int id_window)
-        {
-
-            dictionaryTextApertureByRoom[id_window].Text = aperture.ToString();
             dictionaryTrackBarApertureByRoom[id_window].Value = aperture;
-        }//refreshWindow
+            dictionaryTextApertureByRoom[id_window].Text = aperture.ToString();
+
+        }//adjustWindow
+
+        public void adjustAllWindow(int aperture)
+        {
+            text_aperture.Text = aperture.ToString();
+            trackBar_aperture.Value = aperture;
+        }//adjustAllWindow  
     }
 }
