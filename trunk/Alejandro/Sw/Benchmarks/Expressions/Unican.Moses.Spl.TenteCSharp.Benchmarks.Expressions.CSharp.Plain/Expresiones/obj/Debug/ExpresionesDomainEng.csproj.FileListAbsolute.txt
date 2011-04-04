@@ -8,3 +8,5 @@ C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\Ex
 C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\Expresiones\obj\Debug\Expresiones.pdb
 C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\Expresiones\bin\Debug\Expresiones.exe
 C:\Users\Iskander\Desktop\Universidad\PFC\Source\doc\Examples_SPL\Expresiones\Expresiones\obj\Debug\Expresiones.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\Benchmarks\Expressions\Unican.Moses.Spl.TenteCSharp.Benchmarks.Expressions.CSharp.Plain\Expresiones\obj\Debug\Expresiones.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\Benchmarks\Expressions\Unican.Moses.Spl.TenteCSharp.Benchmarks.Expressions.CSharp.Plain\Expresiones\obj\Debug\Expresiones.pdb
