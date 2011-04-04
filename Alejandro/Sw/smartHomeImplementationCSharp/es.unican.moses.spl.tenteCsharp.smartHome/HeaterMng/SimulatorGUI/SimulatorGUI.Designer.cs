@@ -8,6 +8,7 @@ namespace SmartHome
 {
     partial class SimulatorGUI : IDeviceObserver
     {
+        #region atrtibutes
         private TabPage tabPageHeaters = new TabPage();
         private DataGridView dataGridViewHeaters= new DataGridView();
         private DataGridViewTextBoxColumn column_heater = new DataGridViewTextBoxColumn();
@@ -20,7 +21,8 @@ namespace SmartHome
         private System.Windows.Forms.Label labelTemperature = new System.Windows.Forms.Label();
         private System.Windows.Forms.RichTextBox richTextBoxSimulated = new RichTextBox();
         private System.Windows.Forms.Label labelSimulated = new Label();
-        
+        #endregion attributes
+
         public void addHeaterMng()
         {
             initTabPageHeaters();
@@ -30,6 +32,7 @@ namespace SmartHome
                 this.labelTemperature.Visible = true;
                 this.textBoxTemperature.Visible = true;
             }//if
+            heaterMng_registerObserver();
             
         }//addHeaterMng
 
@@ -201,17 +204,23 @@ namespace SmartHome
             this.tabPageHeaters.Controls.Add(labelSimulated);
         }
 
-
-
-
-
+        
         #region IDeviceObserver Members
 
-        void IDeviceObserver.deviceValueChanged(Device dev)
+        void heaterMng_registerObserver()
         {
-            fillDataGridViewHeaters();
-        }
-
+            List<HeaterCtrl> h = gateway.heaterMng_getHeaters();
+            List<Thermometer> t = gateway.heaterMng_getThermometers();
+            for (int i = 0; i < h.Count; i++)
+            {
+                h[i].registerObserver(this);
+            }//for
+            for (int j = 0; j < t.Count; j++)
+            {
+                t[j].registerObserver(this);
+            }//for
+        }//heaterMng_registerObserver
+       
         #endregion
     }//SimulatorGUI
 }//SmartHome

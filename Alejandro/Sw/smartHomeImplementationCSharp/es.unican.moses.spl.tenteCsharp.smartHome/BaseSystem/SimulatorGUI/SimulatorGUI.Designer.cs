@@ -4,7 +4,7 @@ using System;
 
 namespace SmartHome
 {
-    partial class SimulatorGUI
+    partial class SimulatorGUI:IDeviceObserver
     {
         /// <summary>
         /// Required designer variable.
@@ -154,7 +154,16 @@ namespace SmartHome
                    dictionaryRooms.Add(dataGridViewRooms.Rows.Count-1, r[j].getId());
                 }//for
             }//for
-        }//addRooms        
+        }//addRooms 
+
+        #region Observer-pattern
+        void IDeviceObserver.deviceValueChanged(Device dev)
+        {
+            //Variable Method
+            observerRefreshDataGrid(); 
+        }
+        #endregion
+       
     }
 
 

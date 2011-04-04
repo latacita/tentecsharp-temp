@@ -16,10 +16,7 @@ namespace SmartHome
         {
             textTemp.Text = trackBar_main.Value.ToString() + ",0";
             allChangeTrackBar(trackBar_main.Value);
-            gateway.heaterMng_allHeaterAdjustTemperature(trackBar_main.Value);
-            //SimulatorGUI
-            refreshSimulator();
-            
+            gateway.heaterMng_allHeaterAdjustTemperature(trackBar_main.Value);           
         }// trackbar_Scroll
 
         //Method to control click button event
@@ -50,10 +47,7 @@ namespace SmartHome
                 labTemp.Visible = false;
                 textTemp.Visible = false;
                 
-            }// else
-            //SimulatorGUI
-            refreshSimulator();
-            
+            }// else          
         }// buttonSwitch_Click
 
         private void textTemp_KeyDown(Object sender, KeyEventArgs e)
@@ -67,9 +61,7 @@ namespace SmartHome
                     int roundTemp = Convert.ToInt32(temp);
                     trackBar_main.Value = roundTemp;
                     allChangeTrackBar(roundTemp);
-                    allChangeTextTemp(textTemp.Text);
-                    //SimulatorGUI
-                    refreshSimulator();
+                    allChangeTextTemp(textTemp.Text);                   
                 }
                 catch (Exception exception)
                 {
@@ -101,9 +93,6 @@ namespace SmartHome
                 dictionaryLabelByRoom[id_heater].Visible = false;
                 dictionaryTextTempByRoom[id_heater].Visible = false;               
             }//else
-            //SimulatorGUI
-            refreshSimulator();
-
         }//buttonSwitchByRoom_Click
 
         private void trackbarByRoom_Scroll(object sender, EventArgs e)
@@ -125,9 +114,7 @@ namespace SmartHome
                     double temp = Convert.ToDouble(dictionaryTextTempByRoom[id_heater].Text);
                     gateway.heaterAdjustTemperature(id_heater,temp);
                     int roundTemp = Convert.ToInt32(temp);
-                    dictionaryTrackBarByRoom[id_heater].Value = roundTemp;
-                    //SimulatorGUI
-                    refreshSimulator();
+                    dictionaryTrackBarByRoom[id_heater].Value = roundTemp;                   
                 }// try
                 catch (Exception exception)
                 {

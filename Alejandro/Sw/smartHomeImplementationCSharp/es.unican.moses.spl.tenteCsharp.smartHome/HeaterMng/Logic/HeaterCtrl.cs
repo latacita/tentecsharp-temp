@@ -66,6 +66,7 @@ namespace SmartHome
             this.notifyChangeToObsevers();
         }// setWork
 
+
     } // LightCtrl
 
 }

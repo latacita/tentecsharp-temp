@@ -41,6 +41,12 @@ namespace SmartHome
         {
             return heaters;
         }//heaterMng_getHeaters
+
+        public List<Thermometer> heaterMng_getThermometers()
+        {
+            return thermometers;
+        }//heaterMng_getThermometers
+
         // Helper methods
         public HeaterCtrl heaterMng_findHeater(int id)
         {            

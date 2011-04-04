@@ -16,9 +16,7 @@ namespace SmartHome
         {
             text_aperture.Text = trackBar_aperture.Value.ToString();
             gateway.windowMng_allAdjustWindows(trackBar_aperture.Value);
-            allChangeTrackBarAperture(trackBar_aperture.Value);            
-            //SimulatorGUI
-            refreshSimulator(); 
+            allChangeTrackBarAperture(trackBar_aperture.Value);                        
 
         }// trackbar_Scroll_aperture
 
@@ -32,9 +30,7 @@ namespace SmartHome
                     gateway.windowMng_allAdjustWindows(aperture);
                     trackBar_aperture.Value = aperture;
                     allChangeTrackBarAperture(aperture);
-                    allChangeTextAperture(aperture.ToString());
-                    //SimulatorGUI
-                    refreshSimulator();
+                    allChangeTextAperture(aperture.ToString());                   
                 }
                 catch (Exception exception)
                 {
@@ -52,9 +48,7 @@ namespace SmartHome
                 {
                     int aperture = Convert.ToInt32(dictionaryTextApertureByRoom[id_window].Text);
                     gateway.windowMng_adjustWindow(id_window, aperture);
-                    dictionaryTrackBarApertureByRoom[id_window].Value = aperture;
-                    //SimulatorGUI
-                    refreshSimulator();
+                    dictionaryTrackBarApertureByRoom[id_window].Value = aperture;                   
                 }// try
                 catch (Exception exception)
                 {
@@ -67,9 +61,7 @@ namespace SmartHome
         {
             int id_window = inverseDictionaryTrackBarAperture[(TrackBar)sender];
             gateway.windowMng_adjustWindow(id_window, dictionaryTrackBarApertureByRoom[id_window].Value);
-            dictionaryTextApertureByRoom[id_window].Text = dictionaryTrackBarApertureByRoom[id_window].Value.ToString();
-            //SimulatorGUI
-            refreshSimulator();
+            dictionaryTextApertureByRoom[id_window].Text = dictionaryTrackBarApertureByRoom[id_window].Value.ToString();           
         }// trackbarApertureByRoom_Scroll
 
     }

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
-    public partial class SimulatorGUI
+    public partial class SimulatorGUI: IDeviceObserver
     {
         private TabPage tabPageWindows = new TabPage();
         private DataGridView dataGridViewWindows = new DataGridView();
@@ -17,7 +17,8 @@ namespace SmartHome
         public void addWindowMng()
         {
             initTabPageWindowMng();
-            fillDataGridViewWindows();           
+            fillDataGridViewWindows();
+            windowMng_registerObserver();
 
         }//addWindowMng
 
@@ -106,5 +107,25 @@ namespace SmartHome
             if (dataGridViewWindows.RowCount > 0)
                 dataGridViewWindows.Rows[numRowSelected].Selected = true;
         }//fillDataGridViewWindows
+
+
+
+        #region IDeviceObserver Members
+
+        void windowMng_registerObserver()
+        {
+            List<WindowCtrl> w = gateway.windowMng_getWindows();
+            List<WindowSensor> ws = gateway.windowMng_getWindowsSensors();
+            for (int i = 0; i < w.Count; i++)
+            {
+                w[i].registerObserver(this);
+            }//for
+            for (int j = 0; j < ws.Count; j++)
+            {
+                ws[j].registerObserver(this);
+            }//for
+        }//windowMng_registerObserver
+
+        #endregion
     }//SimulatorGUI
 }//SmartHome
