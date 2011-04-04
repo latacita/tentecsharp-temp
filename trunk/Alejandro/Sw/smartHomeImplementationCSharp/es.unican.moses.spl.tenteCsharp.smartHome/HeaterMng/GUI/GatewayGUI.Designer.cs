@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
-    partial class GatewayGUI
+    partial class GatewayGUI:IGatewayGUIHeaterObserver
     {
         //Atributes
         private TabPage tabPage_heaters;
@@ -31,6 +31,7 @@ namespace SmartHome
             tabControl_main.Controls.Add(tabPage_heaters);
             initHeaterMng();
             addHeaterByRoom(heaters);
+            gateway.registerObserverHeater(this);
 
         }// addHeaterMng
 
@@ -204,6 +205,59 @@ namespace SmartHome
             }// else
 
         }// changeSwitch
+
+        public void adjustHeaterByRoom(int id_heater, double temp)
+        {
+            dictionaryTextTempByRoom[id_heater].Text = temp.ToString() + ",0";
+            dictionaryTrackBarByRoom[id_heater].Value = Convert.ToInt32(temp);
+        }//adjustHeaterByRoom
+
+        public void switchOnByRoom(int id_heater)
+        {
+            dictionaryButtonSwitchByRoom[id_heater].Text = "ON";
+            dictionaryButtonSwitchByRoom[id_heater].BackColor = System.Drawing.Color.Green;
+            dictionaryTrackBarByRoom[id_heater].Value = 20;
+            dictionaryTextTempByRoom[id_heater].Text = "20,0";
+            dictionaryTrackBarByRoom[id_heater].Visible = true;
+            dictionaryLabelByRoom[id_heater].Visible = true;
+            dictionaryTextTempByRoom[id_heater].Visible = true;
+        }// switchOnByRoom
+
+        public void switchOffByRoom(int id_heater)
+        {
+            dictionaryButtonSwitchByRoom[id_heater].Text = "OFF";
+            dictionaryButtonSwitchByRoom[id_heater].BackColor = System.Drawing.Color.Red;
+            dictionaryTrackBarByRoom[id_heater].Visible = false;
+            dictionaryLabelByRoom[id_heater].Visible = false;
+            dictionaryTextTempByRoom[id_heater].Visible = false;
+        }// switchOffByRoom
+
+        public void allAdjustHeaters(double temp)
+        {
+            textTemp.Text = trackBar_main.Value.ToString() + ",0";
+            trackBar_main.Value = Convert.ToInt32(temp);
+
+        }//allAdjustHeaters
+
+        public void allSwitchOn()
+        {
+            buttonSwitch.Text = "ON";
+            buttonSwitch.BackColor = System.Drawing.Color.Green;
+            trackBar_main.Visible = true;
+            labTemp.Visible = true;
+            textTemp.Visible = true;
+            textTemp.Text = "20,0";
+            trackBar_main.Value = 20;
+        }//allSwitchOn
+
+        public void allSwitchOff()
+        {
+            buttonSwitch.Text = "OFF";
+            buttonSwitch.BackColor = System.Drawing.Color.Red;
+            trackBar_main.Visible = false;
+            labTemp.Visible = false;
+            textTemp.Visible = false;
+        }//allSwitchOff
 
     }// GatewayGUI
 }// SmartHome

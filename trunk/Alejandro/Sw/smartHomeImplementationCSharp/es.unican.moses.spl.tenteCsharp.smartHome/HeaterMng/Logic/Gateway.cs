@@ -8,12 +8,14 @@ namespace SmartHome
     // This class represent the central gateway of the Smart Home which process all commands           //
     // This file only contains the functionality related to the HeaterMng feature                      //
     //=================================================================================================//
-    public partial class Gateway
+    public partial class Gateway : ISubjectGatewayHeater
     {
         // heater collection
         protected List<HeaterCtrl> heaters = null;
         // thermometers collection
         protected List<Thermometer> thermometers = null;
+        //Observers
+        ICollection<IGatewayGUIHeaterObserver> observersGatewayHeater = new LinkedList<IGatewayGUIHeaterObserver>();
 
         // Constructor
         public void initHeaterMng()
@@ -94,8 +96,20 @@ namespace SmartHome
                 }// else
                 //result = true;
             } // if
-            //return result;
+            notifyadjustHeaterByRoomToObsevers(id, temperature);
         } // adjustTemparature
+
+        public virtual void heaterMng_switchOnHeater(int id_heater)
+        {
+            heaterMng_HeaterAdjustTemperature(id_heater, 20.0);
+            notifySwitchOnByRoomToObsevers(id_heater);
+        }//heaterMng_switchOnHeater
+
+        public virtual void heaterMng_switchOffHeater(int id_heater)
+        {
+            heaterMng_findHeater(id_heater).switchOff();
+            notifySwitchOffByRoomToObsevers(id_heater);
+        }//heaterMng_switchOffHeater
 
         public virtual void heaterMng_allHeaterAdjustTemperature(double temperature)
         {
@@ -103,7 +117,7 @@ namespace SmartHome
             {
                 heaterAdjustTemperature(heaters[i].getId(), temperature);
             }//for
-            //heaterMng_allThermometerAdjustTemperature(temperature);
+            notifyadjustAllHeaterToObsevers(temperature);
         }//heaterMng_allHeaterAdjustTemperature
 
         public virtual Thermometer heaterMng_findThermometerByHeater(int id_heater)
@@ -142,10 +156,84 @@ namespace SmartHome
         {
             for (int i = 0; i < heaters.Count; i++)
             {
-                heaters[i].switchOff();
-                heaters[i].setWork(false);
+                heaterMng_switchOffHeater(heaters[i].getId());
             }//for
+            notifySwitchOffAllHeaterToObsevers();
         }//heaterMng_allSwitchOffHeaters
+
+        public virtual void heaterMng_allSwitchOnHeaters()
+        {
+            for (int i = 0; i < heaters.Count; i++)
+            {
+                heaterMng_switchOnHeater(heaters[i].getId());                
+            }//for
+            notifySwitchOnAllHeaterToObsevers();
+        }//heaterMng_allSwitchOnHeaters
+
+        #region Subject-Observer Pattern
+
+        /// <summary>
+        ///     Register a new observer in the observer list
+        /// </summary>
+        /// <param name="obs">The observer to be registered</param>
+        public void registerObserverHeater(IGatewayGUIHeaterObserver observer)
+        {
+            this.observersGatewayHeater.Add(observer);
+        }
+
+        /// <summary>
+        ///     Notify that the value of the sensor has changed to all the observers registered
+        ///     in the observer list
+        /// </summary>
+        protected void notifySwitchOnByRoomToObsevers(int id_heater)
+        {
+            foreach (IGatewayGUIHeaterObserver observer in observersGatewayHeater)
+            {
+                observer.switchOnByRoom(id_heater);
+            } // foreach
+        } // notifySwitchOnByRoomToObsevers
+
+        protected void notifySwitchOffByRoomToObsevers(int id_heater)
+        {
+            foreach (IGatewayGUIHeaterObserver observer in observersGatewayHeater)
+            {
+                observer.switchOffByRoom(id_heater);
+            } // foreach
+        } // notifySwitchOffByRoomToObsevers
+
+        protected void notifyadjustHeaterByRoomToObsevers(int id_heater, double temp)
+        {
+            foreach (IGatewayGUIHeaterObserver observer in observersGatewayHeater)
+            {
+                observer.adjustHeaterByRoom(id_heater, temp);
+            } // foreach
+        } // notifySwitchOffByRoomToObsevers
+
+        protected void notifyadjustAllHeaterToObsevers(double temp)
+        {
+            foreach (IGatewayGUIHeaterObserver observer in observersGatewayHeater)
+            {
+                observer.allAdjustHeaters(temp);
+            } // foreach
+        } // notifySwitchOffByRoomToObsevers
+
+        protected void notifySwitchOnAllHeaterToObsevers()
+        {
+            foreach (IGatewayGUIHeaterObserver observer in observersGatewayHeater)
+            {
+                observer.allSwitchOn();
+            } // foreach
+        } // notifySwitchOffByRoomToObsevers
+
+        protected void notifySwitchOffAllHeaterToObsevers()
+        {
+            foreach (IGatewayGUIHeaterObserver observer in observersGatewayHeater)
+            {
+                observer.allSwitchOff();
+            } // foreach
+        } // notifySwitchOffByRoomToObsevers
+
+        #endregion
     } // Gateway
 
 } // namespace

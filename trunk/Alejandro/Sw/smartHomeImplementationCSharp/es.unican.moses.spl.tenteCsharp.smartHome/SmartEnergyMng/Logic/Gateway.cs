@@ -17,11 +17,10 @@ namespace SmartHome
         protected List<String> timeTables = new List<String>();
         protected Dictionary<int, List<double>> dictTimesTables = new Dictionary<int, List<double>>();
         protected List<Double> emptyTime = new List<double>();
-        //protected Time timer;
         // Observers list
         ICollection<IGatewayGUIObserver> observers = new LinkedList<IGatewayGUIObserver>();
         protected int id_window;
-
+       
         #region Constructor
 
         public void initSmartEnergyMng(GatewayGUI gGUI)
