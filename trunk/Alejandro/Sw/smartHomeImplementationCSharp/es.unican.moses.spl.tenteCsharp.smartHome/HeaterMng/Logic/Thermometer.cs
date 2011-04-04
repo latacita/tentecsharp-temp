@@ -27,17 +27,6 @@ namespace SmartHome
         public double getOutsideTemp()
         {
             return outsideTemp;
-        }//getOutsideTemp
-
-        //This method is called each time the temperature changes
-        public override void setValue(double temp)
-        {
-            this.deviceValue = temp;
-        }// setValue
-
-        public override double getValue()
-        {
-            return deviceValue;
-        }// getValue        
+        }//getOutsideTemp              
     }// Thermometer
 }// SmartHome

@@ -9,9 +9,7 @@ namespace SmartHome
     //=================================================================================================//
     public abstract partial class Actuator: Device
     {
-        // Device identifier
-        //protected int id = 0;
-        protected double deviceValue = 0.0;
+             
         // Id of the room where is installed the Actuator
         protected int id_room;
         //switchOn, default value is false
@@ -40,16 +38,6 @@ namespace SmartHome
         {
             this.id_room = id_room;
         }
-
-        public virtual void setValue(double value)
-        {
-            this.deviceValue = value;
-        } // setValue
-
-        public virtual double getValue()
-        {
-            return deviceValue;
-        }//getValue
 
         public virtual void switchOn()
         {

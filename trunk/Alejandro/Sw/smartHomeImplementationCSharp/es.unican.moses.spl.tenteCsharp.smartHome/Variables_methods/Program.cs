@@ -28,6 +28,7 @@ namespace Program
             WindowCtrl w2 = new WindowCtrl(3, 2);
             WindowSensor ws1 = new WindowSensor(3, 2);
             WindowSensor ws2 = new WindowSensor(4, 3);
+            Time time = new Time(14.23);
             f1.addRoom(r1);
             f1.addRoom(r2);
             f2.addRoom(r3);
@@ -49,13 +50,14 @@ namespace Program
             g.windowMng_addWindowSensor(ws2);
             SimulatorGUI sim = new SimulatorGUI(g);
             GatewayGUI gatewayGUI = new GatewayGUI(g,sim);
-            g.initSmartEnergyMng(gatewayGUI);
+            g.initSmartEnergyMng(gatewayGUI, time);
             gatewayGUI.addBaseSystem();
             gatewayGUI.addHeaterMng();
             gatewayGUI.addWindowMng();
             gatewayGUI.addSmartEnergy();
             sim.addHeaterMng();
             sim.addWindowMng();
+            sim.addSmartEnergyMng();
             sim.Show();
             gatewayGUI.Show();            
             Application.Run(gatewayGUI);

@@ -15,6 +15,7 @@ namespace SmartHome
                 buttonSmartEnergy.BackColor = System.Drawing.Color.Green;
                 gateway.smartEnergy_switchOnSmartEnergyMng();
                 
+                
             }// if
             else
             {

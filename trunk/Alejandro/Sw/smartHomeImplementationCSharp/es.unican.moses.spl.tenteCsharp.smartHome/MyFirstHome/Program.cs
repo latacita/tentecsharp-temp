@@ -47,7 +47,7 @@ namespace MyFirstHome
             g.windowMng_addWindowSensor(ws2);
             MyFirstHome_SimulatorGUI sim = new MyFirstHome_SimulatorGUI(g);
             MyFirstHome_GatewayGUI gatewayGUI = new MyFirstHome_GatewayGUI(g, sim);
-            g.initSmartEnergyMng(gatewayGUI);
+            //g.initSmartEnergyMng(gatewayGUI);
             gatewayGUI.addBaseSystem();
             gatewayGUI.addHeaterMng();
             gatewayGUI.addWindowMng();
