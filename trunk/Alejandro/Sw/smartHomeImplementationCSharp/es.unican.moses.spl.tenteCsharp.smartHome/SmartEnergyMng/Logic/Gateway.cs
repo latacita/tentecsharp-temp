@@ -17,8 +17,7 @@ namespace SmartHome
         protected List<String> timeTables = new List<String>();
         protected Dictionary<int, List<double>> dictTimesTables = new Dictionary<int, List<double>>();
         protected List<Double> emptyTime = new List<double>();
-        protected Time timer;
-        
+        //protected Time timer;
         // Observers list
         ICollection<IGatewayGUIObserver> observers = new LinkedList<IGatewayGUIObserver>();
         protected int id_window;
@@ -28,27 +27,22 @@ namespace SmartHome
         public void initSmartEnergyMng(GatewayGUI gGUI)
         {
             this.gGUI = gGUI;
+            //this.timer = timer;
             smartEnergy_readTimeTables();            
+            
         }// initSmartEnergyMng
 
         #endregion Constructor
 
-        #region Getters y Setters
-
-        public void setTime(Time timer) {
-            this.timer = timer;
-        } // setTime
-
-
-        #endregion 
-
-
+        
         /// <summary>
-        ///     Checks the current time to check if the house is busy or empty to 
+        ///     Checks the current timer to check if the house is busy or empty to 
         ///     switch on/off heaters and devices
         /// </summary>
         public void smartEnergy_checkTime(double time)
         {
+            Console.WriteLine("Prueba");
+            Console.WriteLine(time);
             if (statusSmartEnergyMng == true)
             {
                 for (int i = 0; i < emptyTime.Count; i = i + 2)
@@ -64,25 +58,14 @@ namespace SmartHome
             }//if
         }//checkTime
 
-        /*
-        public void smartEnergy_adjustTime(double t)
-        {
-            // time.setTime(t);
-            smartEnergy_checkTime();
-        }//smartEnergy_adjustTime */
 
         public List<Double> smartEnergy_getEmptyTime()
         {
             return emptyTime;
         }//smartEnergy_getEmptyTime
 
-        /*
-        public double smartEnergy_currentTime()
-        {
-            return time.getTime();
-        }//smartEnergy_currentTime */
-
-        public void smartEnergy_switchOnSmartEnergyMng()
+        
+        public void smartEnergy_switchOnSmartEnergyMng(double time)
         {
             this.statusSmartEnergyMng = true;
             List<HeaterCtrl> h = heaterMng_getHeaters();
@@ -103,8 +86,8 @@ namespace SmartHome
                     }//for
                 }//if
             }//for  
-            //Check the time
-            smartEnergy_checkTime(timer.getTime());
+            //Check the timer
+            smartEnergy_checkTime(time);
         }//smartEnergy_switchOnSmartEnergyMng
 
         public void smartEnergy_switchOffSmartEnergyMng()
@@ -258,7 +241,7 @@ namespace SmartHome
         /// <summary>
         ///     Time has changed
         /// </summary>
-        /// <param name="time">The new time</param>
+        /// <param name="timer">The new timer</param>
         public void timeChanged(double time)
         {
             smartEnergy_checkTime(time);

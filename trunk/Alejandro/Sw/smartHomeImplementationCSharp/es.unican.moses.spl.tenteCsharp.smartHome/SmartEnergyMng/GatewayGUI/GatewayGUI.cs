@@ -12,8 +12,8 @@ namespace SmartHome
             if (buttonSmartEnergy.Text.Equals("OFF"))
             {
                 buttonSmartEnergy.Text = "ON";
-                buttonSmartEnergy.BackColor = System.Drawing.Color.Green;
-                gateway.smartEnergy_switchOnSmartEnergyMng();
+                buttonSmartEnergy.BackColor = System.Drawing.Color.Green;                
+                gateway.smartEnergy_switchOnSmartEnergyMng(simulator.currentTime());
                 
                 
             }// if
