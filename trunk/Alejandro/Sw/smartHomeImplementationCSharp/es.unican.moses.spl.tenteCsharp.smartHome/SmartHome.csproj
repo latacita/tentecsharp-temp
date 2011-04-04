@@ -78,7 +78,6 @@
     <Compile Include="HeaterMng\SimulatorGUI\SimulatorGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SmartEnergyMng\Logic\IGatewayGUIObserver.cs" />
     <Compile Include="SmartEnergyMng\Logic\ITimeObserver.cs" />
     <Compile Include="SmartEnergyMng\Logic\Time.cs" />
     <Compile Include="SmartEnergyMng\SimulatorGUI\SimulatorGUI.cs">
@@ -106,6 +105,8 @@
     <Compile Include="WindowMng\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="WindowMng\Logic\ISubjectGatewayWindow.cs" />
+    <Compile Include="WindowMng\Logic\IGatewayGUIWindowObserver.cs" />
     <Compile Include="WindowMng\Logic\WindowSensor.cs" />
     <Compile Include="WindowMng\Logic\Gateway.cs" />
     <Compile Include="WindowMng\Logic\WindowCtrl.cs" />
