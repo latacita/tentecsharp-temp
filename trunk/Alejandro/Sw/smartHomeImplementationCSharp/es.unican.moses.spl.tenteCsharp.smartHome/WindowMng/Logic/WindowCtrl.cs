@@ -17,7 +17,7 @@ namespace SmartHome
         {
             this.deviceValue = CLOSED;
             this.id_room = id_room;
-        } // LightCtrl(int)      
+        } // WindowCtrl(int)      
 
         // Class methods
         public void open()
@@ -40,7 +40,7 @@ namespace SmartHome
             } // if
         } // setValue
 
-    } // LightCtrl
+    } // WindowCtrl
 
 
 }

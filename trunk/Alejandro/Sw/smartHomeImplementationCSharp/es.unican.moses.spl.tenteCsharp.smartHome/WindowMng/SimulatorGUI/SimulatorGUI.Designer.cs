@@ -98,9 +98,10 @@ namespace SmartHome
                     
                     for (int k = 0; k < w.Count; k++)
                     {
+                        WindowSensor ws = gateway.windowMng_findWindowSensorByidWindow(w[k].getId());
                        dataGridViewWindows.Rows.Add(new string[] {w[k].getId().ToString(),
                                                                   r[j].getName(),
-                                                                  w[k].getValue().ToString()});
+                                                                  ws.getValue().ToString()});
                     }//for                    
                 }//for
             }//for 

@@ -10,6 +10,7 @@ namespace SmartHome
         public virtual void observerRefreshDataGrid(){
             fillDataGridViewHeaters();
             fillDataGridViewWindows();
+            filldataGridViewLigths();
         }//observerRefreshDataGrid        
     }
 }

@@ -78,6 +78,16 @@
     <Compile Include="HeaterMng\SimulatorGUI\SimulatorGUI.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LigthMng\GUI\GatewayGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LigthMng\GUI\GatewayGUI.Designer.cs" />
+    <Compile Include="LigthMng\Logic\IGatewayGUILigthObserver.cs" />
+    <Compile Include="LigthMng\Logic\ISubjectGatewayLigth.cs" />
+    <Compile Include="LigthMng\Logic\LigthSensor.cs" />
+    <Compile Include="LigthMng\Logic\LigthCtrl.cs" />
+    <Compile Include="LigthMng\Logic\Gateway.cs" />
+    <Compile Include="LigthMng\SimulatorGUI\SimulatorGUI.Designer.cs" />
     <Compile Include="SmartEnergyMng\Logic\ITimeObserver.cs" />
     <Compile Include="SmartEnergyMng\Logic\Time.cs" />
     <Compile Include="SmartEnergyMng\SimulatorGUI\SimulatorGUI.cs">

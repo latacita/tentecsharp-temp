@@ -28,6 +28,10 @@ namespace Program
             WindowCtrl w2 = new WindowCtrl(3, 2);
             WindowSensor ws1 = new WindowSensor(3, 2);
             WindowSensor ws2 = new WindowSensor(4, 3);
+            LigthCtrl l1 = new LigthCtrl(4, 0);
+            LigthCtrl l2 = new LigthCtrl(5, 2);
+            LigthSensor ls1 = new LigthSensor(6, 4);
+            LigthSensor ls2 = new LigthSensor(7, 5);
             Time time = new Time(14.23);
             f1.addRoom(r1);
             f1.addRoom(r2);
@@ -37,6 +41,7 @@ namespace Program
             g.initBaseSystem();
             g.initHeaterMng();
             g.initWindowMng();
+            g.initLigthMng();
             g.addFloor(f1);
             g.addFloor(f2);
             g.addFloor(f3);
@@ -48,6 +53,10 @@ namespace Program
             g.windowMng_addWindowCtrl(w2);
             g.windowMng_addWindowSensor(ws1);
             g.windowMng_addWindowSensor(ws2);
+            g.ligthMng_addLigthCtrl(l1);
+            g.ligthMng_addLigthCtrl(l2);
+            g.ligthMng_addLigthSensor(ls1);
+            g.ligthMng_addLigthSensor(ls2);
             SimulatorGUI sim = new SimulatorGUI(g);
             GatewayGUI gatewayGUI = new GatewayGUI(g,sim);
             g.initSmartEnergyMng(gatewayGUI);
@@ -55,9 +64,11 @@ namespace Program
             gatewayGUI.addHeaterMng();
             gatewayGUI.addWindowMng();
             gatewayGUI.addSmartEnergy();
+            gatewayGUI.addLigthMng();
            // sim.initSimulatorGUI();
             sim.addHeaterMng();
             sim.addWindowMng();
+            sim.addLigthMng();
             sim.addSmartEnergyMng(time);
             sim.Show();
             gatewayGUI.Show();            
