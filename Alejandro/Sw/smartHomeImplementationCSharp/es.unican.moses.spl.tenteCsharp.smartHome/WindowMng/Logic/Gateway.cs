@@ -109,7 +109,7 @@ namespace SmartHome
         /// </summary>
         protected void notifyAdjustWindowByRoomToObsevers(int id_window, int aperture)
          {
-             foreach (IGatewayGUIWindowObserver observer in observersGatewayHeater)
+             foreach (IGatewayGUIWindowObserver observer in observersGatewayWindow)
              {
                  observer.adjustWindowByRoom(id_window,aperture);
              } // foreach
@@ -117,7 +117,7 @@ namespace SmartHome
 
         protected void notifyAdjustAllWindowToObsevers(int aperture)
         {
-            foreach (IGatewayGUIWindowObserver observer in observersGatewayHeater)
+            foreach (IGatewayGUIWindowObserver observer in observersGatewayWindow)
             {
                 observer.adjustAllWindow(aperture);
             } // foreach

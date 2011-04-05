@@ -24,7 +24,6 @@ namespace SmartHome
         public void initSmartEnergyMng(GatewayGUI gGUI)
         {
             this.gGUI = gGUI;
-            //this.timer = timer;
             smartEnergy_readTimeTables();            
             
         }// initSmartEnergyMng
