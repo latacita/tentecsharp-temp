@@ -10,7 +10,7 @@ namespace SmartHome
     // This file only contains the functionality related to the SmartEnergyMng feature                 //
     //=================================================================================================//
 
-    public partial class Gateway : ITimeObserver
+    public partial class Gateway : ITimeObserver, ISubjectGatewaySmartEnergy
     {
         protected bool statusSmartEnergyMng = false;
         protected GatewayGUI gGUI;
@@ -18,6 +18,9 @@ namespace SmartHome
         protected Dictionary<int, List<double>> dictTimesTables = new Dictionary<int, List<double>>();
         protected List<Double> emptyTime = new List<double>();
         protected int id_window;
+        //List of observers
+        ICollection<IGatewayGUISmartEnergyObserver> observersGatewaySmartEnergy = new LinkedList<IGatewayGUISmartEnergyObserver>();
+       
        
         #region Constructor
 
@@ -30,7 +33,6 @@ namespace SmartHome
 
         #endregion Constructor
 
-        
         /// <summary>
         ///     Checks the current timer to check if the house is busy or empty to 
         ///     switch on/off heaters and devices
@@ -44,7 +46,7 @@ namespace SmartHome
                     if (emptyTime[i] <= time && time<= emptyTime[i + 1])
                     {
                         if ((emptyTime[i + 1] - time) <= 0.60) //20 minutes before    
-                            heaterMng_allSwitchOnHeaters();                                                  
+                              heaterMng_allSwitchOnHeaters(desiredTemperature);                            
                         else
                             heaterMng_allSwitchOffHeaters();
                     }//if                
@@ -81,11 +83,14 @@ namespace SmartHome
             }//for  
             //Check the timer
             smartEnergy_checkTime(time);
+            notifySwitchOnSmartEnergyToObsevers();
         }//smartEnergy_switchOnSmartEnergyMng
 
         public void smartEnergy_switchOffSmartEnergyMng()
         {
             this.statusSmartEnergyMng = false;
+            heaterMng_setDesiredTemperature(20.0);
+            notifySwitchOffSmartEnergyToObsevers();
         }//smartEnergy_switchOffSmartEnergyMng
 
         public void smartEnergy_HeaterAdjustTemperature(int id, double temperature)
@@ -201,6 +206,32 @@ namespace SmartHome
 
         #endregion
 
+        #region Subject-Observer Pattern
+        /// <summary>
+        ///     Register a new observer in the observer list
+        /// </summary>
+        /// <param name="obs">The observer to be registered</param>
+        public void registerObserverSmartEnergy(IGatewayGUISmartEnergyObserver observer)
+        {
+            this.observersGatewaySmartEnergy.Add(observer);
+        }// registerObserverSmartEnergy
+
+        protected void notifySwitchOnSmartEnergyToObsevers()
+        {
+            foreach (IGatewayGUISmartEnergyObserver observer in observersGatewayLigth)
+            {
+                observer.switchOnSmartEnergy();
+            } // foreach
+        } // notifySwitchOnSmartEnergyToObsevers
+
+        protected void notifySwitchOffSmartEnergyToObsevers()
+        {
+            foreach (IGatewayGUISmartEnergyObserver observer in observersGatewayLigth)
+            {
+                observer.switchOffSmartEnergy();
+            } // foreach
+        } // notifySwitchOffSmartEnergyToObsevers
+        #endregion
 
         #region Subject-Obsever Pattern for Time
 
@@ -211,7 +242,7 @@ namespace SmartHome
         public void timeChanged(double time)
         {
             smartEnergy_checkTime(time);
-        } // timeChanged
+        } // timeChanged        
 
         #endregion
     }// Gateway

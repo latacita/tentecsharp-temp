@@ -22,7 +22,7 @@ namespace SmartHome
         {
             if (buttonSwitch.Text.Equals("OFF"))
             {
-                gateway.heaterMng_allSwitchOnHeaters();               
+                gateway.heaterMng_allSwitchOnHeaters(20);               
             }// if
             else
             {

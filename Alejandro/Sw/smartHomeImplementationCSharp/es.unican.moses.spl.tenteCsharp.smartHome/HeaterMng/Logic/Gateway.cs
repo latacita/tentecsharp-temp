@@ -14,6 +14,8 @@ namespace SmartHome
         protected List<HeaterCtrl> heaters = null;
         // thermometers collection
         protected List<Thermometer> thermometers = null;
+        //Desired temperature
+        protected double desiredTemperature = 20.0;
         //Observers
         ICollection<IGatewayGUIHeaterObserver> observersGatewayHeater = new LinkedList<IGatewayGUIHeaterObserver>();
 
@@ -101,7 +103,7 @@ namespace SmartHome
 
         public virtual void heaterMng_switchOnHeater(int id_heater)
         {
-            heaterMng_HeaterAdjustTemperature(id_heater, 20.0);
+            heaterMng_HeaterAdjustTemperature(id_heater, desiredTemperature);
             notifySwitchOnByRoomToObsevers(id_heater);
         }//heaterMng_switchOnHeater
 
@@ -161,7 +163,7 @@ namespace SmartHome
             notifySwitchOffAllHeaterToObsevers();
         }//heaterMng_allSwitchOffHeaters
 
-        public virtual void heaterMng_allSwitchOnHeaters()
+        public virtual void heaterMng_allSwitchOnHeaters(double temperature)
         {
             for (int i = 0; i < heaters.Count; i++)
             {
@@ -169,6 +171,16 @@ namespace SmartHome
             }//for
             notifySwitchOnAllHeaterToObsevers();
         }//heaterMng_allSwitchOnHeaters
+
+        public double heaterMng_getDesiredTemperature()
+        {
+            return desiredTemperature;
+        }//heaterMng_getDesiredTemperature
+
+        public void heaterMng_setDesiredTemperature(double temperature)
+        {
+            this.desiredTemperature = temperature;            
+        }//smartEnergyMng_setTemperature
 
         #region Subject-Observer Pattern
 

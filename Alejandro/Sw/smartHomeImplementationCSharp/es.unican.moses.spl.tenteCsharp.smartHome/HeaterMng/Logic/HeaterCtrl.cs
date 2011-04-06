@@ -49,12 +49,6 @@ namespace SmartHome
         }//switchOff
 
         // Class methods
-        
-        public void sayHello()
-        {
-            System.Console.Out.WriteLine("I am the heater " + id + " and I am at " + deviceValue + " degrees");
-        } // sayHello
-
         public bool getWork(){
             return work;
         }// getWork

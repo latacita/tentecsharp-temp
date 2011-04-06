@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace SmartHome
 {
@@ -11,22 +15,29 @@ namespace SmartHome
         {
             if (buttonSmartEnergy.Text.Equals("OFF"))
             {
-                buttonSmartEnergy.Text = "ON";
-                buttonSmartEnergy.BackColor = System.Drawing.Color.Green;                
-                gateway.smartEnergy_switchOnSmartEnergyMng(simulator.currentTime());
-                
-                
+                gateway.smartEnergy_switchOnSmartEnergyMng(simulator.currentTime());            
             }// if
             else
             {
-                buttonSmartEnergy.Text = "OFF";
-                buttonSmartEnergy.BackColor = System.Drawing.Color.Red;
                 gateway.smartEnergy_switchOffSmartEnergyMng();
-
             }// else
-            //SimulatorGUI
-            refreshSimulator();
-
         }// buttonSwitch_Click
+
+        private void buttonSubmit_Click_smartEnergy(object sender, EventArgs e)
+        {
+            try
+            {
+                double temp = Convert.ToDouble(textBoxDesiredTemp.Text);
+                if (temp < 0 || temp > 40)  throw new Exception();                
+                gateway.heaterMng_setDesiredTemperature(temp);
+                labelDesiredTemp.Text = "Desired temperature: " + temp.ToString() + " degrees";                
+            }catch(Exception exception){
+                MessageBox.Show("Insert a correct temperature value(between 0 and 40 degrees)", "Input error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+            }
+        }//buttonSubmit_Click_smartEnergy
+
+
+        
+
     }
 }

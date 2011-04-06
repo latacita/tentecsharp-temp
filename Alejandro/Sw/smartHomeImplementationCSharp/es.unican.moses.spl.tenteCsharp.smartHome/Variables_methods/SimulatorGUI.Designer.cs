@@ -11,6 +11,7 @@ namespace SmartHome
             fillDataGridViewHeaters();
             fillDataGridViewWindows();
             filldataGridViewLigths();
+            fillDataGridViewBlinds();
         }//observerRefreshDataGrid        
     }
 }
