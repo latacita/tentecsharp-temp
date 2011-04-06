@@ -26,7 +26,7 @@ El proceso de creación de líneas de producto software conlleva dos fases: \emph{
 
 \begin{figure}[!tb]
   \centering
-    \includegraphics[width=.95\linewidth]{background/images/domainAplicationEngineering.eps} \\
+	\includegraphics[width=.95\linewidth]{background/images/domainAplicationEngineering.eps} \\
   \caption{Proceso de desarrollo de una línea de productos software}
   \label{back:fig:domainAplicEng}
 \end{figure}
@@ -34,40 +34,65 @@ El proceso de creación de líneas de producto software conlleva dos fases: \emph{
 %HECHO \todo{Poner un párrafo de enlace con la sección siguiente}
 Cuando se trabaja con líneas de productos software, los lenguajes de programación orientados a objetos resultan muchas veces insuficientes. Con objeto de paliar estas deficiencias, en los últimos años han ido surgiendo unos nuevos tipos de lenguajes denominados \emph{orientados a características}. La siguiente sección introduce los programación orientada a características para a continuación explicar sus ventajas con respecto a las técnicas tradicionales orientadas a objetos.
 
+%% DONE
 \section{Programación Orientada a Características}
 
-% Objetivos de la orientación a características
-Los lenguajes orientados a características~\cite{prehofer:2001} tienen como objetivo encapsular conjuntos coherentes de la funcionalidad de un sistema software en módulos independientes y fácilmente componibles de forma que se incremente su capacidad de extensión y reutilización. Estos módulos reciben el nombre de \emph{característica}. Una característica se puede definir como un incremento de la funcionalidad de un sistema~\cite{batory:2004}.
+Los lenguajes orientados a características~\cite{prehofer:2001} tienen como objetivo encapsular conjuntos coherentes de funcionalidad de un sistema software en módulos independientes y fácilmente componibles de forma que se incremente la capacidad de reutilización y extensión de estos módulos. Dichos módulos reciben el nombre de \emph{característica}. Una característica se suele definir como un incremento de la funcionalidad de un sistema~\cite{batory:2004}.
 
-Los lenguajes orientados a características son especialmente útiles en el contexto de las líneas de producción software, ya que nos permiten encapsular en módulos bien definidos las diferentes características, tanto comunes como variables, que pueden aparecer en cada uno de los productos software pertenecientes a una misma familia. Los lenguajes orientados a características tratan de facilitar además la composición de dichos módulos, contribuyendo así a que productos específicos dentro de una familia puedan ser creados mediante la simple composición o ensamblado de módulos software.
+Los lenguajes orientados a características son especialmente útiles en el contexto de las líneas de productos software, ya que nos permiten encapsular en módulos bien definidos las diferentes características, tanto comunes como variables, que pueden aparecer en cada uno de los productos software pertenecientes a una misma familia. Los lenguajes orientados a características tratan de facilitar además la composición de dichos módulos, contribuyendo así a que productos específicos dentro de una familia puedan ser creados mediante la simple composición o ensamblado de módulos software relativamente independientes.
 
-%HECHO\todo{Poner un ejemplo concreto pero a alto nivel explicando como funcionaría la orientación a características}
-Consideremos el siguiente ejemplo de modelado de una pila con las siguientes características:
-\begin{enumerate}
-\item \emph{Pila}: Característica común a todas las configuraciones,que posee las operaciones de apilar y desapilar.
-\item \emph{Contador}: añade un contador local(usado para conocer el tamaño de la pila).
-\item \emph{Bloqueo}: permite añadir un interruptor que permita o no las modificaciones de un objeto de la pila.
-\item \emph{Deshacer}: agrega la funcionalidad de restaurar el estado de la pila antes del último acceso a la misma.
-\end{enumerate}
-Por un lado al abstraer un programa en términos de características facilita su entendimiento, como por ejemplo en el caso del programa que implementa una pila.Pero más importante, es conseguir construir diferentes programas que ofrezcan diferentes combinaciones de características. Para el caso del modelado de la pila a un usuario en concreto, le puede interesar combinar la característica común denominada \emph{pila} y \emph{contador} y descartar todas las demás. Por lo tanto, un lenguaje orientado a características nos debe permitir descomponer fácilmente de un modo encapsulado un programa en características, para su posterior composición y creación en diferentes combinaciones que se adapten a las necesidades de los usuarios.
+Por ejemplo, a la hora de crear un tipo abstracto de datos pila, podemos considerar diferentes variaciones:
+\begin{description}
+\item[Básicas:]  Toda pila, para ser considerada pila, debe soportar las operaciones \imp{apilar} y \imp{desapilar}.
+\item[Contador:] Añade un contador para conocer el tamaño de la pila.
+\item[Bloqueo:] Permite bloquear la pila para evitar modificaciones en su estado.
+\item[Deshacer:] Agrega la funcionalidad de restaurar el estado de la pila antes del último acceso a la misma.
+\end{description}
 
-Para probar que la programación orientada a características posee ventajas sustanciales frente a la programación orientada a objetos para tratar con las líneas de productos software,la siguiente sección abordará las limitaciones que poseen los lenguajes orientados a objetos en este ámbito.
+El objetivo de la programación orientada a características sería encapsular cada una de las cuatro funcionalidades anteriores en módulos independientes y fácilmente componibles. De esta forma, se podrían obtener diferentes productos mediante la simple composición de conjuntos diferentes de características. Por ejemplo, un determinado usuario podría estar interesado en una pila con contador, por lo que compondría estas dos características y descartaría las demás. Otro usuario podría encontrar más adecuada una pila con bloqueo y deshacer, por lo que compondría estas tres características y dejaría fuera la correspondiente al contador.
 
+Por lo tanto, un lenguaje orientado a características nos debe permitir descomponer fácilmente un programa en características, las cuales deberían encapsularse en módulos bien definidos y tan independientes como sea posible. A la hora de crear productos concretos, dichos módulos se compondrían de acuerdo a las necesidades de los usuarios.
+
+%%==============================================================================%
+%% NOTA(Pablo): En realidad el siguiente párrafo lo que describe son las        %
+%% desventajas de la programación orientada a objetos                           %
+%% Lo he cambiado 
+%%==============================================================================%
+% La siguiente sección describe en mayor detalle las ventajas que la programación 
+% orientada a características posee frente a la programación orientada a objetos 
+% en relación a la implementación de las líneas de productos software.
+%%==============================================================================%
+
+La siguiente sección describe en mayor detalle los problemas que surgen cuando se intenta obtener un enfoque orientado a características usando un lenguaje de programación orientado a objetos.
+
+%% DONE
 \subsection{Limitaciones de la Orientación a Objetos frente a la Programación Orientada a Características}
 
-% Limitaciones de los lenguajes OO para FOP
-Para analizar las limitaciones que posee la programación orientada a objetos frente a la programación orientada a características nos basaremos en un problema típico de las líneas de productos, que es el \emph{problema de las
-expresiones}~\cite{togersen:2004}. Dicho problema es un problema clásico en el diseño software.
-%=============================================================================%
-% HECHO(Pablo): Esta frase no se entiende, redáctala de nuevo                  %
-%=============================================================================%
-Consiste en que la aplicación que implemente el problema esté estructurada de tal modo que el modelo de los datos y el conjunto de operaciones pueda se extendidos sin las necesidad de modificar el código existente, sin que existan repeticiones de código y sin errores en tiempo de ejecución.
-%HECHO \todo{Párrafo de enlace con la siguiente subsección}
-En la siguiente subsección se procederá a detallar de una manera más exhaustiva el problema aquí mencionado.
+Para analizar las limitaciones que posee la programación orientada a objetos a la hora de implementar líneas de productos software nos basaremos en un problema clásico de las líneas de productos, como es el \emph{problema de las
+expresiones}~\cite{togersen:2004}. Dicho problema se describe a continuación.
 
-\subsubsection{Descripción del problema de las expresiones}
+%%=============================================================================%
+%% NOTA(Pablo): En realidad todo esto es suprimible                            %
+%%=============================================================================%
+%% Consiste en que la aplicación que implemente el problema esté estructurada
+%% de tal modo que el modelo de los datos y el conjunto de operaciones pueda
+%% se extendidos sin las necesidad de modificar el código existente, sin que
+%% existan repeticiones de código y sin errores en tiempo de ejecución.
+%%
+%% En la siguiente subsección se procederá a detallar de una manera más
+%% exhaustiva el problema aquí mencionado.
+%%=============================================================================%
 
-El objetivo del problema de las expresiones es diseñar un conjunto de clases que implementen la gramática mostrada en la Figura~\ref{back:fig:gramExpr}.
+%% DONE
+\subsubsection{Descripción del Problema de las Expresiones}
+
+El objetivo del problema de las expresiones es diseñar una aplicación software que para la gramática de la Figura~\ref{back:fig:gramExpr}, soporte las siguientes operaciones:
+
+\begin{description}
+	\item[Print:] Debe mostrar por consola la expresión en el formato correspondiente (infijo, prefijo o posfijo).
+	\item[Eval:] Debe evaluar la expresión y retornar su resultado.
+	\item[ShortEval:] debe evaluar la expresión realizando las operaciones \emph{cortocircuitadas}. Es decir, tan pronto como el valor de un operando determine el resultado de la expresión, se deberá parar la evaluación del resto de los operandos. Por ejemplo, en una multiplicación, si el primer operando es 0, se retornará el valor 0 directamente, sin evaluar el segundo operando.
+\end{description}
 
 \begin{figure}
 \begin{center}
@@ -89,56 +114,44 @@ MultPrefix  ::= "*" Exp Exp
 \label{back:fig:gramExpr}
 \end{figure}
 
+Identificamos en este problema dos conjuntos diferenciados de características: (1) las operaciones \imp{\{Print, Eval, ShortEval\}} que se pueden realizar sobre la gramática; y (2) si los operadores son infijos, prefijos o postfijos.
+Por tanto, tenemos 6 características posibles para nuestros productos (operadores infijos, prefijos o postfijos, más \imp{\{Print, Eval, ShortEval\}} como operaciones opcionales para la gramática).
 
-Para la gramática de la Figura~\ref{back:fig:gramExpr} se definen las siguientes operaciones:
+Por lo tanto, sería deseable implementar una línea de productos software que permita combinar las distintas operaciones y operadores de tal modo que por cada elección de elementos a combinar podamos obtener una aplicación software completa mediante la simple composición de los elementos seleccionados.
 
-\begin{enumerate}
-	\item \imp{Print}: debe mostrar por consola la expresión en el formato correspondiente (infijo, prefijo o posfijo).
-	\item \imp{Eval}: debe evaluar la expresión y retornar el correspondiente resultado.
-	\item \imp{ShortEval}: debe evaluar la expresión realizando las operaciones \emph{cortocircuitadas}. Es decir, tan pronto como el valor de un operando determine el resultado de la expresión, se deberá dejar de evaluar el resto de los operandos. Es decir cuando se presenta una multiplicación si el primer operando es 0, se retornará el valor 0 directamente, sin llegar a evaluar el segundo operando.
-\end{enumerate}
+La siguiente subsección explica cómo se abordaría este objetivo usando orientación a objetos.
 
-
-Identificamos en este problema dos conjuntos diferenciados de características: (1) las operaciones \imp{\{Print, Eval, ShortEval\}} que se pueden realizar sobre la gramática; y (2) los diferentes operadores que ésta puede contener \imp{\{AddInfix, MultInfix, AddPostfix...\}}.
-
-Por lo tanto, el objetivo es implementar una línea de productos software que permita combinar las distintas operaciones y operadores de tal modo que por cada elección de elementos a combinar tengamos una aplicación funcional sin necesidad de reescribir código, únicamente componiendo los elementos seleccionados.
-%=============================================================================%
-% HECHO
-%(Pablo): Esta frase no se entiende, redáctala de nuevo                  %
-%=============================================================================%
-De acuerdo con los objetivos generales de una línea de productos software, usaremos dicho problema para dar respuesta a las siguientes preguntas:
-\begin{enumerate}
-	\item ¿Qué características están presentes en el problema?
-	\item ¿Cómo las podemos modularizar?
-	\item ¿Cómo podemos construir diferentes configuraciones?
-\end{enumerate}
-
-En la siguiente subsección se procederá a detallar como se ha resuelto el problema de las expresiones utilizando el lenguaje orientado a objetos C\#.
-\subsubsection{Resolviendo el problema con C\#}
-
-%=============================================================================%
-% NOTA(Pablo): Lo del UML no queda claro, y la segunda figura sale con la     %
-%              marca de agua. No se entiende que intención hay tras este      %
-%              diseño                                                         %
-%     Lo que habría que explicar es cual es la idea que                       %
-%              subyace tras ese diseño y decir que es la forma normal de      %
-%              diseñar/implementar products lines usando OO                   %
-%=============================================================================%
-Para resolver el problema que se presenta, se ha seguido la forma natural de diseñar e implementar las líneas de productos software mediante un lenguaje orientado a objetos. Por un lado se diseña un diagrama UML que soporte los operandos básicos(\emph{Integer, Add y Mult}), tal y como se muestra en la figura ~\ref{back:fig:expr}. A partir de éste, por cada operación: \emph{printInfix}(\emph{print} en formato infijo),\emph{printPostfix} ( \emph{print} en formato posfijo), \emph{printPrefix} (\emph{print} en formato prefijo),\emph{eval}, y \emph{shortEval}(que será una especialización de la propia operación \emph{eval}), se debe realizar un diseño que herede de las clases e interfaces de las que se componía la figura ~\ref{back:fig:expr}. A modo de ejemplo se incluye la figura ~\ref{back:fig:printInfix} que muestra el diseño para la operación \emph{printInfix}.
+\subsubsection{Solución Orientada a Objetos}
 
 \begin{figure}[!tb]
   \centering \includegraphics[width=.60\linewidth]{background/images/Expressions.eps} \\
-  \caption{Diagrama de clases para el problema de las expresiones}
+  \caption{Diagrama de clases para las características comunes del problema de las expresiones}
   \label{back:fig:expr}
 \end{figure}
 
 \begin{figure}[!tb]
   \centering \includegraphics[width=.80\linewidth]{background/images/PrintInfix.eps} \\
-  \caption{Diagrama de clases para la operación de imprimir en formato infijo}
+  \caption{Diagrama de clases para las características comunes de impresión
+  de operadores infijos}
   \label{back:fig:printInfix}
 \end{figure}
 
-Con el diseño anteriormente mencionado y el objetivo de poder crear diferentes productos a través de la composición de diferentes características, por ejemplo combinar \emph{printInfix} con \emph{eval} para obtener una nueva aplicación que pueda utilizar ambas características, necesitamos hacer uso de la herencia múltiple.
+
+La forma natural o tradicional de implementar características usando orientación a objetos es mediante herencia~\cite{gomma:2007,ziadi:2006}. Esta técnica se muestra en las Figuras~\ref{back:fig:expr} y~\ref{back:fig:printInfix}. 
+
+La Figura~\ref{back:fig:expr} muestra el diseño orientado a objetos de los elementos de la gramática. Usando este diseño, lo único que podríamos hacer es crear expresiones, compuestas por literales (\imp{Integer}s), combinados mediante operadores binarios (\imp{Add} y \imp{Mult}).
+
+A continuación, por cada característica a implementar, lo que hacemos es extender estas clases mediante herencia añadiendo a cada clase las operaciones necesarias para implementar dicha característica. Por ejemplo, la Figura~\ref{back:fig:printInfix} muestra como se extienden las clases de la Figura~\ref{back:fig:expr} para que soporten la característica de operación infija.
+Tal como muestra dicho diseño, lo que hacemos es por cada clase \imp{X} de la Figura~\ref{back:fig:expr}, creamos una nueva clase que herede de ella. A la nueva clase hija le damos el mismo nombre que a la padre, pero con \imp{Infix} como sufijo. A la clase hija le añadimos una operación \imp{print}, que contendría la funcionalidad necesaria para imprimir cada expresión, operador o literal de forma infija. Este proceso lo repetiríamos para el resto de características (e.g., impresión postfija, evaluación con cortocircuito), obteniendo por cada característica un diseño similar al de la Figura~\ref{back:fig:printInfix}.
+
+Una vez diseñadas e implementadas la diferentes características del problema de las expresiones, el siguiente problema a solventar es cómo combinarlas de forma que podamos obtener de la forma más simple y rápida posible productos concretos con diferentes características. La técnica comúnmente empleada para componer características implementadas mediante herencia simple sería tal como se describe a continuación.
+
+%%=============================================================================%
+%% NOTA(Pablo): Sigue a partir de aquí
+%%=============================================================================%
+Bla bla bla
+
+
 
 Pero por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{arnold:2005} o C\#~\cite{albahari:2010}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple es un mecanismo muy útil~\cite{}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
 
