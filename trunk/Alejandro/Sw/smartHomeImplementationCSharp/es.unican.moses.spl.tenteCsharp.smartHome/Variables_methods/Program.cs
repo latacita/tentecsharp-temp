@@ -28,6 +28,10 @@ namespace Program
             WindowCtrl w2 = new WindowCtrl(3, 2);
             WindowSensor ws1 = new WindowSensor(3, 2);
             WindowSensor ws2 = new WindowSensor(4, 3);
+            BlindCtrl b1 = new BlindCtrl(6, 2);
+            BlindCtrl b2 = new BlindCtrl(7, 3);
+            BlindSensor bs1 = new BlindSensor(7, 6);
+            BlindSensor bs2 = new BlindSensor(8, 7);
             LigthCtrl l1 = new LigthCtrl(4, 0);
             LigthCtrl l2 = new LigthCtrl(5, 2);
             LigthSensor ls1 = new LigthSensor(6, 4);
@@ -42,6 +46,7 @@ namespace Program
             g.initHeaterMng();
             g.initWindowMng();
             g.initLigthMng();
+            g.initBlindMng();
             g.addFloor(f1);
             g.addFloor(f2);
             g.addFloor(f3);
@@ -57,6 +62,10 @@ namespace Program
             g.ligthMng_addLigthCtrl(l2);
             g.ligthMng_addLigthSensor(ls1);
             g.ligthMng_addLigthSensor(ls2);
+            g.blindMng_addBlindCtrl(b1);
+            g.blindMng_addBlindCtrl(b2);
+            g.blindMng_addBlindSensor(bs1);
+            g.blindMng_addBlindSensor(bs2);
             SimulatorGUI sim = new SimulatorGUI(g);
             GatewayGUI gatewayGUI = new GatewayGUI(g,sim);
             g.initSmartEnergyMng(gatewayGUI);
@@ -65,11 +74,13 @@ namespace Program
             gatewayGUI.addWindowMng();
             gatewayGUI.addSmartEnergy();
             gatewayGUI.addLigthMng();
+            gatewayGUI.addblindMng();
            // sim.initSimulatorGUI();
             sim.addHeaterMng();
             sim.addWindowMng();
             sim.addLigthMng();
             sim.addSmartEnergyMng(time);
+            sim.addBlindMng();
             sim.Show();
             gatewayGUI.Show();            
             Application.Run(gatewayGUI);

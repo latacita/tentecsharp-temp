@@ -59,6 +59,19 @@
     <Compile Include="BaseSystem\Logic\IDeviceObserver.cs" />
     <Compile Include="BaseSystem\Logic\Room.cs" />
     <Compile Include="BaseSystem\Logic\Sensor.cs" />
+    <Compile Include="BlindMng\GUI\GatewayGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlindMng\GUI\GatewayGUI.Designer.cs" />
+    <Compile Include="BlindMng\Logic\Gateway.cs" />
+    <Compile Include="BlindMng\Logic\IGatewayGUIBlindObserver.cs" />
+    <Compile Include="BlindMng\Logic\ISubjectGatewayBlind.cs" />
+    <Compile Include="BlindMng\Logic\BlindCtrl.cs" />
+    <Compile Include="BlindMng\Logic\BlindSensor.cs" />
+    <Compile Include="BlindMng\SimulatorGUI\SimulatorGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlindMng\SimulatorGUI\SimulatorGUI.Designer.cs" />
     <Compile Include="HeaterMng\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +101,8 @@
     <Compile Include="LigthMng\Logic\LigthCtrl.cs" />
     <Compile Include="LigthMng\Logic\Gateway.cs" />
     <Compile Include="LigthMng\SimulatorGUI\SimulatorGUI.Designer.cs" />
+    <Compile Include="SmartEnergyMng\Logic\IGatewayGUISmartEnergyObserver.cs" />
+    <Compile Include="SmartEnergyMng\Logic\ISubjectGatewaySmartEnergy.cs" />
     <Compile Include="SmartEnergyMng\Logic\ITimeObserver.cs" />
     <Compile Include="SmartEnergyMng\Logic\Time.cs" />
     <Compile Include="SmartEnergyMng\SimulatorGUI\SimulatorGUI.cs">

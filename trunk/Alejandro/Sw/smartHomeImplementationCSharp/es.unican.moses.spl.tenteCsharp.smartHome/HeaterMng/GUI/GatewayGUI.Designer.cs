@@ -216,8 +216,8 @@ namespace SmartHome
         {
             dictionaryButtonSwitchByRoom[id_heater].Text = "ON";
             dictionaryButtonSwitchByRoom[id_heater].BackColor = System.Drawing.Color.Green;
-            dictionaryTrackBarByRoom[id_heater].Value = 20;
-            dictionaryTextTempByRoom[id_heater].Text = "20,0";
+            dictionaryTrackBarByRoom[id_heater].Value = Convert.ToInt32(gateway.heaterMng_getDesiredTemperature());
+            dictionaryTextTempByRoom[id_heater].Text = gateway.heaterMng_getDesiredTemperature().ToString();
             dictionaryTrackBarByRoom[id_heater].Visible = true;
             dictionaryLabelByRoom[id_heater].Visible = true;
             dictionaryTextTempByRoom[id_heater].Visible = true;
@@ -246,8 +246,8 @@ namespace SmartHome
             trackBar_main.Visible = true;
             labTemp.Visible = true;
             textTemp.Visible = true;
-            textTemp.Text = "20,0";
-            trackBar_main.Value = 20;
+            textTemp.Text = gateway.heaterMng_getDesiredTemperature().ToString();
+            trackBar_main.Value = Convert.ToInt32(gateway.heaterMng_getDesiredTemperature());
         }//allSwitchOn
 
         public void allSwitchOff()
