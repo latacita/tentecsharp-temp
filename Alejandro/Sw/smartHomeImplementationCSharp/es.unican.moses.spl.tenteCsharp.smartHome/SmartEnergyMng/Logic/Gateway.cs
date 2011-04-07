@@ -13,7 +13,6 @@ namespace SmartHome
     public partial class Gateway : ITimeObserver, ISubjectGatewaySmartEnergy
     {
         protected bool statusSmartEnergyMng = false;
-        protected GatewayGUI gGUI;
         protected List<String> timeTables = new List<String>();
         protected Dictionary<int, List<double>> dictTimesTables = new Dictionary<int, List<double>>();
         protected List<Double> emptyTime = new List<double>();
@@ -24,10 +23,10 @@ namespace SmartHome
        
         #region Constructor
 
-        public void initSmartEnergyMng(GatewayGUI gGUI)
+        public void initSmartEnergyMng()
         {
-            this.gGUI = gGUI;
-            smartEnergy_readTimeTables();            
+            smartEnergy_readTimeTables();
+            time.registerObserver(this);
             
         }// initSmartEnergyMng
 
@@ -37,8 +36,10 @@ namespace SmartHome
         ///     Checks the current timer to check if the house is busy or empty to 
         ///     switch on/off heaters and devices
         /// </summary>
-        public void smartEnergy_checkTime(double time)
+        public void smartEnergy_checkTime(int hour, int minutes)
         {
+            String t = hour.ToString() + "," + minutes.ToString();
+            double time = Convert.ToDouble(t);
             if (statusSmartEnergyMng == true)
             {
                 for (int i = 0; i < emptyTime.Count; i = i + 2)
@@ -61,8 +62,10 @@ namespace SmartHome
         }//smartEnergy_getEmptyTime
 
         
-        public void smartEnergy_switchOnSmartEnergyMng(double time)
+        public void smartEnergy_switchOnSmartEnergyMng(int hour, int minutes)
         {
+            String t = hour.ToString() + "," + minutes.ToString();
+            double time = Convert.ToDouble(t);
             this.statusSmartEnergyMng = true;
             List<HeaterCtrl> h = heaterMng_getHeaters();
             for (int i = 0; i < h.Count; i++)
@@ -82,7 +85,7 @@ namespace SmartHome
                 }//if
             }//for  
             //Check the timer
-            smartEnergy_checkTime(time);
+            smartEnergy_checkTime(hour,minutes);
             notifySwitchOnSmartEnergyToObsevers();
         }//smartEnergy_switchOnSmartEnergyMng
 
@@ -233,18 +236,6 @@ namespace SmartHome
         } // notifySwitchOffSmartEnergyToObsevers
         #endregion
 
-        #region Subject-Obsever Pattern for Time
-
-        /// <summary>
-        ///     Time has changed
-        /// </summary>
-        /// <param name="timer">The new timer</param>
-        public void timeChanged(double time)
-        {
-            smartEnergy_checkTime(time);
-        } // timeChanged        
-
-        #endregion
     }// Gateway
 
 } // namespace

@@ -13,6 +13,7 @@ namespace SmartHome
         protected List<Sensor> sensors = null;
         protected List<Actuator> actuators = null;
         protected List<Floor> floors = null;
+        protected Time time = null;
 
         public void initBaseSystem()
         {
@@ -20,6 +21,16 @@ namespace SmartHome
             this.sensors = new List<Sensor>();
             this.floors = new List<Floor>();
         } // Gateway()
+
+        public void initTime(Time time)
+        {
+            this.time = time;
+        }//initTime
+
+        public Time getTimer()
+        {
+            return time;
+        }//getTimer
 
         public void addSensor(Sensor s)
         {
@@ -130,7 +141,9 @@ namespace SmartHome
 
         public void switchDown() { 
             // Apaga todos los sensores y actuadores
-        } 
+        }
+
+      
 
     } // Gateway
 

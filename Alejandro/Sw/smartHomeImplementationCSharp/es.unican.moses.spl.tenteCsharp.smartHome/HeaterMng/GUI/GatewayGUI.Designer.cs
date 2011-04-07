@@ -81,9 +81,9 @@ namespace SmartHome
             //Image
             //
             pictureTherm = new PictureBox();
-            pictureTherm.Image = System.Drawing.Image.FromFile(".\\ImagesDebug\\thermometer.jpg"); //TEMPORAL
+            pictureTherm.Image = System.Drawing.Image.FromFile("..\\..\\Images\\thermometer.jpg"); //TEMPORAL
             pictureTherm.Location = new System.Drawing.Point(width / 8, height / 16);
-            pictureTherm.Size = new System.Drawing.Size(75, 84);
+            pictureTherm.Size = new System.Drawing.Size(90, 90);
             tabPage_heaters.Controls.Add(pictureTherm);
         }
 
@@ -150,9 +150,9 @@ namespace SmartHome
             //Image
             //
             PictureBox pictureThermByRoom = new PictureBox();
-            pictureThermByRoom.Image = System.Drawing.Image.FromFile(".\\ImagesDebug\\thermometer.jpg"); //TEMPORAL
+            pictureThermByRoom.Image = System.Drawing.Image.FromFile("..\\..\\Images\\thermometer.jpg"); //TEMPORAL
             pictureThermByRoom.Location = new System.Drawing.Point(width / 8, height / 16);
-            pictureThermByRoom.Size = new System.Drawing.Size(75, 84);
+            pictureThermByRoom.Size = new System.Drawing.Size(90, 90);
             DictionaryTabPageDevice[id_heater].Controls.Add(pictureThermByRoom);
         }
 

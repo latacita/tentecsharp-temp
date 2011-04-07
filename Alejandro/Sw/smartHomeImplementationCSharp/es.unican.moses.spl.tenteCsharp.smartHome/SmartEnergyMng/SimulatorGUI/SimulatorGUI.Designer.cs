@@ -18,11 +18,11 @@ namespace SmartHome
         private Label labelCurrentTime = new Label();
         private Label labelTextEmpty = new Label();
         private ListBox listEmpty = new ListBox();
-        private Time timer;
+        //private Time timer;
 
-        public void addSmartEnergyMng(Time time)
+        public void addSmartEnergyMng()
         {
-            this.timer = time;
+            //this.timer = time;
             initTabPageSmartEnergy();            
         }//addSmartEnergyMng
 
@@ -114,7 +114,7 @@ namespace SmartHome
             //
             this.labelCurrentTime.Location = new System.Drawing.Point(350, 120);
             this.labelCurrentTime.Size = new System.Drawing.Size(80, 20);
-            this.labelCurrentTime.Text = this.timer.getTime().ToString().Replace(",", ":");
+            this.labelCurrentTime.Text = gateway.getTimer().getTime().ToString().Replace(",", ":");
             //
             //Button
             //
@@ -136,14 +136,11 @@ namespace SmartHome
             this.tabPageSmartEnergy.Controls.Add(listEmpty);
         }//initTabPageSmartEnergy
 
-        public void refreshTime()
+        public void smartEnergy_refreshTime()
         {
-           this.labelCurrentTime.Text = comboBoxHours.Text+":"+comboBoxMinutes.Text;
-        }//refreshTime
+           this.labelCurrentTime.Text = gateway.getTimer().getTime();
+        }//smartEnergy_refreshTime
 
-        public double currentTime()
-        {
-            return this.timer.getTime();
-        }//currentTime
+       
     }
 }

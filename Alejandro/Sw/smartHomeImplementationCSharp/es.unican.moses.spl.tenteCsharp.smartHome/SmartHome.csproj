@@ -72,6 +72,17 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BlindMng\SimulatorGUI\SimulatorGUI.Designer.cs" />
+    <Compile Include="BlindSimulation\GUI\GatewayGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlindSimulation\GUI\GatewayGUI.Designer.cs" />
+    <Compile Include="BlindSimulation\Logic\Gateway.cs" />
+    <Compile Include="BlindSimulation\Logic\IGatewayGUIBlindSimulationObserver.cs" />
+    <Compile Include="BlindSimulation\Logic\ISubjectGatewayBlindSimulation.cs" />
+    <Compile Include="BlindSimulation\SimulatorGUI\SimulatorGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlindSimulation\SimulatorGUI\SimulatorGUI.Designer.cs" />
     <Compile Include="HeaterMng\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,20 +102,33 @@
     <Compile Include="HeaterMng\SimulatorGUI\SimulatorGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LigthMng\GUI\GatewayGUI.cs">
+    <Compile Include="LightMng\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LigthMng\GUI\GatewayGUI.Designer.cs" />
-    <Compile Include="LigthMng\Logic\IGatewayGUILigthObserver.cs" />
-    <Compile Include="LigthMng\Logic\ISubjectGatewayLigth.cs" />
-    <Compile Include="LigthMng\Logic\LigthSensor.cs" />
-    <Compile Include="LigthMng\Logic\LigthCtrl.cs" />
-    <Compile Include="LigthMng\Logic\Gateway.cs" />
-    <Compile Include="LigthMng\SimulatorGUI\SimulatorGUI.Designer.cs" />
+    <Compile Include="LightMng\GUI\GatewayGUI.Designer.cs" />
+    <Compile Include="LightMng\Logic\IGatewayGUILigthObserver.cs" />
+    <Compile Include="LightMng\Logic\ISubjectGatewayLigth.cs" />
+    <Compile Include="LightMng\Logic\LigthSensor.cs" />
+    <Compile Include="LightMng\Logic\LigthCtrl.cs" />
+    <Compile Include="LightMng\Logic\Gateway.cs" />
+    <Compile Include="LightMng\SimulatorGUI\SimulatorGUI.Designer.cs" />
+    <Compile Include="LightSimulation\GUI\GatewayGUI.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LightSimulation\GUI\GatewayGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LightSimulation\Logic\Gateway.cs" />
+    <Compile Include="LightSimulation\Logic\IGatewayGUILightSimulationObserver.cs" />
+    <Compile Include="LightSimulation\Logic\ISubjectGatewaySmartEnergy.cs" />
+    <Compile Include="LightSimulation\SimulatorGUI\SimulatorGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LightSimulation\SimulatorGUI\SimulatorGUI.Designer.cs" />
     <Compile Include="SmartEnergyMng\Logic\IGatewayGUISmartEnergyObserver.cs" />
     <Compile Include="SmartEnergyMng\Logic\ISubjectGatewaySmartEnergy.cs" />
-    <Compile Include="SmartEnergyMng\Logic\ITimeObserver.cs" />
-    <Compile Include="SmartEnergyMng\Logic\Time.cs" />
+    <Compile Include="BaseSystem\Logic\ITimeObserver.cs" />
+    <Compile Include="BaseSystem\Logic\Time.cs" />
     <Compile Include="SmartEnergyMng\SimulatorGUI\SimulatorGUI.cs">
       <SubType>Form</SubType>
     </Compile>

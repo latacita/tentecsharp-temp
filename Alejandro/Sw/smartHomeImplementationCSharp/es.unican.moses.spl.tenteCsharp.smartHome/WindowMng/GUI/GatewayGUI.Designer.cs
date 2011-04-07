@@ -73,7 +73,7 @@ namespace SmartHome
             //Image
             //
             pict_window = new PictureBox();
-            pict_window.Image = System.Drawing.Image.FromFile(".\\ImagesDebug\\window.jpg"); //TEMPORAL
+            pict_window.Image = System.Drawing.Image.FromFile("..\\..\\Images\\window.jpg"); //TEMPORAL
             pict_window.Location = new System.Drawing.Point((width+45) / 3, height / 16);
             pict_window.Size = new System.Drawing.Size(100, 94);
             tabPage_window.Controls.Add(pict_window);
@@ -130,7 +130,7 @@ namespace SmartHome
             //Image
             //
             PictureBox pict_window = new PictureBox();
-            pict_window.Image = System.Drawing.Image.FromFile(".\\ImagesDebug\\window.jpg"); //TEMPORAL
+            pict_window.Image = System.Drawing.Image.FromFile("..\\..\\Images\\window.jpg"); //TEMPORAL
             pict_window.Location = new System.Drawing.Point((width + 45) / 3, height / 16);
             pict_window.Size = new System.Drawing.Size(100, 94);
             DictionaryTabPageDevice[id_window].Controls.Add(pict_window);

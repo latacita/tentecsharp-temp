@@ -11,23 +11,38 @@ namespace SmartHome
 
         // Observers list
         protected ICollection<ITimeObserver> observers = new LinkedList<ITimeObserver>();
+        protected int hour;
+        protected int minutes;
 
-        public Time(double time)
+        public Time(int hour, int minutes)
         {
-            this.time = time;
-        }//Time(double)
+            this.hour = hour;
+            this.minutes = minutes;
+        }//Time(int,int)
 
         #region Getters and Setters
-        public double getTime()
-        {
-            return time;
-        }//getTime
-
-        public void setTime(double time)
-        {
-            this.time = time;
+        public void setTime(int valueHour, int valueMinute )
+	    {
+	        hour = ( valueHour >= 0 && valueHour < 24 ) ?
+	                valueHour : 0;
+	        minutes = ( valueMinute >= 0 && valueMinute < 60 ) ?
+	        valueMinute : 0;
             notifyObservers();
-        }//setTime
+	    }//setTime
+        public int getHour()
+        {
+            return hour;
+        }
+        public int getMinutes()
+        {
+            return minutes;
+        }
+	  
+	    public string getTime()
+	    {
+	     return String.Format(
+	        "{0:D2}:{1:D2}", hour, minutes);
+	    }//getTime       
 
         #endregion
 
@@ -47,7 +62,7 @@ namespace SmartHome
         /// </summary>
         protected void notifyObservers() {
             foreach (ITimeObserver obs in observers) { 
-                obs.timeChanged(time);
+                obs.timeChanged(hour, minutes);
             } //     
         } // notifyObservers
 
