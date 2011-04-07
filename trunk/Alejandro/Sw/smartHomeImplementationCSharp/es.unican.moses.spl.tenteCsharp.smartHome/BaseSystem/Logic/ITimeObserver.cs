@@ -19,7 +19,7 @@ namespace SmartHome
         ///     timer obsevers the times goes ...
         /// </summary>
         /// <param name="timer">The new timestamp</param>
-        void timeChanged(double time); 
+        void timeChanged(int hour, int minutes); 
     
     } // ITimeObserver
 } // SmartHome

@@ -15,7 +15,7 @@ namespace SmartHome
         {
             if (buttonSmartEnergy.Text.Equals("OFF"))
             {
-                gateway.smartEnergy_switchOnSmartEnergyMng(simulator.currentTime());            
+                gateway.smartEnergy_switchOnSmartEnergyMng(gateway.getTimer().getHour(),gateway.getTimer().getMinutes());            
             }// if
             else
             {

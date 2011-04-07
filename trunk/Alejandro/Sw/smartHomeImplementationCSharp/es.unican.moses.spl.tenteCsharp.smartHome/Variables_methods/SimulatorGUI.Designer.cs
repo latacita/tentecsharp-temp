@@ -13,5 +13,12 @@ namespace SmartHome
             filldataGridViewLigths();
             fillDataGridViewBlinds();
         }//observerRefreshDataGrid        
+
+        public virtual void refreshTime()
+        {
+            smartEnergy_refreshTime();
+            lightSimulation_refreshTime();
+            blindSimulation_refreshTime();
+        }//refreshTime
     }
 }

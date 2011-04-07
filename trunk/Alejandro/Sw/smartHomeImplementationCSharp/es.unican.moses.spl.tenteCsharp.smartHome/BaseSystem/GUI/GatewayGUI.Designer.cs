@@ -7,7 +7,7 @@ namespace SmartHome
     {
         //Values for windows size
         private const int height=330;
-        private const int width=385;
+        private const int width=380;
         
         /// <summary>
         /// Required designer variable.

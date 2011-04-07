@@ -54,7 +54,7 @@ namespace SmartHome
             //
             lab_apertureBlind = new Label();
             lab_apertureBlind.Size = new System.Drawing.Size(180, 20);
-            lab_apertureBlind.Text = "Select aperture: ";
+            lab_apertureBlind.Text = "Select aperture (0-100): ";
             lab_apertureBlind.Location = new System.Drawing.Point((width - 30) / 3, (height + 80) / 3);
             tabPage_blind.Controls.Add(lab_apertureBlind);
             lab_apertureBlind.Visible = true;
@@ -113,7 +113,7 @@ namespace SmartHome
             //
             dictionaryLabelApertureBlindByRoom.Add(id_blind, new Label());
             dictionaryLabelApertureBlindByRoom[id_blind].Size = new System.Drawing.Size(180, 20);
-            dictionaryLabelApertureBlindByRoom[id_blind].Text = "Select aperture: ";
+            dictionaryLabelApertureBlindByRoom[id_blind].Text = "Select aperture (0-100): ";
             dictionaryLabelApertureBlindByRoom[id_blind].Location = new System.Drawing.Point((width - 30) / 3, (height) / 3);
             dictionaryLabelApertureBlindByRoom[id_blind].Visible = true;
             DictionaryTabPageDevice[id_blind].Controls.Add(dictionaryLabelApertureBlindByRoom[id_blind]);
