@@ -76,7 +76,7 @@ namespace SmartHome
                 if (time1.Contains(","))
                 {
                     time1 = time1.Replace(",", ":");
-                    if (time1.Length == 4 )
+                    if (time1.Length == 4 || time1.Length==3)
                         time1 = time1 + "0";
                 }
                 else
@@ -84,7 +84,7 @@ namespace SmartHome
                 if (time2.Contains(","))
                 {
                     time2 = time2.Replace(",", ":");
-                    if (time2.Length == 4)
+                    if (time2.Length == 4 || time1.Length== 3)
                         time2 = time2 + "0";
 
                 }

@@ -91,7 +91,7 @@ namespace Program
             sim.Show();
             gatewayGUI.Show();            
             Application.Run(gatewayGUI);
-            Application.Run(sim); 
+            Application.Run(sim);           
         }
     }
 }
