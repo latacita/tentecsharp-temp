@@ -141,7 +141,7 @@ namespace SmartHome
                 {
 
                     String time1 = temp.Substring(0, 2)+ "," + temp.Substring(3, 2);                    
-                    String time2 = temp.Substring(6, 2) + "," + temp.Substring(9, 2);
+                    String time2 = temp.Substring(6, 2) + "," + temp.Substring(9, 2);                    
                     listHours.Add(Convert.ToDouble(time1));
                     listHours.Add(Convert.ToDouble(time2));
                     
@@ -161,48 +161,44 @@ namespace SmartHome
 
         public List<Double> smartEnergy_findEmptyTime()
         {
-            List<Double> Result = new List<double>();
+            List<Double> Result = new List<double>();          
+           
             for (int i = 0; i < dictTimesTables[0].Count; i=i+2) //Guardamos en resultado los horarios del primero
             {
                 Result.Add(dictTimesTables[0][i]);
                 Result.Add(dictTimesTables[0][i + 1]);
             }//for
+            
             for (int i = 1; i < dictTimesTables.Count; i++)
             {
-                
                 for (int k = 0; k < Result.Count; k = k + 2)
-                {
-
-                    bool flag = false;
+                {                  
+                 
+                    bool flag = false;                    
                     for (int j = 0; j < dictTimesTables[i].Count; j=j+2)
                     {
                         if (Result[k] < dictTimesTables[i][j + 1] && Result[k + 1] > dictTimesTables[i][j])
                         {
-                            if (Result[k] > dictTimesTables[i][j])
-                            {
-
-                            }
-                            else
+                            if(Result[k] <= dictTimesTables[i][j])
                             {
                                 Result[k] = dictTimesTables[i][j];
-
-                            }//Cogemos start sino temp[k]
-                            if (Result[k + 1] < dictTimesTables[i][j + 1]) { }
-                            else
+                            }//if
+                            if(Result[k + 1] >= dictTimesTables[i][j + 1])
                             {
                                 Result[k + 1] = dictTimesTables[i][j + 1];
-                            }//Cogemos final sino temp[k+1]
-
+                            }//if
                             flag = true;
-                        }
-
-                    }//for
+                        }//if                        
+                     
+                    }//for                    
                     if (flag == false)
                     {
-                        Result.RemoveAt(k);
-                        Result.RemoveAt(k);
-                    }//if
-                }//for
+                       int temp = Result.Count;       
+                       Result.RemoveAt(k);
+                       Result.RemoveAt(k);
+                       if (temp > k + 1)  k = k - 2;                            
+                    }//if                                  
+                }//for                
             }//for
             return Result;
         }//prueba
