@@ -1076,7 +1076,7 @@ namespace Unican.smartHome
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(1.5, 1);
+				return new DslDiagrams::SizeD(1.5, 1.5);
 			}
 		}
 		#endregion
@@ -1093,29 +1093,13 @@ namespace Unican.smartHome
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 113, 111, 110);
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ShapeOutline, outlinePen);
+			// Fill brush settings for this shape.
+			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
+			backgroundBrush.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.InactiveCaption);
+			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
+		
 		}
 		
-		/// <summary>
-		/// Indicates whether this shape displays a background gradient.
-		/// </summary>
-		public override bool HasBackgroundGradient
-		{
-			get
-			{
-				return true;
-			}
-		}
-		
-		/// <summary>
-		/// Indicates the direction of the gradient.
-		/// </summary>
-		public override global::System.Drawing.Drawing2D.LinearGradientMode BackgroundGradientMode
-		{
-			get
-			{
-				return global::System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-			}
-		}
 		/// <summary>
 		/// Specifies the geometry used by this shape
 		/// </summary>
@@ -1123,7 +1107,7 @@ namespace Unican.smartHome
 		{
 			get
 			{
-				return DslDiagrams::ShapeGeometries.RoundedRectangle;
+				return DslDiagrams::ShapeGeometries.Circle;
 			}
 		}
 		#endregion
