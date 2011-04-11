@@ -1,0 +1,67 @@
+﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
+<#@ template language="c#v3.5" #>
+<#@ output extension=".cs" #>
+<#@ smartHome processor="smartHomeDirectiveProcessor" requires="fileName='Test.sh'" #>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Drawing;
+using System.Windows.Forms;
+using SmartHome;
+
+
+namespace Program
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			Gateway g = new Gateway();
+		<#
+			int i=0;
+			int j=0;
+			foreach (Floor floor in this.SmartHome.Floors)
+		{
+		#>
+			Floor f<#=i#> = new Floor("<#= floor.Name #>",<#= i#>);
+		<#	
+			i++; 
+		#>
+			<#		
+			foreach (Room room in floor.Rooms)
+			{
+			#>
+				Room r<#=j#> = new Room("<#= room.Name #>",<#= j#>);
+				f<#=i#>.addRoom(r<#=j#>);
+				<#j++;#>
+			<#		
+			}
+			#>
+		<#
+		}
+		#>
+				g.initBaseSystem();
+			<#
+			int k=0;
+			foreach (Floor floor in this.SmartHome.Floors)
+			{
+			#>
+				g.addFloor(f<#=k#>);
+				<#
+				 k++;
+				#>
+			<#  
+		    }
+			#>		
+			SimulatorGUI sim = new SimulatorGUI(g);
+            GatewayGUI gatewayGUI = new GatewayGUI(g,sim);
+			gatewayGUI.addBaseSystem();
+			sim.Show();
+            gatewayGUI.Show();            
+            Application.Run(gatewayGUI);
+            Application.Run(sim);
+		}// Main
+	}//Program
+}//namespace

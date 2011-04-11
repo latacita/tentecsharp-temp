@@ -1,0 +1,883 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Unican.smartHome.smartHomeDomainModel.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.smartHome</value>
+    <comment>Description for DslLibrary &apos;smartHome&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.smartHomeDomainModel.DisplayName" xml:space="preserve">
+    <value>smartHome</value>
+    <comment>DisplayName for DslLibrary &apos;smartHome&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHome.Description" xml:space="preserve">
+    <value>The root in which all other elements are embedded. Appears as a diagram.</value>
+    <comment>Description for DomainClass &apos;SmartHome&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHome.DisplayName" xml:space="preserve">
+    <value>Smart Home</value>
+    <comment>DisplayName for DomainClass &apos;SmartHome&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Floor.Description" xml:space="preserve">
+    <value>Elements embedded in the model. Appear as boxes on the diagram.</value>
+    <comment>Description for DomainClass &apos;Floor&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Floor.DisplayName" xml:space="preserve">
+    <value>Floor</value>
+    <comment>DisplayName for DomainClass &apos;Floor&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Floor/Name.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.Floor.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;Floor&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Floor/Name.DisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;Floor&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Room.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.Room</value>
+    <comment>Description for DomainClass &apos;Room&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Room.DisplayName" xml:space="preserve">
+    <value>Room</value>
+    <comment>DisplayName for DomainClass &apos;Room&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Room/Name.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.Room.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;Room&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Room/Name.DisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;Room&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartEnergy.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.SmartEnergy</value>
+    <comment>Description for DomainClass &apos;SmartEnergy&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartEnergy.DisplayName" xml:space="preserve">
+    <value>Smart Energy</value>
+    <comment>DisplayName for DomainClass &apos;SmartEnergy&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.LightSimulation.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.LightSimulation</value>
+    <comment>Description for DomainClass &apos;LightSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.LightSimulation.DisplayName" xml:space="preserve">
+    <value>Light Simulation</value>
+    <comment>DisplayName for DomainClass &apos;LightSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.BlindSimulation.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.BlindSimulation</value>
+    <comment>Description for DomainClass &apos;BlindSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.BlindSimulation.DisplayName" xml:space="preserve">
+    <value>Blind Simulation</value>
+    <comment>DisplayName for DomainClass &apos;BlindSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Heater.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.Heater</value>
+    <comment>Description for DomainClass &apos;Heater&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Heater.DisplayName" xml:space="preserve">
+    <value>Heater</value>
+    <comment>DisplayName for DomainClass &apos;Heater&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Window.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.Window</value>
+    <comment>Description for DomainClass &apos;Window&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Window.DisplayName" xml:space="preserve">
+    <value>Window</value>
+    <comment>DisplayName for DomainClass &apos;Window&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Blind.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.Blind</value>
+    <comment>Description for DomainClass &apos;Blind&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Blind.DisplayName" xml:space="preserve">
+    <value>Blind</value>
+    <comment>DisplayName for DomainClass &apos;Blind&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Light.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.Light</value>
+    <comment>Description for DomainClass &apos;Light&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Light.DisplayName" xml:space="preserve">
+    <value>Light</value>
+    <comment>DisplayName for DomainClass &apos;Light&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasFloors.Description" xml:space="preserve">
+    <value>Embedding relationship between the Model and Elements</value>
+    <comment>Description for DomainClass &apos;SmartHomeHasFloors&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasFloors.DisplayName" xml:space="preserve">
+    <value>Smart Home Has Floors</value>
+    <comment>DisplayName for DomainClass &apos;SmartHomeHasFloors&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasFloors/SmartHome.Description" xml:space="preserve">
+    <value></value>
+    <comment>Description for DomainRole &apos;SmartHome&apos; on DomainRelationship &apos;SmartHomeHasFloors&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasFloors/SmartHome.DisplayName" xml:space="preserve">
+    <value>Smart Home</value>
+    <comment>DisplayName for DomainRole &apos;SmartHome&apos; on DomainRelationship &apos;SmartHomeHasFloors&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasFloors/SmartHome.PropertyDisplayName" xml:space="preserve">
+    <value>Floors</value>
+    <comment>PropertyDisplayName for DomainRole &apos;SmartHome&apos; on DomainRelationship &apos;SmartHomeHasFloors&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasFloors/Element.Description" xml:space="preserve">
+    <value></value>
+    <comment>Description for DomainRole &apos;Element&apos; on DomainRelationship &apos;SmartHomeHasFloors&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasFloors/Element.DisplayName" xml:space="preserve">
+    <value>Element</value>
+    <comment>DisplayName for DomainRole &apos;Element&apos; on DomainRelationship &apos;SmartHomeHasFloors&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasFloors/Element.PropertyDisplayName" xml:space="preserve">
+    <value>Smart Home</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Element&apos; on DomainRelationship &apos;SmartHomeHasFloors&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.FloorHasRooms.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.FloorHasRooms</value>
+    <comment>Description for DomainClass &apos;FloorHasRooms&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.FloorHasRooms.DisplayName" xml:space="preserve">
+    <value>Floor Has Rooms</value>
+    <comment>DisplayName for DomainClass &apos;FloorHasRooms&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.FloorHasRooms/Floor.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.FloorHasRooms.Floor</value>
+    <comment>Description for DomainRole &apos;Floor&apos; on DomainRelationship &apos;FloorHasRooms&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.FloorHasRooms/Floor.DisplayName" xml:space="preserve">
+    <value>Floor</value>
+    <comment>DisplayName for DomainRole &apos;Floor&apos; on DomainRelationship &apos;FloorHasRooms&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.FloorHasRooms/Floor.PropertyDisplayName" xml:space="preserve">
+    <value>Rooms</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Floor&apos; on DomainRelationship &apos;FloorHasRooms&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.FloorHasRooms/Room.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.FloorHasRooms.Room</value>
+    <comment>Description for DomainRole &apos;Room&apos; on DomainRelationship &apos;FloorHasRooms&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.FloorHasRooms/Room.DisplayName" xml:space="preserve">
+    <value>Room</value>
+    <comment>DisplayName for DomainRole &apos;Room&apos; on DomainRelationship &apos;FloorHasRooms&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.FloorHasRooms/Room.PropertyDisplayName" xml:space="preserve">
+    <value>Floor</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Room&apos; on DomainRelationship &apos;FloorHasRooms&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasSmartEnergy.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.SmartHomeHasSmartEnergy</value>
+    <comment>Description for DomainClass &apos;SmartHomeHasSmartEnergy&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasSmartEnergy.DisplayName" xml:space="preserve">
+    <value>Smart Home Has Smart Energy</value>
+    <comment>DisplayName for DomainClass &apos;SmartHomeHasSmartEnergy&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasSmartEnergy/SmartHome.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.SmartHomeHasSmartEnergy.SmartHome</value>
+    <comment>Description for DomainRole &apos;SmartHome&apos; on DomainRelationship &apos;SmartHomeHasSmartEnergy&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasSmartEnergy/SmartHome.DisplayName" xml:space="preserve">
+    <value>Smart Home</value>
+    <comment>DisplayName for DomainRole &apos;SmartHome&apos; on DomainRelationship &apos;SmartHomeHasSmartEnergy&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasSmartEnergy/SmartHome.PropertyDisplayName" xml:space="preserve">
+    <value>Smart Energy</value>
+    <comment>PropertyDisplayName for DomainRole &apos;SmartHome&apos; on DomainRelationship &apos;SmartHomeHasSmartEnergy&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasSmartEnergy/SmartEnergy.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.SmartHomeHasSmartEnergy.SmartEnergy</value>
+    <comment>Description for DomainRole &apos;SmartEnergy&apos; on DomainRelationship &apos;SmartHomeHasSmartEnergy&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasSmartEnergy/SmartEnergy.DisplayName" xml:space="preserve">
+    <value>Smart Energy</value>
+    <comment>DisplayName for DomainRole &apos;SmartEnergy&apos; on DomainRelationship &apos;SmartHomeHasSmartEnergy&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasSmartEnergy/SmartEnergy.PropertyDisplayName" xml:space="preserve">
+    <value>Smart Home</value>
+    <comment>PropertyDisplayName for DomainRole &apos;SmartEnergy&apos; on DomainRelationship &apos;SmartHomeHasSmartEnergy&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasLightSimulation.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.SmartHomeHasLightSimulation</value>
+    <comment>Description for DomainClass &apos;SmartHomeHasLightSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasLightSimulation.DisplayName" xml:space="preserve">
+    <value>Smart Home Has Light Simulation</value>
+    <comment>DisplayName for DomainClass &apos;SmartHomeHasLightSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasLightSimulation/SmartHome.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.SmartHomeHasLightSimulation.SmartHome</value>
+    <comment>Description for DomainRole &apos;SmartHome&apos; on DomainRelationship &apos;SmartHomeHasLightSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasLightSimulation/SmartHome.DisplayName" xml:space="preserve">
+    <value>Smart Home</value>
+    <comment>DisplayName for DomainRole &apos;SmartHome&apos; on DomainRelationship &apos;SmartHomeHasLightSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasLightSimulation/SmartHome.PropertyDisplayName" xml:space="preserve">
+    <value>Light Simulation</value>
+    <comment>PropertyDisplayName for DomainRole &apos;SmartHome&apos; on DomainRelationship &apos;SmartHomeHasLightSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasLightSimulation/LightSimulation.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.SmartHomeHasLightSimulation.LightSimulation</value>
+    <comment>Description for DomainRole &apos;LightSimulation&apos; on DomainRelationship &apos;SmartHomeHasLightSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasLightSimulation/LightSimulation.DisplayName" xml:space="preserve">
+    <value>Light Simulation</value>
+    <comment>DisplayName for DomainRole &apos;LightSimulation&apos; on DomainRelationship &apos;SmartHomeHasLightSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasLightSimulation/LightSimulation.PropertyDisplayName" xml:space="preserve">
+    <value>Smart Home</value>
+    <comment>PropertyDisplayName for DomainRole &apos;LightSimulation&apos; on DomainRelationship &apos;SmartHomeHasLightSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasBlindSimulation.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.SmartHomeHasBlindSimulation</value>
+    <comment>Description for DomainClass &apos;SmartHomeHasBlindSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasBlindSimulation.DisplayName" xml:space="preserve">
+    <value>Smart Home Has Blind Simulation</value>
+    <comment>DisplayName for DomainClass &apos;SmartHomeHasBlindSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasBlindSimulation/SmartHome.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.SmartHomeHasBlindSimulation.SmartHome</value>
+    <comment>Description for DomainRole &apos;SmartHome&apos; on DomainRelationship &apos;SmartHomeHasBlindSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasBlindSimulation/SmartHome.DisplayName" xml:space="preserve">
+    <value>Smart Home</value>
+    <comment>DisplayName for DomainRole &apos;SmartHome&apos; on DomainRelationship &apos;SmartHomeHasBlindSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasBlindSimulation/SmartHome.PropertyDisplayName" xml:space="preserve">
+    <value>Blind Simulation</value>
+    <comment>PropertyDisplayName for DomainRole &apos;SmartHome&apos; on DomainRelationship &apos;SmartHomeHasBlindSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasBlindSimulation/BlindSimulation.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.SmartHomeHasBlindSimulation.BlindSimulation</value>
+    <comment>Description for DomainRole &apos;BlindSimulation&apos; on DomainRelationship &apos;SmartHomeHasBlindSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasBlindSimulation/BlindSimulation.DisplayName" xml:space="preserve">
+    <value>Blind Simulation</value>
+    <comment>DisplayName for DomainRole &apos;BlindSimulation&apos; on DomainRelationship &apos;SmartHomeHasBlindSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartHomeHasBlindSimulation/BlindSimulation.PropertyDisplayName" xml:space="preserve">
+    <value>Smart Home</value>
+    <comment>PropertyDisplayName for DomainRole &apos;BlindSimulation&apos; on DomainRelationship &apos;SmartHomeHasBlindSimulation&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasHeaters.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.RoomHasHeaters</value>
+    <comment>Description for DomainClass &apos;RoomHasHeaters&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasHeaters.DisplayName" xml:space="preserve">
+    <value>Room Has Heaters</value>
+    <comment>DisplayName for DomainClass &apos;RoomHasHeaters&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasHeaters/Room.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.RoomHasHeaters.Room</value>
+    <comment>Description for DomainRole &apos;Room&apos; on DomainRelationship &apos;RoomHasHeaters&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasHeaters/Room.DisplayName" xml:space="preserve">
+    <value>Room</value>
+    <comment>DisplayName for DomainRole &apos;Room&apos; on DomainRelationship &apos;RoomHasHeaters&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasHeaters/Room.PropertyDisplayName" xml:space="preserve">
+    <value>Heaters</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Room&apos; on DomainRelationship &apos;RoomHasHeaters&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasHeaters/Heater.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.RoomHasHeaters.Heater</value>
+    <comment>Description for DomainRole &apos;Heater&apos; on DomainRelationship &apos;RoomHasHeaters&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasHeaters/Heater.DisplayName" xml:space="preserve">
+    <value>Heater</value>
+    <comment>DisplayName for DomainRole &apos;Heater&apos; on DomainRelationship &apos;RoomHasHeaters&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasHeaters/Heater.PropertyDisplayName" xml:space="preserve">
+    <value>Room</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Heater&apos; on DomainRelationship &apos;RoomHasHeaters&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasWindows.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.RoomHasWindows</value>
+    <comment>Description for DomainClass &apos;RoomHasWindows&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasWindows.DisplayName" xml:space="preserve">
+    <value>Room Has Windows</value>
+    <comment>DisplayName for DomainClass &apos;RoomHasWindows&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasWindows/Room.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.RoomHasWindows.Room</value>
+    <comment>Description for DomainRole &apos;Room&apos; on DomainRelationship &apos;RoomHasWindows&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasWindows/Room.DisplayName" xml:space="preserve">
+    <value>Room</value>
+    <comment>DisplayName for DomainRole &apos;Room&apos; on DomainRelationship &apos;RoomHasWindows&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasWindows/Room.PropertyDisplayName" xml:space="preserve">
+    <value>Windows</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Room&apos; on DomainRelationship &apos;RoomHasWindows&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasWindows/Window.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.RoomHasWindows.Window</value>
+    <comment>Description for DomainRole &apos;Window&apos; on DomainRelationship &apos;RoomHasWindows&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasWindows/Window.DisplayName" xml:space="preserve">
+    <value>Window</value>
+    <comment>DisplayName for DomainRole &apos;Window&apos; on DomainRelationship &apos;RoomHasWindows&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasWindows/Window.PropertyDisplayName" xml:space="preserve">
+    <value>Room</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Window&apos; on DomainRelationship &apos;RoomHasWindows&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.WindowHasBlinds.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.WindowHasBlinds</value>
+    <comment>Description for DomainClass &apos;WindowHasBlinds&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.WindowHasBlinds.DisplayName" xml:space="preserve">
+    <value>Window Has Blinds</value>
+    <comment>DisplayName for DomainClass &apos;WindowHasBlinds&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.WindowHasBlinds/Window.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.WindowHasBlinds.Window</value>
+    <comment>Description for DomainRole &apos;Window&apos; on DomainRelationship &apos;WindowHasBlinds&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.WindowHasBlinds/Window.DisplayName" xml:space="preserve">
+    <value>Window</value>
+    <comment>DisplayName for DomainRole &apos;Window&apos; on DomainRelationship &apos;WindowHasBlinds&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.WindowHasBlinds/Window.PropertyDisplayName" xml:space="preserve">
+    <value>Blinds</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Window&apos; on DomainRelationship &apos;WindowHasBlinds&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.WindowHasBlinds/Blind.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.WindowHasBlinds.Blind</value>
+    <comment>Description for DomainRole &apos;Blind&apos; on DomainRelationship &apos;WindowHasBlinds&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.WindowHasBlinds/Blind.DisplayName" xml:space="preserve">
+    <value>Blind</value>
+    <comment>DisplayName for DomainRole &apos;Blind&apos; on DomainRelationship &apos;WindowHasBlinds&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.WindowHasBlinds/Blind.PropertyDisplayName" xml:space="preserve">
+    <value>Window</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Blind&apos; on DomainRelationship &apos;WindowHasBlinds&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasLights.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.RoomHasLights</value>
+    <comment>Description for DomainClass &apos;RoomHasLights&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasLights.DisplayName" xml:space="preserve">
+    <value>Room Has Lights</value>
+    <comment>DisplayName for DomainClass &apos;RoomHasLights&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasLights/Room.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.RoomHasLights.Room</value>
+    <comment>Description for DomainRole &apos;Room&apos; on DomainRelationship &apos;RoomHasLights&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasLights/Room.DisplayName" xml:space="preserve">
+    <value>Room</value>
+    <comment>DisplayName for DomainRole &apos;Room&apos; on DomainRelationship &apos;RoomHasLights&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasLights/Room.PropertyDisplayName" xml:space="preserve">
+    <value>Lights</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Room&apos; on DomainRelationship &apos;RoomHasLights&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasLights/Light.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.RoomHasLights.Light</value>
+    <comment>Description for DomainRole &apos;Light&apos; on DomainRelationship &apos;RoomHasLights&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasLights/Light.DisplayName" xml:space="preserve">
+    <value>Light</value>
+    <comment>DisplayName for DomainRole &apos;Light&apos; on DomainRelationship &apos;RoomHasLights&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.RoomHasLights/Light.PropertyDisplayName" xml:space="preserve">
+    <value>Room</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Light&apos; on DomainRelationship &apos;RoomHasLights&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.FloorShape.Description" xml:space="preserve">
+    <value></value>
+    <comment>Description for DomainClass &apos;FloorShape&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.FloorShape.DisplayName" xml:space="preserve">
+    <value>Floor Shape</value>
+    <comment>DisplayName for DomainClass &apos;FloorShape&apos;</comment>
+  </data>
+  <data name="FloorShapeNameDecoratorDefaultText" xml:space="preserve">
+    <value>NameDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Unican.smartHome.roomShape.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.roomShape</value>
+    <comment>Description for DomainClass &apos;roomShape&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.roomShape.DisplayName" xml:space="preserve">
+    <value>Room Shape</value>
+    <comment>DisplayName for DomainClass &apos;roomShape&apos;</comment>
+  </data>
+  <data name="roomShapeNameDecoratorDefaultText" xml:space="preserve">
+    <value>NameDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Unican.smartHome.WindowShape.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.WindowShape</value>
+    <comment>Description for DomainClass &apos;WindowShape&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.WindowShape.DisplayName" xml:space="preserve">
+    <value>Window Shape</value>
+    <comment>DisplayName for DomainClass &apos;WindowShape&apos;</comment>
+  </data>
+  <data name="WindowShapeWindowDefaultText" xml:space="preserve">
+    <value>Window</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Unican.smartHome.HeaterShape.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.HeaterShape</value>
+    <comment>Description for DomainClass &apos;HeaterShape&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.HeaterShape.DisplayName" xml:space="preserve">
+    <value>Heater Shape</value>
+    <comment>DisplayName for DomainClass &apos;HeaterShape&apos;</comment>
+  </data>
+  <data name="HeaterShapeHeaterDefaultText" xml:space="preserve">
+    <value>Heater</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Unican.smartHome.SmartEnergyShape.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.SmartEnergyShape</value>
+    <comment>Description for DomainClass &apos;SmartEnergyShape&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.SmartEnergyShape.DisplayName" xml:space="preserve">
+    <value>Smart Energy Shape</value>
+    <comment>DisplayName for DomainClass &apos;SmartEnergyShape&apos;</comment>
+  </data>
+  <data name="SmartEnergyShapeSmartEnergyDefaultText" xml:space="preserve">
+    <value>SmartEnergy</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Unican.smartHome.LightShape.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.LightShape</value>
+    <comment>Description for DomainClass &apos;LightShape&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.LightShape.DisplayName" xml:space="preserve">
+    <value>Light Shape</value>
+    <comment>DisplayName for DomainClass &apos;LightShape&apos;</comment>
+  </data>
+  <data name="LightShapeLightDefaultText" xml:space="preserve">
+    <value>Light</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Unican.smartHome.BlindShape.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.BlindShape</value>
+    <comment>Description for DomainClass &apos;BlindShape&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.BlindShape.DisplayName" xml:space="preserve">
+    <value>Blind Shape</value>
+    <comment>DisplayName for DomainClass &apos;BlindShape&apos;</comment>
+  </data>
+  <data name="BlindShapeBlindDefaultText" xml:space="preserve">
+    <value>Blind</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Unican.smartHome.LightSimulationShape.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.LightSimulationShape</value>
+    <comment>Description for DomainClass &apos;LightSimulationShape&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.LightSimulationShape.DisplayName" xml:space="preserve">
+    <value>Light Simulation Shape</value>
+    <comment>DisplayName for DomainClass &apos;LightSimulationShape&apos;</comment>
+  </data>
+  <data name="LightSimulationShapeLightSimulationDefaultText" xml:space="preserve">
+    <value>LightSimulation</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Unican.smartHome.BlindSimulationShape.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.BlindSimulationShape</value>
+    <comment>Description for DomainClass &apos;BlindSimulationShape&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.BlindSimulationShape.DisplayName" xml:space="preserve">
+    <value>Blind Simulation Shape</value>
+    <comment>DisplayName for DomainClass &apos;BlindSimulationShape&apos;</comment>
+  </data>
+  <data name="BlindSimulationShapeBlindSimulationDefaultText" xml:space="preserve">
+    <value>BlindSimulation</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Unican.smartHome.Connector.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.Connector</value>
+    <comment>Description for DomainClass &apos;Connector&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.Connector.DisplayName" xml:space="preserve">
+    <value>Connector</value>
+    <comment>DisplayName for DomainClass &apos;Connector&apos;</comment>
+  </data>
+  <data name="FormatList" xml:space="preserve">
+    <value>smartHome (*.sh)|*.sh</value>
+    <comment>A list of file format specifiers for the Save dialog box</comment>
+  </data>
+  <data name="ModelExplorerTitle" xml:space="preserve">
+    <value>smartHome Explorer</value>
+    <comment>Model Explorer Toolwindow title</comment>
+  </data>
+  <data name="Unican.smartHome.smartHomeDiagram.Description" xml:space="preserve">
+    <value>Description for Unican.smartHome.smartHomeDiagram</value>
+    <comment>Description for DomainClass &apos;smartHomeDiagram&apos;</comment>
+  </data>
+  <data name="Unican.smartHome.smartHomeDiagram.DisplayName" xml:space="preserve">
+    <value>Smart Home Diagram</value>
+    <comment>DisplayName for DomainClass &apos;smartHomeDiagram&apos;</comment>
+  </data>
+  <data name="smartHomeToolboxTab" xml:space="preserve">
+    <value>smartHome</value>
+    <comment>Toolbox item tab name</comment>
+  </data>
+  <data name="FloorToolboxItem" xml:space="preserve">
+    <value>Floor</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="FloorToolboxTooltip" xml:space="preserve">
+    <value>Create a floor</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="RoomToolboxItem" xml:space="preserve">
+    <value>Room</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="RoomToolboxTooltip" xml:space="preserve">
+    <value>Room</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="HeaterToolboxItem" xml:space="preserve">
+    <value>Heater</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="HeaterToolboxTooltip" xml:space="preserve">
+    <value>Heater</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="WindowToolboxItem" xml:space="preserve">
+    <value>Window</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="WindowToolboxTooltip" xml:space="preserve">
+    <value>Window</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="SmartEnergyToolboxItem" xml:space="preserve">
+    <value>SmartEnergy</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="SmartEnergyToolboxTooltip" xml:space="preserve">
+    <value>Smart Energy</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="BlindToolboxItem" xml:space="preserve">
+    <value>Blind</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="BlindToolboxTooltip" xml:space="preserve">
+    <value>Blind</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="LightToolboxItem" xml:space="preserve">
+    <value>Light</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="LightToolboxTooltip" xml:space="preserve">
+    <value>Light</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="LightSimulationToolboxItem" xml:space="preserve">
+    <value>LightSimulation</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="LightSimulationToolboxTooltip" xml:space="preserve">
+    <value>Light Simulation</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="BlindSimulationToolboxItem" xml:space="preserve">
+    <value>BlindSimulation</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="BlindSimulationToolboxTooltip" xml:space="preserve">
+    <value>Blind Simulation</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="UnresolvedToolboxItem" xml:space="preserve">
+    <value>ToolboxItem {0} was not found</value>
+    <comment>Invalid toolId</comment>
+  </data>
+  <data name="UnsupportedToolboxFormat" xml:space="preserve">
+    <value>Unsupported toolbox format: {0}</value>
+    <comment>Unsupported format Id</comment>
+  </data>
+  <data name="UnrecognizedElementType" xml:space="preserve">
+    <value>ElementType {0} is not recognized as a type of domain class which belongs to this domain model.</value>
+    <comment>Incorrect ElementType passed in to Model.CreateElement method</comment>
+  </data>
+  <data name="UnrecognizedElementLinkType" xml:space="preserve">
+    <value>ElementLinkType {0} is not recognized as a type of domain relationship which belongs to this domain model.</value>
+    <comment>Incorrect ElementLinkType passed in to Model.CreateElementLink method</comment>
+  </data>
+  <data name="AmbiguousSchema" xml:space="preserve">
+    <value>More than one schema found for target namespace &apos;{0}&apos;, use the first one at &apos;{1}&apos;.</value>
+    <comment>Serialization Warning: AmbiguousSchema</comment>
+  </data>
+  <data name="ExpectingFullFormRelationship" xml:space="preserve">
+    <value>Element &apos;{0}&apos; is treated as the target role-player of a relationship &apos;{1}&apos; instance, which should be serialized in full-form.</value>
+    <comment>Serialization Warning: ExpectingFullFormRelationship</comment>
+  </data>
+  <data name="ExpectingShortFormRelationship" xml:space="preserve">
+    <value>Instances of relationship &apos;{0}&apos; should be serialized in short-form.</value>
+    <comment>Serialization Warning: ExpectingShortFormRelationship</comment>
+  </data>
+  <data name="IgnoredPropertyValue" xml:space="preserve">
+    <value>Invalid property value &apos;{0}&apos; for property &apos;{1}&apos; with type &apos;{2}&apos;, ignored.</value>
+    <comment>Serialization Warning: IgnoredPropertyValue</comment>
+  </data>
+  <data name="MissingId" xml:space="preserve">
+    <value>Missing &apos;Id&apos; attribute, a new Guid &apos;{0}&apos; is auto-generated.</value>
+    <comment>Serialization Warning: MissingId</comment>
+  </data>
+  <data name="MonikerResolvedToDuplicateLink" xml:space="preserve">
+    <value>Resolving moniker &apos;{0}&apos; causes a duplicate link to be created, so the link and the moniker are ignored.</value>
+    <comment>Serialization Warning: MonikerResolvedToDuplicateLink</comment>
+  </data>
+  <data name="NoSchema" xml:space="preserve">
+    <value>Cannot find a schema that defines target namespace &apos;{0}&apos;, schema validation skipped.</value>
+    <comment>Serialization Warning: NoSchema</comment>
+  </data>
+  <data name="UnexpectedXmlElement" xml:space="preserve">
+    <value>Unexpected XML element &apos;{0}&apos;, ignored.</value>
+    <comment>Serialization Warning: UnexpectedXmlElement</comment>
+  </data>
+  <data name="AmbiguousMoniker" xml:space="preserve">
+    <value>Ambiguous moniker &apos;{0}&apos; encountered. It is used for both &apos;{1}&apos; and &apos;{2}&apos;.</value>
+    <comment>Serialization Error: AmbiguousMoniker</comment>
+  </data>
+  <data name="CannotMonikerizeElement" xml:space="preserve">
+    <value>Instances of DomainClass &apos;{0}&apos; cannot be serialized as a moniker.
+A DomainClass can be serialized as a moniker only if 
+1) it has a defined/inherited DomainProperty marked as IsMonikerKey=true, or 
+2) it is marked/inherited with SerializeId=true.</value>
+    <comment>Serialization Error: CannotMonikerizeElement</comment>
+  </data>
+  <data name="CannotOpenDocument" xml:space="preserve">
+    <value>Error encountered, check Error List window for details.</value>
+    <comment>Serialization Error: CannotOpenDocument</comment>
+  </data>
+  <data name="CannotSaveDocument" xml:space="preserve">
+    <value>Error encountered, check Error List window for details.</value>
+    <comment>Serialization Error: CannotSaveDocument</comment>
+  </data>
+  <data name="DanglingRelationship" xml:space="preserve">
+    <value>Relationship &apos;{0}&apos; instance is missing target role-player.</value>
+    <comment>Serialization Error: DanglingRelationship</comment>
+  </data>
+  <data name="InvalidPropertyValue" xml:space="preserve">
+    <value>Invalid property value &apos;{0}&apos; for property &apos;{1}&apos; with type &apos;{2}&apos;.</value>
+    <comment>Serialization Error: InvalidPropertyValue</comment>
+  </data>
+  <data name="MissingMoniker" xml:space="preserve">
+    <value>Missing moniker. A moniker is expected in attribute &apos;{0}&apos;.</value>
+    <comment>Serialization Error: MissingMoniker</comment>
+  </data>
+  <data name="MissingTransaction" xml:space="preserve">
+    <value>This must be called within the context of an active transaction.</value>
+    <comment>Serialization Error: MissingTransaction</comment>
+  </data>
+  <data name="UnresolvedMoniker" xml:space="preserve">
+    <value>Cannot resolve moniker &apos;{0}&apos;.</value>
+    <comment>Serialization Error: UnresolvedMoniker</comment>
+  </data>
+  <data name="VersionMismatch" xml:space="preserve">
+    <value>Unsupported version &apos;{0}&apos;, can only support &apos;{1}&apos;.</value>
+    <comment>Serialization Error: VersionMismatch</comment>
+  </data>
+  <data name="CannotCloseExistingDiagramDocument" xml:space="preserve">
+    <value>Diagram file &apos;{0}&apos; cannot be closed.</value>
+    <comment>User cancel closing diagram file. Hence, the DSL model file cannot be opened</comment>
+  </data>
+  <data name="BindingErrorOccurred" xml:space="preserve">
+    <value>Extensions for this designer may not be found as a MEF binding error has occurred. The error that occurred was:
+{0}</value>
+    <comment>MEF binding error occurred - exception message being logged in the error window so the user is aware.</comment>
+  </data>
+  <data name="InvalidSaveRootElementType" xml:space="preserve">
+    <value>&apos;{0}&apos; is not a valid root element type.</value>
+    <comment>Exception message used if an invalid root element type is passed to IDomainModelSerializer.SaveModel / SaveModelAndDiagram</comment>
+  </data>
+  <data name="InvalidSaveDiagramType" xml:space="preserve">
+    <value>&apos;{0}&apos; is not a valid diagram type.</value>
+    <comment>Exception message used if an invalid diagram type is passed to IDomainModelSerializer.SaveModelAndDiagram</comment>
+  </data>
+  <data name="MinimumMultiplicityMissingLink" xml:space="preserve">
+    <value>{0} {1} has no {2}.</value>
+    <comment>Multiplicity underflow validation.</comment>
+  </data>
+  <data name="SaveOperationCancelled" xml:space="preserve">
+    <value>Save operation cancelled.</value>
+    <comment>Message when save is cancelled on validation errors</comment>
+  </data>
+  <data name="SaveValidationFailed" xml:space="preserve">
+    <value>There were validation errors, continue save?</value>
+    <comment>Message when validation errors are found on save</comment>
+  </data>
+  <data name="UnloadableSaveValidationFailed" xml:space="preserve">
+    <value>There were validation errors. Continuing to save may cause the file to become unloadable, do you want to continue?</value>
+    <comment>Message when validation errors are found on save that will cause file to become unloadable</comment>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="FloorToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\resources\exampleshapetoolbitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="RoomToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="HeaterToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="WindowToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="SmartEnergyToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="BlindToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="LightToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="LightSimulationToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="BlindSimulationToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+</root>
+
+

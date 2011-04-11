@@ -1,0 +1,9 @@
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeCodeGenerator\smartHome\Dsl\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeCodeGenerator\smartHome\Dsl\obj\Debug\Unican.smartHome.GeneratedCode.DomainModelResx.resources
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeCodeGenerator\smartHome\Dsl\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeCodeGenerator\smartHome\Dsl\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeCodeGenerator\smartHome\Dsl\bin\Debug\GeneratedCode\smartHomeSchema.xsd
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeCodeGenerator\smartHome\Dsl\bin\Debug\Unican.smartHome.Dsl.dll
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeCodeGenerator\smartHome\Dsl\bin\Debug\Unican.smartHome.Dsl.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeCodeGenerator\smartHome\Dsl\obj\Debug\Unican.smartHome.Dsl.dll
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeCodeGenerator\smartHome\Dsl\obj\Debug\Unican.smartHome.Dsl.pdb

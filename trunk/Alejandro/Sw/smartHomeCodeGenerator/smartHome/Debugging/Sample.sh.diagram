@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<smartHomeDiagram dslVersion="1.0.0.0" Id="33353d37-4650-43dd-9176-c89ac4c9028e" absoluteBounds="0, 0, 11, 8.5" name="Sample">
+  <exampleModelMoniker Id="5ff36ca7-d788-4294-ba83-43e4453f19ba" />
+  <nestedChildShapes>
+    <exampleShape Id="690fa36d-f986-4754-9a61-1901679f933f" absoluteBounds="0.5, 1.75, 2, 0.75">
+      <exampleElementMoniker name="/5ff36ca7-d788-4294-ba83-43e4453f19ba/ExampleElement1" />
+    </exampleShape>
+    <exampleShape Id="2a7caff8-8f26-4b14-b9d7-62dd100caddc" absoluteBounds="3, 0.5, 2, 0.75">
+      <exampleElementMoniker name="/5ff36ca7-d788-4294-ba83-43e4453f19ba/ExampleElement2" />
+    </exampleShape>
+    <exampleConnector Id="7bdc7572-1cea-491d-87f2-72ffe5281b9f" edgePoints="[(1.5 : 1.75); (1.5 : 0.875); (3 : 0.875)]" fixedFrom="Algorithm" fixedTo="Algorithm" TargetRelationshipDomainClassId="1e7e939c-e543-4ffa-9c25-34c3584b4db4">
+      <nodes>
+        <exampleShapeMoniker Id="690fa36d-f986-4754-9a61-1901679f933f" />
+        <exampleShapeMoniker Id="2a7caff8-8f26-4b14-b9d7-62dd100caddc" />
+      </nodes>
+    </exampleConnector>
+  </nestedChildShapes>
+</smartHomeDiagram>
