@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<smartHomeDiagram dslVersion="1.0.0.0" Id="808ae885-ff55-4def-8b9f-adabed46d6e3" absoluteBounds="0, 0, 11, 8.5" name="Test">
+  <smartHomeMoniker Id="c2d093d9-eb9b-41ed-b2d1-0ee9f8686e0c" />
+  <nestedChildShapes>
+    <floorShape Id="f286d785-75cd-4c7b-8a98-3982d1fcc624" absoluteBounds="7.75, 1.375, 2, 0.75">
+      <floorMoniker name="/c2d093d9-eb9b-41ed-b2d1-0ee9f8686e0c/Floor1" />
+    </floorShape>
+    <roomShape Id="72588940-7e1d-4094-9108-7f97d4462062" absoluteBounds="8, 2.625, 1.5, 1">
+      <roomMoniker Id="aff0109c-70da-4d17-869c-38ccf0e42b8f" />
+    </roomShape>
+    <connector Id="464d7bc0-9182-42ca-acd4-ab09fcb6f1b1" edgePoints="[(8.75 : 2.125); (8.75 : 2.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <floorHasRoomsMoniker Id="fa2c44bf-b9cb-4530-9f17-25ed38feaa1a" />
+      <nodes>
+        <floorShapeMoniker Id="f286d785-75cd-4c7b-8a98-3982d1fcc624" />
+        <roomShapeMoniker Id="72588940-7e1d-4094-9108-7f97d4462062" />
+      </nodes>
+    </connector>
+    <windowShape Id="a44de27c-49b9-4958-a067-c5cfade38509" absoluteBounds="8.875, 4.5, 1.5, 1">
+      <windowMoniker Id="70e641b9-7bb4-4cd4-b655-8b58000206ea" />
+    </windowShape>
+    <connector Id="97972878-3240-49d4-84db-7959203b6caa" edgePoints="[(9.1875 : 3.625); (9.1875 : 4.59388356896629)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <roomHasWindowsMoniker Id="38fc8afe-407a-4145-ac2f-6058cba6484a" />
+      <nodes>
+        <roomShapeMoniker Id="72588940-7e1d-4094-9108-7f97d4462062" />
+        <windowShapeMoniker Id="a44de27c-49b9-4958-a067-c5cfade38509" />
+      </nodes>
+    </connector>
+    <blindSimulationShape Id="e9bde277-e23e-48d4-a867-95c9babe2f4e" absoluteBounds="5.375, 1.375, 1, 1">
+      <blindSimulationMoniker Id="b215bf03-d9e9-47b6-9369-f1b3128a5a9f" />
+    </blindSimulationShape>
+    <blindShape Id="a780031e-2f8a-43d0-bff8-f0b101fd5396" absoluteBounds="8.875, 5.75, 1.5, 1">
+      <blindMoniker Id="58b75319-7bd9-460e-8468-dd6a88b713e6" />
+    </blindShape>
+    <connector Id="5533819a-f56b-4419-890f-9985f7e98b1f" edgePoints="[(9.625 : 5.5); (9.625 : 5.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <windowHasBlindsMoniker Id="1cec7f8e-bd03-4ba1-a6c5-f80450953f3b" />
+      <nodes>
+        <windowShapeMoniker Id="a44de27c-49b9-4958-a067-c5cfade38509" />
+        <blindShapeMoniker Id="a780031e-2f8a-43d0-bff8-f0b101fd5396" />
+      </nodes>
+    </connector>
+    <lightSimulationShape Id="65f43836-da0d-4327-8bc3-22a69c4d116f" absoluteBounds="4, 1.375, 1, 1">
+      <lightSimulationMoniker Id="d5832c74-6ae0-427b-86a6-1634420524ae" />
+    </lightSimulationShape>
+    <lightShape Id="fa69eb1d-ae99-45b8-a7c7-4e17e358bb91" absoluteBounds="7.125, 4.5, 1.5, 1">
+      <lightMoniker Id="1aef6857-8ead-447c-8ced-168f458d9110" />
+    </lightShape>
+    <connector Id="01a07013-faf8-4236-947d-24f716f2d519" edgePoints="[(8.3125 : 3.625); (8.3125 : 4.59388356896629)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <roomHasLightsMoniker Id="2d07a16e-2a84-422e-a8a8-cda1b09e9695" />
+      <nodes>
+        <roomShapeMoniker Id="72588940-7e1d-4094-9108-7f97d4462062" />
+        <lightShapeMoniker Id="fa69eb1d-ae99-45b8-a7c7-4e17e358bb91" />
+      </nodes>
+    </connector>
+  </nestedChildShapes>
+</smartHomeDiagram>

@@ -1,0 +1,2 @@
+C:\Users\Iskander\Documents\Visual Studio 2010\Templates\ItemTemplates\CSharp\1033\smartHome.zip
+C:\Users\Iskander\Documents\Visual Studio 2010\Templates\ItemTemplates\VisualBasic\1033\smartHome.zip
