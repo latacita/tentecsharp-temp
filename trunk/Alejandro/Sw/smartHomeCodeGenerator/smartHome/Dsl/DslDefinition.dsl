@@ -296,7 +296,7 @@
         <TextDecorator Name="Heater" DisplayName="Heater" DefaultText="Heater" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="52a8a3b7-5d16-4962-a1d7-c63d12d3452f" Description="Description for Unican.smartHome.SmartEnergyShape" Name="SmartEnergyShape" DisplayName="Smart Energy Shape" Namespace="Unican.smartHome" FixedTooltipText="Smart Energy Shape" OutlineColor="113, 111, 110" InitialHeight="1" Geometry="RoundedRectangle">
+    <GeometryShape Id="52a8a3b7-5d16-4962-a1d7-c63d12d3452f" Description="Description for Unican.smartHome.SmartEnergyShape" Name="SmartEnergyShape" DisplayName="Smart Energy Shape" Namespace="Unican.smartHome" FixedTooltipText="Smart Energy Shape" FillColor="InactiveCaption" OutlineColor="113, 111, 110" InitialHeight="1" Geometry="Circle">
       <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="SmartEnergy" DisplayName="Smart Energy" DefaultText="SmartEnergy" />
       </ShapeHasDecorators>

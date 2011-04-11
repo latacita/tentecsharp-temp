@@ -1,0 +1,51 @@
+﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
+<#@ template language="c#v3.5" #>
+<#@ output extension=".cs" #>
+<#@ smartHome processor="smartHomeDirectiveProcessor" requires="fileName='Test.sh'" #>
+using System;
+using System.Collections.Generic;
+using System.Text;
+using SmartHome;
+
+namespace MyFirstHome
+{
+    partial class MyFirstHome_Gateway:Gateway
+    {
+        public MyFirstHome_Gateway()
+            : base() { }
+<#
+	bool heaterMng = false;
+	foreach (Floor floor in this.SmartHome.Floors)
+		{
+		foreach (Room room in floor.Rooms)
+			{
+				if (room.Heaters!=null)
+				{
+					heaterMng = true;
+					break;
+				}
+			}
+		}
+	if(heaterMng)
+	{
+#>
+        // Class methods
+        public override void heaterAdjustTemperature(int id, double temperature)
+        {
+<#			if(this.SmartHome.SmartEnergy!=null)
+			{
+#>
+            this.smartEnergy_HeaterAdjustTemperature(id, temperature);
+<#
+			}else{
+#>
+			this.heaterMng_HeaterAdjustTemperature(id, temperature);
+<#
+			}
+#>
+        }
+<#
+	}
+#>
+    }
+}
