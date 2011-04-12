@@ -56,10 +56,10 @@ Por lo tanto, un lenguaje orientado a características nos debe permitir descompo
 %%==============================================================================%
 %% NOTA(Pablo): En realidad el siguiente párrafo lo que describe son las        %
 %% desventajas de la programación orientada a objetos                           %
-%% Lo he cambiado 
+%% Lo he cambiado
 %%==============================================================================%
-% La siguiente sección describe en mayor detalle las ventajas que la programación 
-% orientada a características posee frente a la programación orientada a objetos 
+% La siguiente sección describe en mayor detalle las ventajas que la programación
+% orientada a características posee frente a la programación orientada a objetos
 % en relación a la implementación de las líneas de productos software.
 %%==============================================================================%
 
@@ -137,7 +137,7 @@ La siguiente subsección explica cómo se abordaría este objetivo usando orientaci
 \end{figure}
 
 
-La forma natural o tradicional de implementar características usando orientación a objetos es mediante herencia~\cite{gomma:2007,ziadi:2006}. Esta técnica se muestra en las Figuras~\ref{back:fig:expr} y~\ref{back:fig:printInfix}. 
+La forma natural o tradicional de implementar características usando orientación a objetos es mediante herencia~\cite{gomma:2007,ziadi:2006}. Esta técnica se muestra en las Figuras~\ref{back:fig:expr} y~\ref{back:fig:printInfix}.
 
 La Figura~\ref{back:fig:expr} muestra el diseño orientado a objetos de los elementos de la gramática. Usando este diseño, lo único que podríamos hacer es crear expresiones, compuestas por literales (\imp{Integer}s), combinados mediante operadores binarios (\imp{Add} y \imp{Mult}).
 
@@ -153,7 +153,7 @@ Bla bla bla
 
 
 
-Pero por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{arnold:2005} o C\#~\cite{albahari:2010}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple es un mecanismo muy útil~\cite{}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
+Pero por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{arnold:2005} o C\#~\cite{albahari:2010}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple puede ser un mecanismo muy útil~\cite{meyer:2000,meyer:2009}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
 
 No obstante, la solución para trabajar con herencia múltiple en lenguajes orientados a objetos con herencia simple, sería aplicar el \emph{patrón mixin}~\cite{david:1986}. De acuerdo con dicho patrón, que se ilustra en la Figura XX, se utilizan las interfaces para simular la herencia múltiple. Por lo tanto, cada clase a heredar implementará una nueva interfaz que defina los métodos de esta clase, a su vez la nueva clase que se quiere crear para que herede la funcionalidad de sendas clases implementará las dos nuevas interfaces creadas anteriormente, y tendrá una relación de agregación con las clases a heredar.
 

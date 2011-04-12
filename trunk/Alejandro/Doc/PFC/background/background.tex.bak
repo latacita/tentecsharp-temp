@@ -42,7 +42,7 @@ Los lenguajes orientados a características~\cite{prehofer:2001} tienen como obje
 Los lenguajes orientados a características son especialmente útiles en el contexto de las líneas de productos software, ya que nos permiten encapsular en módulos bien definidos las diferentes características, tanto comunes como variables, que pueden aparecer en cada uno de los productos software pertenecientes a una misma familia. Los lenguajes orientados a características tratan de facilitar además la composición de dichos módulos, contribuyendo así a que productos específicos dentro de una familia puedan ser creados mediante la simple composición o ensamblado de módulos software relativamente independientes.
 
 Por ejemplo, a la hora de crear un tipo abstracto de datos pila, podemos considerar diferentes variaciones:
-\begin{descripcion}
+\begin{description}
 \item[Básicas:]  Toda pila, para ser considerada pila, debe soportar las operaciones \imp{apilar} y \imp{desapilar}.
 \item[Contador:] Añade un contador para conocer el tamaño de la pila.
 \item[Bloqueo:] Permite bloquear la pila para evitar modificaciones en su estado.
@@ -92,7 +92,7 @@ El objetivo del problema de las expresiones es diseñar una aplicación software q
 	\item[Print:] Debe mostrar por consola la expresión en el formato correspondiente (infijo, prefijo o posfijo).
 	\item[Eval:] Debe evaluar la expresión y retornar su resultado.
 	\item[ShortEval:] debe evaluar la expresión realizando las operaciones \emph{cortocircuitadas}. Es decir, tan pronto como el valor de un operando determine el resultado de la expresión, se deberá parar la evaluación del resto de los operandos. Por ejemplo, en una multiplicación, si el primer operando es 0, se retornará el valor 0 directamente, sin evaluar el segundo operando.
-\end{enumerate}
+\end{description}
 
 \begin{figure}
 \begin{center}
@@ -139,14 +139,19 @@ La siguiente subsección explica cómo se abordaría este objetivo usando orientaci
 
 La forma natural o tradicional de implementar características usando orientación a objetos es mediante herencia~\cite{gomma:2007,ziadi:2006}. Esta técnica se muestra en las Figuras~\ref{back:fig:expr} y~\ref{back:fig:printInfix}. 
 
-La Figura~\ref{back:fig:expr} muestra el diseño 
+La Figura~\ref{back:fig:expr} muestra el diseño orientado a objetos de los elementos de la gramática. Usando este diseño, lo único que podríamos hacer es crear expresiones, compuestas por literales (\imp{Integer}s), combinados mediante operadores binarios (\imp{Add} y \imp{Mult}).
+
+A continuación, por cada característica a implementar, lo que hacemos es extender estas clases mediante herencia añadiendo a cada clase las operaciones necesarias para implementar dicha característica. Por ejemplo, la Figura~\ref{back:fig:printInfix} muestra como se extienden las clases de la Figura~\ref{back:fig:expr} para que soporten la característica de operación infija.
+Tal como muestra dicho diseño, lo que hacemos es por cada clase \imp{X} de la Figura~\ref{back:fig:expr}, creamos una nueva clase que herede de ella. A la nueva clase hija le damos el mismo nombre que a la padre, pero con \imp{Infix} como sufijo. A la clase hija le añadimos una operación \imp{print}, que contendría la funcionalidad necesaria para imprimir cada expresión, operador o literal de forma infija. Este proceso lo repetiríamos para el resto de características (e.g., impresión postfija, evaluación con cortocircuito), obteniendo por cada característica un diseño similar al de la Figura~\ref{back:fig:printInfix}.
+
+Una vez diseñadas e implementadas la diferentes características del problema de las expresiones, el siguiente problema a solventar es cómo combinarlas de forma que podamos obtener de la forma más simple y rápida posible productos concretos con diferentes características. La técnica comúnmente empleada para componer características implementadas mediante herencia simple sería tal como se describe a continuación.
+
+%%=============================================================================%
+%% NOTA(Pablo): Sigue a partir de aquí
+%%=============================================================================%
+Bla bla bla
 
 
-
-Para resolver el problema que se presenta, se ha seguido la forma natural de diseñar e implementar las líneas de productos software mediante un lenguaje orientado a objetos. Por un lado se diseña un diagrama UML que soporte los operandos básicos(\emph{Integer, Add y Mult}), tal y como se muestra en la figura ~\ref{back:fig:expr}. A partir de éste, por cada operación: \emph{printInfix}(\emph{print} en formato infijo),\emph{printPostfix} ( \emph{print} en formato posfijo), \emph{printPrefix} (\emph{print} en formato prefijo),\emph{eval}, y \emph{shortEval}(que será una especialización de la propia operación \emph{eval}), se debe realizar un diseño que herede de las clases e interfaces de las que se componía la figura ~\ref{back:fig:expr}. A modo de ejemplo se incluye la figura ~\ref{back:fig:printInfix} que muestra el diseño para la operación \emph{printInfix}.
-
-
-Con el diseño anteriormente mencionado y el objetivo de poder crear diferentes productos a través de la composición de diferentes características, por ejemplo combinar \emph{printInfix} con \emph{eval} para obtener una nueva aplicación que pueda utilizar ambas características, necesitamos hacer uso de la herencia múltiple.
 
 Pero por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{arnold:2005} o C\#~\cite{albahari:2010}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple es un mecanismo muy útil~\cite{}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
 
