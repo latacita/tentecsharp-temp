@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Unican.smartHome.smartHomeDomainModel.Description" xml:space="preserve">
-    <value>Description for Unican.smartHome.smartHome</value>
+    <value>An item to create a model of a smart home </value>
     <comment>Description for DslLibrary &apos;smartHome&apos;</comment>
   </data>
   <data name="Unican.smartHome.smartHomeDomainModel.DisplayName" xml:space="preserve">

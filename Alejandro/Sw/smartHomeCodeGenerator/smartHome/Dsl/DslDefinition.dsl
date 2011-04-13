@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Dsl xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="01317cd4-1135-4994-9f06-60232d8d15e6" Description="Description for Unican.smartHome.smartHome" Name="smartHome" DisplayName="smartHome" Namespace="Unican.smartHome" ProductName="smartHome" CompanyName="Unican" PackageGuid="e7461eba-3365-432f-be54-917d1b993741" PackageNamespace="Unican.smartHome" xmlns="http://schemas.microsoft.com/VisualStudio/2005/DslTools/DslDefinitionModel">
+<Dsl xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="01317cd4-1135-4994-9f06-60232d8d15e6" Description="An item to create a model of a smart home " Name="smartHome" DisplayName="smartHome" Namespace="Unican.smartHome" ProductName="smartHome" CompanyName="Unican" PackageGuid="e7461eba-3365-432f-be54-917d1b993741" PackageNamespace="Unican.smartHome" xmlns="http://schemas.microsoft.com/VisualStudio/2005/DslTools/DslDefinitionModel">
   <Classes>
     <DomainClass Id="339f9b18-20fb-4609-90bf-26c5aa59948f" Description="The root in which all other elements are embedded. Appears as a diagram." Name="SmartHome" DisplayName="Smart Home" InheritanceModifier="Sealed" Namespace="Unican.smartHome">
       <ElementMergeDirectives>
@@ -275,55 +275,55 @@
     <ExternalType Name="Char" Namespace="System" />
   </Types>
   <Shapes>
-    <GeometryShape Id="51655166-966f-48e5-b025-553190a046f2" Description="" Name="FloorShape" DisplayName="Floor Shape" Namespace="Unican.smartHome" FixedTooltipText="Floor Shape" FillColor="DarkKhaki" OutlineColor="113, 111, 110" InitialWidth="1" InitialHeight="1.5" Geometry="RoundedRectangle">
+    <GeometryShape Id="51655166-966f-48e5-b025-553190a046f2" Description="" Name="FloorShape" DisplayName="Floor Shape" Namespace="Unican.smartHome" FixedTooltipText="Floor Shape" FillColor="DarkKhaki" OutlineColor="113, 111, 110" InitialWidth="1" InitialHeight="1" Geometry="RoundedRectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
       <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="c91ec00a-f146-4a5e-951e-b2260d6a2141" Description="Description for Unican.smartHome.roomShape" Name="roomShape" DisplayName="Room Shape" Namespace="Unican.smartHome" FixedTooltipText="Room Shape" FillColor="LightSalmon" OutlineColor="113, 111, 110" InitialHeight="1" Geometry="RoundedRectangle">
+    <GeometryShape Id="c91ec00a-f146-4a5e-951e-b2260d6a2141" Description="Description for Unican.smartHome.roomShape" Name="roomShape" DisplayName="Room Shape" Namespace="Unican.smartHome" FixedTooltipText="Room Shape" FillColor="LightSalmon" OutlineColor="113, 111, 110" InitialWidth="1" InitialHeight="1" Geometry="RoundedRectangle">
       <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="42fd3139-7118-40ec-9442-255b99aff9a3" Description="Description for Unican.smartHome.WindowShape" Name="WindowShape" DisplayName="Window Shape" Namespace="Unican.smartHome" FixedTooltipText="Window Shape" FillColor="GradientActiveCaption" OutlineColor="113, 111, 110" InitialHeight="1" Geometry="Ellipse">
+    <GeometryShape Id="42fd3139-7118-40ec-9442-255b99aff9a3" Description="Description for Unican.smartHome.WindowShape" Name="WindowShape" DisplayName="Window Shape" Namespace="Unican.smartHome" FixedTooltipText="Window Shape" FillColor="GradientActiveCaption" OutlineColor="113, 111, 110" InitialWidth="1" InitialHeight="1" Geometry="Ellipse">
       <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="Window" DisplayName="Window" DefaultText="Window" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="aab396f0-bd6e-498a-af6b-fd2470696829" Description="Description for Unican.smartHome.HeaterShape" Name="HeaterShape" DisplayName="Heater Shape" Namespace="Unican.smartHome" FixedTooltipText="Heater Shape" FillColor="IndianRed" OutlineColor="113, 111, 110" InitialHeight="1" Geometry="Ellipse">
+    <GeometryShape Id="aab396f0-bd6e-498a-af6b-fd2470696829" Description="Description for Unican.smartHome.HeaterShape" Name="HeaterShape" DisplayName="Heater Shape" Namespace="Unican.smartHome" FixedTooltipText="Heater Shape" FillColor="IndianRed" OutlineColor="113, 111, 110" InitialWidth="1" InitialHeight="1" Geometry="Ellipse">
       <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="Heater" DisplayName="Heater" DefaultText="Heater" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="52a8a3b7-5d16-4962-a1d7-c63d12d3452f" Description="Description for Unican.smartHome.SmartEnergyShape" Name="SmartEnergyShape" DisplayName="Smart Energy Shape" Namespace="Unican.smartHome" FixedTooltipText="Smart Energy Shape" FillColor="InactiveCaption" OutlineColor="113, 111, 110" InitialHeight="1" Geometry="Circle">
+    <GeometryShape Id="52a8a3b7-5d16-4962-a1d7-c63d12d3452f" Description="Description for Unican.smartHome.SmartEnergyShape" Name="SmartEnergyShape" DisplayName="Smart Energy Shape" Namespace="Unican.smartHome" FixedTooltipText="Smart Energy Shape" FillColor="InactiveCaption" OutlineColor="113, 111, 110" InitialWidth="1" InitialHeight="1" Geometry="Circle">
       <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="SmartEnergy" DisplayName="Smart Energy" DefaultText="SmartEnergy" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="8d26e574-b479-478d-a7b9-b005e5402367" Description="Description for Unican.smartHome.LightShape" Name="LightShape" DisplayName="Light Shape" Namespace="Unican.smartHome" FixedTooltipText="Light Shape" FillColor="Yellow" OutlineColor="113, 111, 110" InitialHeight="1" Geometry="Ellipse">
+    <GeometryShape Id="8d26e574-b479-478d-a7b9-b005e5402367" Description="Description for Unican.smartHome.LightShape" Name="LightShape" DisplayName="Light Shape" Namespace="Unican.smartHome" FixedTooltipText="Light Shape" FillColor="Yellow" OutlineColor="113, 111, 110" InitialWidth="1" InitialHeight="1" Geometry="Ellipse">
       <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="Light" DisplayName="Light" DefaultText="Light" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="27e3f331-1253-4044-86f7-a838e1b6a41f" Description="Description for Unican.smartHome.BlindShape" Name="BlindShape" DisplayName="Blind Shape" Namespace="Unican.smartHome" FixedTooltipText="Blind Shape" FillColor="Peru" OutlineColor="113, 111, 110" InitialHeight="1" Geometry="Ellipse">
+    <GeometryShape Id="27e3f331-1253-4044-86f7-a838e1b6a41f" Description="Description for Unican.smartHome.BlindShape" Name="BlindShape" DisplayName="Blind Shape" Namespace="Unican.smartHome" FixedTooltipText="Blind Shape" FillColor="Peru" OutlineColor="113, 111, 110" InitialWidth="1" InitialHeight="1" Geometry="Ellipse">
       <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="Blind" DisplayName="Blind" DefaultText="Blind" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="7f76d146-970a-4f7c-a11f-131dbc043090" Description="Description for Unican.smartHome.LightSimulationShape" Name="LightSimulationShape" DisplayName="Light Simulation Shape" Namespace="Unican.smartHome" FixedTooltipText="Light Simulation Shape" FillColor="InactiveCaption" OutlineColor="113, 111, 110" InitialHeight="1" Geometry="Circle">
+    <GeometryShape Id="7f76d146-970a-4f7c-a11f-131dbc043090" Description="Description for Unican.smartHome.LightSimulationShape" Name="LightSimulationShape" DisplayName="Light Simulation Shape" Namespace="Unican.smartHome" FixedTooltipText="Light Simulation Shape" FillColor="InactiveCaption" OutlineColor="113, 111, 110" InitialWidth="1" InitialHeight="1" Geometry="Circle">
       <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="LightSimulation" DisplayName="Light Simulation" DefaultText="LightSimulation" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="000b1432-8024-48be-8690-04def55656ae" Description="Description for Unican.smartHome.BlindSimulationShape" Name="BlindSimulationShape" DisplayName="Blind Simulation Shape" Namespace="Unican.smartHome" FixedTooltipText="Blind Simulation Shape" FillColor="InactiveCaption" OutlineColor="113, 111, 110" InitialHeight="1" Geometry="Circle">
+    <GeometryShape Id="000b1432-8024-48be-8690-04def55656ae" Description="Description for Unican.smartHome.BlindSimulationShape" Name="BlindSimulationShape" DisplayName="Blind Simulation Shape" Namespace="Unican.smartHome" FixedTooltipText="Blind Simulation Shape" FillColor="InactiveCaption" OutlineColor="113, 111, 110" InitialWidth="1" InitialHeight="1" Geometry="Circle">
       <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="BlindSimulation" DisplayName="Blind Simulation" DefaultText="BlindSimulation" />
       </ShapeHasDecorators>
     </GeometryShape>
   </Shapes>
   <Connectors>
-    <Connector Id="cbc312de-6a27-4482-9074-5955db8171c4" Description="Description for Unican.smartHome.Connector" Name="Connector" DisplayName="Connector" Namespace="Unican.smartHome" FixedTooltipText="Connector" TargetEndStyle="FilledDiamond" Thickness="0.015" RoutingStyle="Straight" />
+    <Connector Id="cbc312de-6a27-4482-9074-5955db8171c4" Description="Description for Unican.smartHome.Connector" Name="Connector" DisplayName="Connector" Namespace="Unican.smartHome" FixedTooltipText="Connector" SourceEndStyle="FilledDiamond" Thickness="0.015" RoutingStyle="Straight" />
   </Connectors>
   <XmlSerializationBehavior Name="smartHomeSerializationBehavior" Namespace="Unican.smartHome">
     <ClassData>
@@ -569,7 +569,7 @@
       </ConnectorMap>
     </ConnectorMaps>
   </Diagram>
-  <Designer CopyPasteGeneration="CopyPasteOnly" FileExtension="sh" EditorGuid="52610b45-775b-4251-bb65-fa99963408c9">
+  <Designer CopyPasteGeneration="CopyPasteOnly" FileExtension="sh" Icon="C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeCodeGenerator\smartHome\DslPackage\Resources\Icon.ico" EditorGuid="52610b45-775b-4251-bb65-fa99963408c9">
     <RootClass>
       <DomainClassMoniker Name="SmartHome" />
     </RootClass>

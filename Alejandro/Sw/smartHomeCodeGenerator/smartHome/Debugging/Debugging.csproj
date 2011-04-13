@@ -45,6 +45,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Program.tt</DependentUpon>
     </Compile>
+    <Compile Include="SimulatorGUI.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SimulatorGUI.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Dsl\GeneratedCode\smartHomeSchema.xsd">
@@ -60,10 +65,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Program.cs</LastGenOutput>
     </None>
-    <None Include="smartHomeReportVB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>smartHomeReportVB.txt</LastGenOutput>
-    </None>
     <None Include="Sample.sh" />
     <None Include="Sample.sh.diagram">
       <DependentUpon>Sample.sh</DependentUpon>
@@ -72,16 +73,13 @@
     <None Include="Test.sh.diagram">
       <DependentUpon>Test.sh</DependentUpon>
     </None>
+    <None Include="SimulatorGUI.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SimulatorGUI.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="smartHomeReportVB.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>smartHomeReportVB.tt</DependentUpon>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

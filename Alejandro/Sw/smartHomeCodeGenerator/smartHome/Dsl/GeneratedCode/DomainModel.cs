@@ -14,7 +14,7 @@ namespace Unican.smartHome
 {
 	/// <summary>
 	/// DomainModel smartHomeDomainModel
-	/// Description for Unican.smartHome.smartHome
+	/// An item to create a model of a smart home 
 	/// </summary>
 	[DslDesign::DisplayNameResource("Unican.smartHome.smartHomeDomainModel.DisplayName", typeof(global::Unican.smartHome.smartHomeDomainModel), "Unican.smartHome.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Unican.smartHome.smartHomeDomainModel.Description", typeof(global::Unican.smartHome.smartHomeDomainModel), "Unican.smartHome.GeneratedCode.DomainModelResx")]

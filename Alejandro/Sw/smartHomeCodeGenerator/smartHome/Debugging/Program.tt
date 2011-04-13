@@ -1,5 +1,4 @@
 ﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
-<#@ template language="c#v3.5" #>
 <#@ output extension=".cs" #>
 <#@ smartHome processor="smartHomeDirectiveProcessor" requires="fileName='Test.sh'" #>
 using System;
@@ -16,7 +15,7 @@ namespace Program
 	{
 		static void Main(string[] args)
 		{
-			Gateway g = new Gateway();
+			MyHome_Gateway g = new MyHome_Gateway();
 <#
 			//Variables
 			int i=0;
@@ -33,23 +32,23 @@ namespace Program
 			foreach (Floor floor in this.SmartHome.Floors)
 		{
 #>
-			Floor f<#=i#> = new Floor("<#= floor.Name #>",<#= i#>);
+			MyHome_Floor f<#=i#> = new MyHome_Floor("<#= floor.Name #>",<#= i#>);
 <#		
 			foreach (Room room in floor.Rooms)
 			{
 #>
-			Room r<#=j#> = new Room("<#= room.Name #>",<#= j#>);
+			MyHome_Room r<#=j#> = new MyHome_Room("<#= room.Name #>",<#= j#>);
 			f<#=i#>.addRoom(r<#=j#>);
 <#			
 				foreach (Heater heater in room.Heaters)
 				{
 					heaterMng = true;
 #>
-			HeaterCtrl h<#=contHeaterMng#> = new HeaterCtrl(<#= cont#>,<#= j#>);
+			MyHome_HeaterCtrl h<#=contHeaterMng#> = new MyHome_HeaterCtrl(<#= cont#>,<#= j#>);
 <#
 			cont++;
 #>
-			Thermometer t<#=contHeaterMng#> = new Thermometer(<#= cont#>,<#= cont-1#>);
+			MyHome_Thermometer t<#=contHeaterMng#> = new MyHome_Thermometer(<#= cont#>,<#= cont-1#>);
 <#
 					contHeaterMng++;
 					cont++;					
@@ -58,11 +57,11 @@ namespace Program
 				{
 					lightMng = true;
 #>
-			LigthCtrl l<#=contLightMng#> = new LigthCtrl(<#= cont#>,<#= j#>);
+			MyHome_LigthCtrl l<#=contLightMng#> = new MyHome_LigthCtrl(<#= cont#>,<#= j#>);
 <#
 			cont++;
 #>
-            LigthSensor ls<#=contLightMng#> = new LigthSensor(<#= cont#>,<#= cont-1#>);
+            MyHome_LigthSensor ls<#=contLightMng#> = new MyHome_LigthSensor(<#= cont#>,<#= cont-1#>);
 <#
 					contLightMng++;
 					cont++;
@@ -73,11 +72,11 @@ namespace Program
 				{
 					windowMng = true;
 #>
-			WindowCtrl w<#=contWindowMng#> = new WindowCtrl(<#= cont#>,<#= j#>);
+			MyHome_WindowCtrl w<#=contWindowMng#> = new MyHome_WindowCtrl(<#= cont#>,<#= j#>);
 <#
 					cont++;
 #>
-			WindowSensor ws<#=contWindowMng#> = new WindowSensor(<#= cont#>,<#= cont-1#>);
+			MyHome_WindowSensor ws<#=contWindowMng#> = new MyHome_WindowSensor(<#= cont#>,<#= cont-1#>);
 <#
 					contWindowMng++;
 					cont++;
@@ -85,11 +84,11 @@ namespace Program
 						{
 							blindMng = true;
 #>
-			BlindCtrl b<#=contBlindMng#> = new BlindCtrl(<#= cont#>,<#=cont-2#>);
+			MyHome_BlindCtrl b<#=contBlindMng#> = new MyHome_BlindCtrl(<#= cont#>,<#=cont-2#>);
 <#
 					cont++;
 #>
-			BlindSensor bs<#=contBlindMng#> = new BlindSensor(<#= cont#>,<#=cont-1#>);
+			MyHome_BlindSensor bs<#=contBlindMng#> = new MyHome_BlindSensor(<#= cont#>,<#=cont-1#>);
 <#
 					contBlindMng++;
 					cont++;
@@ -109,7 +108,7 @@ namespace Program
 		    || this.SmartHome.SmartEnergy!=null)
 		{
 #>
-			Time time = new Time(14,00);
+			MyHome_Time time = new MyHome_Time(14,00);
 <#
 		}
 #>
@@ -224,8 +223,8 @@ namespace Program
 				}
 			}
 #>
-			SimulatorGUI sim = new SimulatorGUI(g);
-            GatewayGUI gatewayGUI = new GatewayGUI(g,sim);
+			MyHome_SimulatorGUI sim = new MyHome_SimulatorGUI(g);
+            MyHome_GatewayGUI gatewayGUI = new MyHome_GatewayGUI(g,sim);
 			gatewayGUI.addBaseSystem();
 <#
 			//AQUÍ LOS ADDS DEL GATEWAYGUI
