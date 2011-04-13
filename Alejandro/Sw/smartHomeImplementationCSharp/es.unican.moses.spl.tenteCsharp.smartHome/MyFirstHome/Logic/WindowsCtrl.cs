@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using SmartHome;
 
-namespace MyFirstHome
+namespace MyHome
 {
-    partial class MyFirstHome_WindowsCtrl : WindowCtrl
+    partial class MyHome_WindowCtrl : WindowCtrl
     {
-        public MyFirstHome_WindowsCtrl(int id, int id_room)
+        public MyHome_WindowCtrl(int id, int id_room)
             : base(id, id_room) { }
     }
 }

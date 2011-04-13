@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using SmartHome;
 
-namespace MyFirstHome
+namespace MyHome
 {
-    partial class MyFirstHome_WindowSensor : WindowSensor
+    partial class MyHome_WindowSensor : WindowSensor
     {
-        public MyFirstHome_WindowSensor(int id, int id_windowsCtrl)
+        public MyHome_WindowSensor(int id, int id_windowsCtrl)
             : base(id, id_windowsCtrl) { }
     }
 }

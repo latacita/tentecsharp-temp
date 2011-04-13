@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using SmartHome;
 
-namespace MyFirstHome
+namespace MyHome
 {
-    class MyFirstHome_Room: Room
+    class MyHome_Room: Room
     {
-        public MyFirstHome_Room(String name, int id)
+        public MyHome_Room(String name, int id)
             : base(name, id) { }
     }
 }

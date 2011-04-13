@@ -37,7 +37,7 @@ namespace SmartHome
             double time = Convert.ToDouble(t);
             if (statusLigthSimulation)
             {
-                List<LigthCtrl> l = ligthMng_getLigths();
+                List<LightCtrl> l = ligthMng_getLigths();
                 if (time % 1 == 0)//everyHour
                 {
                     for (int i = 0; i < l.Count; i++)

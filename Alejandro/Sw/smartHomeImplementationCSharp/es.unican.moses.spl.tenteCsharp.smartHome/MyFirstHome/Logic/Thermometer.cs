@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using SmartHome;
 
-namespace MyFirstHome
+namespace MyHome
 {
-    partial class MyFirstHome_Thermometer: Thermometer
+    partial class MyHome_Thermometer: Thermometer
     {
-        public MyFirstHome_Thermometer(int id, int id_heater)
+        public MyHome_Thermometer(int id, int id_heater)
             : base(id, id_heater) { }
     }
 }

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<smartHomeDiagram dslVersion="1.0.0.0" Id="2eb0f8ed-f5f6-4d2d-afef-60abf2afdfd5" absoluteBounds="0, 0, 11, 8.5" name="smartHome1">
+  <smartHomeMoniker Id="c598731a-451e-454b-b59f-5426c9b171cd" />
+  <nestedChildShapes>
+    <floorShape Id="1cb29689-5063-40dc-a51c-c31297d05445" absoluteBounds="5.125, 0.875, 1, 1">
+      <floorMoniker name="/c598731a-451e-454b-b59f-5426c9b171cd/Planta baja" />
+    </floorShape>
+    <roomShape Id="e5c9c3ca-4428-41de-a89b-6dfb706d59cb" absoluteBounds="3.875, 2.625, 1, 1">
+      <roomMoniker Id="c929c9f2-9548-4fb2-a8a5-1788edf4b806" />
+    </roomShape>
+    <connector Id="c2572074-3906-4ba8-a32d-6289239e3a54" edgePoints="[(5.125 : 1.875); (4.875 : 2.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <floorHasRoomsMoniker Id="f946967d-c381-4a75-965e-761b15f06dfe" />
+      <nodes>
+        <floorShapeMoniker Id="1cb29689-5063-40dc-a51c-c31297d05445" />
+        <roomShapeMoniker Id="e5c9c3ca-4428-41de-a89b-6dfb706d59cb" />
+      </nodes>
+    </connector>
+    <heaterShape Id="49e161d3-985f-438f-93ba-265df7b342e4" absoluteBounds="2.75, 4.375, 1, 1">
+      <heaterMoniker Id="2c2235e2-4fd9-4e67-b269-25b4eb0ab0f7" />
+    </heaterShape>
+    <connector Id="7c6963ab-ec19-4337-95da-435169f11612" edgePoints="[(3.875 : 3.625); (3.70221758939375 : 4.66169446363748)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <roomHasHeatersMoniker Id="fc2d3411-d512-4c6d-8421-f50fd9cda036" />
+      <nodes>
+        <roomShapeMoniker Id="e5c9c3ca-4428-41de-a89b-6dfb706d59cb" />
+        <heaterShapeMoniker Id="49e161d3-985f-438f-93ba-265df7b342e4" />
+      </nodes>
+    </connector>
+    <lightShape Id="47c5b6c0-5abf-4736-9efb-ef161bf82c46" absoluteBounds="4.5, 4.25, 1, 1">
+      <lightMoniker Id="39e11100-aca3-4e35-8ead-8687ba6627ca" />
+    </lightShape>
+    <connector Id="c3c9cb71-41ad-4feb-bc90-24b53fea9358" edgePoints="[(4.6875 : 3.625); (4.6875 : 4.3596876251001)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <roomHasLightsMoniker Id="51466340-44b5-4769-b42c-348f3ba710b0" />
+      <nodes>
+        <roomShapeMoniker Id="e5c9c3ca-4428-41de-a89b-6dfb706d59cb" />
+        <lightShapeMoniker Id="47c5b6c0-5abf-4736-9efb-ef161bf82c46" />
+      </nodes>
+    </connector>
+    <windowShape Id="e582a5a4-598a-421d-ac69-884f2ad7c9cf" absoluteBounds="5.875, 4.25, 1, 1">
+      <windowMoniker Id="a24638dd-2bf8-4407-ae8d-aeb50e0d68a7" />
+    </windowShape>
+    <connector Id="75d8d33e-3c04-473f-9e8f-71e5942b2573" edgePoints="[(4.875 : 3.625); (6.05727991415734 : 4.36392494634834)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <roomHasWindowsMoniker Id="9a86e064-a90b-45bb-9ae3-ee5a7211d4cd" />
+      <nodes>
+        <roomShapeMoniker Id="e5c9c3ca-4428-41de-a89b-6dfb706d59cb" />
+        <windowShapeMoniker Id="e582a5a4-598a-421d-ac69-884f2ad7c9cf" />
+      </nodes>
+    </connector>
+  </nestedChildShapes>
+</smartHomeDiagram>

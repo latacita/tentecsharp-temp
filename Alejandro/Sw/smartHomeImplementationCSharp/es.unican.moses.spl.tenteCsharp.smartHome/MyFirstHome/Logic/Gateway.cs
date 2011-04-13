@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using SmartHome;
 
-namespace MyFirstHome
+namespace MyHome
 {
-    partial class MyFirstHome_Gateway:Gateway
+    partial class MyHome_Gateway:Gateway
     {
-        public MyFirstHome_Gateway()
+        public MyHome_Gateway()
             : base() { }
         // Class methods
         public override void heaterAdjustTemperature(int id, double temperature)
         {
-            this.smartEnergy_HeaterAdjustTemperature(id, temperature);
+			this.heaterMng_HeaterAdjustTemperature(id, temperature);
         }
     }
 }
