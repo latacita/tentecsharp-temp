@@ -1,14 +1,22 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SmartHome;
 
-namespace MyFirstHome
+namespace MyHome
 {
-    partial class MyFirstHome_SimulatorGUI: SimulatorGUI
+    partial class MyHome_SimulatorGUI: SimulatorGUI
     {
-        public MyFirstHome_SimulatorGUI(Gateway g)
+        public MyHome_SimulatorGUI(Gateway g)
             : base(g) { }
+
+        public override void observerRefreshDataGrid()
+        {
+             this.fillDataGridViewHeaters();
+             this.fillDataGridViewWindows();
+             this.filldataGridViewLigths();
+           
+        }//observerRefreshDataGrid        
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHome", "SmartHome.csproj", "{A7CEC488-8F5A-4B95-9919-25A31966D068}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstHome", "MyFirstHome\MyFirstHome.csproj", "{C17B2930-BC87-40A5-8FAB-F8474631A4F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyHome", "MyFirstHome\MyHome.csproj", "{C17B2930-BC87-40A5-8FAB-F8474631A4F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -21,13 +21,13 @@ namespace SmartHome
         private Dictionary<TextBox, int> inverseDictionaryTextApertureBlind = new Dictionary<TextBox, int>();
 
 
-        public void addblindMng()
+        public void addBlindMng()
         {
             
             initblindMng();
             addBlindByRoom(gateway.blindMng_getBlinds());
             gateway.registerObserverBlind(this);
-        }//addblindMng
+        }//addBlindMng
 
         public void initblindMng()
         {

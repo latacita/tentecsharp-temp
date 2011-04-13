@@ -4,16 +4,11 @@ using System.Linq;
 using System.Text;
 using SmartHome;
 
-namespace MyFirstHome
+namespace MyHome
 {
-    partial class MyFirstHome_GatewayGUI : GatewayGUI
+    partial class MyHome_GatewayGUI : GatewayGUI
     {
-        public MyFirstHome_GatewayGUI(Gateway g, SimulatorGUI sim)
-            : base(g, sim) { }
-        public override void refreshSimulator()
-        {
-            simulator.fillDataGridViewHeaters();
-            simulator.fillDataGridViewWindows();
-        }//refreshSimulator
+        public MyHome_GatewayGUI(Gateway g, SimulatorGUI sim)
+            : base(g, sim) { }        
     }
 }

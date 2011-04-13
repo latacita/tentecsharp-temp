@@ -1,11 +1,12 @@
 ﻿namespace SmartHome
 {
-    partial class Gateway
+    partial class Gateway :ITimeObserver
     {
         // Class methods
         public virtual void heaterAdjustTemperature(int id, double temperature)
         {
             this.smartEnergy_HeaterAdjustTemperature(id, temperature);
+            
         }//heaterAdjustTemperature
 
 
@@ -15,7 +16,7 @@
         ///     Time has changed
         /// </summary>
         /// <param name="timer">The new timer</param>
-        public void timeChanged(int hour, int minutes)
+        public virtual void timeChanged(int hour, int minutes)
         {
             smartEnergy_checkTime(hour, minutes);
             ligthSimulation_checkTime(hour, minutes);

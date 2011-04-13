@@ -15,7 +15,7 @@ namespace SmartHome
         private TextBox textBoxDesiredTemp;
         private Button buttonSubmitDesiredTemp;
 
-        public void addSmartEnergy()
+        public void addSmartEnergyMng()
         {
             tabPage_smartEnergy = new TabPage();
             tabPage_smartEnergy.Text = "Smart energy";
@@ -23,7 +23,7 @@ namespace SmartHome
             tabControl_main.Controls.Add(tabPage_smartEnergy);
             initSmartEnergy();
             gateway.registerObserverSmartEnergy(this);
-        }//addSmartEnergy
+        }//addSmartEnergyMng
 
         private void initSmartEnergy()
         {

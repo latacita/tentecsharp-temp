@@ -21,7 +21,7 @@ namespace SmartHome
             tabControl_main.Controls.Add(tabPage_ligthSimulation);
             initLightSimulation();
             gateway.registerObserverLightSimulation(this);
-        }//addSmartEnergy
+        }//addSmartEnergyMng
 
         private void initLightSimulation()
         {

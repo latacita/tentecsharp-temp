@@ -21,7 +21,7 @@ namespace SmartHome
             tabControl_main.Controls.Add(tabPage_BlindSimulation);
             initBlindSimulation();
             gateway.registerObserverBlindSimulation(this);
-        }//addSmartEnergy
+        }//addSmartEnergyMng
 
         private void initBlindSimulation()
         {
