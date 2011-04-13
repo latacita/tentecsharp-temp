@@ -1,0 +1,8 @@
+C:\Users\Iskander\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Unican\smartHome\1.0.0.0\ItemTemplates\CSharp\1033\\smartHome.zip
+C:\Users\Iskander\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Unican\smartHome\1.0.0.0\ItemTemplates\VisualBasic\1033\\smartHome.zip
+C:\Users\Iskander\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Unican\smartHome\1.0.0.0\\Unican.smartHome.DslPackage.dll
+C:\Users\Iskander\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Unican\smartHome\1.0.0.0\\Unican.smartHome.Dsl.dll
+C:\Users\Iskander\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Unican\smartHome\1.0.0.0\\Unican.smartHome.DslPackage.pkgdef
+C:\Users\Iskander\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Unican\smartHome\1.0.0.0\\extension.vsixmanifest
+C:\Users\Iskander\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Unican\smartHome\1.0.0.0\\Unican.smartHome.DslPackage.pdb
+C:\Users\Iskander\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Unican\smartHome\1.0.0.0\\Unican.smartHome.Dsl.pdb

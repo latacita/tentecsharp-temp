@@ -118,7 +118,7 @@ namespace Unican.smartHome
 		protected override void InitializeInstanceResources()
 		{
 			base.InitializeInstanceResources();
-			this.SetDecorators(null, new DslDiagrams::SizeD(0.1,0.1), DslDiagrams::LinkDecorator.DecoratorFilledDiamond, new DslDiagrams::SizeD(0.1,0.1), false);
+			this.SetDecorators(DslDiagrams::LinkDecorator.DecoratorFilledDiamond, new DslDiagrams::SizeD(0.1,0.1), null, new DslDiagrams::SizeD(0.1,0.1), false);
 		}
 		
 		/// <summary>

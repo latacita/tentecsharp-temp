@@ -32,6 +32,7 @@
     <GettingStartedGuide></GettingStartedGuide>
     <Icon></Icon>
     <PreviewImage></PreviewImage>
+	<InstalledByMsi>true</InstalledByMsi>
     <SupportedProducts>
       <VisualStudio Version="10.0">
         <Edition>Ultimate</Edition>

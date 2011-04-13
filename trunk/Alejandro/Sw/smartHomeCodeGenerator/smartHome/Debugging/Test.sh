@@ -5,11 +5,6 @@
       <rooms>
         <floorHasRooms Id="fa2c44bf-b9cb-4530-9f17-25ed38feaa1a">
           <room Id="aff0109c-70da-4d17-869c-38ccf0e42b8f" name="Comedor">
-            <heaters>
-              <roomHasHeaters Id="f7dad2ca-3b0a-42b2-8c5b-a3f1bf3a0a12">
-                <heater Id="9cf08f0e-b048-4c5a-a9f2-cea93f4971db" />
-              </roomHasHeaters>
-            </heaters>
             <windows>
               <roomHasWindows Id="2d3e5e5b-f1d9-44a6-a6af-bb3838b053cb">
                 <window Id="946b3565-5d87-45f3-94c2-c06221dd870a">
@@ -21,11 +16,6 @@
                 </window>
               </roomHasWindows>
             </windows>
-            <lights>
-              <roomHasLights Id="2d07a16e-2a84-422e-a8a8-cda1b09e9695">
-                <light Id="1aef6857-8ead-447c-8ced-168f458d9110" />
-              </roomHasLights>
-            </lights>
           </room>
         </floorHasRooms>
       </rooms>
@@ -35,8 +25,8 @@
         <floorHasRooms Id="6a4dd2f6-63d8-4774-9419-05c1f79a69c1">
           <room Id="752d83b2-d4ae-4bfb-8297-61ba0f0cb051" name="Cocina">
             <heaters>
-              <roomHasHeaters Id="a16939a3-8311-46aa-a1a7-f3deeead08f1">
-                <heater Id="5cc173e7-9431-477b-9241-260cad92a942" />
+              <roomHasHeaters Id="850c2cdc-fc52-45e8-b744-bfab7f37ab69">
+                <heater Id="9a7f973a-4853-4593-bccd-373c8bf0214b" />
               </roomHasHeaters>
             </heaters>
           </room>
@@ -44,11 +34,6 @@
       </rooms>
     </floor>
   </floors>
-  <lightSimulation>
-    <smartHomeHasLightSimulation Id="9ea6245d-5684-4cb3-b6f6-ad10bf7d2dd9">
-      <lightSimulation Id="7c60aeac-d9a6-4abf-8343-aa5827b7934a" />
-    </smartHomeHasLightSimulation>
-  </lightSimulation>
   <blindSimulation>
     <smartHomeHasBlindSimulation Id="b8eb4c76-9c9c-47ae-9f77-366695e32ad9">
       <blindSimulation Id="2ed2929d-e94c-4ae7-ab43-d993b4577d25" />

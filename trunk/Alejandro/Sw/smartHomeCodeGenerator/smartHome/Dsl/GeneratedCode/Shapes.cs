@@ -122,7 +122,7 @@ namespace Unican.smartHome
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(1, 1.5);
+				return new DslDiagrams::SizeD(1, 1);
 			}
 		}
 		#endregion
@@ -371,7 +371,7 @@ namespace Unican.smartHome
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(1.5, 1);
+				return new DslDiagrams::SizeD(1, 1);
 			}
 		}
 		#endregion
@@ -620,7 +620,7 @@ namespace Unican.smartHome
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(1.5, 1);
+				return new DslDiagrams::SizeD(1, 1);
 			}
 		}
 		#endregion
@@ -848,7 +848,7 @@ namespace Unican.smartHome
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(1.5, 1);
+				return new DslDiagrams::SizeD(1, 1);
 			}
 		}
 		#endregion
@@ -1076,7 +1076,7 @@ namespace Unican.smartHome
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(1.5, 1.5);
+				return new DslDiagrams::SizeD(1, 1);
 			}
 		}
 		#endregion
@@ -1304,7 +1304,7 @@ namespace Unican.smartHome
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(1.5, 1);
+				return new DslDiagrams::SizeD(1, 1);
 			}
 		}
 		#endregion
@@ -1532,7 +1532,7 @@ namespace Unican.smartHome
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(1.5, 1);
+				return new DslDiagrams::SizeD(1, 1);
 			}
 		}
 		#endregion
@@ -1760,7 +1760,7 @@ namespace Unican.smartHome
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(1.5, 1.5);
+				return new DslDiagrams::SizeD(1, 1);
 			}
 		}
 		#endregion
@@ -1988,7 +1988,7 @@ namespace Unican.smartHome
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(1.5, 1.5);
+				return new DslDiagrams::SizeD(1, 1);
 			}
 		}
 		#endregion

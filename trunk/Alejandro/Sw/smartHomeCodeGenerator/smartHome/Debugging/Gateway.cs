@@ -5,9 +5,9 @@ using SmartHome;
 
 namespace MyFirstHome
 {
-    partial class MyFirstHome_Gateway:Gateway
+    partial class MyHome_Gateway:Gateway
     {
-        public MyFirstHome_Gateway()
+        public MyHome_Gateway()
             : base() { }
         // Class methods
         public override void heaterAdjustTemperature(int id, double temperature)

@@ -1,5 +1,4 @@
 ﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
-<#@ template language="c#v3.5" #>
 <#@ output extension=".cs" #>
 <#@ smartHome processor="smartHomeDirectiveProcessor" requires="fileName='Test.sh'" #>
 using System;
@@ -9,9 +8,9 @@ using SmartHome;
 
 namespace MyFirstHome
 {
-    partial class MyFirstHome_Gateway:Gateway
+    partial class MyHome_Gateway:Gateway
     {
-        public MyFirstHome_Gateway()
+        public MyHome_Gateway()
             : base() { }
 <#
 	bool heaterMng = false;
