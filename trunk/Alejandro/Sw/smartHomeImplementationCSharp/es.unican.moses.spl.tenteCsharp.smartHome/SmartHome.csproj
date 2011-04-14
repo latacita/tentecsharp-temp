@@ -177,9 +177,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\blind.jpg" />
+    <Content Include="Images\blindSimulation.jpg" />
+    <Content Include="Images\lightSimulation.jpg" />
+    <Content Include="Images\ligth.jpg" />
+    <Content Include="Images\smartEnergy.jpg" />
     <Content Include="Images\thermometer.jpg" />
     <Content Include="Images\window.jpg" />
     <Content Include="Images\windowIcon.ico" />
+    <Content Include="xml\timetables.xml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

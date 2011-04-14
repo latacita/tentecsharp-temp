@@ -84,8 +84,7 @@ namespace SmartHome
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GatewayGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gateway";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Gateway";           
             this.tabControl_main.ResumeLayout(false);
             this.tabPage_floors.ResumeLayout(false);
             this.ResumeLayout(false);

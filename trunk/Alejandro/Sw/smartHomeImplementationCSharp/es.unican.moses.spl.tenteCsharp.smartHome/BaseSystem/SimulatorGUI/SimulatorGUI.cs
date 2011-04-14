@@ -16,13 +16,18 @@ namespace SmartHome
             InitializeComponent();
         }
 
-        private void dataGridViewRooms_selectedRowsButton_Click(object sender, DataGridViewCellEventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            //int id_room=int.Parse(dataGridViewRooms.Rows[dataGridViewRooms.SelectedRows[0].Index].Cells[1].Value.ToString());
-            //Console.WriteLine(id_room);
-            //cleanRichTextBoxSimulated();
-            //addSimulatedHeaterMng(id_room);
-            
-        }// dataGridViewRooms_selectedRowsButton_Click       
+            DialogResult rs2 = MessageBox.Show("Do you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (rs2 == DialogResult.Yes)
+            {
+                //System.Windows.Forms.Application.Exit();
+                System.Environment.Exit(1);
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }
