@@ -84,8 +84,7 @@ namespace SmartHome
             this.dataGridViewRooms.Name = "dataGridViewRooms";
             this.dataGridViewRooms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRooms.Size = new System.Drawing.Size(343, 258);
-            this.dataGridViewRooms.TabIndex = 0;
-            this.dataGridViewRooms.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRooms_selectedRowsButton_Click);
+            this.dataGridViewRooms.TabIndex = 0;            
             // 
             // column_nameRoom
             // 

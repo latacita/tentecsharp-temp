@@ -16,14 +16,17 @@ namespace SmartHome
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
-
-        }
-
-        private void listBoxFloors_SelectedIndexChanged(object sender, EventArgs e)
-        {
-                   
+            DialogResult rs2 = MessageBox.Show("Do you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (rs2 == DialogResult.Yes)
+            {
+                System.Environment.Exit(1);
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
         
     }
