@@ -8,3 +8,13 @@ C:\Users\Iskander\Desktop\Smart Home Project1\Smart Home Project1\SmartHome\obj\
 C:\Users\Iskander\Desktop\Smart Home Project1\Smart Home Project1\SmartHome\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Iskander\Desktop\Smart Home Project1\Smart Home Project1\SmartHome\obj\x86\Debug\SmartHome.exe
 C:\Users\Iskander\Desktop\Smart Home Project1\Smart Home Project1\SmartHome\obj\x86\Debug\SmartHome.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\Smart Home Project1\SmartHome\obj\x86\Debug\SmartHome.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\Smart Home Project1\SmartHome\obj\x86\Debug\SmartHome.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\Smart Home Project1\SmartHome\bin\Debug\SmartHome.exe
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\Smart Home Project1\SmartHome\bin\Debug\SmartHome.pdb
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\Smart Home Project1\SmartHome\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\Smart Home Project1\SmartHome\obj\x86\Debug\SmartHome.GatewayGUI.resources
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\Smart Home Project1\SmartHome\obj\x86\Debug\SmartHome.SimulatorGUI.resources
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\Smart Home Project1\SmartHome\obj\x86\Debug\SmartHome.Properties.Resources.resources
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\Smart Home Project1\SmartHome\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Sw\smartHomeImplementationCSharp\es.unican.moses.spl.tenteCsharp.smartHome\Smart Home Project1\SmartHome\obj\x86\Debug\GenerateResource.write.1.tlog
