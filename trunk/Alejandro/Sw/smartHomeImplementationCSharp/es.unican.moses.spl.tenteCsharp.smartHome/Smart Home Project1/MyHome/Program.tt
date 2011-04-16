@@ -355,32 +355,39 @@ namespace MyHome
 	relativePath=relativePath.Remove(relativePath.LastIndexOf("\\")+1);
 	
 	if(blindMng) p.ProjectItems.AddFromDirectory(@relativePath+"BlindMng");
-	if(heaterMng) p.ProjectItems.AddFromDirectory(@relativePath+"HeaterMng");
+	if(windowMng) p.ProjectItems.AddFromDirectory(@relativePath+"WindowMng");
 	if(lightMng) p.ProjectItems.AddFromDirectory(@relativePath+"LightMng");
+	if(heaterMng) p.ProjectItems.AddFromDirectory(@relativePath+"HeaterMng");
 	if(smartEnergy) p.ProjectItems.AddFromDirectory(@relativePath+"SmartEnergyMng");
 	if(lightSimulation) p.ProjectItems.AddFromDirectory(@relativePath+"LightSimulation");
 	if(blindSimulation) p.ProjectItems.AddFromDirectory(@relativePath+"BlindSimulation");
+	
 
 		for (int ind = 1; ind <= p.ProjectItems.Count; ind++)
 	{
-		if (p.ProjectItems.Item(ind).Name=="BlindMng")
+
+		
+		if (p.ProjectItems.Item(ind).Name=="BlindMng"){
 			if (!blindMng)	p.ProjectItems.Item(ind).Remove();						
-		
-		if (p.ProjectItems.Item(ind).Name=="HeaterMng")
-			if (!heaterMng)	p.ProjectItems.Item(ind).Remove();			
-			
-		if (p.ProjectItems.Item(ind).Name=="LightMng")
+		}					
+		if (p.ProjectItems.Item(ind).Name=="LightMng"){
 			if (!lightMng) p.ProjectItems.Item(ind).Remove();
-			
-		if (p.ProjectItems.Item(ind).Name=="SmartEnergyMng")
+		}			
+		if (p.ProjectItems.Item(ind).Name=="SmartEnergyMng"){
 			if (!smartEnergy) p.ProjectItems.Item(ind).Remove();
-		
-		if (p.ProjectItems.Item(ind).Name=="BlindSimulation")
+		}
+		if (p.ProjectItems.Item(ind).Name=="BlindSimulation"){
 			if (!blindSimulation) p.ProjectItems.Item(ind).Remove();
-			
-		if (p.ProjectItems.Item(ind).Name=="LightSimulation")
+		}			
+		if (p.ProjectItems.Item(ind).Name=="LightSimulation"){
 			if (!lightSimulation) p.ProjectItems.Item(ind).Remove();		
-	        
+		}	
+		if (p.ProjectItems.Item(ind).Name=="WindowMng"){
+			if (!windowMng) p.ProjectItems.Item(ind).Remove();		
+		}        
+		if (p.ProjectItems.Item(ind).Name=="HeaterMng"){
+			if (!heaterMng)	p.ProjectItems.Item(ind).Remove();						
+		}		
 	}//for
 #>
 
