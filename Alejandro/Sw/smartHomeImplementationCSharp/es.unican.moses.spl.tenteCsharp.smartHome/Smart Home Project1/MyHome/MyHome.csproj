@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{99CD815D-E4C4-4FC2-8415-C1D30C46DA7E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyHome</RootNamespace>
+    <AssemblyName>MyFirstHome</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Logic\BlindCtrl1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlindCtrl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\BlindSensor1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlindSensor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\Gateway.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gateway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\HeaterCtrl1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HeaterCtrl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\LightCtrl1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LightCtrl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\LightSensor1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LightSensor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\Thermometer1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Thermometer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\Time.cs" />
+    <Compile Include="GatewayGUI\GatewayGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logic\WindowCtrl.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WindowCtrl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\Floor.cs" />
+    <Compile Include="Logic\Room.cs" />
+    <Compile Include="Logic\WindowSensor1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WindowSensor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Program.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Simulator\SimulatorGUI.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SimulatorGUI.tt</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Logic\Gateway.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Gateway.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\HeaterCtrl.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HeaterCtrl1.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\LightCtrl.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LightCtrl1.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\LightSensor.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LightSensor1.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\BlindCtrl.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BlindCtrl1.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\BlindSensor.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BlindSensor1.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\WindowSensor.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WindowSensor1.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\Thermometer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Thermometer1.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\WindowCtrl.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WindowCtrl.cs</LastGenOutput>
+    </None>
+    <None Include="Program.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Program.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Simulator\SimulatorGUI.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SimulatorGUI.cs</LastGenOutput>
+    </None>
+    <None Include="smartHome.sh" />
+    <None Include="smartHome.sh.diagram">
+      <DependentUpon>smartHome.sh</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartHome\SmartHome.csproj">
+      <Project>{3F2DF48D-9C21-4EA5-995C-BF62FC0029BF}</Project>
+      <Name>SmartHome</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="xml\timetables.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

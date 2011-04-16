@@ -1,0 +1,47 @@
+﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
+<#@ output extension=".cs" #>
+<#@ smartHome processor="smartHomeDirectiveProcessor" requires="fileName='..\smartHome.sh'" #>
+<#
+	bool blindMng=false;
+	foreach (Floor floor in this.SmartHome.Floors)
+		{		
+			foreach (Room room in floor.Rooms)
+			{		
+
+				foreach (Window window in room.Windows)
+				{
+						foreach (Blind blind in window.Blinds)
+						{
+							blindMng = true;
+							break;
+						}
+				}
+			}
+		}
+#>
+<#
+if(blindMng) { 
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using SmartHome;
+
+namespace MyHome
+{
+    partial class MyHome_BlindCtrl : BlindCtrl
+    {
+        public MyHome_BlindCtrl(int id, int id_window)
+            : base(id, id_window) { }
+    }
+}
+<#
+}else{
+#>
+	//blindMng is not selected
+<#
+}
+#>
+
+

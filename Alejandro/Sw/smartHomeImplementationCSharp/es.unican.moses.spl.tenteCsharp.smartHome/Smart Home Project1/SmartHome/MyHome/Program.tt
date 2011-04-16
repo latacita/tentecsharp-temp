@@ -1,0 +1,49 @@
+﻿<#@ template hostspecific="true" language="C#" #>
+<#@ output extension=".txt" #>
+<#@ assembly name="EnvDTE" #>
+<#@ assembly name="EnvDTE80" #>
+<#
+    IServiceProvider serviceProvider = (IServiceProvider)this.Host;
+    EnvDTE.DTE _dte = (EnvDTE.DTE) serviceProvider.GetService(typeof(EnvDTE.DTE));
+	bool BlindMng = true;
+	bool HeaterMng = true;
+	bool LightMng = true;
+	bool SmartEnergy = true;
+	bool LightSimulation = true;
+	bool BlindSimulation = true;
+	//EnvDTE.DTE _dte = (EnvDTE.DTE)System.Runtime.InteropServices.Marshal.GetActiveObject("VisualStudio.DTE.10.0");
+	EnvDTE.Solution _solution = _dte.Solution;
+	Console.WriteLine(_solution.FullName);
+	EnvDTE.Projects pr=_dte.Solution.Projects;
+	EnvDTE.Project p = pr.Item(1);
+	if(BlindMng) p.ProjectItems.AddFromDirectory("Smart Home Project1");
+	//C:\Users\Iskander\Desktop\Smart Home Project1
+	for (int i = 1; i <= p.ProjectItems.Count; i++)
+	{
+		switch (p.ProjectItems.Item(i).Name)
+		{
+		case ("BlindMng"):
+			if (!BlindMng)	p.ProjectItems.Item(i).Remove();						
+			break;
+		case ("HeaterMng"):
+			if (!HeaterMng)	p.ProjectItems.Item(i).Remove();			
+			break;
+		case ("LightMng"):
+			if (!LightMng) p.ProjectItems.Item(i).Remove();
+			break;
+		case ("SmartEnergyMng"):
+			if (!SmartEnergy) p.ProjectItems.Item(i).Remove();
+			break;
+		case ("BlindSimulation"):
+			if (!BlindSimulation) p.ProjectItems.Item(i).Remove();
+			break;
+		case ("LightSimulation"):
+			if (!LightSimulation) p.ProjectItems.Item(i).Remove();
+			break;
+	}//switch              
+	}//for
+#>
+Number of projects in this VS solution:  <#= _dte.Solution.Projects.Count #>
+
+
+

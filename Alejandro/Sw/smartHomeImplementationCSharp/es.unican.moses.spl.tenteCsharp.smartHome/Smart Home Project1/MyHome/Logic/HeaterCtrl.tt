@@ -1,0 +1,42 @@
+﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
+<#@ output extension=".cs" #>
+<#@ smartHome processor="smartHomeDirectiveProcessor" requires="fileName='..\smartHome.sh'" #>
+<#
+		bool heaterMng = false;
+		foreach (Floor floor in this.SmartHome.Floors)
+		{
+			
+			foreach (Room room in floor.Rooms)
+			{	
+				foreach (Heater heater in room.Heaters)
+				{
+					heaterMng = true;
+					break;
+				}
+			}
+		}
+#>
+<#
+if(heaterMng) { 
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using SmartHome;
+
+namespace MyHome
+{
+    partial class MyHome_HeaterCtrl : HeaterCtrl
+    {
+        public MyHome_HeaterCtrl(int id, int id_room)
+            : base(id, id_room) { }
+    }
+}
+<#
+}else{
+#>
+	//heaterMng is not selected
+<#
+}
+#>

@@ -1,0 +1,42 @@
+﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
+<#@ output extension=".cs" #>
+<#@ smartHome processor="smartHomeDirectiveProcessor" requires="fileName='..\smartHome.sh'" #>
+<#
+		bool lightMng = false;
+		foreach (Floor floor in this.SmartHome.Floors)
+		{
+			
+			foreach (Room room in floor.Rooms)
+			{	
+				foreach (Light light in room.Lights)
+				{
+					lightMng = true;
+					break;
+				}
+			}
+		}
+#>
+<#
+if(lightMng) { 
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using SmartHome;
+
+namespace MyHome
+{
+    partial class MyHome_LightSensor : LightSensor
+    {
+        public MyHome_LightSensor(int id, int id_lightCtrl)
+            : base(id, id_lightCtrl) { }
+    }
+}
+<#
+}else{
+#>
+	//LightMng is not selected
+<#
+}
+#>
