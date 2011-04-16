@@ -46,25 +46,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logic\BlindCtrl.cs" />
-    <Compile Include="Logic\BlindSensor.cs" />
+    <Compile Include="Logic\BlindCtrl.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlindCtrl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\BlindSensor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlindSensor.tt</DependentUpon>
+    </Compile>
     <Compile Include="Logic\Gateway.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Gateway.tt</DependentUpon>
     </Compile>
-    <Compile Include="Logic\LightCtrl.cs" />
-    <Compile Include="Logic\LightSensor.cs" />
+    <Compile Include="Logic\HeaterCtrl.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HeaterCtrl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\LightCtrl.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LightCtrl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\LightSensor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LightSensor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\Thermometer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Thermometer.tt</DependentUpon>
+    </Compile>
     <Compile Include="Logic\Time.cs" />
     <Compile Include="GatewayGUI\GatewayGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Logic\WindowSensor.cs" />
-    <Compile Include="Logic\WindowsCtrl.cs" />
-    <Compile Include="Logic\Thermometer.cs" />
-    <Compile Include="Logic\HeaterCtrl.cs" />
     <Compile Include="Logic\Floor.cs" />
     <Compile Include="Logic\Room.cs" />
+    <Compile Include="Logic\WindowCtrl.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WindowCtrl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\WindowSensor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WindowSensor.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,9 +119,41 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Logic\BlindCtrl.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BlindCtrl.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\BlindSensor.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BlindSensor.cs</LastGenOutput>
+    </None>
     <None Include="Logic\Gateway.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Gateway.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\HeaterCtrl.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HeaterCtrl.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\LightCtrl.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LightCtrl.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\LightSensor.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LightSensor.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\Thermometer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Thermometer.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\WindowCtrl.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WindowCtrl.cs</LastGenOutput>
+    </None>
+    <None Include="Logic\WindowSensor.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WindowSensor.cs</LastGenOutput>
     </None>
     <None Include="Program.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

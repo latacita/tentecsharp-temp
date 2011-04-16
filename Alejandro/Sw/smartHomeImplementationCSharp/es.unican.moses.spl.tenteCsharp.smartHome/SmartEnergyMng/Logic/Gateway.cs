@@ -217,7 +217,7 @@ namespace SmartHome
 
         protected void notifySwitchOnSmartEnergyToObsevers()
         {
-            foreach (IGatewayGUISmartEnergyObserver observer in observersGatewayLigth)
+            foreach (IGatewayGUISmartEnergyObserver observer in observersGatewaySmartEnergy)
             {
                 observer.switchOnSmartEnergy();
             } // foreach
@@ -225,7 +225,7 @@ namespace SmartHome
 
         protected void notifySwitchOffSmartEnergyToObsevers()
         {
-            foreach (IGatewayGUISmartEnergyObserver observer in observersGatewayLigth)
+            foreach (IGatewayGUISmartEnergyObserver observer in observersGatewaySmartEnergy)
             {
                 observer.switchOffSmartEnergy();
             } // foreach

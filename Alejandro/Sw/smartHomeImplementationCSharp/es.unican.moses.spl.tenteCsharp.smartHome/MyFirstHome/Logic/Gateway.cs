@@ -12,7 +12,7 @@ namespace MyHome
         // Class methods
         public override void heaterAdjustTemperature(int id, double temperature)
         {
-			this.heaterMng_HeaterAdjustTemperature(id, temperature);
+            this.smartEnergy_HeaterAdjustTemperature(id, temperature);
         }
     }
 }

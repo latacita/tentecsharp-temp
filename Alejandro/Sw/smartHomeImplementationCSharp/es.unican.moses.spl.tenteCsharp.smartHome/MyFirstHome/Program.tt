@@ -1,13 +1,14 @@
 ﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
 <#@ output extension=".cs" #>
 <#@ smartHome processor="smartHomeDirectiveProcessor" requires="fileName='smartHome.sh'" #>
+<#@ assembly name="EnvDTE" #>
+<#@ assembly name="EnvDTE80" #>
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using SmartHome;
-
 
 namespace MyHome
 {
@@ -29,6 +30,9 @@ namespace MyHome
 			bool lightMng = false;
 			bool windowMng = false;
 			bool blindMng = false;
+			bool blindSimulation = false;
+			bool lightSimulation = false;
+			bool smartEnergy = false;
 			foreach (Floor floor in this.SmartHome.Floors)
 		{
 #>
@@ -257,6 +261,7 @@ namespace MyHome
 #>
 <#
 			if(this.SmartHome.BlindSimulation!=null){ 
+				blindSimulation = true;
 #>
 			gatewayGUI.addBlindSimulation();
 <#
@@ -264,6 +269,7 @@ namespace MyHome
 #>
 <#
 			if(this.SmartHome.LightSimulation!=null){ 
+				lightSimulation = true;
 #>
 			gatewayGUI.addLightSimulation();
 <#
@@ -271,6 +277,7 @@ namespace MyHome
 #>
 <#
 			if(this.SmartHome.SmartEnergy!=null){ 
+				smartEnergy = true;
 #>
 			gatewayGUI.addSmartEnergyMng();
 <#
@@ -333,3 +340,53 @@ namespace MyHome
 		}// Main
 	}//Program
 }//namespace
+
+
+
+<#
+    //IServiceProvider serviceProvider = (IServiceProvider)this.Host;
+    //EnvDTE.DTE _dte = (EnvDTE.DTE) serviceProvider.GetService(typeof(EnvDTE.DTE));
+	EnvDTE.DTE _dte = (EnvDTE.DTE)System.Runtime.InteropServices.Marshal.GetActiveObject("VisualStudio.DTE.10.0");
+	EnvDTE.Solution _solution = _dte.Solution;
+	Console.WriteLine(_solution.FullName);
+	EnvDTE.Projects pr=_dte.Solution.Projects;
+	EnvDTE.Project p = pr.Item(1);
+	String relativePath=_dte.Solution.Projects.Item(1).FullName;
+	relativePath=relativePath.Remove(relativePath.LastIndexOf("\\")+1);
+	
+	if(blindMng) p.ProjectItems.AddFromDirectory(@relativePath+"BlindMng");
+	if(heaterMng) p.ProjectItems.AddFromDirectory(@relativePath+"HeaterMng");
+	if(lightMng) p.ProjectItems.AddFromDirectory(@relativePath+"LightMng");
+	if(smartEnergy) p.ProjectItems.AddFromDirectory(@relativePath+"SmartEnergyMng");
+	if(lightSimulation) p.ProjectItems.AddFromDirectory(@relativePath+"LightSimulation");
+	if(blindSimulation) p.ProjectItems.AddFromDirectory(@relativePath+"BlindSimulation");
+
+		for (int ind = 1; ind <= p.ProjectItems.Count; ind++)
+	{
+		switch (p.ProjectItems.Item(ind).Name)
+		{
+		case ("BlindMng"):
+			if (!blindMng)	p.ProjectItems.Item(ind).Remove();						
+			break;
+		case ("HeaterMng"):
+			if (!heaterMng)	p.ProjectItems.Item(ind).Remove();			
+			break;
+		case ("LightMng"):
+			if (!lightMng) p.ProjectItems.Item(ind).Remove();
+			break;
+		case ("SmartEnergyMng"):
+			if (!smartEnergy) p.ProjectItems.Item(ind).Remove();
+			break;
+		case ("BlindSimulation"):
+			if (!blindSimulation) p.ProjectItems.Item(ind).Remove();
+			break;
+		case ("LightSimulation"):
+			if (!lightSimulation) p.ProjectItems.Item(ind).Remove();
+			break;
+	}//switch              
+	}//for
+#>
+
+
+
+

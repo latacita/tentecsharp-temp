@@ -12,3 +12,5 @@ namespace MyHome
             : base(id, id_window) { }
     }
 }
+
+

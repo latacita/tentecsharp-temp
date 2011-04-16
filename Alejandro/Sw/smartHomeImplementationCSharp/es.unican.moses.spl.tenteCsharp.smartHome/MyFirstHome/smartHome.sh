@@ -12,7 +12,13 @@
             </heaters>
             <windows>
               <roomHasWindows Id="9a86e064-a90b-45bb-9ae3-ee5a7211d4cd">
-                <window Id="a24638dd-2bf8-4407-ae8d-aeb50e0d68a7" />
+                <window Id="a24638dd-2bf8-4407-ae8d-aeb50e0d68a7">
+                  <blinds>
+                    <windowHasBlinds Id="356eaba4-dde5-48ef-9567-38a2ddd52dd8">
+                      <blind Id="c70fac70-2349-40d2-a1f1-e8dc9b42cb65" />
+                    </windowHasBlinds>
+                  </blinds>
+                </window>
               </roomHasWindows>
             </windows>
             <lights>
@@ -25,4 +31,19 @@
       </rooms>
     </floor>
   </floors>
+  <smartEnergy>
+    <smartHomeHasSmartEnergy Id="dc63ebdc-70d5-47c0-831d-b8002583693b">
+      <smartEnergy Id="2f893055-82dd-4829-be90-cd7b0e2055cb" />
+    </smartHomeHasSmartEnergy>
+  </smartEnergy>
+  <lightSimulation>
+    <smartHomeHasLightSimulation Id="0b041221-9506-45f1-9706-cfa2d5a9b7c1">
+      <lightSimulation Id="1cfc565f-bc6e-480b-8915-91371fa4e91b" />
+    </smartHomeHasLightSimulation>
+  </lightSimulation>
+  <blindSimulation>
+    <smartHomeHasBlindSimulation Id="76e3d08d-632e-4f0c-b240-8adfa01db3df">
+      <blindSimulation Id="2bb86e0c-706b-454a-b4f8-f391d9025f38" />
+    </smartHomeHasBlindSimulation>
+  </blindSimulation>
 </smartHome>

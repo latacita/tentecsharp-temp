@@ -16,7 +16,14 @@ namespace MyHome
              this.fillDataGridViewHeaters();
              this.fillDataGridViewWindows();
              this.filldataGridViewLigths();
+             this.fillDataGridViewBlinds();
            
         }//observerRefreshDataGrid        
+        public override void refreshTime()
+        {
+            this.smartEnergy_refreshTime();
+            this.lightSimulation_refreshTime();
+            this.blindSimulation_refreshTime();
+        }//refreshTime
     }
 }
