@@ -28,7 +28,7 @@
     <lightShape Id="47c5b6c0-5abf-4736-9efb-ef161bf82c46" absoluteBounds="4.5, 4.25, 1, 1">
       <lightMoniker Id="39e11100-aca3-4e35-8ead-8687ba6627ca" />
     </lightShape>
-    <connector Id="c3c9cb71-41ad-4feb-bc90-24b53fea9358" edgePoints="[(4.6875 : 3.625); (4.6875 : 4.3596876251001)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <connector Id="c3c9cb71-41ad-4feb-bc90-24b53fea9358" edgePoints="[(4.6875 : 3.625); (4.6875 : 4.3596876251001)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <roomHasLightsMoniker Id="51466340-44b5-4769-b42c-348f3ba710b0" />
       <nodes>
         <roomShapeMoniker Id="e5c9c3ca-4428-41de-a89b-6dfb706d59cb" />
@@ -45,5 +45,24 @@
         <windowShapeMoniker Id="e582a5a4-598a-421d-ac69-884f2ad7c9cf" />
       </nodes>
     </connector>
+    <blindShape Id="e8f6a61e-cad0-4318-b62f-abd009ac82ec" absoluteBounds="5.875, 5.75, 1, 1">
+      <blindMoniker Id="c70fac70-2349-40d2-a1f1-e8dc9b42cb65" />
+    </blindShape>
+    <connector Id="8d201cbc-18b1-4a21-a5dd-111c0e6bddb7" edgePoints="[(6.375 : 5.25); (6.375 : 5.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <windowHasBlindsMoniker Id="356eaba4-dde5-48ef-9567-38a2ddd52dd8" />
+      <nodes>
+        <windowShapeMoniker Id="e582a5a4-598a-421d-ac69-884f2ad7c9cf" />
+        <blindShapeMoniker Id="e8f6a61e-cad0-4318-b62f-abd009ac82ec" />
+      </nodes>
+    </connector>
+    <blindSimulationShape Id="8061957c-faa1-4afa-8f3f-e152d83be1a0" absoluteBounds="1.875, 0.625, 1, 1">
+      <blindSimulationMoniker Id="2bb86e0c-706b-454a-b4f8-f391d9025f38" />
+    </blindSimulationShape>
+    <lightSimulationShape Id="64cab81c-96ba-4318-b411-b36c80f00614" absoluteBounds="3.125, 0.625, 1, 1">
+      <lightSimulationMoniker Id="1cfc565f-bc6e-480b-8915-91371fa4e91b" />
+    </lightSimulationShape>
+    <smartEnergyShape Id="db89ff7b-d64c-4b88-b29e-5d89c3b2727c" absoluteBounds="0.5, 0.625, 1, 1">
+      <smartEnergyMoniker Id="2f893055-82dd-4829-be90-cd7b0e2055cb" />
+    </smartEnergyShape>
   </nestedChildShapes>
 </smartHomeDiagram>

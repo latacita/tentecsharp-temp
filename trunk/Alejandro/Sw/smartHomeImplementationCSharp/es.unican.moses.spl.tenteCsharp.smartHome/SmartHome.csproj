@@ -63,11 +63,21 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BlindMng\GUI\GatewayGUI.Designer.cs" />
-    <Compile Include="BlindMng\Logic\Gateway.cs" />
-    <Compile Include="BlindMng\Logic\IGatewayGUIBlindObserver.cs" />
-    <Compile Include="BlindMng\Logic\ISubjectGatewayBlind.cs" />
-    <Compile Include="BlindMng\Logic\BlindCtrl.cs" />
-    <Compile Include="BlindMng\Logic\BlindSensor.cs" />
+    <Compile Include="BlindMng\Logic\BlindCtrl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BlindMng\Logic\BlindSensor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BlindMng\Logic\Gateway.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BlindMng\Logic\IGatewayGUIBlindObserver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BlindMng\Logic\ISubjectGatewayBlind.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="BlindMng\SimulatorGUI\SimulatorGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,9 +86,15 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BlindSimulation\GUI\GatewayGUI.Designer.cs" />
-    <Compile Include="BlindSimulation\Logic\Gateway.cs" />
-    <Compile Include="BlindSimulation\Logic\IGatewayGUIBlindSimulationObserver.cs" />
-    <Compile Include="BlindSimulation\Logic\ISubjectGatewayBlindSimulation.cs" />
+    <Compile Include="BlindSimulation\Logic\Gateway.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BlindSimulation\Logic\IGatewayGUIBlindSimulationObserver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BlindSimulation\Logic\ISubjectGatewayBlindSimulation.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="BlindSimulation\SimulatorGUI\SimulatorGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,23 +128,38 @@
     <Compile Include="LightMng\Logic\LigthCtrl.cs" />
     <Compile Include="LightMng\Logic\Gateway.cs" />
     <Compile Include="LightMng\SimulatorGUI\SimulatorGUI.Designer.cs" />
-    <Compile Include="LightSimulation\GUI\GatewayGUI.Designer.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="BaseSystem\Logic\ITimeObserver.cs" />
+    <Compile Include="BaseSystem\Logic\Time.cs" />
     <Compile Include="LightSimulation\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LightSimulation\Logic\Gateway.cs" />
-    <Compile Include="LightSimulation\Logic\IGatewayGUILightSimulationObserver.cs" />
-    <Compile Include="LightSimulation\Logic\ISubjectGatewaySmartEnergy.cs" />
+    <Compile Include="LightSimulation\GUI\GatewayGUI.Designer.cs" />
+    <Compile Include="LightSimulation\Logic\Gateway.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LightSimulation\Logic\IGatewayGUILightSimulationObserver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LightSimulation\Logic\ISubjectGatewaySmartEnergy.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="LightSimulation\SimulatorGUI\SimulatorGUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LightSimulation\SimulatorGUI\SimulatorGUI.Designer.cs" />
-    <Compile Include="SmartEnergyMng\Logic\IGatewayGUISmartEnergyObserver.cs" />
-    <Compile Include="SmartEnergyMng\Logic\ISubjectGatewaySmartEnergy.cs" />
-    <Compile Include="BaseSystem\Logic\ITimeObserver.cs" />
-    <Compile Include="BaseSystem\Logic\Time.cs" />
+    <Compile Include="SmartEnergyMng\GatewayGUI\GatewayGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SmartEnergyMng\GatewayGUI\GatewayGUI.Designer.cs" />
+    <Compile Include="SmartEnergyMng\Logic\Gateway.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SmartEnergyMng\Logic\IGatewayGUISmartEnergyObserver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SmartEnergyMng\Logic\ISubjectGatewaySmartEnergy.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="SmartEnergyMng\SimulatorGUI\SimulatorGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,7 +169,6 @@
     <Compile Include="Variables_methods\GatewayGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SmartEnergyMng\Logic\Gateway.cs" />
     <Compile Include="Variables_methods\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -146,10 +176,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SmartEnergyMng\GatewayGUI\GatewayGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SmartEnergyMng\GatewayGUI\GatewayGUI.Designer.cs" />
     <Compile Include="WindowMng\GUI\GatewayGUI.Designer.cs" />
     <Compile Include="WindowMng\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
@@ -187,7 +213,231 @@
     <Content Include="Images\windowIcon.ico" />
     <Content Include="xml\timetables.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="BlindMng\.svn\all-wcprops" />
+    <None Include="BlindMng\.svn\entries" />
+    <None Include="BlindMng\GUI\.svn\all-wcprops" />
+    <None Include="BlindMng\GUI\.svn\entries" />
+    <None Include="BlindMng\GUI\.svn\text-base\GatewayGUI.cs.svn-base" />
+    <None Include="BlindMng\GUI\.svn\text-base\GatewayGUI.Designer.cs.svn-base" />
+    <None Include="BlindMng\Logic\.svn\all-wcprops" />
+    <None Include="BlindMng\Logic\.svn\entries" />
+    <None Include="BlindMng\Logic\.svn\text-base\BlindCtrl.cs.svn-base" />
+    <None Include="BlindMng\Logic\.svn\text-base\BlindSensor.cs.svn-base" />
+    <None Include="BlindMng\Logic\.svn\text-base\Gateway.cs.svn-base" />
+    <None Include="BlindMng\Logic\.svn\text-base\IGatewayGUIBlindObserver.cs.svn-base" />
+    <None Include="BlindMng\Logic\.svn\text-base\ISubjectGatewayBlind.cs.svn-base" />
+    <None Include="BlindMng\SimulatorGUI\.svn\all-wcprops" />
+    <None Include="BlindMng\SimulatorGUI\.svn\entries" />
+    <None Include="BlindMng\SimulatorGUI\.svn\text-base\SimulatorGUI.cs.svn-base" />
+    <None Include="BlindMng\SimulatorGUI\.svn\text-base\SimulatorGUI.Designer.cs.svn-base" />
+    <None Include="BlindSimulation\.svn\all-wcprops" />
+    <None Include="BlindSimulation\.svn\entries" />
+    <None Include="BlindSimulation\GUI\.svn\all-wcprops" />
+    <None Include="BlindSimulation\GUI\.svn\entries" />
+    <None Include="BlindSimulation\GUI\.svn\text-base\GatewayGUI.cs.svn-base" />
+    <None Include="BlindSimulation\GUI\.svn\text-base\GatewayGUI.Designer.cs.svn-base" />
+    <None Include="BlindSimulation\Logic\.svn\all-wcprops" />
+    <None Include="BlindSimulation\Logic\.svn\entries" />
+    <None Include="BlindSimulation\Logic\.svn\text-base\Gateway.cs.svn-base" />
+    <None Include="BlindSimulation\Logic\.svn\text-base\IGatewayGUIBlindSimulationObserver.cs.svn-base" />
+    <None Include="BlindSimulation\Logic\.svn\text-base\ISubjectGatewayBlindSimulation.cs.svn-base" />
+    <None Include="BlindSimulation\SimulatorGUI\.svn\all-wcprops" />
+    <None Include="BlindSimulation\SimulatorGUI\.svn\entries" />
+    <None Include="BlindSimulation\SimulatorGUI\.svn\text-base\SimulatorGUI.cs.svn-base" />
+    <None Include="BlindSimulation\SimulatorGUI\.svn\text-base\SimulatorGUI.Designer.cs.svn-base" />
+    <None Include="HeaterMng\.svn\all-wcprops" />
+    <None Include="HeaterMng\.svn\entries" />
+    <None Include="HeaterMng\GUI\.svn\all-wcprops" />
+    <None Include="HeaterMng\GUI\.svn\entries" />
+    <None Include="HeaterMng\GUI\.svn\text-base\GatewayGUI.cs.svn-base" />
+    <None Include="HeaterMng\GUI\.svn\text-base\GatewayGUI.Designer.cs.svn-base" />
+    <None Include="HeaterMng\Logic\.svn\all-wcprops" />
+    <None Include="HeaterMng\Logic\.svn\entries" />
+    <None Include="HeaterMng\Logic\.svn\text-base\Gateway.cs.svn-base" />
+    <None Include="HeaterMng\Logic\.svn\text-base\HeaterCtrl.cs.svn-base" />
+    <None Include="HeaterMng\Logic\.svn\text-base\IGatewayGUIHeaterObserver.cs.svn-base" />
+    <None Include="HeaterMng\Logic\.svn\text-base\ISubjectGatewayHeater.cs.svn-base" />
+    <None Include="HeaterMng\Logic\.svn\text-base\Thermometer.cs.svn-base" />
+    <None Include="HeaterMng\SimulatorGUI\.svn\all-wcprops" />
+    <None Include="HeaterMng\SimulatorGUI\.svn\entries" />
+    <None Include="HeaterMng\SimulatorGUI\.svn\text-base\SimulatorGUI.cs.svn-base" />
+    <None Include="HeaterMng\SimulatorGUI\.svn\text-base\SimulatorGUI.Designer.cs.svn-base" />
+    <None Include="LightMng\.svn\all-wcprops" />
+    <None Include="LightMng\.svn\entries" />
+    <None Include="LightMng\GUI\.svn\all-wcprops" />
+    <None Include="LightMng\GUI\.svn\entries" />
+    <None Include="LightMng\GUI\.svn\text-base\GatewayGUI.cs.svn-base" />
+    <None Include="LightMng\GUI\.svn\text-base\GatewayGUI.Designer.cs.svn-base" />
+    <None Include="LightMng\Logic\.svn\all-wcprops" />
+    <None Include="LightMng\Logic\.svn\entries" />
+    <None Include="LightMng\Logic\.svn\text-base\Gateway.cs.svn-base" />
+    <None Include="LightMng\Logic\.svn\text-base\IGatewayGUILigthObserver.cs.svn-base" />
+    <None Include="LightMng\Logic\.svn\text-base\ISubjectGatewayLigth.cs.svn-base" />
+    <None Include="LightMng\Logic\.svn\text-base\LigthCtrl.cs.svn-base" />
+    <None Include="LightMng\Logic\.svn\text-base\LigthSensor.cs.svn-base" />
+    <None Include="LightMng\SimulatorGUI\.svn\all-wcprops" />
+    <None Include="LightMng\SimulatorGUI\.svn\entries" />
+    <None Include="LightMng\SimulatorGUI\.svn\text-base\SimulatorGUI.Designer.cs.svn-base" />
+    <None Include="LightSimulation\.svn\all-wcprops" />
+    <None Include="LightSimulation\.svn\entries" />
+    <None Include="LightSimulation\GUI\.svn\all-wcprops" />
+    <None Include="LightSimulation\GUI\.svn\entries" />
+    <None Include="LightSimulation\GUI\.svn\text-base\GatewayGUI.cs.svn-base" />
+    <None Include="LightSimulation\GUI\.svn\text-base\GatewayGUI.Designer.cs.svn-base" />
+    <None Include="LightSimulation\Logic\.svn\all-wcprops" />
+    <None Include="LightSimulation\Logic\.svn\entries" />
+    <None Include="LightSimulation\Logic\.svn\text-base\Gateway.cs.svn-base" />
+    <None Include="LightSimulation\Logic\.svn\text-base\IGatewayGUILightSimulationObserver.cs.svn-base" />
+    <None Include="LightSimulation\Logic\.svn\text-base\ISubjectGatewaySmartEnergy.cs.svn-base" />
+    <None Include="LightSimulation\SimulatorGUI\.svn\all-wcprops" />
+    <None Include="LightSimulation\SimulatorGUI\.svn\entries" />
+    <None Include="LightSimulation\SimulatorGUI\.svn\text-base\SimulatorGUI.cs.svn-base" />
+    <None Include="LightSimulation\SimulatorGUI\.svn\text-base\SimulatorGUI.Designer.cs.svn-base" />
+    <None Include="SmartEnergyMng\.svn\all-wcprops" />
+    <None Include="SmartEnergyMng\.svn\entries" />
+    <None Include="SmartEnergyMng\GatewayGUI\.svn\all-wcprops" />
+    <None Include="SmartEnergyMng\GatewayGUI\.svn\entries" />
+    <None Include="SmartEnergyMng\GatewayGUI\.svn\text-base\GatewayGUI.cs.svn-base" />
+    <None Include="SmartEnergyMng\GatewayGUI\.svn\text-base\GatewayGUI.Designer.cs.svn-base" />
+    <None Include="SmartEnergyMng\Logic\.svn\all-wcprops" />
+    <None Include="SmartEnergyMng\Logic\.svn\entries" />
+    <None Include="SmartEnergyMng\Logic\.svn\text-base\Gateway.cs.svn-base" />
+    <None Include="SmartEnergyMng\Logic\.svn\text-base\IGatewayGUISmartEnergyObserver.cs.svn-base" />
+    <None Include="SmartEnergyMng\Logic\.svn\text-base\ISubjectGatewaySmartEnergy.cs.svn-base" />
+    <None Include="SmartEnergyMng\SimulatorGUI\.svn\all-wcprops" />
+    <None Include="SmartEnergyMng\SimulatorGUI\.svn\entries" />
+    <None Include="SmartEnergyMng\SimulatorGUI\.svn\text-base\SimulatorGUI.cs.svn-base" />
+    <None Include="SmartEnergyMng\SimulatorGUI\.svn\text-base\SimulatorGUI.Designer.cs.svn-base" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BlindMng\.svn\prop-base\" />
+    <Folder Include="BlindMng\.svn\props\" />
+    <Folder Include="BlindMng\.svn\text-base\" />
+    <Folder Include="BlindMng\.svn\tmp\prop-base\" />
+    <Folder Include="BlindMng\.svn\tmp\props\" />
+    <Folder Include="BlindMng\.svn\tmp\text-base\" />
+    <Folder Include="BlindMng\GUI\.svn\prop-base\" />
+    <Folder Include="BlindMng\GUI\.svn\props\" />
+    <Folder Include="BlindMng\GUI\.svn\tmp\prop-base\" />
+    <Folder Include="BlindMng\GUI\.svn\tmp\props\" />
+    <Folder Include="BlindMng\GUI\.svn\tmp\text-base\" />
+    <Folder Include="BlindMng\Logic\.svn\prop-base\" />
+    <Folder Include="BlindMng\Logic\.svn\props\" />
+    <Folder Include="BlindMng\Logic\.svn\tmp\prop-base\" />
+    <Folder Include="BlindMng\Logic\.svn\tmp\props\" />
+    <Folder Include="BlindMng\Logic\.svn\tmp\text-base\" />
+    <Folder Include="BlindMng\SimulatorGUI\.svn\prop-base\" />
+    <Folder Include="BlindMng\SimulatorGUI\.svn\props\" />
+    <Folder Include="BlindMng\SimulatorGUI\.svn\tmp\prop-base\" />
+    <Folder Include="BlindMng\SimulatorGUI\.svn\tmp\props\" />
+    <Folder Include="BlindMng\SimulatorGUI\.svn\tmp\text-base\" />
+    <Folder Include="BlindSimulation\.svn\prop-base\" />
+    <Folder Include="BlindSimulation\.svn\props\" />
+    <Folder Include="BlindSimulation\.svn\text-base\" />
+    <Folder Include="BlindSimulation\.svn\tmp\prop-base\" />
+    <Folder Include="BlindSimulation\.svn\tmp\props\" />
+    <Folder Include="BlindSimulation\.svn\tmp\text-base\" />
+    <Folder Include="BlindSimulation\GUI\.svn\prop-base\" />
+    <Folder Include="BlindSimulation\GUI\.svn\props\" />
+    <Folder Include="BlindSimulation\GUI\.svn\tmp\prop-base\" />
+    <Folder Include="BlindSimulation\GUI\.svn\tmp\props\" />
+    <Folder Include="BlindSimulation\GUI\.svn\tmp\text-base\" />
+    <Folder Include="BlindSimulation\Logic\.svn\prop-base\" />
+    <Folder Include="BlindSimulation\Logic\.svn\props\" />
+    <Folder Include="BlindSimulation\Logic\.svn\tmp\prop-base\" />
+    <Folder Include="BlindSimulation\Logic\.svn\tmp\props\" />
+    <Folder Include="BlindSimulation\Logic\.svn\tmp\text-base\" />
+    <Folder Include="BlindSimulation\SimulatorGUI\.svn\prop-base\" />
+    <Folder Include="BlindSimulation\SimulatorGUI\.svn\props\" />
+    <Folder Include="BlindSimulation\SimulatorGUI\.svn\tmp\prop-base\" />
+    <Folder Include="BlindSimulation\SimulatorGUI\.svn\tmp\props\" />
+    <Folder Include="BlindSimulation\SimulatorGUI\.svn\tmp\text-base\" />
+    <Folder Include="HeaterMng\.svn\prop-base\" />
+    <Folder Include="HeaterMng\.svn\props\" />
+    <Folder Include="HeaterMng\.svn\text-base\" />
+    <Folder Include="HeaterMng\.svn\tmp\prop-base\" />
+    <Folder Include="HeaterMng\.svn\tmp\props\" />
+    <Folder Include="HeaterMng\.svn\tmp\text-base\" />
+    <Folder Include="HeaterMng\GUI\.svn\prop-base\" />
+    <Folder Include="HeaterMng\GUI\.svn\props\" />
+    <Folder Include="HeaterMng\GUI\.svn\tmp\prop-base\" />
+    <Folder Include="HeaterMng\GUI\.svn\tmp\props\" />
+    <Folder Include="HeaterMng\GUI\.svn\tmp\text-base\" />
+    <Folder Include="HeaterMng\Logic\.svn\prop-base\" />
+    <Folder Include="HeaterMng\Logic\.svn\props\" />
+    <Folder Include="HeaterMng\Logic\.svn\tmp\prop-base\" />
+    <Folder Include="HeaterMng\Logic\.svn\tmp\props\" />
+    <Folder Include="HeaterMng\Logic\.svn\tmp\text-base\" />
+    <Folder Include="HeaterMng\SimulatorGUI\.svn\prop-base\" />
+    <Folder Include="HeaterMng\SimulatorGUI\.svn\props\" />
+    <Folder Include="HeaterMng\SimulatorGUI\.svn\tmp\prop-base\" />
+    <Folder Include="HeaterMng\SimulatorGUI\.svn\tmp\props\" />
+    <Folder Include="HeaterMng\SimulatorGUI\.svn\tmp\text-base\" />
+    <Folder Include="LightMng\.svn\prop-base\" />
+    <Folder Include="LightMng\.svn\props\" />
+    <Folder Include="LightMng\.svn\text-base\" />
+    <Folder Include="LightMng\.svn\tmp\prop-base\" />
+    <Folder Include="LightMng\.svn\tmp\props\" />
+    <Folder Include="LightMng\.svn\tmp\text-base\" />
+    <Folder Include="LightMng\GUI\.svn\prop-base\" />
+    <Folder Include="LightMng\GUI\.svn\props\" />
+    <Folder Include="LightMng\GUI\.svn\tmp\prop-base\" />
+    <Folder Include="LightMng\GUI\.svn\tmp\props\" />
+    <Folder Include="LightMng\GUI\.svn\tmp\text-base\" />
+    <Folder Include="LightMng\Logic\.svn\prop-base\" />
+    <Folder Include="LightMng\Logic\.svn\props\" />
+    <Folder Include="LightMng\Logic\.svn\tmp\prop-base\" />
+    <Folder Include="LightMng\Logic\.svn\tmp\props\" />
+    <Folder Include="LightMng\Logic\.svn\tmp\text-base\" />
+    <Folder Include="LightMng\SimulatorGUI\.svn\prop-base\" />
+    <Folder Include="LightMng\SimulatorGUI\.svn\props\" />
+    <Folder Include="LightMng\SimulatorGUI\.svn\tmp\prop-base\" />
+    <Folder Include="LightMng\SimulatorGUI\.svn\tmp\props\" />
+    <Folder Include="LightMng\SimulatorGUI\.svn\tmp\text-base\" />
+    <Folder Include="LightSimulation\.svn\prop-base\" />
+    <Folder Include="LightSimulation\.svn\props\" />
+    <Folder Include="LightSimulation\.svn\text-base\" />
+    <Folder Include="LightSimulation\.svn\tmp\prop-base\" />
+    <Folder Include="LightSimulation\.svn\tmp\props\" />
+    <Folder Include="LightSimulation\.svn\tmp\text-base\" />
+    <Folder Include="LightSimulation\GUI\.svn\prop-base\" />
+    <Folder Include="LightSimulation\GUI\.svn\props\" />
+    <Folder Include="LightSimulation\GUI\.svn\tmp\prop-base\" />
+    <Folder Include="LightSimulation\GUI\.svn\tmp\props\" />
+    <Folder Include="LightSimulation\GUI\.svn\tmp\text-base\" />
+    <Folder Include="LightSimulation\Logic\.svn\prop-base\" />
+    <Folder Include="LightSimulation\Logic\.svn\props\" />
+    <Folder Include="LightSimulation\Logic\.svn\tmp\prop-base\" />
+    <Folder Include="LightSimulation\Logic\.svn\tmp\props\" />
+    <Folder Include="LightSimulation\Logic\.svn\tmp\text-base\" />
+    <Folder Include="LightSimulation\SimulatorGUI\.svn\prop-base\" />
+    <Folder Include="LightSimulation\SimulatorGUI\.svn\props\" />
+    <Folder Include="LightSimulation\SimulatorGUI\.svn\tmp\prop-base\" />
+    <Folder Include="LightSimulation\SimulatorGUI\.svn\tmp\props\" />
+    <Folder Include="LightSimulation\SimulatorGUI\.svn\tmp\text-base\" />
+    <Folder Include="SmartEnergyMng\.svn\prop-base\" />
+    <Folder Include="SmartEnergyMng\.svn\props\" />
+    <Folder Include="SmartEnergyMng\.svn\text-base\" />
+    <Folder Include="SmartEnergyMng\.svn\tmp\prop-base\" />
+    <Folder Include="SmartEnergyMng\.svn\tmp\props\" />
+    <Folder Include="SmartEnergyMng\.svn\tmp\text-base\" />
+    <Folder Include="SmartEnergyMng\GatewayGUI\.svn\prop-base\" />
+    <Folder Include="SmartEnergyMng\GatewayGUI\.svn\props\" />
+    <Folder Include="SmartEnergyMng\GatewayGUI\.svn\tmp\prop-base\" />
+    <Folder Include="SmartEnergyMng\GatewayGUI\.svn\tmp\props\" />
+    <Folder Include="SmartEnergyMng\GatewayGUI\.svn\tmp\text-base\" />
+    <Folder Include="SmartEnergyMng\Logic\.svn\prop-base\" />
+    <Folder Include="SmartEnergyMng\Logic\.svn\props\" />
+    <Folder Include="SmartEnergyMng\Logic\.svn\tmp\prop-base\" />
+    <Folder Include="SmartEnergyMng\Logic\.svn\tmp\props\" />
+    <Folder Include="SmartEnergyMng\Logic\.svn\tmp\text-base\" />
+    <Folder Include="SmartEnergyMng\SimulatorGUI\.svn\prop-base\" />
+    <Folder Include="SmartEnergyMng\SimulatorGUI\.svn\props\" />
+    <Folder Include="SmartEnergyMng\SimulatorGUI\.svn\tmp\prop-base\" />
+    <Folder Include="SmartEnergyMng\SimulatorGUI\.svn\tmp\props\" />
+    <Folder Include="SmartEnergyMng\SimulatorGUI\.svn\tmp\text-base\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

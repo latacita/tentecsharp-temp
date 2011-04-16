@@ -12,4 +12,3 @@ namespace MyHome
             : base(id, id_windowsCtrl) { }
     }
 }
-
