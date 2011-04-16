@@ -1,0 +1,42 @@
+﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
+<#@ output extension=".cs" #>
+<#@ smartHome processor="smartHomeDirectiveProcessor" requires="fileName='..\smartHome.sh'" #>
+<#
+		bool windowMng = false;
+		foreach (Floor floor in this.SmartHome.Floors)
+		{
+			
+			foreach (Room room in floor.Rooms)
+			{	
+				foreach (Window window in room.Windows)
+				{
+					windowMng = true;
+					break;
+				}
+			}
+		}
+#>
+<#
+if(windowMng) { 
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using SmartHome;
+
+namespace MyHome
+{
+    partial class MyHome_WindowCtrl : WindowCtrl
+    {
+        public MyHome_WindowCtrl(int id, int id_room)
+            : base(id, id_room) { }
+    }
+}
+<#
+}else{
+#>
+	//windowMng is not selected
+<#
+}
+#>

@@ -1,0 +1,389 @@
+﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
+<#@ output extension=".cs" #>
+<#@ smartHome processor="smartHomeDirectiveProcessor" requires="fileName='smartHome.sh'" #>
+<#@ assembly name="EnvDTE" #>
+<#@ assembly name="EnvDTE80" #>
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Drawing;
+using System.Windows.Forms;
+using SmartHome;
+
+namespace MyHome
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			MyHome_Gateway g = new MyHome_Gateway();
+<#
+			//Variables
+			int i=0;
+			int j=0;
+			int cont=0;
+			int contHeaterMng = 0;	
+			int contLightMng = 0;	
+			int contWindowMng = 0;	
+			int contBlindMng = 0;
+			bool heaterMng = false;
+			bool lightMng = false;
+			bool windowMng = false;
+			bool blindMng = false;
+			bool blindSimulation = false;
+			bool lightSimulation = false;
+			bool smartEnergy = false;
+			foreach (Floor floor in this.SmartHome.Floors)
+		{
+#>
+			MyHome_Floor f<#=i#> = new MyHome_Floor("<#= floor.Name #>",<#= i#>);
+<#		
+			foreach (Room room in floor.Rooms)
+			{
+#>
+			MyHome_Room r<#=j#> = new MyHome_Room("<#= room.Name #>",<#= j#>);
+			f<#=i#>.addRoom(r<#=j#>);
+<#			
+				foreach (Heater heater in room.Heaters)
+				{
+					heaterMng = true;
+#>
+			MyHome_HeaterCtrl h<#=contHeaterMng#> = new MyHome_HeaterCtrl(<#= cont#>,<#= j#>);
+<#
+			cont++;
+#>
+			MyHome_Thermometer t<#=contHeaterMng#> = new MyHome_Thermometer(<#= cont#>,<#= cont-1#>);
+<#
+					contHeaterMng++;
+					cont++;					
+				}
+				foreach (Light light in room.Lights)
+				{
+					lightMng = true;
+#>
+			MyHome_LightCtrl l<#=contLightMng#> = new MyHome_LightCtrl(<#= cont#>,<#= j#>);
+<#
+			cont++;
+#>
+            MyHome_LightSensor ls<#=contLightMng#> = new MyHome_LightSensor(<#= cont#>,<#= cont-1#>);
+<#
+					contLightMng++;
+					cont++;
+				}
+#>
+<#
+				foreach (Window window in room.Windows)
+				{
+					windowMng = true;
+#>
+			MyHome_WindowCtrl w<#=contWindowMng#> = new MyHome_WindowCtrl(<#= cont#>,<#= j#>);
+<#
+					cont++;
+#>
+			MyHome_WindowSensor ws<#=contWindowMng#> = new MyHome_WindowSensor(<#= cont#>,<#= cont-1#>);
+<#
+					contWindowMng++;
+					cont++;
+						foreach (Blind blind in window.Blinds)
+						{
+							blindMng = true;
+#>
+			MyHome_BlindCtrl b<#=contBlindMng#> = new MyHome_BlindCtrl(<#= cont#>,<#=cont-2#>);
+<#
+					cont++;
+#>
+			MyHome_BlindSensor bs<#=contBlindMng#> = new MyHome_BlindSensor(<#= cont#>,<#=cont-1#>);
+<#
+					contBlindMng++;
+					cont++;
+						}
+				}
+#>
+<#
+			j++;
+#>
+<#		
+			}
+#>
+<#
+		i++; 
+		}
+		if(this.SmartHome.BlindSimulation!=null || this.SmartHome.LightSimulation!=null
+		    || this.SmartHome.SmartEnergy!=null)
+		{
+#>
+			MyHome_Time time = new MyHome_Time(14,00);
+<#
+		}
+#>
+			g.initBaseSystem();
+<#
+			//AQUÍ LOS INITS DEL GATEWAY
+			if(heaterMng){ 
+#>
+			g.initHeaterMng();
+<#
+			}
+#>
+<#
+			if(lightMng){ 
+#>
+			g.initLightMng();
+<#
+			}
+#>
+<#
+			if(windowMng){ 
+#>
+			g.initWindowMng();
+<#
+			}
+#>
+<#
+			if(blindMng){ 
+#>
+			g.initBlindMng();
+<#
+			}
+#>
+<#
+			if(this.SmartHome.BlindSimulation!=null || this.SmartHome.LightSimulation!=null
+		    || this.SmartHome.SmartEnergy!=null){ 
+#>
+			g.initTime(time);
+<#
+			}
+#>
+<#
+			if(this.SmartHome.BlindSimulation!=null){ 
+#>
+			g.initBlindSimulation();
+<#
+			}
+#>
+<#
+			if(this.SmartHome.LightSimulation!=null){ 
+#>
+			g.initLightSimulation();
+<#
+			}
+#>
+<#
+			if(this.SmartHome.SmartEnergy!=null){ 
+#>
+			g.initSmartEnergyMng();
+<#
+			}
+#>
+<#
+			int k=0;
+			foreach (Floor floor in this.SmartHome.Floors)
+			{
+#>
+			g.addFloor(f<#=k#>);
+<#
+				 k++;
+#>
+<#  
+		    }
+#>
+<#
+			if(heaterMng){
+				for(int m=0; m<contHeaterMng; m++)
+				{
+#>			g.heaterMng_addHeaterCtrl(h<#=m#>);
+			g.heaterMng_addThermometer(t<#=m#>);
+<#
+				}
+			}
+#>
+<#
+			if(lightMng){
+				for(int m=0; m<contLightMng; m++)
+				{
+#>			g.lightMng_addLightCtrl(l<#=m#>);
+			g.lightMng_addLightSensor(ls<#=m#>);
+<#
+				}
+			}
+#>
+<#
+			if(windowMng){
+				for(int m=0; m<contWindowMng; m++)
+				{
+#>			g.windowMng_addWindowCtrl(w<#=m#>);
+			g.windowMng_addWindowSensor(ws<#=m#>);
+<#
+				}
+			}
+#>
+<#
+			if(blindMng){
+				for(int m=0; m<contBlindMng; m++)
+				{
+#>			g.blindMng_addBlindCtrl(b<#=m#>);
+			g.blindMng_addBlindSensor(bs<#=m#>);
+<#
+				}
+			}
+#>
+			MyHome_SimulatorGUI sim = new MyHome_SimulatorGUI(g);
+            MyHome_GatewayGUI gatewayGUI = new MyHome_GatewayGUI(g,sim);
+			gatewayGUI.addBaseSystem();
+<#
+			//AQUÍ LOS ADDS DEL GATEWAYGUI
+			if(heaterMng){ 
+#>
+			gatewayGUI.addHeaterMng();
+<#
+			}
+#>
+<#
+			if(lightMng){ 
+#>
+			gatewayGUI.addLightMng();
+<#
+			}
+#>
+<#
+			if(windowMng){ 
+#>
+			gatewayGUI.addWindowMng();
+<#
+			}
+#>
+<#
+			if(blindMng){ 
+#>
+			gatewayGUI.addBlindMng();
+<#
+			}
+#>
+<#
+			if(this.SmartHome.BlindSimulation!=null){ 
+				blindSimulation = true;
+#>
+			gatewayGUI.addBlindSimulation();
+<#
+			}
+#>
+<#
+			if(this.SmartHome.LightSimulation!=null){ 
+				lightSimulation = true;
+#>
+			gatewayGUI.addLightSimulation();
+<#
+			}
+#>
+<#
+			if(this.SmartHome.SmartEnergy!=null){ 
+				smartEnergy = true;
+#>
+			gatewayGUI.addSmartEnergyMng();
+<#
+			}
+#>
+<#
+			//AQUÍ LOS ADDS DEL SIMULATOR
+			if(heaterMng){ 
+#>
+			sim.addHeaterMng();
+<#
+			}
+#>
+<#
+			if(lightMng){ 
+#>
+			sim.addLightMng();
+<#
+			}
+#>
+<#
+			if(windowMng){ 
+#>
+			sim.addWindowMng();
+<#
+			}
+#>
+<#
+			if(blindMng){ 
+#>
+			sim.addBlindMng();
+<#
+			}
+#>
+<#
+			if(this.SmartHome.BlindSimulation!=null){ 
+#>
+			sim.addBlindSimulation();
+<#
+			}
+#>
+<#
+			if(this.SmartHome.LightSimulation!=null){ 
+#>
+			sim.addLightSimulation();
+<#
+			}
+#>
+<#
+			if(this.SmartHome.SmartEnergy!=null){ 
+#>
+			sim.addSmartEnergyMng();
+<#
+			}
+#>
+			sim.Show();
+            gatewayGUI.Show();            
+            Application.Run(gatewayGUI);
+            Application.Run(sim);
+		}// Main
+	}//Program
+}//namespace
+
+
+
+<#
+    //IServiceProvider serviceProvider = (IServiceProvider)this.Host;
+    //EnvDTE.DTE _dte = (EnvDTE.DTE) serviceProvider.GetService(typeof(EnvDTE.DTE));
+	EnvDTE.DTE _dte = (EnvDTE.DTE)System.Runtime.InteropServices.Marshal.GetActiveObject("VisualStudio.DTE.10.0");
+	EnvDTE.Solution _solution = _dte.Solution;
+	Console.WriteLine(_solution.FullName);
+	EnvDTE.Projects pr=_dte.Solution.Projects;
+	EnvDTE.Project p = pr.Item(1);
+	String relativePath=_dte.Solution.Projects.Item(1).FullName;
+	relativePath=relativePath.Remove(relativePath.LastIndexOf("\\")+1);
+	
+	if(blindMng) p.ProjectItems.AddFromDirectory(@relativePath+"BlindMng");
+	if(heaterMng) p.ProjectItems.AddFromDirectory(@relativePath+"HeaterMng");
+	if(lightMng) p.ProjectItems.AddFromDirectory(@relativePath+"LightMng");
+	if(smartEnergy) p.ProjectItems.AddFromDirectory(@relativePath+"SmartEnergyMng");
+	if(lightSimulation) p.ProjectItems.AddFromDirectory(@relativePath+"LightSimulation");
+	if(blindSimulation) p.ProjectItems.AddFromDirectory(@relativePath+"BlindSimulation");
+
+		for (int ind = 1; ind <= p.ProjectItems.Count; ind++)
+	{
+		if (p.ProjectItems.Item(ind).Name=="BlindMng")
+			if (!blindMng)	p.ProjectItems.Item(ind).Remove();						
+		
+		if (p.ProjectItems.Item(ind).Name=="HeaterMng")
+			if (!heaterMng)	p.ProjectItems.Item(ind).Remove();			
+			
+		if (p.ProjectItems.Item(ind).Name=="LightMng")
+			if (!lightMng) p.ProjectItems.Item(ind).Remove();
+			
+		if (p.ProjectItems.Item(ind).Name=="SmartEnergyMng")
+			if (!smartEnergy) p.ProjectItems.Item(ind).Remove();
+		
+		if (p.ProjectItems.Item(ind).Name=="BlindSimulation")
+			if (!blindSimulation) p.ProjectItems.Item(ind).Remove();
+			
+		if (p.ProjectItems.Item(ind).Name=="LightSimulation")
+			if (!lightSimulation) p.ProjectItems.Item(ind).Remove();		
+	        
+	}//for
+#>
+
+
+
+
