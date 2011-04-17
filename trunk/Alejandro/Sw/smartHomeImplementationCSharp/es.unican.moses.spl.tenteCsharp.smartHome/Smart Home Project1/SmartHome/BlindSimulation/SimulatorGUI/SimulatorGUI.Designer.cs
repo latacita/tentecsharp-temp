@@ -16,6 +16,7 @@ namespace SmartHome
         private Button buttonSubmit_BlindSimulation = new Button();
         private Label labelTextCurrentTime_BlindSimulation = new Label();
         private Label labelCurrentTime_BlindSimulation = new Label();
+        
 
 
         public void addBlindSimulation()
@@ -56,12 +57,7 @@ namespace SmartHome
             //
             this.labelMinutes_BlindSimulation.Text = "Minutes:";
             this.labelMinutes_BlindSimulation.Location = new System.Drawing.Point(340, 152);
-            //
-            //LabelTextEmpty
-            //
-            this.labelTextEmpty.Text = "Empty house:";
-            this.labelTextEmpty.Size = new System.Drawing.Size(80, 20);
-            this.labelTextEmpty.Location = new System.Drawing.Point(240, 20);
+            
             //
             //comboBoxMinutes
             //

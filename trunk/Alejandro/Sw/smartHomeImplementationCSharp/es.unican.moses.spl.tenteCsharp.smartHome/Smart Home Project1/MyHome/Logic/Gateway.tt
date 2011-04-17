@@ -18,7 +18,7 @@ namespace MyHome
 		{
 		foreach (Room room in floor.Rooms)
 			{
-				if (room.Heaters!=null)
+				foreach (Heater heater in room.Heaters)
 				{
 					heaterMng = true;
 					break;

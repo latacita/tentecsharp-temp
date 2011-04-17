@@ -16,8 +16,7 @@ namespace SmartHome
         private Button buttonSubmit_lightSimulation = new Button();
         private Label labelTextCurrentTime_lightSimulation = new Label();
         private Label labelCurrentTime_lightSimulation = new Label();
-
-
+       
         public void addLightSimulation()
         {
             //this.timer = time;
@@ -56,12 +55,6 @@ namespace SmartHome
             //
             this.labelMinutes_lightSimulation.Text = "Minutes:";
             this.labelMinutes_lightSimulation.Location = new System.Drawing.Point(340, 152);
-            //
-            //LabelTextEmpty
-            //
-            this.labelTextEmpty.Text = "Empty house:";
-            this.labelTextEmpty.Size = new System.Drawing.Size(80, 20);
-            this.labelTextEmpty.Location = new System.Drawing.Point(240, 20);
             //
             //comboBoxMinutes
             //
