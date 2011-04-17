@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<smartHomeDiagram dslVersion="1.0.0.0" Id="808ae885-ff55-4def-8b9f-adabed46d6e3" absoluteBounds="0, 0, 11, 9" name="Test">
+<smartHomeDiagram dslVersion="1.0.0.0" Id="808ae885-ff55-4def-8b9f-adabed46d6e3" absoluteBounds="0, 0, 11, 8.5" name="Test">
   <smartHomeMoniker Id="c2d093d9-eb9b-41ed-b2d1-0ee9f8686e0c" />
   <nestedChildShapes>
     <floorShape Id="f286d785-75cd-4c7b-8a98-3982d1fcc624" absoluteBounds="7, 2.25, 2, 0.75">
@@ -28,26 +28,6 @@
         <roomShapeMoniker Id="50af45d5-851c-43d9-9cc1-4a986970f605" />
       </nodes>
     </connector>
-    <windowShape Id="380dedca-f680-4326-ba04-495f9dec8aaa" absoluteBounds="8.125, 6.125, 1.5, 1">
-      <windowMoniker Id="946b3565-5d87-45f3-94c2-c06221dd870a" />
-    </windowShape>
-    <connector Id="a62da0fb-a0bc-4fbe-8402-865a2ecaad01" edgePoints="[(8.4062475 : 4.625); (8.4062475 : 6.23468895950722)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <roomHasWindowsMoniker Id="2d3e5e5b-f1d9-44a6-a6af-bb3838b053cb" />
-      <nodes>
-        <roomShapeMoniker Id="72588940-7e1d-4094-9108-7f97d4462062" />
-        <windowShapeMoniker Id="380dedca-f680-4326-ba04-495f9dec8aaa" />
-      </nodes>
-    </connector>
-    <blindShape Id="b39dfd25-bd1d-4793-b000-8868691a0dde" absoluteBounds="8.25, 7.75, 1.5, 1">
-      <blindMoniker Id="04e3ea8e-f9c9-46aa-88eb-d7fb4f621d2a" />
-    </blindShape>
-    <connector Id="50837411-3a25-4ba9-92c5-372e3c3a48b2" edgePoints="[(8.9375 : 7.12326086429589); (8.9375 : 7.75173913570411)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <windowHasBlindsMoniker Id="73a182e3-0f1b-4a63-ad8c-533829e51695" />
-      <nodes>
-        <windowShapeMoniker Id="380dedca-f680-4326-ba04-495f9dec8aaa" />
-        <blindShapeMoniker Id="b39dfd25-bd1d-4793-b000-8868691a0dde" />
-      </nodes>
-    </connector>
     <blindSimulationShape Id="c5e3d90c-0ca0-4a68-b389-3c3132007b2b" absoluteBounds="2.75, 2, 1, 1">
       <blindSimulationMoniker Id="2ed2929d-e94c-4ae7-ab43-d993b4577d25" />
     </blindSimulationShape>
@@ -59,6 +39,16 @@
       <nodes>
         <roomShapeMoniker Id="50af45d5-851c-43d9-9cc1-4a986970f605" />
         <heaterShapeMoniker Id="0771372d-6987-4f8b-898d-fe9407873969" />
+      </nodes>
+    </connector>
+    <windowShape Id="dd71bca6-d984-41e6-980c-250436e54f3e" absoluteBounds="7.625, 5.25, 1, 1">
+      <windowMoniker Id="64f1c583-647e-4b2b-aea9-080dad522e13" />
+    </windowShape>
+    <connector Id="5451a424-f975-45f5-8f7b-8e09e031d0d6" edgePoints="[(8.125 : 4.625); (8.125 : 5.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <roomHasWindowsMoniker Id="76096b23-7750-4f77-95ee-56bc3c11add5" />
+      <nodes>
+        <roomShapeMoniker Id="72588940-7e1d-4094-9108-7f97d4462062" />
+        <windowShapeMoniker Id="dd71bca6-d984-41e6-980c-250436e54f3e" />
       </nodes>
     </connector>
   </nestedChildShapes>

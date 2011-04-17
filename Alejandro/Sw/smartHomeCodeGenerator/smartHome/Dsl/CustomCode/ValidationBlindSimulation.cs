@@ -27,7 +27,8 @@ namespace Unican.smartHome
                     LinkedElementCollection<Window> w = r[j].Windows;
                     for (int k = 0; k < w.Count; k++)
                     {
-                        if (w[j].Blinds.Count > 0)
+                        LinkedElementCollection<Blind> b = w[k].Blinds;
+                        if(b.Count > 0)
                         {
                             resultBlind = true;
                             break;

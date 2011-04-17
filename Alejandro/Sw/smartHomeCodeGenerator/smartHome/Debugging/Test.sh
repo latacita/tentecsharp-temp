@@ -6,14 +6,8 @@
         <floorHasRooms Id="fa2c44bf-b9cb-4530-9f17-25ed38feaa1a">
           <room Id="aff0109c-70da-4d17-869c-38ccf0e42b8f" name="Comedor">
             <windows>
-              <roomHasWindows Id="2d3e5e5b-f1d9-44a6-a6af-bb3838b053cb">
-                <window Id="946b3565-5d87-45f3-94c2-c06221dd870a">
-                  <blinds>
-                    <windowHasBlinds Id="73a182e3-0f1b-4a63-ad8c-533829e51695">
-                      <blind Id="04e3ea8e-f9c9-46aa-88eb-d7fb4f621d2a" />
-                    </windowHasBlinds>
-                  </blinds>
-                </window>
+              <roomHasWindows Id="76096b23-7750-4f77-95ee-56bc3c11add5">
+                <window Id="64f1c583-647e-4b2b-aea9-080dad522e13" />
               </roomHasWindows>
             </windows>
           </room>
