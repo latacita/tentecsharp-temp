@@ -26,6 +26,7 @@ namespace SmartHome
                 int hours = Convert.ToInt32(comboBoxHours_lightSimulation.SelectedItem.ToString());
                 int minutes = Convert.ToInt32(comboBoxMinutes_lightSimulation.SelectedItem.ToString());
                 this.gateway.getTimer().setTime(hours, minutes);
+                this.gateway.lightSimulation_checkTime(hours, minutes);
                 refreshTime();
             }
             catch (Exception exception)
