@@ -12,8 +12,7 @@ namespace SmartHome
 
         // Id of the room where is installed the Actuator
         protected int id_room;
-        //switchOn, default value is false
-        protected bool on = false;
+        
 
         //Constructor
         public Actuator(int id)
@@ -41,18 +40,13 @@ namespace SmartHome
 
         public virtual void switchOn()
         {
-            this.on = true;
+            this.setStatus(true);
         }// switchOn
 
         public virtual void switchOff()
         {
-            this.on = false;
-        }// switchOff
-        public virtual bool getStatus()
-        {
-            return on;
-        }
+            this.setStatus(false);
+        }// switchOff       
     } // Actuator
-
 } // namespace SmartHome
 

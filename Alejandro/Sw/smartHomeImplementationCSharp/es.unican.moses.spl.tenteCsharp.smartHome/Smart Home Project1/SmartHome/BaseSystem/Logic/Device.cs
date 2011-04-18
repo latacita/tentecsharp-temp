@@ -5,12 +5,17 @@ using System.Text;
 
 namespace SmartHome
 {
+    //=================================================================================================//
+    // This class is an abstract class the represents the common supertype for all devices             //
+    //=================================================================================================//
     public partial class Device : ISubject<IDeviceObserver>
     {
         // Device identifier
         protected int id;
         // Device value
         protected double deviceValue = 0.0;
+        // Device status
+        protected bool status = false;
 
         // Observers list
         ICollection<IDeviceObserver> observers = new LinkedList<IDeviceObserver>();
@@ -47,9 +52,21 @@ namespace SmartHome
         public virtual void setValue(double deviceValue)
         {
             this.deviceValue = deviceValue;
+            this.status = true;
             //Observer Pattern
             notifyChangeToObsevers();
+
         }//setValue(double)
+
+        public virtual bool getStatus()
+        {
+            return status;
+        }//status
+
+        public virtual void setStatus(bool status)
+        {
+            this.status = status;
+        }
         #endregion
 
         #region Subject-Observer Pattern

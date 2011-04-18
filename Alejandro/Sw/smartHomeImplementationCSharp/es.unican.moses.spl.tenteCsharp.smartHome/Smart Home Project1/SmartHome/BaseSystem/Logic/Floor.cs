@@ -27,8 +27,8 @@ namespace SmartHome
         public void addRoom(Room r)
         {
             rooms.Add(r);
-        }//addRoom
-
+        }//addRoom(Room)
+        #region Getters and Setters
         public int getId()
         {
             return id;
@@ -75,6 +75,6 @@ namespace SmartHome
             }
             return null;
         }//getRoomById
-
+        #endregion
     }//Floor
 }//SmartHome
