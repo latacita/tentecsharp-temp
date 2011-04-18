@@ -127,28 +127,42 @@ namespace SmartHome
         /// <summary>
         ///  
         /// </summary>
-        public void sayHello()
-        {
-            System.Console.Out.WriteLine("I am the gateway and I am ON");
-        }  //say Hello
-
+        
         public void initializeAll()
         {
-            // Pone todos los sensores y actuadores en modo funcionar
-        }
+            for (int i = 0; i<sensors.Count; i++)
+            {
+                sensors[i].setStatus(true);
+            }//for
+            for (int i = 0; i < actuators.Count; i++)
+            {
+                actuators[i].setStatus(true);
+            }//for            
+        }//initializeAll
 
         public void checkAll()
         {
-            // Manda un "ping" a todos los sensores y actuadores para ver que respiran
-        }
+            for (int i = 0; i < sensors.Count; i++)
+            {
+                Console.WriteLine("status sensor " + sensors[i].getId() + " :" + sensors[i].getStatus());
+            }//for
+            for (int i = 0; i < actuators.Count; i++)
+            {
+                Console.WriteLine("status actuator "+actuators[i].getId()+" :"+actuators[i].getStatus());
+                
+            }//for            
+        }//checkAll
 
         public void switchDown()
         {
-            // Apaga todos los sensores y actuadores
-        }
-
-
-
+            for (int i = 0; i < sensors.Count; i++)
+            {
+                sensors[i].setStatus(false);
+            }//for
+            for (int i = 0; i < actuators.Count; i++)
+            {
+                actuators[i].setStatus(false);
+            }//for            
+        }//switchDown
     } // Gateway
-
 } // namespace

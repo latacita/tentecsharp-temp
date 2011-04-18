@@ -20,7 +20,7 @@ namespace SmartHome
         public void ligthSimulation_switchOn()
         {
             this.statusLigthSimulation = true;
-            ligthSimulation_checkTime(time.getHour(), time.getMinutes());
+            lightSimulation_checkTime(time.getHour(), time.getMinutes());
             notifySwitchOnLightSimulationToObsevers();
         }//ligthSimulation_switchOn
 
@@ -31,7 +31,7 @@ namespace SmartHome
             notifySwitchOffLightSimulationToObsevers();
         }//ligthSimulation_switchOff
 
-        public void ligthSimulation_checkTime(int hour, int minutes)
+        public void lightSimulation_checkTime(int hour, int minutes)
         {
             String t = hour.ToString() + "," + minutes.ToString();
             double time = Convert.ToDouble(t);
@@ -51,7 +51,7 @@ namespace SmartHome
                     }//for
                 }//if
             }//if            
-        }//ligthSimulation_checkTime
+        }//lightSimulation_checkTime
 
         #region Subject-Observer Pattern
         /// <summary>
