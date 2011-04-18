@@ -149,29 +149,30 @@ Una vez diseñadas e implementadas la diferentes características del problema de 
 %%=============================================================================%
 %% NOTA(Pablo): Sigue a partir de aquí
 %%=============================================================================%
-Bla bla bla
+Para tratar de combinar las características deberíamos hacer uso de la herencia múltiple, ésta permite que una clase pueda heredar comportamientos y características de más de una superclase.
+Pero por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{arnold:2005} o C\#~\cite{albahari:2010}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple es un mecanismo muy útil \cite{}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
 
+No obstante, la solución para trabajar con herencia múltiple en lenguajes orientados a objetos con herencia simple, sería aplicar el \emph{patrón mixin}~\cite{david:1986}. De acuerdo con dicho patrón, que se ilustra en la Figura \ref{back:fig:mixin}, se utilizan las interfaces para simular la herencia múltiple. Por lo tanto, cada clase a heredar implementará una nueva interfaz que defina los métodos de esta clase, a su vez la nueva clase que se quiere crear para que herede la funcionalidad de sendas clases implementará las dos nuevas interfaces creadas anteriormente, y tendrá una relación de agregación con las clases a heredar.
 
+\begin{figure}[!tb]
+  \centering \includegraphics[width=.60\linewidth]{background/images/MixinPattern.eps} \\
+  \caption{Diagrama de clases que hace uso del \emph{patrón mixin}}
+  \label{back:fig:mixin}
+\end{figure}
 
+<<<<<<< .mine
+=======
 Pero por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{arnold:2005} o C\#~\cite{albahari:2010}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple puede ser un mecanismo muy útil~\cite{meyer:2000,meyer:2009}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
 
 No obstante, la solución para trabajar con herencia múltiple en lenguajes orientados a objetos con herencia simple, sería aplicar el \emph{patrón mixin}~\cite{david:1986}. De acuerdo con dicho patrón, que se ilustra en la Figura XX, se utilizan las interfaces para simular la herencia múltiple. Por lo tanto, cada clase a heredar implementará una nueva interfaz que defina los métodos de esta clase, a su vez la nueva clase que se quiere crear para que herede la funcionalidad de sendas clases implementará las dos nuevas interfaces creadas anteriormente, y tendrá una relación de agregación con las clases a heredar.
 
+>>>>>>> .r289
 %=============================================================================%
-% NOTA(Pablo): Qué técnica, los mixins o la herencia
+% HECHO(Pablo): Qué técnica, los mixins o la herencia
 %=============================================================================%
-Pero el uso de esta técnica hace que, un incremento de funcionalidad representado por un conjunto de nuevas subclases que heredan de un conjunto de clases superiores, no sea posible manejarlo como un solo módulo. La insuficiente encapsulación deriva en un incremento de la complejidad a la hora de configurar construir nuevos productos por ensamblando o composición de características. Aun cuando las clases, separadas en paquetes, pertenezcan a una misma característica, es necesario seleccionar qué clases concretas van a ser usadas en un producto específico.
+Pero el uso del \emph{patrón mixin} hace que, un incremento de funcionalidad representado por un conjunto de nuevas subclases que heredan de un conjunto de clases superiores, no sea posible manejarlo como un solo módulo. La insuficiente encapsulación deriva en un incremento de la complejidad a la hora de configurar y construir nuevos productos por ensamblando o composición de características. Aún cuando las clases, separadas en paquetes, pertenezcan a una misma característica, es necesario seleccionar qué clases concretas van a ser usadas en un producto específico. Por ejemplo, para incluir la característica impresión infija para una configuración del problema de las expresiones es necesario seleccionar todos los operadores binarios(\imp{AddInfix} y \imp{MultInfix}) y literales (\imp{IntegerInfix}) que implementan la característica.
 
-%=============================================================================%
-% NOTA(Pablo): Poner un ejemplo más claro donde se vea porqué es complejo
-%=============================================================================%
-
-%=============================================================================%
-% NOTA(Pablo): El concepto de dependencia ha surgido de repente, habría que
-%              introducirlo o explicarlo antes
-%              También hace falta un ejemplo concreto que ilustre el problema
-%=============================================================================%
-Otro problema es el manejo de las dependencias, ya que la herencia tradicional obliga a que las clases y subclases tengan diferentes nombres. Por lo tanto, las referencias a las clases concretas deben ser actualizadas. A mayor número de características en una línea de productos, las relaciones entre clases concretas se complican potencialmente, lo que resulta una situación indeseable. Esto incrementa la complejidad en las relaciones y dependencias entre clases.
+Otro problema es el manejo de las dependencias, ya que la herencia tradicional obliga a que las clases y subclases tengan diferentes nombres. Por lo tanto, las referencias a las clases concretas deben ser actualizadas. A mayor número de características en una línea de productos, las relaciones entre clases concretas se complican potencialmente, lo que resulta una situación indeseable. Esto incrementa la complejidad en las relaciones y dependencias entre clases.Por ejemplo, en la característica impresión infija no sería permitido una clase \imp{Add} o \imp{Mult}. Se tienen que crear dos clases concretas, que hereden de \imp{Add} y \imp{Mult}, con diferentes nombres, \imp{AddInfix} y \imp{MultInfix}. Esto incrementa la complejidad en las relaciones y dependencias entre clases.
 
 \subsubsection{Conclusiones}
 
@@ -179,7 +180,7 @@ Tras analizar el problema con un lenguaje orientado a objetos como es C\# se pod
 
 A tenor de lo expuesto anteriormente, identificamos una serie de elementos que sería deseable encontrar en un lenguaje orientado a características:
 
-\paragraph{Extensibilidad a través de la adición y la sustitución}
+\paragraph{Extensibilidad a través de la adición y la sustitución:}
 
 Como ya hemos comentado, una característica es normalmente considerada como un incremento en la funcionalidad de un sistema software~\cite{batory:2004}. Por lo tanto, los lenguajes orientados a características deberían  proporcionar mecanismos para añadir nuevas funcionalidades a las ya existentes dentro de un sistema. En los lenguajes orientados a objetos, la extensión se realiza a través de la herencia, pero como ya hemos expuesto, ésta sólo resulta adecuada cuando queremos extender la funcionalidad de una sola clase. No obstante, la implementación de una característica necesita extender varias clases al mismo tiempo.
 
@@ -192,22 +193,22 @@ Además la extensibilidad no siempre se realiza por adición, en ocasiones es nece
 %=============================================================================%
 
 
-\emph{Encapsulación de características}
+\paragraph{Encapsulación de características:}
 
 Todas las extensiones pertenecientes a una característica concreta deben ser añadidas de una forma atómica. Por lo tanto, los lenguajes orientados a características deberían proveer de mecanismo para agrupar y encapsular los módulos pertenecientes a una misma característica. Por otra parte, estos módulos deberían poderse compilar independientemente.
 
-\emph{Composición a nivel de característica}
+\paragraph{Composición a nivel de característica:}
 
 Productos específicos, o configuraciones de una descomposición orientada a características, son obtenidos por la selección y composición de unas características específicas. Por lo tanto, sería deseable que un lenguaje orientado a características tuviese construcciones del lenguaje para producir un producto en particular. Esto debería ser realizado a nivel de característica, especificando que características deberían ser incluidas, en lugar de tener que especificar los elementos individuales de cada característica.
 
-\emph{Composición de características comprobando la coherencia}
+\paragraph{Composición de características comprobando la coherencia:}
 
 No todas las combinaciones de características son válidas. Por lo tanto, un lenguaje orientado a características debería detectar las restricciones, evitando así la implementación de configuraciones no válidas y manejar automáticamente las dependencias en la medida de lo posible.
 
 \subsection{Ventajas de los lenguajes orientados a características}
 Los lenguajes orientados a características nos otorgan una mayor flexibilidad, ya que nos permiten que clases individuales puedan ser compuestas por un conjunto de características, por tanto son especialmente recomendados para utilizarlos con las líneas de producción software.
 
-Para estudiar las ventajas de los lenguajes orientados a características se trabajará con CaesarJ que es un lenguaje de programación basado en Java, que nos proporciona una mayor modularidad y el desarrollo a través de componentes reusables.Para ello trabaja con conceptos como clases y paquetes en una única entidad, llamada familia de clases, que constituye unidades de encapsulamiento adicional para agrupar clases relacionadas. Una familia de clases también es, en sí misma una clase. Así mismo, se introduce el concepto de clases virtuales, que son clases internas (de familias de clases) propensas a ser refinadas a nivel de subclases. En el refinamiento de una clase virtual, implícitamente se hereda de la clase que refina, por lo que también esto es visto como una relación adjunta. También, en un refinamiento pueden ser añadidos nuevos métodos, campos, relaciones de herencia y sobreescritura de métodos. Puesto que en cada familia de clases, las referencias a las clases virtuales siempre apuntarán al refinamiento más específico. Esto significa que, por medio de las clases virtuales se aplica sobre escritura de métodos, permitiendo redefinir el comportamiento de cualquier subclase de una familia de clases.
+Para estudiar las ventajas de los lenguajes orientados a características se trabajará con CaesarJ \cite{aracic:2006} que es un lenguaje de programación basado en Java, que nos proporciona una mayor modularidad y el desarrollo a través de componentes reusables. Para ello trabaja con conceptos como clases y paquetes en una única entidad, llamada familia de clases, que constituye unidades de encapsulamiento adicional para agrupar clases relacionadas. Una familia de clases también es, en sí misma una clase. Así mismo, se introduce el concepto de clases virtuales, que son clases internas (de familias de clases) propensas a ser refinadas a nivel de subclases. En el refinamiento de una clase virtual, implícitamente se hereda de la clase que refina, por lo que también esto es visto como una relación adjunta. También, en un refinamiento pueden ser añadidos nuevos métodos, campos, relaciones de herencia y sobreescritura de métodos. Puesto que en cada familia de clases, las referencias a las clases virtuales siempre apuntarán al refinamiento más específico. Esto significa que, por medio de las clases virtuales se aplica sobre escritura de métodos, permitiendo redefinir el comportamiento de cualquier subclase de una familia de clases.
 
 En términos de programación orientada a características, cada funcionalidad es modelada como una familia de clases. Mientras que los componentes y objetos del dominio específico, son correspondidos por sus clases virtuales. Así mismo, las clases virtuales pueden ser declaradas como clases abstractas, lo que habilita la definición de interfaces en la implementación modular de características.
 

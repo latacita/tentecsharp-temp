@@ -42,19 +42,18 @@ Las \emph{funciones complejas} son:
 \item \emph{Control inteligente de luces:} Las luces deberán automáticamente apagarse/encenderse dependiendo de diversos factores. Si no hay luz natural fuera de la casa, las luces deberán automáticamente encenderse. Cada vez que un habitante entre a una habitación donde no haya iluminación suficiente, las luces automáticamente se encenderán, a menos que la habitación esté en modo "sleep". Este modo previene el alumbrado automático de una habitación,en el caso de que alguien estuviese durmiendo.
 \item \emph{Presencia simulada:} Para evitar posibles robos, cuando los habitantes dejen la casa por un periodo largo de tiempo, la presencia de personas podrá ser simulada. Hay dos opciones(no exclusivas entre ellas):
     \begin{enumerate}
-    \item Simulación de las luces: Las luces podrán ser apagadas/encendidas para simular presencia. Se usará un esquema semi-aleatorio, por ejemplo el esquema variará cada día acorde a unos parametros aleatorios, pero las luces no serán apagadas/encendidas sin sentido, serán encendidas más por la tarde/noche que durante el día.
-    \item Simulación de persianas: Las persianas serán subidas y bajadas, acorde con un esquema semi-aleatorio.Por ejemplo,las persianas de los dormitorios principales serán bajadas por la noche y subidas por la mañana,y las otras habitaciones, algunas noches se bajarán y otras noches no.
+    \item \emph{Simulación de las luces:} Las luces podrán ser apagadas/encendidas para simular presencia. Se usará un esquema semi-aleatorio, por ejemplo el esquema variará cada día acorde a unos parametros aleatorios, pero las luces no serán apagadas/encendidas sin sentido, serán encendidas más por la tarde/noche que durante el día.
+    \item \emph{Simulación de persianas:} Las persianas serán subidas y bajadas, acorde con un esquema semi-aleatorio.Por ejemplo,las persianas de los dormitorios principales serán bajadas por la noche y subidas por la mañana,y las otras habitaciones, algunas noches se bajarán y otras noches no.
     \end{enumerate}
-\item \emph{Detección de incendios:} Si alguno de los sensores instalados por las habitaciones detecta un fuego, se procederá activar los aspersores de agua instalados en la habitación, además de activar la alarma de fuego.
 \end{enumerate}
 
 Cada una de estas funciones son opcionales. Las personas interesadas en adquirir el sistema podrán seleccionar el numero de funciones que ellos deseen.
-
+La siguiente sección describirá la planificación llevada a cabo para implementar las citadas funciones de los hogares inteligentes.
 \section{Planificación}
-En esta subsección se describirán los procesos de desarrollo software que más se adaptan al presente proyecto, y se determinará el proceso que se seguirá.
+Para elegir un proceso de desarrollo software que mejor se adecué al proyecto presente se han tenido en cuenta dos procesos que pueden ser utilizados en la programación orientada por características, por ello, la siguiente subsección describe ambos procesos.
 \subsection{Procesos de desarrollo Software}
 \subsubsection{Feature Driven Development}
-Es un proceso ágil que se basa en iteraciones cortas que producen un software funcional que los stakeholders pueden ver y monitorizar.
+\emph{Feature Driven Development} \cite{palmer:2002} es un proceso ágil que se basa en iteraciones cortas que producen un software funcional que los stakeholders pueden ver y monitorizar.
 Las iteraciones se deciden en base a características o funcionalidades, que son pequeñas partes del software con significado para el cliente.
 FDD consiste en cinco procesos secuenciales durante los cuales se diseña y construye el sistema:
 \begin{enumerate}
@@ -66,8 +65,8 @@ FDD consiste en cinco procesos secuenciales durante los cuales se diseña y const
 \end{enumerate}
 Su principal ventaja consiste en que está orientado y gobernado por características, lo que no siempre es la situación idónea, ya que, siempre debemos tener características para poder desarrollar a través de este proceso.
 \subsubsection{Test Driven Development}
-Es un proceso ágil iterativo e incremental, en el que cada línea de código nueva se escribe en respuesta a una prueba fallida que los propios programadores han programado, es decir, que los requerimientos son traducidos a pruebas.
-TDD requiere definir una lista de requisitos, a continuación podemos comenzar a iterar del siguiente modo:
+\emph{Test Driven Development} \cite{astels:2003} es un proceso ágil iterativo e incremental, en el que cada línea de código nueva se escribe en respuesta a una prueba fallida que los propios programadores han programado, es decir, que los requerimientos son traducidos a pruebas.
+TDD requiere definir una lista de requisitos, a continuación se puede comenzar a iterar del siguiente modo:
 \begin{enumerate}
 \item Seleccionar un requisito.
 \item Escribir un test.
@@ -77,16 +76,13 @@ TDD requiere definir una lista de requisitos, a continuación podemos comenzar a 
 \item Refactorización.
 \item Actualizar la lista de requisitos.
 \end{enumerate}
-Este proceso tiene dos importantes virtudes, nos permite crear software que hace cumple íntegramente con los requisitos y genera software fiable. Su punto débil está en que no es un proceso orientado a características.
+Este proceso tiene dos importantes virtudes, nos permite crear software que cumple íntegramente con los requisitos y genera software fiable. Su punto débil está en que no es un proceso orientado a características.
 \subsubsection{Elección del proceso}
-Debido a que sendos procesos de desarrollos descritos anteriormente tienen características muy aceptables para el proyecto que nos atañe, se tomará como proceso base Feature Driven Development, aunque en el diseño y construcción por característica se tomará un proceso basado en Test Driven Development, que nos proporcione software fiable que se adapte a los requisitos.
-
-
-
+Debido a que el proceso \emph{Feature Driven Development} está especialmente orientado para proyectos que se pueden descomponer fácilmente en características, se ha utilizado éste para llevar a cabo el desarrollo de este proyecto.
 % Imagen a una sola columna
 \begin{figure}[!tb]
   % Requires \usepackage{graphicx}
-  \centering \includegraphics[width=.25\linewidth]{planificacion/images/gantt.eps} \\
+  \centering \includegraphics{planificacion/images/gantt.eps} \\
   \caption{Diagrama de dependencias entre tareas}
   \label{fig:gantt}
 \end{figure}

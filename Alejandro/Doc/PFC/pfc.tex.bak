@@ -46,6 +46,7 @@
 \newcommand{\nota}[1]{\color{red}$\ll$#1$\gg$\color{black}}
 \newcommand{\imp}[1]{{\small{\sf #1}}}
 \newcommand{\stereotype}[1]{$\ll${\small{\sf #1}}$\gg$}
+\newcommand{\todo}[1]{\color{red}$\ll$TODO: #1$\gg$\color{black}}
 
 \setcounter{minitocdepth}{1}
 
@@ -79,7 +80,7 @@
 \input{introduction/introduction.tex} % Chapter 1
 
 % Capítulo 2: Resumen del Estado del Arte
-\input{background/background.tex}
+%\input{background/background.tex}
 
 % Capítulo 3: Descripción General del Proceso
 % De momento no se sabe
