@@ -1,12 +1,10 @@
-This is BibTeX, Version 0.99cThe top-level auxiliary file: pfc.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: pfc.aux
 The style file: alpha.bst
 Database file #1: references/pfc.bib
-A bad cross reference---entry "laguna:2007"
-refers to entry "DBLP:conf/gpce/2007", which doesn't exist
-Warning--I didn't find a database entry for "DBLP:conf/gpce/2007"
 Warning--empty publisher in albahari:2010
 Warning--empty publisher in arnold:2005
+Warning--empty journal in aracic:2006
 Warning--empty publisher in batory:2004
 Warning--empty publisher in pohl:2005
 Warning--empty journal in prehofer:2001
-(There was 1 error message)
+(There were 6 warnings)

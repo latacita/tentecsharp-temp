@@ -1,4 +1,4 @@
-\begin{thebibliography}{PBvdL05}
+\begin{thebibliography}{AGMO06}
 
 \bibitem[AA10]{albahari:2010}
 Joseph Albahari and Ben Albahari.
@@ -9,6 +9,16 @@ Joseph Albahari and Ben Albahari.
 Ken Arnold, James Gosling, and David Holmes.
 \newblock {\em Java(TM) Programming Language, The (4th Edition}.
 \newblock 2005.
+
+\bibitem[AGMO06]{aracic:2006}
+Ivica Aracic, Vaidas Gasiunas, Mira Mezini, and Klaus Ostermann.
+\newblock An overview of caesarj.
+\newblock pages 135--173, 2006.
+
+\bibitem[Ast03]{astels:2003}
+David Astels.
+\newblock {\em Test-Driven Development: A Practical Guide}.
+\newblock Prentice Hall, July 2003.
 
 \bibitem[BSR04]{batory:2004}
 D.~Batory, J.~N. Sarvela, and A.~Rauschmayer.
@@ -36,6 +46,11 @@ David~A. Moon.
 Klaus Pohl, Gunter Bockle, and Frank van~der Linden.
 \newblock {\em Software Product Line Engineering}.
 \newblock 2005.
+
+\bibitem[PF02]{palmer:2002}
+Stephen~R. Palmer and John~M. Felsing.
+\newblock {\em A Practical Guide to Feature-Driven Development}.
+\newblock Prentice Hall, February 2002.
 
 \bibitem[Pre01]{prehofer:2001}
 Christian Prehofer.
