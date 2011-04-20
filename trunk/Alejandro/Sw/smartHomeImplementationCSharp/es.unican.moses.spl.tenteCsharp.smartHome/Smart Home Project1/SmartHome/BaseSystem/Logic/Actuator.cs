@@ -10,10 +10,12 @@ namespace SmartHome
     public abstract partial class Actuator : Device
     {
 
-        // Id of the room where is installed the Actuator
+        /// <summary>
+        /// Id of the room where is installed the Actuator
+        /// </summary> 
         protected int id_room;
-        
 
+        #region Constructors
         //Constructor
         public Actuator(int id)
             : base(id)
@@ -27,7 +29,9 @@ namespace SmartHome
             //this.id = id;
             this.id_room = id_room;
         }// Actuator(int, int)
+        #endregion
 
+        #region Getters and Setters
         public virtual int getIdRoom()
         {
             return this.id_room;
@@ -37,16 +41,23 @@ namespace SmartHome
         {
             this.id_room = id_room;
         }
+        #endregion
 
+        /// <summary>
+        /// Method to switch On the current Actuator
+        /// </summary>
         public virtual void switchOn()
         {
             this.setStatus(true);
         }// switchOn
 
+        /// <summary>
+        /// Method to switch Off the current Actuator
+        /// </summary>
         public virtual void switchOff()
         {
             this.setStatus(false);
         }// switchOff       
     } // Actuator
-} // namespace SmartHome
+} // SmartHome
 
