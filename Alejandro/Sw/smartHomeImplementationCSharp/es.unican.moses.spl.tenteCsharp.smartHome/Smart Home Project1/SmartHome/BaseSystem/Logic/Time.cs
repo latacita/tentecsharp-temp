@@ -5,44 +5,54 @@ using System.Text;
 
 namespace SmartHome
 {
+    //=================================================================================================//
+    // This class represents a timer for the smart home                                                //
+    //=================================================================================================//
     public partial class Time : ISubject<ITimeObserver>
     {
-        protected double time;
+        //Current hour
+        protected int hour;
+
+        //Current minutes
+        protected int minutes;
 
         // Observers list
         protected ICollection<ITimeObserver> observers = new LinkedList<ITimeObserver>();
-        protected int hour;
-        protected int minutes;
+
+        #region Time
 
         public Time(int hour, int minutes)
         {
             this.hour = hour;
             this.minutes = minutes;
-        }//Time(int,int)
+        }// Time(int,int)
+
+        #endregion
 
         #region Getters and Setters
+
         public void setTime(int valueHour, int valueMinute)
         {
             hour = (valueHour >= 0 && valueHour < 24) ?
                     valueHour : 0;
             minutes = (valueMinute >= 0 && valueMinute < 60) ?
-            valueMinute : 0;
+                    valueMinute : 0;
             notifyObservers();
         }//setTime
         public int getHour()
         {
             return hour;
-        }
+        } //getHour
         public int getMinutes()
         {
             return minutes;
-        }
+        } //getMinutes
 
         public string getTime()
         {
             return String.Format(
                "{0:D2}:{1:D2}", hour, minutes);
-        }//getTime       
+        } //getTime       
 
         #endregion
 

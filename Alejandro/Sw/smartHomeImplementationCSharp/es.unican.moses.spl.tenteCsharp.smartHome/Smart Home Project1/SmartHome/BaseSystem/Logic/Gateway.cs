@@ -10,27 +10,96 @@ namespace SmartHome
 
     public partial class Gateway
     {
+        //Sensor list
         protected List<Sensor> sensors = null;
+
+        //Actuator list
         protected List<Actuator> actuators = null;
+
+        //Floor list
         protected List<Floor> floors = null;
+
+        //Time
         protected Time time = null;
 
+        /// <summary>
+        /// Constructor for the BaseSystem feature
+        /// </summary>
         public void initBaseSystem()
         {
             this.actuators = new List<Actuator>();
             this.sensors = new List<Sensor>();
             this.floors = new List<Floor>();
-        } // Gateway()
+        } // initBaseSystem()
 
+        /// <summary>
+        /// Method to initializate the time.
+        /// </summary>
+        /// <param name="time">Time object</param>
         public void initTime(Time time)
         {
             this.time = time;
         }//initTime
 
+        #region Getters and Setters
+
         public Time getTimer()
         {
             return time;
         }//getTimer
+
+        public List<Floor> getFloors()
+        {
+            return this.floors;
+        }//getFloors
+
+        /// <summary>
+        /// Method to obtain an Actuator through the room identifier that it belongs
+        /// </summary>
+        /// <param name="id_room">Room identifier</param>
+        /// <returns>Actuator list</returns>
+        public List<Actuator> getActuatorsByRoom(int id_room)
+        {
+            List<Actuator> actuatorsRoom = new List<Actuator>();
+            for (int i = 0; i < actuators.Count; i++)
+            {
+                if (actuators[i].getIdRoom() == id_room) actuatorsRoom.Add(actuators[i]);
+            }
+            if (actuatorsRoom.Count != 0) return actuatorsRoom;
+            else return null;
+        }// getActuatorsByRoom
+
+        /// <summary>
+        /// Method to obtain a Floor through its identifier
+        /// </summary>
+        /// <param name="id_floor">Floor identifier</param>
+        /// <returns>A Floor</returns>
+        public Floor getFloorById(int id_floor)
+        {
+            for (int i = 0; i < floors.Count; i++)
+            {
+                if (floors[i].getId() == id_floor)  return floors[i];                
+            }// for
+            return null;
+        }// getFloorById
+
+        /// <summary>
+        /// Method to obtain a Floor that a room belongs
+        /// </summary>
+        /// <param name="id_room">Room identifier</param>
+        /// <returns>Floor</returns>
+        public Floor getFloorByRoom(int id_room)
+        {
+            Room aux = null;
+            for (int i = 0; i < floors.Count; i++)
+            {
+                aux = floors[i].getRoomById(id_room);
+                if (aux != null) return floors[i];               
+            }// for
+            return null;
+        }// getFloorByRoom
+
+        #endregion
 
         public void addSensor(Sensor s)
         {
@@ -47,87 +116,9 @@ namespace SmartHome
             this.floors.Add(f);
         }// addFloor
 
-        public List<Floor> getFloors()
-        {
-            return this.floors;
-        }//getFloors
-
-        public List<Actuator> getActuatorsByRoom(int id_room)
-        {
-            List<Actuator> actuatorsRoom = new List<Actuator>();
-            for (int i = 0; i < actuators.Count; i++)
-            {
-                if (actuators[i].getIdRoom() == id_room) actuatorsRoom.Add(actuators[i]);
-            }
-            if (actuatorsRoom.Count != 0) return actuatorsRoom;
-            else return null;
-        }// getActuatorsByRoom
-
-        public Floor getFloorById(int id_floor)
-        {
-            for (int i = 0; i < floors.Count; i++)
-            {
-                if (floors[i].getId() == id_floor)
-                {
-
-                    return floors[i];
-                }// if
-            }// for
-            return null;
-        }// getFloorById
-
-        public Floor getFloorByRoom(int id_room)
-        {
-            Room aux = null;
-            for (int i = 0; i < floors.Count; i++)
-            {
-                aux = floors[i].getRoomById(id_room);
-                if (aux != null)
-                {
-                    return floors[i];
-                }//if
-            }//for
-            return null;
-        }
-
-        // Class methods
-        public void emergence(Sensor s, double value)
-        {
-            System.Console.Out.WriteLine("Sensor " + s.getId() + " has notified anormal situation with value " + value);
-        } // emergence
-
-        // Pre: actuator list must be not null
-        // TODO: Change return value by an exception
-        public bool changeValue(int id, double value)
-        {
-
-            bool result = false;
-            Actuator ac = null;
-
-            List<Actuator>.Enumerator it = actuators.GetEnumerator();
-
-            while ((it.MoveNext() == true) && (ac == null))
-            {
-                if (it.Current.getId() == id)
-                {
-                    ac = it.Current;
-                } // if
-            } // while
-
-            if (ac != null)
-            {
-                ac.setValue(value);
-                result = true;
-            } // if
-
-            return result;
-
-        } // changeValue
-
         /// <summary>
-        ///  
-        /// </summary>
-        
+        ///  Method to swith On all sensors and actuators
+        /// </summary>        
         public void initializeAll()
         {
             for (int i = 0; i<sensors.Count; i++)
@@ -140,19 +131,24 @@ namespace SmartHome
             }//for            
         }//initializeAll
 
+        /// <summary>
+        /// Method to check all sensors and actuators
+        /// </summary>
         public void checkAll()
         {
             for (int i = 0; i < sensors.Count; i++)
             {
                 Console.WriteLine("status sensor " + sensors[i].getId() + " :" + sensors[i].getStatus());
-            }//for
+            }// for
             for (int i = 0; i < actuators.Count; i++)
             {
-                Console.WriteLine("status actuator "+actuators[i].getId()+" :"+actuators[i].getStatus());
-                
-            }//for            
-        }//checkAll
+                Console.WriteLine("status actuator "+actuators[i].getId()+" :"+actuators[i].getStatus());                
+            }// for            
+        }// checkAll
 
+        /// <summary>
+        /// Method to switch down all sensors and actuators
+        /// </summary>
         public void switchDown()
         {
             for (int i = 0; i < sensors.Count; i++)

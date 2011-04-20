@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+
 namespace SmartHome
 {
+    //============================================================================================================================//
+    // This class represents the visual interface for the Gateway                                                                 //
+    //============================================================================================================================//
     partial class GatewayGUI
     {
         //Values for windows size
@@ -25,7 +29,7 @@ namespace SmartHome
                 components.Dispose();
             }
             base.Dispose(disposing);
-        }
+        }// Dispose
 
         #region Windows Form Designer generated code
 
@@ -92,28 +96,38 @@ namespace SmartHome
         }
 
         #endregion
-        //Gateway
+        /// <summary>
+        /// Gateway object
+        /// </summary>
         Gateway gateway = new Gateway();
-        //Visual
-        private TabControl tabControl_main;
-        private TabPage tabPage_floors;
-        private TabControl tabControl_floors;
-        private List<TabControl> listTabControl_rooms = new List<TabControl>();
-        private List<TabPage> listTabPageFloors = new List<TabPage>();
-        private Dictionary<int, TabPage> DictionaryTabPageRooms = new Dictionary<int, TabPage>();
-        private Dictionary<int, TabControl> DictionaryTabControlDevice = new Dictionary<int, TabControl>();
-        private Dictionary<int, TabPage> DictionaryTabPageDevice = new Dictionary<int, TabPage>();
+        /// <summary>
+        /// Visual components
+        /// </summary>
+        protected TabControl tabControl_main;
+        protected TabPage tabPage_floors;
+        protected TabControl tabControl_floors;
+        protected List<TabControl> listTabControl_rooms = new List<TabControl>();
+        protected List<TabPage> listTabPageFloors = new List<TabPage>();
+        protected Dictionary<int, TabPage> DictionaryTabPageRooms = new Dictionary<int, TabPage>();
+        protected Dictionary<int, TabControl> DictionaryTabControlDevice = new Dictionary<int, TabControl>();
+        protected Dictionary<int, TabPage> DictionaryTabPageDevice = new Dictionary<int, TabPage>();
         protected SimulatorGUI simulator;
 
-        //Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="g">An object of Gateway class</param>
+        /// <param name="simulator">An object of SimulatorGUI class</param>
         public GatewayGUI(Gateway g, SimulatorGUI simulator)
         {
             this.gateway = g;
             InitializeComponent();
             this.simulator = simulator;
-        }//GatewayGUI(Gateway)
+        }//GatewayGUI(Gateway, SimulatorGUI)
 
-        //To add floors and rooms in GUI
+        /// <summary>
+        /// Method to add floors and rooms in GUI
+        /// </summary>
         public void addBaseSystem()
         {
             List<Floor> f = gateway.getFloors();
@@ -140,8 +154,8 @@ namespace SmartHome
                     this.DictionaryTabControlDevice.Add(auxIdRoom, new TabControl());
                     this.DictionaryTabControlDevice[auxIdRoom].Size = new System.Drawing.Size(width - 14, height - 30);
                     this.DictionaryTabPageRooms[auxIdRoom].Controls.Add(this.DictionaryTabControlDevice[auxIdRoom]);
-                }//for
-            }//for            
-        }//addFloors       
-    }//GatewayGUI
+                }// for
+            }// for            
+        }// addFloors       
+    }// GatewayGUI
 }//SmartHome

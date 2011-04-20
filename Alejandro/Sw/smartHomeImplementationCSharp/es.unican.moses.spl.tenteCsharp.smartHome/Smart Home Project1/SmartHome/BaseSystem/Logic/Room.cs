@@ -5,22 +5,42 @@ using System.Text;
 
 namespace SmartHome
 {
+
+    //====================================================================================================//
+    // This class represents a room in the smart home                                                     //
+    //====================================================================================================//
+
     public partial class Room
     {
+        //Room name
         protected String name;
+
+        //Room identifier
         protected int id;
 
-        public Room(String name)
+        #region Constructors
+        /// <summary>
+        /// Constructor with 1 parameter
+        /// </summary>
+        /// <param name="id">Unique identifier for the room</param>
+        public Room(int id)
         {
-            this.name = name;
-        }//Room
+            this.id = id;
+        }// Room(int)
 
+        /// <summary>
+        /// Constructor with 2 parameters
+        /// </summary>
+        /// <param name="name">A name for the room</param>
+        /// <param name="id">Unique identifier for the room</param>
         public Room(String name, int id)
         {
             this.name = name;
             this.id = id;
-        }//Room
+        }// Room(String, int)
+        #endregion
 
+        #region Getters and Setters
         public int getId()
         {
             return id;
@@ -30,8 +50,7 @@ namespace SmartHome
         {
             this.id = id;
         }//setId
-
-
+        
         public String getName()
         {
             return name;
@@ -41,5 +60,6 @@ namespace SmartHome
         {
             this.name = name;
         }//setName
+        #endregion
     }
 }

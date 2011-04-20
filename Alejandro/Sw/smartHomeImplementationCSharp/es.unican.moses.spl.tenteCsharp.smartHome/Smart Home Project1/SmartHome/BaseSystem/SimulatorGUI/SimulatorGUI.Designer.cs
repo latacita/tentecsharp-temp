@@ -4,6 +4,10 @@ using System;
 
 namespace SmartHome
 {
+    //=====================================================================================================================//
+    // This class represents the visual intarfece for the Simulator, where you can view the current values of the sensors  //
+    // and you can change some simulated values like thermometers, time...                                                 //                                                                                             
+    //=====================================================================================================================//
     partial class SimulatorGUI : IDeviceObserver
     {
         /// <summary>
@@ -22,7 +26,7 @@ namespace SmartHome
                 components.Dispose();
             }
             base.Dispose(disposing);
-        }
+        }// Dispose
 
         #region Windows Form Designer generated code
 
@@ -85,7 +89,7 @@ namespace SmartHome
             this.dataGridViewRooms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRooms.Size = new System.Drawing.Size(343, 258);
             this.dataGridViewRooms.TabIndex = 0;
-            
+
             // 
             // column_nameRoom
             // 
@@ -123,24 +127,34 @@ namespace SmartHome
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabPageRooms;
-        private System.Windows.Forms.DataGridView dataGridViewRooms;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column_nameRoom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column_id_room;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column_floor;
-        private Gateway gateway;
-        private List<string[]> listRows = new List<string[]>();
-        //<Index of DataGridView, id_room>
+        //Gateway
+        protected Gateway gateway;
+        //Dictionary<Index of DataGridView, id_room>
         private Dictionary<int, int> dictionaryRooms = new Dictionary<int, int>();
+        
+        //Visible components
+        protected System.Windows.Forms.TabControl tabControl;
+        protected System.Windows.Forms.TabPage tabPageRooms;
+        protected System.Windows.Forms.DataGridView dataGridViewRooms;
+        protected System.Windows.Forms.DataGridViewTextBoxColumn column_nameRoom;
+        protected System.Windows.Forms.DataGridViewTextBoxColumn column_id_room;
+        protected System.Windows.Forms.DataGridViewTextBoxColumn column_floor;
+        
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="gateway">An object of Gateway class</param>
         public SimulatorGUI(Gateway gateway)
         {
             this.gateway = gateway;
             InitializeComponent();
             addRooms();
-        }//Simulator
+        }// SimulatorGUI
 
+        /// <summary>
+        /// Method to add the room list
+        /// </summary>
         private void addRooms()
         {
 
@@ -152,9 +166,9 @@ namespace SmartHome
                 {
                     dataGridViewRooms.Rows.Add(new string[] { r[j].getName(), r[j].getId().ToString(), f[i].getName() });
                     dictionaryRooms.Add(dataGridViewRooms.Rows.Count - 1, r[j].getId());
-                }//for
-            }//for
-        }//addRooms 
+                }// for
+            }// for
+        }// addRooms 
 
         #region Observer-pattern
         void IDeviceObserver.deviceValueChanged(Device dev)
@@ -164,7 +178,5 @@ namespace SmartHome
         }
         #endregion
 
-    }
-
-
-}
+    }// SimulatorGUI
+}// SmartHome

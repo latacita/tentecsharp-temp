@@ -4,6 +4,9 @@ using System.Text;
 
 namespace SmartHome
 {
+    //=================================================================================================//
+    // This class is an abstract class that represents the common supertype for all sensors             //
+    //=================================================================================================//
     public abstract partial class Sensor : Device
     {
 
@@ -22,12 +25,17 @@ namespace SmartHome
             this.id = id;
         } // Sensor(int)
 
+        /// <summary>
+        /// Class constructor accepting a device id and id_actuator as input parameters
+        /// </summary>
+        /// <param name="id">Unique identifier for the sensor</param>
+        /// <param name="id_actuator">Identifier for the actuator that this sensor is related</param>
         public Sensor(int id, int id_actuator)
             : base(id)
         {
             this.id = id;
             this.id_actuator = id_actuator;
-        }
+        } // Sensor(int, int)
         #endregion
 
         #region Getters and Setters
@@ -42,11 +50,6 @@ namespace SmartHome
             return id_actuator;
         }//roomId
         #endregion
-
-        #region ISubject<ISensorObserver> Members
-
-
-
-        #endregion
+       
     } // Sensor
 } // namespace SmartHome

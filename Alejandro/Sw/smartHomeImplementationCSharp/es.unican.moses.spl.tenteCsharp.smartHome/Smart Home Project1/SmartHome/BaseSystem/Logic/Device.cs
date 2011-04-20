@@ -6,24 +6,33 @@ using System.Text;
 namespace SmartHome
 {
     //=================================================================================================//
-    // This class is an abstract class the represents the common supertype for all devices             //
+    // This class is an abstract class the represents the common supertype for all devices.            //
+    // A Device could be an Actuator or Sensor.                                                        //                                        //
     //=================================================================================================//
-    public partial class Device : ISubject<IDeviceObserver>
+    public abstract class Device : ISubject<IDeviceObserver>
     {
         // Device identifier
         protected int id;
         // Device value
         protected double deviceValue = 0.0;
-        // Device status
+        /// <summary>
+        /// Device status, if it is false, the device is Off, and if it is true, the device is On
+        /// </summary> 
         protected bool status = false;
 
         // Observers list
         ICollection<IDeviceObserver> observers = new LinkedList<IDeviceObserver>();
 
+        #region Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="id">Identifier for the current Device</param>
         public Device(int id)
         {
             this.id = id;
         }//Device(int)
+        #endregion
 
         #region Getters and Setters
 
@@ -42,7 +51,7 @@ namespace SmartHome
         public virtual void setId(int id)
         {
             this.id = id;
-        }//setId
+        }//setId(int)
 
         public virtual double getValue()
         {
@@ -61,12 +70,12 @@ namespace SmartHome
         public virtual bool getStatus()
         {
             return status;
-        }//status
+        }//getStatus
 
         public virtual void setStatus(bool status)
         {
             this.status = status;
-        }
+        }// setStatus(bool)
         #endregion
 
         #region Subject-Observer Pattern
@@ -78,7 +87,7 @@ namespace SmartHome
         public void registerObserver(IDeviceObserver observer)
         {
             this.observers.Add(observer);
-        }
+        }// registerObserver(IDeviceObserver)
 
         /// <summary>
         ///     Notify that the value of the sensor has changed to all the observers registered
@@ -94,5 +103,5 @@ namespace SmartHome
 
         #endregion
 
-    }//Device
-}//SmartHome
+    }// Device
+}// SmartHome
