@@ -6,15 +6,24 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
+    //=====================================================================================================================//
+    // This class represents the visual intarfece for the Simulator, where you can view the current values of the sensors. //
+    // This file only contains the funcionality related to the BlindMng feature.                                           //                                                                                                                                             
+    //=====================================================================================================================//
     public partial class SimulatorGUI : IDeviceObserver
     {
-        private TabPage tabPageBlinds = new TabPage();
-        private DataGridView dataGridViewBlinds = new DataGridView();
-        private DataGridViewTextBoxColumn column_Blind = new DataGridViewTextBoxColumn();
-        private DataGridViewTextBoxColumn column_nameRoom_Blind = new DataGridViewTextBoxColumn();
-        private DataGridViewTextBoxColumn column_aperture_Blind = new DataGridViewTextBoxColumn();
-        private DataGridViewTextBoxColumn column_window_Blind = new DataGridViewTextBoxColumn();
 
+        //Visual components
+        protected TabPage tabPageBlinds = new TabPage();
+        protected DataGridView dataGridViewBlinds = new DataGridView();
+        protected DataGridViewTextBoxColumn column_Blind = new DataGridViewTextBoxColumn();
+        protected DataGridViewTextBoxColumn column_nameRoom_Blind = new DataGridViewTextBoxColumn();
+        protected DataGridViewTextBoxColumn column_aperture_Blind = new DataGridViewTextBoxColumn();
+        protected DataGridViewTextBoxColumn column_window_Blind = new DataGridViewTextBoxColumn();
+
+        /// <summary>
+        /// Constructor to add the blindMng to SimulatorGUI
+        /// </summary>
         public void addBlindMng()
         {
             initTabPageBlindMng();
@@ -23,12 +32,11 @@ namespace SmartHome
 
         }//addBlindMng
 
-        public void initTabPageBlindMng()
+        protected void initTabPageBlindMng()
         {
             //
             // tabPageBlinds
             //
-
             this.tabPageBlinds.Text = "Blinds";
             this.tabPageBlinds.Location = new System.Drawing.Point(4, 22);
             this.tabPageBlinds.Size = new System.Drawing.Size(663, 313);
@@ -36,7 +44,6 @@ namespace SmartHome
             //
             // dataGridView
             //
-
             this.dataGridViewBlinds.Size = new System.Drawing.Size(430, 230);
             this.dataGridViewBlinds.AllowUserToAddRows = false;
             this.dataGridViewBlinds.AllowUserToDeleteRows = false;
@@ -82,12 +89,12 @@ namespace SmartHome
             this.column_window_Blind.Name = "column_window_blind";
             this.column_window_Blind.ReadOnly = true;
 
-            //Add the element to the tabPageBlind
+            // Add the element to the tabPageBlind
             this.tabPageBlinds.Controls.Add(this.dataGridViewBlinds);
-            //Add tapPageHeaters to the tabControl
+            // Add tapPageHeaters to the tabControl
             this.tabControl.Controls.Add(tabPageBlinds);
 
-        }
+        }// initTabPageBlindMng
 
         public void fillDataGridViewBlinds()
         {
@@ -115,13 +122,13 @@ namespace SmartHome
                                                                       w[k].getId().ToString(),
                                                                       r[j].getName(),
                                                                       bs.getValue().ToString()});
-                        }//for
-                    }//for                    
-                }//for
-            }//for 
+                        }// for
+                    }// for                    
+                }// for
+            }// for 
             if (dataGridViewBlinds.RowCount > 0)
                 dataGridViewBlinds.Rows[numRowSelected].Selected = true;
-        }//fillDataGridViewBlinds
+        }// fillDataGridViewBlinds
 
         #region IDeviceObserver Members
 
@@ -140,5 +147,5 @@ namespace SmartHome
         }//blindMng_registerObserver         
 
         #endregion
-    }//SimulatorGUI
-}//SmartHome
+    }// SimulatorGUI
+}// SmartHome
