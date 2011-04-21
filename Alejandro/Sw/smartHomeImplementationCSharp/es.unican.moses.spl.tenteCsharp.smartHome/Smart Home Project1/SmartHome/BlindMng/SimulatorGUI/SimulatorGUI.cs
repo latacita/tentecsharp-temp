@@ -7,5 +7,5 @@ namespace SmartHome
 {
     public partial class SimulatorGUI
     {
-    }
-}
+    }// SimulatorGUI
+}// SmartHome

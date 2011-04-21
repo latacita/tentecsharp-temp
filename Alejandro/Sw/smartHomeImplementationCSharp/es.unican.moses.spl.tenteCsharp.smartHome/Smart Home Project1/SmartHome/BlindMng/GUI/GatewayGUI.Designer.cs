@@ -6,21 +6,28 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
+    //============================================================================================================================//
+    // This class represents the visual interface for the Gateway                                                                 //
+    // This file only contains the funcionality related to the BlindMng feature                                                   //
+    //============================================================================================================================//
+   
     public partial class GatewayGUI : IGatewayGUIBlindObserver
     {
-        //Atributes
-        private TabPage tabPage_blind;
-        private TrackBar trackBar_apertureBlind;
-        private Label lab_apertureBlind;
-        private TextBox text_apertureBlind;
-        private PictureBox pict_blind;
-        private Dictionary<int, TrackBar> dictionaryTrackBarApertureBlindByRoom = new Dictionary<int, TrackBar>();
-        private Dictionary<TrackBar, int> inverseDictionaryTrackBarApertureBlind = new Dictionary<TrackBar, int>();
-        private Dictionary<int, Label> dictionaryLabelApertureBlindByRoom = new Dictionary<int, Label>();
-        private Dictionary<int, TextBox> dictionaryTextApertureBlindByRoom = new Dictionary<int, TextBox>();
-        private Dictionary<TextBox, int> inverseDictionaryTextApertureBlind = new Dictionary<TextBox, int>();
+        //Visual components
+        protected TabPage tabPage_blind;
+        protected TrackBar trackBar_apertureBlind;
+        protected Label lab_apertureBlind;
+        protected TextBox text_apertureBlind;
+        protected PictureBox pict_blind;
+        protected Dictionary<int, TrackBar> dictionaryTrackBarApertureBlindByRoom = new Dictionary<int, TrackBar>();
+        protected Dictionary<TrackBar, int> inverseDictionaryTrackBarApertureBlind = new Dictionary<TrackBar, int>();
+        protected Dictionary<int, Label> dictionaryLabelApertureBlindByRoom = new Dictionary<int, Label>();
+        protected Dictionary<int, TextBox> dictionaryTextApertureBlindByRoom = new Dictionary<int, TextBox>();
+        protected Dictionary<TextBox, int> inverseDictionaryTextApertureBlind = new Dictionary<TextBox, int>();
 
-
+        /// <summary>
+        /// Constructor to add the blindMng to GatewayGUI
+        /// </summary>
         public void addBlindMng()
         {
 
@@ -29,7 +36,7 @@ namespace SmartHome
             gateway.registerObserverBlind(this);
         }//addBlindMng
 
-        public void initblindMng()
+        protected void initblindMng()
         {
             //
             //TabPage
@@ -65,7 +72,6 @@ namespace SmartHome
             text_apertureBlind.Text = "0";
             text_apertureBlind.Size = new System.Drawing.Size(30, 20);
             text_apertureBlind.Location = new System.Drawing.Point(width / 6, height / 2);
-            //textTemp.Enabled = false;
             text_apertureBlind.KeyDown += new KeyEventHandler(textApertureBlind_KeyDown);
             tabPage_blind.Controls.Add(text_apertureBlind);
             text_apertureBlind.Visible = true;
@@ -79,7 +85,7 @@ namespace SmartHome
             tabPage_blind.Controls.Add(pict_blind);
         }
 
-        private void addBlindByRoom(List<BlindCtrl> blinds)
+        protected void addBlindByRoom(List<BlindCtrl> blinds)
         {
             for (int i = 0; i < blinds.Count; i++)
             {
@@ -94,7 +100,7 @@ namespace SmartHome
 
         }//addblindByRoom
 
-        private void initBlindMngByRoom(int id_blind)
+        protected void initBlindMngByRoom(int id_blind)
         {
             //
             //TrackBar
@@ -132,12 +138,17 @@ namespace SmartHome
             //Image
             //
             PictureBox pict_blind = new PictureBox();
-            pict_blind.Image = System.Drawing.Image.FromFile("..\\..\\Images\\blind.jpg"); //TEMPORAL
+            pict_blind.Image = System.Drawing.Image.FromFile("..\\..\\Images\\blind.jpg"); 
             pict_blind.Location = new System.Drawing.Point((width + 45) / 3, height / 16);
             pict_blind.Size = new System.Drawing.Size(100, 94);
             DictionaryTabPageDevice[id_blind].Controls.Add(pict_blind);
         }
 
+        /// <summary>
+        /// Method to adjust all visual blind components of a specific blind
+        /// </summary>
+        /// <param name="id_blind">Blind identifier</param>
+        /// <param name="apertureBlind">Aperture</param>
         public void adjustBlindByRoom(int id_blind, int apertureBlind)
         {
             dictionaryTrackBarApertureBlindByRoom[id_blind].Value = apertureBlind;
@@ -145,6 +156,10 @@ namespace SmartHome
 
         }//adjustblind
 
+        /// <summary>
+        /// Method to adjust all visual blind components 
+        /// </summary>
+        /// <param name="apertureBlind">Aperture</param>
         public void adjustAllBlinds(int apertureBlind)
         {
             text_apertureBlind.Text = apertureBlind.ToString();
