@@ -5,18 +5,31 @@ using System.Text;
 
 namespace SmartHome
 {
+    //=================================================================================================//
+    // This class represents the central gateway of the Smart Home which process all commands          //
+    // This file only contains the functionality related to the BlindSimulation                        //
+    //=================================================================================================//
 
     public partial class Gateway : ISubjectGatewayBlindSimulation
     {
+        /// <summary>
+        /// Atribute to indicate if the BlindSimulation is on/off
+        /// </summary>
         protected bool statusBlindSimulation = false;
+        //Observer list
         ICollection<IGatewayGUIBlindSimulationObserver> observersGatewayBlindSimulation = new LinkedList<IGatewayGUIBlindSimulationObserver>();
 
-
+        /// <summary>
+        /// Constructor to initialize the BlindSimulation feature
+        /// </summary>
         public void initBlindSimulation()
         {
             time.registerObserver(this);
-        }
+        }// initBlindSimulation
 
+        /// <summary>
+        /// Method to switch on the blindSimulation
+        /// </summary>
         public void blindSimulation_switchOn()
         {
             this.statusBlindSimulation = true;
@@ -24,6 +37,9 @@ namespace SmartHome
             notifySwitchOnBlindSimulationToObsevers();
         }//blindSimulation_switchOn
 
+        /// <summary>
+        /// Method to switch off the blindSimulation
+        /// </summary>
         public void BlindSimulation_switchOff()
         {
             this.statusBlindSimulation = false;
@@ -31,6 +47,12 @@ namespace SmartHome
             notifySwitchOffBlindSimulationToObsevers();
         }//BlindSimulation_switchOff
 
+        /// <summary>
+        /// Method to check the current time, and if this time is in a moment when the home is empty, the
+        /// blinSimulation will be off
+        /// </summary>
+        /// <param name="hour">Current hour</param>
+        /// <param name="minutes">Current minutes</param>
         public void blindSimulation_checkTime(int hour, int minutes)
         {
             String t = hour.ToString() + "," + minutes.ToString();
@@ -79,5 +101,5 @@ namespace SmartHome
             } // foreach
         } // notifySwitchOffSmartEnergyToObsevers
         #endregion
-    }
-}
+    }// Gateway
+}// SmartHome
