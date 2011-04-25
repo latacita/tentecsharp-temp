@@ -8,17 +8,21 @@ namespace SmartHome
 {
     public partial class SimulatorGUI : IDeviceObserver
     {
-        private TabPage tabPageLigths = new TabPage();
-        private DataGridView dataGridViewLigths = new DataGridView();
-        private DataGridViewTextBoxColumn column_ligth = new DataGridViewTextBoxColumn();
-        private DataGridViewTextBoxColumn column_nameRoom_ligth = new DataGridViewTextBoxColumn();
-        private DataGridViewTextBoxColumn column_ligthing_ligth = new DataGridViewTextBoxColumn();
+        //Visual components
+        protected TabPage tabPageLigths = new TabPage();
+        protected DataGridView dataGridViewLigths = new DataGridView();
+        protected DataGridViewTextBoxColumn column_ligth = new DataGridViewTextBoxColumn();
+        protected DataGridViewTextBoxColumn column_nameRoom_ligth = new DataGridViewTextBoxColumn();
+        protected DataGridViewTextBoxColumn column_ligthing_ligth = new DataGridViewTextBoxColumn();
 
+        /// <summary>
+        /// Constructor to add the lightMng to SimulatorGUI
+        /// </summary>
         public void addLightMng()
         {
             initTabPageLigthMng();
             filldataGridViewLigths();
-            ligthMng_registerObserver();
+            lightMng_registerObserver();
 
         }//addWindowMng
 
@@ -27,15 +31,12 @@ namespace SmartHome
             //
             // tabPageLigths
             //
-
             this.tabPageLigths.Text = "Ligths";
             this.tabPageLigths.Location = new System.Drawing.Point(4, 22);
             this.tabPageLigths.Size = new System.Drawing.Size(663, 313);
-
             //
             // dataGridView
             //
-
             this.dataGridViewLigths.Size = new System.Drawing.Size(330, 230);
             this.dataGridViewLigths.AllowUserToAddRows = false;
             this.dataGridViewLigths.AllowUserToDeleteRows = false;
@@ -55,7 +56,6 @@ namespace SmartHome
             this.dataGridViewLigths.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewLigths.MultiSelect = false;
             this.dataGridViewLigths.TabIndex = 0;
-            //this.dataGridViewLigths.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLigths_selectedRowsButton_Click);
             // 
             // column_nameHeater
             // 
@@ -94,11 +94,11 @@ namespace SmartHome
                 List<Room> r = f[i].getRooms();
                 for (int j = 0; j < r.Count; j++)
                 {
-                    List<LightCtrl> l = gateway.ligthMng_findLigthCtrlByRoom(r[j].getId());
+                    List<LightCtrl> l = gateway.lightMng_findLigthCtrlByRoom(r[j].getId());
 
                     for (int k = 0; k < l.Count; k++)
                     {
-                        LightSensor ls = gateway.ligthMng_findLigthSensorByIdLigth(l[k].getId());
+                        LightSensor ls = gateway.lightMng_findLigthSensorByIdLigth(l[k].getId());
                         dataGridViewLigths.Rows.Add(new string[] {l[k].getId().ToString(),
                                                                   r[j].getName(),
                                                                   ls.getValue().ToString()});
@@ -109,14 +109,12 @@ namespace SmartHome
                 dataGridViewLigths.Rows[numRowSelected].Selected = true;
         }//filldataGridViewLigths
 
-
-
         #region IDeviceObserver Members
 
-        void ligthMng_registerObserver()
+        void lightMng_registerObserver()
         {
-            List<LightCtrl> l = gateway.ligthMng_getLigths();
-            List<LightSensor> ls = gateway.ligthwMng_getLigthsSensors();
+            List<LightCtrl> l = gateway.lightMng_getLigths();
+            List<LightSensor> ls = gateway.lightMng_getLigthsSensors();
             for (int i = 0; i < l.Count; i++)
             {
                 l[i].registerObserver(this);
@@ -125,7 +123,7 @@ namespace SmartHome
             {
                 ls[j].registerObserver(this);
             }//for
-        }//ligthMng_registerObserver
+        }//lightMng_registerObserver
 
         #endregion
     }//SimulatorGUI

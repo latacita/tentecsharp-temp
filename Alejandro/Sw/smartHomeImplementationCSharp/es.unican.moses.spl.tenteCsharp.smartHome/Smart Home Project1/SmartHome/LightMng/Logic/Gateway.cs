@@ -5,96 +5,127 @@ using System.Text;
 
 namespace SmartHome
 {
-    public partial class Gateway : ISubjectGatewayLigth
+    //=================================================================================================//
+    // This class represent the central gateway of the Smart Home which process all commands           //
+    // This file only contains the functionality related to the LightMng feature                       //
+    //=================================================================================================//
+    public partial class Gateway : ISubjectGatewayLight
     {
         // LightCtrl collection
-        protected List<LightCtrl> ligths = null;
+        protected List<LightCtrl> lights = null;
         // LightSensor collection
-        protected List<LightSensor> ligthsSensors = null;
+        protected List<LightSensor> lightsSensors = null;
         //List of observers
-        ICollection<IGatewayGUILigthObserver> observersGatewayLigth = new LinkedList<IGatewayGUILigthObserver>();
+        ICollection<IGatewayGUILightObserver> observersGatewayLight = new LinkedList<IGatewayGUILightObserver>();
 
+        #region Constructor
         //Constructor
         public void initLightMng()
         {
-            this.ligths = new List<LightCtrl>();
-            this.ligthsSensors = new List<LightSensor>();
+            this.lights = new List<LightCtrl>();
+            this.lightsSensors = new List<LightSensor>();
         }//initLightMng
-
-        public List<LightCtrl> ligthMng_getLigths()
-        {
-            return ligths;
-        }//ligthMng_getLigths
-
-        public List<LightSensor> ligthwMng_getLigthsSensors()
-        {
-            return ligthsSensors;
-        }//ligthwMng_getLigthsSensors
+        #endregion
 
         public void lightMng_addLightCtrl(LightCtrl l)
         {
             this.actuators.Add(l);
-            this.ligths.Add(l);
+            this.lights.Add(l);
         } // lightMng_addLightCtrl
 
         public void lightMng_addLightSensor(LightSensor ls)
         {
             this.sensors.Add(ls);
-            this.ligthsSensors.Add(ls);
-        }// ligthMng_addWindowSensor
+            this.lightsSensors.Add(ls);
+        }// ligthMng_addLightSensor
 
-        public void ligthMng_allAdjustLigths(int lighting)
+        #region Getters and Setters
+
+        public List<LightCtrl> lightMng_getLigths()
         {
-            for (int i = 0; i < ligths.Count; i++)
+            return lights;
+        }//lightMng_getLigths
+
+        public List<LightSensor> lightMng_getLigthsSensors()
+        {
+            return lightsSensors;
+        }//lightMng_getLigthsSensors
+
+        #endregion
+
+        /// <summary>
+        /// Method to adjust the lighting of a all lights
+        /// </summary>
+        /// <param name="lighting">Lighting</param>
+        public void lightMng_allAdjustLights(int lighting)
+        {
+            for (int i = 0; i < lights.Count; i++)
             {
-                //Change the window actuator
-                ligthMng_adjustLigth(ligths[i].getId(), lighting);
-                //Change the window sensor
-                ligthMng_findLigthSensorByIdLigth(ligths[i].getId()).setValue(lighting);
+                //Change the light actuator
+                lightMng_adjustLight(lights[i].getId(), lighting);               
             }//for
             notifyAdjustAllLigthToObsevers(lighting);
 
-        }//ligthMng_allAdjustLigths
+        }//lightMng_allAdjustLights
 
-        public LightSensor ligthMng_findLigthSensorByIdLigth(int id_ligth)
+        /// <summary>
+        /// Method to find a light sensor through its identifier
+        /// </summary>
+        /// <param name="id_ligth">Light idenfifier</param>
+        /// <returns>LightSensor</returns>
+        public LightSensor lightMng_findLigthSensorByIdLigth(int id_ligth)
         {
-            for (int i = 0; i < ligthsSensors.Count; i++)
+            for (int i = 0; i < lightsSensors.Count; i++)
             {
-                if (ligthsSensors[i].getIdActuator() == id_ligth) return ligthsSensors[i];
+                if (lightsSensors[i].getIdActuator() == id_ligth) return lightsSensors[i];
             }
             return null;
-        }//ligthMng_findLigthSensorByIdLigth
+        }//lightMng_findLigthSensorByIdLigth
 
-        public List<LightCtrl> ligthMng_findLigthCtrlByRoom(int id_room)
+        /// <summary>
+        /// Method to find all the lights actuators in a specific room
+        /// </summary>
+        /// <param name="id_room">Room identifier</param>
+        /// <returns>LightCtrl list</returns>
+        public List<LightCtrl> lightMng_findLigthCtrlByRoom(int id_room)
         {
             List<LightCtrl> l = new List<LightCtrl>();
-            for (int i = 0; i < ligths.Count; i++)
+            for (int i = 0; i < lights.Count; i++)
             {
-                if (ligths[i].getIdRoom() == id_room) l.Add(ligths[i]);
+                if (lights[i].getIdRoom() == id_room) l.Add(lights[i]);
 
             }//for
             return l;
-        }//ligthMng_findLigthCtrlByRoom
+        }//lightMng_findLigthCtrlByRoom
 
-        public LightCtrl ligthMng_findLigthCtrl(int id_ligth)
+        /// <summary>
+        /// Method to find a specific light actuator thorught its identifier
+        /// </summary>
+        /// <param name="id_ligth">Light identifier</param>
+        /// <returns>LightCtrl</returns>
+        public LightCtrl lightMng_findLightCtrl(int id_ligth)
         {
-            for (int i = 0; i < ligths.Count; i++)
+            for (int i = 0; i < lights.Count; i++)
             {
-                if (ligths[i].getId() == id_ligth) return ligths[i];
+                if (lights[i].getId() == id_ligth) return lights[i];
 
             }//for
             return null;
 
-        }//ligthMng_findLigthCtrl
+        }//lightMng_findLightCtrl
 
-        public void ligthMng_adjustLigth(int id_ligth, int lighting)
+        /// <summary>
+        /// Method to adjust the lighting of a specific light
+        /// </summary>
+        /// <param name="id_ligth">Light identifier</param>
+        /// <param name="lighting">Lighting</param>
+        public void lightMng_adjustLight(int id_ligth, int lighting)
         {
             //Change the ligth actuator
-            ligthMng_findLigthCtrl(id_ligth).setValue(lighting);
-            //Change the ligth sensor
-            ligthMng_findLigthSensorByIdLigth(id_ligth).setValue(lighting);
+            lightMng_findLightCtrl(id_ligth).setValue(lighting);
+            //Change the ligth sensor(only for simulator purposes)
+            lightMng_findLigthSensorByIdLigth(id_ligth).setValue(lighting);
             notifyAdjustLigthByRoomToObsevers(id_ligth, lighting);
-
         }//ligthMng_adjustWindow
 
         #region Subject-Observer Pattern
@@ -102,9 +133,9 @@ namespace SmartHome
         ///     Register a new observer in the observer list
         /// </summary>
         /// <param name="obs">The observer to be registered</param>
-        public void registerObserverLigth(IGatewayGUILigthObserver observer)
+        public void registerObserverLigth(IGatewayGUILightObserver observer)
         {
-            this.observersGatewayLigth.Add(observer);
+            this.observersGatewayLight.Add(observer);
         }// registerObserverWindow
 
         /// <summary>
@@ -113,7 +144,7 @@ namespace SmartHome
         /// </summary>
         protected void notifyAdjustLigthByRoomToObsevers(int id_ligth, int ligthing)
         {
-            foreach (IGatewayGUILigthObserver observer in observersGatewayLigth)
+            foreach (IGatewayGUILightObserver observer in observersGatewayLight)
             {
                 observer.adjustLigthByRoom(id_ligth, ligthing);
             } // foreach
@@ -121,7 +152,7 @@ namespace SmartHome
 
         protected void notifyAdjustAllLigthToObsevers(int ligthing)
         {
-            foreach (IGatewayGUILigthObserver observer in observersGatewayLigth)
+            foreach (IGatewayGUILightObserver observer in observersGatewayLight)
             {
                 observer.adjustAllLigth(ligthing);
             } // foreach

@@ -6,31 +6,38 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
-    public partial class GatewayGUI : IGatewayGUILigthObserver
+    //============================================================================================================================//
+    // This class represents the visual interface for the Gateway                                                                 //
+    // This file only contains the funcionality related to the LightMng feature                                                   //
+    //============================================================================================================================//
+
+    public partial class GatewayGUI : IGatewayGUILightObserver
     {
-        //Atributes
-        private TabPage tabPage_ligth;
-        private TrackBar trackBar_ligthing;
-        private Label lab_ligthing;
-        private TextBox text_ligthing;
-        private PictureBox pict_ligth;
-        private Label label_predefinedValues = new Label();
-        private ComboBox combo_predefinedValues = new ComboBox();
-        private Dictionary<int, TrackBar> dictionaryTrackBarLigthingByRoom = new Dictionary<int, TrackBar>();
-        private Dictionary<TrackBar, int> inverseDictionaryTrackBarLigthing = new Dictionary<TrackBar, int>();
-        private Dictionary<int, Label> dictionaryLabelLigthingByRoom = new Dictionary<int, Label>();
-        private Dictionary<int, TextBox> dictionaryTextLigthingByRoom = new Dictionary<int, TextBox>();
-        private Dictionary<TextBox, int> inverseDictionaryTextLigthing = new Dictionary<TextBox, int>();
-        private Dictionary<int, Label> dictionaryLabelPredefinedValues = new Dictionary<int, Label>();
-        private Dictionary<int, ComboBox> dictionaryComboBoxPredefinedValues = new Dictionary<int, ComboBox>();
-        private Dictionary<ComboBox, int> inverseDictComboBoxPredefinedValues = new Dictionary<ComboBox, int>();
+        //Visual components
+        protected TabPage tabPage_ligth;
+        protected TrackBar trackBar_ligthing;
+        protected Label lab_ligthing;
+        protected TextBox text_ligthing;
+        protected PictureBox pict_ligth;
+        protected Label label_predefinedValues = new Label();
+        protected ComboBox combo_predefinedValues = new ComboBox();
+        //Dictionaries
+        protected Dictionary<int, TrackBar> dictionaryTrackBarLigthingByRoom = new Dictionary<int, TrackBar>();
+        protected Dictionary<TrackBar, int> inverseDictionaryTrackBarLigthing = new Dictionary<TrackBar, int>();
+        protected Dictionary<int, Label> dictionaryLabelLigthingByRoom = new Dictionary<int, Label>();
+        protected Dictionary<int, TextBox> dictionaryTextLigthingByRoom = new Dictionary<int, TextBox>();
+        protected Dictionary<TextBox, int> inverseDictionaryTextLigthing = new Dictionary<TextBox, int>();
+        protected Dictionary<int, Label> dictionaryLabelPredefinedValues = new Dictionary<int, Label>();
+        protected Dictionary<int, ComboBox> dictionaryComboBoxPredefinedValues = new Dictionary<int, ComboBox>();
+        protected Dictionary<ComboBox, int> inverseDictComboBoxPredefinedValues = new Dictionary<ComboBox, int>();
 
-
+        /// <summary>
+        /// Constructor to add the LightMng to GatewayGUI
+        /// </summary>
         public void addLightMng()
         {
-
             initLigthMng();
-            addLigthByRoom(gateway.ligthMng_getLigths());
+            addLigthByRoom(gateway.lightMng_getLigths());
             gateway.registerObserverLigth(this);
         }//addLightMng
 
@@ -91,7 +98,6 @@ namespace SmartHome
             text_ligthing.Text = "0";
             text_ligthing.Size = new System.Drawing.Size(30, 20);
             text_ligthing.Location = new System.Drawing.Point(width / 6, height / 2);
-            //textTemp.Enabled = false;
             text_ligthing.KeyDown += new KeyEventHandler(textLigthing_KeyDown);
             tabPage_ligth.Controls.Add(text_ligthing);
             text_ligthing.Visible = true;
@@ -190,19 +196,18 @@ namespace SmartHome
         {
             dictionaryTrackBarLigthingByRoom[id_ligth].Value = ligthing;
             dictionaryTextLigthingByRoom[id_ligth].Text = ligthing.ToString();
-
-
         }//adjustLigthByRoom
+
         public void adjustAllLigth(int ligthing)
         {
             text_ligthing.Text = ligthing.ToString();
             trackBar_ligthing.Value = ligthing;
-            List<LightCtrl> l = gateway.ligthMng_getLigths();
+            List<LightCtrl> l = gateway.lightMng_getLigths();
             for (int i = 0; i < l.Count; i++)
             {
                 dictionaryComboBoxPredefinedValues[l[i].getId()].SelectedIndex = combo_predefinedValues.SelectedIndex;
             }//for           
 
         }//adjustAllLigth 
-    }
-}
+    }// GatewayGUI
+}// SmartHome
