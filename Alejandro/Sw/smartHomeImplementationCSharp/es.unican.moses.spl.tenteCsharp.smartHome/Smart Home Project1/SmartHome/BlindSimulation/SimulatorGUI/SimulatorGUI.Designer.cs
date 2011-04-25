@@ -6,22 +6,28 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
+    //=====================================================================================================================//
+    // This class represents the visual interface for the Simulator, where you can view the current values of the sensors. //
+    // This file only contains the funcionality related to the BlindSimulation feature.                                    //                                                                                                                                             
+    //=====================================================================================================================//
     partial class SimulatorGUI
     {
-        private TabPage tabPageBlindSimulation = new TabPage();
-        private ComboBox comboBoxHours_blindSimulation = new ComboBox();
-        private ComboBox comboBoxMinutes_blindSimulation = new ComboBox();
-        private Label labelHours_BlindSimulation = new Label();
-        private Label labelMinutes_BlindSimulation = new Label();
-        private Button buttonSubmit_BlindSimulation = new Button();
-        private Label labelTextCurrentTime_BlindSimulation = new Label();
-        private Label labelCurrentTime_BlindSimulation = new Label();
-        
+        //Visual components
+        protected TabPage tabPageBlindSimulation = new TabPage();
+        protected ComboBox comboBoxHours_blindSimulation = new ComboBox();
+        protected ComboBox comboBoxMinutes_blindSimulation = new ComboBox();
+        protected Label labelHours_BlindSimulation = new Label();
+        protected Label labelMinutes_BlindSimulation = new Label();
+        protected Button buttonSubmit_BlindSimulation = new Button();
+        protected Label labelTextCurrentTime_BlindSimulation = new Label();
+        protected Label labelCurrentTime_BlindSimulation = new Label();
 
 
+        /// <summary>
+        /// Constructor to add the blindSimulation to SimulatorGUI
+        /// </summary>
         public void addBlindSimulation()
         {
-            //this.timer = time;
             initTabPageBlindSimulation();
         }//addBlindSimulation
 
@@ -97,11 +103,14 @@ namespace SmartHome
             this.tabPageBlindSimulation.Controls.Add(buttonSubmit_BlindSimulation);
             this.tabPageBlindSimulation.Controls.Add(labelTextCurrentTime_BlindSimulation);
             this.tabPageBlindSimulation.Controls.Add(labelCurrentTime_BlindSimulation);
-        }//initTabPageBlindSimulation
+        }// initTabPageBlindSimulation
 
+        /// <summary>
+        /// Method to refresh the visual representation of the time
+        /// </summary>
         public void blindSimulation_refreshTime()
         {
             this.labelCurrentTime_BlindSimulation.Text = gateway.getTimer().getTime();
-        }//blindSimulation_refreshTime      
-    }
-}
+        }// blindSimulation_refreshTime      
+    }// SimulatorGUI
+}// SmartHome

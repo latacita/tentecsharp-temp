@@ -6,13 +6,21 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
+    //============================================================================================================================//
+    // This class represents the visual interface for the Gateway                                                                 //
+    // This file only contains the funcionality related to the BlindSimulation feature                                            //
+    //============================================================================================================================//
+
     partial class GatewayGUI : IGatewayGUIBlindSimulationObserver
     {
-        private TabPage tabPage_BlindSimulation;
-        private Button buttonBlindSimulation;
-        private PictureBox pictBlindSimulation;
+        //Visual components
+        protected TabPage tabPage_BlindSimulation;
+        protected Button buttonBlindSimulation;
+        protected PictureBox pictBlindSimulation;
 
-
+        /// <summary>
+        /// Constructor to add the blindSimulation to GatewayGUI
+        /// </summary>
         public void addBlindSimulation()
         {
             tabPage_BlindSimulation = new TabPage();
@@ -23,7 +31,7 @@ namespace SmartHome
             gateway.registerObserverBlindSimulation(this);
         }//addSmartEnergyMng
 
-        private void initBlindSimulation()
+        protected void initBlindSimulation()
         {
             //
             //Button
@@ -38,23 +46,29 @@ namespace SmartHome
             //Image
             //
             pictBlindSimulation = new PictureBox();
-            pictBlindSimulation.Image = System.Drawing.Image.FromFile("..\\..\\Images\\blindSimulation.jpg"); //TEMPORAL
+            pictBlindSimulation.Image = System.Drawing.Image.FromFile("..\\..\\Images\\blindSimulation.jpg"); //Temporal
             pictBlindSimulation.Location = new System.Drawing.Point((width + 30) / 3, height / 3);
             pictBlindSimulation.Size = new System.Drawing.Size(100, 100);
             tabPage_BlindSimulation.Controls.Add(pictBlindSimulation);
 
         }//initBlindSimulation   
 
+        /// <summary>
+        /// Method to switch on the visual components
+        /// </summary>
         public void switchOnBlindSimulation()
         {
             buttonBlindSimulation.Text = "ON";
             buttonBlindSimulation.BackColor = System.Drawing.Color.Green;
         }//switchOnSmartEnergy
 
+        /// <summary>
+        /// Method to switch off the visual components
+        /// </summary>
         public void switchOffBlindSimulation()
         {
             buttonBlindSimulation.Text = "OFF";
             buttonBlindSimulation.BackColor = System.Drawing.Color.Red;
-        }//switchOnSmartEnergy*/
-    }
-}
+        }// switchOffBlindSimulation
+    }// GatewayGUI
+}// SmartHome

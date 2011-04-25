@@ -12,8 +12,6 @@ namespace SmartHome
 {
     partial class SimulatorGUI
     {
-
-
         /// <summary>
         ///     Action handler for the Submmit Button related to timer management
         /// </summary>
@@ -28,12 +26,12 @@ namespace SmartHome
                 this.gateway.getTimer().setTime(hours, minutes);
                 this.gateway.blindSimulation_checkTime(hours,minutes);
                 refreshTime();
-            }
+            }// try
             catch (Exception exception)
             {
                 MessageBox.Show("Select hours and minutes", "Input error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            }
-        }//buttonSubmit_Click
-    }
-}
+            }// catch
+        }// buttonSubmit_Click
+    }// SimulatorGUI
+}// SmartHome
