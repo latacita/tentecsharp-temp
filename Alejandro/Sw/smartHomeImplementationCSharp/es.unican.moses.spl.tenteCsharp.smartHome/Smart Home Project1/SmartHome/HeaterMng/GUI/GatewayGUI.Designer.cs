@@ -4,24 +4,32 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
+    //============================================================================================================================//
+    // This class represents the visual interface for the Gateway                                                                 //
+    // This file only contains the funcionality related to the HeaterMng feature                                                  //
+    //============================================================================================================================//
+   
     partial class GatewayGUI : IGatewayGUIHeaterObserver
     {
-        //Atributes
-        private TabPage tabPage_heaters;
-        private TrackBar trackBar_main;
-        private Button buttonSwitch;
-        private Label labTemp;
-        private TextBox textTemp;
-        private PictureBox pictureTherm;
-        private Dictionary<int, Button> dictionaryButtonSwitchByRoom = new Dictionary<int, Button>();
-        private Dictionary<Button, int> inverseDictionaryButton = new Dictionary<Button, int>();
-        private Dictionary<int, TrackBar> dictionaryTrackBarByRoom = new Dictionary<int, TrackBar>();
-        private Dictionary<TrackBar, int> inverseDictionaryTrackBar = new Dictionary<TrackBar, int>();
-        private Dictionary<int, Label> dictionaryLabelByRoom = new Dictionary<int, Label>();
-        private Dictionary<int, TextBox> dictionaryTextTempByRoom = new Dictionary<int, TextBox>();
-        private Dictionary<TextBox, int> inverseDictionaryTextTemp = new Dictionary<TextBox, int>();
+        //Visual componenets
+        protected TabPage tabPage_heaters;
+        protected TrackBar trackBar_main;
+        protected Button buttonSwitch;
+        protected Label labTemp;
+        protected TextBox textTemp;
+        protected PictureBox pictureTherm;
+        //Dictionarys
+        protected Dictionary<int, Button> dictionaryButtonSwitchByRoom = new Dictionary<int, Button>();
+        protected Dictionary<Button, int> inverseDictionaryButton = new Dictionary<Button, int>();
+        protected Dictionary<int, TrackBar> dictionaryTrackBarByRoom = new Dictionary<int, TrackBar>();
+        protected Dictionary<TrackBar, int> inverseDictionaryTrackBar = new Dictionary<TrackBar, int>();
+        protected Dictionary<int, Label> dictionaryLabelByRoom = new Dictionary<int, Label>();
+        protected Dictionary<int, TextBox> dictionaryTextTempByRoom = new Dictionary<int, TextBox>();
+        protected Dictionary<TextBox, int> inverseDictionaryTextTemp = new Dictionary<TextBox, int>();
 
-
+        /// <summary>
+        /// Constructor to add the heaterMng to GatewayGUI
+        /// </summary>
         public void addHeaterMng()
         {
             List<HeaterCtrl> heaters = gateway.heaterMng_getHeaters();
@@ -101,6 +109,7 @@ namespace SmartHome
             }//for
 
         }//addHeaterByRoom
+
         private void initHeaterMngByRoom(int id_heater)
         {
             //
@@ -210,7 +219,7 @@ namespace SmartHome
         {
             dictionaryTextTempByRoom[id_heater].Text = temp.ToString() + ",0";
             dictionaryTrackBarByRoom[id_heater].Value = Convert.ToInt32(temp);
-        }//adjustHeaterByRoom
+        }// adjustHeaterByRoom
 
         public void switchOnByRoom(int id_heater)
         {
@@ -237,7 +246,7 @@ namespace SmartHome
             textTemp.Text = trackBar_main.Value.ToString() + ",0";
             trackBar_main.Value = Convert.ToInt32(temp);
 
-        }//allAdjustHeaters
+        }// allAdjustHeaters
 
         public void allSwitchOn()
         {
@@ -248,7 +257,7 @@ namespace SmartHome
             textTemp.Visible = true;
             textTemp.Text = gateway.heaterMng_getDesiredTemperature().ToString();
             trackBar_main.Value = Convert.ToInt32(gateway.heaterMng_getDesiredTemperature());
-        }//allSwitchOn
+        }// allSwitchOn
 
         public void allSwitchOff()
         {
@@ -257,7 +266,7 @@ namespace SmartHome
             trackBar_main.Visible = false;
             labTemp.Visible = false;
             textTemp.Visible = false;
-        }//allSwitchOff
+        }// allSwitchOff
 
     }// GatewayGUI
 }// SmartHome

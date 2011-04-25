@@ -6,23 +6,29 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
+    //=====================================================================================================================//
+    // This class represents the visual interface for the Simulator, where you can view the current values of the sensors. //
+    // This file only contains the funcionality related to the BlindMng feature.                                           //                                                                                                                                             
+    //=====================================================================================================================//
     partial class SimulatorGUI : IDeviceObserver
     {
-        #region atrtibutes
-        private TabPage tabPageHeaters = new TabPage();
-        private DataGridView dataGridViewHeaters = new DataGridView();
-        private DataGridViewTextBoxColumn column_heater = new DataGridViewTextBoxColumn();
-        private DataGridViewTextBoxColumn column_nameRoom_heater = new DataGridViewTextBoxColumn();
-        private DataGridViewTextBoxColumn column_status_heater = new DataGridViewTextBoxColumn();
-        private DataGridViewTextBoxColumn column_working_heater = new DataGridViewTextBoxColumn();
-        private DataGridViewTextBoxColumn column_degrees_heater = new DataGridViewTextBoxColumn();
-        private DataGridViewTextBoxColumn column_tempIndoor_heater = new DataGridViewTextBoxColumn();
-        private System.Windows.Forms.TextBox textBoxTemperature = new System.Windows.Forms.TextBox();
-        private System.Windows.Forms.Label labelTemperature = new System.Windows.Forms.Label();
-        private System.Windows.Forms.RichTextBox richTextBoxSimulated = new RichTextBox();
-        private System.Windows.Forms.Label labelSimulated = new Label();
-        #endregion attributes
+        //Visual components
+        protected TabPage tabPageHeaters = new TabPage();
+        protected DataGridView dataGridViewHeaters = new DataGridView();
+        protected DataGridViewTextBoxColumn column_heater = new DataGridViewTextBoxColumn();
+        protected DataGridViewTextBoxColumn column_nameRoom_heater = new DataGridViewTextBoxColumn();
+        protected DataGridViewTextBoxColumn column_status_heater = new DataGridViewTextBoxColumn();
+        protected DataGridViewTextBoxColumn column_working_heater = new DataGridViewTextBoxColumn();
+        protected DataGridViewTextBoxColumn column_degrees_heater = new DataGridViewTextBoxColumn();
+        protected DataGridViewTextBoxColumn column_tempIndoor_heater = new DataGridViewTextBoxColumn();
+        protected TextBox textBoxTemperature = new System.Windows.Forms.TextBox();
+        protected Label labelTemperature = new System.Windows.Forms.Label();
+        protected RichTextBox richTextBoxSimulated = new RichTextBox();
+        protected Label labelSimulated = new Label();
 
+        /// <summary>
+        /// Constructor to add the heaterMng to SimulatorGUI
+        /// </summary>
         public void addHeaterMng()
         {
             initTabPageHeaters();
@@ -137,7 +143,6 @@ namespace SmartHome
             this.dataGridViewHeaters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewHeaters.MultiSelect = false;
             this.dataGridViewHeaters.TabIndex = 0;
-            //this.dataGridViewHeaters.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewHeaters_selectedRowsButton_Click);
             // 
             // column_nameHeater
             // 
