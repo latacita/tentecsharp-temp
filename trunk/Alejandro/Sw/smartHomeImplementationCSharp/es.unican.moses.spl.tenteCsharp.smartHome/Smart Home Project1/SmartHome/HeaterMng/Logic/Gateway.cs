@@ -14,19 +14,23 @@ namespace SmartHome
         protected List<HeaterCtrl> heaters = null;
         // thermometers collection
         protected List<Thermometer> thermometers = null;
-        //Desired temperature
+        /// <summary>
+        /// Desired temperature is intended to establish the base temperature when a heater is on
+        /// </summary>
         protected double desiredTemperature = 20.0;
         //Observers
         ICollection<IGatewayGUIHeaterObserver> observersGatewayHeater = new LinkedList<IGatewayGUIHeaterObserver>();
 
+
+        #region Constructors
         // Constructor
         public void initHeaterMng()
         {
             this.heaters = new List<HeaterCtrl>();
             this.thermometers = new List<Thermometer>();
 
-        } // Gateway()
-
+        }// initHeaterMng
+        #endregion
 
         public void heaterMng_addHeaterCtrl(HeaterCtrl h)
         {
@@ -40,7 +44,7 @@ namespace SmartHome
             this.thermometers.Add(t);
         }// heaterMng_addThermometer
 
-
+        #region Getters and Setters
         public List<HeaterCtrl> heaterMng_getHeaters()
         {
             return heaters;
@@ -51,7 +55,23 @@ namespace SmartHome
             return thermometers;
         }//heaterMng_getThermometers
 
+        public double heaterMng_getDesiredTemperature()
+        {
+            return desiredTemperature;
+        }//heaterMng_getDesiredTemperature
+
+        public void heaterMng_setDesiredTemperature(double temperature)
+        {
+            this.desiredTemperature = temperature;
+        }//smartEnergyMng_setTemperature
+        #endregion
+
         // Helper methods
+        /// <summary>
+        /// Method to find a heater through his identifier
+        /// </summary>
+        /// <param name="id">Heater identifier</param>
+        /// <returns></returns>
         public HeaterCtrl heaterMng_findHeater(int id)
         {
             for (int i = 0; i < heaters.Count; i++)
@@ -64,6 +84,11 @@ namespace SmartHome
             return null;
         } // heaterMng_findHeater
 
+        /// <summary>
+        /// Method to find heaters through a room
+        /// </summary>
+        /// <param name="id_room">Room identifier</param>
+        /// <returns></returns>
         public List<HeaterCtrl> heaterMng_findHeatersByRoom(int id_room)
         {
             List<HeaterCtrl> h = new List<HeaterCtrl>();
@@ -77,10 +102,14 @@ namespace SmartHome
             return h;
         } // findHeaterByRoom
 
+        /// <summary>
+        /// Method to adjust the temperature of a heater
+        /// </summary>
+        /// <param name="id">Heater identifier</param>
+        /// <param name="temperature">Temperature</param>
         public virtual void heaterMng_HeaterAdjustTemperature(int id, double temperature)
         {
-            //bool result = false;
-
+          
             HeaterCtrl heater = heaterMng_findHeater(id);
             Thermometer t = heaterMng_findThermometerByHeater(id);
             if (heater != null)
@@ -95,25 +124,35 @@ namespace SmartHome
                 else
                 {
                     heater.setWork(false);
-                    //heater.switchOff();                   
-                }// else
-                //result = true;
+                }// else                
             } // if
             notifyadjustHeaterByRoomToObsevers(id, temperature);
         } // adjustTemparature
 
+        /// <summary>
+        /// Method to switch on a heater
+        /// </summary>
+        /// <param name="id_heater">Heater identifier</param>
         public virtual void heaterMng_switchOnHeater(int id_heater)
         {
             heaterMng_HeaterAdjustTemperature(id_heater, desiredTemperature);
             notifySwitchOnByRoomToObsevers(id_heater);
         }//heaterMng_switchOnHeater
 
+        /// <summary>
+        /// Method to switch off a heater
+        /// </summary>
+        /// <param name="id_heater">Heater identifier</param>
         public virtual void heaterMng_switchOffHeater(int id_heater)
         {
             heaterMng_findHeater(id_heater).switchOff();
             notifySwitchOffByRoomToObsevers(id_heater);
         }//heaterMng_switchOffHeater
 
+        /// <summary>
+        /// Method to adjust the temperature of all heaters in the home
+        /// </summary>
+        /// <param name="temperature">Temperature(degrees)</param>
         public virtual void heaterMng_allHeaterAdjustTemperature(double temperature)
         {
             for (int i = 0; i < heaters.Count; i++)
@@ -123,6 +162,11 @@ namespace SmartHome
             notifyadjustAllHeaterToObsevers(temperature);
         }//heaterMng_allHeaterAdjustTemperature
 
+        /// <summary>
+        /// Method to find a thermometer through a heater identifier
+        /// </summary>
+        /// <param name="id_heater">Heater identifier</param>
+        /// <returns></returns>
         public virtual Thermometer heaterMng_findThermometerByHeater(int id_heater)
         {
             for (int i = 0; i < thermometers.Count; i++)
@@ -135,7 +179,12 @@ namespace SmartHome
             return null;
         }//findThermometerByRoom
 
-        private void heaterMng_allThermometerAdjustTemperature(double temperature)
+        /// <summary>
+        /// Method to adjust the temperature of all thermometers in the home
+        /// This method is only for simulation purposes
+        /// </summary>
+        /// <param name="temperature">Temperature(degrees)</param>
+        protected void heaterMng_allThermometerAdjustTemperature(double temperature)
         {
             for (int i = 0; i < thermometers.Count; i++)
             {
@@ -143,6 +192,12 @@ namespace SmartHome
             }//for
         }//heaterMng_allThermometerAdjustTemperature
 
+        /// <summary>
+        /// Method to adjust the temperature of a thermometer
+        /// This method is only for simulation purposes
+        /// </summary>
+        /// <param name="id_heater">Heater identifier</param>
+        /// <param name="temp">Temperature(degrees)</param>
         public void heaterMng_adjustThermometer(int id_heater, double temp)
         {
             Thermometer t = heaterMng_findThermometerByHeater(id_heater);
@@ -155,6 +210,9 @@ namespace SmartHome
             }
         }// heaterMng_adjustThermometer
 
+        /// <summary>
+        /// Method to switch off all heaters in the home
+        /// </summary>
         public virtual void heaterMng_allSwitchOffHeaters()
         {
             for (int i = 0; i < heaters.Count; i++)
@@ -164,6 +222,10 @@ namespace SmartHome
             notifySwitchOffAllHeaterToObsevers();
         }//heaterMng_allSwitchOffHeaters
 
+
+        /// <summary>
+        /// Method to switch on all heaters in the home
+        /// </summary>
         public virtual void heaterMng_allSwitchOnHeaters(double temperature)
         {
             for (int i = 0; i < heaters.Count; i++)
@@ -173,16 +235,7 @@ namespace SmartHome
             notifySwitchOnAllHeaterToObsevers();
         }//heaterMng_allSwitchOnHeaters
 
-        public double heaterMng_getDesiredTemperature()
-        {
-            return desiredTemperature;
-        }//heaterMng_getDesiredTemperature
-
-        public void heaterMng_setDesiredTemperature(double temperature)
-        {
-            this.desiredTemperature = temperature;
-        }//smartEnergyMng_setTemperature
-
+      
         #region Subject-Observer Pattern
 
         /// <summary>

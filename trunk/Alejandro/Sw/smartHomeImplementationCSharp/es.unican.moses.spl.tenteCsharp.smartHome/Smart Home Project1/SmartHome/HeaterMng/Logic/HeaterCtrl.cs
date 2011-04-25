@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace SmartHome
 {
-    /// <summary>
-    ///     Class representing a heater device. Heaters are temperature controlling actuators,
-    ///     which are able to heat and cool rooms. 
-    /// </summary>
+    //============================================================================================================================//
+    // Class representing a heater device. Heaters are temperature controlling actuators, which are able to heat and cool rooms.  //
+    //============================================================================================================================//
+    
     public partial class HeaterCtrl : Actuator
     {
         // Maximum allowed temparature
@@ -15,6 +15,7 @@ namespace SmartHome
         protected const double DEFAULT_TEMP = 25.0;
         protected bool work = false;
 
+        #region Constructor
         // Constructor
         public HeaterCtrl(int id)
             : base(id)
@@ -28,27 +29,10 @@ namespace SmartHome
             this.deviceValue = DEFAULT_TEMP;
 
         }// HeaterCtrl(int, int)
+        #endregion
 
-        // Class methods
-        public override void setValue(double value)
-        {
-            if ((0.0 <= value) && (value <= MAX_TEMP))
-            {
-                base.setValue(value);
-            } // if
-            // We notify the change to the observers
-            this.notifyChangeToObsevers();
-        } // setValue
-
-        public override void switchOff()
-        {
-            base.switchOff();
-            setWork(false);
-            // We notify the change to the observers
-            this.notifyChangeToObsevers();
-        }//switchOff
-
-        // Class methods
+        #region Getters and Setters
+        
         public bool getWork()
         {
             return work;
@@ -61,8 +45,25 @@ namespace SmartHome
             this.notifyChangeToObsevers();
         }// setWork
 
+        public override void setValue(double value)
+        {
+            if ((0.0 <= value) && (value <= MAX_TEMP))
+            {
+                base.setValue(value);
+            } // if
+            // We notify the change to the observers
+            this.notifyChangeToObsevers();
+        } // setValue
+        #endregion
+
+       public override void switchOff()
+        {
+            base.switchOff();
+            setWork(false);
+            // We notify the change to the observers
+            this.notifyChangeToObsevers();
+        }//switchOff      
 
     } // LightCtrl
-
-}
+}// SmartHome
 
