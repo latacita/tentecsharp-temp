@@ -1,0 +1,131 @@
+@BOOK{pohl:2005,
+  AUTHOR    = {Klaus Pohl and Gunter Bockle and Frank van der Linden},
+  TITLE     =     {Software Product Line Engineering},
+  PUBLISHER =    {},
+  YEAR =         {2005},
+  month =        {},
+}
+@BOOK{clements:2002,
+  AUTHOR    = {Paul Clements and Linda Northrop},
+  TITLE     =     {Software Product Lines: Practices and Patternspohl},
+  PUBLISHER =    {},
+  YEAR =         {2002},
+  month =        {},
+}
+@BOOK{batory:2004,
+  AUTHOR    = {D. Batory and J. N. Sarvela and A. Rauschmayer},
+  TITLE     =     {Scaling Step-Wise Refinement. IEEE Transactions on Software Engineering},
+  PUBLISHER =    {},
+  YEAR =         {2004},
+  month =        {},
+}
+@BOOK{albahari:2010,
+  AUTHOR    = {Joseph Albahari and Ben Albahari},
+  TITLE     =     {C\# 4.0 in a Nutshell: The Definitive Reference},
+  PUBLISHER =    {},
+  YEAR =         {2010},
+  month =        {},
+}
+
+@ARTICLE{prehofer:2001,
+  AUTHOR =       {Christian Prehofer},
+  TITLE =        {Feature-oriented programming: A new way of object composition},
+  JOURNAL =      {},
+  YEAR =         {2001},
+}
+
+
+@inproceedings{togersen:2004,
+  author    = {Mads Torgersen},
+  title     = {The Expression Problem Revisited},
+  booktitle = {ECOOP},
+  year      = {2004},
+  pages     = {123-143},
+  ee        = {http://springerlink.metapress.com/openurl.asp?genre=article{\&}issn=0302-9743{\&}volume=3086{\&}spage=123},
+  crossref  = {DBLP:conf/ecoop/2004},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/ecoop/2004,
+  editor    = {Martin Odersky},
+  title     = {ECOOP 2004 - Object-Oriented Programming, 18th European
+			   Conference, Oslo, Norway, June 14-18, 2004, Proceedings},
+  booktitle = {ECOOP},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {3086},
+  year      = {2004},
+  isbn      = {3-540-22159-X},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@inproceedings{david:1986,
+  author    = {David A. Moon},
+  title     = {Object-Oriented Programming with Flavors},
+  booktitle = {OOPSLA},
+  year      = {1986},
+  pages     = {1-8},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@BOOK{arnold:2005,
+  AUTHOR    = {Ken Arnold and James Gosling and David Holmes},
+  TITLE     =     {Java(TM) Programming Language, The (4th Edition},
+  PUBLISHER =    {},
+  YEAR =         {2005},
+  month =        {},
+}
+
+@inproceedings{laguna:2007,
+  author    = {Miguel A. Laguna and
+			   Bruno Gonz{\'a}lez-Baixauli and
+			   Jos{\'e} M. Marqu{\'e}s},
+  title     = {Seamless development of software product lines},
+  booktitle = {GPCE},
+  year      = {2007},
+  pages     = {85-94},
+  ee        = {http://doi.acm.org/10.1145/1289971.1289988},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+
+@BOOK{gomma:2007,
+  title = {{Designing Software Product Lines with UML: From Use Cases to Pattern-Based
+			Software Architectures}},
+  publisher = {Addison-Wesley},
+  year      = {2004},
+  author    = {Hassan Gomaa},
+  month     = {July},
+}
+
+@INCOLLECTION{ziadi:2006,
+  author = {Tewfik Ziadi and Jean-Marc J{\'e}z{\'e}quel},
+  title  = {{Software Product Line Engineering with the UML: Deriving  Products}},
+  booktitle = {Software Product Lines - Research Issues in Engineering and Management},
+  publisher = {Springer},
+  year   = {2006},
+  editor = {Timo K{\"a}k{\"o}l{\"a} and Juan C. Due{\~n}as},
+  pages  = {557--588},
+  month  = {November},
+}
+
+@article{aracic:2006,
+  author    = {Ivica Aracic and
+               Vaidas Gasiunas and
+               Mira Mezini and
+               Klaus Ostermann},
+  title     = {An Overview of CaesarJ},
+  booktitle = {T. Aspect-Oriented Software Development I},
+  year      = {2006},
+  pages     = {135-173},
+  ee        = {http://dx.doi.org/10.1007/11687061_5},
+  crossref  = {DBLP:journals/taosd/2006-1},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@BOOK{palmer:2007,
+  title = {A Practical Guide to Feature-Driven Development},
+  publisher = {Prentice Hall},
+  year      = {2002},
+  author    = {Stephen R. Palmer and John M. Felsing},
+  month     = {February},
+}
