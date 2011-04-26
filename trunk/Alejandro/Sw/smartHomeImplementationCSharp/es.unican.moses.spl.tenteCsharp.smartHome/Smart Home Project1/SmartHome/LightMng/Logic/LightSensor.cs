@@ -5,6 +5,9 @@ using System.Text;
 
 namespace SmartHome
 {
+    //=======================================================================================================================//
+    //This class represents a sensor device for a Light                                                                      //
+    //=======================================================================================================================//
     public partial class LightSensor : Sensor
     {
         public LightSensor(int id)
