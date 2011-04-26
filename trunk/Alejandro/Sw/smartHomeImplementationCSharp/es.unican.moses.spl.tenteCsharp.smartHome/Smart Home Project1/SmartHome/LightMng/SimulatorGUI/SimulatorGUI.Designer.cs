@@ -6,6 +6,10 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
+    //=====================================================================================================================//
+    // This class represents the visual interface for the Simulator, where you can view the current values of the sensors. //
+    // This file only contains the funcionality related to the LightMng feature.                                           //                                                                                                                                             
+    //=====================================================================================================================//
     public partial class SimulatorGUI : IDeviceObserver
     {
         //Visual components
