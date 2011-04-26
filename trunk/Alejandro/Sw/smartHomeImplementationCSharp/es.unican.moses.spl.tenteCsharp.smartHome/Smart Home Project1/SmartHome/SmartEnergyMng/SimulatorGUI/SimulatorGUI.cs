@@ -25,7 +25,7 @@ namespace SmartHome
                 int minutes = Convert.ToInt32(comboBoxMinutes.SelectedItem.ToString());
                 this.gateway.getTimer().setTime(hours, minutes);
                 this.gateway.smartEnergy_checkTime(hours, minutes);
-                
+                refreshTime();    
             }// try
             catch (Exception exception)
             {
