@@ -10,5 +10,5 @@ namespace SmartHome
         public virtual void observerRefreshDataGrid() { }
 
         public virtual void refreshTime() { }
-    }
-}
+    }// SimulatorGUI
+}// SmartHome

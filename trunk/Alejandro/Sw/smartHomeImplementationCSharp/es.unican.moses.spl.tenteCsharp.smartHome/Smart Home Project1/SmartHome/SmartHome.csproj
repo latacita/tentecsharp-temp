@@ -155,10 +155,10 @@
       <DependentUpon>GatewayGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="LightMng\Logic\Gateway.cs" />
-    <Compile Include="LightMng\Logic\IGatewayGUILigthObserver.cs" />
-    <Compile Include="LightMng\Logic\ISubjectGatewayLigth.cs" />
-    <Compile Include="LightMng\Logic\LigthCtrl.cs" />
-    <Compile Include="LightMng\Logic\LigthSensor.cs" />
+    <Compile Include="LightMng\Logic\IGatewayGUILightObserver.cs" />
+    <Compile Include="LightMng\Logic\ISubjectGatewayLight.cs" />
+    <Compile Include="LightMng\Logic\LightCtrl.cs" />
+    <Compile Include="LightMng\Logic\LightSensor.cs" />
     <Compile Include="LightMng\SimulatorGUI\SimulatorGUI.Designer.cs" />
     <Compile Include="LightSimulation\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
@@ -175,10 +175,10 @@
     <Compile Include="LightSimulation\SimulatorGUI\SimulatorGUI.Designer.cs">
       <DependentUpon>SimulatorGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="SmartEnergyMng\GatewayGUI\GatewayGUI.cs">
+    <Compile Include="SmartEnergyMng\GUI\GatewayGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SmartEnergyMng\GatewayGUI\GatewayGUI.Designer.cs" />
+    <Compile Include="SmartEnergyMng\GUI\GatewayGUI.Designer.cs" />
     <Compile Include="SmartEnergyMng\Logic\Gateway.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -194,10 +194,7 @@
     <Compile Include="SmartEnergyMng\SimulatorGUI\SimulatorGUI.Designer.cs" />
     <Compile Include="Variables_methods\SimulatorGUI.Designer.cs" />
     <Compile Include="Variables_methods\Gateway.cs" />
-    <Compile Include="Variables_methods\GatewayGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Variables_methods\Program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -324,10 +321,10 @@
     <None Include="LightSimulation\SimulatorGUI\.svn\text-base\SimulatorGUI.Designer.cs.svn-base" />
     <None Include="SmartEnergyMng\.svn\all-wcprops" />
     <None Include="SmartEnergyMng\.svn\entries" />
-    <None Include="SmartEnergyMng\GatewayGUI\.svn\all-wcprops" />
-    <None Include="SmartEnergyMng\GatewayGUI\.svn\entries" />
-    <None Include="SmartEnergyMng\GatewayGUI\.svn\text-base\GatewayGUI.cs.svn-base" />
-    <None Include="SmartEnergyMng\GatewayGUI\.svn\text-base\GatewayGUI.Designer.cs.svn-base" />
+    <None Include="SmartEnergyMng\GUI\.svn\all-wcprops" />
+    <None Include="SmartEnergyMng\GUI\.svn\entries" />
+    <None Include="SmartEnergyMng\GUI\.svn\text-base\GatewayGUI.cs.svn-base" />
+    <None Include="SmartEnergyMng\GUI\.svn\text-base\GatewayGUI.Designer.cs.svn-base" />
     <None Include="SmartEnergyMng\Logic\.svn\all-wcprops" />
     <None Include="SmartEnergyMng\Logic\.svn\entries" />
     <None Include="SmartEnergyMng\Logic\.svn\text-base\Gateway.cs.svn-base" />
@@ -467,11 +464,11 @@
     <Folder Include="SmartEnergyMng\.svn\tmp\prop-base\" />
     <Folder Include="SmartEnergyMng\.svn\tmp\props\" />
     <Folder Include="SmartEnergyMng\.svn\tmp\text-base\" />
-    <Folder Include="SmartEnergyMng\GatewayGUI\.svn\prop-base\" />
-    <Folder Include="SmartEnergyMng\GatewayGUI\.svn\props\" />
-    <Folder Include="SmartEnergyMng\GatewayGUI\.svn\tmp\prop-base\" />
-    <Folder Include="SmartEnergyMng\GatewayGUI\.svn\tmp\props\" />
-    <Folder Include="SmartEnergyMng\GatewayGUI\.svn\tmp\text-base\" />
+    <Folder Include="SmartEnergyMng\GUI\.svn\prop-base\" />
+    <Folder Include="SmartEnergyMng\GUI\.svn\props\" />
+    <Folder Include="SmartEnergyMng\GUI\.svn\tmp\prop-base\" />
+    <Folder Include="SmartEnergyMng\GUI\.svn\tmp\props\" />
+    <Folder Include="SmartEnergyMng\GUI\.svn\tmp\text-base\" />
     <Folder Include="SmartEnergyMng\Logic\.svn\prop-base\" />
     <Folder Include="SmartEnergyMng\Logic\.svn\props\" />
     <Folder Include="SmartEnergyMng\Logic\.svn\tmp\prop-base\" />
