@@ -5,6 +5,9 @@ using System.Text;
 
 namespace SmartHome
 {
+    //=======================================================================================================================//
+    //This class represents an actuator device for a light                                                                   //
+    //=======================================================================================================================//
     public partial class LightCtrl : Actuator
     {
         protected const double MINIMUM_LIGTH = 0.0;
