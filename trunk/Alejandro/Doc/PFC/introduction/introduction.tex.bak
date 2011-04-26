@@ -1,8 +1,8 @@
 %=============================================================================%
 % Author : Alejandro Pérez Ruiz                                               %
-% Author : Pablo Sánchez Barreiro                                             %  % Version: 2.0, 23/02/2011                                                    %
+% Author : Pablo Sánchez Barreiro                                             %                                                      % Version: 2.0, 23/02/201                                                     %
 % Master Thesis: Introduction                                                 %
-%=============================================================================
+%=============================================================================%
 
 
 %%% Schema to write a paper introduction
@@ -15,18 +15,18 @@
 	% What is the significance of the problem issue or question ?
 		%
 %% Goal statement
-	% What new understanding, knowledge, methods or technologies will this 
+	% What new understanding, knowledge, methods or technologies will this
 	% research generate ?
 		%
 	% How this address the purpose of the work ?
 		%
 %% Approach
 	% What experiments, prototypes or studies will be done to achieve the stated % goal ?
-		%  
+		%
 	% How will achievement or contribution of the research be demonstrated or validated ?
-		% 
+		%
 
-\chapterheader{Introduction}{Introduction}
+\chapterheader{Introducción}{Introducción}
 \label{chap:introduction}
 
 % Introducción al capítulo
@@ -35,8 +35,12 @@
 
 \section{Introducción}
 \label{sec:intr:introduction}
-
-TODO: Siguiendo el esquema que aparece arriba, escribir la introducción
+Cuando una empresa ofrece un producto software a distintos clientes, se presenta la problemática de las versiones y evolución relacionada con el producto. Esta situación puede provocar diferentes situaciones:
+\begin{enumerate}
+ \item Conflictos entre los equipos de marketing y de ingeniería debido a la imposibilidad de adaptarse a las nuevas variaciones del producto causadas por las demandas de los usuarios.
+\item Otra cosa
+\item Otra cosa
+\end{enumerate}
 
 \section{Motivación and Contribuciones}
 \label{sec:intr:motivation}

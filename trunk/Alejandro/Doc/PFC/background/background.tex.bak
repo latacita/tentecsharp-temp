@@ -53,16 +53,6 @@ El objetivo de la programación orientada a características sería encapsular cada
 
 Por lo tanto, un lenguaje orientado a características nos debe permitir descomponer fácilmente un programa en características, las cuales deberían encapsularse en módulos bien definidos y tan independientes como sea posible. A la hora de crear productos concretos, dichos módulos se compondrían de acuerdo a las necesidades de los usuarios.
 
-%%==============================================================================%
-%% NOTA(Pablo): En realidad el siguiente párrafo lo que describe son las        %
-%% desventajas de la programación orientada a objetos                           %
-%% Lo he cambiado
-%%==============================================================================%
-% La siguiente sección describe en mayor detalle las ventajas que la programación
-% orientada a características posee frente a la programación orientada a objetos
-% en relación a la implementación de las líneas de productos software.
-%%==============================================================================%
-
 La siguiente sección describe en mayor detalle los problemas que surgen cuando se intenta obtener un enfoque orientado a características usando un lenguaje de programación orientado a objetos.
 
 %% DONE
@@ -70,18 +60,6 @@ La siguiente sección describe en mayor detalle los problemas que surgen cuando s
 
 Para analizar las limitaciones que posee la programación orientada a objetos a la hora de implementar líneas de productos software nos basaremos en un problema clásico de las líneas de productos, como es el \emph{problema de las
 expresiones}~\cite{togersen:2004}. Dicho problema se describe a continuación.
-
-%%=============================================================================%
-%% NOTA(Pablo): En realidad todo esto es suprimible                            %
-%%=============================================================================%
-%% Consiste en que la aplicación que implemente el problema esté estructurada
-%% de tal modo que el modelo de los datos y el conjunto de operaciones pueda
-%% se extendidos sin las necesidad de modificar el código existente, sin que
-%% existan repeticiones de código y sin errores en tiempo de ejecución.
-%%
-%% En la siguiente subsección se procederá a detallar de una manera más
-%% exhaustiva el problema aquí mencionado.
-%%=============================================================================%
 
 %% DONE
 \subsubsection{Descripción del Problema de las Expresiones}
@@ -146,67 +124,53 @@ Tal como muestra dicho diseño, lo que hacemos es por cada clase \imp{X} de la Fi
 
 Una vez diseñadas e implementadas la diferentes características del problema de las expresiones, el siguiente problema a solventar es cómo combinarlas de forma que podamos obtener de la forma más simple y rápida posible productos concretos con diferentes características. La técnica comúnmente empleada para componer características implementadas mediante herencia simple sería tal como se describe a continuación.
 
-<<<<<<< .mine
 %%=============================================================================%
 %% NOTA(Pablo): Sigue a partir de aquí
 %%=============================================================================%
 Para tratar de combinar las características deberíamos hacer uso de la herencia múltiple, ésta permite que una clase pueda heredar comportamientos y características de más de una superclase.
 Pero por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{arnold:2005} o C\#~\cite{albahari:2010}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple es un mecanismo muy útil \cite{}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
-=======
-%%=============================================================================%
-%% NOTA(Pablo): Sigue a partir de aquí
-%%=============================================================================%
-Bla bla bla
->>>>>>> .r289
 
 No obstante, la solución para trabajar con herencia múltiple en lenguajes orientados a objetos con herencia simple, sería aplicar el \emph{patrón mixin}~\cite{david:1986}. De acuerdo con dicho patrón, que se ilustra en la Figura \ref{back:fig:mixin}, se utilizan las interfaces para simular la herencia múltiple. Por lo tanto, cada clase a heredar implementará una nueva interfaz que defina los métodos de esta clase, a su vez la nueva clase que se quiere crear para que herede la funcionalidad de sendas clases implementará las dos nuevas interfaces creadas anteriormente, y tendrá una relación de agregación con las clases a heredar.
 
-<<<<<<< .mine
 \begin{figure}[!tb]
   \centering \includegraphics[width=.60\linewidth]{background/images/MixinPattern.eps} \\
   \caption{Diagrama de clases que hace uso del \emph{patrón mixin}}
   \label{back:fig:mixin}
 \end{figure}
-=======
->>>>>>> .r289
 
-%=============================================================================%
-% HECHO(Pablo): Qué técnica, los mixins o la herencia
-%=============================================================================%
+Pero por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{arnold:2005} o C\#~\cite{albahari:2010}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple puede ser un mecanismo muy útil~\cite{meyer:2000,meyer:2009}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
+
+No obstante, la solución para trabajar con herencia múltiple en lenguajes orientados a objetos con herencia simple, sería aplicar el \emph{patrón mixin}~\cite{david:1986}. De acuerdo con dicho patrón, que se ilustra en la Figura XX, se utilizan las interfaces para simular la herencia múltiple. Por lo tanto, cada clase a heredar implementará una nueva interfaz que defina los métodos de esta clase, a su vez la nueva clase que se quiere crear para que herede la funcionalidad de sendas clases implementará las dos nuevas interfaces creadas anteriormente, y tendrá una relación de agregación con las clases a heredar.
+
 Pero el uso del \emph{patrón mixin} hace que, un incremento de funcionalidad representado por un conjunto de nuevas subclases que heredan de un conjunto de clases superiores, no sea posible manejarlo como un solo módulo. La insuficiente encapsulación deriva en un incremento de la complejidad a la hora de configurar y construir nuevos productos por ensamblando o composición de características. Aún cuando las clases, separadas en paquetes, pertenezcan a una misma característica, es necesario seleccionar qué clases concretas van a ser usadas en un producto específico. Por ejemplo, para incluir la característica impresión infija para una configuración del problema de las expresiones es necesario seleccionar todos los operadores binarios(\imp{AddInfix} y \imp{MultInfix}) y literales (\imp{IntegerInfix}) que implementan la característica.
 
 Otro problema es el manejo de las dependencias, ya que la herencia tradicional obliga a que las clases y subclases tengan diferentes nombres. Por lo tanto, las referencias a las clases concretas deben ser actualizadas. A mayor número de características en una línea de productos, las relaciones entre clases concretas se complican potencialmente, lo que resulta una situación indeseable. Esto incrementa la complejidad en las relaciones y dependencias entre clases.Por ejemplo, en la característica impresión infija no sería permitido una clase \imp{Add} o \imp{Mult}. Se tienen que crear dos clases concretas, que hereden de \imp{Add} y \imp{Mult}, con diferentes nombres, \imp{AddInfix} y \imp{MultInfix}. Esto incrementa la complejidad en las relaciones y dependencias entre clases.
 
 \subsubsection{Conclusiones}
 
-Tras analizar el problema con un lenguaje orientado a objetos como es C\# se podría determinar que sería deseable encontrar un nuevo paradigma de  programación, orientado a características,  donde se pudiesen obtener fácilmente diferentes versiones de una misma aplicación mediante la simple composición de características. Obviamente no todas las combinaciones de características serían válidas, por ejemplo\todo{Poner un ejemplo}. Por tanto, un lenguaje orientado a características debería asegurarse de que el resultado de la composición de un conjunto de características da lugar a aplicaciones válidas y consistentes.
+Tras analizar el problema con un lenguaje orientado a objetos como es C\# se podría determinar que sería deseable encontrar un nuevo paradigma de  programación, orientado a características,  donde se pudiesen obtener fácilmente diferentes versiones de una misma aplicación mediante la simple composición de características. Obviamente no todas las combinaciones de características serían válidas, por ejemplo para una característica de una aplicación para un hogar inteligente que se encargue de realizar un uso eficiente del consumo de energía a través del control de las perdidas por ventanas abiertas, necesitará que las características relacionadas con la calefacción y las ventanas estén seleccionadas. Por tanto, un lenguaje orientado a características debería asegurarse de que el resultado de la composición de un conjunto de características da lugar a aplicaciones válidas y consistentes.
 
-A tenor de lo expuesto anteriormente, identificamos una serie de elementos que sería deseable encontrar en un lenguaje orientado a características:
+A tenor de lo expuesto anteriormente, y siguiendo los estudios y trabajos realizados por \cite{lopez:2005,chul:2002,aracic:2006,chae:2009} se identifican una serie de elementos que sería deseable encontrar en un lenguaje orientado a características:
 
-\paragraph{Extensibilidad a través de la adición y la sustitución}
+\paragraph{Extensibilidad a través de la adición y la sustitución:}
 
 Como ya hemos comentado, una característica es normalmente considerada como un incremento en la funcionalidad de un sistema software~\cite{batory:2004}. Por lo tanto, los lenguajes orientados a características deberían  proporcionar mecanismos para añadir nuevas funcionalidades a las ya existentes dentro de un sistema. En los lenguajes orientados a objetos, la extensión se realiza a través de la herencia, pero como ya hemos expuesto, ésta sólo resulta adecuada cuando queremos extender la funcionalidad de una sola clase. No obstante, la implementación de una característica necesita extender varias clases al mismo tiempo.
 
 Además la extensibilidad no siempre se realiza por adición, en ocasiones es necesario el uso de la sustitución. En los lenguajes orientados a objetos la sustitución se realiza mediante la  sobreescritura (\emph{overriding}, en inglés).
 
-%=============================================================================%
-% NOTA(Pablo): A partir de aquí intenta que el castellano suena mejor de lo
-%              que suena, que de momento parece una traducción demasiado
-%              literal del inglés
-%=============================================================================%
+\paragraph{Encapsulación de características:}
 
+Todas las extensiones pertenecientes a una característica concreta se deben añadir de una forma atómica. Por lo tanto, los lenguajes orientados a características deberían proveer de mecanismo para agrupar y encapsular los módulos pertenecientes a una misma característica. Por otra parte, estos módulos deberían poderse compilar independientemente.
 
-\emph{Encapsulación de características}
-
-Todas las extensiones pertenecientes a una característica concreta deben ser añadidas de una forma atómica. Por lo tanto, los lenguajes orientados a características deberían proveer de mecanismo para agrupar y encapsular los módulos pertenecientes a una misma característica. Por otra parte, estos módulos deberían poderse compilar independientemente.
-
-\emph{Composición a nivel de característica}
+\paragraph{Composición a nivel de característica:}
 
 Productos específicos, o configuraciones de una descomposición orientada a características, son obtenidos por la selección y composición de unas características específicas. Por lo tanto, sería deseable que un lenguaje orientado a características tuviese construcciones del lenguaje para producir un producto en particular. Esto debería ser realizado a nivel de característica, especificando que características deberían ser incluidas, en lugar de tener que especificar los elementos individuales de cada característica.
 
-\emph{Composición de características comprobando la coherencia}
+\paragraph{Composición de características comprobando la coherencia:}
 
 No todas las combinaciones de características son válidas. Por lo tanto, un lenguaje orientado a características debería detectar las restricciones, evitando así la implementación de configuraciones no válidas y manejar automáticamente las dependencias en la medida de lo posible.
+
+La siguiente subsección describe como algunos de los lenguajes orientados a características actuales poseen algunas de las propiedades citadas anteriormente.
 
 \subsection{Ventajas de los lenguajes orientados a características}
 Los lenguajes orientados a características nos otorgan una mayor flexibilidad, ya que nos permiten que clases individuales puedan ser compuestas por un conjunto de características, por tanto son especialmente recomendados para utilizarlos con las líneas de producción software.
@@ -243,10 +207,6 @@ Por un lado en la figura \ref{back:fig:caesarJExpressions} se muestra que por ca
 
 Para realizar configuraciones, únicamente se tiene que crear una nueva clase que extienda a las características que se deseen.A modo de ejemplo,la figura \ref{back:fig:codCaesarJ} muestra el código necesario para crear una nueva configuración que contenga las operaciones de impresión en formato posfijo y evaluación de una expresión.Con todo esto, vemos como CaesarJ otorga un gran nivel de encapsulamiento y de reusabilidad de los componentes.
 
-% Párrafo introducción
-% Introducción CaesarJ
-% Ejemplo en CeasrJ, resaltando ventajas
-
 \section{Clases Parciales C\#}
 Las clases parciales C\# \cite{albahari:2010} nos permiten dividir la implementación de una clase, estructura o interfaz en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan en tiempo de compilación para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. Por lo tanto,las clases parciales C\# pueden utilizarse como un mecanismo adecuado para implementar características, dado que cada incremento en funcionalidad para una clase se podría encapsular en una clase parcial separada.
 
@@ -256,7 +216,7 @@ Para poder ser compiladas y agrupadas en una sola clase, todas las clases parcia
 Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo con clases parciales. La figura \ref{back:fig:partialClass} muestra como hemos excluido de la compilación la característica que representa la operación de imprimir una expresión en formato infijo.
 Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que no precisan estar relacionadas mediante ningún tipo de relación jerárquica, tal como ocurre con la herencia.
 
-Por lo tanto, algunos autores \cite{laguna:2007} sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada programación orientada a características.
+Por lo tanto, algunos autores \cite{laguna:2007} sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada con programación orientada a características.
 \begin{figure}[!t]
 \begin{center}
 \begin{footnotesize}
