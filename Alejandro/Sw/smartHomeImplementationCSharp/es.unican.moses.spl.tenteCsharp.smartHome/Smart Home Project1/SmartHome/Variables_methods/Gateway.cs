@@ -2,9 +2,8 @@
 {
     partial class Gateway : ITimeObserver
     {
-        // Class methods
+        
         public virtual void heaterAdjustTemperature(int id, double temperature){ }
-
 
         #region Subject-Obsever Pattern for Time
 
