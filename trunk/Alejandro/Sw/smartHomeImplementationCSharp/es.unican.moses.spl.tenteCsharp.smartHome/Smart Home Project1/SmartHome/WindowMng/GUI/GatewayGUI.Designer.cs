@@ -6,24 +6,32 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
+
+    //============================================================================================================================//
+    // This class represents the visual interface for the Gateway                                                                 //
+    // This file only contains the funcionality related to the WindowMng feature                                                  //
+    //============================================================================================================================//
+
     public partial class GatewayGUI : IGatewayGUIWindowObserver
     {
-        //Atributes
-        private TabPage tabPage_window;
-        private TrackBar trackBar_aperture;
-        private Label lab_aperture;
-        private TextBox text_aperture;
-        private PictureBox pict_window;
-        private Dictionary<int, TrackBar> dictionaryTrackBarApertureByRoom = new Dictionary<int, TrackBar>();
-        private Dictionary<TrackBar, int> inverseDictionaryTrackBarAperture = new Dictionary<TrackBar, int>();
-        private Dictionary<int, Label> dictionaryLabelApertureByRoom = new Dictionary<int, Label>();
-        private Dictionary<int, TextBox> dictionaryTextApertureByRoom = new Dictionary<int, TextBox>();
-        private Dictionary<TextBox, int> inverseDictionaryTextAperture = new Dictionary<TextBox, int>();
+        //Visual components
+        protected TabPage tabPage_window;
+        protected TrackBar trackBar_aperture;
+        protected Label lab_aperture;
+        protected TextBox text_aperture;
+        protected PictureBox pict_window;
+        //Dictionaries
+        protected Dictionary<int, TrackBar> dictionaryTrackBarApertureByRoom = new Dictionary<int, TrackBar>();
+        protected Dictionary<TrackBar, int> inverseDictionaryTrackBarAperture = new Dictionary<TrackBar, int>();
+        protected Dictionary<int, Label> dictionaryLabelApertureByRoom = new Dictionary<int, Label>();
+        protected Dictionary<int, TextBox> dictionaryTextApertureByRoom = new Dictionary<int, TextBox>();
+        protected Dictionary<TextBox, int> inverseDictionaryTextAperture = new Dictionary<TextBox, int>();
 
-
+        /// <summary>
+        /// Constructor to add the WindowMng to GatewayGUI
+        /// </summary>
         public void addWindowMng()
         {
-
             initWindowMng();
             addWindowByRoom(gateway.windowMng_getWindows());
             gateway.registerObserverWindow(this);
@@ -65,7 +73,6 @@ namespace SmartHome
             text_aperture.Text = "0";
             text_aperture.Size = new System.Drawing.Size(30, 20);
             text_aperture.Location = new System.Drawing.Point(width / 6, height / 2);
-            //textTemp.Enabled = false;
             text_aperture.KeyDown += new KeyEventHandler(textAperture_KeyDown);
             tabPage_window.Controls.Add(text_aperture);
             text_aperture.Visible = true;
@@ -148,5 +155,5 @@ namespace SmartHome
             text_aperture.Text = aperture.ToString();
             trackBar_aperture.Value = aperture;
         }//adjustAllWindow  
-    }
-}
+    }// GatewayGUI
+}// SmartHome

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace SmartHome
 {
+    //=======================================================================================================================//
+    //This class represents an actuator device for a window                                                                  //
+    //=======================================================================================================================//
     public partial class WindowCtrl : Actuator
     {
         // A window can be opened/closed partially by specifying a value inside the 
@@ -40,7 +43,5 @@ namespace SmartHome
             } // if
         } // setValue
 
-    } // WindowCtrl
-
-
-}
+    } // WindowCtrl    
+}// SmartHome

@@ -4,11 +4,12 @@ using System.Text;
 
 namespace SmartHome
 {
-    /// <summary>
-    /// 
-    /// </summary>
+    //=======================================================================================================================//
+    //This class represents a sensor device for a window                                                                     //
+    //=======================================================================================================================//
     public partial class WindowSensor : Sensor
     {
+        #region Constructors
         public WindowSensor(int id)
             : base(id)
         {
@@ -21,9 +22,6 @@ namespace SmartHome
             this.id = id;
             this.id_actuator = id_windowCtrl;
         }// WindowSensor(id,id_windowCtrl)
-
-
-
-
+        #endregion
     }// WindowSensor
 }// SmartHome
