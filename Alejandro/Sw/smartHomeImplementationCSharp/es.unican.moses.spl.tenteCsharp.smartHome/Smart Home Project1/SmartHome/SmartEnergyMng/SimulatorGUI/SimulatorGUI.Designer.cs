@@ -6,23 +6,29 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
+    //=====================================================================================================================//
+    // This class represents the visual interface for the Simulator, where you can view the current values of the sensors. //
+    // This file only contains the funcionality related to the SmartEnergyMng feature.                                     //                                                                                                                                             
+    //=====================================================================================================================//
+
     partial class SimulatorGUI
     {
-        private TabPage tabPageSmartEnergy = new TabPage();
-        private ComboBox comboBoxHours = new ComboBox();
-        private ComboBox comboBoxMinutes = new ComboBox();
-        private Label labelHours = new Label();
-        private Label labelMinutes = new Label();
-        private Button buttonSubmit = new Button();
-        private Label labelTextCurrentTime = new Label();
-        private Label labelCurrentTime = new Label();
-        private Label labelTextEmpty = new Label();
-        private ListBox listEmpty = new ListBox();
-        //private Time timer;
-
+        protected TabPage tabPageSmartEnergy = new TabPage();
+        protected ComboBox comboBoxHours = new ComboBox();
+        protected ComboBox comboBoxMinutes = new ComboBox();
+        protected Label labelHours = new Label();
+        protected Label labelMinutes = new Label();
+        protected Button buttonSubmit = new Button();
+        protected Label labelTextCurrentTime = new Label();
+        protected Label labelCurrentTime = new Label();
+        protected Label labelTextEmpty = new Label();
+        protected ListBox listEmpty = new ListBox();
+        
+        /// <summary>
+        /// Constructor to add the smartEnergyMng to SimulatorGUI
+        /// </summary>
         public void addSmartEnergyMng()
         {
-            //this.timer = time;
             initTabPageSmartEnergy();
         }//addSmartEnergyMng
 
@@ -143,5 +149,5 @@ namespace SmartHome
         }//smartEnergy_refreshTime
 
 
-    }
-}
+    }// SimulatorGUI
+}// SmartHome

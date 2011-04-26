@@ -22,7 +22,9 @@ namespace SmartHome
 
 
         #region Constructor
-
+        /// <summary>
+        /// Constructor to initialize the SmartEnergyMng feature
+        /// </summary>
         public void initSmartEnergyMng()
         {
             smartEnergy_readTimeTables();
@@ -55,13 +57,20 @@ namespace SmartHome
             }//if
         }//checkTime
 
-
+        /// <summary>
+        /// Returns the list of hours when the home is empty
+        /// </summary>
+        /// <returns>Hours list</returns>
         public List<Double> smartEnergy_getEmptyTime()
         {
             return emptyTime;
         }//smartEnergy_getEmptyTime
 
-
+        /// <summary>
+        /// Method to swich on the SmartEnergy
+        /// </summary>
+        /// <param name="hour">Current hours</param>
+        /// <param name="minutes">Current minutes</param>
         public void smartEnergy_switchOnSmartEnergyMng(int hour, int minutes)
         {
             String t = hour.ToString() + "," + minutes.ToString();
@@ -89,6 +98,9 @@ namespace SmartHome
             notifySwitchOnSmartEnergyToObsevers();
         }//smartEnergy_switchOnSmartEnergyMng
 
+        /// <summary>
+        /// Method to switch off the smartEnergy
+        /// </summary>
         public void smartEnergy_switchOffSmartEnergyMng()
         {
             this.statusSmartEnergyMng = false;
@@ -96,6 +108,13 @@ namespace SmartHome
             notifySwitchOffSmartEnergyToObsevers();
         }//smartEnergy_switchOffSmartEnergyMng
 
+        /// <summary>
+        ///  Method to adjust the temperature of a specific heater.
+        ///  This method check if the room where is the heater has a 
+        ///  window, and if this window exists and it is open, the window will be closed.
+        /// </summary>
+        /// <param name="id">Heater identifier</param>
+        /// <param name="temperature">Temperature(celsius)</param>
         public void smartEnergy_HeaterAdjustTemperature(int id, double temperature)
         {
 
@@ -114,6 +133,9 @@ namespace SmartHome
         }//smartEnergy_HeaterAdjustTemperature
 
         #region Timetables in XML
+        /// <summary>
+        /// Read the xml file to find the timetables of the users
+        /// </summary>
         public void smartEnergy_readTimeTables()
         {
             XmlDocument xDoc = new XmlDocument();
@@ -130,6 +152,10 @@ namespace SmartHome
             //findEmptyTime();
             emptyTime = smartEnergy_findEmptyTime();
         }// smartEnergy_readTimeTable
+
+        /// <summary>
+        /// Store the timetables of the users
+        /// </summary>
         protected void smartEnergy_storeTimeTables()
         {
             for (int i = 0; i < timeTables.Count; i++)
@@ -159,6 +185,10 @@ namespace SmartHome
             }//for
         }//smartEnergy_storeTimeTables
 
+        /// <summary>
+        /// Check and store the hours when the house is empty
+        /// </summary>
+        /// <returns>Hours list when the house is empty</returns>
         public List<Double> smartEnergy_findEmptyTime()
         {
             List<Double> Result = new List<double>();

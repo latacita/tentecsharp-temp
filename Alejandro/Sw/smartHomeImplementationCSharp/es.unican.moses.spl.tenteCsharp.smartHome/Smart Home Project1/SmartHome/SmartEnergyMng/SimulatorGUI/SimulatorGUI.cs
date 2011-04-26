@@ -12,8 +12,6 @@ namespace SmartHome
 {
     partial class SimulatorGUI
     {
-
-
         /// <summary>
         ///     Action handler for the Submmit Button related to timer management
         /// </summary>
@@ -27,13 +25,13 @@ namespace SmartHome
                 int minutes = Convert.ToInt32(comboBoxMinutes.SelectedItem.ToString());
                 this.gateway.getTimer().setTime(hours, minutes);
                 this.gateway.smartEnergy_checkTime(hours, minutes);
-                //refreshTime();
-            }
+                
+            }// try
             catch (Exception exception)
             {
                 MessageBox.Show("Select hours and minutes", "Input error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            }
+            }// catch
         }//buttonSubmit_Click
-    }
-}
+    }// SimultaorGUI
+}// SmartHome
