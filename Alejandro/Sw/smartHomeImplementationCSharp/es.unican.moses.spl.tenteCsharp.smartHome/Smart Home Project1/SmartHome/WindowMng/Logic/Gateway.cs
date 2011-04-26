@@ -5,6 +5,10 @@ using System.Text;
 
 namespace SmartHome
 {
+    //=================================================================================================//
+    // This class represent the central gateway of the Smart Home which process all commands           //
+    // This file only contains the functionality related to the WindowMng feature                      //
+    //=================================================================================================//
     public partial class Gateway : ISubjectGatewayWindow
     {
         // WindowCtrl collection
@@ -14,12 +18,17 @@ namespace SmartHome
         //List of observers
         ICollection<IGatewayGUIWindowObserver> observersGatewayWindow = new LinkedList<IGatewayGUIWindowObserver>();
 
+        #region Constructor
         //Constructor
         public void initWindowMng()
         {
             this.windows = new List<WindowCtrl>();
             this.windowsSensors = new List<WindowSensor>();
         }//initWindowMng
+        #endregion
+
+
+        #region Getters and Setters
 
         public List<WindowCtrl> windowMng_getWindows()
         {
@@ -30,6 +39,9 @@ namespace SmartHome
         {
             return windowsSensors;
         }//windowMng_getWindowsSensors
+
+        #endregion
+        
 
         public void windowMng_addWindowCtrl(WindowCtrl w)
         {
@@ -43,6 +55,10 @@ namespace SmartHome
             this.windowsSensors.Add(ws);
         }// windowMng_addWindowSensor
 
+        /// <summary>
+        /// Method to adjust the aperture of a all windows
+        /// </summary>
+        /// <param name="lighting">Aperture</param>
         public void windowMng_allAdjustWindows(int aperture)
         {
             for (int i = 0; i < windows.Count; i++)
@@ -55,6 +71,11 @@ namespace SmartHome
             notifyAdjustAllWindowToObsevers(aperture);
         }//adjustAllWindows
 
+        /// <summary>
+        /// Method to find a window sensor through its identifier
+        /// </summary>
+        /// <param name="id_ligth">Light idenfifier</param>
+        /// <returns>WindowSensor</returns>
         public WindowSensor windowMng_findWindowSensorByidWindow(int id_window)
         {
             for (int i = 0; i < windowsSensors.Count; i++)
@@ -64,6 +85,12 @@ namespace SmartHome
             return null;
         }//windowMng_findWindowSensorByidWindow
 
+
+        /// <summary>
+        /// Method to find all the widnows actuators in a specific room
+        /// </summary>
+        /// <param name="id_room">Room identifier</param>
+        /// <returns>WindowCtrl list</returns>
         public List<WindowCtrl> windowMng_findWindowsCtrlByRoom(int id_room)
         {
             List<WindowCtrl> w = new List<WindowCtrl>();
@@ -75,6 +102,11 @@ namespace SmartHome
             return w;
         }//windowMng_findWindowsCtrlByRoom
 
+        /// <summary>
+        /// Method to find a specific window actuator thorught its identifier
+        /// </summary>
+        /// <param name="id_ligth">Window identifier</param>
+        /// <returns>WindowCtrl</returns>
         public WindowCtrl windowMng_findWindowCtrl(int id_window)
         {
             for (int i = 0; i < windows.Count; i++)
@@ -86,11 +118,16 @@ namespace SmartHome
 
         }//windowMng_findWindowCtrl
 
+        /// <summary>
+        /// Method to adjust the aperture of a specific window
+        /// </summary>
+        /// <param name="id_ligth">Window identifier</param>
+        /// <param name="lighting">Aperture</param>
         public void windowMng_adjustWindow(int id_window, int aperture)
         {
             //Change the window actuator
             windowMng_findWindowCtrl(id_window).setValue(aperture);
-            //Change the window sensor
+            //Change the window sensor(only for simulator purposes)
             windowMng_findWindowSensorByidWindow(id_window).setValue(aperture);
             notifyAdjustWindowByRoomToObsevers(id_window, aperture);
         }//windowMng_adjustWindow

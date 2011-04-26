@@ -6,14 +6,22 @@ using System.Windows.Forms;
 
 namespace SmartHome
 {
+    //=====================================================================================================================//
+    // This class represents the visual interface for the Simulator, where you can view the current values of the sensors. //
+    // This file only contains the funcionality related to the WindowMng feature.                                          //                                                                                                                                             
+    //=====================================================================================================================//
     public partial class SimulatorGUI : IDeviceObserver
     {
-        private TabPage tabPageWindows = new TabPage();
-        private DataGridView dataGridViewWindows = new DataGridView();
-        private DataGridViewTextBoxColumn column_window = new DataGridViewTextBoxColumn();
-        private DataGridViewTextBoxColumn column_nameRoom_window = new DataGridViewTextBoxColumn();
-        private DataGridViewTextBoxColumn column_aperture_window = new DataGridViewTextBoxColumn();
+        //Visual components
+        protected TabPage tabPageWindows = new TabPage();
+        protected DataGridView dataGridViewWindows = new DataGridView();
+        protected DataGridViewTextBoxColumn column_window = new DataGridViewTextBoxColumn();
+        protected DataGridViewTextBoxColumn column_nameRoom_window = new DataGridViewTextBoxColumn();
+        protected DataGridViewTextBoxColumn column_aperture_window = new DataGridViewTextBoxColumn();
 
+        /// <summary>
+        /// Constructor to add the WindowMng to SimulatorGUI
+        /// </summary>
         public void addWindowMng()
         {
             initTabPageWindowMng();
@@ -108,8 +116,6 @@ namespace SmartHome
             if (dataGridViewWindows.RowCount > 0)
                 dataGridViewWindows.Rows[numRowSelected].Selected = true;
         }//fillDataGridViewWindows
-
-
 
         #region IDeviceObserver Members
 
