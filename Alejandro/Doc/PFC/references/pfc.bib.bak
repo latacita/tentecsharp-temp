@@ -54,8 +54,7 @@
   series    = {Lecture Notes in Computer Science},
   volume    = {3086},
   year      = {2004},
-  isbn      = {3-540-22159-X},
-  bibsource = {DBLP, http://dblp.uni-trier.de}
+  isbn      = {3-540-22159-X}
 }
 
 @inproceedings{david:1986,
@@ -116,16 +115,78 @@
   title     = {An Overview of CaesarJ},
   booktitle = {T. Aspect-Oriented Software Development I},
   year      = {2006},
-  pages     = {135-173},
-  ee        = {http://dx.doi.org/10.1007/11687061_5},
-  crossref  = {DBLP:journals/taosd/2006-1},
-  bibsource = {DBLP, http://dblp.uni-trier.de}
+  pages     = {135-173}
 }
 
-@BOOK{palmer:2007,
+@BOOK{palmer:2002,
   title = {A Practical Guide to Feature-Driven Development},
   publisher = {Prentice Hall},
   year      = {2002},
   author    = {Stephen R. Palmer and John M. Felsing},
   month     = {February},
+}
+
+@BOOK{astels:2003,
+  title = {Test-Driven Development: A Practical Guide},
+  publisher = {Prentice Hall},
+  year      = {2003},
+  author    = {David Astels},
+  month     = {July},
+}
+
+@BOOK{meyer:2000,
+  title     = {{Object-Oriented Software Construction}},
+  publisher = {Prentice Hall},
+  year      = {2000},
+  author    = {Bertrand Meyer},
+  month     = {March},
+}
+
+@BOOK{meyer:2009,
+  title = {{Touch of Class: Learning to Program Well with Objects and Contracts}},
+  publisher = {Springer},
+  year = {2009},
+  author = {Bertrand Meyer},
+  month = {September},
+}
+@inproceedings{lopez:2005,
+  author    = {Roberto E. Lopez-Herrejon and
+               Don S. Batory and
+               William R. Cook},
+  title     = {Evaluating Support for Features in Advanced Modularization
+               Technologies},
+  booktitle = {ECOOP},
+  year      = {2005},
+  pages     = {169-194},
+}
+@article{chul:2002,
+  author    = {Kyo Chul Kang and
+               Jaejoon Lee and
+               Patrick Donohoe},
+  title     = {Feature-Oriented Project Line Engineering},
+  journal   = {IEEE Software},
+  volume    = {19},
+  number    = {4},
+  year      = {2002},
+  pages     = {58-65},
+}
+
+@inproceedings{chae:2009,
+  author    = {Wonseok Chae and
+               Matthias Blume},
+  title     = {Language support for feature-oriented product line engineering},
+  booktitle = {FOSD},
+  year      = {2009},
+  pages     = {3-10},
+}
+
+@inproceedings{fons:2008,
+  author    = {Carlos Cetina and
+               Joan Fons and
+               Vicente Pelechano},
+  title     = {Applying Software Product Lines to Build Autonomic Pervasive
+               Systems},
+  booktitle = {SPLC},
+  year      = {2008},
+  pages     = {117-126},
 }
