@@ -35,12 +35,27 @@
 
 \section{Introducción}
 \label{sec:intr:introduction}
-Cuando una empresa ofrece un producto software a distintos clientes, se presenta la problemática de las versiones y evolución relacionada con el producto. Esta situación puede provocar diferentes situaciones:
+Cuando una empresa desarrolla un producto software para distintos usuarios, se presenta la problemática de las versiones y evolución relacionada con el producto. Esta situación puede provocar diferentes situaciones:
 \begin{enumerate}
- \item Conflictos entre los equipos de marketing y de ingeniería debido a la imposibilidad de adaptarse a las nuevas variaciones del producto causadas por las demandas de los usuarios.
-\item Otra cosa
-\item Otra cosa
+ \item Conflictos entre los equipos de marketing y de ingeniería, debido a la imposibilidad de adaptarse a las nuevas variaciones del producto causadas por las demandas de los usuarios.
+\item Código fuente difícilmente extensible para conseguir nuevas variaciones del producto.
+\item Compleja y costosa coordinación de tareas de desarrollo en paralelo que comparten software común.
 \end{enumerate}
+Esta situación no es exclusiva del desarrollo de software, también se encuentra en otros ámbitos industriales como la fabricación de coches, electrodomésticos, teléfonos...
+Como es bien sabido la producción en serie(\emph{mass production}, en inglés) supuso una revolución en el ámbito industrial,ya que desembocó en un enorme aumento de la producción.
+
+La producción en serie no supone ningún problema para los desarrolladores de software, debido a que una aplicación puede ser clonada millones de veces sin ninguna dificultad. El problema que atañe al software es la personalización en serie(\emph{mass customization}, en inglés), ya que se busca desarrollar mecanismos que permitan producir sistemas softwares similares que comparten una serie de características comunes para diferentes tipos de clientes de la manera más automáticamente posible.
+
+Debido a todo lo citado anteriormente en los últimos 20 años ha surgido el término denominado ingeniería de líneas de productos software\cite{pohl:2005} que pretende estandarizar los principios, fundamentos y técnicas que permiten alcanzar la personalización en serie de los productos software.
+
+Para el presente proyecto se ha tomado como problema para resolver el de una línea de productos software para hogares automáticos y/o inteligentes, ya que es uno de los ámbitos donde mejor queda reflejado la variabilidad que puede presentar un producto software\cite{fons:2008}, debido a que dicho producto se debe adaptar tanto a las requisitos establecidos por los stakeholders, como a la propia distribución física de los hogares(número de plantas, habitaciones,ventanas...).
+
+Para desarrollar esta línea de productos software los lenguajes orientados a características, tales como FeatureC++ \cite{}  o CaesarJ \cite{aracic:2006}, son la elección más adecuada debido a las facilidades que ofrecen para modularizar y componer características. Pero se hará uso de la plataforma .NET\cite{chappell:2006} y del lenguaje programación C\#\cite{albahari:2010} debido a que ambos están bastante extendidos en el ámbito empresarial, y en la actualidad las empresas son bastante reticentes a la hora de introducir nuevos lenguajes, principalmente por dos razones:
+\begin{enumerate}
+\item El coste de aprendizaje que ello supone, ya que los programadores han de familiarizar con nuevos conceptos y técnicas de codificación software;
+\item El uso de un nuevo lenguaje de programación podría dejar obsoletas muchas herramientas, como suites para  la ejecución de casos de prueba, que la empresa podría tener asociadas al anterior lenguaje de programación.
+\end{enumerate}
+
 
 \section{Motivación and Contribuciones}
 \label{sec:intr:motivation}
