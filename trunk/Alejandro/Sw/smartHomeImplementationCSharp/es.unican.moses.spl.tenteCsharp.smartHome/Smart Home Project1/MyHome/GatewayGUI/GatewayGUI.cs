@@ -8,7 +8,7 @@ namespace MyHome
 {
     partial class MyHome_GatewayGUI : GatewayGUI
     {
-        public MyHome_GatewayGUI(Gateway g, SimulatorGUI sim)
-            : base(g, sim) { }
+        public MyHome_GatewayGUI(Gateway g)
+            : base(g) { }
     }
 }

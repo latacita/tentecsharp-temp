@@ -43,7 +43,7 @@ namespace MyHome
 			g.blindMng_addBlindCtrl(b0);
 			g.blindMng_addBlindSensor(bs0);
 			MyHome_SimulatorGUI sim = new MyHome_SimulatorGUI(g);
-            MyHome_GatewayGUI gatewayGUI = new MyHome_GatewayGUI(g,sim);
+            MyHome_GatewayGUI gatewayGUI = new MyHome_GatewayGUI(g);
 			gatewayGUI.addBaseSystem();
 			gatewayGUI.addHeaterMng();
 			gatewayGUI.addLightMng();

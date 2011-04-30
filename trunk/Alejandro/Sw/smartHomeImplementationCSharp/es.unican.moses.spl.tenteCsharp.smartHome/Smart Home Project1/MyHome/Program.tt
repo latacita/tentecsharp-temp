@@ -228,7 +228,7 @@ namespace MyHome
 			}
 #>
 			MyHome_SimulatorGUI sim = new MyHome_SimulatorGUI(g);
-            MyHome_GatewayGUI gatewayGUI = new MyHome_GatewayGUI(g,sim);
+            MyHome_GatewayGUI gatewayGUI = new MyHome_GatewayGUI(g);
 			gatewayGUI.addBaseSystem();
 <#
 			//AQUÍ LOS ADDS DEL GATEWAYGUI

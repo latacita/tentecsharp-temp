@@ -117,7 +117,7 @@ namespace SmartHome
 
         void lightMng_registerObserver()
         {
-            List<LightCtrl> l = gateway.lightMng_getLigths();
+            List<LightCtrl> l = gateway.lightMng_getLights();
             List<LightSensor> ls = gateway.lightMng_getLigthsSensors();
             for (int i = 0; i < l.Count; i++)
             {

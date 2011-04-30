@@ -37,7 +37,7 @@ namespace SmartHome
         public void addLightMng()
         {
             initLigthMng();
-            addLigthByRoom(gateway.lightMng_getLigths());
+            addLigthByRoom(gateway.lightMng_getLights());
             gateway.registerObserverLigth(this);
         }//addLightMng
 
@@ -202,7 +202,7 @@ namespace SmartHome
         {
             text_ligthing.Text = ligthing.ToString();
             trackBar_ligthing.Value = ligthing;
-            List<LightCtrl> l = gateway.lightMng_getLigths();
+            List<LightCtrl> l = gateway.lightMng_getLights();
             for (int i = 0; i < l.Count; i++)
             {
                 dictionaryComboBoxPredefinedValues[l[i].getId()].SelectedIndex = combo_predefinedValues.SelectedIndex;
