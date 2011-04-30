@@ -297,8 +297,12 @@
     <None Include="LightMng\Logic\.svn\all-wcprops" />
     <None Include="LightMng\Logic\.svn\entries" />
     <None Include="LightMng\Logic\.svn\text-base\Gateway.cs.svn-base" />
+    <None Include="LightMng\Logic\.svn\text-base\IGatewayGUILightObserver.cs.svn-base" />
     <None Include="LightMng\Logic\.svn\text-base\IGatewayGUILigthObserver.cs.svn-base" />
+    <None Include="LightMng\Logic\.svn\text-base\ISubjectGatewayLight.cs.svn-base" />
     <None Include="LightMng\Logic\.svn\text-base\ISubjectGatewayLigth.cs.svn-base" />
+    <None Include="LightMng\Logic\.svn\text-base\LightCtrl.cs.svn-base" />
+    <None Include="LightMng\Logic\.svn\text-base\LightSensor.cs.svn-base" />
     <None Include="LightMng\Logic\.svn\text-base\LigthCtrl.cs.svn-base" />
     <None Include="LightMng\Logic\.svn\text-base\LigthSensor.cs.svn-base" />
     <None Include="LightMng\SimulatorGUI\.svn\all-wcprops" />

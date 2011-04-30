@@ -41,10 +41,10 @@ namespace SmartHome
 
         #region Getters and Setters
 
-        public List<LightCtrl> lightMng_getLigths()
+        public List<LightCtrl> lightMng_getLights()
         {
             return lights;
-        }//lightMng_getLigths
+        }//lightMng_getLights
 
         public List<LightSensor> lightMng_getLigthsSensors()
         {

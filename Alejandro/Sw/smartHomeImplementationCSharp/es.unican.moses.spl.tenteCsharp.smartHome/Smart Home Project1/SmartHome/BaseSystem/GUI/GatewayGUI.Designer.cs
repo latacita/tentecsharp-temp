@@ -111,19 +111,17 @@ namespace SmartHome
         protected Dictionary<int, TabPage> DictionaryTabPageRooms = new Dictionary<int, TabPage>();
         protected Dictionary<int, TabControl> DictionaryTabControlDevice = new Dictionary<int, TabControl>();
         protected Dictionary<int, TabPage> DictionaryTabPageDevice = new Dictionary<int, TabPage>();
-        protected SimulatorGUI simulator;
+        //protected SimulatorGUI simulator;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="g">An object of Gateway class</param>
-        /// <param name="simulator">An object of SimulatorGUI class</param>
-        public GatewayGUI(Gateway g, SimulatorGUI simulator)
+        public GatewayGUI(Gateway g)
         {
             this.gateway = g;
-            InitializeComponent();
-            this.simulator = simulator;
-        }//GatewayGUI(Gateway, SimulatorGUI)
+            InitializeComponent();            
+        }//GatewayGUI(Gateway)
 
         /// <summary>
         /// Method to add floors and rooms in GUI
