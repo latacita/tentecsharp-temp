@@ -5,39 +5,60 @@ using System.Text;
 
 namespace SmartHome
 {
-
+    //=================================================================================================//
+    // This class represents the central gateway of the Smart Home which process all commands          //
+    // This file only contains the functionality related to the LightSimulation                        //
+    //=================================================================================================//
     public partial class Gateway : ISubjectGatewayLightSimulation
     {
+        /// <summary>
+        /// Atribute to indicate if the LightSimulation is on/off
+        /// </summary>
         protected bool statusLigthSimulation = false;
+        //Observer list
         ICollection<IGatewayGUILightSimulationObserver> observersGatewayLightSimulation = new LinkedList<IGatewayGUILightSimulationObserver>();
 
-
+        /// <summary>
+        /// Constructor to initialize the LightSimulation feature
+        /// </summary>
         public void initLightSimulation()
         {
             time.registerObserver(this);
-        }
+        }// initLightSimulation
 
-        public void ligthSimulation_switchOn()
+        /// <summary>
+        /// Method to switch on the lightSimulation
+        /// </summary>
+        public void lightSimulation_switchOn()
         {
             this.statusLigthSimulation = true;
             lightSimulation_checkTime(time.getHour(), time.getMinutes());
             notifySwitchOnLightSimulationToObsevers();
-        }//ligthSimulation_switchOn
+        }// lightSimulation_switchOn
 
-        public void ligthSimulation_switchOff()
+        /// <summary>
+        /// Method to switch off the blindSimulation
+        /// </summary>
+        public void lightSimulation_switchOff()
         {
             this.statusLigthSimulation = false;
-            ligthMng_allAdjustLigths(0);
+            lightMng_allAdjustLights(0);
             notifySwitchOffLightSimulationToObsevers();
-        }//ligthSimulation_switchOff
+        }// lightSimulation_switchOff
 
+        /// <summary>
+        /// Method to check the current time, and if this time is in a moment when the home is empty, the
+        /// LightSimulation will be off
+        /// </summary>
+        /// <param name="hour">Current hour</param>
+        /// <param name="minutes">Current minutes</param>
         public void lightSimulation_checkTime(int hour, int minutes)
         {
             String t = hour.ToString() + "," + minutes.ToString();
             double time = Convert.ToDouble(t);
             if (statusLigthSimulation)
             {
-                List<LightCtrl> l = ligthMng_getLigths();
+                List<LightCtrl> l = lightMng_getLigths();
                 if (time % 1 == 0)//everyHour
                 {
                     for (int i = 0; i < l.Count; i++)
@@ -45,13 +66,13 @@ namespace SmartHome
                         Random r = new Random(DateTime.Now.Millisecond);
                         int id = l[i].getId();
                         if (r.NextDouble() > 0.5)
-                            ligthMng_adjustLigth(id, Convert.ToInt32(r.Next(0, 100)));
+                            lightMng_adjustLight(id, Convert.ToInt32(r.Next(0, 100)));
                         else
-                            ligthMng_adjustLigth(id, 0);
+                            lightMng_adjustLight(id, 0);
                     }//for
                 }//if
             }//if            
-        }//lightSimulation_checkTime
+        }// lightSimulation_checkTime
 
         #region Subject-Observer Pattern
         /// <summary>
@@ -65,7 +86,7 @@ namespace SmartHome
 
         protected void notifySwitchOnLightSimulationToObsevers()
         {
-            foreach (IGatewayGUILightSimulationObserver observer in observersGatewayLigth)
+            foreach (IGatewayGUILightSimulationObserver observer in observersGatewayLight)
             {
                 observer.switchOnLightSimulation();
             } // foreach
@@ -73,11 +94,11 @@ namespace SmartHome
 
         protected void notifySwitchOffLightSimulationToObsevers()
         {
-            foreach (IGatewayGUILightSimulationObserver observer in observersGatewayLigth)
+            foreach (IGatewayGUILightSimulationObserver observer in observersGatewayLight)
             {
                 observer.switchOffLightSimulation();
             } // foreach
         } // notifySwitchOffSmartEnergyToObsevers
         #endregion
-    }
-}
+    }// Gateway
+}// SmartHome
