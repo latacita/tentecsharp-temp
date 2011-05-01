@@ -216,8 +216,7 @@ Para poder ser compiladas y agrupadas en una sola clase, todas las clases parcia
 Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo con clases parciales. La figura \ref{back:fig:partialClass} muestra como hemos excluido de la compilación la característica que representa la operación de imprimir una expresión en formato infijo.
 Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que no precisan estar relacionadas mediante ningún tipo de relación jerárquica, tal como ocurre con la herencia.
 
-Por lo tanto, algunos autores \cite{laguna:2007} sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada con programación orientada a características.
-\begin{figure}[!t]
+\begin{figure}[!tb]
 \begin{center}
 \begin{footnotesize}
 \begin{verbatim}
@@ -244,9 +243,43 @@ Por lo tanto, algunos autores \cite{laguna:2007} sostienen que, las clases parci
 \label{back:fig:partialClass}
 \end{figure}
 
+Por lo tanto, algunos autores \cite{laguna:2007} sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada con programación orientada a características.
+
+En ocasiones esta variabilidad presente en todos los casos estudiados anteriormente es representada mediante una notación visual denominada diagramas de características, por ello la siguiente sección describe la notación y peculiaridades de este tipo de diagramas.
 % Qué hace esto aquí
 
 % Explicar que son brevemente, y ejemplo usando las expresiones
+
+\section{Diagramas de características}
+Un diagrama de características es la notación visual para un modelo de características, el cuál es básicamente un árbol and-or.
+
+Las relaciones entre las características padres y las características hijas pueden ser clasificadas como:
+\begin{enumerate}
+\item \emph{Obligatoria}: La característica hija es obligatoria.
+\item \emph{Opcional}: La característica hija es opcional.
+\item \emph{Simple}: La característica hija tendrá cardinalidad \emph{<m..n>}
+\item \emph{Grupo Or}: Al menos una de las características hijas debe ser seleccionada.
+\item \emph{Grupo Xor}: Sólo una de las características hijas debe ser seleccionada
+\item \emph{Grupo-Simple}: El número de características seleccionadas del grupo vendrá dado por su cardinalidad.
+\end{enumerate}
+Para representar visualmente las relaciones descritas anteriormente se utiliza la notación que se puede observar en la figura \ref{back:fig:not}.
+
+\begin{figure}[!tb]
+  \centering \includegraphics[width=.65\linewidth]{background/images/notFeatureDiagram.eps} \\
+  \caption{Notaciones utilizadas en los diagramas de características}
+  \label{back:fig:not}
+\end{figure}
+
+Además de las relaciones las características pueden tener restricciones, comúnmente las más utilizadas son requiere(si selecciona la característica A implica seleccionar la característica B) y excluye (si se selecciona la característica A la característica B debe ser excluida), pero puede ser utilizada cualquier fórmula lógica que describa una restricción.
+
+El objetivo de este tipo de diagramas a parte de la propia representación y facilidad para visualizar las diferentes características, es la posibilidad de utilizar las transformaciones de modelos para conseguir realizar configuraciones que satisfagan las restricciones\cite{czarnecki:2004}.
+
+A modo de ejemplo se incluye en la figura \ref{back:fig:featureModel} el diagrama de características para el \emph{problema de las expresiones} modelado anteriormente en los diferentes lenguajes.
+\begin{figure}[!tb]
+  \centering \includegraphics[width=.65\linewidth]{background/images/featureModelExpr.eps} \\
+  \caption{Diagrama de características para el \emph{problema de las expresiones}}
+  \label{back:fig:featureModel}
+\end{figure}
 
 
 \section{Sumario}
