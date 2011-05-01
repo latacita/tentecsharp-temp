@@ -30,32 +30,37 @@
 \label{chap:introduction}
 
 % Introducción al capítulo
-
+Esta memoria de Proyecto Fin de Carrera presenta la infraestructura de una línea de productos software para hogares automáticos y/o inteligentes, de forma que se pueda obtener aplicaciones software para hogares específicos de forma tan automática como sea posible. Este capítulo introduce los términos de línea de producto software y describe a través de un breve resumen cuales han sido las motivaciones y el proceso seguido para llevar a cabo el desarrollo del proyecto.
 \chaptertoc
 
 \section{Introducción}
 \label{sec:intr:introduction}
-Cuando una empresa desarrolla un producto software para distintos usuarios, se presenta la problemática de las versiones y evolución relacionada con el producto. Esta situación puede provocar diferentes situaciones:
+Cuando una empresa desarrolla un producto software para distintos usuarios, se presenta la problemática de las versiones y evolución relacionada con el producto. Esta situación puede provocar diferentes coyunturas:
 \begin{enumerate}
  \item Conflictos entre los equipos de marketing y de ingeniería, debido a la imposibilidad de adaptarse a las nuevas variaciones del producto causadas por las demandas de los usuarios.
 \item Código fuente difícilmente extensible para conseguir nuevas variaciones del producto.
 \item Compleja y costosa coordinación de tareas de desarrollo en paralelo que comparten software común.
 \end{enumerate}
-Esta situación no es exclusiva del desarrollo de software, también se encuentra en otros ámbitos industriales como la fabricación de coches, electrodomésticos, teléfonos...
+Esta situación no es exclusiva del desarrollo de software, también se encuentra presente en otros ámbitos industriales como la fabricación de coches, electrodomésticos, teléfonos...
 Como es bien sabido la producción en serie(\emph{mass production}, en inglés) supuso una revolución en el ámbito industrial,ya que desembocó en un enorme aumento de la producción.
 
-La producción en serie no supone ningún problema para los desarrolladores de software, debido a que una aplicación puede ser clonada millones de veces sin ninguna dificultad. El problema que atañe al software es la personalización en serie(\emph{mass customization}, en inglés), ya que se busca desarrollar mecanismos que permitan producir sistemas softwares similares que comparten una serie de características comunes para diferentes tipos de clientes de la manera más automáticamente posible.
+La producción en serie no supone ningún problema para los desarrolladores de software, debido a que una aplicación puede ser clonada millones de veces sin ninguna dificultad. El problema que atañe al software es la personalización en serie(\emph{mass customization}, en inglés), con la cual se busca crear una infraestructura adecuada a partir de la cual se puedan derivar, tan automáticamente como sea posible, productos concretos pertenecientes a una familia de productos software. Una \emph{familia de productos software} es un conjunto de aplicaciones software similares, que por tanto comparten una serie de características comunes, pero que también presentan variaciones entre ellos.
 
-Debido a todo lo citado anteriormente en los últimos 20 años ha surgido el término denominado ingeniería de líneas de productos software\cite{pohl:2005} que pretende estandarizar los principios, fundamentos y técnicas que permiten alcanzar la personalización en serie de los productos software.
+Debido a todo lo citado anteriormente en los últimos 20 años ha surgido el término denominado \emph{ingeniería de líneas de productos software}\cite{pohl:2005} que pretende estandarizar los principios, fundamentos y técnicas que buscan alcanzar la personalización en serie de los productos software.
 
-Para el presente proyecto se ha tomado como problema para resolver el de una línea de productos software para hogares automáticos y/o inteligentes, ya que es uno de los ámbitos donde mejor queda reflejado la variabilidad que puede presentar un producto software\cite{fons:2008}, debido a que dicho producto se debe adaptar tanto a las requisitos establecidos por los stakeholders, como a la propia distribución física de los hogares(número de plantas, habitaciones,ventanas...).
+Para el presente proyecto se ha tomado como problema para resolver el de una línea de productos software para hogares automáticos y/o inteligentes, ya que es uno de los ámbitos donde mejor queda reflejado la variabilidad que puede presentar un producto software\cite{fons:2008}, porque dicho producto se debe adaptar tanto a las requisitos establecidos por los stakeholders, como a la propia distribución física de los hogares(número de plantas, habitaciones,ventanas...).
 
-Para desarrollar esta línea de productos software los lenguajes orientados a características, tales como FeatureC++ \cite{}  o CaesarJ \cite{aracic:2006}, son la elección más adecuada debido a las facilidades que ofrecen para modularizar y componer características. Pero se hará uso de la plataforma .NET\cite{chappell:2006} y del lenguaje programación C\#\cite{albahari:2010} debido a que ambos están bastante extendidos en el ámbito empresarial, y en la actualidad las empresas son bastante reticentes a la hora de introducir nuevos lenguajes, principalmente por dos razones:
+Para desarrollar esta línea de productos software los lenguajes orientados a características, tales como FeatureC++ \cite{apel:2005}  o CaesarJ \cite{aracic:2006}, son la elección más adecuada debido a las facilidades que ofrecen para modularizar y componer características de una familia de productos software. Pero se hará uso de la plataforma .NET\cite{chappell:2006} y del lenguaje programación C\#\cite{albahari:2010}, ya que ambos están bastante extendidos en el ámbito empresarial, y en la actualidad las empresas son bastante reticentes a la hora de introducir nuevos lenguajes, principalmente por dos razones:
 \begin{enumerate}
 \item El coste de aprendizaje que ello supone, ya que los programadores han de familiarizar con nuevos conceptos y técnicas de codificación software.
 \item El uso de un nuevo lenguaje de programación podría dejar obsoletas muchas herramientas, como suites para  la ejecución de casos de prueba, que la empresa podría tener asociadas al anterior lenguaje de programación.
 \end{enumerate}
 
+ C\# proporciona el concepto de clase parcial, el cual puede ser utilizado para encapsular y componer las características de los miembros de una familia de productos software. No obstante, las clases parciales poseen una serie de limitaciones que han debido ser solventadas antes de ser utilizadas como un mecanismo para la construcción de una líneas de productos software destinada a los hogares automáticos y/o inteligentes.
+
+ El proceso para crear la infraestructura de una línea de productos software para hogares automáticos y/o inteligentes ha seguido dos fases que siempre se encuentran en los proyectos de este tipo: \emph{ingeniería de dominio} (en inglés,  \emph{Domain Engineering}) e \emph{ingeniería de aplicación} (en inglés, \emph{Application Engineering}).La \emph{ingeniería de dominio} tiene como objetivo la creación de la infraestructura o arquitectura de la línea de productos, la cual permitirá la rápida, o incluso automática, construcción del sistema software específico dentro de la familia de productos. La ingeniería de aplicación utiliza la infraestructura creada con anterioridad para crear aplicaciones específicas adaptadas a las necesidades y/o requisitos de los usuarios.
+
+ Por ello en este proyecto se han desarrollado dos plugins para el entorno de desarrollo integrado (\emph{IDE}, por sus siglas en inglés) Visual Studio 2010. El primero de ellos permite definir modelos concretos que se ajusten tanto a los requisitos implícitos en la distribución del hogar como a las necesidades que el usuario plantee, a partir de un metamodelo que controla las diferentes restricciones que no permiten crear modelos inválidos. El segundo plugin utiliza los modelos y los artefactos creados en la fase de ingeniería de dominio para crear aplicaciones concretas a través de generadores de código.
 
 \section{Motivación and Contribuciones}
 \label{sec:intr:motivation}
@@ -74,9 +79,7 @@ Esto es una especie de índice ampliado y se deja, suele ser bastante útil para q
 
 \paragraph{Capítulo 2: Resumen del Estado del Arte} \ \\
 
-\paragraph{Capítulo 3: Descripción General del Proceso} \ \\
-
-\paragraph{Capítulo 4: Definición y Planificación del Proyecto} \ \\
+\paragraph{Capítulo 3: Definición y Planificación del Proyecto} \ \\
 
 \paragraph{Capítulo 5: Ingeniería de Requisitos} \ \\
 
