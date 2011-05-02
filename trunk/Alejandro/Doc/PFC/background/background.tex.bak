@@ -245,12 +245,13 @@ Este mecanismo de clases parciales permite añadir o compartir funcionalidad entr
 
 Por lo tanto, algunos autores \cite{laguna:2007} sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada con programación orientada a características.
 
+En ocasiones esta variabilidad presente en todos los casos estudiados anteriormente es representada mediante una notación visual denominada diagramas de características, por ello la siguiente sección describe la notación y peculiaridades de este tipo de diagramas.
 % Qué hace esto aquí
 
 % Explicar que son brevemente, y ejemplo usando las expresiones
 
 \section{Diagramas de características}
-Un diagrama de características es la notación visual para un modelo de características, el cuál es básicamente un un árbol and-or. 
+Un diagrama de características es la notación visual para un modelo de características, el cuál es básicamente un árbol and-or.
 
 Las relaciones entre las características padres y las características hijas pueden ser clasificadas como:
 \begin{enumerate}
@@ -272,11 +273,12 @@ Para representar visualmente las relaciones descritas anteriormente se utiliza l
 Además de las relaciones las características pueden tener restricciones, comúnmente las más utilizadas son requiere(si selecciona la característica A implica seleccionar la característica B) y excluye (si se selecciona la característica A la característica B debe ser excluida), pero puede ser utilizada cualquier fórmula lógica que describa una restricción.
 
 El objetivo de este tipo de diagramas a parte de la propia representación y facilidad para visualizar las diferentes características, es la posibilidad de utilizar las transformaciones de modelos para conseguir realizar configuraciones que satisfagan las restricciones\cite{czarnecki:2004}.
+
+A modo de ejemplo se incluye en la figura \ref{back:fig:featureModel} el diagrama de características para el \emph{problema de las expresiones} modelado anteriormente en los diferentes lenguajes.
 \begin{figure}[!tb]
   \centering \includegraphics[width=.65\linewidth]{background/images/featureModelExpr.eps} \\
   \caption{Diagrama de características para el \emph{problema de las expresiones}}
-  \label{back:fig:not}
+  \label{back:fig:featureModel}
 \end{figure}
-
 
 \section{Sumario}
