@@ -166,6 +166,16 @@
   month = {November},
 }
 
+@inproceedings{czarnecki:2004,
+  author    = {Krzysztof Czarnecki and
+               Simon Helsen and
+               Ulrich W. Eisenecker},
+  title     = {Staged Configuration Using Feature Models},
+  booktitle = {SPLC},
+  year      = {2004},
+  pages     = {266-283},
+}
+
 @inproceedings{lopez:2005,
   author    = {Roberto E. Lopez-Herrejon and
                Don S. Batory and
