@@ -58,6 +58,11 @@ Krzysztof Czarnecki, Simon Helsen, and Ulrich~W. Eisenecker.
 \newblock Staged configuration using feature models.
 \newblock In {\em SPLC}, pages 266--283, 2004.
 
+\bibitem[Cla10]{wallace:2010}
+Wallace Clark.
+\newblock {\em {The Gantt Chart, a Working Tool of Management}}.
+\newblock Jan 2010.
+
 \bibitem[GHJV94]{gamma:1994}
 Erich Gamma, Richard Helm, Ralph Johnson, and John~M. Vlissides.
 \newblock {\em {Design Patterns: Elements of Reusable Object-Oriented
