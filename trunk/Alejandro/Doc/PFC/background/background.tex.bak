@@ -35,6 +35,39 @@ El proceso de creación de líneas de producto software conlleva dos fases: \emph{
 Cuando se trabaja con líneas de productos software, los lenguajes de programación orientados a objetos resultan muchas veces insuficientes. Con objeto de paliar estas deficiencias, en los últimos años han ido surgiendo unos nuevos tipos de lenguajes denominados \emph{orientados a características}. La siguiente sección introduce los programación orientada a características para a continuación explicar sus ventajas con respecto a las técnicas tradicionales orientadas a objetos.
 
 %% DONE
+
+
+\section{Diagramas de características}
+Un diagrama de características es la notación visual para un modelo de características, el cuál es básicamente un árbol and-or.
+
+Las relaciones entre las características padres y las características hijas pueden ser clasificadas como:
+\begin{enumerate}
+\item \emph{Obligatoria}: La característica hija es obligatoria.
+\item \emph{Opcional}: La característica hija es opcional.
+\item \emph{Simple}: La característica hija tendrá cardinalidad \emph{<m..n>}
+\item \emph{Grupo Or}: Al menos una de las características hijas debe ser seleccionada.
+\item \emph{Grupo Xor}: Sólo una de las características hijas debe ser seleccionada
+\item \emph{Grupo-Simple}: El número de características seleccionadas del grupo vendrá dado por su cardinalidad.
+\end{enumerate}
+Para representar visualmente las relaciones descritas anteriormente se utiliza la notación que se puede observar en la figura \ref{back:fig:not}.
+
+\begin{figure}[!tb]
+  \centering \includegraphics[width=.65\linewidth]{background/images/notFeatureDiagram.eps} \\
+  \caption{Notaciones utilizadas en los diagramas de características}
+  \label{back:fig:not}
+\end{figure}
+
+Además de las relaciones las características pueden tener restricciones, comúnmente las más utilizadas son requiere(si selecciona la característica A implica seleccionar la característica B) y excluye (si se selecciona la característica A la característica B debe ser excluida), pero puede ser utilizada cualquier fórmula lógica que describa una restricción.
+
+El objetivo de este tipo de diagramas a parte de la propia representación y facilidad para visualizar las diferentes características, es la posibilidad de utilizar las transformaciones de modelos para conseguir realizar configuraciones que satisfagan las restricciones\cite{czarnecki:2004}.
+
+A modo de ejemplo se incluye en la figura \ref{back:fig:featureModel} el diagrama de características para el \emph{problema de las expresiones} modelado anteriormente en los diferentes lenguajes.
+\begin{figure}[!tb]
+  \centering \includegraphics[width=.85\linewidth]{background/images/featureModelExpr.eps} \\
+  \caption{Diagrama de características para el \emph{problema de las expresiones}}
+  \label{back:fig:featureModel}
+\end{figure}
+
 \section{Programación Orientada a Características}
 
 Los lenguajes orientados a características~\cite{prehofer:2001} tienen como objetivo encapsular conjuntos coherentes de funcionalidad de un sistema software en módulos independientes y fácilmente componibles de forma que se incremente la capacidad de reutilización y extensión de estos módulos. Dichos módulos reciben el nombre de \emph{característica}. Una característica se suele definir como un incremento de la funcionalidad de un sistema~\cite{batory:2004}.
@@ -140,7 +173,7 @@ No obstante, la solución para trabajar con herencia múltiple en lenguajes orient
 
 Pero por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{arnold:2005} o C\#~\cite{albahari:2010}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple puede ser un mecanismo muy útil~\cite{meyer:2000,meyer:2009}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
 
-No obstante, la solución para trabajar con herencia múltiple en lenguajes orientados a objetos con herencia simple, sería aplicar el \emph{patrón mixin}~\cite{david:1986}. De acuerdo con dicho patrón, que se ilustra en la Figura XX, se utilizan las interfaces para simular la herencia múltiple. Por lo tanto, cada clase a heredar implementará una nueva interfaz que defina los métodos de esta clase, a su vez la nueva clase que se quiere crear para que herede la funcionalidad de sendas clases implementará las dos nuevas interfaces creadas anteriormente, y tendrá una relación de agregación con las clases a heredar.
+No obstante, la solución para trabajar con herencia múltiple en lenguajes orientados a objetos con herencia simple, sería aplicar el \emph{patrón mixin}~\cite{david:1986}. De acuerdo con dicho patrón, que se ilustra en la figura \ref{back:fig:mixin}, se utilizan las interfaces para simular la herencia múltiple. Por lo tanto, cada clase a heredar implementará una nueva interfaz que defina los métodos de esta clase, a su vez la nueva clase que se quiere crear para que herede la funcionalidad de sendas clases implementará las dos nuevas interfaces creadas anteriormente, y tendrá una relación de agregación con las clases a heredar.
 
 Pero el uso del \emph{patrón mixin} hace que, un incremento de funcionalidad representado por un conjunto de nuevas subclases que heredan de un conjunto de clases superiores, no sea posible manejarlo como un solo módulo. La insuficiente encapsulación deriva en un incremento de la complejidad a la hora de configurar y construir nuevos productos por ensamblando o composición de características. Aún cuando las clases, separadas en paquetes, pertenezcan a una misma característica, es necesario seleccionar qué clases concretas van a ser usadas en un producto específico. Por ejemplo, para incluir la característica impresión infija para una configuración del problema de las expresiones es necesario seleccionar todos los operadores binarios(\imp{AddInfix} y \imp{MultInfix}) y literales (\imp{IntegerInfix}) que implementan la característica.
 
@@ -245,40 +278,9 @@ Este mecanismo de clases parciales permite añadir o compartir funcionalidad entr
 
 Por lo tanto, algunos autores \cite{laguna:2007} sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada con programación orientada a características.
 
-En ocasiones esta variabilidad presente en todos los casos estudiados anteriormente es representada mediante una notación visual denominada diagramas de características, por ello la siguiente sección describe la notación y peculiaridades de este tipo de diagramas.
 % Qué hace esto aquí
 
 % Explicar que son brevemente, y ejemplo usando las expresiones
 
-\section{Diagramas de características}
-Un diagrama de características es la notación visual para un modelo de características, el cuál es básicamente un árbol and-or.
-
-Las relaciones entre las características padres y las características hijas pueden ser clasificadas como:
-\begin{enumerate}
-\item \emph{Obligatoria}: La característica hija es obligatoria.
-\item \emph{Opcional}: La característica hija es opcional.
-\item \emph{Simple}: La característica hija tendrá cardinalidad \emph{<m..n>}
-\item \emph{Grupo Or}: Al menos una de las características hijas debe ser seleccionada.
-\item \emph{Grupo Xor}: Sólo una de las características hijas debe ser seleccionada
-\item \emph{Grupo-Simple}: El número de características seleccionadas del grupo vendrá dado por su cardinalidad.
-\end{enumerate}
-Para representar visualmente las relaciones descritas anteriormente se utiliza la notación que se puede observar en la figura \ref{back:fig:not}.
-
-\begin{figure}[!tb]
-  \centering \includegraphics[width=.65\linewidth]{background/images/notFeatureDiagram.eps} \\
-  \caption{Notaciones utilizadas en los diagramas de características}
-  \label{back:fig:not}
-\end{figure}
-
-Además de las relaciones las características pueden tener restricciones, comúnmente las más utilizadas son requiere(si selecciona la característica A implica seleccionar la característica B) y excluye (si se selecciona la característica A la característica B debe ser excluida), pero puede ser utilizada cualquier fórmula lógica que describa una restricción.
-
-El objetivo de este tipo de diagramas a parte de la propia representación y facilidad para visualizar las diferentes características, es la posibilidad de utilizar las transformaciones de modelos para conseguir realizar configuraciones que satisfagan las restricciones\cite{czarnecki:2004}.
-
-A modo de ejemplo se incluye en la figura \ref{back:fig:featureModel} el diagrama de características para el \emph{problema de las expresiones} modelado anteriormente en los diferentes lenguajes.
-\begin{figure}[!tb]
-  \centering \includegraphics[width=.65\linewidth]{background/images/featureModelExpr.eps} \\
-  \caption{Diagrama de características para el \emph{problema de las expresiones}}
-  \label{back:fig:featureModel}
-\end{figure}
-
 \section{Sumario}
+Durante este capítulo se han relatado los conceptos necesarios para entender el ámbito del problema para la implementación de una línea de productos software. De este modo ha quedado reflejado que la mejor opción son los lenguajes orientados a características, ya que poseen facilidades para encapsular y componer las características, mientras que la mayoría de los lenguajes orientados a objetos no poseen herencia múltiple, lo que complica notablemente la tarea para crear configuraciones a través de la composición de características, aunque el lenguaje C\# contiene las clases parciales que pueden ser una alternativa a la herencia múltiple.

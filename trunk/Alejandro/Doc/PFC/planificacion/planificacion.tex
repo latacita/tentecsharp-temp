@@ -85,7 +85,7 @@ TDD requiere definir una lista de requisitos, a continuación se puede comenzar a
 Este proceso tiene dos importantes virtudes, nos permite crear software que cumple íntegramente con los requisitos y genera software fiable. Su punto débil está en que no es un proceso especialmente orientado a características.
 
 \subsubsection{Elección del proceso}
-Debido a que el proceso \emph{Feature Driven Development} está especialmente orientado para proyectos que se pueden descomponer fácilmente en características, se ha seleccionado para llevar a cabo el desarrollo de este proyecto, ya que como muestra la figura \ref{plan:fig:gantt} las características y/o tareas a implementar se encuentran bien definidas.
+Debido a que el proceso \emph{Feature Driven Development} está especialmente orientado para proyectos que se pueden descomponer fácilmente en características, se ha seleccionado para llevar a cabo el desarrollo de este proyecto, ya que en este proyecto se han identificado las características y/o tareas a implementar, tal y como se muestra en la siguiente sección.
 
 \section{Planificación del Proyecto}
 
@@ -97,23 +97,54 @@ Debido a que el proceso \emph{Feature Driven Development} está especialmente ori
 %%     - Planificación global, incluyendo la secuenciación de las    %%
 %%       features, la creación de los generadores, los instaladores  %%
 %%       los manuales y el despliegue                                %% %%===================================================================%%
+Para realizar la planificación del proyecto se debe descomponer en las diferentes características que posee, por ello, la figura \ref{plan:fig:modelReal} muestra el diagrama de características y las restricciones para un hogar inteligente. En este diagrama se observa que al menos una planta y habitación deben ser seleccionadas, y que cada habitación puede tener control de ventanas, luces, calefacción (para frío y calor), y persianas en una ventana. A nivel global y como características opcionales aparece el manejo inteligente de energía (SmartEnergyMng), el cual coordina funciones con la gestión de ventanas y calefacción para el ahorro de energía, por lo tanto, esta funcionalidad requiere que al menos una calefacción y una ventana hayan sido seleccionadas en alguna de las habitaciones, como lo especifica la restricción C1 en la figura. De igual modo ocurre con la simulación de luces (LightSimulation) y de persianas (BlindSimulation), por un lado la simulación de luces requiere que al menos una luz haya sido seleccionada en una habitación, y la simulación de persianas también requiere que al menos una persiana haya sido seleccionada en una habitación, tal y como queda reflejado en las restricciones C2 y C3 respectivamente.
 
-% Imagen a una sola columna
 \begin{figure}[!tb]
   % Requires \usepackage{graphicx}
-  \centering \includegraphics{planificacion/images/gantt.eps} \\
-  \caption{Diagrama de dependencias entre tareas}
+  \centering \includegraphics[width=.85\linewidth]{planificacion/images/featureModelReal.eps} \\
+  \caption{Diagrama de características para un hogar inteligente}
+  \label{plan:fig:modelReal}
+\end{figure}
+
+Para simplificar el diagrama anterior y poder planificar de acuerdo a las características en las que será descompuesto el proyecto se muestra la figura \ref{plan:fig:modelSimplificado} que contiene un diagrama de características en el que se han agrupado las características relativas a calefacción, ventanas, persianas y luces en HeaterMng, WindowMng, BlindMng y LightMng respectivamente.
+
+\begin{figure}[!tb]
+  % Requires \usepackage{graphicx}
+  \centering \includegraphics[width=.85\linewidth]{planificacion/images/featureModelSimplificado.eps} \\
+  \caption{Diagrama de características para un hogar inteligente simplificado}
+  \label{plan:fig:modelSimplificado}
+\end{figure}
+
+Con las características del diagrama anterior, se ha realizado la tabla XX que relaciona los requisitos a implementar con la característica a la que pertenecen, de este modo y teniendo presente el proceso de desarrollo software elegido, ya se tiene todo lo necesario para poder realizar una planificación completa del proyecto.
+
+\begin{figure}[!tb]
+  % Requires \usepackage{graphicx}
+  \centering \includegraphics[width=.85\linewidth]{planificacion/images/requisitosTabla.eps} \\
+  \caption{Tabla que muestra la relación entre los requisitos y las características.}
   \label{plan:fig:gantt}
 \end{figure}
 
-% Imagen a dos columnas
-%\begin{figure*}[!tb]
-%  % Requires \usepackage{graphicx}
-%  \centering \includegraphics[width=\linewidth]{figures/gantt.eps} \\
-%  \caption{(Left) Invalid configuration (Right) Valid configuration}
-%  \label{fig:contexts}
-%\end{figure*}
 
-La figura~\ref{plan:fig:gantt} muestra
+Como ya se comentó en el capítulo \ref{chap:background}, los proyectos que desarrollan una línea de productos software se descomponen en dos fases denominadas ingeniería de dominio(\emph{Domain Engineering}, en inglés) e ingeniería de aplicación(\emph{Application Engineering}, en inglés), en el primero de ellos se va a desarrollar la infraestructura necesaria para construir el sistema específico, mientras que la ingeniería de aplicación utilizará esta infraestructura para crear aplicaciones específicas. Por ello, lo primero que se debe realizar es todo lo relacionado con la ingeniería de dominio, que consiste en implementar todas las características y requisitos descritos anteriormente. Por lo tanto, la figura \ref{plan:fig:gantt} muestra la secuenciación de las distintas tareas/características, a través de un diagrama de Gantt \cite{wallace:2010}, que se deben desarrollar para completar la fase de ingeniería de dominio. En la figura se describe cuales son las dependencias de las tareas y el orden en el que se deben desarrollar. Las dependencias surgen de las restricciones mostradas en la figura \ref{plan:fig:modelSimplificado}.
+\begin{figure}[!tb]
+% Requires \usepackage{graphicx}
+\centering \includegraphics{planificacion/images/gantt.eps} \\
+\caption{Diagrama de Gantt que muestra las dependencias entre tareas para la ingeniería de dominio}
+\label{plan:fig:gantt}
+\end{figure} 
+De este modo y teniendo como referencia el proceso de desarrollo software seleccionado, por cada característica mostrada en el diagrama de Gantt se diseña la característica,se construye y se prueba. Además por cada una de estas características se implementará su interfaz gráfica correspondiente por lo que en cada una de ellas se suma la tarea de diseño, construcción y pruebas.
 
+Una vez desarrolladas todas las características se puede dar por concluida la fase de ingeniería de dominio, por lo que se procede a describir la planificación de la fase siguiente,la ingeniería de aplicación. En primer lugar es necesario desarrollar un metamodelo que permita definir modelos concretos para un hogar inteligente, una vez concluido esto, a través de los modelos creados se deben generar tan automáticamente como sea posible aplicaciones que cumplan con el modelo especificado. Por lo tanto, es necesario desarrollar generadores de código que creen las instancias necesarias y determinen las características que serán compiladas. Llegados a este punto el siguiente paso será la creación de los instaladores que permitan utilizar todo lo construido hasta este momento en cualquier ordenador. Y por último las últimas dos fases consisten en la creación de los manuales y el despliegue, que incluiría la creación de una página web de presentación para el proyecto que permita descargarse tanto los instaladores como los manuales. Esta serie de tareas citadas se refleja en la figura \ref{plan:fig:ganttApplication}.
+
+\begin{figure}[!tb]
+  % Requires \usepackage{graphicx}
+  \centering \includegraphics{planificacion/images/ganttApplication.eps} \\
+  \caption{Diagrama de Gantt que muestra las dependencias entre tareas para la ingeniería de aplicación}
+  \label{plan:fig:ganttApplication}
+\end{figure}
+
+Tal y como ha ocurrido en la fase de ingeniería de dominio cada tarea de la figura \ref{plan:fig:ganttApplication} es considerada como una característica, por lo que siguiendo el proceso de desarrollo software elegido, por cada tarea se realizará su diseño, construcción y respectivas pruebas.
+
+\section{Sumario}
+En este capítulo se ha descrito el caso de estudio de los hogares inteligentes, posteriormente se han estudiado algunos procesos de desarrollo software para realizar la planificación del proyecto, llegando a la conclusión de que el más adecuado es el denominado \emph{Feature Driven Development}. Por último se ha detallado la planificación global del proyecto, describiendo las dos fases principales de todo desarrollo relacionado con las líneas de productos software, la ingeniería de dominio y la ingeniería de aplicación.
 
