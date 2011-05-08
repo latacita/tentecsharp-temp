@@ -118,7 +118,7 @@ namespace SmartHome
             //
             dictionaryLabelApertureByRoom.Add(id_window, new Label());
             dictionaryLabelApertureByRoom[id_window].Size = new System.Drawing.Size(180, 20);
-            dictionaryLabelApertureByRoom[id_window].Text = "Select temperature (Celsius): ";
+            dictionaryLabelApertureByRoom[id_window].Text = "Select aperture (0-100 degrees): ";
             dictionaryLabelApertureByRoom[id_window].Location = new System.Drawing.Point((width - 30) / 3, (height) / 3);
             dictionaryLabelApertureByRoom[id_window].Visible = true;
             DictionaryTabPageDevice[id_window].Controls.Add(dictionaryLabelApertureByRoom[id_window]);
