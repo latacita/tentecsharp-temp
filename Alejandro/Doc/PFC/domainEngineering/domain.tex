@@ -196,31 +196,52 @@ La siguiente sección describe el proceso de desarrollo de la característica \emp
 %%% Implementación (explicar como se ha conseguido **Hacerlo bien**)
 
 %%% Pruebas
-La característica denominada control de energía inteligente o \emph{SmartEnergyMng} en inglés,tiene como particularidad que necesita del control de ventanas (WindowMng) y del control de calefacción (HeaterMng) para que se puede utilizar, ya que su función es por un lado, que siempre que los calefactores estén encendidos se cierren todas las ventanas para evitar pérdidas de energía, y por otro lado, almacenará los horarios de los habitantes, de este modo siempre que la casa esté vacía los calefactores serán apagados para ahorrar energía y se encenderán con la suficiente antelación para poder restablecer la temperatura elegida por el usuario. De este modo, con esta característica se presenta una situación que no pueden resolver las clases parciales, ya que en la característica HeaterMng tenemos un método en la clase \imp{Gateway} para ajustar la temperatura de un calefactor a través del actuador correspondiente, y si se quiere implementar el primer requisito que consiste en el cierre de ventanas mientras los calefactores permanecen encendidos, es necesario redefinir el método que modifica la temperatura de los calefactores para cada vez que sea llamado se encargue de cerrar las ventanas. Pero esto no es algo trivial de realizar con las clases parciales porque no poseen la propiedad de extender métodos o sobrescribirles, únicamente separan una clase en diferentes archivos, para que luego el compilador los junte. Por lo tanto, se ha tenido que desarrollar una alternativa que supla esta carencia de las clases parciales, por lo cual se ha creado un mecanismo que sigue el siguiente proceso:
+La característica denominada control de energía inteligente o \emph{SmartEnergyMng} en inglés,tiene como particularidad que necesita del control de ventanas (WindowMng) y del control de calefacción (HeaterMng) para que se puede utilizar, ya que su función es por un lado, que siempre que los calefactores estén encendidos se cierren todas las ventanas para evitar pérdidas de energía, y por otro lado, almacenar los horarios de los habitantes, de este modo siempre que la casa esté vacía los calefactores serán apagados para ahorrar energía y se encenderán con la suficiente antelación para poder restablecer la temperatura elegida por el usuario.
+
+Al igual que todas las demás características descritas en las secciones anteriores, se redefine la clase parcial \imp{Gateway} tal y como se muestra en la figura XX, a través de ello se añaden varios métodos que permiten implementar los requisitos. En primer lugar para desarrollar el requisito que almacena los horarios de los habitantes se utiliza el metalenguaje de etiquetas XML \cite{rusty:2004}, a través de él se almacena en un fichero el nombre, apellidos y los intervalos de tiempo en el que no se encuentra en casa cada habitante. Con el método \imp{findEmptyTime()}, mostrado en la figura XX \todo{PONER FIGURA}, se realizan las operaciones oportunas para calcular los intervalos de tiempo en los que la casa estará vacía, los cuales serán utilizados por el otro método denominado \imp{checkTime(int hours, int minutes)} para comprobar, cada vez que el tiempo sea modificado, si la casa está vacía, y en ese caso desconectar todos los calefactores o encenderlos en el caso de que el tiempo se aproxime a la llegada de los usuarios.
+
+El siguiente requisito que es necesario implementar es el encargado de cerrar las ventanas cuando los calefactores estén funcionando, por lo que se nos presenta una situación que no se puede resolver a través de las clases parciales, debido a que en la característica HeaterMng tenemos un método en la clase \imp{Gateway} para ajustar la temperatura de un calefactor a través del actuador correspondiente, y por lo tanto, es necesario redefinir este método que modifica la temperatura de los calefactores para cada vez que sea llamado se encargue de cerrar las ventanas. Pero esto no es algo trivial de realizar con las clases parciales, ya que no poseen la propiedad de extender métodos o sobrescribirles, únicamente separan una clase en diferentes archivos, para que luego el compilador los junte. Por lo tanto, se ha tenido que desarrollar una alternativa que supla esta carencia de las clases parciales, por lo cual se ha creado un mecanismo que sigue el siguiente proceso:
 \begin{enumerate}
 \item Todos los métodos de la clase parcial \imp{Gateway}, en todas las características, han sido renombrados usando el nombre de la característica como prefijo, por ejemplo el método denominado \imp{heaterAdjustTemperature} de la característica HeaterMng pasará a llamarse \imp{heaterMng\_heaterAdjustTemperature}. De este modo evitaremos que existan ambigüedades de nombres entre métodos de distintas características.
-\item Se definen los métodos que presentasen ambigüedad si no hubiésemos realizado el paso anterior, en otra definición de la clase parcial \imp{Gateway} destinada exclusivamente a contener este tipo de métodos. El nombre del método será sin el prefijo de ninguna característica.
-\item El método definido en el paso anterior contendrá llamadas a los métodos correspondientes, dependiendo de la característica que sea seleccionada. Por ejemplo, si se ha seleccionado la característica SmartEnergyMng se deberá llamar al método \imp{smartEnergyMng\_heaterAdjustTemperature}, el códgio deberá ser como el mostrado en la figura \ref{domain:fig:codSmartEnergy}.
-\item interfaces
+\item Se definen los métodos que presentasen ambigüedad si no hubiésemos realizado el paso anterior en otra definición de la clase parcial \imp{Gateway} destinada exclusivamente a contener este tipo de métodos. El nombre del método será sin el prefijo de ninguna característica.
+\item Los métodos definidos en el paso anterior contendrán llamadas a los métodos correspondientes, dependiendo de la característica que sea seleccionada. Por ejemplo, para el método \imp{heaterAdjustTemperature}, si se ha seleccionado la característica SmartEnergyMng se deberá llamar al método \imp{smartEnergyMng\_heaterAdjustTemperature}.El código del método tendrá un aspecto como el mostrado en la figura \ref{domain:fig:codSmartEnergy}.
+\item Todas las llamadas a los métodos que sean susceptibles de ambigüedad serán sobre los métodos correspondientes creados en el paso anterior.
 \end{enumerate}
 
 \begin{figure}[ht!]
 \begin{center}
 \begin{footnotesize}
 \begin{verbatim}
-00 ...
-01 heaterAdjustTemperature(int id, double temperature) 
-02 {
-03      smartEnergyMng_heaterAdjustTemperature(id, temperature);
-04 }
-05 ...
+00 public void heaterAdjustTemperature(int id_heater, double temperature) 
+01 {
+02      smartEnergyMng_heaterAdjustTemperature(id_heater, temperature);
+03 }
 \end{verbatim}
 \end{footnotesize}
 \end{center}
 \caption{Implementación del método heaterAdjustTemperature cuando la característica SmartEnergyMng está seleccionada}
 \label{domain:fig:codSmartEnergy}
 \end{figure}
+Siguiendo este proceso se ha conseguido solucionar el primer problema que ha surgido al trabajar con líneas de productos software mediante las clases parciales de C\#.
+
+Nuevamente se necesita definir las interfaces gráficas para esta característica, para el caso de la interfaz que representa al Gateway, únicamente se añade una nueva pestaña global que contendrá un botón que activa o desactiva el control inteligente de energía y un campo que permite introducir la temperatura que se quiere tener cuando se reconecten los calefactores después de que la casa haya estado vacía. Mientras que la interfaz gráfica que representa al simulador, implementa una nueva pestaña para esta característica, en la que se puede modificar el tiempo del sistema, puesto que el sistema no funciona bajo una construcción real de una hogar inteligente, por lo que de este modo se podrá modificar el tiempo a nuestro antojo para facilitar las tareas de simulación. Por otro lado también se ha añadido una lista con los intervalos de tiempo en la que la casa se encuentra vacía, tal y como se ilustra en la figura \ref{domain:fig:SimulatorSmartEnergyMng}.
+\begin{figure}[!tb]
+ \centering
+ \includegraphics[width=.75\linewidth]{domainEngineering/Images/simulatorGUISmartEnergyMng.eps} \\
+ \caption{Diseño de la interfaz gráfica de usuario para el simulador en la característica de \emph{SmartEnergyMng}}
+ \label{domain:fig:SimulatorSmartEnergyMng}
+\end{figure}
+
+Para realizar las pruebas correspondientes de esta característica se han dividido en varios tests, el primer de ellos es el encargado de verificar los métodos que se encargan de leer y encontrar en el fichero XML los horarios en los que la casa se encuentra vacía, para ello se ha modifica dicho fichero en varias ocasiones, en las cuales la mitad de las veces el número de habitantes era impar y en la otra mitad par, además de añadir de un modo aleatorio horarios a los habitantes, en los que al menos existiese un intervalo en el que la casa estuviese vacía en la mitad de las ocasiones.
+
+Otro conjunto de tests son los destinados a comprobar que los calefactores se apagan y se encienden correctamente si la casa está vacía, por lo que nuevamente se utilizan los ficheros XML anteriores en los que la casa está vacía y se comprueba que si el control de energía inteligente está encendido se comporta correctamente. Por lo cual se crean una serie de instancias de la casa con diferente número de calefactores distribuidos por distintas habitaciones y se comprueba.
+
+La última batería de tests es la encargada de comprobar que las ventanas son cerradas si el control de energía está encendido y alguno de los calefactores de la casa está encendido. Por lo tanto se crean diferentes estancias de la casa con distintas distribuciones de ventanas y calefactores en las habitaciones, y se comprueba que todas las ventanas son cerradas siempre y cuando se cumplan las dos condiciones anteriores.
 
 
+\section{Otras iteraciones}
+%% Section{Otras iteraciones}
 
+%% Muy resumido y destacando lo que te apetezca destacar
+\section{Sumario}
 
