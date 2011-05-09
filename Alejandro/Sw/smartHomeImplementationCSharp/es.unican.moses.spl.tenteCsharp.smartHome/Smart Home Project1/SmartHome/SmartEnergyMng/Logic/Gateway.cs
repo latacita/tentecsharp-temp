@@ -77,22 +77,12 @@ namespace SmartHome
             double time = Convert.ToDouble(t);
             this.statusSmartEnergyMng = true;
             List<HeaterCtrl> h = heaterMng_getHeaters();
+            bool flag = false;
             for (int i = 0; i < h.Count; i++)
             {
-                if (h[i].getStatus())
-                {
-                    List<WindowCtrl> w = windowMng_findWindowsCtrlByRoom(h[i].getIdRoom());
-                    for (int j = 0; j < w.Count; j++)
-                    {
-                        if (w[j].getValue() > 0)
-                        {
-                            this.id_window = w[j].getId();
-                            windowMng_adjustWindow(id_window, 0);
-                        }//if
-
-                    }//for
-                }//if
-            }//for  
+                if (h[i].getStatus()) flag = true;
+            }// for
+            if(flag) windowMng_allAdjustWindows(0); //Close all windows   
             //Check the timer
             smartEnergy_checkTime(hour, minutes);
             notifySwitchOnSmartEnergyToObsevers();

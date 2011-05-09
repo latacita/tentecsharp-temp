@@ -217,7 +217,7 @@ namespace SmartHome
 
         public void adjustHeaterByRoom(int id_heater, double temp)
         {
-            dictionaryTextTempByRoom[id_heater].Text = temp.ToString() + ",0";
+            dictionaryTextTempByRoom[id_heater].Text = temp.ToString();
             dictionaryTrackBarByRoom[id_heater].Value = Convert.ToInt32(temp);
         }// adjustHeaterByRoom
 
@@ -243,7 +243,9 @@ namespace SmartHome
 
         public void allAdjustHeaters(double temp)
         {
-            textTemp.Text = trackBar_main.Value.ToString() + ",0";
+            //textTemp.Text = trackBar_main.Value.ToString() + ",0";
+            textTemp.Text = temp.ToString();
+
             trackBar_main.Value = Convert.ToInt32(temp);
 
         }// allAdjustHeaters
