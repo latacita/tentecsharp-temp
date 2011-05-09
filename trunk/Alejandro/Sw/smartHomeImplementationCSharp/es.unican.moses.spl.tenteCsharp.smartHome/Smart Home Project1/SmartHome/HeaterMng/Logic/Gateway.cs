@@ -257,16 +257,13 @@ namespace SmartHome
             {
                 observer.switchOnByRoom(id_heater);
             } // foreach           
-            //If all heater have the same degrees, we will change the global aperture
-            bool flagOn = true;
-            bool flagOff = true;
+            //If all heater is on, we will change the global status graphic interface
+            bool flagOn = true;            
             for (int i = 0; i < heaters.Count; i++)
             {
-                if (heaters[i].getStatus()==false) flagOn = false;
-                if (heaters[i].getStatus() == true) flagOff = false;
+                if (heaters[i].getStatus()==false) flagOn = false;                
             }// for
-            if (flagOn == true) notifySwitchOnAllHeaterToObsevers();
-            if (flagOff == true) notifySwitchOffAllHeaterToObsevers();
+            if (flagOn == true) notifySwitchOnAllHeaterToObsevers();            
         } // notifySwitchOnByRoomToObsevers
 
         protected void notifySwitchOffByRoomToObsevers(int id_heater)
@@ -275,6 +272,13 @@ namespace SmartHome
             {
                 observer.switchOffByRoom(id_heater);
             } // foreach
+            //If all heater is off, we will change the global status graphic interface
+            bool flagOff = true;
+            for (int i = 0; i < heaters.Count; i++)
+            {
+                if (heaters[i].getStatus() == true) flagOff = false;
+            }// for
+            if (flagOff == true) notifySwitchOffAllHeaterToObsevers();
         } // notifySwitchOffByRoomToObsevers
 
         protected void notifyadjustHeaterByRoomToObsevers(int id_heater, double temp)
@@ -284,13 +288,12 @@ namespace SmartHome
                 observer.adjustHeaterByRoom(id_heater, temp);
             } // foreach
             //If all heater have the same degrees, we will change the global aperture
-            bool flag = true;
-            double preview = heaters[0].getValue();
-            for (int i = 1; i < heaters.Count; i++)
+            bool flag = true;            
+            for (int i = 0; i < heaters.Count; i++)
             {
-                if (preview != heaters[i].getValue()) flag = false;
+                if (temp != heaters[i].getValue()) flag = false;
             }// for
-            if (flag == true) notifyadjustAllHeaterToObsevers(preview);
+            if (flag == true) notifyadjustAllHeaterToObsevers(temp);
         } // notifySwitchOffByRoomToObsevers
 
         protected void notifyadjustAllHeaterToObsevers(double temp)
