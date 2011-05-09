@@ -75,7 +75,7 @@ namespace SmartHome
         private void trackbarApertureBlindByRoom_Scroll(object sender, EventArgs e)
         {
             int id_blind = inverseDictionaryTrackBarApertureBlind[(TrackBar)sender];
-            gateway.blindMng_adjustBlind(id_blind, dictionaryTrackBarApertureByRoom[id_blind].Value);
+            gateway.blindMng_adjustBlind(id_blind, dictionaryTrackBarApertureBlindByRoom[id_blind].Value);
         }// trackbarApertureBlindByRoom_Scroll
 
     }// GatewayGUI

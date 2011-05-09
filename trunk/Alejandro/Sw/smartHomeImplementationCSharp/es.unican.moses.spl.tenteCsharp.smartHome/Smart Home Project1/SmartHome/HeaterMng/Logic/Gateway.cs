@@ -135,7 +135,7 @@ namespace SmartHome
         /// <param name="id_heater">Heater identifier</param>
         public virtual void heaterMng_switchOnHeater(int id_heater)
         {
-            heaterMng_HeaterAdjustTemperature(id_heater, desiredTemperature);
+            heaterAdjustTemperature(id_heater, desiredTemperature); //Variable Method
             notifySwitchOnByRoomToObsevers(id_heater);
         }//heaterMng_switchOnHeater
 
@@ -256,7 +256,17 @@ namespace SmartHome
             foreach (IGatewayGUIHeaterObserver observer in observersGatewayHeater)
             {
                 observer.switchOnByRoom(id_heater);
-            } // foreach
+            } // foreach           
+            //If all heater have the same degrees, we will change the global aperture
+            bool flagOn = true;
+            bool flagOff = true;
+            for (int i = 0; i < heaters.Count; i++)
+            {
+                if (heaters[i].getStatus()==false) flagOn = false;
+                if (heaters[i].getStatus() == true) flagOff = false;
+            }// for
+            if (flagOn == true) notifySwitchOnAllHeaterToObsevers();
+            if (flagOff == true) notifySwitchOffAllHeaterToObsevers();
         } // notifySwitchOnByRoomToObsevers
 
         protected void notifySwitchOffByRoomToObsevers(int id_heater)
@@ -273,6 +283,14 @@ namespace SmartHome
             {
                 observer.adjustHeaterByRoom(id_heater, temp);
             } // foreach
+            //If all heater have the same degrees, we will change the global aperture
+            bool flag = true;
+            double preview = heaters[0].getValue();
+            for (int i = 1; i < heaters.Count; i++)
+            {
+                if (preview != heaters[i].getValue()) flag = false;
+            }// for
+            if (flag == true) notifyadjustAllHeaterToObsevers(preview);
         } // notifySwitchOffByRoomToObsevers
 
         protected void notifyadjustAllHeaterToObsevers(double temp)

@@ -118,18 +118,12 @@ namespace SmartHome
         public void smartEnergy_HeaterAdjustTemperature(int id, double temperature)
         {
 
+            this.heaterMng_HeaterAdjustTemperature(id, temperature);
             if (this.statusSmartEnergyMng)
             {
                 HeaterCtrl h = heaterMng_findHeater(id);
-                int id_room = h.getIdRoom();
-                List<WindowCtrl> w = windowMng_findWindowsCtrlByRoom(id_room);
-                for (int i = 0; i < w.Count; i++)
-                {
-                    this.id_window = w[i].getId();
-                    windowMng_adjustWindow(id_window, 0);
-                }//for
-            }//if
-            this.heaterMng_HeaterAdjustTemperature(id, temperature);
+                windowMng_allAdjustWindows(0);                 
+            }//if            
         }//smartEnergy_HeaterAdjustTemperature
 
         #region Timetables in XML

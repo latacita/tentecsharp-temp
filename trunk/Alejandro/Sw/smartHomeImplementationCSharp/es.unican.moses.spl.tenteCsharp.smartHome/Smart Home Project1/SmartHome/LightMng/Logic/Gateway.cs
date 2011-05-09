@@ -41,10 +41,10 @@ namespace SmartHome
 
         #region Getters and Setters
 
-        public List<LightCtrl> lightMng_getLights()
+        public List<LightCtrl> lightMng_getLigths()
         {
             return lights;
-        }//lightMng_getLights
+        }//lightMng_getLigths
 
         public List<LightSensor> lightMng_getLigthsSensors()
         {
@@ -64,7 +64,7 @@ namespace SmartHome
                 //Change the light actuator
                 lightMng_adjustLight(lights[i].getId(), lighting);               
             }//for
-            notifyAdjustAllLigthToObsevers(lighting);
+            notifyAdjustAllLightToObsevers(lighting);
 
         }//lightMng_allAdjustLights
 
@@ -148,9 +148,17 @@ namespace SmartHome
             {
                 observer.adjustLigthByRoom(id_ligth, ligthing);
             } // foreach
+            //If all lights have the same lighting, we will change the global lighting
+            bool flag = true;
+            double preview = lightsSensors[0].getValue();
+            for (int i = 1; i < lightsSensors.Count; i++)
+            {
+                if (preview != lightsSensors[i].getValue()) flag = false;
+            }// for
+            if (flag == true) notifyAdjustAllLightToObsevers(Convert.ToInt32(preview));
         } // notifyAdjustWindowByRoomToObsevers
 
-        protected void notifyAdjustAllLigthToObsevers(int ligthing)
+        protected void notifyAdjustAllLightToObsevers(int ligthing)
         {
             foreach (IGatewayGUILightObserver observer in observersGatewayLight)
             {
