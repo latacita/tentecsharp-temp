@@ -6,159 +6,171 @@ using System.Text;
 namespace SmartHome
 {
     //=================================================================================================//
-    // This class represent the central gateway of the Smart Home which process all commands           //
-    // This file only contains the functionality related to the WindowMng feature                      //
+    // This class represents the central gateway of the Smart Home which process all commands          //
+    // This file only contains the functionality related to the BlindMng feature                       //
     //=================================================================================================//
-    public partial class Gateway : ISubjectGatewayWindow
+
+    public partial class Gateway : ISubjectGatewayBlind
     {
-        // WindowCtrl collection
-        protected List<WindowCtrl> windows = null;
-        // WindowSensor collection
-        protected List<WindowSensor> windowsSensors = null;
+        // BlindCtrl collection
+        protected List<BlindCtrl> blinds = null;
+        // BlindSensor collection
+        protected List<BlindSensor> blindsSensors = null;
         //List of observers
-        ICollection<IGatewayGUIWindowObserver> observersGatewayWindow = new LinkedList<IGatewayGUIWindowObserver>();
+        ICollection<IGatewayGUIBlindObserver> observersGatewayBlind = new LinkedList<IGatewayGUIBlindObserver>();
 
-        #region Constructor
-        //Constructor
-        public void initWindowMng()
+        /// <summary>
+        /// Constructor to initialize the BlindMng feature
+        /// </summary>
+        public void initBlindMng()
         {
-            this.windows = new List<WindowCtrl>();
-            this.windowsSensors = new List<WindowSensor>();
-        }//initWindowMng
-        #endregion
-
+            this.blinds = new List<BlindCtrl>();
+            this.blindsSensors = new List<BlindSensor>();
+        }//initBlindMng
 
         #region Getters and Setters
-
-        public List<WindowCtrl> windowMng_getWindows()
+        public List<BlindCtrl> blindMng_getBlinds()
         {
-            return windows;
-        }//windowMng_getWindows
+            return blinds;
+        }//blindMng_getBlinds
 
-        public List<WindowSensor> windowMng_getWindowsSensors()
+        public List<BlindSensor> blindMng_getBlindsSensors()
         {
-            return windowsSensors;
-        }//windowMng_getWindowsSensors
-
+            return blindsSensors;
+        }//blindMng_getBlindsSensors
         #endregion
-        
-
-        public void windowMng_addWindowCtrl(WindowCtrl w)
-        {
-            this.actuators.Add(w);
-            this.windows.Add(w);
-        } // windowMng_addWindowCtrl
-
-        public void windowMng_addWindowSensor(WindowSensor ws)
-        {
-            this.sensors.Add(ws);
-            this.windowsSensors.Add(ws);
-        }// windowMng_addWindowSensor
 
         /// <summary>
-        /// Method to adjust the aperture of a all windows
+        /// Add a new blind actuator in the gateway
         /// </summary>
-        /// <param name="lighting">Aperture</param>
-        public void windowMng_allAdjustWindows(int aperture)
+        /// <param name="b">A new BlindCtrl</param>
+        public void blindMng_addBlindCtrl(BlindCtrl b)
         {
-            for (int i = 0; i < windows.Count; i++)
+            this.actuators.Add(b);
+            this.blinds.Add(b);
+        } // blindMng_addBlindCtrl
+
+        /// <summary>
+        /// Add a new blind sensor in the gateway
+        /// </summary>
+        /// <param name="bs">A new BlindSensor</param>
+        public void blindMng_addBlindSensor(BlindSensor bs)
+        {
+            this.sensors.Add(bs);
+            this.blindsSensors.Add(bs);
+        }// blindMng_addBlindSensor(BlindSensor)
+
+        /// <summary>
+        /// Adjust all blinds with a specific aperture
+        /// </summary>
+        /// <param name="aperture">Number of degerees(0-100) to open/close all blinds</param>
+        public void blindMng_allAdjustBlinds(int aperture)
+        {
+            for (int i = 0; i < blinds.Count; i++)
             {
-                //Change the window actuator
-                windowMng_adjustWindow(windows[i].getId(), aperture);
-                //Change the window sensor
-                windowMng_findWindowSensorByidWindow(windows[i].getId()).setValue(aperture);
+                //Change the Blind actuator
+                blindMng_adjustBlind(blinds[i].getId(), aperture);
+                //Change the Blind sensor
+                blindMng_findBlindSensorByidBlind(blinds[i].getId()).setValue(aperture);
             }//for
-            notifyAdjustAllWindowToObsevers(aperture);
-        }//adjustAllWindows
+            notifyAdjustAllBlindToObsevers(aperture);
+        }// adjustAllblinds(int)
 
         /// <summary>
-        /// Method to find a window sensor through its identifier
+        /// Method to find a blind sensor through its blind actuator identifier
         /// </summary>
-        /// <param name="id_ligth">Light idenfifier</param>
-        /// <returns>WindowSensor</returns>
-        public WindowSensor windowMng_findWindowSensorByidWindow(int id_window)
+        /// <param name="id_blind">blind actuator identifier</param>
+        /// <returns>BlindSensor</returns>
+        public BlindSensor blindMng_findBlindSensorByidBlind(int id_blind)
         {
-            for (int i = 0; i < windowsSensors.Count; i++)
+            for (int i = 0; i < blindsSensors.Count; i++)
             {
-                if (windowsSensors[i].getIdActuator() == id_window) return windowsSensors[i];
+                if (blindsSensors[i].getIdActuator() == id_blind) return blindsSensors[i];
             }
             return null;
-        }//windowMng_findWindowSensorByidWindow
-
+        }// blindMng_findBlindSensorByidBlind(int)
 
         /// <summary>
-        /// Method to find all the widnows actuators in a specific room
+        /// Method to find a BlindCtrl list that belongs to the same window
         /// </summary>
-        /// <param name="id_room">Room identifier</param>
-        /// <returns>WindowCtrl list</returns>
-        public List<WindowCtrl> windowMng_findWindowsCtrlByRoom(int id_room)
+        /// <param name="id_window">Window identifier</param>
+        /// <returns>BlindCtrl list</returns>
+        public List<BlindCtrl> blindMng_findblindsCtrlByWindow(int id_window)
         {
-            List<WindowCtrl> w = new List<WindowCtrl>();
-            for (int i = 0; i < windows.Count; i++)
+            List<BlindCtrl> b = new List<BlindCtrl>();
+            for (int i = 0; i < blinds.Count; i++)
             {
-                if (windows[i].getIdRoom() == id_room) w.Add(windows[i]);
+                if (blinds[i].getIdWindow() == id_window) b.Add(blinds[i]);
 
             }//for
-            return w;
-        }//windowMng_findWindowsCtrlByRoom
-
+            return b;
+        }//blindMng_findblindsCtrlByRoom
+        
         /// <summary>
-        /// Method to find a specific window actuator thorught its identifier
+        /// Method to find a blind actuator through its identifier
         /// </summary>
-        /// <param name="id_ligth">Window identifier</param>
-        /// <returns>WindowCtrl</returns>
-        public WindowCtrl windowMng_findWindowCtrl(int id_window)
+        /// <param name="id_blind">BlindCtrl identifier</param>
+        /// <returns>BlindCtrl</returns>
+        public BlindCtrl blindMng_findBlindCtrl(int id_blind)
         {
-            for (int i = 0; i < windows.Count; i++)
+            for (int i = 0; i < blinds.Count; i++)
             {
-                if (windows[i].getId() == id_window) return windows[i];
+                if (blinds[i].getId() == id_blind) return blinds[i];
 
             }//for
             return null;
 
-        }//windowMng_findWindowCtrl
+        }//blindMng_findBlindCtrl
 
         /// <summary>
-        /// Method to adjust the aperture of a specific window
+        /// Adjust a blind with a specific aperture
         /// </summary>
-        /// <param name="id_ligth">Window identifier</param>
-        /// <param name="lighting">Aperture</param>
-        public void windowMng_adjustWindow(int id_window, int aperture)
+        /// <param name="id_blind">Identifier for the blind actuator</param>
+        /// <param name="aperture">Number of degerees(0-100) to open/close the blind</param>
+        public void blindMng_adjustBlind(int id_blind, int aperture)
         {
-            //Change the window actuator
-            windowMng_findWindowCtrl(id_window).setValue(aperture);
-            //Change the window sensor(only for simulator purposes)
-            windowMng_findWindowSensorByidWindow(id_window).setValue(aperture);
-            notifyAdjustWindowByRoomToObsevers(id_window, aperture);
-        }//windowMng_adjustWindow
+            //Change the Blind actuator
+            blindMng_findBlindCtrl(id_blind).setValue(aperture);
+            //Change the Blind sensor
+            blindMng_findBlindSensorByidBlind(id_blind).setValue(aperture);
+            notifyAdjustBlindByRoomToObsevers(id_blind, aperture);
+        }//blindMng_adjustBlind
 
         #region Subject-Observer Pattern
         /// <summary>
         ///     Register a new observer in the observer list
         /// </summary>
         /// <param name="obs">The observer to be registered</param>
-        public void registerObserverWindow(IGatewayGUIWindowObserver observer)
+        public void registerObserverBlind(IGatewayGUIBlindObserver observer)
         {
-            this.observersGatewayWindow.Add(observer);
-        }// registerObserverWindow
+            this.observersGatewayBlind.Add(observer);
+        }// registerObserverBlind
 
         /// <summary>
         ///     Notify that the value of the sensor has changed to all the observers registered
         ///     in the observer list
         /// </summary>
-        protected void notifyAdjustWindowByRoomToObsevers(int id_window, int aperture)
+        protected void notifyAdjustBlindByRoomToObsevers(int id_blind, int aperture)
         {
-            foreach (IGatewayGUIWindowObserver observer in observersGatewayWindow)
+            foreach (IGatewayGUIBlindObserver observer in observersGatewayBlind)
             {
-                observer.adjustWindowByRoom(id_window, aperture);
+                observer.adjustBlindByRoom(id_blind, aperture);
             } // foreach
-        } // notifyAdjustWindowByRoomToObsevers
-
-        protected void notifyAdjustAllWindowToObsevers(int aperture)
-        {
-            foreach (IGatewayGUIWindowObserver observer in observersGatewayWindow)
+            //If all blinds have the same aperture, we will change the global aperture
+            bool flag = true;
+            double preview = blindsSensors[0].getValue();
+            for (int i = 1; i < blindsSensors.Count; i++)
             {
-                observer.adjustAllWindow(aperture);
+                if (preview != blindsSensors[i].getValue()) flag = false;
+            }// for
+            if (flag == true) notifyAdjustAllBlindToObsevers(Convert.ToInt32(preview));
+        } // notifyAdjustBlindByRoomToObsevers
+
+        protected void notifyAdjustAllBlindToObsevers(int aperture)
+        {
+            foreach (IGatewayGUIBlindObserver observer in observersGatewayBlind)
+            {
+                observer.adjustAllBlinds(aperture);
             } // foreach
         } // notifySwitchOnByRoomToObsevers
 

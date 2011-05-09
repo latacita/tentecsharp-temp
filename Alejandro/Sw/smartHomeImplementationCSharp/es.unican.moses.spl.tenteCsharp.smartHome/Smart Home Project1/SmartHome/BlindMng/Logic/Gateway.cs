@@ -156,6 +156,14 @@ namespace SmartHome
             {
                 observer.adjustBlindByRoom(id_blind, aperture);
             } // foreach
+            //If all blinds have the same aperture, we will change the global aperture
+            bool flag = true;
+            double preview = blindsSensors[0].getValue();
+            for (int i = 1; i < blindsSensors.Count; i++)
+            {
+                if (preview != blindsSensors[i].getValue()) flag = false;
+            }// for
+            if (flag == true) notifyAdjustAllBlindToObsevers(Convert.ToInt32(preview));
         } // notifyAdjustBlindByRoomToObsevers
 
         protected void notifyAdjustAllBlindToObsevers(int aperture)

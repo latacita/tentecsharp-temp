@@ -79,5 +79,5 @@ namespace SmartHome
             gateway.windowMng_adjustWindow(id_window, dictionaryTrackBarApertureByRoom[id_window].Value);
         }// trackbarApertureByRoom_Scroll
 
-    }
-}
+    }// GatewayGUI
+}// SmartHome
