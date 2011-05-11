@@ -10,5 +10,29 @@
 \label{chap:application}
 
 % Introducción al capítulo
+En este capítulo se describirá la fase de ingeniería de aplicación o \emph{application engineering}, en inglés. Se mostrarán cuál ha sido el procedimiento para componer características...\todo{COMPLETAR}
 
 \chaptertoc
+\section{Proceso de composición de características}
+%% Section{Proceso de composición de las features}
+%% (explicar como se ha conseguido **Hacerlo bien**)
+En el capítulo \ref{chap:domain} se ha descrito el proceso para crear la infraestructura que necesitará la fase de ingeniería de aplicación para poder derivar configuraciones tan automáticamente como sea posible. Por lo tanto, lo primero que se debe realizar es conseguir un método o procedimiento para la composición de las características. Para ello, se debe separar la infraestructura creada en la fase de ingeniería de domino de la que se creará en este capítulo, ya que el objetivo es que las aplicaciones que se deriven no modifiquen ningún elemento de la infraestructura de la ingeniería de dominio, sino que se seleccionen las características que se necesitan y se compilen. Obviamente esto permite que las aplicaciones sean más seguras y no se puedan desbloquear característica que no deberían existir en una configuración específica.
+
+Esta línea de productos software se desarrolla bajo el IDE Visual Studio 2010\cite{randolph:2010}, en él se pueden crear proyectos que son el punto de inicio para la creación de aplicaciones, componentes y servicios. Los proyectos actúan como contenedores que administran el código fuente, las conexiones de datos y las referencias. Un proyecto se organiza como parte de una solución, que puede contener múltiples proyectos dependientes entre sí. Por lo tanto, para el desarrollo de la línea de productos software actual se tiene una solución que posee un proyecto que contiene la infraestructura creada en la fase de ingeniería de dominio, por lo que se define un nuevo proyecto que contendrá toda los artefactos creados en la fase actual. Para que ambos proyectos se encuentren relacionados y compartan el mismo espacio de nombres es necesario añadir una referencia en el nuevo proyecto que apunte al otro proyecto. La primera cuestión que se debe resolver es ¿Cómo componer las diferentes características desde el nuevo proyecto? La respuesta más obvia es utilizar el espacio de nombres común de ambos proyectos, definir un método \imp{Main} que instancia los elementos necesarios e indicar al compilador que características compilar. Pero esto no es posible implementarlo de esta manera, ya que no se debe olvidar que algunos métodos deben ser modificados según la características seleccionadas, tal y como ocurría, por ejemplo, con el método \imp{heaterAdjustTemperature()}. Por lo que desde el nuevo proyecto se debería poder definir las clases parciales de la fase de ingeniería de dominio para extenderlas con los métodos necesarios, y esto no se puede realizar con Visual Studio 2010. Por lo tanto, se ha tenido que desarrollar un procedimiento que represente una alternativa a esto.
+
+
+
+
+
+
+\section{Metamodelo y modelos}
+
+%% Section{Plantillas de Generación de Código}
+
+%%% Muy breve
+
+%% Section{Metamodelo y Modelo}
+
+%%% Muy breve
+
+%% Section{Instaladores y Despliegue} 
