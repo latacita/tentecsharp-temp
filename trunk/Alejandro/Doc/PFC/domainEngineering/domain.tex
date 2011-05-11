@@ -212,7 +212,7 @@ El siguiente requisito que es necesario implementar es el encargado de cerrar la
 \begin{center}
 \begin{footnotesize}
 \begin{verbatim}
-00 public void heaterAdjustTemperature(int id_heater, double temperature) 
+00 public void heaterAdjustTemperature(int id_heater, double temperature)
 01 {
 02      smartEnergyMng_heaterAdjustTemperature(id_heater, temperature);
 03 }
@@ -238,10 +238,28 @@ Otro conjunto de tests son los destinados a comprobar que los calefactores se ap
 
 La última batería de tests es la encargada de comprobar que las ventanas son cerradas si el control de energía está encendido y alguno de los calefactores de la casa está encendido. Por lo tanto se crean diferentes estancias de la casa con distintas distribuciones de ventanas y calefactores en las habitaciones, y se comprueba que todas las ventanas son cerradas siempre y cuando se cumplan las dos condiciones anteriores.
 
+La siguiente sección describirá brevemente las iteraciones restantes para terminar de implementar la ingeniería de domino de esta línea de productos software.
+
 
 \section{Otras iteraciones}
 %% Section{Otras iteraciones}
 
 %% Muy resumido y destacando lo que te apetezca destacar
+Como se ha podido observar en las iteraciones anteriores se sigue un procedimiento muy simular en todas ellas, ya que siempre se están utilizando las clases parciales como un mecanismo para añadir nueva funcionalidad a una clase existente. 
+
+En UML las características son agrupadas como paquetes. Un \emph{paquete} es definido en UML como un elemento de modelado usado para agrupar otros elementos de modelado, para de este modo obtener un espacio de nombres para los elementos agrupados.
+La relación \emph{merge} entre dos paquetes, indica que el contenido de ambos es combinado, la especificación UML establece que esta relación se debe usar cuando los elementos de los paquetes tienen el mismo nombre y representan el mismo concepto\cite{omg:uml:2005}. Por lo que podemos definir un diagrama de paquetes como el mostrado en la figura \ref{domain:fig:packageDiagram}, en el que todas las características se conectan a través de una relación \emph{merge}. Por lo tanto, a través de la figura \ref{domain:fig:packageDiagram} se puede reflejar que todas las características realizan una combinación de sus elementos con el mismo nombre haciendo uso de las clases parciales.
+\begin{figure}[!tb]
+ \centering
+ \includegraphics[width=.75\linewidth]{domainEngineering/Images/packageDiagram.eps} \\
+ \caption{Diagrama de paquetes con todas las características.}
+ \label{domain:fig:packageDiagram}
+\end{figure}
+
+Tras realizar todas las iteraciones necesarias para implementar la ingeniería de dominio, se consigue tener un sistema dividido que encapsula características que pueden ser combinadas y compiladas de diferentes maneras, siempre y cuando se respeten las restricciones básicas.
+
 \section{Sumario}
 
+En este capítulo se ha mostrado el proceso llevado a cabo para realizar la fase de ingeniería de dominio en esta línea de productos software, en la cual se han utilizado las clases parciales de C\# como principal mecanismo para encapsular las características. No obstante, las clases parciales presentan alguna limitación para encapsular correctamente, por lo que se han desarrollado y expuesto mecanismos para suplir estas limitaciones. 
+
+El siguiente capítulo mostrará como utilizando la infraestructura desarrollada anteriormente, se pueden crear aplicaciones específicas adaptadas a los requerimientos de los usuarios. 
