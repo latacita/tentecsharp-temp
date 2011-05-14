@@ -86,6 +86,12 @@ Kyo~Chul Kang, Jaejoon Lee, and Patrick Donohoe.
 \newblock Feature-oriented project line engineering.
 \newblock {\em IEEE Software}, 19(4):58--65, 2002.
 
+\bibitem[Kle08]{kleppe:2008}
+Anneke Kleppe.
+\newblock {\em {Software Language Engineering: Creating Domain-Specific
+  Languages Using Metamodels}}.
+\newblock Addison-Wesley Professional, December 2008.
+
 \bibitem[LGBM07]{laguna:2007}
 Miguel~A. Laguna, Bruno Gonz{\'a}lez-Baixauli, and Jos{\'e}~M. Marqu{\'e}s.
 \newblock {Seamless development of software product lines}.
@@ -113,6 +119,12 @@ David~A. Moon.
 \newblock {Object-Oriented Programming with Flavors}.
 \newblock In {\em OOPSLA}, pages 1--8, 1986.
 
+\bibitem[Om05]{omg:uml:2005}
+G.~Om.
+\newblock {Unified Modeling Language: Superstructure version 2.0,
+  formal/05-07-04}.
+\newblock Technical report, Object Management Group, 2005.
+
 \bibitem[PBvdL05]{pohl:2005}
 Klaus Pohl, Gunter Bockle, and Frank van~der Linden.
 \newblock {\em {Software Product Line Engineering}}.
@@ -127,6 +139,12 @@ Stephen~R. Palmer and John~M. Felsing.
 Christian Prehofer.
 \newblock Feature-oriented programming: A new way of object composition.
 \newblock 2001.
+
+\bibitem[RGAM10]{randolph:2010}
+Nick Randolph, David Gardner, Chris Anderson, and Michael Minutillo.
+\newblock {\em {Professional Visual Studio 2010 (Wrox Programmer to
+  Programmer)}}.
+\newblock May 2010.
 
 \bibitem[Tor04]{togersen:2004}
 Mads Torgersen.

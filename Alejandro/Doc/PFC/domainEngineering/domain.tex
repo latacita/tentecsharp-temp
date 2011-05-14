@@ -185,6 +185,7 @@ Para las pruebas en esta característica se han realizado una serie de test, que 
 La siguiente sección describe el proceso de desarrollo de la característica \emph{SmartEnergyMng},que necesitará de la existencia de la característica de la sección actual, como la de la anterior.
 
 \section{Iteración 4: SmartEnergyMng}
+%\label{sec:domain:smartEnergy}
 %% Section{Iteración 4: SmartEnergyMng}
 
 %%% Introducción justificando por qué
@@ -245,7 +246,7 @@ La siguiente sección describirá brevemente las iteraciones restantes para termin
 %% Section{Otras iteraciones}
 
 %% Muy resumido y destacando lo que te apetezca destacar
-Como se ha podido observar en las iteraciones anteriores se sigue un procedimiento muy simular en todas ellas, ya que siempre se están utilizando las clases parciales como un mecanismo para añadir nueva funcionalidad a una clase existente. 
+Como se ha podido observar en las iteraciones anteriores se sigue un procedimiento muy simular en todas ellas, ya que siempre se están utilizando las clases parciales como un mecanismo para añadir nueva funcionalidad a una clase existente.
 
 En UML las características son agrupadas como paquetes. Un \emph{paquete} es definido en UML como un elemento de modelado usado para agrupar otros elementos de modelado, para de este modo obtener un espacio de nombres para los elementos agrupados.
 La relación \emph{merge} entre dos paquetes, indica que el contenido de ambos es combinado, la especificación UML establece que esta relación se debe usar cuando los elementos de los paquetes tienen el mismo nombre y representan el mismo concepto\cite{omg:uml:2005}. Por lo que podemos definir un diagrama de paquetes como el mostrado en la figura \ref{domain:fig:packageDiagram}, en el que todas las características se conectan a través de una relación \emph{merge}. Por lo tanto, a través de la figura \ref{domain:fig:packageDiagram} se puede reflejar que todas las características realizan una combinación de sus elementos con el mismo nombre haciendo uso de las clases parciales.
@@ -260,6 +261,6 @@ Tras realizar todas las iteraciones necesarias para implementar la ingeniería de
 
 \section{Sumario}
 
-En este capítulo se ha mostrado el proceso llevado a cabo para realizar la fase de ingeniería de dominio en esta línea de productos software, en la cual se han utilizado las clases parciales de C\# como principal mecanismo para encapsular las características. No obstante, las clases parciales presentan alguna limitación para encapsular correctamente, por lo que se han desarrollado y expuesto mecanismos para suplir estas limitaciones. 
+En este capítulo se ha mostrado el proceso llevado a cabo para realizar la fase de ingeniería de dominio en esta línea de productos software, en la cual se han utilizado las clases parciales de C\# como principal mecanismo para encapsular las características. No obstante, las clases parciales presentan alguna limitación para encapsular correctamente, por lo que se han desarrollado y expuesto mecanismos para suplir estas limitaciones.
 
 El siguiente capítulo mostrará como utilizando la infraestructura desarrollada anteriormente, se pueden crear aplicaciones específicas adaptadas a los requerimientos de los usuarios. 
