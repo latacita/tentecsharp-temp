@@ -54,17 +54,17 @@
 \begin{document}
 
 % Cover page
-%\input{cover/cover.tex}
+\input{cover/cover.tex}
 
-% \input{cover/supervisorApproval.tex}
+\input{cover/supervisorApproval.tex}
 
-% \input{cover/firstPage.tex}
+\input{cover/firstPage.tex}
 
 % reset page numbering
 \input{config/begin.tex}
 
 % acknowledgement
-% \input{cover/acknowledgements.tex} % acknowledgements
+\input{cover/acknowledgements.tex} % acknowledgements
 
 % Preface
 %\input{introduction/preface-lff.tex}   % preface
@@ -89,7 +89,7 @@
 \input{domainEngineering/domain.tex}
 
 % Capítulo 5: Domain Engineering
-\input{applicationEngineering/domain.tex}
+\input{applicationEngineering/application.tex}
 %% Section{Definición Arquitectónica}
 %%% Contar que es el gateway como lo controla todo
 %%% Cuenta lo de los observadores
