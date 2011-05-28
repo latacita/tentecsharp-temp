@@ -50,7 +50,6 @@
 
 \setcounter{minitocdepth}{1}
 
-
 \begin{document}
 
 % Cover page
@@ -67,7 +66,11 @@
 %\input{cover/acknowledgements.tex} % acknowledgements
 
 % Preface
-%\input{introduction/preface-lff.tex}   % preface
+%% TODO: Descomentar esto y hacer un resumen en castellano
+\input{summary/resumen.tex}   % preface
+
+% y otro en inglés
+% \input{introduction/preface-lff.tex}   % preface
 
 % Toc
 % \input{config/toc.tex}
@@ -77,22 +80,22 @@
 \input{config/chapters.tex}
 
 % Capítulo 1: Introducción
-\input{introduction/introduction.tex} % Chapter 1
+% \input{introduction/introduction.tex} % Chapter 1
 
 % Capítulo 2: Resumen del Estado del Arte
-\input{background/background.tex}
+% \input{background/background.tex}
 
 % Capítulo 3: Definición y Planificación del Proyecto
-\input{planificacion/planificacion.tex}
+% \input{planificacion/planificacion.tex}
 
 % Capítulo 4: Domain Engineering
-\input{domainEngineering/domain.tex}
+% \input{domainEngineering/domain.tex}
 
 % Capítulo 5: Domain Engineering
-\input{applicationEngineering/application.tex}
+% \input{applicationEngineering/application.tex}
 
 %Capítulo 6: Conclusiones y Trabajos Futuros
-\input{conclusiones/conclusiones.tex}
+% \input{conclusiones/conclusiones.tex}
 %% Section{Definición Arquitectónica}
 %%% Contar que es el gateway como lo controla todo
 %%% Cuenta lo de los observadores
@@ -173,6 +176,11 @@
 %\input{config/appendix.tex}
 
 % Appendix A:
+\section{Apéndice A : Manuales de Usuario}
+
+Disponibles en el CD adjunto a esta memoria, en la carpeta Doc/XXX y en la URL
+XXXX.
+
 \input{apendixA/manualModeller.tex} % Appendix I
 
 % CONFIG: Bibliography style

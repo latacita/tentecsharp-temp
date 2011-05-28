@@ -8,7 +8,7 @@
 
 \section{Guía de uso para la creación de modelos y configuraciones}
 
-\subsection{Creación de un nuevo proyecto para modelar y configurar hogares inteligentes y/o automáticos}
+\section{Creación de un nuevo proyecto para modelar y configurar hogares inteligentes y/o automáticos}
 Para la creación de un nuevo proyecto que nos permita modelar y crear configuraciones diferentes de hogares inteligentes debemos seguir los siguientes pasos:
 \begin{enumerate}
 \item Abrimos Visual Studio.
@@ -16,38 +16,17 @@ Para la creación de un nuevo proyecto que nos permita modelar y crear configurac
 \item En la nueva ventana que se ha abierto seleccionamos el tipo de proyecto denominado \emph{Smart Home Project} y pulsamos sobre el botón \emph{OK}.
 \end{enumerate}
 
-\subsection{Modelar y crear configuraciones de hogares inteligentes y/o automáticos}
+\section{Modelar y crear configuraciones de hogares inteligentes y/o automáticos}
 Para crear un modelo de un hogar inteligente y/o automático debemos seguir los siguientes pasos:
 \begin{enumerate}
 \item A través de la ventana llamada \emph{Solution Explorer} hacemos doble click sobre el archivo \emph{smartHome.sh}, que se encuentra en el proyecto \emph{MyHome}.
-    \begin{center}
-            \includegraphics[width=.55\linewidth]{apendixA/images/solutionExplorer.eps}
-             \vspace{1cm}
-     \end{center} 
+    \todo{Poner foto del solution explorer}
 \item Ahora tendremos un canvas en el que podemos arrastrar elementos. El fondo blanco representa el hogar inteligente, es decir, todo lo que arrastremos al canvas será una nueva característica del hogar. Para ver los elementos que pueden ser arrastrados, debemos ir a la ventana \emph{Toolbox}, sino está visible pulsamos en \emph{View}-->\emph{Toolbox}.
-    \begin{center}
-            \includegraphics[width=.55\linewidth]{apendixA/images/toolbox.eps}
-             \vspace{1cm}
-     \end{center} 
-\item Los elementos que dependen de otros, como por ejemplo las habitaciones (\emph{Room}) necesitan de una planta (\emph{Floor}), es necesario arrastrarlos encima del elemento del que dependen. De este modo, los elementos \emph{Window}, \emph{Light}, \emph{Heater}, si quieren ser añadidos, deben ser arrastrados sobre una habitación. Mientras que el elemento \emph{Blind} deberá hacerlo sobre \emph{Window}.
      \begin{center}
-            \includegraphics[width=.75\linewidth]{apendixA/images/exampleSmartHome.eps}             
+            \includegraphics[width=.65\linewidth]{apendixA/images/toolbox.eps}
+            \vspace{1cm}
      \end{center} 
-\item Cuando tengamos el modelo preparado lo guardamos, y procedemos a generar el código correspondiente para esa configuración. Para ello, desde la ventana \emph{Solution Explorer}, debemos pulsar sobre el botón \emph{Transform All Templates}.
-    \begin{center}
-            \includegraphics[width=.45\linewidth]{apendixA/images/transformAllTemplates.eps}
-             \vspace{1cm}
-     \end{center} 
-\item Para ejecutar la configuración que hemos creado, hacemos click con el botón derecho sobre el proyecto denominado \emph{MyHome} y escogemos \emph{Debug}-->\emph{Start New Instance}
-     \begin{center}
-            \includegraphics[width=.65\linewidth]{apendixA/images/startNewInstance.eps}
-             \vspace{1cm}
-     \end{center} 
-\end{enumerate}
 
-Existe la posibilidad de que cuando guardemos una configuración nos alerte de algún error, si esto sucede, es porque hemos violado alguna de las restricciones que contiene un hogar inteligente, y se nos avisará de ello en la ventana \emph{Error List}. Por ejemplo, si añadimos la característica \emph{SmartEnergy}, sin que en ninguna de las habitaciones exista un calefactor y una ventana, se producirá un error por crear un modelo inválido.
-  \begin{center}
-            \includegraphics[width=.55\linewidth]{apendixA/images/error.eps}
-             \vspace{1cm}
-  \end{center}
+
+\end{eumerate}
 
