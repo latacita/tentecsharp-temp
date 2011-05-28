@@ -1,0 +1,82 @@
+%==================================================================%
+% Author : Perez Ruiz, Alejandro                                   %
+% Version: 1.0, 26/05/2011                                         %                                                                                     % Manual del modelador                                             %
+%==================================================================%
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage{url}
+\usepackage{amsfonts}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{graphicx}
+\usepackage{url}
+
+\title{User Manual for the installation and uninstallation}
+
+\author{Alejandro Pérez \\ Dpto. Matemáticas, Estadística y Computación \\
+		Universidad de Cantabria (Santander, Spain)}
+
+\begin{document}
+
+\maketitle
+\section{Instalación y desinstalación}
+Los dos plugins presentados en este proyecto están embebidos en Microsoft Visual Studio 2010 Professional, por lo tanto, el primer paso es obtener este IDE e instalarlo en el computador.
+
+\subsection{Instalación del plugin destinado a la creación de modelos}
+El plugin destinado a crear modelos específicos del hogar inteligente debe ser el primero en ser instalado, para ello:
+\begin{enumerate}
+\item Acudimos a la siguiente dirección web:
+
+    {\url{http://www.alumnos.unican.es/apr85/download.html}}
+    
+     y descargamos el plugin denominado \emph{SmartHomeModeller.msi}.
+\item Vamos al lugar donde hemos descargado el archivo anterior y hacemos doble click sobre él.
+\item Seguimos los pasos que nos aparecen en el asistente para finalizar la instalación, teniendo en cuenta el paso en el que se ofrece la posibilidad de elegir la ubicación para la instalación.\\\\
+    \begin{center}
+            \includegraphics[width=.65\linewidth]{images/ubicacionModeller.eps}
+            \vspace{1cm}
+     \end{center}
+
+\end{enumerate}
+
+\subsection{Desinstalación del plugin destinado a la creación de modelos}
+Existen dos formas de desinstalar el plugin:
+\begin{enumerate}
+\item Acudiendo en nuestra versión de Windows a \emph{Panel de Control}, seguidamente buscamos la opción de desinstalar programas, para luego encontra nuestro plugin a través de su nombre, \emph{SmartHome}.
+\item Si poseemos el archivo de instalación (\emph{SmartHomeModeller.msi}), abriéndolo nos aparecerá la opción de desinstalar (\emph{Remove smartHome}).
+     \begin{center}
+            \includegraphics[width=.65\linewidth]{images/removeModeller.eps}
+            \vspace{1cm}
+     \end{center}
+\end{enumerate}
+
+\subsection{Instalación del plugin que permite la creación de configuraciones}
+ Este plugin debe ser instalado en segundo lugar, puesto que necesita del anterior para permitirnos crear modelos de un hogar inteligente y/o automático. Para realizar la instalación se debe proceder a seguir los siguientes pasos:
+ \begin{enumerate}
+ \item Acudimos a la siguiente dirección web: 
+    
+    {\url{http://www.alumnos.unican.es/apr85/download}}
+     
+     y descargamos el plugin denominado \emph{smartHomeProject.vsix}.
+ \item Vamos al lugar donde hemos descargado el archivo anterior y hacemos doble click sobre él.
+ \item Seguimos el asistente de instalación para finalizar.
+
+ \end{enumerate}
+
+ \subsection{Desinstalación del plugin que permite la creación de configuraciones}
+ Para desinstalar este plugin debemos abrir Visual Studio 2010 y realizar los siguientes pasos:
+ \begin{enumerate}
+ \item Ve a \emph{Tools} y selecciona \emph{Extension Manager}.
+    \begin{center}
+            \includegraphics[width=.65\linewidth]{images/removeProject.eps}
+            \vspace{1cm}
+     \end{center}
+ \item Selecciona la extensión denominada \emph{Smart Home Project} y pulsamos \emph{Uninstall}.
+
+ \end{enumerate}
+
+ \section{Actualizaciones}
+ Si en la página web \url{http://www.alumnos.unican.es/apr85} aparece una nueva versión de alguno de los plugins que tenemos instalados, y queremos actualizar, es necesario desinstalar los actuales que se tienen en el ordenador siguiendo los pasos descritos anteriormente, para volver a descargar e instalar las nuevas versiones.
+
+
+\end{document} 
