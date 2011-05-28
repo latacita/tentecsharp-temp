@@ -1,15 +1,23 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2011.5.20)  26 MAY 2011 12:04
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.3.10)  28 MAY 2011 16:41
 entering extended mode
 **Modeller.tex
 
-("C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Doc\Manuales
-\Modeller\Modeller.tex"
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\Manuales\Modell
+er\Modeller.tex
 LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, sp
-anish, loaded.
-(C:\Escritura\Miktex\tex\latex\base\article.cls
+Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(C:\Escritura\Miktex\tex\latex\base\size11.clo
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size11.clo"
 File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -24,19 +32,19 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(C:\Escritura\Miktex\tex\latex\base\inputenc.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\inputenc.sty"
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
-(C:\Escritura\Miktex\tex\latex\base\latin1.def
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\latin1.def"
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ))
-(C:\Escritura\Miktex\tex\latex\ltxmisc\url.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
 \Urlmuskip=\muskip10
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-(C:\Escritura\Miktex\tex\latex\amsfonts\amsfonts.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \@emptytoks=\toks16
 \symAMSa=\mathgroup4
@@ -44,19 +52,19 @@ Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 )
-(C:\Escritura\Miktex\tex\generic\babel\babel.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2008/07/06 v3.8l The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Escritura\Miktex\tex\latex\00miktex\bblopts.cfg
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-(C:\Escritura\Miktex\tex\generic\babel\spanish.ldf
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\spanish.ldf"
 Language: spanish.ldf 2009/01/02 v5.0h Spanish support from the babel system
 
-(C:\Escritura\Miktex\tex\generic\babel\babel.def
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
@@ -70,79 +78,78 @@ Package babel Info: Making < an active character on input line 630.
 Package babel Info: Making > an active character on input line 630.
 Package babel Info: Making ' an active character on input line 657.
 ))
-(C:\Escritura\Miktex\tex\latex\graphics\graphicx.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Escritura\Miktex\tex\latex\graphics\keyval.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks18
 )
-(C:\Escritura\Miktex\tex\latex\graphics\graphics.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\Escritura\Miktex\tex\latex\graphics\trig.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(C:\Escritura\Miktex\tex\latex\00miktex\graphics.cfg
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: dvips.def on input line 91.
 
-(C:\Escritura\Miktex\tex\latex\graphics\dvips.def
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\dvips.def"
 File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 ))
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
-("C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Doc\Manuales
-\Modeller\Modeller.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Try loading font information for U+msa on input line 21.
- (C:\Escritura\Miktex\tex\latex\amsfonts\umsa.fd
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\Manuales\Modell
+er\Modeller.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Try loading font information for U+msa on input line 20.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 21.
-
-(C:\Escritura\Miktex\tex\latex\amsfonts\umsb.fd
+LaTeX Font Info:    Try loading font information for U+msb on input line 20.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 File: images/solutionExplorer.eps Graphic file (type eps)
- <images/solutionExplorer.eps>
-[1
+
+<images/solutionExplorer.eps> [1
 
 ]
 File: images/toolbox.eps Graphic file (type eps)
  <images/toolbox.eps> [2]
 File: images/exampleSmartHome.eps Graphic file (type eps)
- <images/exampleSmartHome.eps>
+
+<images/exampleSmartHome.eps>
 File: images/transformAllTemplates.eps Graphic file (type eps)
-
-<images/transformAllTemplates.eps>
+ <images/transformAllTemplates.eps>
 File: images/startNewInstance.eps Graphic file (type eps)
- <images/startNewInstance.eps> [3]
-File: images/error.eps Graphic file (type eps)
 
-<images/error.eps> [4]
-("C:\Documents and Settings\Pablo\Mis documentos\Alumnos\Alejandro\Doc\Manuales
-\Modeller\Modeller.aux") ) 
+<images/startNewInstance.eps> [3]
+File: images/error.eps Graphic file (type eps)
+ <images/error.eps> [4]
+(C:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\Manuales\Modell
+er\Modeller.aux) ) 
 Here is how much of TeX's memory you used:
- 1399 strings out of 495306
- 17655 string characters out of 3182336
- 69242 words of memory out of 3000000
- 4617 multiletter control sequences out of 15000+200000
+ 1399 strings out of 494020
+ 18159 string characters out of 3143896
+ 70896 words of memory out of 3000000
+ 4698 multiletter control sequences out of 15000+200000
  10142 words of font info for 38 fonts, out of 3000000 for 9000
- 14 hyphenation exceptions out of 8191
+ 714 hyphenation exceptions out of 8191
  25i,7n,27p,475b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Modeller.dvi (4 pages, 6988 bytes).
+Output written on Modeller.dvi (4 pages, 6880 bytes).
