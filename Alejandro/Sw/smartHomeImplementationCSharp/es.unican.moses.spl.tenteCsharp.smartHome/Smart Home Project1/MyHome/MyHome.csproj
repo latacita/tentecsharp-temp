@@ -161,6 +161,15 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>WindowCtrl.cs</LastGenOutput>
     </None>
+    <None Include="Manual\Manual.tex">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Manual.tt</DependentUpon>
+    </None>
+    <None Include="Manual\Manual.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Manual.tex</LastGenOutput>
+    </None>
     <None Include="Program.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Program.cs</LastGenOutput>
