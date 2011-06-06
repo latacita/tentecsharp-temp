@@ -2,15 +2,23 @@
 % Author : Alejandro Pérez Ruiz                                               %
 % Author : Pablo Sánchez Barreiro                                             %
 % Version: 1.0, 30/05/2011                                                    %
+% Version: 1.1, 06/05/2011                                                    %
 % Master Thesis: Resumen                                                      %
 %=============================================================================%
 
 \cdpchapter{Resumen}
 
-El objetivo de una línea de productos software \cite{pohl:2005} es crear una infraestructura adecuada a partir de la cual se puedan derivar, tan automáticamente como sea posible, productos concretos pertenecientes a una familia de productos software. Una familia de productos software es un conjunto de aplicaciones software similares, que por tanto comparten una serie de características comunes, pero que también presentan variaciones entre ellos.
+El objetivo de una \emph{línea de productos software}~\cite{pohl:2005} es crear una infraestructura adecuada a partir de la cual se puedan derivar, tan automáticamente como sea posible, productos concretos pertenecientes a una familia de productos software. Una \emph{familia de productos software} es un conjunto de aplicaciones software similares, que por tanto comparten una serie de características comunes, pero que también presentan variaciones entre ellos.
 
-El software para el control de hogares inteligentes o automatizados es un claro ejemplo de dominio donde un enfoque de líneas de productos software resulta muy adecuado. Dicho software presenta un amplio rango de variaciones debido a los diferentes dispositivos que pueden ser controlados en cada tipo de hogar (p. ej.: ventanas, puertas, luces, radiadores, etc.) y las funciones que se desean que dichos dispositivos cumplan (p. ej.: simulación de presencia, encendido y apagado automático de luces, control inteligente de la energía, etc.)
+El software para el control de hogares inteligentes o automatizados es un claro ejemplo de dominio donde un enfoque de líneas de productos software resulta muy adecuado. Dicho software presenta un amplio rango de variaciones debido a los diferentes dispositivos que pueden ser controlados en cada tipo de hogar (por ejemplo, ventanas, puertas, luces, radiadores, etc.) y las funciones que se desea que dichos dispositivos realicen (por ejemplo, simulación de presencia, encendido y apagado automático de luces, control inteligente de la energía, etc.).
 
-El objetivo del proyecto es una línea de productos software para hogares automáticos y/o inteligentes, de forma que se pueda automatizar el proceso de desarrollo de aplicaciones concretas para hogares específicos.  Dicha infraestructura se desarrolla en la plataforma .NET, usando Visual Studio 2010. Se usan las clases parciales de C\# como principal mecanismo para la modularización, composición y gestión de las diferentes características variables que conformarán la línea de productos software. La descripción o especificación informal de requisitos que debe cumplir la línea de productos está basada en un caso de estudio industrial proporcionado por Siemens AG.
+El objetivo del proyecto es crear una línea de productos software para hogares automáticos o inteligentes de forma que se pueda automatizar el proceso de desarrollo de aplicaciones concretas para hogares automatizados.  Dicha infraestructura ha sido desarrollada en la plataforma .NET, usando las clases parciales de C\# como principal mecanismo para la modularización, composición y gestión de las diferentes características variables que conformarán la línea de productos software. La especificación de requisitos que debe cumplir la línea de productos está basada en un caso de estudio industrial proporcionado por Siemens AG.
 
-De tal modo, que se han desarrollado dos plugins para el entorno de desarrollo Visual Studio 2010, que permiten a los usuarios modelar hogares automáticos y/o inteligentes seleccionando las características que mejor se adapten a sus requerimientos. Y a través de los modelos creados se derivan automáticamente las aplicaciones concretas para cada modelo.
+Las ventajas de éste enfoque es que se pueden crear productos software concretos, pertenecientes a la familia de productos, de forma automática mediante la simple  especificación de las características que se desea incluir en cada producto concreto. Por tanto, se reducen drásticamente los tiempos de desarrollo y en consecuencia el coste asociado a la construcción de cada producto concreto.
+
+Como resultado del proyecto, se han desarrollado una serie de extensiones para el entorno de desarrollo Visual Studio 2010. Dicho plugins permiten a los usuarios modelar hogares automáticos y/o inteligentes seleccionando las características que mejor se adapten a sus necesidades. A continuación, mediante técnicas de generación de código, se obtiene automáticamente todo el código correspondiente al producto software deseado.
+
+\paragraph{Palabras Clave} \ \\
+
+Línea de Productos Software, Desarrollo Software Orientado a Características, TENTE, Clases Parciales C\#, .NET
+

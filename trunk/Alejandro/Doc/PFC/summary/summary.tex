@@ -2,15 +2,23 @@
 % Author : Alejandro Pérez Ruiz                                               %
 % Author : Pablo Sánchez Barreiro                                             %
 % Version: 1.0, 30/05/2011                                                    %
+% Version: 1.1, 06/06/2011                                                    %
 % Master Thesis: Resumen                                                      %
 %=============================================================================%
 
 \cdpchapter{Preface}
 
-The goal of a software product line \cite{pohl:2005} is to create an adequate infrastructure from which you could construct, as automatically as possible, specific products within a software products family. A software products family is a set of similar software applications, which therefore share some common characteristics, but also have variations between them.
+The goal of a software product line~\cite{pohl:2005} is to create an adequate infrastructure from which specific products within a software products family
+can be constructed as automatically as possible. A \emph{family of software products} is a set of similar software applications, which share some common characteristics, but they also present variations between them.
 
-The software to control a smart home is an example of a domain where product line approach is really adequate. This software provides a wide range of variations due to to different devices can be controlled in each home type (eg.: windows, doors, lights, heaters...) and the functions that you want those devices comply (eg.: presence simulation, automatic on/off lights, smart energy control...)
+The software to control a smart home is an typical domain where a software product line approach is particularly suitable. This domain provides a wide range of variations due to the different devices to be controlled in each specific software setup (e.g., windows, doors, lights, heaters, etc.) and the functions these devices must execute (e.g., presence simulation, automatic light control, smart energy control, etc.).
 
-The aim of the project is a software product line for smart homes, so that you can automate the process of developing specific applications for specific homes. This infrastructure is developed on the platform .NET, using Visual Studio 2010. Partial classes of C\# are used as the main mechanism for modularization, composition and management of the different variable characteristics that compound the software product line. The description or informal specification of requirements to be met by the product line is based on an industrial case study provided by Siemens AG.
+This project aims to construct a software product line for automated houses. The final goal is to automate the development process of specific applications belonging to this family of products. This software product line has been developed on the platform .NET. C\# Partial classes have been used as the main mechanism for modularization, composition and management of the different variable features we have found inside this family of software products. The requirements specification for our software product line is based on an industrial case study provided by Siemens AG.
 
-Thus, we have developed two plugins for development environment Visual Studio 2010, which the users could model smart homes, selecting the features that best fit their requirements. And through these models, the users could derivate automatically specific applications for each model.
+The main benefit of creating such a software product line is to be able to create specific software products automatically by means of simply specifying which features must be included in each software product. This reduces the software development effort, decreasing the cost of each specific product.
+
+This project has produced as a result several extensions to Visual Studio 2010. These plugins allow developers to visually specify which features must be included in a specific product. Then, all the code required for running such a product is automatically obtained using automatic code generation. 
+
+\paragraph{Keywords} \ \\
+
+Software product Lines, Feature-Oriented Software Development, TENTE, C\# Partial Classes, .NET
