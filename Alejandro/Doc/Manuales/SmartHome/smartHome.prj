@@ -4,33 +4,63 @@
 0
 1
 :\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\pfc.tex
-20
+29
+5
 4
-2
 
 
 
 
 
 
-:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\Manuales\Modeller\Modeller.tex
-TeX:ES
-17838075 0 -1 856 -1 856 0 0 982 421 0 25 374 -1 -1 0 0 68 -1 -1 68 1 0 856 -1   0
-:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\Manuales\Modeller\ModellerEnglish.tex
-TeX
-1060843 0 -1 847 -1 608 0 0 982 421 0 193 187 -1 -1 0 0 -1 -1 -1 -1 1 0 608 -1   0
-smartHome.tex
-TeX
-269496315 0 -1 912 -1 610 0 0 982 421 0 25 204 -1 -1 0 0 -1 -1 -1 -1 1 0 610 -1   0
-:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\Manuales\Install\installEnglishVersion.tex
-TeX:ES
-17838075 0 -1 3538 -1 1862 0 0 982 421 0 161 731 -1 -1 0 0 68 -1 -1 68 1 0 1862 -1   0
 :\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\Manuales\Install\install.tex
 TeX:ES
-286273531 1 -1 4199 -1 3842 0 0 982 421 0 137 255 -1 -1 0 0 68 -1 -1 68 1 0 3842 -1   0
+17838075 0 -1 4199 -1 4206 0 0 982 421 0 145 357 -1 -1 0 0 68 -1 -1 68 1 0 4206 -1   0
+:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\Manuales\Install\installEnglishVersion.tex
+TeX:ES
+17838075 0 -1 3538 -1 1862 0 0 982 421 0 161 -480 -1 -1 0 0 68 -1 -1 68 1 0 1862 -1   0
+:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\Manuales\Modeller\Modeller.tex
+TeX:ES
+17838075 0 -1 3512 -1 3536 0 0 982 421 0 641 98 -1 -1 0 0 68 -1 -1 68 1 0 3536 -1   0
+:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\Manuales\Modeller\ModellerEnglish.tex
+TeX:ES
+17838075 0 -1 3097 -1 3124 0 0 982 421 0 569 1071 -1 -1 0 0 68 -1 -1 68 1 0 3124 -1   0
+smartHome.tex
+TeX:ES
+286273531 1 -1 1226 -1 1204 0 0 982 421 0 41 153 -1 -1 0 0 68 -1 -1 68 1 0 1204 -1   0
+:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\Manuales\Install\install.pdf
+DATA:UNIX
+273776882 0 0 1 0 1 0 0 982 421 1 73 0 -1 -1 0 0 -1 -1 -1 -1 1 0 1 0   0
+:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\introduction\introduction.tex
+TeX
+269496315 0 -1 2143 -1 2054 0 0 982 421 0 361 170 -1 -1 0 0 79 -1 -1 79 1 0 2054 -1   0
 :\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\pfc.tex
 TeX:ES
-286273531 0 -1 2860 -1 2860 0 0 982 421 0 201 1258 -1 -1 0 0 68 -1 -1 68 1 0 2860 -1   0
+286273531 0 -1 3023 -1 3334 0 0 982 421 0 25 374 -1 -1 0 0 68 -1 -1 68 1 0 3334 -1   0
+lightSimulation.tex
+TeX
+1060859 1 -1 649 -1 0 0 0 982 421 0 25 0 -1 -1 0 0 -1 -1 -1 -1 1 0 0 -1   0
+smartEnergyMng.tex
+TeX
+1060859 1 -1 1891 -1 0 0 0 982 421 0 25 0 -1 -1 0 0 -1 -1 -1 -1 1 0 0 -1   0
+heaterMng.tex
+TeX
+1060859 1 -1 1966 -1 0 0 0 982 421 0 25 0 -1 -1 0 0 -1 -1 -1 -1 1 0 0 -1   0
+baseSystem.tex
+TeX
+1060859 1 -1 820 -1 0 0 0 982 421 0 25 0 -1 -1 0 0 -1 -1 -1 -1 1 0 0 -1   0
+windowMng.tex
+TeX
+1060859 1 -1 1181 -1 0 0 0 982 421 0 25 0 -1 -1 0 0 -1 -1 -1 -1 1 0 0 -1   0
+lightMng.tex
+TeX
+1060859 0 -1 0 -1 1197 0 0 982 421 0 121 527 -1 -1 0 0 -1 -1 -1 -1 1 0 1197 -1   0
+blindMng.tex
+TeX
+1060859 1 -1 1174 -1 0 0 0 982 421 0 25 0 -1 -1 0 0 -1 -1 -1 -1 1 0 0 -1   0
+blindSimulation.tex
+TeX
+269496315 0 -1 668 -1 668 0 0 982 421 0 25 289 -1 -1 0 0 -1 -1 -1 -1 1 0 668 -1   0
 :\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\references\pfc.bib
 BibTeX
 1049586 0 303 22 303 1 0 0 982 421 0 25 374 -1 -1 0 0 17 0 0 17 1 0 1 303   0
@@ -43,9 +73,6 @@ TeX
 :\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\background\background.tex
 TeX
 17838059 1 -1 484 -1 0 0 0 982 421 0 25 0 -1 -1 0 0 79 -1 -1 79 1 0 0 -1   0
-:\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\introduction\introduction.tex
-TeX
-1060859 0 -1 1700 -1 2627 0 0 982 421 0 737 187 -1 -1 0 0 79 -1 -1 79 1 0 2627 -1   0
 :\Users\Iskander\Desktop\Universidad\PFC\Source\Alejandro\Doc\PFC\domainEngineering\domain.tex
 TeX
 17838075 1 -1 19418 -1 19501 0 0 982 421 0 697 238 -1 -1 0 0 68 -1 -1 68 1 0 19501 -1   0
@@ -78,16 +105,10 @@ DATA:INI:EDT
 >
 *config/pfc_options.tex
 *config/rename.tex
+*config/begin.tex
 *summary/resumen.tex
 *summary/summary.tex
 *Config/headers.tex
-*config/chapters.tex
-*introduction/introduction.tex
-*background/background.tex
-*planificacion/planificacion.tex
-*domainEngineering/domain.tex
-*applicationEngineering/application.tex
-*conclusiones/conclusiones.tex
 *config/bibliography.tex
 *references/pfc.bib
 <

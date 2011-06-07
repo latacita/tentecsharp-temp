@@ -1,7 +1,6 @@
 %==================================================================%
 % Author : Perez Ruiz, Alejandro                                   %
-% Version: 1.0, 26/05/2011                                         %                   %                                                                  %
-% Manual de ...                                                    %
+% Version: 1.0, 26/05/2011                                         %                                                                                     % Manual del modelador                                             %
 %==================================================================%
 \documentclass[a4paper,11pt]{article}
 
@@ -11,7 +10,7 @@
 \usepackage[spanish,activeacute]{babel}
 \usepackage{graphicx}
 
-\title{User Manual for the creation and configuration of Smart Home models}
+\title{Manual para la creación y configuración de modelos del hogar inteligente}
 
 \author{Alejandro Pérez \\ Dpto. Matemáticas, Estadística y Computación \\
 		Universidad de Cantabria (Santander, Spain)}
@@ -20,19 +19,17 @@
 
 \maketitle
 
-\section{Guía de uso para la creación de modelos y configuraciones}
-
-\subsection{Creación de un nuevo proyecto para modelar y configurar hogares inteligentes y/o automáticos}
+\section{Creación de un nuevo proyecto para modelar y configurar hogares inteligentes y/o automáticos}
 Para la creación de un nuevo proyecto que nos permita modelar y crear configuraciones diferentes de hogares inteligentes debemos seguir los siguientes pasos:
 \begin{enumerate}
 \item Abrimos Visual Studio.
-\item Pulsamos \emph{Archive} -->\emph{New...} --> \emph{Project}.
+\item Pulsamos \emph{Archive} \rightarrow \emph{New...} --> \emph{Project}.
 \item En la nueva ventana que se ha abierto seleccionamos el tipo de proyecto denominado \emph{Smart Home Project} y pulsamos sobre el botón \emph{OK}.
 \end{enumerate}
 
 
 
-\subsection{Modelar y crear configuraciones de hogares inteligentes y/o automáticos}
+\section{Modelar y crear configuraciones de hogares inteligentes y/o automáticos}
 Para crear un modelo de un hogar inteligente y/o automático debemos seguir los siguientes pasos:
 \begin{enumerate}
 \item A través de la ventana llamada \emph{Solution Explorer} hacemos doble click sobre el archivo \emph{smartHome.sh}, que se encuentra en el proyecto \emph{MyHome}.
