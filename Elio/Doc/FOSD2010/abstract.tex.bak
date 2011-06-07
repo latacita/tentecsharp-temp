@@ -1,8 +1,8 @@
 %=========================================================================%
 % Author: Pablo Sánchez                                                   %      
-% Paper: FOSD2010                                                         % 
+% Paper: FOSD2010 (abstract)                                              % 
 % Version: 1.0                                                            %
-% Date   : 2010/05/07      
+% Date   : 2010/05/07                                                     %  
 %=========================================================================%
 
 C\# partial classes allows developers to divide the implementation of a class into several slices where each slice contains an increment of functionality as compared to the other slices. Thus, combining different set of slices, we can get classes with a variable range of functionality. With this description, C\# partial classes seems to be, as also pointed out by other authors, a suitable mechanism for implementing feature-oriented designs. This paper explores this idea, by systematically applying C\# to a feature-oriented decomposition based on an industrial case study and comparing the results we previously obtained using the feature-oriented language CaesarJ. As main contributions, (1) we identify benefits and pitfalls of C\# partial classes for implementing feature-oriented decompositions; and (2) we outline potential solutions to alleviate these pitfalls. 
