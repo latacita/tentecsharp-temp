@@ -1,6 +1,7 @@
 %==================================================================%
 % Author : Perez Ruiz, Alejandro                                   %
-% Version: 1.0, 08/02/2011                                         %                   %                                                                  %
+% Version: 1.0, 08/02/2011                                         %                   % Version: 1.1, 08/02/2011                                         %
+%                                                                  %
 % Memoria del Proyecto Fin de Carrera                              %
 %==================================================================%
 
@@ -15,13 +16,11 @@
 \usepackage{url}
 \usepackage{amsfonts}
 \usepackage[spanish,activeacute]{babel}
-%Paquete para las imagenes
-%\usepackage[dvips]{graphicx}
 
 % Esto se añade porque a algún gracioso le apetecía que la fuente
 % de la portada fuese Arial
-\usepackage[T1]{fontenc}
-\usepackage[scaled]{uarial}
+% \usepackage[T1]{fontenc}
+% \usepackage[scaled]{uarial}
 
 % File with main configuration
 \input{config/pfc_options.tex}
@@ -77,100 +76,25 @@
 
 \input{Config/headers.tex}
 
-\input{config/chapters.tex}
+% \input{config/chapters.tex}
 
 % Capítulo 1: Introducción
-\input{introduction/introduction.tex} % Chapter 1
+% \input{introduction/introduction.tex} % Chapter 1
 
 % Capítulo 2: Resumen del Estado del Arte
-\input{background/background.tex}
+% \input{background/background.tex}
 
 % Capítulo 3: Definición y Planificación del Proyecto
-\input{planificacion/planificacion.tex}
+% \input{planificacion/planificacion.tex}
 
 % Capítulo 4: Domain Engineering
-\input{domainEngineering/domain.tex}
+% \input{domainEngineering/domain.tex}
 
 % Capítulo 5: Domain Engineering
-\input{applicationEngineering/application.tex}
+% \input{applicationEngineering/application.tex}
 
 %Capítulo 6: Conclusiones y Trabajos Futuros
-\input{conclusiones/conclusiones.tex}
-%% Section{Definición Arquitectónica}
-%%% Contar que es el gateway como lo controla todo
-%%% Cuenta lo de los observadores
-%%% Cuenta que el gateway viene a ser similar a un Mediator
-
-%% Section{Iteracion 1: Base System}
-
-%%% Requisitos específicos
-
-%%% Diseño UML
-
-%%% Diseño Interfaz Gráfica
-
-%%% Implementación
-
-%% Section{Iteración 2: HeaterMng}
-
-%%% Requisitos específicos
-
-%%% Diseño UML
-
-%%% Diseño Interfaz Gráfica
-
-%%% Implementación
-
-%%% Pruebas
-
-%% Section{Iteración 3: WindowMng}
-
-% Muy resumida
-
-%% Section{Iteración 4: SmartEnergyMng}
-
-%%% Introducción justificando por qué
-
-%%% Requisitos específicos (muy resumidos)
-
-%%% Diseño UML
-
-%%% Implementación (explicar como se ha conseguido **Hacerlo bien**)
-
-%%% Pruebas
-
-%% Section{Otras iteraciones}
-
-%% Muy resumido y destacando lo que te apetezca destacar
-
-% Capítulo 5: Application Engineering
-
-%% Section{Proceso de composición de las features}
-%% (explicar como se ha conseguido **Hacerlo bien**)
-
-%% Section{Plantillas de Generación de Código}
-
-%%% Muy breve
-
-%% Section{Metamodelo y Modelo}
-
-%%% Muy breve
-
-%% Section{Instaladores y Despliegue}
-
-% Capítulo 6: Conclusiones y Trabajos Futuros
-
-%% Section{Conclusiones}
-
-%%% Qué hace exactamente mi proyecto
-
-%%% Qué no hace
-
-%%% Experiencias Personales
-
-%% Section{Trabajo Futuro}
-
-%%% Cualquier cosa que se puede hacer para mejorar este proyecto
+% \input{conclusiones/conclusiones.tex}
 
 % CONTENT: Appendices, if desired
 %\input{config/appendix.tex}
