@@ -52,11 +52,11 @@
 \begin{document}
 
 % Cover page
-\input{cover/cover.tex}
+% \input{cover/cover.tex}
 
 %\input{cover/supervisorApproval.tex}
 
-\input{cover/firstPage.tex}
+% \input{cover/firstPage.tex}
 
 % reset page numbering
 \input{config/begin.tex}
@@ -64,11 +64,10 @@
 % acknowledgement
 %\input{cover/acknowledgements.tex} % acknowledgements
 
-% Preface
-%% TODO: Descomentar esto y hacer un resumen en castellano
-\input{summary/resumen.tex}   % preface
+% Prefacio
+% \input{summary/resumen.tex}   % preface
 
-% y otro en inglés
+% Preface
 \input{summary/summary.tex}   % preface
 
 % Toc
@@ -76,10 +75,10 @@
 
 \input{Config/headers.tex}
 
-% \input{config/chapters.tex}
+\input{config/chapters.tex}
 
 % Capítulo 1: Introducción
-% \input{introduction/introduction.tex} % Chapter 1
+\input{introduction/introduction.tex}
 
 % Capítulo 2: Resumen del Estado del Arte
 % \input{background/background.tex}
@@ -100,11 +99,9 @@
 %\input{config/appendix.tex}
 
 % Appendix A:
-\section{Apéndice A : Manuales de Usuario}
+% \section{Apéndice A : Manuales de Usuario}
 
-Disponibles en el CD adjunto a esta memoria, en la carpeta Doc/XXX y en la URL http://www.alumnos.unican.es/apr85/.
-
-%\input{apendixA/manualModeller.tex} % Appendix I
+% Disponibles en el CD adjunto a esta memoria, en la carpeta Doc/XXX y en la URL % http://www.alumnos.unican.es/apr85/.
 
 % CONFIG: Bibliography style
 \input{config/bibliography.tex}

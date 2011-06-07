@@ -1,5 +1,10 @@
 This is BibTeX, Version 0.99cThe top-level auxiliary file: pfc.aux
 The style file: alpha.bst
 Database file #1: references/pfc.bib
+Warning--I didn't find a database entry for "XXX"
+Warning--I didn't find a database entry for "YY"
+Warning--I didn't find a database entry for "ZZZ"
+Warning--empty publisher in albahari:2010
+Warning--empty journal in aracic:2006
 Warning--empty publisher in pohl:2005
-(There was 1 warning)
+(There were 6 warnings)
