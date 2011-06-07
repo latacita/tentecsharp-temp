@@ -30,68 +30,98 @@
 \label{chap:introduction}
 
 % Introducción al capítulo
-Esta memoria de Proyecto Fin de Carrera presenta la infraestructura de una línea de productos software para hogares automáticos y/o inteligentes, de forma que se pueda obtener aplicaciones software para hogares específicos de forma tan automática como sea posible. Este capítulo introduce los términos de línea de producto software y describe a través de un breve resumen cuales han sido las motivaciones y el proceso seguido para llevar a cabo el desarrollo del proyecto.
+Esta memoria de Proyecto Fin de Carrera presenta la infraestructura de una línea de productos software para hogares automáticos y/o inteligentes, de forma que se pueda obtener aplicaciones software para hogares específicos de forma tan automática como sea posible. Este capítulo introduce los términos de línea de producto software y describe a través de un breve resumen cuales han sido las motivaciones y el proceso seguido para llevar a cabo el desarrollo de dicho proyecto.
+
 \chaptertoc
 
-\section{Introducción}
+\section{Contexto}
 \label{sec:intr:introduction}
-Cuando una empresa desarrolla un producto software para distintos usuarios, se presenta la problemática de las versiones y evolución relacionada con el producto. Esta situación puede provocar diferentes coyunturas:
+
+Hoy en día es cada vez más frecuente encontrar empresas dedicadas al desarrollo software que poseen un producto software estrella o bandera, el cual venden a múltiples clientes, precisando de ajustes y modificaciones concretas en función de las necesidades particulares de cada cliente. Esta situación no es exclusiva del desarrollo de software, también se encuentra presente en otros ámbitos industriales como la fabricación de coches, electrodomésticos o teléfonos móviles. 
+
+En el ámbito industrial, se ha ido evolucionando desde la producción en serie(\emph{mass production}), introducida por el ya famoso modelo T de Henry Ford, donde se producía una amplia cantidad de productos iguales mediante una serie de técnicas automatizadas y estándares, hasta la personalización en masa(\emph{mass customization}). La personalización en masa se define como~\cite{tseng:2001}: ``la producción de bienes y servicios que permitan satisfacer los requisitos y necesidades particulares de los clientes con una eficiencia cercana a la de la producción en serie''. Siguiendo esta filosofía, es posible hoy en día adquirir un modelo de un automóvil seleccionando características del mismo de entre un amplio abanico de opciones, a la vez que dicho automóvil se sigue fabricando en una cadena de montaje fuertemente automatizada.
+
+El objetivo de una \emph{línea de productos software} alcanzar esta personalización en masa dentro de la industria del desarrollo software, de forma que se pueda ofrecer a diferentes clientes un mismo producto altamente adaptable a sus necesidades particulares y cuyos costes de adaptación sean lo más bajos posibles debido a los beneficios de la producción automatizada en serie. Por tanto, la finalidad de una línea de productos software~\cite{pohl:2005,XXX,YY,ZZZ} es crear una infraestructura adecuada a partir de la cual se puedan derivar, tan automáticamente como sea posible, productos concretos pertenecientes a una familia de productos software. Una \emph{familia de productos software} es un conjunto de aplicaciones software similares, que por tanto comparten una serie de características comunes, pero que también presentan variaciones entre ellos.
+%%========================================================================================%%
+%% NOTA(Pablo): Añadir más referencias, sacálas del proyecto de Carlos, el de TENTE       %%
+%% En concreto, añade Clements and Northrop, 2002 y Kaköla and Dueñas, 2006               %%                             %%                                                                                        %%
+%%========================================================================================%%
+
+Con objeto de ser capaz de crear dicha infraestructura, toda línea de productos software debe resolver varios problemas fundamentales: (1) idear un mecanismo capaz de soportar las variaciones existentes entre productos, de forma que se puedan incluir y excluir características variables de acuerdo a las necesidades particulares de cada cliente~\cite{}; (2) diseñar mecanismos para que dicha inclusión o exclusión de elementos variables se pueda realizar de forma tan automática como sea posible~\cite{}; y (3) crear técnicas de análisis que permitan asegurar que los conjuntos de elementos variables solicitados por un cliente dan lugar a productos consistentes y seguros~\cite{}.
+
+Para resolver el primer problema, se suelen utilizar técnicas de desarrollo software orientadas a características~\cite{}, cuyo principal objetivo es encapsular las diferentes características existentes en una línea de productos software en módulos bien definidos de fácil composición.
+
+La automatización se suele abordar usando técnicas de desarrollo software dirigido por modelos, donde el código necesario para la inclusión, exclusión o configuración de las características variables se realiza mediante la generación del código necesario para realizar tal composición desde modelos de alto nivel que especifican qué características deben estar presentes un determinado producto.
+
+Para el último se suelen emplear árboles de características~\cite{} o modelos específicos de dominio~\cite{}. Este tipo de modelos limitan por construcción el conjunto de productos que se pueden derivar de una línea de productos software, evitado que el usuario pueda generar productos erróneos, inconsistentes o inseguros. 
+
+La siguiente sección describe muy brevemente TENTE~\cite{}, una innovadora metodología orientada a características y dirigida por modelos para el desarrollo de líneas de productos software. En la misma sección, se describen los problemas que los autores de dicha metodología encontraron a la hora de implantarla en el entorno empresarial cántabro y la motivación existente detrás de la realización de este proyecto.
+
+\section{La metodología TENTE}
+\label{sec:tente}
+
+TENTE~\cite{} es una moderna metodología para el desarrollo de líneas de productos software desarrollada en el contexto del proyecto AMPLE\footnote{www.ample-project.net}. TENTE integra diversos avances para el desarrollo de líneas de productos software, tales como avanzadas técnicas de modularización y desarrollo software dirigido por modelos. 
+
+Las técnicas avanzadas de modularización permiten el encapsulamiento en módulos bien definidos y fácilmente componibles de las diferentes características de una familia de productos software, lo cual simplifica el proceso de construcción de productos específicos. Dicha modularización de características se realiza desde la fase arquitectónica, usando mecanismos específicos del lenguaje de modelado UML~\cite{}. A continuación, mediante el uso de generadores de código, a partir el diseño arquitectónico de una familia de productos software se genera el esqueleto de su implementación. Dicha implementación se realiza en el lenguaje CaesarJ~\cite{}, una extensión a Java que incluye potentes mecanismos para soportar la separación y composición de características. Dichos esqueletos se completan manualmente, obteniéndose al final un conjunto de módulos software, o piezas, cuya composición da lugar a productos software concretos\footnote{El nombre de la metodología proviene del célebre juego de construcción TENTE, versión española del popular Lego.}. Esta fase constituye la definición de la infraestructura desde la cual se derivarán los productos concretos.
+
+Para la derivación de productos concretos desde la infraestructura descrita en el párrafo anterior, TENTE usa
+un innovador lenguaje, denominado VML~\cite{}, basado en transformaciones de modelo a modelo de orden superior. Dicho lenguaje sirve para especificar que acciones hay que realizar sobre un modelo que describe la familia completa de productos software para adaptarlo a las necesidades del cliente. A continuación, dada una lista con las características que el cliente desea incluir o excluir de su producto concreto, VML es capaz de transformar automáticamente el modelo de la familia de productos software para adaptarlo a las necesidades de dicho cliente.
+
+A continuación, se usa dicho modelo de un producto concreto como entrada para un generador automático de código, que creará todo el código necesario para componer los módulos o piezas software que se crearon durante la creación de la infraestructura de la línea de productos software.
+
+Esta metodología posee diversas ventajas, las cuales comentamos a continuación:
+
 \begin{enumerate}
- \item Conflictos entre los equipos de marketing y de ingeniería, debido a la imposibilidad de adaptarse a las nuevas variaciones del producto causadas por las demandas de los usuarios.
-\item Código fuente difícilmente extensible para conseguir nuevas variaciones del producto.
-\item Compleja y costosa coordinación de tareas de desarrollo en paralelo que comparten software común.
+	\item Gracias al uso de técnicas orientadas a características, como el operador \emph{merge} de UML y el lenguaje CaesarJ, se facilita la modularización y composición de características, lo que facilita no sólo el proceso de obtención de productos concretos, sino también la reutilización y evolución de dichas características~\cite{}.
+	\item Gracias al uso de técnicas dirigidas por modelos, se automatiza gran parte del proceso, evitando tareas repetitivas, largas, tediosas y monótonas, usualmente propensas a errores.
+	\item Gracias al uso de lenguajes avanzados, como VML, y tecnologías estándares de modelado, como UML, se evita que los desarrolladores, tanto de la infraestructura como de los productos concretos, tengan que tener cierta experiencia en el uso de técnicas de desarrollo software dirigido por modelos, tales como creación de transformaciones de modelo a modelo en lenguajes como ATL~\cite o Epsilon~\cite{}.
 \end{enumerate}
-Esta situación no es exclusiva del desarrollo de software, también se encuentra presente en otros ámbitos industriales como la fabricación de coches, electrodomésticos, teléfonos...
-Como es bien sabido la producción en serie(\emph{mass production}, en inglés) supuso una revolución en el ámbito industrial,ya que desembocó en un enorme aumento de la producción.
 
-La producción en serie no supone ningún problema para los desarrolladores de software, debido a que una aplicación puede ser clonada millones de veces sin ninguna dificultad. El problema que atañe al software es la personalización en serie(\emph{mass customization}, en inglés), con la cual se busca crear una infraestructura adecuada a partir de la cual se puedan derivar, tan automáticamente como sea posible, productos concretos pertenecientes a una familia de productos software. Una \emph{familia de productos software} es un conjunto de aplicaciones software similares, que por tanto comparten una serie de características comunes, pero que también presentan variaciones entre ellos.
+No obstante, a pesar de sus bondades, se han encontrado diversas dificultades a la hora de transferir esta metodología a las empresas de desarrollo software sitas en el entorno cántabro. Dichas dificultades se mencionan en la siguiente sección. 
 
-Debido a todo lo citado anteriormente en los últimos 20 años ha surgido el término denominado \emph{ingeniería de líneas de productos software}\cite{pohl:2005} que pretende estandarizar los principios, fundamentos y técnicas que buscan alcanzar la personalización en serie de los productos software.
+\section{Motivación y Objetivos}
 
-Para el presente proyecto se ha tomado como problema para resolver el de una línea de productos software para hogares automáticos y/o inteligentes, ya que es uno de los ámbitos donde mejor queda reflejado la variabilidad que puede presentar un producto software\cite{fons:2008}, porque dicho producto se debe adaptar tanto a las requisitos establecidos por los stakeholders, como a la propia distribución física de los hogares(número de plantas, habitaciones,ventanas...).
+Tal como se ha comentado, se han encontrado diversas dificultades a la hora de transferir TENTE a la industria. Las principales dificultades provienen de dos fuentes distintas pero relacionadas, las cuales describimos a continuación.
 
-Para desarrollar esta línea de productos software los lenguajes orientados a características, tales como FeatureC++ \cite{apel:2005}  o CaesarJ \cite{aracic:2006}, son la elección más adecuada debido a las facilidades que ofrecen para modularizar y componer características de una familia de productos software. Pero se hará uso de la plataforma .NET\cite{chappell:2006} y del lenguaje programación C\#\cite{albahari:2010}, ya que ambos están bastante extendidos en el ámbito empresarial, y en la actualidad las empresas son bastante reticentes a la hora de introducir nuevos lenguajes, principalmente por dos razones:
+\paragraph{Problema 1: Resistencia a cambiar el lenguaje de implementación habitual} \ \\
+
+En primer lugar, y éste no es un solo un problema encontrado en el entorno de Cantabria, TENTE está basado en el uso del lenguaje CaesarJ como lenguaje de implementación. Podría usarse, con el coste asociado de tener que escribir nuevos generadores de código, lenguajes similares a CaesarJ tales como ObjectTeams~\cite{}. En cualquier caso, hace falta un lenguaje con fuerte soporte para la modularización y composición de características, y en especial, con soporte para \emph{clases virtuales}~\cite{}. La mayoría de las empresas son bastante reticentes a cambiar su lenguaje habitual de programación, debido fundamentalmente a dos motivos:
+
 \begin{enumerate}
 \item El coste de aprendizaje que ello supone, ya que los programadores han de familiarizar con nuevos conceptos y técnicas de codificación software.
 \item El uso de un nuevo lenguaje de programación podría dejar obsoletas muchas herramientas, como suites para  la ejecución de casos de prueba, que la empresa podría tener asociadas al anterior lenguaje de programación.
 \end{enumerate}
 
- C\# proporciona el concepto de clase parcial, el cual puede ser utilizado para encapsular y componer las características de los miembros de una familia de productos software. No obstante, las clases parciales poseen una serie de limitaciones que han debido ser solventadas antes de ser utilizadas como un mecanismo para la construcción de una líneas de productos software destinada a los hogares automáticos y/o inteligentes.
+Además, en el caso de lenguajes de reciente creación como CaesarJ u ObjectTeams, aunque los compiladores están completamente desarrollados y son bastante estables, las facilidades auxiliares asociadas a un lenguaje de programación maduro tipo Java o C\# no están a menudo disponibles. Por ejemplo, CaesarJ no soporta compilación incremental por el momento, por lo que un ligero cambio en el nombre de un atributo obliga a recompilar el proyecto completo.
 
- El proceso para crear la infraestructura de una línea de productos software para hogares automáticos y/o inteligentes ha seguido dos fases que siempre se encuentran en los proyectos de este tipo: \emph{ingeniería de dominio} (en inglés,  \emph{Domain Engineering}) e \emph{ingeniería de aplicación} (en inglés, \emph{Application Engineering}).La \emph{ingeniería de dominio} tiene como objetivo la creación de la infraestructura o arquitectura de la línea de productos, la cual permitirá la rápida, o incluso automática, construcción del sistema software específico dentro de la familia de productos. La ingeniería de aplicación utiliza la infraestructura creada con anterioridad para crear aplicaciones específicas adaptadas a las necesidades y/o requisitos de los usuarios.
+\paragraph{Problema 2: Obligatoriedad de usar la plataforma .NET} \ \\
 
- Por ello en este proyecto se han desarrollado dos plugins para el entorno de desarrollo integrado (\emph{IDE}, por sus siglas en inglés) Visual Studio 2010. El primero de ellos permite definir modelos concretos que se ajusten tanto a los requisitos implícitos en la distribución del hogar como a las necesidades que el usuario plantee, a partir de un metamodelo que controla las diferentes restricciones que no permiten crear modelos inválidos. El segundo plugin utiliza los modelos y los artefactos creados en la fase de ingeniería de dominio para crear aplicaciones concretas a través de generadores de código.
+Debido a diferentes razones estratégicas de negocio, la mayoría de las empresas de desarrollo software en Cantabria trabajan casi en exclusiva sobre la plataforma .NET~\cite{chappell:2006}, siendo además bastante reticentes a considerar el cambio a otras plataformas. La mayoría de los lenguajes con fuerte soporte para orientación a características, como suele ser el caso habitual en los lenguajes académicos, están basados en Java.
 
-\section{Motivación and Contribuciones}
-\label{sec:intr:motivation}
+Por tanto, TENTE es una tecnología llena de ventajas, pero quizás excesivamente innovadora para el momento actual. Por dicho motivo, se decidió crear una nueva metodología, basada en TENTE, pero que resultase más fácilmente transferible a la industria. Para favorecer dicha transferencia, se tomaron dos decisiones estratégicas:
 
-TODO: Esta sección es más para tesis doctorales que para proyectos fin de carrera. La dejamos de momento pero se podría eliminar
+\begin{enumerate}
+	\item El lenguaje de programación usado en el nivel de implementación tenía que ser un lenguaje comercial estándar, tipo Java, C\# o C++. Esto evitaría los problemas derivados de obligar a las empresas a aprender un nuevo lenguaje y estilo de programación, y sobre todo, a cambiar sus entornos de desarrollo.
+	\item El nuevo lenguaje de programación de la metodología debía ser C\#~\cite{fons:2008}, al ser éste el lenguaje bandera de la plataforma .NET, y al desarrollar las empresas del entorno de nuestra universidad casi en exclusiva software para dicha plataforma.
+\end{enumerate}
 
-\section{Visión General del Proyecto}
-\label{sec:intr:overview}
+Tal nueva metodología recibiría el nombre de TENTE.NET (versión para la plataforma .NET de la metodología TENTE), y está actualmente en fase de desarrollo. El primer paso para la adaptación de la metodología TENTE a la plataforma .NET era encontrar un mecanismo para simular las facilidades ofrecidas por lenguajes orientados a características dentro del lenguaje C\#. Tomando las ideas de Laguna et al~\cite{} como base, se pensó inicialmente que las \emph{clases parciales} proporcionadas por C\# podían ser un mecanismo adecuado para alcanzar cierto grado de desarrollo orientado a características. Sin embargo, un posterior estudio realizado por López et al~\cite{} demostraba que las clases parciales de C\# poseían más limitaciones de las inicialmente previstas por Laguna et al para la implementación de diseños software orientados a características. 
 
-TODO: Esto está bien dejarlo, pero también es suprimible
+Por tanto, el siguiente paso hacia la construcción de la construcción de la variante para .NET de la metodología TENTE era la solución de tales limitaciones. Para solventar tales limitaciones, se idearon una serie de patrones, cuya aplicación servía para solucionar las limitaciones encontradas. El objetivo del presente proyecto es evaluar las debilidades y fortalezas de dichos patrones mediante su aplicación al desarrollo de una línea de productos software para hogares inteligentes. 
+
+Se ha escogido dicho caso de estudio por tres razones principales:
+
+\begin{enumerate}
+	\item El dominio del caso de estudio es uno de los dominios donde la aplicación de un enfoque de líneas de productos es casi obligatorio, dado la alta variabilidad existente en dicho dominio.
+	\item Dicho caso de estudio es un \emph{benchmark} bastante exhaustivo para analizar las debilidades y fortalezas de los nuevas propuestas relacionadas con la ingeniería de líneas de productos software. Más concretamente, fue usado durante 3 años dentro del contexto AMPLE, para evaluar los nuevos resultados que dicho proyecto de investigación fue produciendo. Durante este periodo, demostró ser un \emph{benchmark} bastante completo, exigente y útil para testar los resultados que se iban produciendo.
+\end{enumerate}
+
+Dicho caso de estudio ha sido satisfactoriamente implementado en este proyecto fin de carrera, mostrando la validez de los patrones creados para solventar las limitaciones de las clases parciales de C\#. Además, se han creado una serie de generadores de código que permiten componer características mediante la instanciación automática de dichos patrones. Como resultado del proyecto, se han creado dos extensiones al entorno de desarrollo Visual Studio 2010. El primero de ellos permite definir modelos de productos concretos acordes a las necesidades y requisitos de cada usuario. Dicha extensión además comprueba que los modelos creados no den lugar a productos erróneos o no válidos. La segundo extensión utiliza estos modelos de productos concretos para componer las módulos software pertenecientes a la infraestructura de la línea de productos de forma automática mediante generación de código.
 
 \section{Estructura del Documento}
 \label{sec:intr:organization}
 
-Esto es una especie de índice ampliado y se deja, suele ser bastante útil para que el que esté vago se lea esto y se acabe el problema.
-
-\paragraph{Capítulo 2: Resumen del Estado del Arte} \ \\
-
-\paragraph{Capítulo 3: Definición y Planificación del Proyecto} \ \\
-
-\paragraph{Capítulo 5: Ingeniería de Requisitos} \ \\
-
-\paragraph{Capítulo 6: Definición Arquitectónica y Diseño Software} \ \\
-
-\paragraph{Capítulo 7: Construcción e Implementación} \ \\
-
-\paragraph{Capítulo 8: Pruebas} \ \\
-
-\paragraph{Capítulo 9: Despliegue y Aceptación} \ \\
-
-\paragraph{Capítulo 8: Discusión, Conclusiones y Trabajos Futuros} \ \\
+Tras este capítulo introductorio, el resto del documento se estructura como sigue: el Capítulo~\ref{chap:background} describe brevemente los conceptos necesarios, tales como \emph{árbol de características} o las limitaciones de las clases parciales de C\#, para poder entender la presente memoria. El Capítulo~\ref{chap:planificacion} explica la metodología y fases seguidas para la realización del proyecto, así como los aspectos generales del mismo. El Capítulo~\ref{chap:domain} describe el desarrollo de la infraestructura necesaria para la derivación de productos concretos, mientras que el Capítulo~\ref{chap:application} describe como se derivan dichos productos concretos de forma automática desde dicha infraestructura. Por último, el Capítulo~\ref{chap:conclusiones} analiza brevemente las conclusiones extraídas tras la realización de este proyecto, así como posibles trabajos futuros. 
 
 
 

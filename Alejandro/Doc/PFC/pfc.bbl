@@ -1,8 +1,40 @@
-\begin{thebibliography}{PBvdL05}
+\begin{thebibliography}{AGMO06}
+
+\bibitem[AA10]{albahari:2010}
+Joseph Albahari and Ben Albahari.
+\newblock {\em C\# 4.0 in a Nutshell: The Definitive Reference}.
+\newblock 2010.
+
+\bibitem[AGMO06]{aracic:2006}
+Ivica Aracic, Vaidas Gasiunas, Mira Mezini, and Klaus Ostermann.
+\newblock {An Overview of CaesarJ}.
+\newblock pages 135--173, 2006.
+
+\bibitem[ALRS05]{apel:2005}
+Sven Apel, Thomas Leich, Marko Rosenm{\"u}ller, and Gunter Saake.
+\newblock {FeatureC++: On the Symbiosis of Feature-Oriented and Aspect-Oriented
+  Programming}.
+\newblock In {\em GPCE}, pages 125--140, 2005.
+
+\bibitem[CFP08]{fons:2008}
+Carlos Cetina, Joan Fons, and Vicente Pelechano.
+\newblock Applying software product lines to build autonomic pervasive systems.
+\newblock In {\em SPLC}, pages 117--126, 2008.
+
+\bibitem[Cha06]{chappell:2006}
+David Chappell.
+\newblock {\em {Understanding .NET (2nd Edition)}}.
+\newblock Addison-Wesley Professional, September 2006.
 
 \bibitem[PBvdL05]{pohl:2005}
 Klaus Pohl, Gunter Bockle, and Frank van~der Linden.
 \newblock {\em {Software Product Line Engineering}}.
 \newblock 2005.
+
+\bibitem[TJ01]{tseng:2001}
+Mitchell Tseng and Jianxin Jiao.
+\newblock {\em Mass customization, Handbook of Industrial Engineering:
+  Technology and Operations Management}.
+\newblock Wiley, 2001.
 
 \end{thebibliography}
