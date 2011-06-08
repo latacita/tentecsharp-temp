@@ -1,3 +1,4 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
 \begin{thebibliography}{AGMO06}
 
 \bibitem[AA10]{albahari:2010}
@@ -5,16 +6,37 @@ Joseph Albahari and Ben Albahari.
 \newblock {\em C\# 4.0 in a Nutshell: The Definitive Reference}.
 \newblock 2010.
 
+\bibitem[AGH05]{arnold:2005}
+Ken Arnold, James Gosling, and David Holmes.
+\newblock {\em {Java(TM) Programming Language, The (4th Edition)}}.
+\newblock 2005.
+
 \bibitem[AGMO06]{aracic:2006}
 Ivica Aracic, Vaidas Gasiunas, Mira Mezini, and Klaus Ostermann.
 \newblock {An Overview of CaesarJ}.
 \newblock pages 135--173, 2006.
 
-\bibitem[ALRS05]{apel:2005}
-Sven Apel, Thomas Leich, Marko Rosenm{\"u}ller, and Gunter Saake.
-\newblock {FeatureC++: On the Symbiosis of Feature-Oriented and Aspect-Oriented
-  Programming}.
-\newblock In {\em GPCE}, pages 125--140, 2005.
+\bibitem[Ast03]{astels:2003}
+David Astels.
+\newblock {\em Test-Driven Development: A Practical Guide}.
+\newblock Prentice Hall, July 2003.
+
+\bibitem[Bro06]{brown:2006}
+Erik Brown.
+\newblock {\em {Windows Forms in Action: Second Edition of Windows Forms
+  Programming with C\#}}.
+\newblock Manning Publications, May 2006.
+
+\bibitem[BSR04]{batory:2004}
+D.~Batory, J.~N. Sarvela, and A.~Rauschmayer.
+\newblock {\em {Scaling Step-Wise Refinement. IEEE Transactions on Software
+  Engineering}}.
+\newblock 2004.
+
+\bibitem[CB09]{chae:2009}
+Wonseok Chae and Matthias Blume.
+\newblock Language support for feature-oriented product line engineering.
+\newblock In {\em FOSD}, pages 3--10, 2009.
 
 \bibitem[CFP08]{fons:2008}
 Carlos Cetina, Joan Fons, and Vicente Pelechano.
@@ -26,15 +48,132 @@ David Chappell.
 \newblock {\em {Understanding .NET (2nd Edition)}}.
 \newblock Addison-Wesley Professional, September 2006.
 
+\bibitem[CHE04]{czarnecki:2004}
+Krzysztof Czarnecki, Simon Helsen, and Ulrich~W. Eisenecker.
+\newblock Staged configuration using feature models.
+\newblock In {\em SPLC}, pages 266--283, 2004.
+
+\bibitem[Cla10]{wallace:2010}
+Wallace Clark.
+\newblock {\em {The Gantt Chart, a Working Tool of Management}}.
+\newblock Jan 2010.
+
+\bibitem[GHJV94]{gamma:1994}
+Erich Gamma, Richard Helm, Ralph Johnson, and John~M. Vlissides.
+\newblock {\em {Design Patterns: Elements of Reusable Object-Oriented
+  Software}}.
+\newblock Addison-Wesley Professional, November 1994.
+
+\bibitem[Gom04]{gomma:2007}
+Hassan Gomaa.
+\newblock {\em {Designing Software Product Lines with UML: From Use Cases to
+  Pattern-Based Software Architectures}}.
+\newblock Addison-Wesley, July 2004.
+
+\bibitem[HM04]{rusty:2004}
+Elliotte~Rusty Harold and W.~Scott Means.
+\newblock {\em {XML in a Nutshell: A Desktop Quick Reference (In a Nutshell
+  (O'Reilly))}}.
+\newblock O'Reilly Media, September 2004.
+
+\bibitem[JAC{\etalchar{+}}11]{jones:2011}
+Gareth Jones, Alan, Steve Cook, Stuart Kent, and Cameron Wills.
+\newblock {\em {Domain-Specific Development with Visual Studio DSL Tools}}.
+\newblock Addison-Wesley Professional, April 2011.
+
+\bibitem[KLD02]{chul:2002}
+Kyo~Chul Kang, Jaejoon Lee, and Patrick Donohoe.
+\newblock Feature-oriented project line engineering.
+\newblock {\em IEEE Software}, 19(4):58--65, 2002.
+
+\bibitem[Kle08]{kleppe:2008}
+Anneke Kleppe.
+\newblock {\em {Software Language Engineering: Creating Domain-Specific
+  Languages Using Metamodels}}.
+\newblock Addison-Wesley Professional, December 2008.
+
+\bibitem[LGBM07]{laguna:2007}
+Miguel~A. Laguna, Bruno Gonz{\'a}lez-Baixauli, and Jos{\'e}~M. Marqu{\'e}s.
+\newblock {Seamless development of software product lines}.
+\newblock In {\em GPCE}, pages 85--94, 2007.
+
+\bibitem[LHBC05]{lopez:2005}
+Roberto~E. Lopez-Herrejon, Don~S. Batory, and William~R. Cook.
+\newblock Evaluating support for features in advanced modularization
+  technologies.
+\newblock In {\em ECOOP}, pages 169--194, 2005.
+
+\bibitem[Mey00]{meyer:2000}
+Bertrand Meyer.
+\newblock {\em {Object-Oriented Software Construction}}.
+\newblock Prentice Hall, March 2000.
+
+\bibitem[Mey09]{meyer:2009}
+Bertrand Meyer.
+\newblock {\em {Touch of Class: Learning to Program Well with Objects and
+  Contracts}}.
+\newblock Springer, September 2009.
+
+\bibitem[Moo86]{david:1986}
+David~A. Moon.
+\newblock {Object-Oriented Programming with Flavors}.
+\newblock In {\em OOPSLA}, pages 1--8, 1986.
+
+\bibitem[Om05]{omg:uml:2005}
+G.~Om.
+\newblock {Unified Modeling Language: Superstructure version 2.0,
+  formal/05-07-04}.
+\newblock Technical report, Object Management Group, 2005.
+
+\bibitem[ONG{\etalchar{+}}05]{oldevik:2005}
+Jon Oldevik, Tor Neple, Roy Grønmo, Jan Aagedal, and Arne-J. Berre.
+\newblock {Toward Standardised Model to Text Transformations}.
+\newblock Springer Berlin / Heidelberg, 2005.
+
 \bibitem[PBvdL05]{pohl:2005}
 Klaus Pohl, Gunter Bockle, and Frank van~der Linden.
 \newblock {\em {Software Product Line Engineering}}.
 \newblock 2005.
+
+\bibitem[PF02]{palmer:2002}
+Stephen~R. Palmer and John~M. Felsing.
+\newblock {\em A Practical Guide to Feature-Driven Development}.
+\newblock Prentice Hall, February 2002.
+
+\bibitem[Pre01]{prehofer:2001}
+Christian Prehofer.
+\newblock Feature-oriented programming: A new way of object composition.
+\newblock 2001.
+
+\bibitem[RGAM10]{randolph:2010}
+Nick Randolph, David Gardner, Chris Anderson, and Michael Minutillo.
+\newblock {\em {Professional Visual Studio 2010 (Wrox Programmer to
+  Programmer)}}.
+\newblock May 2010.
 
 \bibitem[TJ01]{tseng:2001}
 Mitchell Tseng and Jianxin Jiao.
 \newblock {\em Mass customization, Handbook of Industrial Engineering:
   Technology and Operations Management}.
 \newblock Wiley, 2001.
+
+\bibitem[Tor04]{togersen:2004}
+Mads Torgersen.
+\newblock {The Expression Problem Revisited}.
+\newblock In Martin Odersky, editor, {\em ECOOP}, volume 3086 of {\em Lecture
+  Notes in Computer Science}, pages 123--143. Springer, 2004.
+
+\bibitem[Vog10]{vogel:2010}
+Peter Vogel.
+\newblock {\em {Practical Code Generation in .NET: Covering Visual Studio 2005,
+  2008, and 2010}}.
+\newblock Addison-Wesley Professional, April 2010.
+
+\bibitem[ZJ06]{ziadi:2006}
+Tewfik Ziadi and Jean-Marc J{\'e}z{\'e}quel.
+\newblock {Software Product Line Engineering with the UML: Deriving Products}.
+\newblock In Timo K{\"a}k{\"o}l{\"a} and Juan~C. Due{\~n}as, editors, {\em
+  Software Product Lines - Research Issues in Engineering and Management},
+  pages 557--588. Springer, November 2006.
 
 \end{thebibliography}
