@@ -1,4 +1,11 @@
-﻿using System;
+﻿//=====================================================================================================//
+// Author: Pablo Sánchez (p.sanchez@unican.es) http://personales.unican.es/sanchezbp                   //
+// Author: Elio López                                                                                  //
+// Project: SmartHome Implementation using C# partial classes                                          // 
+// File: HeaterMng/HeaterCtrl.cs                                                                       //
+//=====================================================================================================//     
+
+using System;
 using System.Collections.Generic;
 
 namespace SmartHome
@@ -38,6 +45,5 @@ namespace SmartHome
 
 
     } // LightCtrl
-
-
-}
+    
+} // namespace

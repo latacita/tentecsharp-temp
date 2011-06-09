@@ -3,7 +3,6 @@
 // Author: Elio López                                                                                  //
 // Project: SmartHome Implementation using C# partial classes                                          // 
 // File: Heater/Gateway.cs                                                                             //
-// Papers: Fosd2010                                                                                    //
 //=====================================================================================================//     
 
 using System;
@@ -66,7 +65,19 @@ namespace SmartHome
             return result;
         } // adjustTemparature
 
+        // These methods are here just for debugging purposes
+        public void heaterSayHello(int id) {
+            
+            HeaterCtrl heater = findHeater(id);
 
+            if (heater != null)
+            {
+                heater.sayHello();
+            }
+            else {
+                System.Console.WriteLine("Non existing heater");
+            } // if
+        } // heaterSayHello
     } // Gateway
 
 } // namespace

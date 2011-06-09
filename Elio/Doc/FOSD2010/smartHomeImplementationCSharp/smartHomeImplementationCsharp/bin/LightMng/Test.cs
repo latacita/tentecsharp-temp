@@ -1,4 +1,11 @@
-﻿using System;
+﻿//=====================================================================================================//
+// Author: Pablo Sánchez (p.sanchez@unican.es) http://personales.unican.es/sanchezbp                   //
+// Author: Elio López                                                                                  //
+// Project: SmartHome Implementation using C# partial classes                                          // 
+// File: LightMng/Test.cs                                                                             //
+//=====================================================================================================//     
+
+using System;
 using SmartHome;
 using System.Collections.Generic;
 
@@ -18,7 +25,7 @@ namespace SmartHome.LightMng
                 lights.Add(light);
             } // for
 
-            System.Console.Out.WriteLine("Lights created. Cheking status is OFF");
+            System.Console.Out.WriteLine("Lights created. Checking status is OFF");
 
             List<LightCtrl>.Enumerator it = lights.GetEnumerator();
 

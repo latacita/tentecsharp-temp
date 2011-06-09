@@ -2,8 +2,7 @@
 // Author: Pablo Sánchez (p.sanchez@unican.es) http://personales.unican.es/sanchezbp                   //
 // Author: Elio López                                                                                  //
 // Project: SmartHome Implementation using C# partial classes                                          // 
-// File: Window/Gateway.cs                                                                       //
-// Papers: Fosd2010                                                                                    //
+// File: Window/Gateway.cs                                                                             //
 //=====================================================================================================//     
 
 using System;
@@ -11,11 +10,10 @@ using System.Collections.Generic;
 
 namespace SmartHome
 {
-
-    //=================================================================================================//
-    // This class represent the central gateway of the Smart Home which process all commands           //
-    // This file only contains the functionality related to the WindowMng feature                       //
-    //=================================================================================================//
+    //========================================================================================//
+    // This class represent the central gateway of the Smart Home which process all commands  //
+    // This file only contains the functionality related to the WindowMng feature             //
+    //========================================================================================//
     public partial class Gateway
     {
         // windows collection
@@ -97,6 +95,22 @@ namespace SmartHome
             return result;
         } // openPartiallyWindow
 
+        public void closeAllWindows() {
+
+            foreach(WindowCtrl w in this.windows) {
+                w.close();
+            } // foreach
+
+        } // closeAllWindows
+
+        public void openAllWindows() {
+
+            foreach (WindowCtrl w in this.windows)
+            {
+                w.open();
+            } // foreach
+
+        } // openAllWindows
 
     } // Gateway
 

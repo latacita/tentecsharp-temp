@@ -1,4 +1,11 @@
-﻿using System;
+﻿//=====================================================================================================//
+// Author: Pablo Sánchez (p.sanchez@unican.es) http://personales.unican.es/sanchezbp                   //
+// Author: Elio López                                                                                  //
+// Project: SmartHome Implementation using C# partial classes                                          // 
+// File: Window/Test.cs                                                                             //
+//=====================================================================================================//     
+
+using System;
 using SmartHome;
 using System.Collections.Generic;
 
@@ -8,7 +15,7 @@ namespace SmartHome.WindowMng
     {
         protected const int MAX_WINDOWS = 4;
 
-        public static int testWindowMng(Gateway gtw,int nextId) {
+        public static int testWindowMng(Gateway gtw, int nextId) {
 
             List<WindowCtrl> windows = new List<WindowCtrl>();
 
@@ -19,7 +26,7 @@ namespace SmartHome.WindowMng
                 windows.Add(window);
             } // for
 
-            System.Console.Out.WriteLine("Lights created. Checking al them are closed.");
+            System.Console.Out.WriteLine("Windows created. Checking all them are closed.");
 
             List<WindowCtrl>.Enumerator it = windows.GetEnumerator();
 
