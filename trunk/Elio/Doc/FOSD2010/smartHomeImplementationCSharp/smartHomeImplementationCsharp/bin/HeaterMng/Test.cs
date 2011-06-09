@@ -1,4 +1,12 @@
-﻿using System;
+﻿//=====================================================================================================//
+// Author: Pablo Sánchez (p.sanchez@unican.es) http://personales.unican.es/sanchezbp                   //
+// Author: Elio López                                                                                  //
+// Project: SmartHome Implementation using C# partial classes                                          // 
+// File: HeaterMng/Test.cs                                                                             //
+//=====================================================================================================//     
+
+
+using System;
 using SmartHome;
 using System.Collections.Generic;
 
@@ -34,7 +42,7 @@ namespace SmartHome.HeaterMng
             it = heaters.GetEnumerator();
 
             System.Console.Out.WriteLine("");
-            System.Console.Out.WriteLine("Last heater current temperature should be 25º");
+            System.Console.Out.WriteLine("Last heater current temperature should be 20º");
             
             while (it.MoveNext())
             {

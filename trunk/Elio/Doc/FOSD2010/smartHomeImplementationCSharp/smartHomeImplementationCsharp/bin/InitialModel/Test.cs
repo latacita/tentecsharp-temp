@@ -1,4 +1,12 @@
-﻿using System;
+﻿//=====================================================================================================//
+// Author: Pablo Sánchez (p.sanchez@unican.es) http://personales.unican.es/sanchezbp                   //
+// Author: Elio López                                                                                  //
+// Project: SmartHome Implementation using C# partial classes                                          // 
+// File: InitialModel/Actuator.cs                                                                      //
+//=====================================================================================================// 
+
+
+using System;
 using System.Collections.Generic;
 
 namespace SmartHome.InitialModel
@@ -11,5 +19,6 @@ namespace SmartHome.InitialModel
             gtw.sayHello();
             return gtw;
         } // testInitialModel
+
     } // Test
 } // namespace SmartHome.InitialModel

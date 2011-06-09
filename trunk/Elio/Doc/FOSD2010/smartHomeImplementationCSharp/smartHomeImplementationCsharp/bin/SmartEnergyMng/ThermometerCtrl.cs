@@ -1,9 +1,17 @@
-﻿using System;
+﻿//=====================================================================================================//
+// Author: Pablo Sánchez (p.sanchez@unican.es) http://personales.unican.es/sanchezbp                   //
+// Author: Elio López                                                                                  //
+// Project: SmartHome Implementation using C# partial classes                                          // 
+// File: SamartEnergyMng/Gateway.cs                                                                    //
+//=====================================================================================================//     
+
+
+using System;
 using System.Collections.Generic;
 
 namespace SmartHome
 {
-    partial class ThermometerCtrl : Sensor
+    public partial class ThermometerCtrl : Sensor
     {
 
          // Standard average temperature in earth surface
@@ -23,9 +31,9 @@ namespace SmartHome
 
         // NOTE: This method is here for debugging purposes. It should be removed in the release version
         public void setTemperature(double t) {
-            if ((256.0 <= t)) {
-                this.deviceValue = t;
-            } // if
-        } // setTemperature
-    }
+            this.deviceValue = t;
+        } // if
+
+    } // setTemperature
+   
 }

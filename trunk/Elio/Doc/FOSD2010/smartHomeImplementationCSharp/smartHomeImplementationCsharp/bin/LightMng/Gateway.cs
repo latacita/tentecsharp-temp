@@ -2,8 +2,7 @@
 // Author: Pablo Sánchez (p.sanchez@unican.es) http://personales.unican.es/sanchezbp                   //
 // Author: Elio López                                                                                  //
 // Project: SmartHome Implementation using C# partial classes                                          // 
-// File: LightMng/Gateway.cs                                                                       //
-// Papers: Fosd2010                                                                                    //
+// File: LightMng/Gateway.cs                                                                           //
 //=====================================================================================================//     
 
 using System;

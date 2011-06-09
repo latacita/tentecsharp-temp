@@ -3,7 +3,6 @@
 // Author: Elio López                                                                                  //
 // Project: SmartHome Implementation using C# partial classes                                          // 
 // File: InitialModel/Actuator.cs                                                                      //
-// Papers: Fosd2010                                                                                    //
 //=====================================================================================================// 
 
 using System;
