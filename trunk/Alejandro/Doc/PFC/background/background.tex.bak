@@ -1,14 +1,14 @@
 %=============================================================================%
 % Author : Alejandro Pérez Ruiz                                               %
 % Author : Pablo Sánchez Barreiro                                             %
-% Version: 1.0, 07/03/2011                                                    %
+% Version: 1.1, 10/06/2011                                                    %
 % Master Thesis: Background, master file                                      %
 %=============================================================================%
-\chapterheader{Antecedentes}{Antecedentes}
 
+\chapterheader{Antecedentes}{Antecedentes}
 \label{chap:background}
 
-En este capítulo se ofrece una visión general de que son las líneas de productos software, cuales son sus principales objetivos y se realiza un análisis sobre las técnicas actuales existentes que se podrían utilizar para trabajar con las líneas de productos software con la ayuda de un problema concreto.
+Este capítulo proporciona una muy breve introducción a las diferentes técnicas y tecnologías que se usarán a lo largo de este proyecto y que se entiende que no tienen por qué ser conocidas por el lector. Más concretamente, ofrece una visión general de las líneas de productos software, el desarrollo de software orientado a características y las clases parciales de C\#. Recordemos que el objetivo de este proyecto es implementar una línea de productos usando clases parciales de C\# como mecanismo para encapsular y componer características.
 
 \chaptertoc
 

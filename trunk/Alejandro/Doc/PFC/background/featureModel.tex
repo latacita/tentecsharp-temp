@@ -1,0 +1,67 @@
+%=============================================================================%
+% Author : Alejandro Pérez Ruiz                                               %
+% Author : Pablo Sánchez Barreiro                                             %
+% Version: 1.1, 10/06/2011                                                    %
+% Master Thesis: Background/Feature Model                                     %
+%=============================================================================%
+
+Un árbol de características~\cite{kang:1990,benavides:2010} es un árbol and-or que se usa para especificar que elementos de una familia de productos (software)
+son comunes a toda la familia de productos software, cuales son variables y por qué dichos elementos son variables, por ejemplo, porque sean opcionales o alternativos entre sí.
+
+La Figura~\ref{back:fig:featureModel} muestra un árbol de características para una línea de productos software para el problema de las expresiones descrito en la sección anterior.  
+
+
+Identificamos en este problema dos conjuntos diferenciados de caracter
+´ýsticas: (1) las operaciones {Print, Eval, ShortEval} que se pueden realizar
+sobre la gram´atica; y (2) si los operadores son infijos, prefijos o postfijos. Por
+tanto, tenemos 6 caracter´ýsticas posibles para nuestros productos (operadores
+infijos, prefijos o postfijos, m´as {Print, Eval, ShortEval} como operaciones
+opcionales para la gram´atica). Tras haber descompuesto el problema en sus
+diferentes caracter´ýsticas se ha modelado un diagrama de caracter´ýsticas representado
+en la figura 2.5 con las peculiaridades anteriormente descritas.
+
+
+
+
+
+%%=========================================================================%%
+%% NOTA(Pablo): Esto se explica sobre la misma figura, eliminalo           %%                      %%=========================================================================%%
+%%
+%% Las relaciones entre las características padres y las características hijas
+%% pueden ser clasificadas como:
+%% \begin{enumerate}
+%%    \item \emph{Obligatoria}: La característica hija es obligatoria.
+%%    \item \emph{Opcional}: La característica hija es opcional.
+%%    \item \emph{Simple}: La característica hija tendrá cardinalidad
+%%            \emph{<m..n>}
+%%    \item \emph{Grupo Or}: Al menos una de las características hijas debe ser
+%%            seleccionada.
+%%    \item \emph{Grupo Xor}: Sólo una de las características hijas debe ser
+%%            seleccionada
+%%    \item \emph{Grupo-Simple}: El número de características seleccionadas del
+%%            grupo vendrá dado por su cardinalidad.
+%% \end{enumerate}
+%%
+%% Para representar visualmente las relaciones descritas anteriormente se
+%% utiliza la notación que se puede observar en la figura \ref{}.
+%% \begin{figure}[!tb]
+%%  \centering
+%% \includegraphics[width=.65\linewidth]{background/images/notFeatureDiagram.eps} %% \\
+%%  \caption{Notaciones utilizadas en los diagramas de características}
+%%  \label{back:fig:fesatureModel}
+%% \end{figure}
+%%=========================================================================%%
+
+Además de las relaciones las características pueden tener restricciones, comúnmente las más utilizadas son requiere(si selecciona la característica A implica seleccionar la característica B) y excluye (si se selecciona la característica A la característica B debe ser excluida), pero puede ser utilizada cualquier fórmula lógica que describa una restricción.
+
+El objetivo de este tipo de diagramas a parte de la propia representación y facilidad para visualizar las diferentes características, es la posibilidad de utilizar las transformaciones de modelos para conseguir realizar configuraciones que satisfagan las restricciones\cite{czarnecki:2004}.
+
+A modo de ejemplo se incluye en la figura \ref{back:fig:featurEShop} el diagrama de características que muestra un sistema configurable para una tienda online.
+
+\begin{figure}[!tb]
+  \centering \includegraphics[width=.85\linewidth]{background/images/featureModelEshop.eps} \\
+  \caption{Diagrama de características para una \emph{e-shop}}
+  \label{back:fig:featurEShop}
+\end{figure}
+
+Cuando se modelan líneas de productos software a través de los diagramas de características,y se pretende generar el código necesario para crear una familia de productos software, los lenguajes de programación orientados a objetos resultan muchas veces insuficientes. Con objeto de paliar estas deficiencias, en los últimos años han ido surgiendo unos nuevos tipos de lenguajes denominados \emph{orientados a características}. La siguiente sección introduce la programación orientada a características para a continuación explicar sus ventajas con respecto a las técnicas tradicionales orientadas a objetos.
