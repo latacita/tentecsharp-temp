@@ -1,0 +1,115 @@
+%=========================================================================%
+% Author : Alejandro Pérez Ruiz                                           %
+% Author : Pablo Sánchez Barreiro                                         %
+% Version: 1.1, 10/06/2011                                                %
+% Master Thesis: Background/Feature Oriented Programming                  %
+%=========================================================================%
+
+La programación orientada a características~\cite{prehofer:2001} surge como respuesta a las limitaciones que el diseño y la programación orientada a objetos posee en relación a la implementación de las línea de productos software. Por tanto, antes de describir en qué consiste la programación orientada a características, comentaremos qué propiedades sería deseable encontrar en un lenguaje para la implementación de líneas de productos software y analizaremos cómo satisfaces las técnicas de desarrollo software orientado a objetos dichas propiedades, comentando sus principales limitaciones.
+
+\subsection{Propiedades deseables de un lenguaje de programación para la implementación de líneas de productos software}
+
+\input{background/spl.tex}
+
+\subsection{Limitaciones de la orientación a objetos respecto a la implementación de líneas de productos software}
+\label{back:sub:limitacionesOO}
+
+
+\subsection{Lenguajes Orientados a Características}
+
+Los lenguajes orientados a características~\cite{prehofer:2001} tienen como objetivo encapsular conjuntos coherentes de funcionalidad de un sistema software en módulos independientes y fácilmente componibles de forma que se incremente la capacidad de reutilización y extensión de estos módulos. Dichos módulos reciben el nombre de \emph{característica}. Una característica se suele definir como un incremento de la funcionalidad de un sistema~\cite{batory:2004}.
+
+%%===========================================================================%%
+%% NOTA(Pablo): Si vemos que la memoria queda muy larga, aquí se puede       %%
+%%              recortar                                                     %%
+%%===========================================================================%%
+
+Los lenguajes orientados a características son especialmente útiles en el contexto de las líneas de productos software, ya que nos permiten encapsular en módulos bien definidos las diferentes características, tanto comunes como variables, que pueden aparecer en cada uno de los productos software pertenecientes a una misma familia. Los lenguajes orientados a características tratan de facilitar además la composición de dichos módulos, contribuyendo así a que productos específicos dentro de una familia puedan ser creados mediante la simple composición o ensamblado de módulos software relativamente independientes.
+
+%%============================================================================%%
+%% NOTA(Pablo): Con la nueva reestructuración de la sección, esta             %%
+%%     argumentación sobra                                                    %%
+%%============================================================================%%
+% Por ejemplo, a la hora de crear un tipo abstracto de datos pila, podemos
+% considerar diferentes variaciones:
+% \begin{description}
+%     \item[Básicas:] Toda pila, para ser considerada pila, debe soportar las
+%            operaciones \imp{apilar} y \imp{desapilar}.
+%     \item[Contador:] Añade un contador para conocer el tamaño de la pila.
+%     \item[Bloqueo:] Permite bloquear la pila para evitar modificaciones en su
+%            estado.
+%     \item[Deshacer:] Agrega la funcionalidad de restaurar el estado de la pila %            antes del último acceso a la misma.
+% \end{description}
+%
+% El objetivo de la programación orientada a características sería encapsular
+% cada una de las cuatro funcionalidades anteriores en módulos independientes y
+% fácilmente componibles. De esta forma, se podrían obtener diferentes productos % mediante la simple composición de conjuntos diferentes de características. Por % ejemplo, un determinado usuario podría estar interesado en una pila con
+% contador, por lo que compondría estas dos características y descartaría las
+% demás. Otro usuario podría encontrar más adecuada una pila con bloqueo y
+% deshacer, por lo que compondría estas tres características y dejaría fuera la
+% correspondiente al contador.
+%
+% Por lo tanto, un lenguaje orientado a características nos debe permitir
+% descomponer fácilmente un programa en características, las cuales deberían
+% encapsularse en módulos bien definidos y tan independientes como sea posible.
+% A la hora de crear productos concretos, dichos módulos se compondrían de
+% acuerdo a las necesidades de los usuarios.
+%%============================================================================%%
+
+La programación orientada a características
+La siguiente sección describe en mayor detalle los problemas que surgen cuando se intenta obtener un enfoque orientado a características usando un lenguaje de programación orientado a objetos.
+
+
+\begin{figure}[!tb]
+  \centering \includegraphics[width=.60\linewidth]{background/images/MixinPattern.eps} \\
+  \caption{Diagrama de clases que hace uso del \emph{patrón mixin}}
+  \label{back:fig:mixin}
+\end{figure}
+
+Pero por fortuna o por desgracia, la herencia múltiple entre clases ha ido desapareciendo poco a poco en los lenguajes de programación orientados a objetos actuales, tales como Java~\cite{arnold:2005} o C\#~\cite{albahari:2010}. Actualmente, la práctica general es permitir que una clase pueda heredar de una sola clase y de un número indeterminado de interfaces. Esto permite solventar los conocidos problemas de conflictos por colisión de comportamientos heredados, es decir, cuando un mismo método con dos implementaciones distintas está presente en clases padre diferentes. No obstante, en ausencia de este tipo de conflictos, la herencia múltiple puede ser un mecanismo muy útil~\cite{meyer:2000,meyer:2009}, por lo que puede que su simple erradicación con el objetivo de evitar ciertas conflictos no sea una idea tan acertada como parece, cuya validez o no sólo conoceremos con el paso del tiempo y la experiencia.
+
+No obstante, la solución para trabajar con herencia múltiple en lenguajes orientados a objetos con herencia simple, sería aplicar el \emph{patrón mixin}~\cite{david:1986}. De acuerdo con dicho patrón, que se ilustra en la figura \ref{back:fig:mixin}, se utilizan las interfaces para simular la herencia múltiple. Por lo tanto, cada clase a heredar implementará una nueva interfaz que defina los métodos de esta clase, a su vez la nueva clase que se quiere crear para que herede la funcionalidad de sendas clases implementará las dos nuevas interfaces creadas anteriormente, y tendrá una relación de agregación con las clases a heredar.
+
+Pero el uso del \emph{patrón mixin} hace que, un incremento de funcionalidad representado por un conjunto de nuevas subclases que heredan de un conjunto de clases superiores, no sea posible manejarlo como un solo módulo. La insuficiente encapsulación deriva en un incremento de la complejidad a la hora de configurar y construir nuevos productos por ensamblando o composición de características. Aún cuando las clases, separadas en paquetes, pertenezcan a una misma característica, es necesario seleccionar qué clases concretas van a ser usadas en un producto específico. Por ejemplo, para incluir la característica impresión infija para una configuración del problema de las expresiones es necesario seleccionar todos los operadores binarios(\imp{AddInfix} y \imp{MultInfix}) y literales (\imp{IntegerInfix}) que implementan la característica.
+
+Otro problema es el manejo de las dependencias, ya que la herencia tradicional obliga a que las clases y subclases tengan diferentes nombres. Por lo tanto, las referencias a las clases concretas deben ser actualizadas. A mayor número de características en una línea de productos, las relaciones entre clases concretas se complican potencialmente, lo que resulta una situación indeseable. Esto incrementa la complejidad en las relaciones y dependencias entre clases.Por ejemplo, en la característica impresión infija no sería permitido una clase \imp{Add} o \imp{Mult}. Se tienen que crear dos clases concretas, que hereden de \imp{Add} y \imp{Mult}, con diferentes nombres, \imp{AddInfix} y \imp{MultInfix}. Esto incrementa la complejidad en las relaciones y dependencias entre clases.
+
+\subsubsection{Conclusiones}
+
+Tras analizar el problema con un lenguaje orientado a objetos como es C\# se podría determinar que sería deseable encontrar un nuevo paradigma de  programación, orientado a características,  donde se pudiesen obtener fácilmente diferentes versiones de una misma aplicación mediante la simple composición de características. Obviamente no todas las combinaciones de características serían válidas, por ejemplo para una característica de una aplicación para un hogar inteligente que se encargue de realizar un uso eficiente del consumo de energía a través del control de las perdidas por ventanas abiertas, necesitará que las características relacionadas con la calefacción y las ventanas estén seleccionadas. Por tanto, un lenguaje orientado a características debería asegurarse de que el resultado de la composición de un conjunto de características da lugar a aplicaciones válidas y consistentes.
+
+
+\subsection{Ventajas de los lenguajes orientados a características}
+Los lenguajes orientados a características nos otorgan una mayor flexibilidad, ya que nos permiten que clases individuales puedan ser compuestas por un conjunto de características, por tanto son especialmente recomendados para utilizarlos con las líneas de producción software.
+
+Para estudiar las ventajas de los lenguajes orientados a características se trabajará con CaesarJ \cite{aracic:2006} que es un lenguaje de programación basado en Java, que nos proporciona una mayor modularidad y el desarrollo a través de componentes reusables. Para ello trabaja con conceptos como clases y paquetes en una única entidad, llamada familia de clases, que constituye unidades de encapsulamiento adicional para agrupar clases relacionadas. Una familia de clases también es, en sí misma una clase. Así mismo, se introduce el concepto de clases virtuales, que son clases internas (de familias de clases) propensas a ser refinadas a nivel de subclases. En el refinamiento de una clase virtual, implícitamente se hereda de la clase que refina, por lo que también esto es visto como una relación adjunta. También, en un refinamiento pueden ser añadidos nuevos métodos, campos, relaciones de herencia y sobreescritura de métodos. Puesto que en cada familia de clases, las referencias a las clases virtuales siempre apuntarán al refinamiento más específico. Esto significa que, por medio de las clases virtuales se aplica sobre escritura de métodos, permitiendo redefinir el comportamiento de cualquier subclase de una familia de clases.
+
+En términos de programación orientada a características, cada funcionalidad es modelada como una familia de clases. Mientras que los componentes y objetos del dominio específico, son correspondidos por sus clases virtuales. Así mismo, las clases virtuales pueden ser declaradas como clases abstractas, lo que habilita la definición de interfaces en la implementación modular de características.
+
+Para hacer uso de lo citado anteriormente y ver su beneficio con las líneas de producción software se ha vuelto a utilizar el ya comentado problema de las expresiones de la subsección anterior. Pero en este caso, el diseño cambia significativamente debido a la características expuestas de CaesarJ.
+
+Por un lado en la figura \ref{back:fig:caesarJExpressions} se muestra que por cada operación, tenemos una familia de clases, siendo la familia de clases que encapsula a todas las demás, la denominada \imp{Expressions}. Ésta tiene la estructura de clases representado en la figura \ref{back:fig:expr}, y cada familia de clases lo que hace es redefinir las clases virtuales de \imp{Expressions} con las operaciones necesarias en cada caso.
+
+\begin{figure}[ht!]
+  % Requires \usepackage{graphicx}
+  \centering \includegraphics[width=.60\linewidth]{background/images/CaesarJExpressions.eps} \\
+  \caption{Diseño para resolver el problema de las expresiones con CaesarJ}
+  \label{back:fig:caesarJExpressions}
+\end{figure}
+\begin{figure}[ht!]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+00 import eval.Eval;
+01 import printPostfix.PrintPostfix;
+02 import printInfix.PrintInfix;
+03 import printPrefix.PrintPrefix;
+04 public cclass EvalInfix extends PrintPrefix & Eval {}
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Configuración que incluye las operaciones de evaluar e imprimir en formato infijo con CaesarJ}
+\label{back:fig:codCaesarJ}
+\end{figure}
+
+Para realizar configuraciones, únicamente se tiene que crear una nueva clase que extienda a las características que se deseen.A modo de ejemplo,la figura \ref{back:fig:codCaesarJ} muestra el código necesario para crear una nueva configuración que contenga las operaciones de impresión en formato posfijo y evaluación de una expresión.Con todo esto, vemos como CaesarJ otorga un gran nivel de encapsulamiento y de reusabilidad de los componentes.

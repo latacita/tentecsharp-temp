@@ -1,34 +1,10 @@
-%=============================================================================%
-% Author : Alejandro Pérez Ruiz                                               %
-% Author : Pablo Sánchez Barreiro                                             %
-% Version: 1.1, 10/06/2011                                                    %
-% Master Thesis: Background, master file                                      %
-%=============================================================================%
+%=========================================================================%
+% Author : Alejandro Pérez Ruiz                                           %
+% Author : Pablo Sánchez Barreiro                                         %
+% Version: 1.1, 10/06/2011                                                %
+% Master Thesis: Background/PartialClasses                                % 
+%=========================================================================%
 
-\chapterheader{Antecedentes}{Antecedentes}
-\label{chap:background}
-
-Este capítulo proporciona una muy breve introducción a las diferentes técnicas y tecnologías que se usarán a lo largo de este proyecto y que se entiende que no tienen por qué ser conocidas por el lector. Más concretamente, ofrece una visión general de las líneas de productos software, el desarrollo de software orientado a características y las clases parciales de C\#. Recordemos que el objetivo de este proyecto es implementar una línea de productos usando clases parciales de C\# como mecanismo para encapsular y componer características.
-
-\chaptertoc
-
-\section{Líneas de Productos Software}
-
-\input{background/spl.tex}
-
-\section{Ejemplo de LPS: El Problema de las Expresiones}
-
-\input{background/expressionProblem.tex}
-
-\section{Árboles de Características}
-\label{sec:back:feature}
-
-\input{background/featureModel.tex}
-
-\section{Programación Orientada a Características}
-
-
-\section{Clases Parciales C\#}
 Las clases parciales C\# \cite{albahari:2010} nos permiten dividir la implementación de una clase, estructura o interfaz en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan en tiempo de compilación para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. Por lo tanto,las clases parciales C\# pueden utilizarse como un mecanismo adecuado para implementar características, dado que cada incremento en funcionalidad para una clase se podría encapsular en una clase parcial separada.
 
 
@@ -69,6 +45,3 @@ Por lo tanto, algunos autores \cite{laguna:2007} sostienen que, las clases parci
 % Qué hace esto aquí
 
 % Explicar que son brevemente, y ejemplo usando las expresiones
-
-\section{Sumario}
-Durante este capítulo se han relatado los conceptos necesarios para entender el ámbito del problema para la implementación de una línea de productos software. De este modo ha quedado reflejado que la mejor opción son los lenguajes orientados a características, ya que poseen facilidades para encapsular y componer las características, mientras que la mayoría de los lenguajes orientados a objetos no poseen herencia múltiple, lo que complica notablemente la tarea para crear configuraciones a través de la composición de características, aunque el lenguaje C\# contiene las clases parciales que pueden ser una alternativa a la herencia múltiple.

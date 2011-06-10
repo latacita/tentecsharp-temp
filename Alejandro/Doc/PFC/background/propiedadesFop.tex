@@ -1,0 +1,26 @@
+%=========================================================================%
+% Author : Alejandro Pérez Ruiz                                           %
+% Author : Pablo Sánchez Barreiro                                         %
+% Version: 1.1, 10/06/2011                                                %
+% Master Thesis: Background/FeatureOrientedChallenge                      %
+%=========================================================================%
+
+Siguiendo los estudios y trabajos realizados por \cite{lopez:2005,chul:2002,aracic:2006,chae:2009,elio:2010} se  identifican  en esta sección una serie de elementos que sería deseable encontrar en un lenguaje orientado a características.
+
+\paragraph{Extensión a través de la adición y la sustitución:}
+
+Una característica se considera normalmente un incremento en la funcionalidad de un sistema software~\cite{batory:2004}. Las extensiones pueden ser tanto por adición de nueva funcionalidad (e.g., evaluación de expresiones), como por sustitución o sobreescritura de funcionalidades ya existentes (e.g., evaluación con cortocircuito). Por lo tanto, para la implementación de una línea de productos software sería deseable encontrar en un lenguaje de programación mecanismos que permitiesen extender y sobreescribir las funcionalidades ya existentes.
+
+\paragraph{Encapsulamiento de características:}
+
+Todas las extensiones pertenecientes a una característica concreta se deberían poder añadir o eliminar de forma atómica de un determinado producto. Es decir, o se añaden todas las extensiones a un producto, o no se añade ninguna. Por lo tanto, un lenguaje adecuado para la implementación de líneas de productos software debería proporcionar mecanismos para agrupar y encapsular los elementos pertenecientes a una misma característica en un único modulo software cuya composición fuese lo más fácil posible. Estos módulos deberían además permitir su  desarrollo y compilación independiente.
+
+\paragraph{Composición a nivel de característica:}
+
+En una línea de productos software, los productos software concretos acordes a las necesidades particulares de cada cliente se obtienen mediante la selección y composición de las características deseadas por cada cliente. Por lo tanto, sería deseable que un lenguaje de programación para la implementación de líneas de productos software proporcionase facilidades para especificar dicha composición. Tal composición debería además realizar a nivel de característica, indicando que características deseamos componer, en lugar de tener que especificar que elementos individuales dentro de cada característica debemos componer.
+
+\paragraph{Análisis y gestión de la corrección de la composición:}
+
+Cuando se desea componer un producto concreto dentro de una línea de productos software, no todas las combinaciones de características dan lugar a productos válidos. Por lo tanto, sería deseable que un lenguaje utilizado para la implementación de líneas de productos software pudiese detectar composiciones erróneas, alertando a los desarrolladores de los posibles fallos. Además, en la medida de lo posible, dichos fallos deberían solventarse, siempre que fuese posible, de forma automática mediante la gestión de las restricciones y dependencias entre características por parte del propio lenguaje.
+
+La siguiente subsección analiza como las técnicas orientadas a objetos satisfacen estas características.
