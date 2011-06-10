@@ -1,71 +1,30 @@
 %=============================================================================%
 % Author : Alejandro Pérez Ruiz                                               %
 % Author : Pablo Sánchez Barreiro                                             %
-% Version: 1.0, 07/03/2011                                                    %
+% Version: 1.1, 10/06/2011                                                    %
 % Master Thesis: Background, master file                                      %
 %=============================================================================%
+
 \chapterheader{Antecedentes}{Antecedentes}
 \label{chap:background}
 
-En este capítulo se ofrece una visión general de que son las líneas de productos software, cuales son sus principales objetivos y se realiza un análisis sobre las técnicas actuales existentes que se podrían utilizar para trabajar con las líneas de productos software con la ayuda de un problema concreto.
+Este capítulo proporciona una muy breve introducción a las diferentes técnicas y tecnologías que se usarán a lo largo de este proyecto y que se entiende que no tienen por qué ser conocidas por el lector. Más concretamente, ofrece una visión general de las líneas de productos software, el desarrollo de software orientado a características y las clases parciales de C\#. Recordemos que el objetivo de este proyecto es implementar una línea de productos usando clases parciales de C\# como mecanismo para encapsular y componer características.
 
 \chaptertoc
 
 \section{Líneas de Productos Software}
 
-% Explica que es una línea de productos software, objetivos y terminología
+\input{background/spl.tex}
 
-El objetivo de una línea de productos software~\cite{pohl:2005} es crear una infraestructura adecuada a partir de la cual se puedan derivar, tan automáticamente como sea posible, productos concretos pertenecientes a una familia de productos software. Una familia de productos software es un conjunto de aplicaciones software similares, que por tanto comparten una serie de características comunes, pero que también presentan variaciones entre ellos.
+\section{Ejemplo de LPS: El Problema de las Expresiones}
 
-Un ejemplo clásico de familia de productos software es el software que se encuentra instalado por defecto en un teléfono móvil. Dicho software contiene una serie de facilidades comunes, tales como agenda, recepción de llamadas, envío de mensajes de texto, etc. No obstante, dependiendo de las capacidades y la gama del producto, éste puede presentar diversas funcionalidades opcionales, tales como envío de correos electrónicos, posibilidad de conectarse a Internet mediante red inalámbrica, radio, etc.
+\input{background/expressionProblem.tex}
 
-La idea de una línea de productos software es proporcionar una forma automatizada y sistemática de construir un producto concreto dentro de una familia de productos software mediante la simple especificación de qué características deseamos incluir dentro de dicho producto. Esto representa una alternativa al enfoque tradicional de desarrollo software, el cual se basaba simplemente en seleccionar el producto más parecido dentro de la familia al que queremos construir y adaptarlo manualmente.
+\section{Árboles de Características}
+\label{sec:back:feature}
 
-El proceso de creación de líneas de producto software conlleva dos fases: \emph{ingeniería de dominio} (en inglés,  \emph{Domain Engineering}) e \emph{ingeniería de aplicación} (en inglés, \emph{Application Engineering}) (la figura~\ref{back:fig:domainAplicEng} ilustra el proceso para ambas fases). La \emph{ingeniería de dominio} tiene como objetivo la creación de la infraestructura o arquitectura de la línea de productos, la cual permitirá la rápida, o incluso automática, construcción del sistema software específico dentro de la familia de productos. La ingeniería de aplicación utiliza la infraestructura creada anteriormente para crear aplicaciones específicas adaptadas a las necesidades de los usuarios.
+\input{background/featureModel.tex}
 
-\begin{figure}[!tb]
-  \centering
-	\includegraphics[width=.95\linewidth]{background/images/domainAplicationEngineering.eps} \\
-  \caption{Proceso de desarrollo de una línea de productos software}
-  \label{back:fig:domainAplicEng}
-\end{figure}
-
-Cuando se está desarrollando con líneas de productos software en muchas ocasiones es necesario modelar las características de una familia software, para ello existe una notación visual que se denomina diagramas de características y que es descrita en la siguiente sección.
-
-\section{Diagramas de características}
-Un diagrama de características es la notación visual para un modelo de características, el cuál es básicamente un árbol and-or.
-
-Las relaciones entre las características padres y las características hijas pueden ser clasificadas como:
-\begin{enumerate}
-\item \emph{Obligatoria}: La característica hija es obligatoria.
-\item \emph{Opcional}: La característica hija es opcional.
-\item \emph{Simple}: La característica hija tendrá cardinalidad \emph{<m..n>}
-\item \emph{Grupo Or}: Al menos una de las características hijas debe ser seleccionada.
-\item \emph{Grupo Xor}: Sólo una de las características hijas debe ser seleccionada
-\item \emph{Grupo-Simple}: El número de características seleccionadas del grupo vendrá dado por su cardinalidad.
-\end{enumerate}
-Para representar visualmente las relaciones descritas anteriormente se utiliza la notación que se puede observar en la figura \ref{back:fig:not}.
-
-\begin{figure}[!tb]
-  \centering \includegraphics[width=.65\linewidth]{background/images/notFeatureDiagram.eps} \\
-  \caption{Notaciones utilizadas en los diagramas de características}
-  \label{back:fig:not}
-\end{figure}
-
-Además de las relaciones las características pueden tener restricciones, comúnmente las más utilizadas son requiere(si selecciona la característica A implica seleccionar la característica B) y excluye (si se selecciona la característica A la característica B debe ser excluida), pero puede ser utilizada cualquier fórmula lógica que describa una restricción.
-
-El objetivo de este tipo de diagramas a parte de la propia representación y facilidad para visualizar las diferentes características, es la posibilidad de utilizar las transformaciones de modelos para conseguir realizar configuraciones que satisfagan las restricciones\cite{czarnecki:2004}.
-
-A modo de ejemplo se incluye en la figura \ref{back:fig:featurEShop} el diagrama de características que muestra un sistema configurable para una tienda online.
-
-\begin{figure}[!tb]
-  \centering \includegraphics[width=.85\linewidth]{background/images/featureModelEshop.eps} \\
-  \caption{Diagrama de características para una \emph{e-shop}}
-  \label{back:fig:featurEShop}
-\end{figure}
-
-%HECHO \todo{Poner un párrafo de enlace con la sección siguiente}
-Cuando se modelan líneas de productos software a través de los diagramas de características,y se pretende generar el código necesario para crear una familia de productos software, los lenguajes de programación orientados a objetos resultan muchas veces insuficientes. Con objeto de paliar estas deficiencias, en los últimos años han ido surgiendo unos nuevos tipos de lenguajes denominados \emph{orientados a características}. La siguiente sección introduce la programación orientada a características para a continuación explicar sus ventajas con respecto a las técnicas tradicionales orientadas a objetos.
 \section{Programación Orientada a Características}
 
 Los lenguajes orientados a características~\cite{prehofer:2001} tienen como objetivo encapsular conjuntos coherentes de funcionalidad de un sistema software en módulos independientes y fácilmente componibles de forma que se incremente la capacidad de reutilización y extensión de estos módulos. Dichos módulos reciben el nombre de \emph{característica}. Una característica se suele definir como un incremento de la funcionalidad de un sistema~\cite{batory:2004}.
@@ -86,13 +45,12 @@ Por lo tanto, un lenguaje orientado a características nos debe permitir descompo
 
 La siguiente sección describe en mayor detalle los problemas que surgen cuando se intenta obtener un enfoque orientado a características usando un lenguaje de programación orientado a objetos.
 
-%% DONE
 \subsection{Limitaciones de la Orientación a Objetos frente a la Programación Orientada a Características}
 
 Para analizar las limitaciones que posee la programación orientada a objetos a la hora de implementar líneas de productos software nos basaremos en un problema clásico de las líneas de productos, como es el \emph{problema de las
 expresiones}~\cite{togersen:2004}. Dicho problema se describe a continuación.
 
-%% DONE
+
 \subsubsection{Descripción del Problema de las Expresiones}
 
 El objetivo del problema de las expresiones es diseñar una aplicación software que para la gramática de la Figura~\ref{back:fig:gramExpr}, soporte las siguientes operaciones:
@@ -125,6 +83,7 @@ MultPrefix  ::= "*" Exp Exp
 
 Identificamos en este problema dos conjuntos diferenciados de características: (1) las operaciones \imp{\{Print, Eval, ShortEval\}} que se pueden realizar sobre la gramática; y (2) si los operadores son infijos, prefijos o postfijos.
 Por tanto, tenemos 6 características posibles para nuestros productos (operadores infijos, prefijos o postfijos, más \imp{\{Print, Eval, ShortEval\}} como operaciones opcionales para la gramática).
+
 Tras haber descompuesto el problema en sus diferentes características se ha modelado un diagrama de características representado en la figura \ref{back:fig:featureModel} con las peculiaridades anteriormente descritas.
 \begin{figure}[!tb]
   \centering \includegraphics[width=.85\linewidth]{background/images/featureModelExpr.eps} \\

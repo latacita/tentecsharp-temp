@@ -5,7 +5,7 @@
 % nicely formatted chapter front pages:
 \newcommand{\tocchapter}[1]{\cleardoublepage\chapter{#1}\minitoc\newpage}
 
-\newcommand{\chapterheader}[1]{\cleardoublepage\chapter{#1}}
-\newcommand{\chapterheader2}[2]{\cleardoublepage\chapter[#2]{#1}} 
+% \newcommand{\chapterheader}[1]{\cleardoublepage\chapter{#1}}
+\newcommand{\chapterheader}[2]{\cleardoublepage\chapter[#2]{#1}} 
 
 \newcommand{\chaptertoc}{\minitoc}

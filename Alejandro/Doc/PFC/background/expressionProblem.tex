@@ -1,0 +1,39 @@
+%=============================================================================%
+% Author : Alejandro Pérez Ruiz                                               %
+% Author : Pablo Sánchez Barreiro                                             %
+% Version: 1.1, 10/06/2011                                                    %
+% Master Thesis: Background/Expression Problem                                %
+%=============================================================================%
+
+El \emph{problema de las expresiones} es un problema típico dentro del mundo del diseño software~\cite{cook:1990} y que es muy frecuentemente utilizado para ilustrar el funcionamiento de las diferentes técnicas y tecnologías relacionadas con las líneas de productos software~\cite{lopezHerrejon:2004}. El objetivo del problema de las expresiones es diseñar una familia de productos software que, para la gramática de la Figura~\ref{back:fig:gramExpr}, soporte siguientes operaciones:
+
+\begin{description}
+	\item[Print:] Debe mostrar por consola la expresión en el formato infijo, prefijo o posfijo.
+	\item[Eval:] Debe evaluar la expresión y retornar su resultado.
+	\item[ShortEval:] debe evaluar la expresión realizando las operaciones \emph{cortocircuitadas}. Es decir, tan pronto como el valor de un operando determine el resultado de la expresión, se deberá parar la evaluación del resto de los operandos. Por ejemplo, en una multiplicación, si el primer operando es 0, se retornará el valor 0 directamente, sin evaluar el segundo operando.
+\end{description}
+
+No todas las operaciones tienen que aparecer en todos los productos, por lo que debería ser posible construir productos concretos que careciesen de alguna de ellas. 
+
+\begin{figure}
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+Exp :: = Integer | AddInfix | MultInfix | AddPostfix | MulltPostfix |
+				 AddPrefix | MultPrefix
+Integer     :: <positive-negative integers>
+AddInfix    ::= Exp "+" Exp
+MultInfix   ::= Exp "*" Exp
+AddPostfix  ::= Exp Exp "+"
+MultPostfix ::= Exp Exp "*"
+AddPrefix   ::= "+" Exp Exp
+MultPrefix  ::= "*" Exp Exp
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Gramática del lenguaje de expresiones}
+\label{back:fig:gramExpr}
+\end{figure}
+
+La siguiente sección describe cómo usando árboles de características podemos especificar la variabilidad existente en esta familia de productos software.
+
