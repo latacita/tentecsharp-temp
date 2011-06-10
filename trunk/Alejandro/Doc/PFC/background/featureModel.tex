@@ -8,27 +8,41 @@
 Un árbol de características~\cite{kang:1990,benavides:2010} es un árbol and-or que se usa para especificar que elementos de una familia de productos (software)
 son comunes a toda la familia de productos software, cuales son variables y por qué dichos elementos son variables, por ejemplo, porque sean opcionales o alternativos entre sí.
 
-La Figura~\ref{back:fig:featureModel} muestra un árbol de características para una línea de productos software para el problema de las expresiones descrito en la sección anterior.  
+%%===========================================================================%%
+%% NOTA(Pablo): Cambia la raíz de la siguiente figura para que en lugar de   %%
+%%   EPL se llame ExpressionEditor                                           %%
+%%   Poner una leyenda indicando que significa cada simbolo                  %%
+%%   Hacer los Operators mandatory                                           %%    %%   Haz que la forma de imprimir sea alternativa                            %%
+%%   Haz que los operadores sean alternativas mutuamente no exclusivas entre %%
+%%    1 y 3                                                                  %%
+%%   Las características Print_Infix, Print_Prefix y Print_Postfix, que se   %%
+%%   llamen sólo Infix, Prefix y Postfix.                                    %%
+%%   Renombra Large Expression a Integer                                     %%
+%%===========================================================================%%
 
+\begin{figure}[!tb]
+  \centering \includegraphics[width=.85\linewidth]{background/images/featureModelExpr.eps} \\
+  \caption{Árbol de características para el \emph{problema de las expresiones}}
+  \label{back:fig:featureModel}
+\end{figure}
 
-Identificamos en este problema dos conjuntos diferenciados de caracter
-´ýsticas: (1) las operaciones {Print, Eval, ShortEval} que se pueden realizar
-sobre la gram´atica; y (2) si los operadores son infijos, prefijos o postfijos. Por
-tanto, tenemos 6 caracter´ýsticas posibles para nuestros productos (operadores
-infijos, prefijos o postfijos, m´as {Print, Eval, ShortEval} como operaciones
-opcionales para la gram´atica). Tras haber descompuesto el problema en sus
-diferentes caracter´ýsticas se ha modelado un diagrama de caracter´ýsticas representado
-en la figura 2.5 con las peculiaridades anteriormente descritas.
+La Figura~\ref{back:fig:featureModel} muestra un árbol de características para la familia de productos software para el problema de las expresiones descrito en la sección anterior. En dicho árbol, los nodos representan las diferentes características de la familia de productos y las relaciones entre nodos especifican si dichas características son obligatorias, opcionales o alternativas (ver la notación para cada caso en el cuadro \imp{Leyenda} de la Figura~\ref{back:fig:featureModel}).
 
+Más concretamente, el árbol de la Figura~\ref{back:fig:featureModel} especifica que un \imp{ExpressionEditor} debe soportar obligatoriamente operaciones (\imp{Operations}), constantes \imp{Constants} y operadores \imp{Operators}.
+Como operadores, pueden aparecer \imp{Add}, \imp{Mult} o \imp{LargeExpression}. Entre estos operadores se ha de escoger como mínimo 1 y pueden seleccionarse los tres si así se desea. Las operaciones \imp{Eval} y \imp{Print} son ambas opcionales. En el caso de \imp{Eval}, además puede opcionalmente la opción de evaluación con cortocircuito \imp{ShortEval}. En el caso de la operación \imp{Print}, el usuario que adquiera un producto perteneciente a esta familia deberá escoger entre impresión prefija, infija o postfija.
 
+No todas las relaciones y restricciones entre características se pueden
+modelar usando la sintaxis propia de los árboles de características. Cuando la expresividad de éstos no es suficiente, se suele modelar las relaciones entre características usando formulas de lógica proposicional, donde los átomos son los nodos del árbol de características~\cite{batory:2005:propositional}. Por ejemplo, la evaluación con cortocircuito sólo tiene sentido si se ha seleccionado el operador \imp{Mult}, que es el único que permite evaluación cortocircuitada. Esto se expresaría mediante la fórmula $ShortEval \Rightarrow Mult$.
 
+Lo expuesto en esta sección cubriría la fase relativa a \emph{especificación de la variabilidad}. El siguiente paso a la hora de construir una línea de productos software sería crear un diseño software lo suficiente flexible para acomodar dichas variaciones. El caso ideal sería poder encapsular cada característica en un módulo software altamente cohesionado y débilmente acoplado cuya composición con otros módulos fuese además lo más fácil posible. De esta forma podríamos construir productos software concretos dentro de esta familia de productos mediante la simple composición de los módulos correspondientes a las características deseadas por el usuario.
 
+La siguiente sección explica cómo se abordaría este objetivo usando orientación a objetos, los problemas que se plantean y cómo surge la programación orientada a características como solución a dichos problemas.
 
 %%=========================================================================%%
-%% NOTA(Pablo): Esto se explica sobre la misma figura, eliminalo           %%                      %%=========================================================================%%
+%% NOTA(Pablo): Esto se explica sobre la misma figura, eliminalo           %% %%=========================================================================%%
 %%
-%% Las relaciones entre las características padres y las características hijas
-%% pueden ser clasificadas como:
+%% Las relaciones entre las características padres y las características
+%% hijas pueden ser clasificadas como:
 %% \begin{enumerate}
 %%    \item \emph{Obligatoria}: La característica hija es obligatoria.
 %%    \item \emph{Opcional}: La característica hija es opcional.
@@ -52,16 +66,40 @@ en la figura 2.5 con las peculiaridades anteriormente descritas.
 %% \end{figure}
 %%=========================================================================%%
 
-Además de las relaciones las características pueden tener restricciones, comúnmente las más utilizadas son requiere(si selecciona la característica A implica seleccionar la característica B) y excluye (si se selecciona la característica A la característica B debe ser excluida), pero puede ser utilizada cualquier fórmula lógica que describa una restricción.
+%%===========================================================================%%
+%% NOTA(Pablo): Este párrafo no lo entiendo, así que lo suprimo              %% %%===========================================================================%%
+%%
+%% El objetivo de este tipo de diagramas a parte de la propia representación y
+%% facilidad para visualizar las diferentes características, es la posibilidad de %% utilizar las transformaciones de modelos para conseguir realizar
+%% configuraciones que satisfagan las restricciones~\cite{czarnecki:2004}.
+%%
+%%===========================================================================%%
 
-El objetivo de este tipo de diagramas a parte de la propia representación y facilidad para visualizar las diferentes características, es la posibilidad de utilizar las transformaciones de modelos para conseguir realizar configuraciones que satisfagan las restricciones\cite{czarnecki:2004}.
+%%===========================================================================%%
+%% NOTA(Pablo): He decidido que es mejor usar el problema de las expresiones %%
+%%     para toda la sección                                                  %%    %%===========================================================================%%
+%
+% A modo de ejemplo se incluye en la figura \ref{back:fig:featurEShop} el
+% diagrama de características que muestra un sistema configurable para una
+% tienda online.
+%
+% \begin{figure}[!tb]
+%  \centering
+%  \includegraphics[width=.85\linewidth]{background/images/featureModelEshop.eps} %   \\
+%   \caption{Diagrama de características para una \emph{e-shop}}
+%   \label{back:fig:featurEShop}
+% \end{figure}
+%%===========================================================================%%
 
-A modo de ejemplo se incluye en la figura \ref{back:fig:featurEShop} el diagrama de características que muestra un sistema configurable para una tienda online.
-
-\begin{figure}[!tb]
-  \centering \includegraphics[width=.85\linewidth]{background/images/featureModelEshop.eps} \\
-  \caption{Diagrama de características para una \emph{e-shop}}
-  \label{back:fig:featurEShop}
-\end{figure}
-
-Cuando se modelan líneas de productos software a través de los diagramas de características,y se pretende generar el código necesario para crear una familia de productos software, los lenguajes de programación orientados a objetos resultan muchas veces insuficientes. Con objeto de paliar estas deficiencias, en los últimos años han ido surgiendo unos nuevos tipos de lenguajes denominados \emph{orientados a características}. La siguiente sección introduce la programación orientada a características para a continuación explicar sus ventajas con respecto a las técnicas tradicionales orientadas a objetos.
+%%===========================================================================%%
+%% NOTA(Pablo): Y este párrafo ha quedado ahora superfluo                    %% %%===========================================================================%%
+%% Cuando se modelan líneas de productos software a través de los diagramas de
+%% características,y se pretende generar el código necesario para crear una
+%% familia de productos software, los lenguajes de programación orientados a
+%% objetos resultan muchas veces insuficientes. Con objeto de paliar estas
+%% deficiencias, en los últimos años han ido surgiendo unos nuevos tipos de
+%% lenguajes denominados \emph{orientados a características}. La siguiente
+%% sección introduce la programación orientada a características para a
+%% continuación explicar sus ventajas con respecto a las técnicas tradicionales
+%% orientadas a objetos.
+%%===========================================================================%% 
