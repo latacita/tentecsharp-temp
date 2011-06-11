@@ -2,16 +2,25 @@
 % Author : Alejandro Pérez Ruiz                                           %
 % Author : Pablo Sánchez Barreiro                                         %
 % Version: 1.1, 10/06/2011                                                %
-% Master Thesis: Background/PartialClasses                                % 
+% Master Thesis: Background/PartialClasses                                %
 %=========================================================================%
 
-Las clases parciales C\# \cite{albahari:2010} nos permiten dividir la implementación de una clase, estructura o interfaz en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan en tiempo de compilación para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. Por lo tanto,las clases parciales C\# pueden utilizarse como un mecanismo adecuado para implementar características, dado que cada incremento en funcionalidad para una clase se podría encapsular en una clase parcial separada.
+Las clases parciales C\# \cite{albahari:2010} permiten dividir la implementación de una clase en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan en tiempo de compilación para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. Por lo tanto, las clases parciales C\# parecen un mecanismo adecuado para implementar características, tal como ha sido identificado por diversos autores~\cite{laguna:2007,laguna:2010}, dado que cada incremento en funcionalidad perteneciente a una característica se podría encapsular en una clase parcial separada.
 
+%%==============================================================================================================%%
+%% NOTA(Pablo): Poner un ejemplo pequeño aquí con dos clases parciales relativas al problema de las expresiones %%
+%%==============================================================================================================%%
 
-Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con el indicador clave partial. En C\#, un espacio de nombre es simplemente empleado para agrupar clases relacionadas y evitar conflictos de nombres. Para especificar los archivos C\# que deben ser incluidos en una compilación, se emplea un documento XML que contiene información acerca del proyecto y que especifica que ficheros deben ser compilados para generar el proyecto. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML.
-
-Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo con clases parciales. La figura \ref{back:fig:partialClass} muestra como hemos excluido de la compilación la característica que representa la operación de imprimir una expresión en formato infijo.
-Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que no precisan estar relacionadas mediante ningún tipo de relación jerárquica, tal como ocurre con la herencia.
+%%=============================================================================================================%%
+%% NOTA(Pablo): Esto no me cuadra muy bien aquí, así que lo borro                                              %%
+%%=============================================================================================================%%
+%%
+%% Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al 
+%% mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con la palabra clave 
+%% \imp{partial}. En C\#, un espacio de nombre se emplea simplemente para agrupar clases relacionadas y evitar 
+%% conflictos de nombres.
+%%
+%%=============================================================================================================%%
 
 \begin{figure}[!tb]
 \begin{center}
@@ -36,12 +45,20 @@ Este mecanismo de clases parciales permite añadir o compartir funcionalidad entr
 \end{verbatim}
 \end{footnotesize}
 \end{center}
-\caption{Implementación del archivo XML que guarda la información para la compilación}
+\caption{Archivo XML que guarda la información para la compilación en Visual Studio}
 \label{back:fig:partialClass}
 \end{figure}
 
-Por lo tanto, algunos autores \cite{laguna:2007} sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada con programación orientada a características.
 
-% Qué hace esto aquí
+Para especificar los archivos C\# que deben ser incluidos en una unidad de compilación se emplea un documento XML como el de la Figura~\ref{back:fig:partialClass}. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML. Por tanto, la composición de características también parece factible mediante la manipulación de este fichero XML.
 
-% Explicar que son brevemente, y ejemplo usando las expresiones
+%%=============================================================================================================%%
+%% NOTA(Pablo): Esto no me cuadra muy bien aquí, así que lo borro                                              %%
+%%=============================================================================================================%%
+%% Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo 
+%% con clases parciales. La figura \ref{back:fig:partialClass} muestra como hemos excluido de la compilación la
+%% característica que representa la operación de imprimir una expresión en formato infijo.
+%% Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que 
+%% no precisan estar relacionadas mediante ningún tipo de relación jerárquica, tal como ocurre con la herencia.
+
+En los siguientes capítulos, evaluaremos las ventajas e inconvenientes de las clases parciales de C\# como mecanismo para la implementación de una línea de productos software mediante la construcción de una línea de productos software de hogares inteligentes. El siguiente capítulo describe la planificación seguida para realizar dicho proyecto.
