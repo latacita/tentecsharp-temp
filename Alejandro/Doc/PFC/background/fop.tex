@@ -5,7 +5,7 @@
 % Master Thesis: Background/Feature Oriented Programming                  %
 %=========================================================================%
 
-La programación orientada a características~\cite{prehofer:2001} surge como respuesta a las limitaciones que el diseño y la programación orientada a objetos posee en relación a la implementación de las línea de productos software. Por tanto, antes de describir en qué consiste la programación orientada a características, comentaremos qué propiedades sería deseable encontrar en un lenguaje para la implementación de líneas de productos software y analizaremos cómo satisfaces las técnicas de desarrollo software orientado a objetos dichas propiedades, comentando sus principales limitaciones.
+La programación orientada a características~\cite{prehofer:2001} surge como respuesta a las limitaciones que el diseño y la programación orientada a objetos posee en relación a la implementación de las línea de productos software. Por tanto, antes de describir en qué consiste la programación orientada a características, comentaremos qué propiedades serían deseables encontrar en un lenguaje para la implementación de líneas de productos software y analizaremos cómo satisfacer las técnicas de desarrollo software orientado a objetos dichas propiedades, comentando sus principales limitaciones.
 
 \subsection{Propiedades deseables de un lenguaje de programación para la implementación de líneas de productos software}
 \label{back:subsec:propiedades}
@@ -26,8 +26,8 @@ Los lenguajes orientados a características~\cite{prehofer:2001} tienen como obje
 %% NOTA(Pablo): Tal como se ha reorganizado esta sección, esto ha quedado ya bastante claro                      %%
 %%===============================================================================================================%%
 %%
-%% Los lenguajes orientados a características son especialmente útiles en el contexto de las líneas de productos 
-%% software, ya que nos permiten encapsular en módulos bien definidos las diferentes características, tanto comunes %% como variables, que pueden aparecer en cada uno de los productos software pertenecientes a una misma familia. Los %% lenguajes orientados a características tratan de facilitar además la composición de dichos módulos, contribuyendo %% así a que productos específicos dentro de una familia puedan ser creados mediante la simple composición o 
+%% Los lenguajes orientados a características son especialmente útiles en el contexto de las líneas de productos
+%% software, ya que nos permiten encapsular en módulos bien definidos las diferentes características, tanto comunes %% como variables, que pueden aparecer en cada uno de los productos software pertenecientes a una misma familia. Los %% lenguajes orientados a características tratan de facilitar además la composición de dichos módulos, contribuyendo %% así a que productos específicos dentro de una familia puedan ser creados mediante la simple composición o
 %% ensamblado de módulos software relativamente independientes.
 %%
 %%===============================================================================================================%%
@@ -63,20 +63,20 @@ Los lenguajes orientados a características~\cite{prehofer:2001} tienen como obje
 %%============================================================================%%
 
 %%=====================================================================================================%%
-%% NOTA(Pablo): Esto también me parece redundante ahora                                                %%    
+%% NOTA(Pablo): Esto también me parece redundante ahora                                                %%
 %%=====================================================================================================%%
 %%
 %% \subsubsection{Conclusiones}
-%% 
-%% Tras analizar el problema con un lenguaje orientado a objetos como es C\# se podría determinar que 
-%% sería deseable %% encontrar un nuevo paradigma de  programación, orientado a características, donde 
-%% se pudiesen obtener fácilmente diferentes versiones de una misma aplicación mediante la simple 
-%% composición de características. Obviamente no todas las combinaciones de características serían 
-%% válidas, por ejemplo para una característica de una aplicación para un hogar inteligente que se 
-%% encargue de realizar un uso eficiente del consumo de energía a través del control de las perdidas 
-%% por ventanas abiertas, necesitará que las características relacionadas con la calefacción y las 
-%% ventanas estén seleccionadas. Por tanto, un lenguaje orientado a características debería asegurarse 
-%% de que el resultado de la composición de un conjunto de características da lugar a aplicaciones 
+%%
+%% Tras analizar el problema con un lenguaje orientado a objetos como es C\# se podría determinar que
+%% sería deseable %% encontrar un nuevo paradigma de  programación, orientado a características, donde
+%% se pudiesen obtener fácilmente diferentes versiones de una misma aplicación mediante la simple
+%% composición de características. Obviamente no todas las combinaciones de características serían
+%% válidas, por ejemplo para una característica de una aplicación para un hogar inteligente que se
+%% encargue de realizar un uso eficiente del consumo de energía a través del control de las perdidas
+%% por ventanas abiertas, necesitará que las características relacionadas con la calefacción y las
+%% ventanas estén seleccionadas. Por tanto, un lenguaje orientado a características debería asegurarse
+%% de que el resultado de la composición de un conjunto de características da lugar a aplicaciones
 %% válidas y consistentes.
 %%
 %%=====================================================================================================%%
@@ -87,15 +87,15 @@ Los lenguajes orientados a características~\cite{prehofer:2001} tienen como obje
 %%
 %% \subsection{Ventajas de los lenguajes orientados a características}
 %%
-%% Los lenguajes orientados a características nos otorgan una mayor flexibilidad, ya que nos permiten 
-%% que clases individuales puedan ser compuestas por un conjunto de características, por tanto son 
+%% Los lenguajes orientados a características nos otorgan una mayor flexibilidad, ya que nos permiten
+%% que clases individuales puedan ser compuestas por un conjunto de características, por tanto son
 %% especialmente recomendados %% para utilizarlos con las líneas de producción software.
 %%
 %%=====================================================================================================%%
 
 Para estudiar las ventajas de los lenguajes orientados a características nos basaremos en las facilidades proporcionadas por CaesarJ~\cite{aracic:2006}, aunque ilustraremos los ejemplos con diagramas UML. Para mostrar las ventajas de dicho lenguaje se usará el ya comentado problema de las expresiones\footnote{Dicha implementación se proporciona en el soporte óptico adjunto a esta memoria.}. CaesarJ es un lenguaje de programación orientado a características basado en Java. Para ello trabaja con el concepto de \emph{familia de clases}. Una \emph{familia de clases} es una unidad de encapsulamiento que sirve para agrupar clases relacionadas. Las familias de clases reciben un tratamiento similar al de las clases, soportando relaciones de herencia entre ellas.
 
-Además, CaesarJ también introduce el concepto de \emph{clases virtuales}. Una clase virtual es una clase perteneciente a una familia de clases y que es susceptible de ser heredada y sobreescrita por familias de clases que hereden de la familia de clases que contiene dicha clase virtual. La Figura~\ref{} ilustra esta situación. Las familias de clases se representan mediante paquetes UML, y herencia entre clases, mediante relaciones \emph{merge}. Cuando una familia de clases hereda de otra, hereda implícitamente todas sus clases virtuales. Si la primera contiene clases virtuales con el mismo nombre que la familia de clases que hereda, entonces la clase virtual de la familia de clases hija hereda de la clase virtual con el mismo nombre de la familia de clases padre. Por ejemplo, en la Figura~\ref{}, la clase \imp{Mult} de la familia de clases \imp{Eval} heredaría implícitamente de la clase \imp{Mult} de la familia de clases \imp{Basic}. En cada familia de clases hija, se pueden añadir por tanto nuevos atributos y métodos a las clases virtuales de las familias de clases padre. Además, gracias al avanzado sistema de tipos de CaesarJ, se pueden añadir nuevas relaciones de herencia. 
+Además, CaesarJ también introduce el concepto de \emph{clases virtuales}. Una clase virtual es una clase perteneciente a una familia de clases y que es susceptible de ser heredada y sobreescrita por familias de clases que hereden de la familia de clases que contiene dicha clase virtual. La Figura~\ref{} ilustra esta situación. Las familias de clases se representan mediante paquetes UML, y herencia entre clases, mediante relaciones \emph{merge}. Cuando una familia de clases hereda de otra, hereda implícitamente todas sus clases virtuales. Si la primera contiene clases virtuales con el mismo nombre que la familia de clases que hereda, entonces la clase virtual de la familia de clases hija hereda de la clase virtual con el mismo nombre de la familia de clases padre. Por ejemplo, en la Figura~\ref{}, la clase \imp{Mult} de la familia de clases \imp{Eval} heredaría implícitamente de la clase \imp{Mult} de la familia de clases \imp{Basic}. En cada familia de clases hija, se pueden añadir por tanto nuevos atributos y métodos a las clases virtuales de las familias de clases padre. Además, gracias al avanzado sistema de tipos de CaesarJ, se pueden añadir nuevas relaciones de herencia.
 
 %%=====================================================================================================%%
 %% NOTA(Pablo): Aquí va haciendo falta un ejemplo, y mejor que el que está en la Figura 1.8. Haz un
@@ -103,19 +103,19 @@ Además, CaesarJ también introduce el concepto de \emph{clases virtuales}. Una cl
 %%              paquetes para al menos dos características, por ejemplo expression y eval
 %%=====================================================================================================%%
 
-Además, las referencias entre clases se actualizan automáticamente. Por ejemplo, en el caso de la Figura~\ref{}, aunque no se haga explícitamente, cualquier referencia a una clase del tipo \imp{Expression} dentro de la familia de clases \imp{Eval} se referirá a la clase virtual \imp{Expression} de la familia de clases \imp{Eval} y no a la clase virtual de mismo nombre de la familia de clases \imp{Basic}. De esta forma, las referencias están siempre actualizadas a su versión más extendida. 
+Además, las referencias entre clases se actualizan automáticamente. Por ejemplo, en el caso de la Figura~\ref{}, aunque no se haga explícitamente, cualquier referencia a una clase del tipo \imp{Expression} dentro de la familia de clases \imp{Eval} se referirá a la clase virtual \imp{Expression} de la familia de clases \imp{Eval} y no a la clase virtual de mismo nombre de la familia de clases \imp{Basic}. De esta forma, las referencias están siempre actualizadas a su versión más extendida.
 
-Para implementar una línea de productos software, cada característica se considera como una familia de clases. 
+Para implementar una línea de productos software, cada característica se considera como una familia de clases.
 Dentro de cada familia de clases, cada característica se diseña usando las técnicas tradicionales de la orientación a objetos, tal como se muestra en la Figura~\ref{}.
 
 %%======================================================================================================%%
-%% NOTA(Pablo): Esto ahora quedaría redundante                                                          %%  
+%% NOTA(Pablo): Esto ahora quedaría redundante                                                          %%
 %%======================================================================================================%%
 %%
-%% La figura~\ref{back:fig:caesarJExpressions} muestra que por cada operación, tenemos una familia de 
-%% clases, siendo la familia de clases que encapsula a todas las demás, la denominada \imp{Expressions}. 
-%% Ésta tiene la estructura de clases representado en la figura \ref{back:fig:expr}, y cada familia de 
-%% clases lo que hace es redefinir las clases virtuales de \imp{Expressions} con las operaciones 
+%% La figura~\ref{back:fig:caesarJExpressions} muestra que por cada operación, tenemos una familia de
+%% clases, siendo la familia de clases que encapsula a todas las demás, la denominada \imp{Expressions}.
+%% Ésta tiene la estructura de clases representado en la figura \ref{back:fig:expr}, y cada familia de
+%% clases lo que hace es redefinir las clases virtuales de \imp{Expressions} con las operaciones
 %% necesarias en cada caso.
 %%
 %%======================================================================================================%%
@@ -150,10 +150,10 @@ Para realizar una configuración, es decir, para crear un producto concreto por c
 %%======================================================================================================%%
 
 %%======================================================================================================%%
-%% NOTA(Pablo): Completa este análisis                                                                  %%  
+%% NOTA(Pablo): Completa este análisis                                                                  %%
 %%======================================================================================================%%
 
-A continuación analizamos como la programación orientada a características satisface las propiedades que 
+A continuación analizamos como la programación orientada a características satisface las propiedades que
 debe poseer un lenguaje de programación para la implementación de las líneas de productos software:
 
 \paragraph{Extensión a través de la adición y la sustitución:}
@@ -168,5 +168,5 @@ debe poseer un lenguaje de programación para la implementación de las líneas de 
 %% NOTA(Pablo): Aquí dí que todo esto está muy bonito, pero que hay que cambiar el lenguaje de          %%
 %%              programación y que las empresas no quieren por los problemas que se comentan en la      %%
 %%              introducción y que por tanto lo queremos hacer con C\#, bla bla bla  y enlaza con       %%
-%%              la siguiente sección                                                                    %%      
+%%              la siguiente sección                                                                    %%
 %%======================================================================================================%%
