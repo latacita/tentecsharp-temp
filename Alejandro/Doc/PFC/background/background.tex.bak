@@ -27,48 +27,11 @@ Este capítulo proporciona una muy breve introducción a las diferentes técnicas y
 
 \section{Programación Orientada a Características}
 
+\input{background/fop.tex}
 
 \section{Clases Parciales C\#}
-Las clases parciales C\# \cite{albahari:2010} nos permiten dividir la implementación de una clase, estructura o interfaz en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan en tiempo de compilación para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. Por lo tanto,las clases parciales C\# pueden utilizarse como un mecanismo adecuado para implementar características, dado que cada incremento en funcionalidad para una clase se podría encapsular en una clase parcial separada.
 
-
-Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con el indicador clave partial. En C\#, un espacio de nombre es simplemente empleado para agrupar clases relacionadas y evitar conflictos de nombres. Para especificar los archivos C\# que deben ser incluidos en una compilación, se emplea un documento XML que contiene información acerca del proyecto y que especifica que ficheros deben ser compilados para generar el proyecto. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML.
-
-Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo con clases parciales. La figura \ref{back:fig:partialClass} muestra como hemos excluido de la compilación la característica que representa la operación de imprimir una expresión en formato infijo.
-Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que no precisan estar relacionadas mediante ningún tipo de relación jerárquica, tal como ocurre con la herencia.
-
-\begin{figure}[!tb]
-\begin{center}
-\begin{footnotesize}
-\begin{verbatim}
-01    <itemgroup>
-02    <!--Eval-->
-03    <Compile Include="Eval\Add.cs" />
-04    <Compile Include="Eval\IExpressionsEval.cs" />
-05    <Compile Include="Eval\IExpressions.cs" />
-06    <Compile Include="Eval\Integer.cs" />
-07    <Compile Include="Eval\Mult.cs" />
-08    <!--Infix-->
-09    <!--<Compile Include="Infix\Add.cs" />
-10    <Compile Include="Infix\IExpressionInfix.cs" />
-11    <Compile Include="Infix\IExpressions.cs" />
-12    <Compile Include="Infix\Integer.cs" />
-13    <Compile Include="Infix\Mult.cs" />-->
-14    ...
-15    </itemgroup>
-16    </Project>
-\end{verbatim}
-\end{footnotesize}
-\end{center}
-\caption{Implementación del archivo XML que guarda la información para la compilación}
-\label{back:fig:partialClass}
-\end{figure}
-
-Por lo tanto, algunos autores \cite{laguna:2007} sostienen que, las clases parciales C\# representan una alternativa a la herencia múltiple para manejar variabilidad relacionada con programación orientada a características.
-
-% Qué hace esto aquí
-
-% Explicar que son brevemente, y ejemplo usando las expresiones
+\input{background/partialClasses.tex}
 
 \section{Sumario}
 Durante este capítulo se han relatado los conceptos necesarios para entender el ámbito del problema para la implementación de una línea de productos software. De este modo ha quedado reflejado que la mejor opción son los lenguajes orientados a características, ya que poseen facilidades para encapsular y componer las características, mientras que la mayoría de los lenguajes orientados a objetos no poseen herencia múltiple, lo que complica notablemente la tarea para crear configuraciones a través de la composición de características, aunque el lenguaje C\# contiene las clases parciales que pueden ser una alternativa a la herencia múltiple.
