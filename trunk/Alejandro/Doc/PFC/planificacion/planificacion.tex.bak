@@ -6,7 +6,6 @@
 %==================================================================%
 
 \chapterheader{Definición y Planificación del Proyecto}{Definición y Planificación del Proyecto}
-
 \label{chap:planificacion}
 
 % Introducción al capítulo
@@ -30,9 +29,8 @@ El presente proyecto se centrará en el desarrollo de un hogar inteligente como u
 Las \emph{funciones básicas} son:
 \begin{enumerate}
 \item \emph{Control automático de luces:} Los habitantes del hogar deben ser capaces de encender, apagar y ajustar la intensidad de las diferentes luces de la casa. El número de luces por habitación es variable. El ajuste debe realizarse especificando un valor de intensidad.
-\item \emph{Control automático de puertas:} Las puertas pueden abrirse automáticamente. Además, el control de acceso de algunas puertas puede ser necesario.
 \item \emph{Control automático de ventanas:} Los residentes tienen que ser capaces de controlar las ventanas automáticamente.Además, si la ventana tiene persianas, éstas deben ser desenrolladas o enrolladas automáticamente.
-\item \emph{Control automático de temperatura:} El usuario será capaz de ajustar la temperatura de la casa.La temperatura podrá ser manejada en grados Celsius o Fahrenheit.
+\item \emph{Control automático de temperatura:} El usuario será capaz de ajustar la temperatura de la casa.La temperatura será manejada en grados Celsius.
 \end{enumerate}
 
 Las \emph{funciones complejas} son:
