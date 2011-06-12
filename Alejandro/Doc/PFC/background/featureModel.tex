@@ -20,12 +20,6 @@ son comunes a toda la familia de productos software, cuales son variables y por 
 %%   Renombra Large Expression a Integer                                     %%
 %%===========================================================================%%
 
-\begin{figure}[!tb]
-  \centering \includegraphics[width=.85\linewidth]{background/images/featureModelExpr.eps} \\
-  \caption{Árbol de características para el \emph{problema de las expresiones}}
-  \label{back:fig:featureModel}
-\end{figure}
-
 La Figura~\ref{back:fig:featureModel} muestra un árbol de características para la familia de productos software para el problema de las expresiones descrito en la sección anterior. En dicho árbol, los nodos representan las diferentes características de la familia de productos y las relaciones entre nodos especifican si dichas características son obligatorias, opcionales o alternativas (ver la notación para cada caso en el cuadro \imp{Leyenda} de la Figura~\ref{back:fig:featureModel}).
 
 Más concretamente, el árbol de la Figura~\ref{back:fig:featureModel} especifica que un \imp{ExpressionEditor} debe soportar obligatoriamente operaciones (\imp{Operations}), constantes \imp{Constants} y operadores \imp{Operators}.
@@ -33,6 +27,12 @@ Como operadores, pueden aparecer \imp{Add}, \imp{Mult} o \imp{LargeExpression}. 
 
 No todas las relaciones y restricciones entre características se pueden
 modelar usando la sintaxis propia de los árboles de características. Cuando la expresividad de éstos no es suficiente, se suele modelar las relaciones entre características usando formulas de lógica proposicional, donde los átomos son los nodos del árbol de características~\cite{batory:2005:propositional}. Por ejemplo, la evaluación con cortocircuito sólo tiene sentido si se ha seleccionado el operador \imp{Mult}, que es el único que permite evaluación cortocircuitada. Esto se expresaría mediante la fórmula $ShortEval \Rightarrow Mult$.
+
+\begin{figure}[!h]
+  \centering \includegraphics[width=.85\linewidth]{background/images/featureModelExpr.eps} \\
+  \caption{Árbol de características para el \emph{problema de las expresiones}}
+  \label{back:fig:featureModel}
+\end{figure}
 
 Lo expuesto en esta sección cubriría la fase relativa a \emph{especificación de la variabilidad}. El siguiente paso a la hora de construir una línea de productos software sería crear un diseño software lo suficiente flexible para acomodar dichas variaciones. El caso ideal sería poder encapsular cada característica en un módulo software altamente cohesionado y débilmente acoplado cuya composición con otros módulos fuese además lo más fácil posible. De esta forma podríamos construir productos software concretos dentro de esta familia de productos mediante la simple composición de los módulos correspondientes a las características deseadas por el usuario.
 
