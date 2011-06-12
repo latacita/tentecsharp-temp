@@ -15,14 +15,17 @@ Las clases parciales C\# \cite{albahari:2010} permiten dividir la implementación
 %% NOTA(Pablo): Esto no me cuadra muy bien aquí, así que lo borro                                              %%
 %%=============================================================================================================%%
 %%
-%% Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al 
-%% mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con la palabra clave 
-%% \imp{partial}. En C\#, un espacio de nombre se emplea simplemente para agrupar clases relacionadas y evitar 
+%% Para poder ser compiladas y agrupadas en una sola clase, todas las clases parciales deben pertenecer al
+%% mismo espacio de nombres, poseer la misma visibilidad y deben ser declaradas con la palabra clave
+%% \imp{partial}. En C\#, un espacio de nombre se emplea simplemente para agrupar clases relacionadas y evitar
 %% conflictos de nombres.
 %%
 %%=============================================================================================================%%
 
-\begin{figure}[!tb]
+
+Para especificar los archivos C\# que deben ser incluidos en una unidad de compilación se emplea un documento XML como el de la Figura~\ref{back:fig:partialClass}. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML. Por tanto, la composición de características también parece factible mediante la manipulación de este fichero XML.
+
+\begin{figure}[!h]
 \begin{center}
 \begin{footnotesize}
 \begin{verbatim}
@@ -49,15 +52,12 @@ Las clases parciales C\# \cite{albahari:2010} permiten dividir la implementación
 \label{back:fig:partialClass}
 \end{figure}
 
-
-Para especificar los archivos C\# que deben ser incluidos en una unidad de compilación se emplea un documento XML como el de la Figura~\ref{back:fig:partialClass}. Por lo tanto, es posible incluir y excluir fácilmente la funcionalidad encapsulada dentro de una clase parcial simplemente añadiendo o eliminando dicha clase parcial de este fichero XML. Por tanto, la composición de características también parece factible mediante la manipulación de este fichero XML.
-
 %%=============================================================================================================%%
 %% NOTA(Pablo): Esto no me cuadra muy bien aquí, así que lo borro                                              %%
 %%=============================================================================================================%%
-%% Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo 
+%% Para ilustrar lo dicho anteriormente, se ha vuelto a utilizar el problema de las expresiones implementándolo
 %% con clases parciales. La figura \ref{back:fig:partialClass} muestra como hemos excluido de la compilación la
 %% característica que representa la operación de imprimir una expresión en formato infijo.
-%% Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que 
+%% Este mecanismo de clases parciales permite añadir o compartir funcionalidad entre un conjunto de clases que
 %% no precisan estar relacionadas mediante ningún tipo de relación jerárquica, tal como ocurre con la herencia.
 

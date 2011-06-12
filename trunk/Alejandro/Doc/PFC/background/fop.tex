@@ -142,22 +142,25 @@ Para realizar una configuración, es decir, para crear un producto concreto por c
 %%======================================================================================================%%
 
 %%======================================================================================================%%
-%% NOTA(Pablo): Completa este análisis                                                                  %%
+%% HECHO(Pablo): Completa este análisis                                                                  %%
 %%======================================================================================================%%
 
 A continuación analizamos como la programación orientada a características satisface las propiedades que
 debe poseer un lenguaje de programación para la implementación de las líneas de productos software:
 
-\paragraph{Extensión a través de la adición y la sustitución:}
+\paragraph{Extensión a través de la adición y la sustitución:} En los lenguajes orientados a características, la extensión es llevada a cabo a través de la herencia, al igual que ocurre en los lenguajes orientados a objetos. Salvo que los lenguajes orientados a características poseen herencia múltiple, por lo que es posible extender la funcionalidad de varias clases al mismo tiempo. Por lo tanto, sin demasiada complejidad este tipo de lenguajes nos permiten realizar la extensión de varias características simultáneamente.
 
-\paragraph{Encapsulamiento de características:}
+\paragraph{Encapsulamiento de características:} Las características suelen estar compuestas por más de una clase, por lo que un buen nivel de encapsulamiento evita aumentar la complejidad cuando queramos componer o extender características. De tal modo que los lenguajes orientados a características contienen mecanismos para el encapsulamiento. Como hemos visto en la figura ~\ref{back:fig:caesarJExpressions}, cada característica es agrupada con todas sus clases en una misma \emph{familia de clases}, lo que nos permite manejar las características sin necesidad de utilizar los elementos individuales de cada una de ellas.
 
-\paragraph{Composición a nivel de característica:}
+\paragraph{Composición a nivel de característica:} Debido a la existencia de la herencia múltiple y de un buen nivel de encapsulamiento de las características, la composición de las mismas es una tarea sencilla. Por ejemplo, para crear una nueva configuración compuesta por \imp{Eval} e \imp{Infix}, únicamente se necesita crear una nueva clase que extienda a estas dos característica, tal y como se ilustra en la figura ~\ref{back:fig:caesarJConfiguration}. Por lo que si comparamos este proceso con el llevado a cabo en un lenguaje orientado a objetos, observamos una drástica disminución de la complejidad y del tiempo invertido.
 
-\paragraph{Análisis y gestión de la corrección de la composición:}
+\paragraph{Análisis y gestión de la corrección de la composición:} Un alto nivel de encapsulamiento facilita enormemente verificar la correcta composición de características. De este modo, únicamente se debe comprobar que la composición de las características es la adecuada, sin necesidad de preocuparnos por ningún elemento interno de las características. Lo mismo ocurre cuando analizamos restricciones más complejas, el proceso se simplifica notablemente si lo comparamos con un lenguaje orientado a objetos.
+
+Como hemos podido comprobar, utilizar un lenguaje orientado a característica puede ser una muy buena elección si queremos desarrollar líneas de producto software. No obstante, como ya se ha dicho anteriormente (ver Capítulo \ref{chap:introduction}), no todas las empresas están dispuestas a cambiar su lenguaje de programación habitual. Por lo tanto, en el presente proyecto se desarrolla una línea de productos software utilizando C\# y sus clases parciales. De tal modo, pretendemos desarrollar una serie de procedimientos que suplan las carencias que presenten los lenguajes orientados a objetos cuando trabajan con problemas típicos de los lenguajes orientados a características. Por lo que en la siguiente sección se describirá muy brevemente en que consisten las clases parciales de C\# y cómo pueden ser utilizadas para resolver un problema como el de las expresiones.
+
 
 %%======================================================================================================%%
-%% NOTA(Pablo): Aquí dí que todo esto está muy bonito, pero que hay que cambiar el lenguaje de          %%
+%% HECHO(Pablo): Aquí dí que todo esto está muy bonito, pero que hay que cambiar el lenguaje de          %%
 %%              programación y que las empresas no quieren por los problemas que se comentan en la      %%
 %%              introducción y que por tanto lo queremos hacer con C\#, bla bla bla  y enlaza con       %%
 %%              la siguiente sección                                                                    %%
