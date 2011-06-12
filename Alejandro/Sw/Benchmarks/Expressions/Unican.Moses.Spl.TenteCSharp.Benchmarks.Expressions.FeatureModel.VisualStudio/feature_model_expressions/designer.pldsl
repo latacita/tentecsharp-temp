@@ -54,7 +54,7 @@
                     <fInPort Id="14d32a0f-e7a0-4ba1-89a4-6c225c16efdc" />
                   </inPort>
                 </feature>
-                <feature Id="29caf60f-6cca-47ce-a79b-61e5a5342090" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Print_profix">
+                <feature Id="29caf60f-6cca-47ce-a79b-61e5a5342090" min="0" max="1" configurationState="UNDECIDED" valueType="NONE" typedValue="" featureName="Print_postfix">
                   <inPort>
                     <fInPort Id="abe81db9-eb89-483d-9eab-e90c30eb80cb" />
                   </inPort>

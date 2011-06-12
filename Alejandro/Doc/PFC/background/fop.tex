@@ -95,18 +95,24 @@ Los lenguajes orientados a características~\cite{prehofer:2001} tienen como obje
 
 Para estudiar las ventajas de los lenguajes orientados a características nos basaremos en las facilidades proporcionadas por CaesarJ~\cite{aracic:2006}, aunque ilustraremos los ejemplos con diagramas UML. Para mostrar las ventajas de dicho lenguaje se usará el ya comentado problema de las expresiones\footnote{Dicha implementación se proporciona en el soporte óptico adjunto a esta memoria.}. CaesarJ es un lenguaje de programación orientado a características basado en Java. Para ello trabaja con el concepto de \emph{familia de clases}. Una \emph{familia de clases} es una unidad de encapsulamiento que sirve para agrupar clases relacionadas. Las familias de clases reciben un tratamiento similar al de las clases, soportando relaciones de herencia entre ellas.
 
-Además, CaesarJ también introduce el concepto de \emph{clases virtuales}. Una clase virtual es una clase perteneciente a una familia de clases y que es susceptible de ser heredada y sobreescrita por familias de clases que hereden de la familia de clases que contiene dicha clase virtual. La Figura~\ref{} ilustra esta situación. Las familias de clases se representan mediante paquetes UML, y herencia entre clases, mediante relaciones \emph{merge}. Cuando una familia de clases hereda de otra, hereda implícitamente todas sus clases virtuales. Si la primera contiene clases virtuales con el mismo nombre que la familia de clases que hereda, entonces la clase virtual de la familia de clases hija hereda de la clase virtual con el mismo nombre de la familia de clases padre. Por ejemplo, en la Figura~\ref{}, la clase \imp{Mult} de la familia de clases \imp{Eval} heredaría implícitamente de la clase \imp{Mult} de la familia de clases \imp{Basic}. En cada familia de clases hija, se pueden añadir por tanto nuevos atributos y métodos a las clases virtuales de las familias de clases padre. Además, gracias al avanzado sistema de tipos de CaesarJ, se pueden añadir nuevas relaciones de herencia.
+Además, CaesarJ también introduce el concepto de \emph{clases virtuales}. Una clase virtual es una clase perteneciente a una familia de clases y que es susceptible de ser heredada y sobreescrita por familias de clases que hereden de la familia de clases que contiene dicha clase virtual. La Figura~\ref{back:fig:caesarJExpressions} ilustra esta situación. Las familias de clases se representan mediante paquetes UML, y herencia entre clases, mediante relaciones \emph{merge}. Cuando una familia de clases hereda de otra, hereda implícitamente todas sus clases virtuales. Si la primera contiene clases virtuales con el mismo nombre que la familia de clases que hereda, entonces la clase virtual de la familia de clases hija hereda de la clase virtual con el mismo nombre de la familia de clases padre. Por ejemplo, en la Figura~\ref{back:fig:caesarJExpressions}, la clase \imp{Mult} de la familia de clases \imp{Eval} heredaría implícitamente de la clase \imp{Mult} de la familia de clases \imp{Basic}. En cada familia de clases hija, se pueden añadir por tanto nuevos atributos y métodos a las clases virtuales de las familias de clases padre. Además, gracias al avanzado sistema de tipos de CaesarJ, se pueden añadir nuevas relaciones de herencia.
 
 %%=====================================================================================================%%
-%% NOTA(Pablo): Aquí va haciendo falta un ejemplo, y mejor que el que está en la Figura 1.8. Haz un
+%% HECHO(Pablo): Aquí va haciendo falta un ejemplo, y mejor que el que está en la Figura 1.8. Haz un
 %%              ejemplo como el del artículo del FOSD 2010, que se vean las clases dentro de los
 %%              paquetes para al menos dos características, por ejemplo expression y eval
 %%=====================================================================================================%%
+\begin{figure}[ht!]
+  % Requires \usepackage{graphicx}
+  \centering \includegraphics[width=.60\linewidth]{background/images/CaesarJExpressions.eps} \\
+  \caption{Diseño para resolver el problema de las expresiones con CaesarJ}
+  \label{back:fig:caesarJExpressions}
+\end{figure}
 
-Además, las referencias entre clases se actualizan automáticamente. Por ejemplo, en el caso de la Figura~\ref{}, aunque no se haga explícitamente, cualquier referencia a una clase del tipo \imp{Expression} dentro de la familia de clases \imp{Eval} se referirá a la clase virtual \imp{Expression} de la familia de clases \imp{Eval} y no a la clase virtual de mismo nombre de la familia de clases \imp{Basic}. De esta forma, las referencias están siempre actualizadas a su versión más extendida.
+Además, las referencias entre clases se actualizan automáticamente. Por ejemplo, en el caso de la Figura~\ref{back:fig:caesarJExpressions}, aunque no se haga explícitamente, cualquier referencia a una clase del tipo \imp{Expression} dentro de la familia de clases \imp{Eval} se referirá a la clase virtual \imp{Expression} de la familia de clases \imp{Eval} y no a la clase virtual de mismo nombre de la familia de clases \imp{Expressions}. De esta forma, las referencias están siempre actualizadas a su versión más extendida.
 
 Para implementar una línea de productos software, cada característica se considera como una familia de clases.
-Dentro de cada familia de clases, cada característica se diseña usando las técnicas tradicionales de la orientación a objetos, tal como se muestra en la Figura~\ref{}.
+Dentro de cada familia de clases, cada característica se diseña usando las técnicas tradicionales de la orientación a objetos, tal como se muestra en la Figura~\ref{back:fig:caesarJExpressions}.
 
 %%======================================================================================================%%
 %% NOTA(Pablo): Esto ahora quedaría redundante                                                          %%
@@ -120,32 +126,18 @@ Dentro de cada familia de clases, cada característica se diseña usando las técni
 %%
 %%======================================================================================================%%
 
+
 \begin{figure}[ht!]
-  % Requires \usepackage{graphicx}
-  \centering \includegraphics[width=.60\linewidth]{background/images/CaesarJExpressions.eps} \\
-  \caption{Diseño para resolver el problema de las expresiones con CaesarJ}
-  \label{back:fig:caesarJExpressions}
-\end{figure}
-\begin{figure}[ht!]
-\begin{center}
-\begin{footnotesize}
-\begin{verbatim}
-00 import eval.Eval;
-01 import printPostfix.PrintPostfix;
-02 import printInfix.PrintInfix;
-03 import printPrefix.PrintPrefix;
-04 public cclass EvalInfix extends PrintPrefix & Eval {}
-\end{verbatim}
-\end{footnotesize}
-\end{center}
-\caption{Configuración que incluye las operaciones de evaluar e imprimir en formato infijo con CaesarJ}
-\label{back:fig:codCaesarJ}
+ % Requires \usepackage{graphicx}
+  \centering \includegraphics[width=.60\linewidth]{background/images/Configuration.eps} \\
+  \caption{Composición de las características \imp{Eval} e \imp{Infix} en nuevo producto con CaesarJ}
+  \label{back:fig:caesarJConfiguration}
 \end{figure}
 
-Para realizar una configuración, es decir, para crear un producto concreto por composición de características, simplemente hay que crear una nueva familia de clases que herede de las familias de clases que correspondan a las características seleccionadas. La figura \ref{back:fig:codCaesarJ} muestra como se crearía un producto nuevo mediante la composición de las características \imp{Eval} e \imp{Infix}.
+Para realizar una configuración, es decir, para crear un producto concreto por composición de características, simplemente hay que crear una nueva familia de clases que herede de las familias de clases que correspondan a las características seleccionadas. La figura \ref{back:fig:caesarJConfiguration} muestra como se crearía un producto nuevo mediante la composición de las características \imp{Eval} e \imp{Infix}.
 
 %%======================================================================================================%%
-%% NOTA(Pablo): Queda raro haber estado mostrando diagramas hasta ahora y luego poner código, así que   %%
+%% HECHO(Pablo): Queda raro haber estado mostrando diagramas hasta ahora y luego poner código, así que   %%
 %%              haz un diagrama de una configuración y quita el código                                  %%
 %%======================================================================================================%%
 
