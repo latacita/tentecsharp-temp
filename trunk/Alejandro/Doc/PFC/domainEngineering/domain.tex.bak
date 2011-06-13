@@ -5,7 +5,7 @@
 % Capítulo Domain Engineering, Archivo raíz                        %
 %==================================================================%
 
-\chapterheader{Domain Engineering}{Domain Engineering}
+\chapterheader{Ingeniería del Dominio}{Ingeniería del Dominio}
 
 \label{chap:domain}
 
@@ -137,13 +137,13 @@ Para llevar a cabo las pruebas sobre esta característica se han realizado una se
 \begin{enumerate}
 \item Se han creado una serie de instancias del hogar inteligente con diferente número de calefactores repartidos por distintas habitaciones.
 \item Por cada instancia se realizan los siguientes casos de prueba:
-    \begin{enumerate}
-        \item Se enciende,se apagan y se modifica la temperatura de todos los calefactores,a través de la pestaña de control global de la característica, en la interfaz gráfica del Gateway, y se comprueba a través del simulador y del propio Gateway que ha funcionado correctamente.
-        \item Por cada calefactor se encenderá, se apagará y se modifica la temperatura,de modo individual a través de su pestaña específica.
-        \item Por cada calefactor se modificará su temperatura para que coincida con la de su termómetro, comprobándose que el calefactor cambie su modo de funcionamiento a sin consumo de energía.
-        \item Se modifica la temperatura de los termómetros y se comprueba que se modifica en el simulador.
-        \item Por cada calefactor se modifica la temperatura de su termómetro para que coincida con la temperatura seleccionada en el calefactor y se comprueba que el modo de funcionamiento cambie.
-    \end{enumerate}
+	\begin{enumerate}
+		\item Se enciende,se apagan y se modifica la temperatura de todos los calefactores,a través de la pestaña de control global de la característica, en la interfaz gráfica del Gateway, y se comprueba a través del simulador y del propio Gateway que ha funcionado correctamente.
+		\item Por cada calefactor se encenderá, se apagará y se modifica la temperatura,de modo individual a través de su pestaña específica.
+		\item Por cada calefactor se modificará su temperatura para que coincida con la de su termómetro, comprobándose que el calefactor cambie su modo de funcionamiento a sin consumo de energía.
+		\item Se modifica la temperatura de los termómetros y se comprueba que se modifica en el simulador.
+		\item Por cada calefactor se modifica la temperatura de su termómetro para que coincida con la temperatura seleccionada en el calefactor y se comprueba que el modo de funcionamiento cambie.
+	\end{enumerate}
 \end{enumerate}
 
 En la siguiente sección se describe el proceso para implementar la siguiente característica.
@@ -176,16 +176,16 @@ Para las pruebas en esta característica se han realizado una serie de test, que 
 \begin{enumerate}
 \item Se han creado una serie de instancias del hogar inteligente con diferente número de ventanas repartidas por distintas habitaciones.
 \item Por cada instancia se realizan los siguientes casos de prueba:
-    \begin{enumerate}
-        \item Se modifica la apertura de las todas las ventanas, a través de la pestaña de control global de la característica, en la interfaz gráfica del Gateway, y se comprueba en el simulador y en el propio Gateway.
-        \item Por cada ventana se modifica su apertura, de modo individual a través de su pestaña específica.
-    \end{enumerate}
+	\begin{enumerate}
+		\item Se modifica la apertura de las todas las ventanas, a través de la pestaña de control global de la característica, en la interfaz gráfica del Gateway, y se comprueba en el simulador y en el propio Gateway.
+		\item Por cada ventana se modifica su apertura, de modo individual a través de su pestaña específica.
+	\end{enumerate}
 \end{enumerate}
 
 La siguiente sección describe el proceso de desarrollo de la característica \emph{SmartEnergyMng},que necesitará de la existencia de la característica de la sección actual, como la de la anterior.
 
 \section{Iteración 4: SmartEnergyMng}
-\label{sec:domain:smartEnergy}
+%\label{sec:domain:smartEnergy}
 %% Section{Iteración 4: SmartEnergyMng}
 
 %%% Introducción justificando por qué

@@ -5,7 +5,7 @@
 % Capítulo Domain Engineering, Archivo raíz                        %
 %==================================================================%
 
-\chapterheader{Domain Engineering}{Domain Engineering}
+\chapterheader{Ingeniería del Dominio}{Ingeniería del Dominio}
 
 \label{chap:domain}
 
@@ -18,11 +18,11 @@ En este capítulo se describirá la definición arquitectónica y el proceso llevado
 %%% Contar que es el gateway como lo controla todo
 %%% Cuenta lo de los observadores
 %%% Cuenta que el gateway viene a ser similar a un Mediator
-El hogar inteligente posee una serie de dispositivos que se descomponen en sensores y actuadores. Los sensores son los encargados de obtener los datos del elemento al que pertenecen, como por ejemplo, los grados que hace en una habitación, la apertura que tiene una ventana... Mientras que los actuadores se encargan de ejecutar las ordenes, por ejemplo que una persiana se abra o se cierre, la calefacción se encienda a unos determinados grados...
+El hogar inteligente posee una serie de dispositivos que se descomponen en sensores y actuadores. Los sensores son los encargados de obtener los datos del elemento al que pertenecen, como por ejemplo, los grados que hace en una habitación o la apertura que tiene una ventana. Los actuadores se encargan de ejecutar las ordenes, por ejemplo, de que una persiana se abra o se cierre o de que la calefacción se encienda a unos determinados grados.
 
-Tanto los sensores como los actuadores se encuentran conectados a un dispositivo central que los coordina, el cual se conoce como puerta de enlace o Gateway. Dicho Gateway se encarga de leer los datos de los sensores, procesarlos y enviar las ordenes adecuadas a los actuadores, de igual modo, el Gateway recibe ordenes de los usuarios que son ejecutadas por los actuadores para modificar los elementos de la casa.
+Tanto los sensores como los actuadores se encuentran conectados a un dispositivo central que los coordina, el cual se conoce como puerta de enlace o Gateway. Dicho Gateway se encarga de recibir los datos de los sensores, procesarlos y enviar las ordenes adecuadas a los actuadores. De igual modo, el Gateway recibe órdenes de los usuarios que son ejecutadas por los actuadores para modificar los elementos de la casa.
 
-Además el Gateway posee una lista de plantas que tiene el hogar, a su vez cada planta contiene otra lista de las habitaciones que se encuentran en dicha planta, y un objeto tiempo que se encarga de simular el transcurso del tiempo en el sistema.
+Además el Gateway posee una lista de las plantas que tiene el hogar, a su vez cada planta contiene otra lista de las habitaciones que se encuentran en dicha planta, y un objeto tiempo que se encarga de simular el transcurso del tiempo en el sistema.
 
 En la figura \ref{domain:fig:defArq} se puede observar el diseño UML que representa todo lo dicho anteriormente, quedando reflejado como el Gateway es la pieza central del sistema.
 
@@ -137,13 +137,13 @@ Para llevar a cabo las pruebas sobre esta característica se han realizado una se
 \begin{enumerate}
 \item Se han creado una serie de instancias del hogar inteligente con diferente número de calefactores repartidos por distintas habitaciones.
 \item Por cada instancia se realizan los siguientes casos de prueba:
-    \begin{enumerate}
-        \item Se enciende,se apagan y se modifica la temperatura de todos los calefactores,a través de la pestaña de control global de la característica, en la interfaz gráfica del Gateway, y se comprueba a través del simulador y del propio Gateway que ha funcionado correctamente.
-        \item Por cada calefactor se encenderá, se apagará y se modifica la temperatura,de modo individual a través de su pestaña específica.
-        \item Por cada calefactor se modificará su temperatura para que coincida con la de su termómetro, comprobándose que el calefactor cambie su modo de funcionamiento a sin consumo de energía.
-        \item Se modifica la temperatura de los termómetros y se comprueba que se modifica en el simulador.
-        \item Por cada calefactor se modifica la temperatura de su termómetro para que coincida con la temperatura seleccionada en el calefactor y se comprueba que el modo de funcionamiento cambie.
-    \end{enumerate}
+	\begin{enumerate}
+		\item Se enciende,se apagan y se modifica la temperatura de todos los calefactores,a través de la pestaña de control global de la característica, en la interfaz gráfica del Gateway, y se comprueba a través del simulador y del propio Gateway que ha funcionado correctamente.
+		\item Por cada calefactor se encenderá, se apagará y se modifica la temperatura,de modo individual a través de su pestaña específica.
+		\item Por cada calefactor se modificará su temperatura para que coincida con la de su termómetro, comprobándose que el calefactor cambie su modo de funcionamiento a sin consumo de energía.
+		\item Se modifica la temperatura de los termómetros y se comprueba que se modifica en el simulador.
+		\item Por cada calefactor se modifica la temperatura de su termómetro para que coincida con la temperatura seleccionada en el calefactor y se comprueba que el modo de funcionamiento cambie.
+	\end{enumerate}
 \end{enumerate}
 
 En la siguiente sección se describe el proceso para implementar la siguiente característica.
@@ -176,10 +176,10 @@ Para las pruebas en esta característica se han realizado una serie de test, que 
 \begin{enumerate}
 \item Se han creado una serie de instancias del hogar inteligente con diferente número de ventanas repartidas por distintas habitaciones.
 \item Por cada instancia se realizan los siguientes casos de prueba:
-    \begin{enumerate}
-        \item Se modifica la apertura de las todas las ventanas, a través de la pestaña de control global de la característica, en la interfaz gráfica del Gateway, y se comprueba en el simulador y en el propio Gateway.
-        \item Por cada ventana se modifica su apertura, de modo individual a través de su pestaña específica.
-    \end{enumerate}
+	\begin{enumerate}
+		\item Se modifica la apertura de las todas las ventanas, a través de la pestaña de control global de la característica, en la interfaz gráfica del Gateway, y se comprueba en el simulador y en el propio Gateway.
+		\item Por cada ventana se modifica su apertura, de modo individual a través de su pestaña específica.
+	\end{enumerate}
 \end{enumerate}
 
 La siguiente sección describe el proceso de desarrollo de la característica \emph{SmartEnergyMng},que necesitará de la existencia de la característica de la sección actual, como la de la anterior.
