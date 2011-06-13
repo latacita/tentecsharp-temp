@@ -1,0 +1,82 @@
+%%==================================================================%%
+%% Author : Perez Ruiz, Alejandro                                   %%
+%% Author : Pablo Sánchez                                           %%
+%% Version: 1.1, 13/06/2011                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Capítulo Planificacion/Metodología                               %%
+%%==================================================================%%
+
+El primer paso para la correcta realización de todo proyecto software es elegir la metodología de desarrollo que mejor se adecúe a las características de dicho proyecto. Dicha metodología se ha elegido de entre las conocidas como  \emph{ágiles}~\cite{cockburn:2001}, al entender que por el tamaño del proyecto y la necesidad de cierta flexibilidad en su desarrollo de sus requisitos, son las que mejor se adaptan a las particularidades de nuestro proyecto. Dentro de las metodologías ágiles, existen dos que, por sus características, parecen adecuarse mejor al desarrollo de líneas de productos software: (1) el \emph{Desarrollo Dirigido por Características} y (2) el \emph{Desarrollo Dirigido por Casos de Prueba}. A continuación, describimos brevemente las siguientes subsecciones describe ambos procesos.
+
+\subsection{Desarrollo Dirigido por Características}
+
+La \emph{metodología de Desarrollo Dirigido por Características}~\cite{palmer:2002} (\emph{FDD}, por su nombre en inglés \emph{Feature-Driven Development}) es un proceso ágil que se basa en construir iteraciones cortas que produzcan incrementos funcionales en el software que los clientes y personas encargadas de la gestión del proyecto puedan ver, analizar y aprobar.
+
+En cada iteración se trata de construir una \emph{característica}, definida como un incremento en la funcionalidad de un producto con significado para el cliente~\cite{batory:2005:propositional}. Esta metodología de desarrollo consiste en cinco procesos secuenciales, los cuales se citan a continuación:
+
+\begin{enumerate}
+	%%==================================================================%%
+	%% NOTA(Pablo): Esto del modelo general no entiendo lo que es.      %%
+	%%     Si te refieres a la arquitectura general del sistema,        %%
+	%%     cambialo por "Especificación de la arquitectura global del   %%
+	%%      sistema                                                     %%
+	%%==================================================================%%
+	%%==================================================================%%
+	%% NOTA(Pablo): ¿No habría que cambiar el punto 1 y 2 de orden?     %%
+	%%==================================================================%%
+	\item Desarrollo del modelo general.
+	\item Construcción de la lista de características (en inglés, \emph{features}) que componen el sistema.
+	\item Planificación por característica.
+	\item Diseño por característica.
+	\item Construcción por característica.
+\end{enumerate}
+
+La principal ventaja de esta metodología es que está orientada y gobernada por características, que son un concepto clave en el desarrollo de líneas de productos software.
+
+%%==========================================================================%%
+%% NOTA(Pablo): Esto me gusta porque se ve que hay un proceso de trabajo    %%
+%%              detrás y no has cogido la primera metodología que te ha     %%
+%%              apetecido. No obstante, si la memoria se hace muy larga,    %%
+%%              lo quitamos.                                                %%        %%==========================================================================%%
+
+\subsection{Desarrollo Dirigido por Casos de Pruebas}
+
+El \emph{Desarrollo Dirigido por Casos de Pruebas} (\emph{TDD}, por su nombre en inglés \emph{Test Driven Development})~\cite{astels:2003} es un proceso ágil, iterativo e incremental, en el que el sistema de desarrolla para satisfacer unos casos de prueba bien definidos antes de construir cada iteración.
+
+El primer paso a realizar de acuerdo con esta metodología es definir una lista de requisitos. A continuación, se aplica el siguiente proceso de forma iterativa hasta completar el proyecto:
+
+\begin{enumerate}
+	\item Seleccionar uno o más requisitos.
+	\item Escribir casos de prueba que verifiquen que dichos requisitos se satisfacen .
+	\item Desarrollar el sistema de la forma sencilla posible para que pasar los casos de prueba.
+	\item Verificar que el conjunto de pruebas funciona correctamente.
+	\item Refactorizar la solución desarrollada en caso de que fuese necesario.
+	\item Actualizar la lista de requisitos.
+\end{enumerate}
+
+Este proceso tiene dos importantes virtudes: (1) está muy orientada a satisfacer los requisitos; y (2) genera software fiable, si los casos de prueba están bien diseñados. Al desarrollar el software por grupos de requisitos, podría considerarse que en cierto modo está orientado o dirigido por características.
+
+Sin embargo, el concepto de característica, elemento clave de una línea de productos software, no es un elemento tan central en la metodología, tal como ocurría en el caso de la metodología anterior. Por tanto, para el desarrollo del presente proyecto seguiremos una metodología ágil dirigida por características.
+
+%%==========================================================================%%
+%% NOTA(Pablo): Esto queda demasiado largo y tampoco aporta información     %%
+%%              vital, así que lo suprimimos                                %%       %%==========================================================================%%
+%%
+%% \subsubsection{Elección del proceso}
+%% Debido a que el proceso \emph{Feature Driven Development} está especialmente
+%% orientado para proyectos que se pueden descomponer fácilmente en
+%% características, se ha seleccionado para utilizarlo como proceso de
+%% desarrollo. Como es fácilmente visible el presente proyecto debe ser
+%% descompuesto en sus diferentes características y/o tareas para llevar a cabo
+%% su implementación. Además, dichas características deben estar lo
+%% suficientemente encapsuladas para poder componerlas y crear diferentes
+%% configuraciones para el amplio abanico de posibles hogares inteligentes. De
+%% tal modo, que es de vital importancia seguir un proceso de desarrollo que se
+%% oriente hacia la descomposición de características, tal y como hace
+%% \emph{Feature Driven Development}.
+%%
+%%==========================================================================%%
+
+La siguiente sección describe la planificación general creada para la realización del proyecto de acuerdo a la metodología escogida.
+
