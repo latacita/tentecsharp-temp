@@ -1,16 +1,15 @@
-%==================================================================%
-% Author : Pérez Ruiz, Alejandro                                   %
-% Version: 1.0, 16/03/2011                                         %                                                                                    %                                                                  %
-% Memoria del Proyecto Fin de Carrera                              %
-% Capítulo Domain Engineering, Archivo raíz                        %
-%==================================================================%
+%%==================================================================%%
+%% Author : Pérez Ruiz, Alejandro                                   %%
+%% Author : Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.1, 16/03/2011                                         %%                                                                                    %%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Capítulo Domain Engineering, Archivo raíz                        %%
+%%==================================================================%%
 
 \chapterheader{Ingeniería del Dominio}{Ingeniería del Dominio}
-
 \label{chap:domain}
 
-% Introducción al capítulo
-En este capítulo se describirá la definición arquitectónica y el proceso llevado a cabo para implementar la parte del proyecto correspondiente a la \emph{ingeniería de dominio} (en inglés, \emph{Domain Engineering}).
+Este capítulo se describe la fase de \emph{ingeniería del dominio} (en inglés, \emph{Domain Engineering}) de nuestra línea de productos software. Dentro de dicha fase, se detalla la definición de la arquitectura de la familia de productos y se detallan las iteraciones más relevantes de este proceso de desarrollo. Las otras iteraciones, por motivos de espacio y con objeto de no aburrir al lector con detalles irrelevantes, simplemente se omiten. 
 
 \chaptertoc
 \section{Definición Arquitectónica}
@@ -18,11 +17,11 @@ En este capítulo se describirá la definición arquitectónica y el proceso llevado
 %%% Contar que es el gateway como lo controla todo
 %%% Cuenta lo de los observadores
 %%% Cuenta que el gateway viene a ser similar a un Mediator
-El hogar inteligente posee una serie de dispositivos que se descomponen en sensores y actuadores. Los sensores son los encargados de obtener los datos del elemento al que pertenecen, como por ejemplo, los grados que hace en una habitación, la apertura que tiene una ventana... Mientras que los actuadores se encargan de ejecutar las ordenes, por ejemplo que una persiana se abra o se cierre, la calefacción se encienda a unos determinados grados...
+El hogar inteligente posee una serie de dispositivos que se descomponen en sensores y actuadores. Los sensores son los encargados de obtener los datos del elemento al que pertenecen, como por ejemplo, los grados que hace en una habitación o la apertura que tiene una ventana. Los actuadores se encargan de ejecutar las ordenes, por ejemplo, de que una persiana se abra o se cierre o de que la calefacción se encienda a unos determinados grados.
 
-Tanto los sensores como los actuadores se encuentran conectados a un dispositivo central que los coordina, el cual se conoce como puerta de enlace o Gateway. Dicho Gateway se encarga de leer los datos de los sensores, procesarlos y enviar las ordenes adecuadas a los actuadores, de igual modo, el Gateway recibe ordenes de los usuarios que son ejecutadas por los actuadores para modificar los elementos de la casa.
+Tanto los sensores como los actuadores se encuentran conectados a un dispositivo central que los coordina, el cual se conoce como puerta de enlace o Gateway. Dicho Gateway se encarga de recibir los datos de los sensores, procesarlos y enviar las ordenes adecuadas a los actuadores. De igual modo, el Gateway recibe órdenes de los usuarios que son ejecutadas por los actuadores para modificar los elementos de la casa.
 
-Además el Gateway posee una lista de plantas que tiene el hogar, a su vez cada planta contiene otra lista de las habitaciones que se encuentran en dicha planta, y un objeto tiempo que se encarga de simular el transcurso del tiempo en el sistema.
+Además el Gateway posee una lista de las plantas que tiene el hogar, a su vez cada planta contiene otra lista de las habitaciones que se encuentran en dicha planta, y un objeto tiempo que se encarga de simular el transcurso del tiempo en el sistema.
 
 En la figura \ref{domain:fig:defArq} se puede observar el diseño UML que representa todo lo dicho anteriormente, quedando reflejado como el Gateway es la pieza central del sistema.
 
@@ -84,6 +83,7 @@ Una vez implementado todo el sistema base se han realizado una serie de test de 
 
 Tras haber finalizado la implementación del sistema base ya se tiene la infraestructura básica para poder crear nuevas características que extiendan y añadan nuevas funcionalidades, por lo que la siguiente sección describe el proceso de desarrollo para la característica \emph{HeaterMng}.
 \section{Iteración 2: HeaterMng}
+
 %% Section{Iteración 2: HeaterMng}
 
 %%% Requisitos específicos
