@@ -14,13 +14,13 @@ Cabe recordar que en nuestro caso, al estar desarrollando una línea de productos
 \subsection{Planificación para la Fase de Ingeniería del Dominio}
 
 %%====================================================================%%
-%% NOTA(Pablo): Las restricciones no se leen bien y habría que hacer  %%
+%% HECHO(Pablo): Las restricciones no se leen bien y habría que hacer  %%
 %%              esta figrua más compacta                              %%
 %%====================================================================%%
 
 \begin{figure}[!tb]
   % Requires \usepackage{graphicx}
-  \centering \includegraphics[width=.85\linewidth]{planificacion/images/featureModelReal.eps} \\
+  \centering \includegraphics[width=.75\linewidth]{planificacion/images/featureModelReal.eps} \\
   \caption{Diagrama de características para un hogar inteligente}
   \label{plan:fig:modelReal}
 \end{figure}
@@ -45,7 +45,12 @@ Recordemos que esta función se encarga de gestionar de forma coordinada las vent
 Algo similar acontece con la simulación de las luces (\emph{LightSimulation}) y de las persianas (\emph{BlindSimulation}). Como es obvio, la simulación de luces requiere que el control automático de luces  haya sido incluido en al menos una habitación de la casa. La simulación de persianas requiere lo mismo, pero para el control automático de persianas.
 
 Usando el árbol de la Figura~\ref{plan:fig:modelReal}, decidimos desarrollar el proyecto por incrementos basados en el número de servicios que pueden incluirse en un hogar inteligente. Por tanto, el proceso de desarrollo de nuestro proyecto comprenderá 8 iteraciones, en cada una de las cuales se desarrollará un nuevo servicio. Dichas iteraciones se citan a continuación:
-
+\begin{figure}[!h]
+  % Requires \usepackage{graphicx}
+  \centering \includegraphics[width=.65\linewidth]{planificacion/images/diagramaDependenciasFeatures.eps} \\
+  \caption{Diagrama de dependencias para las características del hogar inteligente}
+  \label{plan:fig:depen}
+\end{figure}
 \begin{enumerate}
 	\item Desarrollo de la arquitectura básica del sistema (\imp{BaseSystem}).
 	\item Desarrollo de los servicios de control de aparatos de frío/calor
@@ -63,26 +68,12 @@ Usando el árbol de la Figura~\ref{plan:fig:modelReal}, decidimos desarrollar el 
 \end{enumerate}
 
 %%========================================================================%%
-%% NOTA(Pablo): En realidad el diagram de Gannt no me convence.           %%
+%% HECHO(Pablo): En realidad el diagram de Gannt no me convence.           %%
 %% Perfería simplemente un grafo de dependencias.
 %%========================================================================%%
-La Figura~\ref{plan:fig:gantt} muestra las dependencias y secuenciación de dichas tareas.
 
-%%========================================================================%%
-%% NOTA(Pablo): Lo de los dos diagramas queda confuso y demasiado largo   %%
-%%========================================================================%%
-%%
-%% \begin{figure}[!tb]
-%%  % Requires \usepackage{graphicx}
-%%  \centering
-%%
-%% %% \includegraphics[width=.85\linewidth]
-%% {planificacion/images/featureModelSimplificado.eps} \\
-%%  \caption{Diagrama de características para un hogar inteligente simplificado}
-%%  \label{plan:fig:modelSimplificado}
-%% \end{figure}
-%%
-%%========================================================================%%
+
+La Figura~\ref{plan:fig:depen} muestra las dependencias y secuenciación de dichas tareas.
 
 Una vez extraídas y secuenciadas las características de nuestra familia de productos software, el siguiente paso es extraer los requisitos de alto nivel para nuestra familia de productos y asociarlos a cada características. Los requisitos de alto nivel del sistema y su correspondencia con las características de la familia de productos se muestran en la Tabla~\ref{plan:table:requisitos}.
 
@@ -158,26 +149,26 @@ la infraestructura que permita crear productos específicos, tan fácil como sea p
 
 Con el objeto de hacer la fase de Ingeniería de la Aplicación lo más automática posible, utilizaremos técnica de desarrollo software dirigido por modelos~\cite{beydeda:2005}. Más concretamente, usaremos generación de código a partir de lenguajes específicos de dominio (\emph{DSL} por sus nombre en inglés (Domain Specific Language))~\cite{kleppe:2008,kelly:2008}.
 
-La idea es que el desarrollador use un lenguaje específico de dominio para modelar el hogar automatizado que mejor se adapte a las necesidades de un cliente específico. A partir de dicho modelo, se generará de forma automática el código necesario para componer las características creadas en la fase de Ingeniería del Dominio, y derivar así un producto concreto. Para implementar esta fase usaremos el entorno de desarrollo software dirigido por modelos proporcionado por Visual Studio 2010 denominado DSL Tools~\cite{cook:1990}. 
+La idea es que el desarrollador use un lenguaje específico de dominio para modelar el hogar automatizado que mejor se adapte a las necesidades de un cliente específico. A partir de dicho modelo, se generará de forma automática el código necesario para componer las características creadas en la fase de Ingeniería del Dominio, y derivar así un producto concreto. Para implementar esta fase usaremos el entorno de desarrollo software dirigido por modelos proporcionado por Visual Studio 2010 denominado DSL Tools~\cite{cook:1990}.
 
 \begin{figure}[!tb]
   % Requires \usepackage{graphicx}
-  \centering \includegraphics{planificacion/images/ganttApplication.eps} \\
-  \caption{Diagrama de Gantt que muestra las dependencias entre tareas para la ingeniería de aplicación}
-  \label{plan:fig:ganttApplication}
+  \centering \includegraphics[width=.85\linewidth]{planificacion/images/diagramaDependenciasApplication.eps} \\
+  \caption{Diagrama de dependencias para la fase de ingeniería de aplicación}
+  \label{plan:fig:depenApplication}
 \end{figure}
 
 %%========================================================================%%
-%% NOTA(Pablo): En realidad el diagram de Gannt no me convence.           %%
+%% HECHO(Pablo): En realidad el diagram de Gannt no me convence.           %%
 %% Perfería simplemente un grafo de dependencias.
 %%========================================================================%%
-Las etapas a realizar para la construcción de dicho DSL y su generador de código asociado, de acuerdo al proceso habitual de la ingeniería de lenguajes dirigidos por modelos~\cite{kleppe:2008}, son las que se enumeran a continuación, y se reflejan en la Figura~\ref{plan:fig:ganttApplication}:
+Las etapas a realizar para la construcción de dicho DSL y su generador de código asociado, de acuerdo al proceso habitual de la ingeniería de lenguajes dirigidos por modelos~\cite{kleppe:2008}, son las que se enumeran a continuación, y se reflejan en la Figura~\ref{plan:fig:depenApplication}:
 
 \begin{enumerate}
 	\item En primer lugar es necesario desarrollar un metamodelo, o gramática, para nuestro lenguaje de modelado.A continuación, usando las DSL Tools, se generará automática un \emph{plugin} para Visual Studio 2010 que permita la edición de dichos modelos. Este plugin permitirá al construcción de modelos de hogares inteligentes concretos que satisfagan las necesidades particulares de cada usuario.
 	\item A continuación,  se desarrollarán los generadores de código para la composición automática de as diferentes características que deben integrar el software para un hogar concreto a partir de un modelo creado haciendo uso del \emph{plugin} para Visual Studio creado en el punto anterior.
 	\item Con lo anterior, ya tenemos la infraestructura para derivar automáticamante productos concretos mediante la composición de características. Por tanto, el siguiente fase sería el despliegue de nuestro producto. En dicha fase se realizarán las siguientes actividades:
-		\begin{enumerate} 
+		\begin{enumerate}
 			\item Se crearán instaladores que permitan utilizar todo lo construido hasta este momento en cualquier computar provisto del entorno Visual Studio 2010.
 			\item Para facilitar el uso del producto, se crearán una serie de manuales de usuario.
 			\item Para darle visibilidad y difusión al proyecto, se creará una página web para el mismo. De dicha página web se podrán descargar tanto los instaladores como los manuales. Además, en dicha página se incluirán los manuales de usuario, así como diverso material de promoción del proyecto, como proyectos relacionados, publicaciones, vídeos mostrando el funcionamiento de la herramienta, etc.
@@ -188,8 +179,8 @@ Las etapas a realizar para la construcción de dicho DSL y su generador de código
 %% NOTA(Pablo): En realidad en estos caso las fases de implementación y pruebas no están tan claras            %%
 %%=============================================================================================================%%
 %%
-%% Tal y como ha ocurrido en la fase de ingeniería de dominio cada tarea de la figura 
-%% \ref{plan:fig:ganttApplication} es considerada como una característica, por lo que siguiendo el proceso de 
+%% Tal y como ha ocurrido en la fase de ingeniería de dominio cada tarea de la figura
+%% \ref{plan:fig:ganttApplication} es considerada como una característica, por lo que siguiendo el proceso de
 %% desarrollo software elegido, por cada tarea se realizará su diseño, construcción y respectivas pruebas.
 %%
-%%=============================================================================================================%%
+%%=============================================================================================================%% 

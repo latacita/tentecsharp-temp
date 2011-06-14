@@ -1,9 +1,28 @@
-\begin{thebibliography}{GHJV94}
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{AGMO06}
+
+\bibitem[AGMO06]{aracic:2006}
+Ivica Aracic, Vaidas Gasiunas, Mira Mezini, and Klaus Ostermann.
+\newblock {An Overview of CaesarJ}.
+\newblock pages 135--173, 2006.
 
 \bibitem[Ast03]{astels:2003}
 David Astels.
 \newblock {\em Test-Driven Development: A Practical Guide}.
 \newblock Prentice Hall, July 2003.
+
+\bibitem[Bat05]{batory:2005:propositional}
+Don~S. Batory.
+\newblock {Feature Models, Grammars, and Propositional Formulas}.
+\newblock In J.~Henk Obbink and Klaus Pohl, editors, {\em Proc. of the 9th
+  International Conference on Software Product Lines (SPLC)}, volume 3714 of
+  {\em Lecture Notes in Computer Science (LNCS)}, pages 7--20, Rennes (France),
+  September 2005.
+
+\bibitem[BBG10]{beydeda:2005}
+Sami Beydeda, Matthias Book, and Volker Gruhn.
+\newblock {\em {Model-Driven Software Development}}.
+\newblock Springer, November 2010.
 
 \bibitem[Bro06]{brown:2006}
 Erik Brown.
@@ -11,10 +30,57 @@ Erik Brown.
   Programming with C\#}}.
 \newblock Manning Publications, May 2006.
 
-\bibitem[Cla10]{wallace:2010}
-Wallace Clark.
-\newblock {\em {The Gantt Chart, a Working Tool of Management}}.
-\newblock Jan 2010.
+\bibitem[BSC10]{benavides:2010}
+David Benavides, Sergio Segura, and Antonio~Ruiz Cort{\'e}s.
+\newblock {Automated Analysis of Feature Models 20 Years Later: A Literature
+  Review}.
+\newblock {\em Information Systems}, 35(6):615--636, 2010.
+
+\bibitem[CFP08]{fons:2008}
+Carlos Cetina, Joan Fons, and Vicente Pelechano.
+\newblock Applying software product lines to build autonomic pervasive systems.
+\newblock In {\em SPLC}, pages 117--126, 2008.
+
+\bibitem[Cha06]{chappell:2006}
+David Chappell.
+\newblock {\em {Understanding .NET (2nd Edition)}}.
+\newblock Addison-Wesley Professional, September 2006.
+
+\bibitem[CN02]{clements:2002}
+Paul~C. Clements and Linda Northrop.
+\newblock {\em {Software product lines: practices and patterns}}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., 2002.
+
+\bibitem[Coc01]{cockburn:2001}
+Alistair Cockburn.
+\newblock {\em {Agile Software Development}}.
+\newblock Addison-Wesley, October 2001.
+
+\bibitem[Coo90]{cook:1990}
+William~R. Cook.
+\newblock {Object-Oriented Programming Versus Abstract Data Types}.
+\newblock In J.~W. de~Bakker, Willem~P. de~Roever, and Grzegorz Rozenberg,
+  editors, {\em Foundations of Object-Oriented Languages}, volume 489 of {\em
+  Lecture Notes in Computer Science}, pages 151--178, Noordwijkerhout (The
+  Netherlands), May - June 1990.
+
+\bibitem[FCS{\etalchar{+}}08]{Figueiredo:2008}
+Eduardo Figueiredo, N{\'e}lio Cacho, Cl{\'a}udio Sant'Anna, Mario Monteiro,
+  Uir{\'a} Kulesza, Alessandro Garcia, S{\'e}rgio Soares, Fabiano~Cutigi
+  Ferrari, Safoora~Shakil Khan, Fernando~Castor Filho, and Francisco Dantas.
+\newblock {Evolving Software Product Lines with Aspects: An Empirical Study on
+  Design Stability}.
+\newblock In {\em Proc. of 30th Int. Conference on Software Engineering
+  (ICSE)}, pages 261--270, Leipzig (Germany), May 2008.
+
+\bibitem[FNS09]{fuentes:2009:caise}
+Lidia Fuentes, Carlos Nebrera, and Pablo S{\'a}nchez.
+\newblock {Feature-Oriented Model-Driven Software Product Lines: The TENTE
+  Approach}.
+\newblock In Eric Yu, Johann Eder, and Colette Rolland, editors, {\em
+  Proceedings of the Forum at the CAiSE 2009 Conference}, volume 453 of {\em
+  CEUR Workshop Proceedings}, pages 67--72, Amsterdam (The Netherlands), June
+  2009.
 
 \bibitem[GHJV94]{gamma:1994}
 Erich Gamma, Richard Helm, Ralph Johnson, and John~M. Vlissides.
@@ -22,21 +88,153 @@ Erich Gamma, Richard Helm, Ralph Johnson, and John~M. Vlissides.
   Software}}.
 \newblock Addison-Wesley Professional, November 1994.
 
+\bibitem[Her02]{herrman:2002}
+Stephan Herrmann.
+\newblock Object teams: Improving modularity for crosscutting collaborations.
+\newblock In {\em NetObjectDays}, pages 248--264, 2002.
+
 \bibitem[HM04]{rusty:2004}
 Elliotte~Rusty Harold and W.~Scott Means.
 \newblock {\em {XML in a Nutshell: A Desktop Quick Reference (In a Nutshell
   (O'Reilly))}}.
 \newblock O'Reilly Media, September 2004.
 
-\bibitem[Om05]{omg:uml:2005}
+\bibitem[JABK08]{joault:2008}
+Fr{\'e}d{\'e}ric Jouault, Freddy Allilaire, Jean B{\'e}zivin, and Ivan Kurtev.
+\newblock {ATL: A Model Transformation Tool}.
+\newblock {\em Science of Computer Programming}, 72(1-2):31--39, June 2008.
+
+\bibitem[JAC{\etalchar{+}}11]{jones:2011}
+Gareth Jones, Alan, Steve Cook, Stuart Kent, and Cameron Wills.
+\newblock {\em {Domain-Specific Development with Visual Studio DSL Tools}}.
+\newblock Addison-Wesley Professional, April 2011.
+
+\bibitem[KCH{\etalchar{+}}90]{kang:1990}
+Kyo~C. Kang, Sholom~G. Cohen, James~A. Hess, William~E. Novak, and A.~Spencer
+  Peterso.
+\newblock {Feature-Oriented Domain Analysis (FODA) Feasibility Study}.
+\newblock Technical Report CMU/SEI-90-TR-21, Software Engineering Institute
+  (SEI), Carnagie Mellon University, November 1990.
+
+\bibitem[KD06]{kakola:2006}
+T.~Kakola and J.~C. Dueñas.
+\newblock {\em {Software Product Lines: Research Issues in Engineering and
+  Management}}.
+\newblock Springer-Verlag Berlin, 2006.
+
+\bibitem[KLD02]{kang:2002}
+Kyo~Chul Kang, Jaejoon Lee, and Patrick Donohoe.
+\newblock {Feature-Oriented Project Line Engineering}.
+\newblock {\em IEEE Software}, 19(4):58--65, 2002.
+
+\bibitem[Kle08]{kleppe:2008}
+Anneke Kleppe.
+\newblock {\em {Software Language Engineering: Creating Domain-Specific
+  Languages Using Metamodels}}.
+\newblock Addison-Wesley Professional, December 2008.
+
+\bibitem[KPP08]{kolovos:2008}
+Dimitrios~S. Kolovos, Richard~F. Paige, and Fiona Polack.
+\newblock {The Epsilon Transformation Language}.
+\newblock In Antonio Vallecillo, Jeff Gray, and Alfonso Pierantonio, editors,
+  {\em First International Conference on Theory and Practice of Model
+  Transformations (ICMT)}, volume 5063 of {\em Lecture Notes in Computer
+  Science}, pages 46--60, Z{\"u}rich (Switzerland), July 2008.
+
+\bibitem[KT08]{kelly:2008}
+Steven Kelly and Juha-Pekka Tolvanen.
+\newblock {\em {Domain-Specific Modeling: Enabling Full Code Generation}}.
+\newblock Wiley, March 2008.
+
+\bibitem[LGBM07]{laguna:2007}
+Miguel~A. Laguna, Bruno Gonz{\'a}lez-Baixauli, and Jos{\'e}~M. Marqu{\'e}s.
+\newblock {Seamless development of software product lines}.
+\newblock In {\em GPCE}, pages 85--94, 2007.
+
+\bibitem[LSGF08]{loughran:2008}
+Neil Loughran, Pablo S{\'a}nchez, Alessandro Garcia, and Lidia Fuentes.
+\newblock Language support for managing variability in architectural models.
+\newblock In {\em Software Composition}, pages 36--51, 2008.
+
+\bibitem[MMp89]{madsen:1989}
+Ole~Lehrmann Madsen and Birger Moller-pedersen.
+\newblock Virtual lasses: a powerful mechanism in object-oriented programming.
+\newblock In {\em Conference on Object-Oriented Programming Systems, Languages,
+  and Applications}, volume~24, pages 397--406, 1989.
+
+\bibitem[Om05a]{uml:2005}
 G.~Om.
 \newblock {Unified Modeling Language: Superstructure version 2.0,
   formal/05-07-04}.
 \newblock Technical report, Object Management Group, 2005.
 
+\bibitem[Om05b]{omg:uml:2005}
+G.~Om.
+\newblock {Unified Modeling Language: Superstructure version 2.0,
+  formal/05-07-04}.
+\newblock Technical report, Object Management Group, 2005.
+
+\bibitem[ONG{\etalchar{+}}05]{oldevik:2005}
+Jon Oldevik, Tor Neple, Roy Grønmo, Jan Aagedal, and Arne-J. Berre.
+\newblock {Toward Standardised Model to Text Transformations}.
+\newblock Springer Berlin / Heidelberg, 2005.
+
+\bibitem[PBvdL05]{pohl:2005}
+Klaus Pohl, Gunter Bockle, and Frank van~der Linden.
+\newblock {\em {Software Product Line Engineering}}.
+\newblock 2005.
+
 \bibitem[PF02]{palmer:2002}
 Stephen~R. Palmer and John~M. Felsing.
 \newblock {\em A Practical Guide to Feature-Driven Development}.
 \newblock Prentice Hall, February 2002.
+
+\bibitem[PRG{\etalchar{+}}07]{pohl:2007}
+Christoph Pohl, Andreas Rummler, Vaidas Gasiunas, Neil Loughran, Hugo Arboleda,
+  Fabricio de~Alexandria~Fernandes, Jacques Noyé, Angel Núñez, Robin Passama,
+  JeanClaude Royer, and Mario Südholt.
+\newblock {Survey of Existing Implementation Techniques with Respect to Their
+  Support for Product Lines}.
+\newblock Deliverable D3.1, AMPLE Project, July 2007.
+
+\bibitem[RGAM10]{randolph:2010}
+Nick Randolph, David Gardner, Chris Anderson, and Michael Minutillo.
+\newblock {\em {Professional Visual Studio 2010 (Wrox Programmer to
+  Programmer)}}.
+\newblock May 2010.
+
+\bibitem[Sal10]{elio:2010}
+Elio Alexis~López Salamanca.
+\newblock {Programación Orientada a Característica Usando Clases Parciales en
+  C\#}.
+\newblock 2010.
+
+\bibitem[SLFG08]{sanchez:2008}
+Pablo S{\'a}nchez, Neil Loughran, Lidia Fuentes, and Alessandro Garcia.
+\newblock {Engineering Languages for Specifying Product-Derivation Processes in
+  Software Product Lines}.
+\newblock In Dragan Gasevic, Ralf L{\"a}mmel, and Eric~Van Wyk, editors, {\em
+  Software Language Engineering, First International Conference (SLE)}, volume
+  5452 of {\em Lecture Notes in Computer Science}, pages 188--207, Toulouse,
+  France, September 2008.
+
+\bibitem[TJ01]{tseng:2001}
+Mitchell Tseng and Jianxin Jiao.
+\newblock {\em Mass customization, Handbook of Industrial Engineering:
+  Technology and Operations Management}.
+\newblock Wiley, 2001.
+
+\bibitem[Vog10]{vogel:2010}
+Peter Vogel.
+\newblock {\em {Practical Code Generation in .NET: Covering Visual Studio 2005,
+  2008, and 2010}}.
+\newblock Addison-Wesley Professional, April 2010.
+
+\bibitem[ZSN{\etalchar{+}}11]{sanchez:2011:tente}
+Steffen Zschaler, Pablo Sánchez, Carlos Nebrera, Lidia Fuentes, Vaidas
+  Gasiunas, and Ludger Fiege.
+\newblock {\em {Aspect-Oriented Model-Driven Software Product Lines}}, chapter
+  {Product-Driven Software Product Line Engineering }.
+\newblock Cambridge University Press, August 2011.
 
 \end{thebibliography}
