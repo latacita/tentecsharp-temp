@@ -1,7 +1,8 @@
 %%==================================================================%%
 %% Author : Pérez Ruiz, Alejandro                                   %%
 %% Author : Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.1, 16/03/2011                                         %%                                                                                    %%                                                                  %%
+%% Version: 1.1, 14/06/2011                                         %%
+%%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Capítulo Domain Engineering, Archivo raíz                        %%
 %%==================================================================%%
@@ -9,144 +10,21 @@
 \chapterheader{Ingeniería del Dominio}{Ingeniería del Dominio}
 \label{chap:domain}
 
-Este capítulo se describe la fase de \emph{ingeniería del dominio} (en inglés, \emph{Domain Engineering}) de nuestra línea de productos software. Dentro de dicha fase, se detalla la definición de la arquitectura de la familia de productos y se detallan las iteraciones más relevantes de este proceso de desarrollo. Las otras iteraciones, por motivos de espacio y con objeto de no aburrir al lector con detalles irrelevantes, simplemente se omiten. 
+Este capítulo se describe la fase de \emph{ingeniería del dominio} (en inglés, \emph{Domain Engineering}) de nuestra línea de productos software. Dentro de dicha fase, se detalla la definición de la arquitectura de la familia de productos y se detallan las iteraciones más relevantes de este proceso de desarrollo. Las otras iteraciones, por motivos de espacio y con objeto de no aburrir al lector con detalles irrelevantes, simplemente se omiten.
 
 \chaptertoc
+
 \section{Definición Arquitectónica}
-%% Section{Definición Arquitectónica}
-%%% Contar que es el gateway como lo controla todo
-%%% Cuenta lo de los observadores
-%%% Cuenta que el gateway viene a ser similar a un Mediator
-El hogar inteligente posee una serie de dispositivos que se descomponen en sensores y actuadores. Los sensores son los encargados de obtener los datos del elemento al que pertenecen, como por ejemplo, los grados que hace en una habitación o la apertura que tiene una ventana. Los actuadores se encargan de ejecutar las ordenes, por ejemplo, de que una persiana se abra o se cierre o de que la calefacción se encienda a unos determinados grados.
 
-Tanto los sensores como los actuadores se encuentran conectados a un dispositivo central que los coordina, el cual se conoce como puerta de enlace o Gateway. Dicho Gateway se encarga de recibir los datos de los sensores, procesarlos y enviar las ordenes adecuadas a los actuadores. De igual modo, el Gateway recibe órdenes de los usuarios que son ejecutadas por los actuadores para modificar los elementos de la casa.
-
-Además el Gateway posee una lista de las plantas que tiene el hogar, a su vez cada planta contiene otra lista de las habitaciones que se encuentran en dicha planta, y un objeto tiempo que se encarga de simular el transcurso del tiempo en el sistema.
-
-En la figura \ref{domain:fig:defArq} se puede observar el diseño UML que representa todo lo dicho anteriormente, quedando reflejado como el Gateway es la pieza central del sistema.
-
-\begin{figure}[!tb]
- \centering
- \includegraphics[width=.45\linewidth]{domainEngineering/Images/definicionArq.eps} \\
- \caption{Diseño UML que muestra la definición arquitectónica}
- \label{domain:fig:defArq}
-\end{figure}
-
-Para que el usuario pueda monitorizar y controlar la situación de los elementos es necesario la creación de una interfaz gráfica que represente las funcionalidades propias del Gateway. De igual modo, es necesaria otra interfaz gráfica que juegue el papel de simulador, ya que la implementación presentada en este proyecto no está conectada a dispositivos reales, y por ello es necesario simular valores para los sensores, tales como la temperatura, y el tiempo del sistema. Ambas interfaces gráficas se conectarán al Gateway para poder comunicarse con todos los dispositivos.
-
-Debido a que el Gateway simplifica la comunicación entre los objetos del sistema siendo éste un objeto que gestiona la distribución de mensajes entre sensores, actuadores, e interfaces gráficas, se puede decir que sigue el patrón de diseño denominado \emph{mediador}\cite{gamma:1994} (\emph{Mediator pattern}, en inglés).
-
-En el diseño arquitectónico descrito anteriormente se observa que existen dependencias entre objetos de forma que cuando un objeto cambia de estado, todos sus objetos dependientes son notificados y actualizados. Tales dependencias son:
-\begin{enumerate}
-\item Las interfaces gráficas y el Gateway tienen que ser notificados y actualizados cada vez que un sensor cambie.
-\item Tanto el Gateway como las interfaces gráficas tienen que ser actualizados cuando el tiempo actual del sistema cambie.
-\end{enumerate}
-Claramente esto puede ser modelado siguiendo el patrón de diseño llamado \emph{observador}\cite{gamma:1994} (\emph{Observer pattern}, en inglés), es decir, por cada objeto que vaya a ser observado es necesario crear una lista donde se registrarán todos los observadores, de este modo cada vez que se produzca una modificación en el objeto observado, éste utilizará la lista para notificar a todos sus observadores que se ha producido un cambio.
-
-Con el diseño arquitectónico básico definido y teniendo en cuenta que el presente proyecto implementa una línea de productos software para hogares inteligentes, se debe encapsular cada una de las características ,para que posteriormente cada aplicación creada pueda ser compuesta de diferentes maneras. Por ello se hará uso de las clases parciales y la herencia para encapsular cada característica. Este proceso iterativo será descrito con mas detalle en las siguientes secciones.
+\input{domainEngineering/arquitectura.tex}
 
 \section{Iteración 1: Sistema Base}
-%% Section{Iteracion 1: Base System}
-%%% Requisitos específicos
-%%% Diseño UML
-%%% Diseño Interfaz Gráfica
-%%% Implementación
-El sistema base (\emph{Base System}, en inglés) es la característica que define la arquitectura base para el sistema, es decir, debe proporcionar a los usuarios el acceso a los servicios del Gateway a través de las interfaces gráficas de usuario y además permitir que el número de plantas y habitaciones sea variable. Para ello se define la clase parcial \imp{Gateway} que en cada nueva característica(control inteligente de luces, calefacción, ventanas...), será vuelta a definir, ya que cada vez que una misma clase parcial es definida se está dividiendo la clase en varios archivos de código fuente, que posteriormente cuando se compile la aplicación serán combinados.
 
-Por lo tanto, el sistema base implementará el diseño UML mostrado en la sección anterior con la figura \ref{domain:fig:defArq}, con lo que crearemos la infraestructura necesaria para que las características que se implementarán posteriormente tengan una base sólida para crear dispositivos que extiendan a los actuadores y sensores, definidos a través de las clases abstractas \imp{Actuator} y \imp{Sensor}, además de extender a la propia clase \imp{Gateway}, añadiéndola nuevas funcionalidades y/o características a través del uso de las clases parciales.
+\input{domainEngineering/iteracionUno.tex}
 
-Una parte importante del sistema son las interfaces gráficas que permitirán al usuario interactuar con el Gateway. Se implementan dos, la primera de ellas permite al usuario actuar con el Gateway, mientras que la segunda hará el papel de simulador, ya que es necesario modificar algunos valores que deberían ser alterados por elementos externos al propio sistema, tales como la temperatura actual de una habitación o el tiempo,ya que el sistema no se encuentra conectado a dispositivos reales.
+\section{Iteración 2: Gestión de Sistemas de Control de Temperatura}
 
-No obstante, no se debe olvidar que se está implementado una línea de productos software, por lo que todos los diseños de las interfaces gráficas deben adaptarse a cualquier composición de características que haga un usuario.
-
-Como punto de partida para el diseño de las interfaces gráficas se ha utilizado la API para el desarrollo de aplicaciones gráficas que incluye .NET, denominada \emph{Windows Forms}\cite{brown:2006}. Con esta API para construir una interfaz gráfica se deben añadir controles a una forma e implementar respuestas a las acciones de los usuarios, tales como un click de ratón o la pulsación de una tecla. Un control se define como una interfaz de usuario que muestra datos o acepta datos de entrada. Por lo que lo primero que se debe pensar es en los controles que serán más adecuados para la ventana que contiene la interfaz gráfica. Debido a que el número de plantas y el de habitaciones debe ser variable, la interfaz debe permitir cualquier cantidad de plantas o habitaciones, además el control elegido debe ser un contenedor para otros controles, ya que cuando una planta sea seleccionada se deben mostrar todas las habitaciones que contiene, y cada habitación debe de poder contener diferentes características (control de ventanas,persianas,luces...). Por todo lo citado anteriormente, se ha decidido utilizar un diseño como el mostrado en la figura \ref{domain:fig:gatewayGUI}, que se compone de un primer control con pestañas que contiene las plantas y que permitirá añadir nuevas características para su control global en toda la casa, el segundo control tiene todas las plantas mostradas por pestañas, y por último por cada pestaña específica de una planta existe otro control que contiene pestañas con las distintas habitaciones.
-
-\begin{figure}[!tb]
- \centering
- \includegraphics[width=.55\linewidth]{domainEngineering/Images/GUI.eps} \\
- \caption{Diseño de la interfaz gráfica de usuario para el Gateway}
- \label{domain:fig:gatewayGUI}
-\end{figure}
-
-Siguiendo el mismo razonamiento que anteriormente, se ha tenido que diseñar y elegir los controles que irán en la ventana del simulador. En el caso del sistema base,solo se encargará de mostrar las plantas y habitaciones que se han creado, por lo que se vuelve a seleccionar un control que permita añadir pestañas tal y como se muestra en la figura \ref{domain:fig:simulatorGUI} y una tabla con el identificador de una habitación, su nombre y la planta a la que pertenecen.
-
-\begin{figure}[!tb]
- \centering
- \includegraphics[width=.65\linewidth]{domainEngineering/Images/simulatorGUI.eps} \\
- \caption{Diseño de la interfaz gráfica de usuario para el simulador}
- \label{domain:fig:simulatorGUI}
-\end{figure}
-
-Para poder añadir nuevas funcionalidades y características a ambas interfaces gráficas se utilizan las clases parciales, de tal modo que cada vez que se crea una nueva característica, ésta extiende la clase que implementa la interfaz gráfica de usuario con nuevos controles, o modificando los actuales.
-
-Una vez implementado todo el sistema base se han realizado una serie de test de prueba, que consisten en crear instancias del sistema para comprobar que tanto las plantas y habitaciones eran creadas, añadidas y mostradas correctamente.
-
-Tras haber finalizado la implementación del sistema base ya se tiene la infraestructura básica para poder crear nuevas características que extiendan y añadan nuevas funcionalidades, por lo que la siguiente sección describe el proceso de desarrollo para la característica \emph{HeaterMng}.
-\section{Iteración 2: HeaterMng}
-
-%% Section{Iteración 2: HeaterMng}
-
-%%% Requisitos específicos
-
-%%% Diseño UML
-
-%%% Diseño Interfaz Gráfica
-
-%%% Implementación
-
-%%% Pruebas
-La característica manejo de calefacción o \emph{HeaterMng} en inglés, permite a los usuarios establecer un valor específico para la temperatura en grados Celsius tanto para un calefactor, como a nivel global en todos los calefactores. Los calefactores tienen la propiedad de ser aparatos de frío/calor, ya que su función es establecer los grados que determine el usuario, por lo que si la temperatura donde se encuentra es superior a la que establezca el usuario, el calefactor estará enfriando, en caso contrario estará calentando. Para la situación en la que la temperatura seleccionada por el usuario coincida con la temperatura del lugar donde se encuentra el calefactor, este último no entrará en modo funcionamiento, con lo que no consumirá energía.
-
-Lo que debe hacer esta característica es volver a definir la clase parcial \imp{Gateway}, de este modo se pueden añadir nuevos métodos y atributos. Para definir los nuevos dispositivos se extienden las clases abstractas \imp{Actuator} y \imp{Sensor}. Estos nuevos dispositivos serán termómetro y calefactor, representados por las clases \imp{Thermometer} y \imp{HeaterCtrl} tal y como se ilustra en la figura \ref{domain:fig:heaterMngDesign}. Además cada calefactor debe tener asociado obligatoriamente un termómetro exclusivo, así las mediciones de las temperaturas serán mas precisas que si solo se utilizase un termómetro para toda la casa.
-
-\begin{figure}[!tb]
- \centering
- \includegraphics[width=.75\linewidth]{domainEngineering/Images/HeaterMngDesign.eps} \\
- \caption{Diseño UML para la característica \emph{HeaterMng}}
- \label{domain:fig:heaterMngDesign}
-\end{figure}
-
-La principal acción que sostiene esta nueva característica es la de modificar la temperatura de los calefactores por los usuarios del sistema, por ello la figura \ref{domain:fig:secuenciaHeaterMng} ilustra a través de un diagrama de secuencia cuales son los pasos de los mensajes necesarios para que la temperatura sea modificada. Como ya se ha comentado en otras ocasiones en el diagrama de secuencia se vuelve a observar como el Gateway es el mediador que se encarga de transmitir los mensajes entre los distintos dispositivos.
-
-\begin{figure}[!tb]
- \centering
- \includegraphics[width=.75\linewidth]{domainEngineering/Images/secuenciaHeaterMng.eps} \\
- \caption{Diagrama de secuencia para modificar la temperatura.}
- \label{domain:fig:secuenciaHeaterMng}
-\end{figure}
-
-A nivel gráfico también es necesario extender las dos interfaces gráficas de usuario que se implementaron en el sistema base, para ello se vuelven a definir las clases parciales para dichas interfaces. De este modo para el caso de la interfaz gráfica que representa al Gateway, es necesario añadir una nueva pestaña al primer control, que contiene la pestaña para plantas y que es el destinado a tener las diferentes pestañas para las distintas características en el ámbito global, en la que se añadirá un botón para encender o apagar todos los calefactores, y en el caso de que el botón esté en el estado de encendido se mostrará un campo para añadir la temperatura deseada a través del teclado, y una barra deslizante que también cumple con el mismo cometido de modificar la temperatura. Una nueva pestaña con el mismo diseño citado anteriormente es añadida al control que contiene las diferentes pestañas de las características de  una habitación que posea calefactores. Para ilustrar de un modo más claro esta descripción del diseño, se muestra la figura \ref{domain:fig:GUIHeaterMng}, en la que se puede observar en las dos capturas de la parte superior las dos pestañas que contienen los controles para la característica en modo global, es decir, si el botón de encendido/apagado es pulsado afectará a todos los calefactores de la casa, mientras que las dos capturas de la parte inferior afectan a un calefactor concreto de una habitación específica.
-
-\begin{figure}[!tb]
- \centering
- \includegraphics[width=.75\linewidth]{domainEngineering/Images/GUIHeaterMng.eps} \\
- \caption{Diseño de la interfaz gráfica de usuario para el Gateway en la característica de \emph{HeaterMng}}
- \label{domain:fig:GUIHeaterMng}
-\end{figure}
-
-Por otro parte se tiene que añadir nueva funcionalidad a la interfaz gráfica del simulador, por lo que nuevamente se definen las clases parciales para esta interfaz y se añade una nueva pestaña destinada a contener un control que muestre en formato tabla los diferentes calefactores con su identificador, habitación a la que pertenecen, planta, temperatura seleccionada, temperatura del termómetro, estado(encendido o apagado) y modo de funcionamiento(con consumo de energía o sin ella),además de un campo que permite introducir los grados deseados para modificar la temperatura de un termómetro, debido a que ningún termómetro está conectado a un dispositivo real, por lo que dicho valor es modificado manualmente. El resultado del diseño del simulador se ilustra en la figura \ref{domain:fig:SimulatorHeaterMng}
-
-\begin{figure}[!tb]
- \centering
- \includegraphics[width=.75\linewidth]{domainEngineering/Images/simulatorGUIHeaterMng.eps} \\
- \caption{Diseño de la interfaz gráfica de usuario para el simulador en la característica de \emph{HeaterMng}}
- \label{domain:fig:SimulatorHeaterMng}
-\end{figure}
-
-Para llevar a cabo las pruebas sobre esta característica se han realizado una serie de test que han seguido el siguiente procedimiento:
-\begin{enumerate}
-\item Se han creado una serie de instancias del hogar inteligente con diferente número de calefactores repartidos por distintas habitaciones.
-\item Por cada instancia se realizan los siguientes casos de prueba:
-	\begin{enumerate}
-		\item Se enciende,se apagan y se modifica la temperatura de todos los calefactores,a través de la pestaña de control global de la característica, en la interfaz gráfica del Gateway, y se comprueba a través del simulador y del propio Gateway que ha funcionado correctamente.
-		\item Por cada calefactor se encenderá, se apagará y se modifica la temperatura,de modo individual a través de su pestaña específica.
-		\item Por cada calefactor se modificará su temperatura para que coincida con la de su termómetro, comprobándose que el calefactor cambie su modo de funcionamiento a sin consumo de energía.
-		\item Se modifica la temperatura de los termómetros y se comprueba que se modifica en el simulador.
-		\item Por cada calefactor se modifica la temperatura de su termómetro para que coincida con la temperatura seleccionada en el calefactor y se comprueba que el modo de funcionamiento cambie.
-	\end{enumerate}
-\end{enumerate}
-
-En la siguiente sección se describe el proceso para implementar la siguiente característica.
+\input{domainEngineering/iteracionDos.tex}
 
 \section{Iteración 3: WindowMng}
 %% Section{Iteración 3: WindowMng}

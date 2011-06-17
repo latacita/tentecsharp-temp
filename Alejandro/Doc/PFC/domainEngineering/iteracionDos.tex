@@ -1,0 +1,91 @@
+%%==================================================================%%
+%% Author : Pérez Ruiz, Alejandro                                   %%
+%% Author : Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.1, 14/06/2011                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Domain Engineering/Interacion Dos                                %%
+%%==================================================================%%
+
+La característica de gestión de los sistemas de control de la temperatura  (\emph{HeaterMng}) deberá  permitir a los usuarios establecer el valor deseado para la temperatura (en grados Celsius) dentro la clase. Los dispositivos de control de la temperatura funcionan como aparatos de frío/calor. De esta forma,   si la temperatura especificada por el usuario es inferior a la actual, el dispositivo deberá enfriar la casa. En el caso opuesto, deberá calentarla. 
+
+%%=====================================================================%%
+%% NOTA(Pablo): Aquí hace falta una figura describiendo la             %%
+%%              arquitectura                                           %%
+%%=====================================================================%%
+%%
+%% Para la situación en la que la temperatura seleccionada por el 
+%% usuario coincida con la temperatura del lugar donde se encuentra el
+%% calefactor, este último no entrará en modo funcionamiento, por lo 
+%% que no consumirá energía.
+%%
+%%=====================================================================%%
+
+Esta característica añade clases pare representar los nuevos dispositivos, más concretamente, \imp{Thermometer} y \imp{HeaterCtrl}, tal y como se ilustra en la Figura~\ref{domain:fig:heaterMngDesign}. Estos dispositivos extienden las clases abstractas \imp{Actuator} y \imp{Sensor}. Además, se debe extender la clase \imp{Gateway} con nuevos métodos y atributos para el control de estos nuevos dispositivos. A cada aparato de control de la temperatura se le asocia un termómetro en exclusiva, para realizar mediciones mas precisas.
+
+\begin{figure}[!tb]
+ \centering
+ \includegraphics[width=.75\linewidth]{domainEngineering/Images/HeaterMngDesign.eps} \\
+ \caption{Diseño UML para la característica \emph{HeaterMng}}
+ \label{domain:fig:heaterMngDesign}
+\end{figure}
+
+%%=====================================================================%%
+%% NOTA(Pablo): Esto es trivial y no merece la pena contarlo
+%%=====================================================================%%
+%%
+%% La principal acción que sostiene esta nueva característica es la de 
+%% modificar la temperatura de los calefactores por los usuarios del 
+%% sistema, por ello la figura \ref{domain:fig:secuenciaHeaterMng} 
+%% ilustra a través de un diagrama de secuencia cuales son los pasos 
+%% de los mensajes necesarios para que la temperatura sea modificada. 
+%% Como ya se ha comentado en otras ocasiones en el diagrama de secuencia 
+%% se vuelve a observar como el Gateway es el mediador que se encarga de 
+%% transmitir los mensajes entre los distintos dispositivos.
+%%
+%%
+%% \begin{figure}[!tb]
+%5 \centering
+%%  \includegraphics[width=.75\linewidth]
+%%    {domainEngineering/Images/secuenciaHeaterMng.eps}%
+%% \\
+%% \caption{Diagrama de secuencia para modificar la temperatura.}
+%%  \label{domain:fig:secuenciaHeaterMng}
+%% \end{figure}
+%%
+%%=====================================================================%%
+
+
+A nivel gráfico también es necesario extender las dos interfaces gráficas de usuario que se implementaron en el sistema base, para ello se vuelven a definir las clases parciales para dichas interfaces. De este modo para el caso de la interfaz gráfica que representa al Gateway, es necesario añadir una nueva pestaña al primer control, que contiene la pestaña para plantas y que es el destinado a tener las diferentes pestañas para las distintas características en el ámbito global, en la que se añadirá un botón para encender o apagar todos los calefactores, y en el caso de que el botón esté en el estado de encendido se mostrará un campo para añadir la temperatura deseada a través del teclado, y una barra deslizante que también cumple con el mismo cometido de modificar la temperatura. Una nueva pestaña con el mismo diseño citado anteriormente es añadida al control que contiene las diferentes pestañas de las características de  una habitación que posea calefactores. Para ilustrar de un modo más claro esta descripción del diseño, se muestra la figura \ref{domain:fig:GUIHeaterMng}, en la que se puede observar en las dos capturas de la parte superior las dos pestañas que contienen los controles para la característica en modo global, es decir, si el botón de encendido/apagado es pulsado afectará a todos los calefactores de la casa, mientras que las dos capturas de la parte inferior afectan a un calefactor concreto de una habitación específica.
+
+\begin{figure}[!tb]
+ \centering
+ \includegraphics[width=.75\linewidth]{domainEngineering/Images/GUIHeaterMng.eps} \\
+ \caption{Diseño de la interfaz gráfica de usuario para el Gateway en la característica de \emph{HeaterMng}}
+ \label{domain:fig:GUIHeaterMng}
+\end{figure}
+
+Por otro parte se tiene que añadir nueva funcionalidad a la interfaz gráfica del simulador, por lo que nuevamente se definen las clases parciales para esta interfaz y se añade una nueva pestaña destinada a contener un control que muestre en formato tabla los diferentes calefactores con su identificador, habitación a la que pertenecen, planta, temperatura seleccionada, temperatura del termómetro, estado(encendido o apagado) y modo de funcionamiento(con consumo de energía o sin ella),además de un campo que permite introducir los grados deseados para modificar la temperatura de un termómetro, debido a que ningún termómetro está conectado a un dispositivo real, por lo que dicho valor es modificado manualmente. El resultado del diseño del simulador se ilustra en la figura \ref{domain:fig:SimulatorHeaterMng}
+
+\begin{figure}[!tb]
+ \centering
+ \includegraphics[width=.75\linewidth]{domainEngineering/Images/simulatorGUIHeaterMng.eps} \\
+ \caption{Diseño de la interfaz gráfica de usuario para el simulador en la característica de \emph{HeaterMng}}
+ \label{domain:fig:SimulatorHeaterMng}
+\end{figure}
+
+Para llevar a cabo las pruebas sobre esta característica se han realizado una serie de test que han seguido el siguiente procedimiento:
+\begin{enumerate}
+\item Se han creado una serie de instancias del hogar inteligente con diferente número de calefactores repartidos por distintas habitaciones.
+\item Por cada instancia se realizan los siguientes casos de prueba:
+	\begin{enumerate}
+		\item Se enciende,se apagan y se modifica la temperatura de todos los calefactores,a través de la pestaña de control global de la característica, en la interfaz gráfica del Gateway, y se comprueba a través del simulador y del propio Gateway que ha funcionado correctamente.
+		\item Por cada calefactor se encenderá, se apagará y se modifica la temperatura,de modo individual a través de su pestaña específica.
+		\item Por cada calefactor se modificará su temperatura para que coincida con la de su termómetro, comprobándose que el calefactor cambie su modo de funcionamiento a sin consumo de energía.
+		\item Se modifica la temperatura de los termómetros y se comprueba que se modifica en el simulador.
+		\item Por cada calefactor se modifica la temperatura de su termómetro para que coincida con la temperatura seleccionada en el calefactor y se comprueba que el modo de funcionamiento cambie.
+	\end{enumerate}
+\end{enumerate}
+
+En la siguiente sección se describe el proceso para implementar la siguiente característica.
+
