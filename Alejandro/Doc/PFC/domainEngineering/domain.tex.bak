@@ -16,7 +16,7 @@ Este capítulo se describe la fase de \emph{ingeniería del dominio} (en inglés, \
 
 \section{Definición Arquitectónica}
 
-\input{domainEngineering/arquitectura.tex}
+\input{domainEngineering/architecture.tex}
 
 \section{Principios de Diseño}
 \label{domain:sec:pattern}
@@ -31,7 +31,11 @@ Este capítulo se describe la fase de \emph{ingeniería del dominio} (en inglés, \
 
 \input{domainEngineering/iteracionDos.tex}
 
+<<<<<<< .mine
+\section{Iteración 3: Control Automática de Ventanas}
+=======
 \section{Iteración 3: Control Automático de Ventanas}
+>>>>>>> .r399
 
 \input{domainEngineering/iteracionTres.tex}
 

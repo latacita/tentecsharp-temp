@@ -1,16 +1,20 @@
-%%==================================================================%%
-%% Author : Pérez Ruiz, Alejandro                                   %%
-%% Author : Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.1, 14/06/2011                                         %%
-%%                                                                  %%
-%% Memoria del Proyecto Fin de Carrera                              %%
-%% Domain Engineering/Interacion Dos                                %%
-%%==================================================================%%
+	%%==================================================================%%
+	%% Author : Pérez Ruiz, Alejandro                                   %%
+	%% Author : Sánchez Barreiro, Pablo                                 %%
+	%% Version: 1.1, 14/06/2011                                         %%
+	%%                                                                  %%
+	%% Memoria del Proyecto Fin de Carrera                              %%
+	%% Domain Engineering/Interacion Dos                                %%
+	%%==================================================================%%
 
 La característica de gestión de los sistemas de control de la temperatura  (\emph{HeaterMng}) deberá  permitir a los usuarios establecer el valor deseado para la temperatura (en grados Celsius). Los dispositivos de control de la temperatura funcionan como aparatos de frío/calor. De esta forma, si la temperatura especificada por el usuario es inferior a la actual, el dispositivo deberá enfriar la casa. En el caso opuesto, deberá calentarla.
 
 %%=====================================================================%%
+<<<<<<< .mine
+%% NOTA(Pablo): Esto sobra
+=======
 %% NOTA(Pablo): Esto sobra                                          %%
+>>>>>>> .r399
 %%=====================================================================%%
 %%
 %% Para la situación en la que la temperatura seleccionada por el
@@ -57,7 +61,7 @@ Esta característica añade clases pare representar los nuevos dispositivos, más c
 También es necesario extender las dos interfaces gráficas que se implementaron en el sistema base. En el caso de la interfaz gráfica para el control del \emph{Gateway}, añadimos una nueva pestaña a nivel global, para toda la casa, que permita encender o apagar todos los aparatos de control de la temperatura. En el caso de que los aparatos estén conectados, se ofrecerá la opción de mostrar la temperatura deseada (ver Figura~\ref{domain:fig:GUIHeaterMng}). Pestañas similares se añaden a todas las plantas y habitaciones que contengan al menos un aparato de control de la temperatura.
 
 %%=====================================================================%%
-%% HECHO(Pablo): Con una captura vale. Aunque te haya costado trabajo, %%
+%% NOTA(Pablo): Con una captura vale. Aunque te haya costado trabajo,  %%
 %%              esto no es del todo interesante. Deja la captura donde %%
 %%              se ve todo                                             %%
 %%=====================================================================%%
