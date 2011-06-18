@@ -16,13 +16,13 @@
         "Entry"
         {
         "MsmKey" = "8:_043854E03448BD65C3DB88EBF93932B3"
-        "OwnerKey" = "8:_9536B42E2794EC7B337F761CD696C0F2"
+        "OwnerKey" = "8:_A7EB530AA28C55C150749DEB65BE9B4F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_043854E03448BD65C3DB88EBF93932B3"
-        "OwnerKey" = "8:_A7EB530AA28C55C150749DEB65BE9B4F"
+        "OwnerKey" = "8:_CD48213B435CD4D70C6F21196C21E92E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -213,6 +213,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4E55AE917ADF4CB6B500D05B0DB6354C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_55B98B72AE295C1E7895BDE99D96DC7D"
         "OwnerKey" = "8:_AEBE1AB28F272D8CBA1E8A9C3500D8B0"
         "MsmSig" = "8:_UNDEFINED"
@@ -340,13 +346,13 @@
         "Entry"
         {
         "MsmKey" = "8:_89A28A74D824D5180CF6CDE407B5B69B"
-        "OwnerKey" = "8:_55F19D0A6E590ED146937201124EAE07"
+        "OwnerKey" = "8:_CD48213B435CD4D70C6F21196C21E92E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_89A28A74D824D5180CF6CDE407B5B69B"
-        "OwnerKey" = "8:_9536B42E2794EC7B337F761CD696C0F2"
+        "OwnerKey" = "8:_55F19D0A6E590ED146937201124EAE07"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -359,12 +365,6 @@
         {
         "MsmKey" = "8:_8C6F379D41CD6D90302EEFEABCC5022E"
         "OwnerKey" = "8:_55F19D0A6E590ED146937201124EAE07"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9536B42E2794EC7B337F761CD696C0F2"
-        "OwnerKey" = "8:_59DF79F5C68B4998B3FB068CA85E87AF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -478,7 +478,13 @@
         "Entry"
         {
         "MsmKey" = "8:_CC3B240EFFAB5E92122AA412A753D57E"
-        "OwnerKey" = "8:_9536B42E2794EC7B337F761CD696C0F2"
+        "OwnerKey" = "8:_59DF79F5C68B4998B3FB068CA85E87AF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CC3B240EFFAB5E92122AA412A753D57E"
+        "OwnerKey" = "8:_CD48213B435CD4D70C6F21196C21E92E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -489,7 +495,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CC3B240EFFAB5E92122AA412A753D57E"
+        "MsmKey" = "8:_CD48213B435CD4D70C6F21196C21E92E"
         "OwnerKey" = "8:_59DF79F5C68B4998B3FB068CA85E87AF"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -640,13 +646,13 @@
         "Entry"
         {
         "MsmKey" = "8:_F9AEB9BBA59EAA0EC4968A2EC5C36D08"
-        "OwnerKey" = "8:_9536B42E2794EC7B337F761CD696C0F2"
+        "OwnerKey" = "8:_55F19D0A6E590ED146937201124EAE07"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_F9AEB9BBA59EAA0EC4968A2EC5C36D08"
-        "OwnerKey" = "8:_55F19D0A6E590ED146937201124EAE07"
+        "OwnerKey" = "8:_CD48213B435CD4D70C6F21196C21E92E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -658,7 +664,7 @@
         "Entry"
         {
         "MsmKey" = "8:_FEFBBEC421D8B054C748DB3E2CA67E13"
-        "OwnerKey" = "8:_9536B42E2794EC7B337F761CD696C0F2"
+        "OwnerKey" = "8:_CD48213B435CD4D70C6F21196C21E92E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -754,12 +760,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9536B42E2794EC7B337F761CD696C0F2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_8C6F379D41CD6D90302EEFEABCC5022E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -791,6 +791,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_59DF79F5C68B4998B3FB068CA85E87AF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CD48213B435CD4D70C6F21196C21E92E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -933,6 +939,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
     }
@@ -1395,6 +1414,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4E55AE917ADF4CB6B500D05B0DB6354C"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\..\\..\\smartHome.rtf"
+            "TargetName" = "8:smartHome.rtf"
+            "Tag" = "8:"
+            "Folder" = "8:_0CB3854E46A14CD3A31AC2E804A82DF6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_55B98B72AE295C1E7895BDE99D96DC7D"
             {
             "AssemblyRegister" = "3:1"
@@ -1683,37 +1722,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9536B42E2794EC7B337F761CD696C0F2"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Unican.smartHome.Dsl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7b1b3a1f9a2b087b, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_9536B42E2794EC7B337F761CD696C0F2"
-                    {
-                    "Name" = "8:Unican.smartHome.Dsl.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Unican.smartHome.Dsl.DLL"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_7EC6AEB1021949738338E2E9AF80EDDE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9B10E2A7A7C47BF507333B1209ADEA39"
             {
             "AssemblyRegister" = "3:1"
@@ -1934,6 +1942,37 @@
                     }
                 }
             "SourcePath" = "8:Microsoft.VisualStudio.Modeling.Sdk.Diagrams.10.0.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7EC6AEB1021949738338E2E9AF80EDDE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CD48213B435CD4D70C6F21196C21E92E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Unican.smartHome.Dsl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7b1b3a1f9a2b087b, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_CD48213B435CD4D70C6F21196C21E92E"
+                    {
+                    "Name" = "8:Unican.smartHome.Dsl.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Unican.smartHome.Dsl.DLL"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7EC6AEB1021949738338E2E9AF80EDDE"
@@ -2290,7 +2329,7 @@
         "Name" = "8:smartHome"
         "ProductName" = "8:smartHome"
         "ProductCode" = "8:{237BF896-A1E2-4BAD-9C27-23DB5410481D}"
-        "PackageCode" = "8:{A2A708AA-8CA8-467D-A038-1915623774D7}"
+        "PackageCode" = "8:{9B210657-BD7F-4921-8293-0D0966D0C11E}"
         "UpgradeCode" = "8:{41992343-129F-4763-9139-416EE53410F2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -2689,6 +2728,53 @@
                             "Setting" = "3:0"
                             "Value" = "3:1"
                             "DefaultValue" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_8469B45737B3497B82A854352AF37FCA"
+                    {
+                    "Sequence" = "3:400"
+                    "DisplayName" = "8:License Agreement"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdLicenseDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "EulaText"
+                            {
+                            "Name" = "8:EulaText"
+                            "DisplayName" = "8:#1008"
+                            "Description" = "8:#1108"
+                            "Type" = "3:6"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4E55AE917ADF4CB6B500D05B0DB6354C"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Sunken"
+                            {
+                            "Name" = "8:Sunken"
+                            "DisplayName" = "8:#1007"
+                            "Description" = "8:#1107"
+                            "Type" = "3:5"
+                            "ContextData" = "8:4;True=4;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:4"
+                            "DefaultValue" = "3:4"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
