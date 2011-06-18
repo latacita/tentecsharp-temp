@@ -8,4 +8,3 @@
 %\renewcommand{\figurename}{xxx}                  % name below each figure (xxx 1: bla-bla-bla)
 %\renewcommand{\listtablename}{yyy}               % name for table of tables
 %\renewcommand{\listfigurename}{yyy}              % name for table of figures
-\renewcommand{\chaptertocname}{Contenidos}
