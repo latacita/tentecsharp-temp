@@ -10,13 +10,13 @@
 En la primera iteración debemos definir la estructura básica del patrón \emph{Mediador}. Además, deberemos crear el esquema básico de la interfaz gráfica, la cual deberá permitir controlar hogares con un número de plantas y habitaciones variable. Además la interfaz gráfica deberá permitir la incorporación de nuevas subinterfaces para el control de diversas funcionalidades, como por ejemplo, el control automático de luces o ventanas. Los requisitos concretos que se han de satisfacer en esta iteración se muestran en la Figura~\ref{plan:table:requisitos}.
 
 %%====================================================================%%
-%% NOTA(Pablo): Haz esta imagen más ancha que larga, más compacta y   %%
+%% HECHO(Pablo): Haz esta imagen más ancha que larga, más compacta y   %%
 %%              más simétrica                                         %%
 %%====================================================================%%
 
-\begin{figure}[!tb]
+\begin{figure}[!h]
  \centering
- \includegraphics[width=.45\linewidth]{domainEngineering/Images/definicionArq.eps} \\
+ \includegraphics[width=.55\linewidth]{domainEngineering/Images/definicionArq.eps} \\
  \caption{Diseño del sistema base}
  \label{domain:fig:defArq}
 \end{figure}
@@ -28,48 +28,47 @@ La Figura~\ref{domain:fig:defArq} muestra el diseño realizado para esta caracter
 %% NOTA(Pablo): Esto es redundante                                    %%
 %%====================================================================%%
 %%
-%% Una parte importante del sistema son las interfaces gráficas que 
-%% permitirán al usuario interactuar con el Gateway. Se implementan 
-%% dos, la primera de ellas permite al usuario actuar con el Gateway, 
-%% mientras que la segunda hará el papel de simulador, ya que es 
-%% necesario modificar algunos valores que deberían ser alterados 
-%% por elementos externos al propio sistema, tales como la temperatura 
-%% actual de una habitación o el tiempo,ya que el sistema no se 
+%% Una parte importante del sistema son las interfaces gráficas que
+%% permitirán al usuario interactuar con el Gateway. Se implementan
+%% dos, la primera de ellas permite al usuario actuar con el Gateway,
+%% mientras que la segunda hará el papel de simulador, ya que es
+%% necesario modificar algunos valores que deberían ser alterados
+%% por elementos externos al propio sistema, tales como la temperatura
+%% actual de una habitación o el tiempo,ya que el sistema no se
 %% encuentra conectado a dispositivos reales.
 %%
 %%====================================================================%%
 
 A la par que la lógica del sistema, debemos crear las interfaces gráficas que permitan al usuario interactuar con el sistema. No obstante, no debemos olvidar que estamos implementado una línea de productos software, por lo que todos los diseños de las interfaces gráficas deben adaptarse a cualquier composición de características que haga un usuario.
 
-\begin{figure}[!tb]
+\begin{figure}[!h]
  \centering
- \includegraphics[width=.55\linewidth]{domainEngineering/Images/GUI.eps} \\
+ \includegraphics[width=.40\linewidth]{domainEngineering/Images/GUI.eps} \\
  \caption{Diseño de la interfaz gráfica de usuario}
  \label{domain:fig:gatewayGUI}
 \end{figure}
 
-Como punto de partida para el diseño de las interfaces gráficas se ha utilizado la API para el desarrollo de aplicaciones gráficas que incluye .NET, denominada \emph{Windows Forms}~\cite{brown:2006}. Debido a que el número de plantas y el
-e habitaciones debe ser variable, la interfaz deberá permitir la visualización de una cantidad arbitraria de plantas. Además, cuando una planta sea seleccionada se deberán mostrar todas las habitaciones que contiene, y cada habitación debe de poder contener diferentes características, tales como control de ventanas, persianas, luces, etc. Por todo lo citado anteriormente, se ha decidido utilizar un diseño como el mostrado en la figura \ref{domain:fig:gatewayGUI}. En dicho diseño, cada planta se representa como una pestaña. Cada pestaña que contiene habitaciones, representadas como pestañas anidadas. A su vez, por cada característica seleccionada en una habitación, se creará una nueva pestaña anidada, dentro de la pestaña de cada habitación.
+Como punto de partida para el diseño de las interfaces gráficas se ha utilizado la API para el desarrollo de aplicaciones gráficas que incluye .NET, denominada \emph{Windows Forms}~\cite{brown:2006}. Debido a que el número de plantas y el de habitaciones debe ser variable, la interfaz deberá permitir la visualización de una cantidad arbitraria de plantas. Además, cuando una planta sea seleccionada se deberán mostrar todas las habitaciones que contiene, y cada habitación debe de poder contener diferentes características, tales como control de ventanas, persianas, luces, etc. Por todo lo citado anteriormente, se ha decidido utilizar un diseño como el mostrado en la figura \ref{domain:fig:gatewayGUI}. En dicho diseño, cada planta se representa como una pestaña. Cada pestaña que contiene habitaciones, representadas como pestañas anidadas. A su vez, por cada característica seleccionada en una habitación, se creará una nueva pestaña anidada, dentro de la pestaña de cada habitación.
 
 %%====================================================================%%
 %% NOTA(Pablo): Esto es demasuiado detalle irrelevante
 %%====================================================================%%
 %%
-%% Con esta API para construir una interfaz gráfica se deben añadir 
-%% controles a una forma e implementar respuestas a las acciones de los 
-%% usuarios, tales como un click de ratón o la pulsación de una tecla. 
-%% Un control se define como una interfaz de usuario que muestra datos 
-%% o acepta datos de entrada. Por lo que lo primero que se debe pensar 
-%% es en los controles que serán más adecuados para la ventana que 
-%% contiene la interfaz gráfica. 
+%% Con esta API para construir una interfaz gráfica se deben añadir
+%% controles a una forma e implementar respuestas a las acciones de los
+%% usuarios, tales como un click de ratón o la pulsación de una tecla.
+%% Un control se define como una interfaz de usuario que muestra datos
+%% o acepta datos de entrada. Por lo que lo primero que se debe pensar
+%% es en los controles que serán más adecuados para la ventana que
+%% contiene la interfaz gráfica.
 %%
 %%====================================================================%%
 
 Siguiendo este mismo razonamiento, hemos creado el diseño para la interfaz gráfica del simulador. En el caso del sistema base, solo se encargará de mostrar las plantas y habitaciones que se han creado, por lo que se vuelve a seleccionar un control que permita añadir pestañas tal y como se muestra en la figura \ref{domain:fig:simulatorGUI} y una tabla con el identificador de una habitación, su nombre y la planta a la que pertenecen.
 
-\begin{figure}[!tb]
+\begin{figure}[!h]
  \centering
- \includegraphics[width=.65\linewidth]{domainEngineering/Images/simulatorGUI.eps} \\
+ \includegraphics[width=.55\linewidth]{domainEngineering/Images/simulatorGUI.eps} \\
  \caption{Diseño de la interfaz gráfica para el simulador}
  \label{domain:fig:simulatorGUI}
 \end{figure}
