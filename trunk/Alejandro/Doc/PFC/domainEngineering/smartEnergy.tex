@@ -29,10 +29,11 @@ Para realizar dicha funcionalidad, esta característica precisa usar las caracter
 
 La Figura~\ref{} muestra el diseño de esta característica. 
 
-
-
- 
-
+%%==================================================================%%
+%% NOTA(Pablo): Haz el diseño UML de esta característica e intenta  %%
+%%              que se parezca a las anteriores. Procura ser breve  %%
+%%              y diferenciar diseño de implementación              %%
+%%==================================================================%%
 Al igual que todas las demás características descritas en las secciones anteriores, se redefine la clase parcial \imp{Gateway} tal y como se muestra en la figura XX, a través de ello se añaden varios métodos que permiten implementar los requisitos. En primer lugar para desarrollar el requisito que almacena los horarios de los habitantes se utiliza el metalenguaje de etiquetas XML \cite{rusty:2004}, a través de él se almacena en un fichero el nombre, apellidos y los intervalos de tiempo en el que no se encuentra en casa cada habitante. Con el método \imp{findEmptyTime()}, mostrado en la figura XX \todo{PONER FIGURA}, se realizan las operaciones oportunas para calcular los intervalos de tiempo en los que la casa estará vacía, los cuales serán utilizados por el otro método denominado \imp{checkTime(int hours, int minutes)} para comprobar, cada vez que el tiempo sea modificado, si la casa está vacía, y en ese caso desconectar todos los calefactores o encenderlos en el caso de que el tiempo se aproxime a la llegada de los usuarios.
 
 El siguiente requisito que es necesario implementar es el encargado de cerrar las ventanas cuando los calefactores estén funcionando, por lo que se nos presenta una situación que no se puede resolver a través de las clases parciales, debido a que en la característica HeaterMng tenemos un método en la clase \imp{Gateway} para ajustar la temperatura de un calefactor a través del actuador correspondiente, y por lo tanto, es necesario redefinir este método que modifica la temperatura de los calefactores para cada vez que sea llamado se encargue de cerrar las ventanas. Pero esto no es algo trivial de realizar con las clases parciales, ya que no poseen la propiedad de extender métodos o sobrescribirles, únicamente separan una clase en diferentes archivos, para que luego el compilador los junte. Por lo tanto, se ha tenido que desarrollar una alternativa que supla esta carencia de las clases parciales, por lo cual se ha creado un mecanismo que sigue el siguiente proceso:
@@ -76,19 +77,3 @@ La última batería de tests es la encargada de comprobar que las ventanas son cer
 La siguiente sección describirá brevemente las iteraciones restantes para terminar de implementar la ingeniería de domino de esta línea de productos software.
 
 
-\section{Otras iteraciones}
-%% Section{Otras iteraciones}
-
-%% Muy resumido y destacando lo que te apetezca destacar
-Como se ha podido observar en las iteraciones anteriores se sigue un procedimiento muy simular en todas ellas, ya que siempre se están utilizando las clases parciales como un mecanismo para añadir nueva funcionalidad a una clase existente.
-
-En UML las características son agrupadas como paquetes. Un \emph{paquete} es definido en UML como un elemento de modelado usado para agrupar otros elementos de modelado, para de este modo obtener un espacio de nombres para los elementos agrupados.
-La relación \emph{merge} entre dos paquetes, indica que el contenido de ambos es combinado, la especificación UML establece que esta relación se debe usar cuando los elementos de los paquetes tienen el mismo nombre y representan el mismo concepto\cite{omg:uml:2005}. Por lo que podemos definir un diagrama de paquetes como el mostrado en la figura \ref{domain:fig:packageDiagram}, en el que todas las características se conectan a través de una relación \emph{merge}. Por lo tanto, a través de la figura \ref{domain:fig:packageDiagram} se puede reflejar que todas las características realizan una combinación de sus elementos con el mismo nombre haciendo uso de las clases parciales.
-\begin{figure}[!tb]
- \centering
- \includegraphics[width=.75\linewidth]{domainEngineering/Images/packageDiagram.eps} \\
- \caption{Diagrama de paquetes con todas las características.}
- \label{domain:fig:packageDiagram}
-\end{figure}
-
-Tras realizar todas las iteraciones necesarias para implementar la ingeniería de dominio, se consigue tener un sistema dividido que encapsula características que pueden ser combinadas y compiladas de diferentes maneras, siempre y cuando se respeten las restricciones básicas. 
