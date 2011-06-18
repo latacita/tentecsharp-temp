@@ -35,13 +35,28 @@ La Figura~\ref{domain:fig:smartDesign} muestra el diseño de esta característica.
 
 Los diferentes horarios de los habitantes de la casa se almacenan en una hoja XML~\cite{rusty:2004}. El objetivo de los métodos \imp{findEmptyTime} es analizar las franjas de tiempo en las cuales la casa está vacía. El método \imp{checkTime} se encarga, a intervalos regulares de tiempo, de conectar o desconectar los aparatos de control de la temperatura según la casa esté vacía, esperando la llegada de un habitante, u ocupada.
 
-A la hora de implementar el cierre de las ventanas cuando los calefactores estén funcionando, necesitaremos sobreescribir el método \imp{adjustTemperature} de la versión del \imp{Gateway} para la característica de gestión de la temperatura (ver Figura~\ref{domain:fig:heaterMngDesign}). Para ellos usamos el patrón descrito en la 
-Sección~\ref{domain:sec:pattern}. La implementación del método \imp{adustTemperature} se muestra en la Figura~\ref{}. 
+A la hora de implementar el cierre de las ventanas cuando los calefactores estén funcionando, necesitaremos sobreescribir el método \imp{adjustTemperature} de la versión del \imp{Gateway} para la característica de gestión de la temperatura (ver Figura~\ref{domain:fig:heaterMngDesign}). Para ellos usamos el patrón descrito en la
+Sección~\ref{domain:sec:pattern}. La implementación del método \imp{adustTemperature} se muestra en la Figura~\ref{domain:fig:codSmartEnergy}.
 
 %%=======================================================================================================%%
-%% NOTA(Pablo): Poner aquí abreviado el método adjustTemperature de la clase Gateway de la               %%
+%% HECHO(Pablo): Poner aquí abreviado el método adjustTemperature de la clase Gateway de la               %%
 %%              característica SmartEnergy                                                               %%
 %%=======================================================================================================%%
+ \begin{figure}[ht!]
+ \begin{center}
+ \begin{footnotesize}
+ \begin{verbatim}
+ 00 public void heaterAdjustTemperature(int id_heater, double temperature)
+ 01 {
+ 02      smartEnergyMng_heaterAdjustTemperature(id_heater, temperature);
+ 03 }
+ \end{verbatim}
+ \end{footnotesize}
+ \end{center}
+ \caption{Implementación del método heaterAdjustTemperature
+          cuando la característica \emph{SmartEnergyMng} está seleccionada}
+ \label{domain:fig:codSmartEnergy}
+ \end{figure}
 
 
 
@@ -50,21 +65,6 @@ Sección~\ref{domain:sec:pattern}. La implementación del método \imp{adustTempera
 %%=======================================================================================================%%
 % la figura \ref{domain:fig:codSmartEnergy} cuando la característica actual esté seleccionada en una configuración.
 %
-% \begin{figure}[ht!]
-% \begin{center}
-% \begin{footnotesize}
-% \begin{verbatim}
-% 00 public void heaterAdjustTemperature(int id_heater, double temperature)
-% 01 {
-% 02      smartEnergyMng_heaterAdjustTemperature(id_heater, temperature);
-% 03 }
-% \end{verbatim}
-% \end{footnotesize}
-% \end{center}
-% \caption{Implementación del método heaterAdjustTemperature 
-%          cuando la característica \emph{SmartEnergyMng} está seleccionada}
-% \label{domain:fig:codSmartEnergy}
-% \end{figure}
 
 De nuevo se necesita definir las interfaces gráficas para esta característica. Para el caso de la interfaz de usuario, únicamente se añade una nueva pestaña global que contendrá un botón para activar o desactivar el control inteligente de energía, así como especificar la temperatura que se desea tener cuando se reconecten los calefactores después de que la casa haya estado vacía. La interfaz gráfica del simulador implementa una nueva pestaña para esta característica. En dicha pestaña se puede modificar el tiempo del sistema, con objeto de simular su paso. Además,  se muestra una lista con los intervalos de tiempo en la que la casa se encuentra vacía. (Ver Figura~\ref{domain:fig:SimulatorSmartEnergyMng}).
 
@@ -79,6 +79,6 @@ Las pruebas correspondientes a esta característica se han dividido en varios tes
 
 El siguiente conjunto de tests están destinados a comprobar que los aparatos de control de la temperatura se apagan y se encienden correctamente de forma automática cuando la casa está vacía. Para ellos se crean diferentes instancias de la casa con un número arbitrario de dispositivos de control de la temperatura y se verifica que su comportamiento es el deseado.
 
-La última batería de tests se encarga de comprobar que las ventanas se cierran si el control inteligente de energía está encendido y alguno de los aparatos de control de la temperatura entra en funcionamiento. Al igual que ante, se crean diferentes instancias de la casa y se comprueba su correcto funcionamiento.
+La última batería de tests se encarga de comprobar que las ventanas se cierran si el control inteligente de energía está encendido y alguno de los aparatos de control de la temperatura entra en funcionamiento. Al igual que antes, se crean diferentes instancias de la casa y se comprueba su correcto funcionamiento.
 
 
