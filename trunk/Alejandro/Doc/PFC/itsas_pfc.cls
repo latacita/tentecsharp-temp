@@ -63,26 +63,26 @@
 \if@compatibility\else
 \DeclareOption{a4paper}
    {\setlength\paperheight {297mm}%
-    \setlength\paperwidth  {210mm}}
+	\setlength\paperwidth  {210mm}}
 \DeclareOption{a5paper}
    {\setlength\paperheight {210mm}%
-    \setlength\paperwidth  {148mm}}
+	\setlength\paperwidth  {148mm}}
 \DeclareOption{b5paper}
    {\setlength\paperheight {250mm}%
-    \setlength\paperwidth  {176mm}}
+	\setlength\paperwidth  {176mm}}
 \DeclareOption{letterpaper}
    {\setlength\paperheight {11in}%
-    \setlength\paperwidth  {8.5in}}
+	\setlength\paperwidth  {8.5in}}
 \DeclareOption{legalpaper}
    {\setlength\paperheight {14in}%
-    \setlength\paperwidth  {8.5in}}
+	\setlength\paperwidth  {8.5in}}
 \DeclareOption{executivepaper}
    {\setlength\paperheight {10.5in}%
-    \setlength\paperwidth  {7.25in}}
+	\setlength\paperwidth  {7.25in}}
 \DeclareOption{landscape}
    {\setlength\@tempdima   {\paperheight}%
-    \setlength\paperheight {\paperwidth}%
-    \setlength\paperwidth  {\@tempdima}}
+	\setlength\paperheight {\paperwidth}%
+	\setlength\paperwidth  {\@tempdima}}
 \fi
 \if@compatibility
   \renewcommand\@ptsize{0}
@@ -118,11 +118,11 @@
 \DeclareOption{openbib}{%
   \AtEndOfPackage{%
    \renewcommand\@openbib@code{%
-      \advance\leftmargin\bibindent
-      \itemindent -\bibindent
-      \listparindent \itemindent
-      \parsep \z@
-      }%
+	  \advance\leftmargin\bibindent
+	  \itemindent -\bibindent
+	  \listparindent \itemindent
+	  \parsep \z@
+	  }%
    \renewcommand\newblock{\par}}%
 }
 
@@ -153,60 +153,60 @@
 \renewcommand\dblfloatpagefraction{.5}
 \if@twoside
   \def\ps@headings{%
-      \let\@oddfoot\@empty\let\@evenfoot\@empty
+	  \let\@oddfoot\@empty\let\@evenfoot\@empty
 %
 % Begin ISC (Make header page numbers bold)
 %
-      \def\@evenhead{\textbf{\thepage}\hfil\slshape\leftmark}%
-      \def\@oddhead{{\slshape\rightmark}\hfil\textbf{\thepage}}%
+	  \def\@evenhead{\textbf{\thepage}\hfil\slshape\leftmark}%
+	  \def\@oddhead{{\slshape\rightmark}\hfil\textbf{\thepage}}%
 %
 % End ISC
 %
-      \let\@mkboth\markboth
-    \def\chaptermark##1{%
+	  \let\@mkboth\markboth
+	\def\chaptermark##1{%
 % 
 % Begin ISC (Make page headers not UPPERCASE, and bold)
 %
-      %\markboth {\MakeUppercase{%
-      \markboth {{%
-        \ifnum \c@secnumdepth >\m@ne
-          \if@mainmatter
-            \textbf{\@chapapp\ \thechapter.} \ %
-          \fi
-        \fi
-        \textbf{##1}}}{}}%
-    \def\sectionmark##1{%
-      %\markright {\MakeUppercase{%
-      \markright {{%
-        \ifnum \c@secnumdepth >\z@
-          \textbf{\thesection.} \ %
-        \fi
-        \textbf{##1}}}}}
+	  %\markboth {\MakeUppercase{%
+	  \markboth {{%
+		\ifnum \c@secnumdepth >\m@ne
+		  \if@mainmatter
+			\textbf{\@chapapp\ \thechapter.} \ %
+		  \fi
+		\fi
+		\textbf{##1}}}{}}%
+	\def\sectionmark##1{%
+	  %\markright {\MakeUppercase{%
+	  \markright {{%
+		\ifnum \c@secnumdepth >\z@
+		  \textbf{\thesection.} \ %
+		\fi
+		\textbf{##1}}}}}
 %
 % End ISC
 %
 \else
   \def\ps@headings{%
-    \let\@oddfoot\@empty
-    \def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
-    \let\@mkboth\markboth
-    \def\chaptermark##1{%
-      \markright {\MakeUppercase{%
-        \ifnum \c@secnumdepth >\m@ne
-          \if@mainmatter
-            \@chapapp\ \thechapter. \ %
-          \fi
-        \fi
-        ##1}}}}
+	\let\@oddfoot\@empty
+	\def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
+	\let\@mkboth\markboth
+	\def\chaptermark##1{%
+	  \markright {\MakeUppercase{%
+		\ifnum \c@secnumdepth >\m@ne
+		  \if@mainmatter
+			\@chapapp\ \thechapter. \ %
+		  \fi
+		\fi
+		##1}}}}
 \fi
 \def\ps@myheadings{%
-    \let\@oddfoot\@empty\let\@evenfoot\@empty
-    \def\@evenhead{\thepage\hfil\slshape\leftmark}%
-    \def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
-    \let\@mkboth\@gobbletwo
-    \let\chaptermark\@gobble
-    \let\sectionmark\@gobble
-    }
+	\let\@oddfoot\@empty\let\@evenfoot\@empty
+	\def\@evenhead{\thepage\hfil\slshape\leftmark}%
+	\def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
+	\let\@mkboth\@gobbletwo
+	\let\chaptermark\@gobble
+	\let\sectionmark\@gobble
+	}
   \if@titlepage
   \newcommand\maketitle{\begin{titlepage}%
   \let\footnotesize\small
@@ -215,15 +215,15 @@
   \null\vfil
   \vskip 60\p@
   \begin{center}%
-    {\LARGE \@title \par}%
-    \vskip 3em%
-    {\large
-     \lineskip .75em%
-      \begin{tabular}[t]{c}%
-        \@author
-      \end{tabular}\par}%
-      \vskip 1.5em%
-    {\large \@date \par}%       % Set date in \large size.
+	{\LARGE \@title \par}%
+	\vskip 3em%
+	{\large
+	 \lineskip .75em%
+	  \begin{tabular}[t]{c}%
+		\@author
+	  \end{tabular}\par}%
+	  \vskip 1.5em%
+	{\large \@date \par}%       % Set date in \large size.
   \end{center}\par
   \@thanks
   \vfil\null
@@ -243,23 +243,23 @@
 \else
 \newcommand\maketitle{\par
   \begingroup
-    \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
-    \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
-    \long\def\@makefntext##1{\parindent 1em\noindent
-            \hb@xt@1.8em{%
-                \hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
-    \if@twocolumn
-      \ifnum \col@number=\@ne
-        \@maketitle
-      \else
-        \twocolumn[\@maketitle]%
-      \fi
-    \else
-      \newpage
-      \global\@topnum\z@   % Prevents figures from going at top of page.
-      \@maketitle
-    \fi
-    \thispagestyle{plain}\@thanks
+	\renewcommand\thefootnote{\@fnsymbol\c@footnote}%
+	\def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
+	\long\def\@makefntext##1{\parindent 1em\noindent
+			\hb@xt@1.8em{%
+				\hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
+	\if@twocolumn
+	  \ifnum \col@number=\@ne
+		\@maketitle
+	  \else
+		\twocolumn[\@maketitle]%
+	  \fi
+	\else
+	  \newpage
+	  \global\@topnum\z@   % Prevents figures from going at top of page.
+	  \@maketitle
+	\fi
+	\thispagestyle{plain}\@thanks
   \endgroup
   \setcounter{footnote}{0}%
   \global\let\thanks\relax
@@ -280,15 +280,15 @@
   \vskip 2em%
   \begin{center}%
   \let \footnote \thanks
-    {\LARGE \@title \par}%
-    \vskip 1.5em%
-    {\large
-      \lineskip .5em%
-      \begin{tabular}[t]{c}%
-        \@author
-      \end{tabular}\par}%
-    \vskip 1em%
-    {\large \@date}%
+	{\LARGE \@title \par}%
+	\vskip 1.5em%
+	{\large
+	  \lineskip .5em%
+	  \begin{tabular}[t]{c}%
+		\@author
+	  \end{tabular}\par}%
+	\vskip 1em%
+	{\large \@date}%
   \end{center}%
   \par
   \vskip 1.5em}
@@ -311,151 +311,151 @@
 \renewcommand\thesubparagraph {\theparagraph.\@arabic\c@subparagraph}
 \newcommand\@chapapp{\chaptername}
 \newcommand\frontmatter{%
-    \cleardoublepage
+	\cleardoublepage
   \@mainmatterfalse
   \pagenumbering{roman}}
 \newcommand\mainmatter{%
-    \cleardoublepage
+	\cleardoublepage
   \@mainmattertrue
   \pagenumbering{arabic}}
 \newcommand\backmatter{%
   \if@openright
-    \cleardoublepage
+	\cleardoublepage
   \else
-    \clearpage
+	\clearpage
   \fi
   \@mainmatterfalse}
 \newcommand\part{%
   \if@openright
-    \cleardoublepage
+	\cleardoublepage
   \else
-    \clearpage
+	\clearpage
   \fi
   \thispagestyle{plain}%
   \if@twocolumn
-    \onecolumn
-    \@tempswatrue
+	\onecolumn
+	\@tempswatrue
   \else
-    \@tempswafalse
+	\@tempswafalse
   \fi
   \null\vfil
   \secdef\@part\@spart}
 
 \def\@part[#1]#2{%
-    \ifnum \c@secnumdepth >-2\relax
-      \refstepcounter{part}%
-      \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
-    \else
-      \addcontentsline{toc}{part}{#1}%
-    \fi
-    \markboth{}{}%
-    {\centering
-     \interlinepenalty \@M
-     \normalfont
-     \ifnum \c@secnumdepth >-2\relax
-       \huge\bfseries \partname\nobreakspace\thepart
-       \par
-       \vskip 20\p@
-     \fi
-     \Huge \bfseries #2\par}%
-    \@endpart}
+	\ifnum \c@secnumdepth >-2\relax
+	  \refstepcounter{part}%
+	  \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
+	\else
+	  \addcontentsline{toc}{part}{#1}%
+	\fi
+	\markboth{}{}%
+	{\centering
+	 \interlinepenalty \@M
+	 \normalfont
+	 \ifnum \c@secnumdepth >-2\relax
+	   \huge\bfseries \partname\nobreakspace\thepart
+	   \par
+	   \vskip 20\p@
+	 \fi
+	 \Huge \bfseries #2\par}%
+	\@endpart}
 \def\@spart#1{%
-    {\centering
-     \interlinepenalty \@M
-     \normalfont
-     \Huge \bfseries #1\par}%
-    \@endpart}
+	{\centering
+	 \interlinepenalty \@M
+	 \normalfont
+	 \Huge \bfseries #1\par}%
+	\@endpart}
 \def\@endpart{\vfil\newpage
-              \if@twoside
-               \if@openright
-                \null
-                \thispagestyle{empty}%
-                \newpage
-               \fi
-              \fi
-              \if@tempswa
-                \twocolumn
-              \fi}
+			  \if@twoside
+			   \if@openright
+				\null
+				\thispagestyle{empty}%
+				\newpage
+			   \fi
+			  \fi
+			  \if@tempswa
+				\twocolumn
+			  \fi}
 \newcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
-                    \thispagestyle{plain}%
-                    \global\@topnum\z@
-                    \@afterindentfalse
-                    \secdef\@chapter\@schapter}
+					\thispagestyle{plain}%
+					\global\@topnum\z@
+					\@afterindentfalse
+					\secdef\@chapter\@schapter}
 \def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
-                       \if@mainmatter
-                         \refstepcounter{chapter}%
-                         \typeout{\@chapapp\space\thechapter.}%
-                         \addcontentsline{toc}{chapter}%
-                                   {\protect\numberline{\thechapter}#1}%
-                       \else
-                         \addcontentsline{toc}{chapter}{#1}%
-                       \fi
-                    \else
-                      \addcontentsline{toc}{chapter}{#1}%
-                    \fi
-                    \chaptermark{#1}%
-                    \addtocontents{lof}{\protect\addvspace{10\p@}}%
-                    \addtocontents{lot}{\protect\addvspace{10\p@}}%
-                    \if@twocolumn
-                      \@topnewpage[\@makechapterhead{#2}]%
-                    \else
-                      \@makechapterhead{#2}%
-                      \@afterheading
-                    \fi}
+					   \if@mainmatter
+						 \refstepcounter{chapter}%
+						 \typeout{\@chapapp\space\thechapter.}%
+						 \addcontentsline{toc}{chapter}%
+								   {\protect\numberline{\thechapter}#1}%
+					   \else
+						 \addcontentsline{toc}{chapter}{#1}%
+					   \fi
+					\else
+					  \addcontentsline{toc}{chapter}{#1}%
+					\fi
+					\chaptermark{#1}%
+					\addtocontents{lof}{\protect\addvspace{10\p@}}%
+					\addtocontents{lot}{\protect\addvspace{10\p@}}%
+					\if@twocolumn
+					  \@topnewpage[\@makechapterhead{#2}]%
+					\else
+					  \@makechapterhead{#2}%
+					  \@afterheading
+					\fi}
 \def\@makechapterhead#1{%
   \vspace*{50\p@}%
   {\parindent \z@ \raggedright \normalfont
-    \ifnum \c@secnumdepth >\m@ne
-      \if@mainmatter
-      %
-      % Begin ISC
-      %
-        \huge\bfseries \iscchaptext
-      %
-      % End ISC
-      %
-        \par\nobreak
-        \vskip 20\p@
-      \fi
-    \fi
-    \interlinepenalty\@M
-    \Huge \bfseries #1\par\nobreak
-    \vskip 40\p@
+	\ifnum \c@secnumdepth >\m@ne
+	  \if@mainmatter
+	  %
+	  % Begin ISC
+	  %
+		\huge\bfseries \iscchaptext
+	  %
+	  % End ISC
+	  %
+		\par\nobreak
+		\vskip 20\p@
+	  \fi
+	\fi
+	\interlinepenalty\@M
+	\Huge \bfseries #1\par\nobreak
+	\vskip 40\p@
   }}
 \def\@schapter#1{\if@twocolumn
-                   \@topnewpage[\@makeschapterhead{#1}]%
-                 \else
-                   \@makeschapterhead{#1}%
-                   \@afterheading
-                 \fi}
+				   \@topnewpage[\@makeschapterhead{#1}]%
+				 \else
+				   \@makeschapterhead{#1}%
+				   \@afterheading
+				 \fi}
 \def\@makeschapterhead#1{%
   \vspace*{50\p@}%
   {\parindent \z@ \raggedright
-    \normalfont
-    \interlinepenalty\@M
-    \Huge \bfseries  #1\par\nobreak
-    \vskip 40\p@
+	\normalfont
+	\interlinepenalty\@M
+	\Huge \bfseries  #1\par\nobreak
+	\vskip 40\p@
   }}
 \newcommand\section{\@startsection {section}{1}{\z@}%
-                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
-                                   {2.3ex \@plus.2ex}%
-                                   {\normalfont\Large\bfseries}}
+								   {-3.5ex \@plus -1ex \@minus -.2ex}%
+								   {2.3ex \@plus.2ex}%
+								   {\normalfont\Large\bfseries}}
 \newcommand\subsection{\@startsection{subsection}{2}{\z@}%
-                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
-                                     {1.5ex \@plus .2ex}%
-                                     {\normalfont\large\bfseries}}
+									 {-3.25ex\@plus -1ex \@minus -.2ex}%
+									 {1.5ex \@plus .2ex}%
+									 {\normalfont\large\bfseries}}
 \newcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
-                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
-                                     {1.5ex \@plus .2ex}%
-                                     {\normalfont\normalsize\bfseries}}
+									 {-3.25ex\@plus -1ex \@minus -.2ex}%
+									 {1.5ex \@plus .2ex}%
+									 {\normalfont\normalsize\bfseries}}
 \newcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
-                                    {3.25ex \@plus1ex \@minus.2ex}%
-                                    {-1em}%
-                                    {\normalfont\normalsize\bfseries}}
+									{3.25ex \@plus1ex \@minus.2ex}%
+									{-1em}%
+									{\normalfont\normalsize\bfseries}}
 \newcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
-                                       {3.25ex \@plus1ex \@minus .2ex}%
-                                       {-1em}%
-                                       {\normalfont\normalsize\bfseries}}
+									   {3.25ex \@plus1ex \@minus .2ex}%
+									   {-1em}%
+									   {\normalfont\normalsize\bfseries}}
 \if@twocolumn
   \setlength\leftmargini  {2em}
 \else
@@ -494,62 +494,62 @@
 \newcommand\labelitemiii{\textasteriskcentered}
 \newcommand\labelitemiv{\textperiodcentered}
 \newenvironment{description}
-               {\list{}{\labelwidth\z@ \itemindent-\leftmargin
-                        \let\makelabel\descriptionlabel}}
-               {\endlist}
+			   {\list{}{\labelwidth\z@ \itemindent-\leftmargin
+						\let\makelabel\descriptionlabel}}
+			   {\endlist}
 \newcommand*\descriptionlabel[1]{\hspace\labelsep
-                                \normalfont\bfseries #1}
+								\normalfont\bfseries #1}
 \newenvironment{verse}
-               {\let\\\@centercr
-                \list{}{\itemsep      \z@
-                        \itemindent   -1.5em%
-                        \listparindent\itemindent
-                        \rightmargin  \leftmargin
-                        \advance\leftmargin 1.5em}%
-                \item\relax}
-               {\endlist}
+			   {\let\\\@centercr
+				\list{}{\itemsep      \z@
+						\itemindent   -1.5em%
+						\listparindent\itemindent
+						\rightmargin  \leftmargin
+						\advance\leftmargin 1.5em}%
+				\item\relax}
+			   {\endlist}
 \newenvironment{quotation}
-               {\list{}{\listparindent 1.5em%
-                        \itemindent    \listparindent
-                        \rightmargin   \leftmargin
-                        \parsep        \z@ \@plus\p@}%
-                \item\relax}
-               {\endlist}
+			   {\list{}{\listparindent 1.5em%
+						\itemindent    \listparindent
+						\rightmargin   \leftmargin
+						\parsep        \z@ \@plus\p@}%
+				\item\relax}
+			   {\endlist}
 \newenvironment{quote}
-               {\list{}{\rightmargin\leftmargin}%
-                \item\relax}
-               {\endlist}
+			   {\list{}{\rightmargin\leftmargin}%
+				\item\relax}
+			   {\endlist}
 \if@compatibility
 \newenvironment{titlepage}
-    {%
-      \cleardoublepage
-      \if@twocolumn
-        \@restonecoltrue\onecolumn
-      \else
-        \@restonecolfalse\newpage
-      \fi
-      \thispagestyle{empty}%
-      \setcounter{page}\z@
-    }%
-    {\if@restonecol\twocolumn \else \newpage \fi
-    }
+	{%
+	  \cleardoublepage
+	  \if@twocolumn
+		\@restonecoltrue\onecolumn
+	  \else
+		\@restonecolfalse\newpage
+	  \fi
+	  \thispagestyle{empty}%
+	  \setcounter{page}\z@
+	}%
+	{\if@restonecol\twocolumn \else \newpage \fi
+	}
 \else
 \newenvironment{titlepage}
-    {%
-      \cleardoublepage
-      \if@twocolumn
-        \@restonecoltrue\onecolumn
-      \else
-        \@restonecolfalse\newpage
-      \fi
-      \thispagestyle{empty}%
-      \setcounter{page}\@ne
-    }%
-    {\if@restonecol\twocolumn \else \newpage \fi
-     \if@twoside\else
-        \setcounter{page}\@ne
-     \fi
-    }
+	{%
+	  \cleardoublepage
+	  \if@twocolumn
+		\@restonecoltrue\onecolumn
+	  \else
+		\@restonecolfalse\newpage
+	  \fi
+	  \thispagestyle{empty}%
+	  \setcounter{page}\@ne
+	}%
+	{\if@restonecol\twocolumn \else \newpage \fi
+	 \if@twoside\else
+		\setcounter{page}\@ne
+	 \fi
+	}
 \fi
 \newcommand\appendix{\par
   \setcounter{chapter}{0}%
@@ -569,30 +569,30 @@
   {\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@equation}
 \newcounter{figure}[chapter]
 \renewcommand \thefigure
-     {\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@figure}
+	 {\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@figure}
 \def\fps@figure{tbp}
 \def\ftype@figure{1}
 \def\ext@figure{lof}
 \def\fnum@figure{\figurename\nobreakspace\thefigure}
 \newenvironment{figure}
-               {\@float{figure}}
-               {\end@float}
+			   {\@float{figure}}
+			   {\end@float}
 \newenvironment{figure*}
-               {\@dblfloat{figure}}
-               {\end@dblfloat}
+			   {\@dblfloat{figure}}
+			   {\end@dblfloat}
 \newcounter{table}[chapter]
 \renewcommand \thetable
-     {\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@table}
+	 {\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@table}
 \def\fps@table{tbp}
 \def\ftype@table{2}
 \def\ext@table{lot}
 \def\fnum@table{\tablename\nobreakspace\thetable}
 \newenvironment{table}
-               {\@float{table}}
-               {\end@float}
+			   {\@float{table}}
+			   {\end@float}
 \newenvironment{table*}
-               {\@dblfloat{table}}
-               {\end@dblfloat}
+			   {\@dblfloat{table}}
+			   {\end@dblfloat}
 \newlength\abovecaptionskip
 \newlength\belowcaptionskip
 \setlength\abovecaptionskip{10\p@}
@@ -607,11 +607,11 @@
 % BEGIN ISC CHANGES
   \sbox\@tempboxa{\footnotesize #1: #2}%
   \ifdim \wd\@tempboxa >\hsize
-    {\footnotesize #1: #2\par}
+	{\footnotesize #1: #2\par}
 % END ISC CHANGES
   \else
-    \global \@minipagefalse
-    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+	\global \@minipagefalse
+	\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
   \fi
   \vskip\belowcaptionskip}
 
@@ -629,53 +629,53 @@
 \newcommand\@dotsep{4.5}
 \setcounter{tocdepth}{2}
 \newcommand\tableofcontents{%
-    \if@twocolumn
-      \@restonecoltrue\onecolumn
-    \else
-      \@restonecolfalse
-    \fi
-    \chapter*{\contentsname
+	\if@twocolumn
+	  \@restonecoltrue\onecolumn
+	\else
+	  \@restonecolfalse
+	\fi
+	\chapter*{\contentsname
 %
 % Begin ISC (Make CONTENTS header not UPPERCASE and bold)
 %
-        \@mkboth{%
-           %\MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
-           \textbf{\contentsname}}{\contentsname}}%
-    \@starttoc{toc}%
-    \if@restonecol\twocolumn\fi
-    }
+		\@mkboth{%
+		   %\MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+		   \textbf{\contentsname}}{\contentsname}}%
+	\@starttoc{toc}%
+	\if@restonecol\twocolumn\fi
+	}
 %
 % End ISC
 %
 \newcommand*\l@part[2]{%
   \ifnum \c@tocdepth >-2\relax
-    \addpenalty{-\@highpenalty}%
-    \addvspace{2.25em \@plus\p@}%
-    \setlength\@tempdima{3em}%
-    \begingroup
-      \parindent \z@ \rightskip \@pnumwidth
-      \parfillskip -\@pnumwidth
-      {\leavevmode
-       \large \bfseries #1\hfil \hb@xt@\@pnumwidth{\hss #2}}\par
-       \nobreak
-         \global\@nobreaktrue
-         \everypar{\global\@nobreakfalse\everypar{}}%
-    \endgroup
+	\addpenalty{-\@highpenalty}%
+	\addvspace{2.25em \@plus\p@}%
+	\setlength\@tempdima{3em}%
+	\begingroup
+	  \parindent \z@ \rightskip \@pnumwidth
+	  \parfillskip -\@pnumwidth
+	  {\leavevmode
+	   \large \bfseries #1\hfil \hb@xt@\@pnumwidth{\hss #2}}\par
+	   \nobreak
+		 \global\@nobreaktrue
+		 \everypar{\global\@nobreakfalse\everypar{}}%
+	\endgroup
   \fi}
 \newcommand*\l@chapter[2]{%
   \ifnum \c@tocdepth >\m@ne
-    \addpenalty{-\@highpenalty}%
-    \vskip 1.0em \@plus\p@
-    \setlength\@tempdima{1.5em}%
-    \begingroup
-      \parindent \z@ \rightskip \@pnumwidth
-      \parfillskip -\@pnumwidth
-      \leavevmode \bfseries
-      \advance\leftskip\@tempdima
-      \hskip -\leftskip
-      #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
-      \penalty\@highpenalty
-    \endgroup
+	\addpenalty{-\@highpenalty}%
+	\vskip 1.0em \@plus\p@
+	\setlength\@tempdima{1.5em}%
+	\begingroup
+	  \parindent \z@ \rightskip \@pnumwidth
+	  \parfillskip -\@pnumwidth
+	  \leavevmode \bfseries
+	  \advance\leftskip\@tempdima
+	  \hskip -\leftskip
+	  #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+	  \penalty\@highpenalty
+	\endgroup
   \fi}
 \newcommand*\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
 \newcommand*\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
@@ -683,70 +683,70 @@
 \newcommand*\l@paragraph{\@dottedtocline{4}{10em}{5em}}
 \newcommand*\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
 \newcommand\listoffigures{%
-    \if@twocolumn
-      \@restonecoltrue\onecolumn
-    \else
-      \@restonecolfalse
-    \fi
-    \chapter*{\listfigurename}%
-      \@mkboth{\MakeUppercase\listfigurename}%
-              {\MakeUppercase\listfigurename}%
-    \@starttoc{lof}%
-    \if@restonecol\twocolumn\fi
-    }
+	\if@twocolumn
+	  \@restonecoltrue\onecolumn
+	\else
+	  \@restonecolfalse
+	\fi
+	\chapter*{\listfigurename}%
+	  \@mkboth{\MakeUppercase\listfigurename}%
+			  {\MakeUppercase\listfigurename}%
+	\@starttoc{lof}%
+	\if@restonecol\twocolumn\fi
+	}
 \newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
 \newcommand\listoftables{%
-    \if@twocolumn
-      \@restonecoltrue\onecolumn
-    \else
-      \@restonecolfalse
-    \fi
-    \chapter*{\listtablename}%
-      \@mkboth{%
-          \MakeUppercase\listtablename}%
-         {\MakeUppercase\listtablename}%
-    \@starttoc{lot}%
-    \if@restonecol\twocolumn\fi
-    }
+	\if@twocolumn
+	  \@restonecoltrue\onecolumn
+	\else
+	  \@restonecolfalse
+	\fi
+	\chapter*{\listtablename}%
+	  \@mkboth{%
+		  \MakeUppercase\listtablename}%
+		 {\MakeUppercase\listtablename}%
+	\@starttoc{lot}%
+	\if@restonecol\twocolumn\fi
+	}
 \let\l@table\l@figure
 \newdimen\bibindent
 \setlength\bibindent{1.5em}
 \newenvironment{thebibliography}[1]
-     {\chapter*{\bibname}%
-      \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
-      \endlist}
+	 {\chapter*{\bibname}%
+	  \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+	  \list{\@biblabel{\@arabic\c@enumiv}}%
+		   {\settowidth\labelwidth{\@biblabel{#1}}%
+			\leftmargin\labelwidth
+			\advance\leftmargin\labelsep
+			\@openbib@code
+			\usecounter{enumiv}%
+			\let\p@enumiv\@empty
+			\renewcommand\theenumiv{\@arabic\c@enumiv}}%
+	  \sloppy
+	  \clubpenalty4000
+	  \@clubpenalty \clubpenalty
+	  \widowpenalty4000%
+	  \sfcode`\.\@m}
+	 {\def\@noitemerr
+	   {\@latex@warning{Empty `thebibliography' environment}}%
+	  \endlist}
 \newcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
 \let\@openbib@code\@empty
 \newenvironment{theindex}
-               {\if@twocolumn
-                  \@restonecolfalse
-                \else
-                  \@restonecoltrue
-                \fi
-                \columnseprule \z@
-                \columnsep 35\p@
-                \twocolumn[\@makeschapterhead{\indexname}]%
-                \@mkboth{\MakeUppercase\indexname}%
-                        {\MakeUppercase\indexname}%
-                \thispagestyle{plain}\parindent\z@
-                \parskip\z@ \@plus .3\p@\relax
-                \let\item\@idxitem}
-               {\if@restonecol\onecolumn\else\clearpage\fi}
+			   {\if@twocolumn
+				  \@restonecolfalse
+				\else
+				  \@restonecoltrue
+				\fi
+				\columnseprule \z@
+				\columnsep 35\p@
+				\twocolumn[\@makeschapterhead{\indexname}]%
+				\@mkboth{\MakeUppercase\indexname}%
+						{\MakeUppercase\indexname}%
+				\thispagestyle{plain}\parindent\z@
+				\parskip\z@ \@plus .3\p@\relax
+				\let\item\@idxitem}
+			   {\if@restonecol\onecolumn\else\clearpage\fi}
 \newcommand\@idxitem{\par\hangindent 40\p@}
 \newcommand\subitem{\@idxitem \hspace*{20\p@}}
 \newcommand\subsubitem{\@idxitem \hspace*{30\p@}}
@@ -757,9 +757,9 @@
   \kern2.6\p@}
 \@addtoreset{footnote}{chapter}
 \newcommand\@makefntext[1]{%
-    \parindent 1em%
-    \noindent
-    \hb@xt@1.8em{\hss\@makefnmark}#1}
+	\parindent 1em%
+	\noindent
+	\hb@xt@1.8em{\hss\@makefnmark}#1}
 \newcommand\contentsname{Contents}
 \newcommand\listfigurename{List of Figures}
 \newcommand\listtablename{List of Tables}

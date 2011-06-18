@@ -1,0 +1,45 @@
+%%==================================================================%%
+%% Author : Pérez Ruiz, Alejandro                                   %%
+%% Author : Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.1, 14/06/2011                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Domain Engineering/Interacion Dos                                %%
+%%==================================================================%%
+
+Para diseñar nuestra línea de productos software seguimos un enfoque similar al de CaesarJ (cf.~\ref{back:subsec:foLanguages}), tratando de encapsular cada característica en una familia de clases. 
+La Figura~\ref{domain:fig:packageDiagram} muestra la descomposición en características de nuestro problema, así como las dependencias entre las diferentes características. Siguiendo los principios de diseño propuestos dentro del proyecto AMPLE~\cite{ample:d22}, cada familia de clases se representa como un paquete UML y las relaciones de herencia entre familias de clases como relaciones \emph{merge} entre paquetes.
+
+\begin{figure}[!tb]
+ \centering
+ \includegraphics[width=.75\linewidth]{domainEngineering/images/packageDiagram.eps} \\
+ \caption{Descomposición Orientada a Características de nuestra LPS}
+ \label{domain:fig:packageDiagram}
+\end{figure}
+
+Para simular los mecanismos proporcionados por CaesarJ, usaremos las clases parciales de C\#. De esta forma, cada clase contenida en uno de los paquetes de la Figura~\ref{domain:fig:packageDiagram} se implementará como una clase parcial que pueda ser extendida con nuevas funcionalidades en subsiguientes características. No obstante, el principal problema de este esquema es que las clases parciales, tal como ha sido identificado por~\cite{elio:2010},
+no permiten la sobreescritura de métodos. Este problema aparece cuando se da una situación como la de la  Figura~\ref{domain:fig:override}.
+
+\begin{figure}[!tb]
+ \centering
+ \includegraphics[width=.75\linewidth]{domainEngineering/images/packageDiagram.eps} \\
+ \caption{Problema de la sobreescritura con métodos parciales C\#}
+ \label{domain:fig:override}
+\end{figure}
+
+En este caso, la clase \imp{A} de la característica \imp{FeatureY} debe sobreescribir el método \imp{aMethod()} de la versión de la clase \imp{A} para la característica \imp{FeatureX} con objeto de alterar su funcionalidad. Si la clase \imp{A} está implementada como clase parcial de C\# en las características \imp{FeatureX} y \imp{FeatureY}, al intentar combinarlas el compilador reportará un error indicando que existen métodos con idéntico perfil en clases parciales distintas. Este error se produce porque el compilador no soporta la fusión de métodos o \emph{métodos parciales}, lo cual es bastante lógico. Dados dos métodos con idéntica cabecera, pero con implementaciones distintas, lo extraño sería que el compilador supiese como fusionar dichas implementaciones de forma correcta.
+
+Por tanto, hemos de idear un método para poder sobreescribir métodos. La solución planteada se ilustra en la Figura~\ref{domain:fig:overrideSolution}. Dado que no podemos tener métodos con idéntico nombre y argumentos en diferentes clases parciales, cada método correspondiente a una característica se precede con el nombre de la característica a la cual pertenece. Teniendo en cuenta que cada clase parcial pertenece a una característica diferente, si cada característica tiene un nombre único, nos aseguraremos de que no existirá colisión entre nombres de métodos. 
+
+Cuando queremos crear un producto específico, seguiremos la siguiente estrategia. Crearemos una nueva familia de clases que represente el producto final (\imp{aProduct}. Dicha familia de clases contendrá una clase parcial por cada clase distinta contenida en una característica seleccionada. Las clases contenidas en la familia de clases representando el producto específico contendrán un método por cada método distinto (sin considerar el prefijo del nombre que indica la característica a la cual pertenece). Por último, cada método delegará en la versión correspondiente a la versión más profunda de dicho método en el árbol de herencia entre familias de clases.
+
+\begin{figure}[!tb]
+ \centering
+ \includegraphics[width=.75\linewidth]{domainEngineering/images/solution.eps} \\
+ \caption{Solución para el problema de la sobreescritura}
+ \label{domain:fig:overrideSolution}
+\end{figure}
+
+Ilustramos dicha solución con un ejemplo concreto, el cual se ilustra en la Figura~\ref{domain:fig:overrideSolution}. En dicha solución, sólo la característica \imp{FeatureX} debe incluirse dentro del producto concreto a construir. Tal como indica nuestro patrón de solución, creamos una familia de clases \imp{aProduct} para representar el producto concreto deseado. A continuación, añadimos la clase parcial \imp{A} a dicha familia de clases, por estar dentro de la característica \imp{FeatureX}. Seguidamente, añadimos el método \imp{aMethod} a la recientemente creada clase \imp{A}. Este método delegará en la operación \imp{featureX\_aMethod}, por ser la versión correspondiente a este método perteneciente a una característica seleccionada y que se encuentra más profunda en el árbol de herencia entre familias de clases.
+
+En las siguientes secciones describimos como siguiendo los principios de diseño expuestos en esta sección, se han creado las iteraciones necesarias para crear el sistema base, controlar aparatos de frío/calor, las ventanas y el control inteligente de energía. Se han elegido estas interacciones, y no otras, por parecernos las más interesantes. Las otras se omiten por ser similares a éstas y por motivo de espacio.
