@@ -7,11 +7,10 @@
 %% Domain Engineering/Interacion Dos                                %%
 %%==================================================================%%
 
-La característica de gestión de los sistemas de control de la temperatura  (\emph{HeaterMng}) deberá  permitir a los usuarios establecer el valor deseado para la temperatura (en grados Celsius) dentro la clase. Los dispositivos de control de la temperatura funcionan como aparatos de frío/calor. De esta forma,   si la temperatura especificada por el usuario es inferior a la actual, el dispositivo deberá enfriar la casa. En el caso opuesto, deberá calentarla.
+La característica de gestión de los sistemas de control de la temperatura  (\emph{HeaterMng}) deberá  permitir a los usuarios establecer el valor deseado para la temperatura (en grados Celsius). Los dispositivos de control de la temperatura funcionan como aparatos de frío/calor. De esta forma, si la temperatura especificada por el usuario es inferior a la actual, el dispositivo deberá enfriar la casa. En el caso opuesto, deberá calentarla.
 
 %%=====================================================================%%
-%% NOTA(Pablo): Aquí hace falta una figura describiendo la             %%
-%%              arquitectura                                           %%
+%% NOTA(Pablo): Esto sobra                                          %%
 %%=====================================================================%%
 %%
 %% Para la situación en la que la temperatura seleccionada por el
@@ -25,7 +24,7 @@ Esta característica añade clases pare representar los nuevos dispositivos, más c
 
 \begin{figure}[!tb]
  \centering
- \includegraphics[width=.75\linewidth]{domainEngineering/Images/HeaterMngDesign.eps} \\
+ \includegraphics[width=.65\linewidth]{domainEngineering/Images/HeaterMngDesign.eps} \\
  \caption{Diseño UML para la característica \emph{HeaterMng}}
  \label{domain:fig:heaterMngDesign}
 \end{figure}
@@ -55,17 +54,17 @@ Esta característica añade clases pare representar los nuevos dispositivos, más c
 %%
 %%=====================================================================%%
 
-También es necesario extender las dos interfaces gráficas que se implementaron en el sistema base. En el caso de la interfaz gráfica para el control del \emph{Gateway}, añadimos una nueva pestaña a nivel global, para toda la casa,  que permita encender o apagar todos los aparatos de control de la temperatura. En el caso de que los aparatos estén conectados, se ofrecerá la opción de mostrar la temperatura deseada (ver Figura~\ref{domain:fig:GUIHeaterMng}). Pestañas similares se añaden a todas las plantas y habitaciones que contengan al menos un aparato de control de la temperatura. 
+También es necesario extender las dos interfaces gráficas que se implementaron en el sistema base. En el caso de la interfaz gráfica para el control del \emph{Gateway}, añadimos una nueva pestaña a nivel global, para toda la casa, que permita encender o apagar todos los aparatos de control de la temperatura. En el caso de que los aparatos estén conectados, se ofrecerá la opción de mostrar la temperatura deseada (ver Figura~\ref{domain:fig:GUIHeaterMng}). Pestañas similares se añaden a todas las plantas y habitaciones que contengan al menos un aparato de control de la temperatura.
 
 %%=====================================================================%%
-%% NOTA(Pablo): Con una captura vale. Aunque te haya costado trabajo,  %%
-%%              esto no es del todo interesante. Deja la captura donde %%    
-%%              se ve todo                                             %%  
+%% HECHO(Pablo): Con una captura vale. Aunque te haya costado trabajo, %%
+%%              esto no es del todo interesante. Deja la captura donde %%
+%%              se ve todo                                             %%
 %%=====================================================================%%
 
 \begin{figure}[!tb]
  \centering
- \includegraphics[width=.75\linewidth]{domainEngineering/Images/GUIHeaterMng.eps} \\
+ \includegraphics[width=.45\linewidth]{domainEngineering/Images/GUIHeaterMng.eps} \\
  \caption{Interfaz gráfica de usuario con los elementos para el control de temperatura}
  \label{domain:fig:GUIHeaterMng}
 \end{figure}
@@ -79,8 +78,7 @@ Por otro parte, tembién debemos extender la interfaz gráfica del simulador. Por 
  \label{domain:fig:SimulatorHeaterMng}
 \end{figure}
 
-A continuación, tanto el diseño de la Figura~\ref{domain:fig:heaterMngDesign} como el de las interfaces mostradas en las Figuras~\ref{domain:fig:GUIHeaterMng} y~\ref{domain:fig:SimulatorHeaterMng}, se implementa usando los principios descritos en la Sección~\ref{domain:sec:pattern}. Por último, realizamos las pruebas de dicha implementación. Los 
-casos de prueba ejecutados se describen a continuación:
+A continuación, tanto el diseño de la Figura~\ref{domain:fig:heaterMngDesign} como el de las interfaces mostradas en las Figuras~\ref{domain:fig:GUIHeaterMng} y~\ref{domain:fig:SimulatorHeaterMng}, se implementa usando los principios descritos en la Sección~\ref{domain:sec:pattern}. Por último, realizamos las pruebas de dicha implementación. Los casos de prueba ejecutados se describen a continuación:
 
 \begin{enumerate}
 \item Se han creado una serie de instancias del hogar inteligente con un número de aparatos de control de la temperatura arbitrario y repartidos por distintas habitaciones.
