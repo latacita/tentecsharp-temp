@@ -20,9 +20,12 @@ La Figura~\ref{domain:fig:packageDiagram} muestra la descomposición en caracterí
 Para simular los mecanismos proporcionados por CaesarJ, usaremos las clases parciales de C\#. De esta forma, cada clase contenida en uno de los paquetes de la Figura~\ref{domain:fig:packageDiagram} se implementará como una clase parcial que pueda ser extendida con nuevas funcionalidades en subsiguientes características. No obstante, el principal problema de este esquema es que las clases parciales, tal como ha sido identificado por~\cite{elio:2010},
 no permiten la sobreescritura de métodos. Este problema aparece cuando se da una situación como la de la  Figura~\ref{domain:fig:override}.
 
+%%====================================================================%%
+%% NOTA(Pablo): Ajusta los tamaños para que quede bonito              %%  
+%%====================================================================%%
 \begin{figure}[!tb]
  \centering
- \includegraphics[width=.75\linewidth]{domainEngineering/images/packageDiagram.eps} \\
+ \includegraphics[width=.35\linewidth]{domainEngineering/images/overriding.eps} \\
  \caption{Problema de la sobreescritura con métodos parciales C\#}
  \label{domain:fig:override}
 \end{figure}
@@ -33,9 +36,12 @@ Por tanto, hemos de idear un método para poder sobreescribir métodos. La solució
 
 Cuando queremos crear un producto específico, seguiremos la siguiente estrategia. Crearemos una nueva familia de clases que represente el producto final (\imp{aProduct}. Dicha familia de clases contendrá una clase parcial por cada clase distinta contenida en una característica seleccionada. Las clases contenidas en la familia de clases representando el producto específico contendrán un método por cada método distinto (sin considerar el prefijo del nombre que indica la característica a la cual pertenece). Por último, cada método delegará en la versión correspondiente a la versión más profunda de dicho método en el árbol de herencia entre familias de clases.
 
+%%====================================================================%%
+%% NOTA(Pablo): Ajusta los tamaños para que quede bonito              %%
+%%====================================================================%%
 \begin{figure}[!tb]
  \centering
- \includegraphics[width=.75\linewidth]{domainEngineering/images/solution.eps} \\
+ \includegraphics[width=.35\linewidth]{domainEngineering/images/solution.eps} \\
  \caption{Solución para el problema de la sobreescritura}
  \label{domain:fig:overrideSolution}
 \end{figure}

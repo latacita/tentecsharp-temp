@@ -1,0 +1,74 @@
+%%==================================================================%%
+%% Author : Pérez Ruiz, Alejandro                                   %%
+%% Author : Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.1, 18/06/2011                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Domain Engineering/Interacion Tres                               %%
+%%==================================================================%%
+
+La característica para en control automático de ventanas tiene como principal requisito permitir a los usuarios abrir o cerrar una ventana con una determinada apertura (cf. Tabla~\ref{plan:table:requisitos}). 
+
+La Figura~\ref{domain:fig:designWindowMng} muestra el diseño UML para esta característica, el cual se ha realizado siguiendo un proceso muy similar al de la sección anterior. Cada ventana tiene un sensor que se encargará de enviar al \emph{Gateway} la apertura de dicha ventana; y un actuador, que abrirá o cerrará la ventana cuando sea necesario. Este diseño, al igual que anteriormente, se implementa usando clases parciales de C\#, siguiendo los principios establecidos en la Sección~\ref{domain:sec:pattern}.
+
+%%=============================================================================================================%%
+%% NOTA(Pablo): Esta imagen se puede hacer aún más compacta.                                                   %%
+%%=============================================================================================================%%
+\begin{figure}[!tb]
+ \centering
+ \includegraphics[width=.75\linewidth]{domainEngineering/Images/WindowMngDesign.eps} \\
+ \caption{Diseño de la característica \emph{WindowMng}.}
+ \label{domain:fig:designWindowMng}
+\end{figure}
+
+las interfaces gráficas de usuario y de simulación se extienden de un modo similar al de la iteración anterior. La Figura~\ref{domain:fig:GUIWindowMng} muestra el aspecto visual de dichas interfaces. 
+
+%%=============================================================================================================%%
+%% NOTA(Pablo): Todo esto se puede suprimir                                                                    %%
+%%=============================================================================================================%%
+%%
+%% Para el caso de las dos interfaces gráficas se ha seguido un proceso similar que el utilizado en la 
+%% característica \emph{HeaterMng}, es decir, volviendo a definir las clases parciales que implementan a las 
+%% interfaces gráficas se añaden nuevos controles del tipo pestaña. De este modo las interfaces muestran un 
+%% diseño como el representado en la figura \ref{domain:fig:GUIWindowMng}, en la cual en la parte superior de 
+%% la izquierda se ilustra la interfaz gráfica del Gateway con la pestaña global que controla todas las 
+%% ventanas, mientras que en la parte superior de la derecha se ilustra el diseño destinado a controlar una 
+%% ventana específica. En la parte inferior de la figura se muestra la interfaz gráfica para el simulador.
+%%
+%%=============================================================================================================%%
+
+%%=============================================================================================================%%
+%% NOTA(Pablo): Quita una interfaz gráfica para el control de ventanas e intenta que las dos te queden en una  %%
+%%              misma línea                                                                                    %%     %%=============================================================================================================%%
+\begin{figure}[!tb]
+ \centering
+ \includegraphics[width=.75\linewidth]{domainEngineering/Images/GUIWindowMng.eps} \\
+ \caption{Diseño de las interfaces gráficas para la característia \emph{WindowMng}}
+ \label{domain:fig:GUIWindowMng}
+\end{figure}
+
+Al igual que en la iteración anterior, una vez implementada la característica, se realizan una serie de pruebas para comprobar la corrección de la implementación.
+
+%%=============================================================================================================%%
+%% NOTA(Pablo): Todo esto se puede suprimir                                                                    %%
+%%=============================================================================================================%%
+%%
+%% Para las pruebas en esta característica se han realizado una serie de test, que han seguido el siguiente 
+%% procedimiento:
+%%
+%% \begin{enumerate}
+%% \item Se han creado una serie de instancias del hogar inteligente con diferente número de ventanas 
+%%         repartidas por distintas habitaciones.
+%% \item Por cada instancia se realizan los siguientes casos de prueba:
+%%    \begin{enumerate}
+%%        \item Se modifica la apertura de las todas las ventanas, a través de la pestaña de 
+%%              control global de la característica, en la interfaz gráfica del Gateway, y se comprueba 
+%%              en el simulador y en el propio Gateway.
+%%        \item Por cada ventana se modifica su apertura, de modo individual a través de su pestaña 
+%%              específica.
+%%    \end{enumerate}
+%% \end{enumerate}
+%%
+%%=============================================================================================================%%
+
+La siguiente sección describe el proceso de desarrollo de la característica \emph{SmartEnergyMng}, la cual resulta d especial interés al tener que combinar de la forma adecuada la característica desarrollada en la sección actual con  la característica desarrolla en la sección anterior. 

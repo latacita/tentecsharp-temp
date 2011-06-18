@@ -1,86 +1,37 @@
 %%==================================================================%%
 %% Author : Pérez Ruiz, Alejandro                                   %%
 %% Author : Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.1, 14/06/2011                                         %%
+%% Version: 1.1, 18/06/2011                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
-%% Capítulo Domain Engineering, Archivo raíz                        %%
+%% Domain Engineering/smartEnergy                                   %%
 %%==================================================================%%
 
-\chapterheader{Ingeniería del Dominio}{Ingeniería del Dominio}
-\label{chap:domain}
+%%==================================================================%%
+%% NOTA(Pablo): En realidad no es esto lo que tiene que hacer,      %%
+%%              pero a estas alturas, lo dejaremos pasar            %%
+%%==================================================================%%
+La característica para el control de inteligente de 
+la energía (\emph{SmartEnergyMng}) tiene dos objetivos principales: 
 
-Este capítulo se describe la fase de \emph{ingeniería del dominio} (en inglés, \emph{Domain Engineering}) de nuestra línea de productos software. Dentro de dicha fase, se detalla la definición de la arquitectura de la familia de productos y se detallan las iteraciones más relevantes de este proceso de desarrollo. Las otras iteraciones, por motivos de espacio y con objeto de no aburrir al lector con detalles irrelevantes, simplemente se omiten.
-
-\chaptertoc
-
-\section{Definición Arquitectónica}
-
-\input{domainEngineering/arquitectura.tex}
-
-\section{Principios de Diseño}
-\label{domain:sec:pattern}
-
-\input{domainengineering/pattern.tex}
-
-\section{Iteración 1: Sistema Base}
-
-\input{domainEngineering/iteracionUno.tex}
-
-\section{Iteración 2: Gestión de Sistemas de Control de Temperatura}
-
-\input{domainEngineering/iteracionDos.tex}
-
-\section{Iteración 3: WindowMng}
-%% Section{Iteración 3: WindowMng}
-
-% Muy resumida
-
-La característica manejo de ventanas o \emph{WindowMng} en inglés, tiene como principal requisito permitir a los usuarios abrir o cerrar una ventana con una determinada apertura. Por cada ventana existirán dos dispositivos, uno de ellos será un sensor que únicamente se encargará de enviar al Gateway la apertura que tiene la ventana, y otro será el actuador, que es el destinado a recibir la información del Gateway para abrir o cerrar con una determinada apertura.
-
-Al igual que ha ocurrido en la característica descrita en la sección anterior, se vuelve a definir la clase parcial \imp{Gateway} para extender la funcionalidad necesaria para controlar y manejar las ventanas. Las clases abstractas \imp{Actuator} y \imp{Sensor} vuelven a ser extendidas con los dispositivos específicos para esta característica. La figura \ref{domain:fig:designWindowMng} ilustra el diseño UML que representa lo descrito anteriormente.
-
-\begin{figure}[!tb]
- \centering
- \includegraphics[width=.75\linewidth]{domainEngineering/Images/WindowMngDesign.eps} \\
- \caption{Diseño UML para la característica \emph{WindowMng}.}
- \label{domain:fig:designWindowMng}
-\end{figure}
-
-Para el caso de las dos interfaces gráficas se ha seguido un proceso similar que el utilizado en la característica \emph{HeaterMng}, es decir, volviendo a definir las clases parciales que implementan a las interfaces gráficas se añaden nuevos controles del tipo pestaña. De este modo las interfaces muestran un diseño como el representado en la figura \ref{domain:fig:GUIWindowMng}, en la cual en la parte superior de la izquierda se ilustra la interfaz gráfica del Gateway con la pestaña global que controla todas las ventanas, mientras que en la parte superior de la derecha se ilustra el diseño destinado a controlar una ventana específica. En la parte inferior de la figura se muestra la interfaz gráfica para el simulador.
-\begin{figure}[!tb]
- \centering
- \includegraphics[width=.75\linewidth]{domainEngineering/Images/GUIWindowMng.eps} \\
- \caption{Diseño de las interfaces gráficas para la característia \emph{WindowMng}}
- \label{domain:fig:GUIWindowMng}
-\end{figure}
-
-Para las pruebas en esta característica se han realizado una serie de test, que han seguido el siguiente procedimiento:
 \begin{enumerate}
-\item Se han creado una serie de instancias del hogar inteligente con diferente número de ventanas repartidas por distintas habitaciones.
-\item Por cada instancia se realizan los siguientes casos de prueba:
-	\begin{enumerate}
-		\item Se modifica la apertura de las todas las ventanas, a través de la pestaña de control global de la característica, en la interfaz gráfica del Gateway, y se comprueba en el simulador y en el propio Gateway.
-		\item Por cada ventana se modifica su apertura, de modo individual a través de su pestaña específica.
-	\end{enumerate}
+	\item Siempre que los aparatos de control de la temperatura estén 
+		  encendidos se deben cerrar todas las ventanas para evitar pérdidas de energía; 
+	\item Almacenar los horarios de los habitantes de la casa, de modo que: 
+		\begin{itemize}
+			\item Siempre que la casa esté vacía los aparatos de control de la temperatura
+					estén apagados; 
+			\item Encender dichos aparatos con la suficiente antelación para poder restablecer la temperatura elegida por el usuario a su regreso a casa.
+		\end{itemize}
 \end{enumerate}
 
-La siguiente sección describe el proceso de desarrollo de la característica \emph{SmartEnergyMng},que necesitará de la existencia de la característica de la sección actual, como la de la anterior.
+Para realizar dicha funcionalidad, esta característica precisa usar las características de control automático de ventanas (\emph{WindowMng}) y de la gestión de la temperatura (\emph{HeaterMng}). 
 
-\section{Iteración 4: SmartEnergyMng}
-%\label{sec:domain:smartEnergy}
-%% Section{Iteración 4: SmartEnergyMng}
+La Figura~\ref{} muestra el diseño de esta característica. 
 
-%%% Introducción justificando por qué
 
-%%% Requisitos específicos (muy resumidos)
 
-%%% Diseño UML
-
-%%% Implementación (explicar como se ha conseguido **Hacerlo bien**)
-
-%%% Pruebas
-La característica denominada control de energía inteligente o \emph{SmartEnergyMng} en inglés,tiene como particularidad que necesita del control de ventanas (WindowMng) y del control de calefacción (HeaterMng) para que se puede utilizar, ya que su función es por un lado, que siempre que los calefactores estén encendidos se cierren todas las ventanas para evitar pérdidas de energía, y por otro lado, almacenar los horarios de los habitantes, de este modo siempre que la casa esté vacía los calefactores serán apagados para ahorrar energía y se encenderán con la suficiente antelación para poder restablecer la temperatura elegida por el usuario.
+ 
 
 Al igual que todas las demás características descritas en las secciones anteriores, se redefine la clase parcial \imp{Gateway} tal y como se muestra en la figura XX, a través de ello se añaden varios métodos que permiten implementar los requisitos. En primer lugar para desarrollar el requisito que almacena los horarios de los habitantes se utiliza el metalenguaje de etiquetas XML \cite{rusty:2004}, a través de él se almacena en un fichero el nombre, apellidos y los intervalos de tiempo en el que no se encuentra en casa cada habitante. Con el método \imp{findEmptyTime()}, mostrado en la figura XX \todo{PONER FIGURA}, se realizan las operaciones oportunas para calcular los intervalos de tiempo en los que la casa estará vacía, los cuales serán utilizados por el otro método denominado \imp{checkTime(int hours, int minutes)} para comprobar, cada vez que el tiempo sea modificado, si la casa está vacía, y en ese caso desconectar todos los calefactores o encenderlos en el caso de que el tiempo se aproxime a la llegada de los usuarios.
 
@@ -140,10 +91,4 @@ La relación \emph{merge} entre dos paquetes, indica que el contenido de ambos es
  \label{domain:fig:packageDiagram}
 \end{figure}
 
-Tras realizar todas las iteraciones necesarias para implementar la ingeniería de dominio, se consigue tener un sistema dividido que encapsula características que pueden ser combinadas y compiladas de diferentes maneras, siempre y cuando se respeten las restricciones básicas.
-
-\section{Sumario}
-
-En este capítulo se ha mostrado el proceso llevado a cabo para realizar la fase de ingeniería de dominio en esta línea de productos software, en la cual se han utilizado las clases parciales de C\# como principal mecanismo para encapsular las características. No obstante, las clases parciales presentan alguna limitación para encapsular correctamente, por lo que se han desarrollado y expuesto mecanismos para suplir estas limitaciones.
-
-El siguiente capítulo mostrará como utilizando la infraestructura desarrollada anteriormente, se pueden crear aplicaciones específicas adaptadas a los requerimientos de los usuarios. 
+Tras realizar todas las iteraciones necesarias para implementar la ingeniería de dominio, se consigue tener un sistema dividido que encapsula características que pueden ser combinadas y compiladas de diferentes maneras, siempre y cuando se respeten las restricciones básicas. 
