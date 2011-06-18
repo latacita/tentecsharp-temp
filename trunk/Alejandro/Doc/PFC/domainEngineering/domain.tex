@@ -41,23 +41,15 @@ Este capítulo se describe la fase de \emph{ingeniería del dominio} (en inglés, \
 
 \section{Otras iteraciones}
 
-Como se ha podido observar en las iteraciones anteriores se sigue un procedimiento muy similar. Por lo tanto, un proceso casi idéntico al de las secciones anteriores se sigue para las características restantes, es decir, para
+Como se ha podido observar en las iteraciones anteriores se sigue un procedimiento muy similar. Por lo tanto, un proceso casi idéntico al de las secciones anteriores se sigue para las características restantes, es decir, por cada nueva característica se le añaden nuevas funcionalidades al sistema a través de las clases parciales. 
+Las características \emph{control automático de luces y persianas} siguen prácticamente el mismo proceder y funcionalidad que la característica control automático de ventanas desarrollada en la iteración 3. Mientras que
+algunas características como la \emph{simulación de luces y persianas} añaden nuevas funciones a las características de control automático de luces y persianas, permitiéndonos simular presencia en la casa cuando no hay nadie en su interior, para de este modo evitar posibles robos. De este modo, cada cierto tiempo las luces y persianas de la casa son modificadas siguiendo un esquema semi-aleatorio.
 
 %%=======================================================================================================%%
 %% NOTA(Pablo): Nombra varias características, y di algo sobre todo de la parte de simulación, pero solo %%
 %%              un párrafo, y describiendo básicamente como funciona                                     %%
 %%=======================================================================================================%%
-
-% En UML las características son agrupadas como paquetes. Un \emph{paquete} es definido en UML como un elemento de modelado usado para agrupar otros elementos de modelado, para de este modo obtener un espacio de nombres para los elementos agrupados.
-%La relación \emph{merge} entre dos paquetes, indica que el contenido de ambos debe ser combinado, la especificación UML establece que esta relación se debe usar cuando los elementos de los paquetes tienen el mismo nombre y representan el mismo concepto\cite{omg:uml:2005}. Por lo que podemos definir un diagrama de paquetes como el mostrado en la figura \ref{domain:fig:packageDiagram}, en el que todas las características se conectan a través de una relación \emph{merge}. Por lo tanto, a través de la figura \ref{domain:fig:packageDiagram} se puede reflejar que todas las características realizan una combinación de sus elementos con el mismo nombre haciendo uso de las clases parciales.
-%\begin{figure}[!tb]
-% \centering
-% \includegraphics[width=.75\linewidth]{domainEngineering/Images/packageDiagram.eps} \\
-% \caption{Diagrama de paquetes con todas las características.}
-% \label{domain:fig:packageDiagram}
-%\end{figure}
-
-Tras realizar todas las iteraciones necesarias para implementar la ingeniería de dominio, se consigue tener un sistema donde las diferentes características en las cuales se descompone están encapsuladas en grupos de clases.
+Por lo tanto, tras realizar todas las iteraciones necesarias para implementar la ingeniería de dominio, se consigue tener un sistema donde las diferentes características en las cuales se descompone están encapsuladas en grupos de clases.
 
 \section{Sumario}
 
