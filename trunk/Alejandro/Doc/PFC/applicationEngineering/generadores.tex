@@ -1,0 +1,55 @@
+%%=================================================================%%
+%% Author : Pérez Ruiz, Alejandro                                  %%
+%% Author : Sánchez Barreiro. Pablo                                %%
+%%                                                                 %%
+%% Version: 1.0, 16/03/2011                                        %%                                                                                    %% Version: 1.1, 20/06/2011                                        %%                                                                                    %%                                                                 %%
+%%                                                                 %%
+%% Memoria del Proyecto Fin de Carrera                             %%
+%% ApplicationEngineering/Generadores de Código                    %%
+%%=================================================================%%
+
+Las plantillas de generación de código son una forma rápida y sencilla de construir código a través de plantillas que especifican porciones estáticas de código con porciones que se generan dinámicamente a partir de ciertos parámetros de entrada, al estilo de las páginas web dinámicas. El lenguaje de generación de código del entorno Visual Studio de denomina \emph{T4 Text Templates}~\cite{vogel:2010}. Se ha usado este lenguaje de generación de código frente a otras opciones, tales como MOFScript~\cite{oldevik:2005}, por ser el lenguaje que mejor se integra dentro de nuestro entorno de dearrollo.
+
+La Figura~\ref{application:fig:t4template} ilustra un pequeño ejemplo de como se usan estas plantillas. Los trozos de código escritos entre los caracteres <\# y \#> son trozo de código escritos en el lenguaje T4, en este caso usando el lenguaje C\#. Los caracteres <\#= \#> se usan para indicar que el valor producido por la ejecución de un determinada porción ed salida debe escribirse en el fichero de salida. El texto situado fuera de estos caracteres se incorpora tal cual aparece en los ficheros de salida. 
+
+En el caso de la Figura~\ref{application:fig:t4template}, la línea 00 especifica que el código contenido entre los caracteres de escape (<\# \#> y <\#= \#>) están escritos en C\#. La línea 01 escribe \imp{Hello} en el fichero de salida. Además, se ejecuta el trozo de código contenido en los caracteres de escape, que en este caso escribiría  \imp{World} en la salida por defecto. La línea 02 escribiría en el fichero de salida \imp{Today is}, y a continuación el valor de resultante de ejecutar el trozo de código contenido entre los caracteres de escape. Es decir, la fecha actual.
+
+\begin{figure}[tb!]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+00 <#@ template language="C#" #>
+01 Hello <# Write("World!"); #>
+02 Today is <#= DateTime.Now.ToString() #>
+\end{verbatim}
+\end{footnotesize}
+\caption{Ejemplo de uso de las plantillas T4}
+\label{application:fig:t4template}
+\end{center}
+\end{figure}
+
+Usando estas plantillas, y aceptando un modelo conforme al metamodelo creado en la sección anterior como entrada, generaremos el código necesario para componer e instanciar las diferentes características de nuestra línea de productos. Para ello es necesario hacer uso de la clase \imp{ModelingTextTransformation}, la cual permite acceder a las clases, propiedades y relaciones disponibles en un modelo.
+
+El proceso de generación de código sigue el siguiente proceso: 
+
+%%=================================================================%%
+%% NOTA(Pablo): Poner esto mejor descrito, punto por punto y en    %%
+%%              orden de ejecución                                 %%
+%%=================================================================%%
+
+%%=================================================================%%
+%% NOTA(Pablo): Poner un trozo de código con una plantilla real    %%
+%%=================================================================%%
+
+
+\begin{enumerate}
+	\item Por cada característica seleccionada ...
+	
+	
+	\item En primer lugar, se genera la clase \imp{Launcher} que contiene el método \imp{Main} que instancia todos los componentes del hogar inteligente, además de las clases que definen los dispositivos y aquellas que tenían métodos virtuales cuya implementación dependía de las características que fuesen seleccionadas (ver Sección \todo{PONER SECCIÓN}). Por ejemplo, si se crea un modelo en el que solo existe el control de los calefactores, las clases para los dispositivos como \imp{WindowCtrl}, \imp{WindowSensor}, \imp{LightCtrl}... no son necesarias, por lo que las plantillas de generación de código no las crearán.
+\end{enumerate}
+
+Cabe recordar que en el entorno de desarrollo existen dos proyectos, uno que contiene la infraestructura desarrollada durante la fase de ingeniería de dominio y otro que contiene todos los artefactos creados durante la fase actual. Por lo que en el proyecto desarrollado durante la fase de ingeniería de dominio se encuentran todas las características encapsuladas mediante las clases parciales. Y como ya se comentó (ver Sección \todo{PONER SECCIÓN}) los proyectos poseen un fichero escrito en XML donde se almacenan los elementos que serán compilados. Por lo que cuando se deriven productos es necesario indicar que elementos serán compilados, para evitar que características que no estén seleccionadas para la configuración actual se compilen, de tal modo que se gane en eficiencia y seguridad. En primera instancia, se contempló y probó la posibilidad de sobreescribir el fichero XML mediante las plantillas T4, pero el resultado no fue el esperado, debido a que el fichero XML es usado por la solución donde se encuentran los dos proyectos, es necesario reabrir la solución actual para que el fichero XML de compilación se cargue adecuadamente. Así que por ello, desde las propias plantillas T4 se debe indicar que elementos incluir o excluir de el proyecto para la compilación. Para tal cometido existe una
+una librería denominada \imp{EnvDTE}, la cual contiene métodos para instanciar/automátizar el propio entorno de desarrollo de Visual Studio. Por lo que a través de un bloque de código de las plantillas T4 se utiliza la libería \imp{EnvDTE} para indicar que elementos deben estar excluidos o incluidos dentro del proyecto de la fase de ingeniería de dominio, para que de este modo solo se compilen las características seleccionadas.
+
+De algún modo es necesario que los elementos creados hasta este momento sean encapsulados como plugins para el entorno Visual Studio, y puedan ser utilizados en cualquier computadora que tenga instalada una versión del entorno de desarrollo. Por lo que la siguiente sección describe el proceso seguido para crear los instaladores y su despliegue.
