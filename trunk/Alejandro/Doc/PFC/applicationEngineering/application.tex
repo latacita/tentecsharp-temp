@@ -1,57 +1,176 @@
-%==================================================================%
-% Author : Pérez Ruiz, Alejandro                                   %
-% Version: 1.0, 16/03/2011                                         %                                                                                    %                                                                  %
-% Memoria del Proyecto Fin de Carrera                              %
-% Capítulo Application Engineering, Archivo raíz                   %
-%==================================================================%
+%%=================================================================%%
+%% Author : Pérez Ruiz, Alejandro                                  %%
+%% Author : Sánchez Barreiro. Pablo                                %%
+%%                                                                 %%   
+%% Version: 1.0, 16/03/2011                                        %%                                                                                    %% Version: 1.1, 20/06/2011                                        %%                                                                                    %%                                                                 %%   
+%%                                                                 %%
+%% Memoria del Proyecto Fin de Carrera                             %%
+%% Capítulo Application Engineering, Archivo raíz                  %%
+%%=================================================================%%
 
-\chapterheader{Application Engineering}{Application Engineering}
-
+\chapterheader{Ingeniería de la Aplicación}{Ingeniería de Aplicación}
 \label{chap:application}
 
-% Introducción al capítulo
-La ingeniería de aplicación es un proceso en el cual, las aplicaciones de una línea de productos se construyen a través de los artefactos creados en la fase de ingeniería de dominio y la explotación de la variabilidad de las líneas de producto software \cite{pohl:2005}.
-Los principales objetivos de la ingeniería de aplicación son: alcanzar un nivel tan alto como sea posible de reutilizar los elementos del dominio cuando se definan y desarrollen aplicaciones de la línea de productos y  explotar la variabilidad y los elementos comunes de la línea de productos software durante el desarrollo de aplicaciones. Por lo que este capítulo presentará al lector el proceso seguido para conseguir reutilizar y componer los elementos creados en la fase de ingeniería de dominio. De tal modo que se deriven tan automáticamente como sea posible aplicaciones adaptadas a los diferentes requisitos de cada usuario. Además se mostrarán cuales han sido los problemas y las soluciones adoptadas a la hora de trabajar con el lenguaje C\#, sus clases parciales, y la plataforma .NET.
+Este capítulo se describe la fase de \emph{ingeniería de aplicación} (en inglés, \emph{Application Engineering}) para nuestra línea de productos software. Dentro de dicha fase, se detalla el proceso seguido para componer las características creadas en la fase de ingeniería del dominio (ver capítulo anterior). A continuación, se describe la infraestructura creada para poder componer características siguiendo este proceso de forma tan automática como sea posible.
+Por último, se describen las acciones llevadas a cabos para realizar el despliegue de nuestro producto.
+
 \chaptertoc
+
 \section{Proceso de composición de características}
-%% Section{Proceso de composición de las features}
-%% (explicar como se ha conseguido **Hacerlo bien**)
-En el capítulo \ref{chap:domain} anterior describimos el proceso para crear la infraestructura necesaria de la que se puedan derivar configuraciones concretas durante la fase de ingeniería de aplicación (ver Capítulo
-\ref{chap:background}). El objetivo de esta fase de ingeniería de aplicación es componer características de la forma más cómoda y automática posible.
 
-La infraestructura creada en el capítulo interior se crea con el objetivo de que sea usada para derivar de ella un número largo de aplicaciones concretas, las cuales compartirán dicha infraestructura común. Por tanto,
-deberíamos intentar evitar tener que replicar esta infraestructura con objeto de evitar redundancias y los típicos problemas asociados al código replicado. Por ejemplo, si replicásemos el código por cada
-producto concreto creado, cualquier modificación que se realizase sobre la infraestructura, habría que propagarla a todos estos productos. Este puede ser un serio problema a medida que el número de productos
-derivados crece.
+La \emph{ingeniería de aplicación} es el proceso en el cual, las aplicaciones concretas de una línea de productos se construyen a través de los artefactos creados en la fase de ingeniería de dominio~\cite{pohl:2005}. Estas aplicaciones concretas, que en principio se espera que sea un número suficientemente largo, compartirán los artefactos creados durante la fase de ingeniería del dominio (ver capítulo anterior). Por tanto, para evitar redundancias y replicación de código que puedan generar problemas de mantenimiento y evolución, la solución natural es encapsular el código creado durante la fase de ingeniería de dominio en una biblioteca o componente reutilizable accesible desde los proyectos de ingeniería de la aplicación.
 
-Por tanto, la solución natural es encapsular el código creado durante la fase de ingeniería de dominio en una biblioteca o componente modificable que el usuario no pueda reutilizar. Esto no obstante, va a a
-generar una serie de problemas adicionales a la hora de componer características y que comentamos a continuación.
+%%============================================================================%%
+%% NOTA(Pablo): Esto ya lo hemos comentado bastante a lo largo de la memoria  %%
+%%              así que lo quitamos de este punto                             %%  %%============================================================================%%
+%%
+%% Los principales objetivos de la ingeniería de aplicación son: 
+%%  alcanzar un nivel tan alto como sea posible de reutilizar los elementos 
+%%  del dominio cuando se definan y desarrollen aplicaciones de la línea de 
+%%  productos y  explotar la variabilidad y los elementos comunes de la línea 
+%%  de productos software durante el desarrollo de aplicaciones. Por lo que 
+%%  este capítulo presentará al lector el proceso seguido para conseguir
+%%  reutilizar y componer los elementos creados en la fase de ingeniería de 
+%%  dominio. De tal modo que se deriven tan automáticamente como sea posible 
+%%  aplicaciones adaptadas a los diferentes requisitos de cada usuario. Además 
+%%  se mostrarán cuales han sido los problemas y las soluciones adoptadas a la 
+%%  hora de trabajar con el lenguaje C\#, sus clases parciales, y la 
+%%  plataforma .NET.
+%%
+%% En el capítulo \ref{chap:domain} anterior describimos el proceso para crear 
+%% la infraestructura necesaria de la que se puedan derivar configuraciones 
+%% concretas durante la fase de ingeniería de aplicación (ver Capítulo
+%% \ref{chap:background}). El objetivo de esta fase de ingeniería de 
+%% aplicación es componer características de la forma más cómoda y automática 
+%% posible.
+%%
+%%============================================================================%%
 
-Antes de comentar dichos problemas, recordar que uno de los requisitos principales de este proyecto es que tenía que funcionar en el lenguaje C\# de la plataforma .NET, y más concretamente, dentro del entorno Visual
-Studio\cite{randolph:2010}. Esto va a a introducir una complejidad adicional en el proceso de composición de características que comentamos a continuación, con ayuda de un ejemplo concreto.
+%%============================================================================%%
+%% NOTA(Pablo): Esto lo he resumido            
+%%============================================================================%%
+%%
+%%  las cuales compartirán dicha infraestructura común. Por tanto, deberíamos 
+%%  intentar evitar tener que replicar esta infraestructura con objeto de 
+%%  evitar redundancias y los típicos problemas asociados al código replicado.
+%%  Por ejemplo, si replicásemos el código por cada producto concreto creado, 
+%%  cualquier modificación que se realizase sobre la infraestructura, habría 
+%%  que propagarla a todos estos productos. Este puede ser un serio problema 
+%% a medida que el número de productos derivados crece.
+%%
+%%============================================================================%%
 
-Cuando se intenta crear una composición de características para un hogar inteligente en el que deseamos que aparezca el control inteligente de energía, obligatoriamente, debemos seleccionar el control de los calefactores y de las ventanas (ver Sección \ref{}). Además el método que se encargaba de ajustar la temperatura de un calefactor tenía una doble implementación, por un lado la característica control de calefactores tenía una implementación del método básica, donde simplemente se establecía la temperatura deseada, mientras que en la característica control de energía inteligente se establecía la temperatura y se cerraban las ventanas para que no existiesen pérdidas.
+%%============================================================================%%
+%% NOTA(Pablo): Esto lo he resumido
+%%============================================================================%%
+%%
+%% Por tanto, la solución natural es encapsular el código creado durante la 
+%% fase de ingeniería de dominio en una biblioteca o componente modificable 
+%% que el usuario no pueda reutilizar. Esto no obstante, va a a generar una 
+%% serie de problemas adicionales a la hora de componer características y que
+%% comentamos a continuación.
+%%
+%%============================================================================%%
 
-Esto obliga a solventar dos problemas, por un lado impedir que el usuario haga configuraciones incorrectas (esto será resuelto en el siguiente Capítulo\ref{}) y conseguir extender la funcionalidad de las clases parciales desde el componente que representé a la fase actual. Por lo tanto la primera pregunta que debemos resolver es ¿Cómo encapsular y relacionar el código de la fase de Ingeniería del Dominio con el desarrollado en la fase de Ingeniería de Producto? La plataforma .NET y el entorno Visual Studio proporcionan la capacidad de crear soluciones en la que pueden aparecer varios proyectos, por lo que se crearán dos proyectos en una misma solución. El primer proyecto contendrá el código creado en la fase de ingeniería de dominio, mientras que el segundo proyecto contendrá todos los artefactos necesarios para la fase de ingeniería de aplicación. Este último proyecto tendrá acceso al código del otro proyecto a través de la definición de una referencia, que permite que un proyecto tenga la posibilidad de usar un espacio de nombres perteneciente a otro proyecto. La siguiente cuestión es ¿Cómo extender la funcionalidad de determinadas clases parciales cuando se realiza una configuración concreta? Como primera respuesta a esta pregunta se trató de definir la clase parcial que se quería extender en el proyecto destinado a la Ingeniería del Producto, pero esto no es posible, ya que, el compilador no considera que ambas clases parciales son la misma, sino que trata de compilarlas por separado, por lo que esto provoca un conflicto de ambigüedad.
+%%============================================================================%%
+%% NOTA(Pablo): Hacer una figrua con un diagrama de paquetes                  %%
+%%              si se puede mostrar el contenido de HeaterMng y               %%
+%%              SmartEnergyMng, mejor que mejor                               %% %%              Haz que el paquete representando la característica concreta   %%
+%%              se llame MyHome                                               %%
+%%============================================================================%%
 
-Por lo que se nos presenta un problema que no puede ser resuelto de una forma inmediata, de este modo se ha ideado un procedimiento que permita solucionarlo, el cual es descrito a continuación:
+De acuerdo a la filosofía del lenguaje CaesarJ~\cite{aracic:2006}, para 
+crear una configuración concreta, deberemos crear una nueva característica 
+que represente al producto final y que herede de las características
+seleccionadas. Por ejemplo, la Figura~\ref{} muestra un ejemplo de un hogar
+inteligente para el cual se ha seleccionado el control inteligente de 
+energía, pero nada relacionado con el control automático de persianas ni 
+de luces.
 
-\begin{enumerate}
-\item Por cada clase que existía en el proyecto de la fase de ingeniería de dominio se crea una nueva clase en el proyecto correspondiente a la ingeniería de aplicación que herede de la clase necesaria, por ejemplo, en la figura \ref{application:fig:room} se muestra el código para la clase \imp{MyHome\_Room}, que hereda de la clase \imp{Room} desarrollada en la fase de ingeniería de dominio.
+Siguiendo el patrón descrito en la sección~\ref{domain:sec:pattern}, deberemos crear una clase parcial por cada clase distinta contenida en una característica seleccionada. Las clases contenidas en la familia de clases representando el producto específico deberán contener un método por cada método distinto (sin considerar el prefijo del nombre que indica la característica a la cual pertenece). Por último, cada método deberá delegar en la versión correspondiente a la versión más profunda de dicho método en el árbol de herencia entre familias de clases.
 
-\begin{figure}[ht!]
+Por ejemplo, de acuerdo con la Figura~\ref{}, en la característica \imp{MyProduct} deberíamos crear una clase parcial \imp{Gateway}; añadirle un método \imp{adjustTemperature}; y hacer que dicho método delegue en la versión de dicho método para la característica \imp{HeaterMng}, cuyo nombre, de acuerdo con el patrón de la Sección~\ref{domain:sec:pattern}, debe ser \imp{heaterMng\_adjustTemperature}. 
+
+%%============================================================================%%
+%% NOTA(Pablo): Simplificado                                                  %%
+%%============================================================================%%
+%%
+%% Antes de comentar dichos problemas, recordar que uno de los requisitos 
+%% principales de este proyecto es que tenía que funcionar en el lenguaje 
+%% C\# de la plataforma .NET, y más concretamente, dentro del entorno Visual
+%% Studio\cite{randolph:2010}. Esto va a a introducir una complejidad 
+%% adicional en el proceso de composición de características que comentamos a
+%% continuación, con ayuda de un ejemplo concreto.
+%%
+%%============================================================================%%
+
+No obstante, este esquema, debido a las peculiaridades del compilador de C\#, no va a ser tan fácil de aplicar tal como se ha descrito. Tal como se ha comentado anteriormente, los artefactos creados en la fase de la ingeniería del dominio y los artefactos creados en la fase de ingeniería de la aplicación, se van a mantener en proyectos separados. El principal problema derivado de este esquema es que el compilador de C\# no es capaz de fusionar clases parciales creadas en proyectos diferentes. Por tanto, el esquema propuesto por el patrón de la sección~\ref{domain:sec:pattern} no es directamente aplicable tal como se ha descrito. 
+
+Por tanto, hemos de decidir si modificar el patrón o renunciar a tener los artefactos pertenecientes a la fase de ingeniería del dominio o ingeniería de la aplicación separados. En aras de una mejor evolución y facilidad de mantenimiento de nuestra línea de productos software, optamos por modificar el patrón.
+
+%%============================================================================%%
+%% NOTA(Pablo): A este párrafo no le encuentro sentido del todo        
+%%============================================================================%%
+%%
+%% Cuando se intenta crear una composición de características para un hogar  
+%% inteligente en el que deseamos que aparezca el control inteligente de 
+%% energía, obligatoriamente, debemos seleccionar el control de los 
+%% calefactores y de las ventanas (ver Sección \ref{}). Además el método que 
+%% se encargaba de ajustar la temperatura de un calefactor tenía una doble 
+%% implementación, por un lado la característica control de calefactores tenía
+%% una implementación del método básica, donde simplemente se establecía la 
+%% temperatura deseada, mientras que en la característica control de energía 
+%% inteligente se establecía la temperatura y se cerraban las ventanas para 
+%% que no existiesen pérdidas.
+%%
+%%============================================================================%%
+
+%%============================================================================%%
+%% NOTA(Pablo): El hilo argumental es farragoso                
+%%============================================================================%%
+%% 
+%% Esto obliga a solventar dos problemas, por un lado impedir que el usuario 
+%% haga configuraciones incorrectas (esto será resuelto en el siguiente 
+%% Capítulo\ref{}) y conseguir extender la funcionalidad de las clases 
+%% parciales desde el componente que representé a la fase actual. Por lo 
+%% tanto la primera pregunta que debemos resolver es: ¿Cómo encapsular y
+%% relacionar el código de la fase de Ingeniería del Dominio con el 
+%% desarrollado en la fase de Ingeniería de Producto? La plataforma .NET y el 
+%% entorno Visual Studio proporcionan la capacidad de crear soluciones en la 
+%% que pueden aparecer varios proyectos, por lo que se crearán dos proyectos en
+%%  una misma solución. El primer proyecto contendrá el código creado en la 
+%% fase de ingeniería de dominio, mientras que el segundo proyecto contendrá 
+%% todos los artefactos necesarios para la fase de ingeniería de aplicación. 
+%% Este último proyecto tendrá acceso al código del otro proyecto a través de 
+%% la definición de una referencia, que permite que un proyecto tenga la 
+%% posibilidad de usar un espacio de nombres perteneciente a otro proyecto. 
+%% La siguiente cuestión es ¿Cómo extender la funcionalidad de determinadas
+%% clases parciales cuando se realiza una configuración concreta? Como primera
+%% respuesta a esta pregunta se trató de definir la clase parcial que se quería
+%% extender en el proyecto destinado a la Ingeniería del Producto, pero esto no
+%% es posible, ya que, el compilador no considera que ambas clases parciales 
+%% son la misma, sino que trata de compilarlas por separado, por lo que esto
+%% provoca un conflicto de ambigüedad.
+%%
+%%============================================================================%%
+
+El procedimiento seguido para modificar el patrón se describe a continuación:
+
+\paragraph{Paso 1: Redefinición de las clases existentes}
+
+\begin{figure}[tb!]
 \begin{center}
 \begin{footnotesize}
 \begin{verbatim}
 00 using SmartHome;
 01 namespace MyHome
 02 {
-03  class MyHome_Room: Room
+03  class MyHome_Room : Room
 04    {
 05        public MyHome_Room(String name, int id)
 06            : base(name, id) { }
-07    }
-08 }
+07    } // MyHome_Room
+08 } MyHome
 \end{verbatim}
 \end{footnotesize}
 \end{center}
@@ -59,51 +178,98 @@ Por lo que se nos presenta un problema que no puede ser resuelto de una forma in
 \label{application:fig:room}
 \end{figure}
 
+Por cada clase distinta contenida en al menos una característica seleccionada, creamos una nueva clase en la característica correspondiente al producto concreto que está siendo creado. Dicha clase se llamará igual que su correspondiente clase en la fase de ingeniería del dominio, pero precedida por el nombre de la característica que representa al producto concreto. Esta nueva clase heredará de su correspondiente versión en la fase de ingeniería del dominio.
 
-\item Los métodos que su implementación dependa de la característica seleccionada (ver el Capítulo \ref{chap:domain}), son definidos como \emph{virtual}, para que puedan ser sobrescritos e implementados cuando sean heredados en el proyecto que es implementado para la ingeniería de aplicación. A modo de ejemplo se ilustra la figura \ref{application:fig:virtualMethods} que contiene la implementación del método \imp{heaterAdjustTemperature} en la infraestructura creada en la fase de ingeniería de dominio.
+La Figura~\ref{application:fig:room} muestra como ejemplo el resultado de aplicar este procedimiento a la clase \imp{Room},que pertenece a la característica \imp{BaseSystem}.
 
-\begin{figure}[ht!]
+\paragraph{Paso 2: Asegurar que cada clase satisface la interfaz adecuada}
+
+De acuerdo con el patrón de la Figura~\ref{domain:sec:pattern}, las clases que representan el producto concreto deben contener un método por cada método distinto existente en las características seleccionadas. El nombre de dicho método no debe estar precedido por el nombre de ninguna característica. A esta versión de un método la denominaremos la versión \emph{limpia}. Por contraposición, la versión precedida por el nombre de la característica que lo contiene será la versión \emph{sucia}. 
+
+Según el mencionado patrón, la versión limpia de cada método debe delegar en la versión sucia del mismo correspondiente a la característica seleccionada que esté situada más profundamente en el árbol de herencia entre características.
+
+Al modificar el patrón de acuerdo al punto anterior, las clases de la ingeniería del dominio carecerán entonces de las versiones limpias de sus métodos. Por ejemplo, las clases que interaccionan con el \imp{Gateway} esperan que esta clase contenga un método \imp{adjustTemperature}, tal como aparece en los diseños de las características \imp{HeaterMng}  y \imp{SmartEnergyMng} (ver Figuras~\ref{domain:fig:heaterMngDesign} y~\ref{domain:fig:smartDesign}). 
+
+El problema que nos encontramos ahora es que la clase que añade la versión  \emph{limpia} de cada método, es decir, la clase que compone las características seleccionadas, no es una clase parcial que se fusione con las clases creadas en la ingeniería del dominio. Esta clase ahora \emph{hereda} de su correspondiente versión en la fase de ingeniería del dominio. Por tanto, las clases creadas en la fase de la ingeniería del dominio carecerán de las versiones limpias de los métodos que deben implementar. 
+
+Por ejemplo, la clase \imp{Gateway} de la fase de ingeniería del dominio carecerá del método \imp{adjustTemperature}, ya que éste ahora no se proporciona desde la fase de ingeniería de la aplicación al no ser la versión en ingeniería de la aplicación de la clase \imp{Gateway} una clase parcial que se fusione con las clases parciales \imp{Gateway} de la ingeniería del dominio. Por tanto, el compilador reportará el correspondiente error indicando que el método \imp{adjustTemperature} para la clase \imp{Gateway} no existe.
+
+\begin{figure}[tb!]
 \begin{center}
 \begin{footnotesize}
 \begin{verbatim}
-00  public virtual void heaterAdjustTemperature(int id, double temperature)
+01 namespace SmartHome
+02 {
+03    partial class Gateway 
+04    {
+05        public virtual void adjustTemperature (int id, double temperature)
+06        {
+07            this.heaterMng_adjustTemperature(id, temperature);
+08        }  // adjustTemperature
+09
+10        protected virtual void heaterMng_adjustTemperature(int id, 
+11                                                  double temperature) {
+12        ... } // heaterMng_adjustTemperature 
+13    } // Gateway
+14 } // SmartHome
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Implementación del método \imp{adjustTemperature} en la fase de ingeniería del dominio}
+\label{application:fig:gateway}
+\end{figure}
+
+
+La solución es añadir los métodos limpios a la clase \imp{Gateway} de la fase de ingeniería del dominio. A estos métodos limpios definidos en la fase de la ingeniería del dominio los denominaremos \emph{método semi limpio}. Nos quedan dos problemas por resolver: (1) en que clase parcial se añaden la versión semi limpia de un método; y (2) que implementación se les da a estas versiones semi limpias.
+
+La respuesta a la primera pregunta es que estos métodos deben aparecer en cuanto se les necesita. Es decir, la versión limpia de un método se crea en la característica que contenga a dicho método y que está situada a un nivel menos profundo dentro del árbol de herencia entre características. 
+
+En el caso de la segunda pregunta, hay que tener en cuenta que la implementación de este método sólo se podrá conocer cuando se hayan seleccionado las características que se desean incluir en un producto concreto. Esto significa que un método semi limpio deberá ser sobreescrito cuando se cree un producto concreto. Por tanto, las versiones semi limpias de cada método se declaran como \emph{virtuales} con objeto de que puedan ser sobreescritos de forma efectiva en la fase de ingeniería de la aplicación, conforme al conjunto de características seleccionadas.
+
+Por tanto, la implementación que le demos a estos métodos semi limpios será irrelevante, pues van a ser sobreescritos en la fase de ingeniería de la aplicación. Por tanto, optamos por dar a estos métodos semi limpios la implementación más simple posible que nos permita compilar la clase que los contiene. Esta implementación, en nuestro caso, se tratará de una simple delegación en la versión sucia del mismo método correspondiente a la característica donde se encuentra la versión semilimpia del mismo.
+
+La Figura~\ref{application:fig:gateway} muestra el resultado de aplicar este paso al método \imp{adjustTemperature} dentro de la característica \imp{HeaterMng}. Destacar que las características que redefinan el método \imp{adjustTemperature} sólo contendrán la versión sucia de dicho método, dado que la versión limpia del mismo sólo puede aparecer en una única clase parcial de las muchas que implementan el \imp{Gateway}.
+
+\paragraph{Paso 3: Selección de la implementación adecuada de cada método}
+
+% Por aquí
+
+
+Para permitir la redefinición de estos métodos, y de acuerdos con el patrón diseñado en este proyecto (cf. Sección~\ref{domain:sec:pattern}), se crearían las versiones de los métodos \imp{heaterMng_adjustTemperature}, \imp{smartEnergy_adjustTemperature} y \imp{adjustTemperature}, que delegaría en la implementación del método seleccionada. Este último método, de acuerdo con el mencionado patrón, se crearía en la fase de ingeniería de la aplicación, en tiempo de composición de características.
+
+
+\begin{figure}[tb!]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+00  public override void adjustTemperature(int id, double temperature)
 01  {
-02     //Su implementación es definida en la fase de ingeniería de aplicación.
+02     super.smartEnergy_adjustTempertature(id,temperature);
 03  }
 \end{verbatim}
 \end{footnotesize}
 \end{center}
-\caption{Implementación del método virtual \imp{heaterAdjustTemperature} en la infraestructura de la fase de ingeniería de dominio.}
+\caption{Implementación del método \imp{adjustTemperature} a nivel de ingeniería de la aplicación}
 \label{application:fig:virtualMethods}
 \end{figure}
 
 
+%%============================================================================%%
+%% NOTA(Pablo): El hilo argumental es farragoso
+%%============================================================================%%
+%%
+%% Los métodos que su implementación dependa de la característica
+%% seleccionada (ver el Capítulo \ref{chap:domain}), son definidos como
+%% \emph{virtual}, para que puedan ser sobrescritos e implementados cuando
+%% sean heredados en el proyecto que es implementado para la ingeniería de
+%% aplicación.
+%%
+%%============================================================================%%
 
-\item En el proyecto de la fase de ingeniería de aplicación se sobrescriben los métodos heredados necesarios del punto anterior, por ejemplo en la figura \ref{application:fig:gateway} se ilustra el código de la clase parcial \imp{Gateway} cuando se ha seleccionado la característica control inteligente de energía (SmartEnergyMng), por lo que el método \imp{heaterAdjustTemperature} deberá utilizar la implementación del método que se encuentra en la característica SmartEnergyMng.
+A modo de ejemplo, la Figura~\ref{application:fig:virtualMethods} muestra la implementación del método \imp{adjustTemperature} siguiendo el procedimiento descrito.
 
-\begin{figure}[ht!]
-\begin{center}
-\begin{footnotesize}
-\begin{verbatim}
-00 using SmartHome;
-01 namespace MyHome
-02 {
-03    partial class MyHome_Gateway:Gateway
-04    {
-05        public MyHome_Gateway()
-06            : base() { }
-07        public override void heaterAdjustTemperature(int id, double temperature)
-08        {
-09            this.smartEnergy_HeaterAdjustTemperature(id, temperature);
-10        }
-11    }
-12 }
-\end{verbatim}
-\end{footnotesize}
-\end{center}
-\caption{Implementación de la clase \imp{MyHome\_Gateway} cuando es seleccionada la característica control de energía inteligente.}
-\label{application:fig:gateway}
-\end{figure}
+En el proyecto de la fase de ingeniería de aplicación se sobrescriben los métodos heredados necesarios del punto anterior, por ejemplo en la figura \ref{application:fig:gateway} se ilustra el código de la clase parcial \imp{Gateway} cuando se ha seleccionado la característica control inteligente de energía (SmartEnergyMng), por lo que el método \imp{heaterAdjustTemperature} deberá utilizar la implementación del método que se encuentra en la característica SmartEnergyMng.
+
 
 \item Crear un método \imp{Main} que instancie y utilice las clases desarrolladas durante los pasos previos.
 \end{enumerate}
