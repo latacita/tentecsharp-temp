@@ -1,40 +1,41 @@
-%==================================================================%
-% Author : Pérez Ruiz, Alejandro                                   %
-% Version: 1.0, 16/03/2011                                         %                                                                                    %                                                                  %
-% Memoria del Proyecto Fin de Carrera                              %
-% Capítulo Conclusiones y Trabajos Futuros                         %
-%==================================================================%
+%%==================================================================%%
+%% Author : Pérez Ruiz, Alejandro                                   %%
+%% Version: 1.0, 16/03/2011                                         %%                                                                                    %%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Capítulo Conclusiones y Trabajos Futuros                         %%
+%%==================================================================%%
 
 \chapterheader{Conclusiones y Trabajos Futuros}{Conclusiones y Trabajos Futuros}
-
 \label{chap:conclusiones}
-%Introducción al capítulo
+
+El presente capítulo expone las conclusiones extraídas tras la realización del proyecto fin de carrera descrito en esta memoria, así como posibles trabajos futuros que complementen y mejoren el trabajo realizado.
 
 \chaptertoc
+
 \section{Conclusiones}
-%%% Qué hace exactamente mi proyecto
-Este proyecto ha desarrollado una línea de productos software para hogares automáticos y/o inteligentes mediante la tecnología .NET en el lenguaje C\# a través de sus clases parciales. El principal objetivo que se busca cuando se realiza un tipo de proyecto como este, es el de reducir costes de desarrollo y mejorar la calidad de los productos software. No obstante, el presente proyecto no tenía como principal cometido desarrollar un línea de productos software que pudiese ser trasladada a un caso práctico real de manera inmediato. En cierto modo, se ha utilizado un caso de estudio como es el de la automatización de los hogares, debido a la gran variabilidad y elementos comunes que poseen, para encontrar las posibles ventajas y desventajas que se presentan cuando se trabaja con las clases parciales de C\# sobre la tecnología .NET para construir líneas de productos software.
 
-Durante el desarrollo del proyecto se han encontrado problemas que se presentan cuando se utilizan las clases parciales como mecanismo principal para encapsular las distintas características de una línea de productos. Por ello se han desarrollado nuevos mecanismos que pueden ser utilizados como una alternativa para suplir estos problemas. Por lo que el principal objetivo ha sido demostrar que utilizando los mecanismos desarrollados en el presente proyecto se pueden construir líneas de productos software bajo la tecnología .NET y las clases parciales de C\#.
+Este proyecto ha desarrollado una línea de productos software para hogares automáticos y/o inteligentes mediante la tecnología .NET en el lenguaje C\#. 
+Se ha utilizado como mecanismo para soportar la variabilidad existente en una línea de productos las clases parciales de C\#. El principal objetivo de una línea de productos software es reducir los costes de desarrollo y mejorar la calidad de los productos software concretos pertenecientes a una familia de productos software. 
 
-También ha quedado demostrado que es posible construir software dirigido por modelos en una línea de productos software, combinando las herramientas denominadas \emph{DSL Tools} y las clases parciales de C\# bajo el mismo entorno de desarrollo. Consiguiendo dirigir el desarrollo software a través de un nivel de abstracción alto a otro nivel inferior, hasta llegar al código fuente. No obstante, existen ciertos inconvenientes al utilizar las herramientas \emph{DSL Tools} para definir metamodelos, debido a que pueden provocar un sustancial aumento en esfuerzo y tiempo. Es un factor a tener muy en cuenta, especialmente en proyectos de gran magnitud. Esto es debido principalmente, a la información mal estructurada que normalmente se encuentra cuando se trata de documentarse acerca de dichas herramientas.
+No obstante, el presente proyecto no tenía como principal objetivo desarrollar una línea de productos software real. En cierto modo, se ha utilizado un caso de estudio como es el de la automatización de los hogares, debido a la gran variabilidad que dicho dominio posee. Ello de dicho dominio un excelente elemento de prueba para analizar debilidades y fortalezas de las clases parciales de C\# como elemento central para la construcción de líneas de productos software.
 
-Resumiendo, el presente proyecto puede considerarse como un referente para la creación de líneas de productos software bajo la tecnología .NET. De tal modo, que se han desarrollado métodos que permiten suplir las carencias que se encuentran al utilizar esta tecnología con las líneas de productos software. Permitiendo a los numerosos desarrolladores de software y empresas que trabajan bajo esta tecnología, utilizar las líneas de productos software, sin incurrir en nuevos gastos de aprendizaje, cambio de herramientas...
+Durante el desarrollo del proyecto se han encontrado diversos problemas relacionados con el uso de las clases parciales como mecanismo para la modularización y composición de las distintas características de una línea de productos. Para suplir tales deficiencias, se han desarrollado estrategias alternativas que permitiesen solventar estos problemas. El principal objetivo de este proyecto ha sido demostrar que utilizando estas estrategias se pueden construir líneas de productos software bajo la tecnología .NET usando las clases parciales de C\# con ciertas propiedades ventajosas sobre una solución clásica basada en técnicas puramente orientadas a objetos. 
 
-%%% Qué no hace
+El presente proyecto también demuestra que es posible automatizar una línea de productos software construida para la plataforma .NET, siguiendo un enfoque dirigido por modelos y las \emph{DSL Tools} proporcionadas por Microsoft. No obstante, el proceso de familiarización y aprendizaje relacionado con dichas herramientas, las \emph{DSL Tools}, puede ser bastante largo y costoso, debido principalmente, a la escasez, tanto en cantidad como en calidad, de la información proporcionada sobre su utilización.
 
-%%% Experiencias Personales
+Resumiendo, el presente proyecto puede considerarse como un referente para la creación de líneas de productos software bajo la tecnología .NET. De tal modo, que se han desarrollado métodos que permiten suplir las carencias que se encuentran al utilizar esta tecnología para la implementación de las líneas de productos software. Esto permite a las empresas actuales que trabajen con la plataforma .NET adquirir prácticas y hábitos relacionados con las líneas de productos software, sin necesidad de adquirir nuevas herramientas, entornos de desarrollo y sin necesidad, sobre todo, de aprender nuevos paradigmas de programación.
 
 \section{Trabajos Futuros}
-%%% Cualquier cosa que se puede hacer para mejorar este proyecto
+
 Todo proyecto es siempre susceptible de mejorar, existiendo una serie de características, que bien por falta de tiempo, por su excesiva complejidad o por ser de un interés secundario, nunca fueron incorporadas al proyecto o quedaron por resolver. Y como este proyecto no es ninguna excepción, a continuación se muestra una lista de trabajos futuros que se podrían realizar:
 
 \begin{enumerate}
-\item Como ya se comentó en el Capítulo \ref{chap:domain}, el presente proyecto no está conectado a dispositivos reales, funciona bajo la simulación. Por lo que una posible línea de trabajo futuro consistiría en adaptar todos los elementos necesarios para que el presente proyecto funcionase sobre un hogar automatizado real, estando conectado a dispositivos reales, tales como termómetros, calefactores, sensores de ventanas...
+\item Como ya se comentó en el Capítulo~\ref{chap:domain}, el presente proyecto no trabaja con dispositivos domóticos reales. Se trata de una simple simulación de un hogar inteligente. Por lo que una posible línea de trabajo futuro consistiría en adaptar todos los elementos necesarios para que el presente proyecto funcionase sobre un hogar automatizado real, usando dispositivos reales.
 
-\item Ampliar el número de características implementadas, intentado llegar a completar una línea de productos software para hogares inteligentes más amplia, donde aparezcan características como control inteligente de puertas, detección de incendios, acceso al Gateway a través de dispositivos móviles, entre otras muchas.
-        
-\item El proceso seguido para desarrollar este proyecto se puede trasladar a muchos que presenten la problemática de las versiones, dirigido a diferentes tipos de clientes, por lo que en cada caso necesitan unas características específicas. De tal modo que son susceptibles a ser implementados bajo los principios, fundamentos y las técnicas de la ingeniería de las líneas de productos software. Pero ya se citó en el Capítulo \ref{chap:introduction}, que muchas de las empresas dedicadas al desarrollo software trabajan bajo la tecnología .NET y son reticentes a utilizar nuevos lenguajes de programación por los costes adicionales que esto les puede suponer. Por lo que utilizando los conocimientos y métodos adquiridos durante la realización de este proyecto se podría trabajar en el desarrollo de una serie de modelos y generadores de código que permitan la gestión y composición de características a nivel genérico, apoyándose en los estándares UML. De este modo se construiría una infraestructura en .NET de la cual se puedan derivar automática productos de una familia software.
+\item Ampliar el número de características implementadas, intentado llegar a completar una línea de productos software para hogares inteligentes más amplia, donde aparezcan características como control inteligente de puertas, detección de incendios, acceso al \emph{Gateway} a través de dispositivos móviles o internet, entre otras muchas.
+
+\item El proceso seguido para desarrollar este proyecto se puede aplicar a otros productos susceptibles de ser gestionados como una línea de productos software. 
+		
 \end{enumerate}
 
 
