@@ -5,15 +5,15 @@
 %% Version: 1.0, 16/03/2011                                        %%                                                                                    %% Version: 1.1, 20/06/2011                                        %%                                                                                    %%                                                                 %%
 %%                                                                 %%
 %% Memoria del Proyecto Fin de Carrera                             %%
-%% ApplicationEngineering/DSL                                      %%  
+%% ApplicationEngineering/DSL                                      %%
 %%=================================================================%%
 
 
-La idea que subyace detrás de la automatización del desarrollo software dirigida por modelos~\cite{} es crear algún tipo de lenguaje de modelado que permita especificar productos concretos. Estos lenguajes reciben el nombre de \emph{lenguajes específicos de dominio} (\emph{DSL}, por sus siglas en inglés \emph{Domain Specific Language})~\cite{kleppe:2008} . Dichos lenguajes deberían ser tan simples y fáciles de usar como fuese posible, permitiendo que incluso usuarios finales, no necesariamente relacionados con el mundo del desarrollo software pero si familiares con el dominio, pudiesen especificar ellos mismo que productos concretos desean obtener de nuestra línea de productos. A continuación, el código necesario para componer e instanciar las características seleccionadas se generaría de forma automática a partir de un modelo de un producto concreto.
+La idea que subyace detrás de la automatización del desarrollo software dirigida por modelos~\cite{santos:2006, santos:2007, santos:2008} es crear algún tipo de lenguaje de modelado que permita especificar productos concretos. Estos lenguajes reciben el nombre de \emph{lenguajes específicos de dominio} (\emph{DSL}, por sus siglas en inglés \emph{Domain Specific Language})~\cite{kleppe:2008} . Dichos lenguajes deberían ser tan simples y fáciles de usar como fuese posible, permitiendo que incluso usuarios finales, no necesariamente relacionados con el mundo del desarrollo software pero si familiares con el dominio, pudiesen especificar ellos mismo que productos concretos desean obtener de nuestra línea de productos. A continuación, el código necesario para componer e instanciar las características seleccionadas se generaría de forma automática a partir de un modelo de un producto concreto.
 
-Para definir un lenguaje específico de dominio, el primer paso a realizar es definir su sintaxis abstracta o gramática, lo cual se realiza mediante la construcción de un metamodelo~\cite{kleppe:2008} para dicho DSL. Un metamodelo se puede definir de manera informal como un modelo de la sintaxis de todos los modelos que se pueden construir usando el DSL que especifica. El metamodelo para una línea de productos debería procurar, que en la medida de lo posible, evitar que se puedan crear configuraciones que den lugar a productos erróneos o no seguros. Por ejemplo, en nuestro caso, el propio metamodelo debería evitar que se puedan crear productos que contengan funcionalidades para el control inteligente de a energía para una casa que no tenga ningún aparato de control de la temperatura automatizado. 
+Para definir un lenguaje específico de dominio, el primer paso a realizar es definir su sintaxis abstracta o gramática, lo cual se realiza mediante la construcción de un metamodelo~\cite{kleppe:2008} para dicho DSL. Un metamodelo se puede definir de manera informal como un modelo de la sintaxis de todos los modelos que se pueden construir usando el DSL que especifica. El metamodelo para una línea de productos debería procurar, que en la medida de lo posible, evitar que se puedan crear configuraciones que den lugar a productos erróneos o no seguros. Por ejemplo, en nuestro caso, el propio metamodelo debería evitar que se puedan crear productos que contengan funcionalidades para el control inteligente de a energía para una casa que no tenga ningún aparato de control de la temperatura automatizado.
 
-Para crear dicho metamodelo, hacemos uso de la herramienta que proporciona el entorno de desarrollo Visual Studio 2010 para tal fin: \emph{Domain-Specific Language Tools (DSL Tools)}~\cite{jones:2011}. Las DSL Tools proporcionan  facilidades para crear un metamodelo, generar automáticamente un editor que permitan crear modelos visuales conformes a dicho metamodelo así como crear generadores de código para los modelos producidos con dicho editor.
+Para crear dicho metamodelo, hacemos uso de la herramienta que proporciona el entorno de desarrollo Visual Studio 2010 para tal fin: \emph{Domain-Specific Language Tools (DSL Tools)}~\cite{jones:2011}. Las DSL Tools proporcionan facilidades para crear un metamodelo, generar automáticamente un editor que permitan crear modelos visuales conformes a dicho metamodelo así como crear generadores de código para los modelos producidos con dicho editor.
 
 \begin{figure}[!tb]
  \centering
@@ -22,20 +22,20 @@ Para crear dicho metamodelo, hacemos uso de la herramienta que proporciona el en
  \label{app:fig:metamodel}
 \end{figure}
 
-La Figura~\ref{app:fig:metamodel} muestra el metamodelo creado para la configuración de productos concretos dentro de nuestra línea de productos. Un metamodelo se describe normalmente usando una versión compacto de los diagramas de clases de UML\footnote{En realidad, la notación es similar a la de los diagramas de clases UML, pero corresponde al lenguaje de metamodelado MOF}. En nuestra caso, el metamodelo muestra por ejemplo que ...
+La Figura~\ref{app:fig:metamodel} muestra el metamodelo creado para la configuración de productos concretos dentro de nuestra línea de productos. Un metamodelo se describe normalmente usando una versión compacta de los diagramas de clases de UML\footnote{En realidad, la notación es similar a la de los diagramas de clases UML, pero corresponde al lenguaje de metamodelado MOF}. En nuestra caso, el metamodelo muestra por ejemplo que al menos una planta debe ser seleccionada y a su vez por cada planta seleccionada debemos seleccionar una habitación. Mientras que las demás características son opcionales y serán seleccionadas en función de los requerimientos y/o necesidades de los usuarios.
 
 %%=================================================================%%
-%% NOTA(Pablo): Describe aquí algo del metamodelo para que se vea  %%
+%% HECHO(Pablo): Describe aquí algo del metamodelo para que se vea %%
 %%              como funciona                                      %%
 %%=================================================================%%
 
-No obstante, no todas las restricciones existentes en un cierto dominio pueden modelarse usando la notación propia de los diagramas de clase UML, por lo que a veces es necesario definir ciertas restricciones externas, usando lenguajes como OCL~\cite{}. En nuestro caso, se definen tres restricciones, las cuales aparecen en la parte baja de la Figura~\ref{app:fig:metamodel}. En nuestro caso, el editor generado automáticamente a partir de este metamodelo se enriquece con una serie de funciones destinadas a comprobar que dichas restricciones no se violan cuando se crean productos concretos. De esta forma, los modelos creados y validados por el editor siempre representarán productos correctos, siendo una entrada válida para los generadores de código.
+No obstante, no todas las restricciones existentes en un cierto dominio pueden modelarse usando la notación propia de los diagramas de clase UML, por lo que a veces es necesario definir ciertas restricciones externas, usando lenguajes como OCL~\cite{warmer:2003}. En nuestro caso, se definen tres restricciones, las cuales aparecen en la parte baja de la Figura~\ref{app:fig:metamodel}. En nuestro caso, el editor generado automáticamente a partir de este metamodelo se enriquece con una serie de funciones destinadas a comprobar que dichas restricciones no se violan cuando se crean productos concretos. De esta forma, los modelos creados y validados por el editor siempre representarán productos correctos, siendo una entrada válida para los generadores de código.
 
 %%=================================================================%%
-%% NOTA(Pablo): Estas 3 restricciones están mal definidas. O usas  %%
-%%              OCL o en texto                                     %%   
+%% HECHO(Pablo): Estas 3 restricciones están mal definidas. O usas  %%
+%%              OCL o en texto                                     %%
 %%=================================================================%%
- 
+
 De esta forma se consigue integrar en el propio entorno de Visual Studio 2010 una nueva herramienta que permite construir modelos específicos que representan productos concretos. Además, se comprueba que dichas configuraciones no sean incorrectas. La siguiente sección describe como construir un generador de código que automáticamente componga e instancie características de acuerdo al esquema especificado en la sección anterior.
 
 
