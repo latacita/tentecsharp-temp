@@ -5,144 +5,35 @@
 %% Version: 1.0, 16/03/2011                                        %%                                                                                    %% Version: 1.1, 20/06/2011                                        %%                                                                                    %%                                                                 %%
 %%                                                                 %%
 %% Memoria del Proyecto Fin de Carrera                             %%
-%% ApplicationEngineering/FeatureComposition                       %% 
+%% ApplicationEngineering/FeatureComposition                       %%
 %%=================================================================%%
 
-La \emph{ingeniería de aplicación} es el proceso en el cual, las aplicaciones concretas de una línea de productos se construyen a través de los artefactos creados en la fase de ingeniería de dominio~\cite{pohl:2005}. Estas aplicaciones concretas, que en principio se espera que sea un número suficientemente largo, compartirán los artefactos creados durante la fase de ingeniería del dominio (ver capítulo anterior). Por tanto, para evitar redundancias y replicación de código que puedan generar problemas de mantenimiento y evolución, la solución natural es encapsular el código creado durante la fase de ingeniería de dominio en una biblioteca o componente reutilizable accesible desde los proyectos de ingeniería de la aplicación.
+La \emph{ingeniería de aplicación} es el proceso en el cual, las aplicaciones concretas de una línea de productos se construyen a través de los artefactos creados en la fase de ingeniería de dominio~\cite{pohl:2005}. Estas aplicaciones concretas, que en principio se espera que sea un número suficientemente largo, compartirán los artefactos creados durante la fase de ingeniería del dominio (ver Capítulo \ref{chap:domain}). Por tanto, para evitar redundancias y replicación de código que puedan generar problemas de mantenimiento y evolución, la solución natural es encapsular el código creado durante la fase de ingeniería de dominio en una biblioteca o componente reutilizable accesible desde los proyectos de ingeniería de la aplicación.
 
 %%============================================================================%%
-%% NOTA(Pablo): Esto ya lo hemos comentado bastante a lo largo de la memoria  %%
-%%              así que lo quitamos de este punto                             %%  %%============================================================================%%
-%%
-%% Los principales objetivos de la ingeniería de aplicación son:
-%%  alcanzar un nivel tan alto como sea posible de reutilizar los elementos
-%%  del dominio cuando se definan y desarrollen aplicaciones de la línea de
-%%  productos y  explotar la variabilidad y los elementos comunes de la línea
-%%  de productos software durante el desarrollo de aplicaciones. Por lo que
-%%  este capítulo presentará al lector el proceso seguido para conseguir
-%%  reutilizar y componer los elementos creados en la fase de ingeniería de
-%%  dominio. De tal modo que se deriven tan automáticamente como sea posible
-%%  aplicaciones adaptadas a los diferentes requisitos de cada usuario. Además
-%%  se mostrarán cuales han sido los problemas y las soluciones adoptadas a la
-%%  hora de trabajar con el lenguaje C\#, sus clases parciales, y la
-%%  plataforma .NET.
-%%
-%% En el capítulo \ref{chap:domain} anterior describimos el proceso para crear
-%% la infraestructura necesaria de la que se puedan derivar configuraciones
-%% concretas durante la fase de ingeniería de aplicación (ver Capítulo
-%% \ref{chap:background}). El objetivo de esta fase de ingeniería de
-%% aplicación es componer características de la forma más cómoda y automática
-%% posible.
-%%
-%%============================================================================%%
-
-%%============================================================================%%
-%% NOTA(Pablo): Esto lo he resumido
-%%============================================================================%%
-%%
-%%  las cuales compartirán dicha infraestructura común. Por tanto, deberíamos
-%%  intentar evitar tener que replicar esta infraestructura con objeto de
-%%  evitar redundancias y los típicos problemas asociados al código replicado.
-%%  Por ejemplo, si replicásemos el código por cada producto concreto creado,
-%%  cualquier modificación que se realizase sobre la infraestructura, habría
-%%  que propagarla a todos estos productos. Este puede ser un serio problema
-%% a medida que el número de productos derivados crece.
-%%
-%%============================================================================%%
-
-%%============================================================================%%
-%% NOTA(Pablo): Esto lo he resumido
-%%============================================================================%%
-%%
-%% Por tanto, la solución natural es encapsular el código creado durante la
-%% fase de ingeniería de dominio en una biblioteca o componente modificable
-%% que el usuario no pueda reutilizar. Esto no obstante, va a a generar una
-%% serie de problemas adicionales a la hora de componer características y que
-%% comentamos a continuación.
-%%
-%%============================================================================%%
-
-%%============================================================================%%
-%% NOTA(Pablo): Hacer una figrua con un diagrama de paquetes                  %%
+%% HECHO(Pablo): Hacer una figrua con un diagrama de paquetes                  %%
 %%              si se puede mostrar el contenido de HeaterMng y               %%
 %%              SmartEnergyMng, mejor que mejor                               %% %%              Haz que el paquete representando la característica concreta   %%
 %%              se llame MyHome                                               %%
 %%============================================================================%%
 
-De acuerdo a la filosofía del lenguaje CaesarJ~\cite{aracic:2006}, para
-crear una configuración concreta, deberemos crear una nueva característica
-que represente al producto final y que herede de las características
-seleccionadas. Por ejemplo, la Figura~\ref{} muestra un ejemplo de un hogar
-inteligente para el cual se ha seleccionado el control inteligente de
-energía, pero nada relacionado con el control automático de persianas ni
-de luces.
+De acuerdo a la filosofía del lenguaje CaesarJ~\cite{aracic:2006}, para crear una configuración concreta, deberemos crear una nueva característica que represente al producto final y que herede de las características
+seleccionadas. Por ejemplo, la Figura~\ref{domain:fig:mediator} muestra un ejemplo de un hogar inteligente para el cual se ha seleccionado el control inteligente de energía, pero nada relacionado con el control automático de persianas ni de luces.
+
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=.87\linewidth]{applicationEngineering/images/configuration.eps} \\
+ \caption{Configuración de un hogar inteligente con el control inteligente de energía seleccionado.}
+ \label{domain:fig:mediator}
+\end{figure}
 
 Siguiendo el patrón descrito en la sección~\ref{domain:sec:pattern}, deberemos crear una clase parcial por cada clase distinta contenida en una característica seleccionada. Las clases contenidas en la familia de clases representando el producto específico deberán contener un método por cada método distinto (sin considerar el prefijo del nombre que indica la característica a la cual pertenece). Por último, cada método deberá delegar en la versión correspondiente a la versión más profunda de dicho método en el árbol de herencia entre familias de clases.
 
-Por ejemplo, de acuerdo con la Figura~\ref{}, en la característica \imp{MyProduct} deberíamos crear una clase parcial \imp{Gateway}; añadirle un método \imp{adjustTemperature}; y hacer que dicho método delegue en la versión de dicho método para la característica \imp{HeaterMng}, cuyo nombre, de acuerdo con el patrón de la Sección~\ref{domain:sec:pattern}, debe ser \imp{heaterMng\_adjustTemperature}.
-
-%%============================================================================%%
-%% NOTA(Pablo): Simplificado                                                  %%
-%%============================================================================%%
-%%
-%% Antes de comentar dichos problemas, recordar que uno de los requisitos
-%% principales de este proyecto es que tenía que funcionar en el lenguaje
-%% C\# de la plataforma .NET, y más concretamente, dentro del entorno Visual
-%% Studio\cite{randolph:2010}. Esto va a a introducir una complejidad
-%% adicional en el proceso de composición de características que comentamos a
-%% continuación, con ayuda de un ejemplo concreto.
-%%
-%%============================================================================%%
+Por ejemplo, de acuerdo con la Figura~\ref{domain:fig:mediator}, en la característica \imp{MyProduct} deberíamos crear una clase parcial \imp{Gateway}; añadirle un método \imp{adjustTemperature}; y hacer que dicho método delegue en la versión de dicho método para la característica \imp{HeaterMng}, cuyo nombre, de acuerdo con el patrón de la Sección~\ref{domain:sec:pattern}, debe ser \imp{heaterMng\_adjustTemperature}.
 
 No obstante, este esquema, debido a las peculiaridades del compilador de C\#, no va a ser tan fácil de aplicar tal como se ha descrito. Tal como se ha comentado anteriormente, los artefactos creados en la fase de la ingeniería del dominio y los artefactos creados en la fase de ingeniería de la aplicación, se van a mantener en proyectos separados. El principal problema derivado de este esquema es que el compilador de C\# no es capaz de fusionar clases parciales creadas en proyectos diferentes. Por tanto, el esquema propuesto por el patrón de la sección~\ref{domain:sec:pattern} no es directamente aplicable tal como se ha descrito.
 
 Por tanto, hemos de decidir si modificar el patrón o renunciar a tener los artefactos pertenecientes a la fase de ingeniería del dominio o ingeniería de la aplicación separados. En aras de una mejor evolución y facilidad de mantenimiento de nuestra línea de productos software, optamos por modificar el patrón.
-
-%%============================================================================%%
-%% NOTA(Pablo): A este párrafo no le encuentro sentido del todo
-%%============================================================================%%
-%%
-%% Cuando se intenta crear una composición de características para un hogar
-%% inteligente en el que deseamos que aparezca el control inteligente de
-%% energía, obligatoriamente, debemos seleccionar el control de los
-%% calefactores y de las ventanas (ver Sección \ref{}). Además el método que
-%% se encargaba de ajustar la temperatura de un calefactor tenía una doble
-%% implementación, por un lado la característica control de calefactores tenía
-%% una implementación del método básica, donde simplemente se establecía la
-%% temperatura deseada, mientras que en la característica control de energía
-%% inteligente se establecía la temperatura y se cerraban las ventanas para
-%% que no existiesen pérdidas.
-%%
-%%============================================================================%%
-
-%%============================================================================%%
-%% NOTA(Pablo): El hilo argumental es farragoso
-%%============================================================================%%
-%%
-%% Esto obliga a solventar dos problemas, por un lado impedir que el usuario
-%% haga configuraciones incorrectas (esto será resuelto en el siguiente
-%% Capítulo\ref{}) y conseguir extender la funcionalidad de las clases
-%% parciales desde el componente que representé a la fase actual. Por lo
-%% tanto la primera pregunta que debemos resolver es: ¿Cómo encapsular y
-%% relacionar el código de la fase de Ingeniería del Dominio con el
-%% desarrollado en la fase de Ingeniería de Producto? La plataforma .NET y el
-%% entorno Visual Studio proporcionan la capacidad de crear soluciones en la
-%% que pueden aparecer varios proyectos, por lo que se crearán dos proyectos en
-%%  una misma solución. El primer proyecto contendrá el código creado en la
-%% fase de ingeniería de dominio, mientras que el segundo proyecto contendrá
-%% todos los artefactos necesarios para la fase de ingeniería de aplicación.
-%% Este último proyecto tendrá acceso al código del otro proyecto a través de
-%% la definición de una referencia, que permite que un proyecto tenga la
-%% posibilidad de usar un espacio de nombres perteneciente a otro proyecto.
-%% La siguiente cuestión es ¿Cómo extender la funcionalidad de determinadas
-%% clases parciales cuando se realiza una configuración concreta? Como primera
-%% respuesta a esta pregunta se trató de definir la clase parcial que se quería
-%% extender en el proyecto destinado a la Ingeniería del Producto, pero esto no
-%% es posible, ya que, el compilador no considera que ambas clases parciales
-%% son la misma, sino que trata de compilarlas por separado, por lo que esto
-%% provoca un conflicto de ambigüedad.
-%%
-%%============================================================================%%
 
 El procedimiento seguido para modificar el patrón se describe a continuación:
 
@@ -222,7 +113,7 @@ La Figura~\ref{application:fig:gateway} muestra el resultado de aplicar este pas
 
 \paragraph{Paso 3: Selección de la implementación adecuada de cada método}
 
-El último paso que nos queda para completar nuestra tarea es crear una versión limpia de cada método, a nivel de ingeniería de la aplicación, y hacer que este método delegue en la implementación que corresponda de acuerdo con las características seleccionadas. Por tanto, en este último paso, creamos, por cada método distinto contenido en una característica seleccionada, una versión limpia de dicho método en la clase que corresponda a nivel de ingeniería de la aplicación. A continuación, hacemos que la versión limpia creada delegue en la implementación correspondiente a su versión más profunda en el árbol de herencia entre características y pertenciente a una característica seleccionada. El nuevo método limpio creado sobreescribirá la versión semi limpia creada a nivel de Ingeniería del Dominio.
+El último paso que nos queda para completar nuestra tarea es crear una versión limpia de cada método, a nivel de ingeniería de la aplicación, y hacer que este método delegue en la implementación que corresponda de acuerdo con las características seleccionadas. Por tanto, en este último paso, creamos, por cada método distinto contenido en una característica seleccionada, una versión limpia de dicho método en la clase que corresponda a nivel de ingeniería de la aplicación. A continuación, hacemos que la versión limpia creada delegue en la implementación correspondiente a su versión más profunda en el árbol de herencia entre características y pertenciente a una característica seleccionada. El nuevo método limpio creado sobreescribirá la versión semi limpia creada a nivel de ingeniería de dominio.
 
 \begin{figure}[tb!]
 \begin{center}
@@ -256,5 +147,5 @@ A modo de ejemplo, la Figura~\ref{application:fig:virtualMethods} muestra la imp
 
 Una vez compuestas las características de forma adecuada, el siguiente paso es instanciar las diferentes clases obtenidas para crear los objetos que formarán parte de un producto concreto. Para ello, creamos una clase \imp{Launcher} con un método \imp{main} que sirva para crear los objetos iniciales que formarán parte de un producto concreto y componerlos de manera adecuada. Por ejemplo, deberemos crear un objeto \imp{Floor} por cada planta existente en un hogar concreto y añadir esta planta a la lista de plantas del objeto \imp{Gateway}.
 
-Con lo descrito hasta ahora somos capaces de componer características sin modificar el código creado durante la fase de ingeniería del dominio, y permitiendo que dicho código resida fuera del proyecto para el desarrollo de la fase de ingeniería de la aplicación. No obstante, todo este proceso, que suele ser bastante largo y tedioso, se ha de realizar manualmente, lo que supone un esfuerzo considerable, que se traduce en un incremento del coste. La siguiente sección describe como se pueden automatizar este proceso usando técnicas de desarrollo software dirigido por modelos. 
+Con lo descrito hasta ahora somos capaces de componer características sin modificar el código creado durante la fase de ingeniería del dominio, y permitiendo que dicho código resida fuera del proyecto para el desarrollo de la fase de ingeniería de la aplicación. No obstante, todo este proceso, que suele ser bastante largo y tedioso, se ha de realizar manualmente, lo que supone un esfuerzo considerable, que se traduce en un incremento del coste. La siguiente sección describe como se pueden automatizar este proceso usando técnicas de desarrollo software dirigido por modelos.
 

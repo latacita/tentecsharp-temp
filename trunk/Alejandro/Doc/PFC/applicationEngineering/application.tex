@@ -10,16 +10,16 @@
 \chapterheader{Ingeniería de la Aplicación}{Ingeniería de Aplicación}
 \label{chap:application}
 
-Este capítulo se describe la fase de \emph{ingeniería de aplicación} (en inglés, \emph{Application Engineering}) para nuestra línea de productos software. Dentro de dicha fase, se detalla el proceso seguido para componer las características creadas en la fase de ingeniería del dominio (ver capítulo anterior). A continuación, se describe la infraestructura creada para poder componer características siguiendo este proceso de forma tan automática como sea posible. Por último, se describen las acciones llevadas a cabos para realizar el despliegue de nuestro producto.
+Este capítulo se describe la fase de \emph{ingeniería de aplicación} (en inglés, \emph{Application Engineering}) para nuestra línea de productos software. Dentro de dicha fase, se detalla el proceso seguido para componer las características creadas en la fase de ingeniería del dominio (ver Capítulo \ref{chap:domain}). A continuación, se describe la infraestructura creada para poder componer características siguiendo este proceso de forma tan automática como sea posible. Por último, se describen las acciones llevadas a cabos para realizar el despliegue de nuestro producto.
 
 \chaptertoc
 
 \section{Proceso de composición de características}
-
+\label{sec:application:composition}
 \input{applicationEngineering/composition.tex}
 
 \section{Creación de un lenguaje específico de dominio para nuestra LPS}
-
+\label{sec:application:dsl}
 \input{applicationEngineering/dsl.tex}
 
 \section{Plantillas de generación de código}
@@ -29,7 +29,7 @@ Este capítulo se describe la fase de \emph{ingeniería de aplicación} (en inglés,
 \section{Instaladores y despliegue}
 %% Section{Instaladores y Despliegue}
 
-Es necesario que todos los artefactos creados hasta este punto sean empaquetados en plugins para que puedan extender la funcionalidad del entorno de desarrollo Visual Studio, sean distribuidos y se puedan instalar en cualquier ordenador. Para tal cometido, en primer lugar se crea un instalador que permita crear modelos de un hogar inteligente, el cuál ha sido desarrollado en la Sección \todo{PONER SECCIÓN}. De tal modo que se construye un archivo con extensión \emph{MSI (Windows Installer)}, que permite ser instalado en cualquier ordenador que posea la versión Professional 2010 del entorno Visual Studio. Lo que hace este instalador es añadir un nuevo elemento a Visual Studio, para poder crear en cualquier proyecto, un archivo que permita definir modelos de un hogar inteligente a través del metamodelo definido en la Sección \todo{PONER SECCIÓN}.
+Es necesario que todos los artefactos creados hasta este punto sean empaquetados en plugins para que puedan extender la funcionalidad del entorno de desarrollo Visual Studio, sean distribuidos y se puedan instalar en cualquier ordenador. Para tal cometido, en primer lugar se crea un instalador que permita crear modelos de un hogar inteligente, el cuál ha sido desarrollado en la Sección \ref{sec:application:dsl}. De tal modo que se construye un archivo con extensión \emph{MSI (Windows Installer)}, que permite ser instalado en cualquier ordenador que posea la versión Professional 2010 del entorno Visual Studio. Lo que hace este instalador es añadir un nuevo elemento a Visual Studio, para poder crear en cualquier proyecto, un archivo que permita definir modelos de un hogar inteligente a través del metamodelo definido en la Sección \ref{sec:application:dsl}.
 
 El segundo instalador permitirá a los usuarios añadir un nuevo plugin en Visual Studio que agregue una nueva solución a Visual Studio, la cual contendrá los dos proyectos creados en la fase de ingeniería de aplicación y de dominio. De tal modo, que instalando este plugin cualquier usuario podrá definir en su computadora su propia aplicación para un hogar inteligente. Debido a ciertos detalles técnicos de bajo nivel, que se omiten en aras de la brevedad y evitar aburrir al lector, el desarrollo de este instalador llevó un tiempo bastante mayor del inicialmente planeado. Su desarrollo supuso un esfuerzo extra, contrastando con el otro instalador, que requirió menor cantidad de tiempo. El principal problema se derivaba de la incapacidad de que ambos proyectos mantuviesen correctamente las referencias entre ellos cuando eran integrados como un nuevo plugin.
 
