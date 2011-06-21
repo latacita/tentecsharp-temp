@@ -1,0 +1,33 @@
+%%=================================================================%%
+%% Author : Pérez Ruiz, Alejandro                                  %%
+%% Author : Sánchez Barreiro. Pablo                                %%
+%%                                                                 %%
+%% Version: 1.0, 16/03/2011                                        %%                                                                                    %% Version: 1.1, 20/06/2011                                        %%                                                                                    %%                                                                 %%
+%%                                                                 %%
+%% Memoria del Proyecto Fin de Carrera                             %%
+%% ApplicationEngineering/Despligue                                %%
+%%=================================================================%%
+
+Una vez creada toda la infraestructura de nuestra línea de productos software, es es necesario empaquetarla y distribuirla de forma que pueda ser usada de la forma más cómoda posible por diferentes desarrolladores para la creación de productos concretos pertenecientes a nuestra familia de productos.
+
+La forma más fácil de distribuir nuestra infraestructura es crear una extensión, o \emph{plugin}, que se integre con Visual Studio, que permita: (1) la creación de modelos de productos concretos usando el lenguaje específico de dominio que hemos creado; y (2) la generación automática del código correspondiente a los modelos creados. Esta sección describe el proceso de creación de dichas extensiones y sus correspondientes instaladores.
+
+Usando las DSL Tools (cf. Sección~\ref{sec:application:dsl}) podemos crear automáticamente una extensión para Visual Studio que implemente un editor para nuestro lenguaje específico de dominio, definido en la Sección~\ref{sec:application:dsl}. Además, usando dichas herramientas, podemos incluso derivar de forma automática un instalador que permite añadir esta extensión a cualquier entorno de desarrollo Visual Studio 2010.
+
+Con este primer instalador, podemos añadir una extensión a Visual Studio 2010 para la creación de modelos específicos de dominio que representen productos concretos dentro de nuestra línea de productos. En un segundo paso, creamos otro instalador que añada al entorno Visual Studio 2010 las extensiones necesarias para generar el código correspondiente a dichos modelos específicos de dominio.
+
+Para ello creamos, usando las facilidades proporcionadas por Visual Studio 2010, un nueva extensión a dicho entorno que permita crear, dentro de dicho entorno, un nuevo tipo de proyecto, que sea \emph{Hogar Inteligente}. Dicho tipo de proyecto representa la creación de un nuevo producto perteneciente a nuestra línea de productos software. Este tipo de proyecto, cuando se crea, añade a un proyecto común de Visual Studio, tres elementos adicionales: (1) una referencia al código creado en la fase de ingeniería del dominio, de forma que las características definidas en dicha fase puedan ser compuestas para la creación de un producto específico; (2) un modelo de dominio específico inicial, representando el  producto concreto mínimo y válido, y modificable por el usuario de acuerdo a sus necesidades concretas; y (3) un botón con la opción de generar el código necesario para componer las características de nuestra línea de productos software de acuerdo con las necesidades particulares de cada usuario, especificadas en el modelo específico de dominio creado en el punto anterior. 
+
+Esta extensión, al igual que en el primer caso, se empaqueta en un instalador, de forma que se pueda distribuir e instalar en cualquier entorno Visual Studio 2010. Ambos instaladores se distribuyen bajo licencia GPLv3.
+
+Ambos instaladores están disponibles a través de una página web, realizada con el único objetivo de dar a conocer el presente proyecto. Dicha web posee 5 secciones, las cuales se describen a continuación:
+
+\begin{description}
+	\item[Introducción:] Contiene un breve resumen acerca del ámbito y los objetivos del proyecto.
+	\item[Descargas:] Contiene los instaladores creados.
+	\item[Documentación:] Contiene la documentación de usuario y vídeos relacionados con el proyecto.
+	\item[Publicaciones:] Contendrá todas las publicaciones relacionadas con el proyecto.
+	\item[Contacto:] Datos de contacto con los participantes del proyecto.
+\end{description}
+
+
