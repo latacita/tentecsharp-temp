@@ -20,9 +20,9 @@ La característica de gestión de los sistemas de control de la temperatura  (\emp
 %%
 %%=====================================================================%%
 
-Esta característica añade clases pare representar los nuevos dispositivos, más concretamente, \imp{Thermometer} y \imp{HeaterCtrl}, tal y como se ilustra en la Figura~\ref{domain:fig:heaterMngDesign}. Estos dispositivos extienden las clases abstractas \imp{Actuator} y \imp{Sensor}. Además, se debe extender la clase \imp{Gateway} con nuevos métodos y atributos para el control de estos nuevos dispositivos. A cada aparato de control de la temperatura se le asocia un termómetro en exclusiva, para realizar mediciones mas precisas.
+Esta característica añade clases para representar los nuevos dispositivos, más concretamente, \imp{Thermometer} y \imp{HeaterCtrl}, tal y como se ilustra en la Figura~\ref{domain:fig:heaterMngDesign}. Estos dispositivos extienden las clases abstractas \imp{Actuator} y \imp{Sensor}. Además, se debe extender la clase \imp{Gateway} con nuevos métodos y atributos para el control de estos nuevos dispositivos. A cada aparato de control de la temperatura se le asocia un termómetro en exclusiva, para realizar mediciones mas precisas.
 
-\begin{figure}[!tb]
+\begin{figure}[!h]
  \centering
  \includegraphics[width=.65\linewidth]{domainEngineering/Images/HeaterMngDesign.eps} \\
  \caption{Diseño UML para la característica \emph{HeaterMng}}
