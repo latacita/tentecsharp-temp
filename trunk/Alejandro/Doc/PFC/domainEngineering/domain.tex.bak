@@ -10,13 +10,13 @@
 \chapterheader{Ingeniería del Dominio}{Ingeniería del Dominio}
 \label{chap:domain}
 
-Este capítulo se describe la fase de \emph{ingeniería del dominio} (en inglés, \emph{Domain Engineering}) de nuestra línea de productos software. Dentro de dicha fase, se detalla la definición de la arquitectura de la familia de productos y se detallan las iteraciones más relevantes de este proceso de desarrollo. Las otras iteraciones, por motivos de espacio y con objeto de no aburrir al lector con detalles irrelevantes, simplemente se omiten.
+En este capítulo se describe la fase de \emph{ingeniería del dominio} (en inglés, \emph{Domain Engineering}) de nuestra línea de productos software. Dentro de dicha fase, se detalla la definición de la arquitectura de la familia de productos y se detallan las iteraciones más relevantes de este proceso de desarrollo. Las otras iteraciones, por motivos de espacio y con objeto de no aburrir al lector con detalles irrelevantes, simplemente se omiten.
 
 \chaptertoc
 
 \section{Definición Arquitectónica}
 
-\input{domainEngineering/architecture.tex}
+\input{domainEngineering/arquitectura.tex}
 
 \section{Principios de Diseño}
 \label{domain:sec:pattern}
@@ -31,35 +31,28 @@ Este capítulo se describe la fase de \emph{ingeniería del dominio} (en inglés, \
 
 \input{domainEngineering/iteracionDos.tex}
 
-<<<<<<< .mine
-\section{Iteración 3: Control Automática de Ventanas}
-=======
 \section{Iteración 3: Control Automático de Ventanas}
->>>>>>> .r399
 
 \input{domainEngineering/iteracionTres.tex}
 
-\section{Iteración 4: SmartEnergyMng}
+\section{Iteración 4: Control Inteligente de Energía}
 \label{sec:domain:smartEnergy}
-
+\input{domainEngineering/smartEnergy.tex}
 
 \section{Otras iteraciones}
 
-Como se ha podido observar en las iteraciones anteriores se sigue un procedimiento muy similar.
+Como se ha podido observar en las iteraciones anteriores se sigue un procedimiento muy similar. Por lo tanto, un proceso casi idéntico al de las secciones anteriores se sigue para las características restantes, es decir, por cada nueva característica se le añaden nuevas funcionalidades al sistema a través de las clases parciales.
+Las características \emph{control automático de luces y persianas} siguen prácticamente el mismo proceder y funcionalidad que la característica control automático de ventanas desarrollada en la iteración 3. Mientras que
+algunas características como la \emph{simulación de luces y persianas} añaden nuevas funciones a las características de control automático de luces y persianas, permitiéndonos simular presencia en la casa cuando no hay nadie en su interior, para de este modo evitar posibles robos. De este modo, cada cierto tiempo las luces y persianas de la casa son modificadas siguiendo un esquema semi-aleatorio.
 
-% En UML las características son agrupadas como paquetes. Un \emph{paquete} es definido en UML como un elemento de modelado usado para agrupar otros elementos de modelado, para de este modo obtener un espacio de nombres para los elementos agrupados.
-%La relación \emph{merge} entre dos paquetes, indica que el contenido de ambos debe ser combinado, la especificación UML establece que esta relación se debe usar cuando los elementos de los paquetes tienen el mismo nombre y representan el mismo concepto\cite{omg:uml:2005}. Por lo que podemos definir un diagrama de paquetes como el mostrado en la figura \ref{domain:fig:packageDiagram}, en el que todas las características se conectan a través de una relación \emph{merge}. Por lo tanto, a través de la figura \ref{domain:fig:packageDiagram} se puede reflejar que todas las características realizan una combinación de sus elementos con el mismo nombre haciendo uso de las clases parciales.
-%\begin{figure}[!tb]
-% \centering
-% \includegraphics[width=.75\linewidth]{domainEngineering/Images/packageDiagram.eps} \\
-% \caption{Diagrama de paquetes con todas las características.}
-% \label{domain:fig:packageDiagram}
-%\end{figure}
-
-Tras realizar todas las iteraciones necesarias para implementar la ingeniería de dominio, se consigue tener un sistema dividido que encapsula características que pueden ser combinadas y compiladas de diferentes maneras, siempre y cuando se respeten las restricciones básicas.
+%%=======================================================================================================%%
+%% NOTA(Pablo): Nombra varias características, y di algo sobre todo de la parte de simulación, pero solo %%
+%%              un párrafo, y describiendo básicamente como funciona                                     %%
+%%=======================================================================================================%%
+Por lo tanto, tras realizar todas las iteraciones necesarias para implementar la ingeniería de dominio, se consigue tener un sistema donde las diferentes características en las cuales se descompone están encapsuladas en grupos de clases.
 
 \section{Sumario}
 
-En este capítulo se ha mostrado el proceso llevado a cabo para realizar la fase de ingeniería de dominio en esta línea de productos software, en la cual se han utilizado las clases parciales de C\# como principal mecanismo para encapsular las características. No obstante, las clases parciales presentan alguna limitación para encapsular correctamente, por lo que se han desarrollado y expuesto mecanismos para suplir estas limitaciones.
+En este capítulo se ha mostrado el proceso llevado a cabo para realizar la fase de ingeniería del dominio para la  línea de productos software cuya construcción es objeto de este proyecto fin de carrera. Se han utilizado las clases parciales de C\# como principal mecanismo para encapsular las características. Las clases parciales presentan limitaciones para implementar características. Este capítulo también muestra un patrón que permite suplir dichas deficiencias.
 
-El siguiente capítulo mostrará como utilizando la infraestructura desarrollada anteriormente, se pueden crear aplicaciones específicas adaptadas a los requerimientos de los usuarios. 
+El siguiente capítulo mostrará como utilizando la infraestructura desarrollada anteriormente, se pueden crear aplicaciones específicas adaptadas a los necesidades particulares de cada usuario. 

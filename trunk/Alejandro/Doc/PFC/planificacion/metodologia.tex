@@ -25,7 +25,7 @@ En cada iteración se trata de construir una \emph{característica}, definida como
 	%%==================================================================%%
 	%% HECHO(Pablo): ¿No habría que cambiar el punto 1 y 2 de orden?     %%
 	%%==================================================================%%
-	%\item Desarrollo del modelo general.
+	\item Especificación de la arquitectura global del sistema.
 	\item Construcción de la lista de características (en inglés, \emph{features}) que componen el sistema.
 	\item Planificación por característica.
 	\item Diseño por característica.
@@ -42,14 +42,14 @@ La principal ventaja de esta metodología es que está orientada y gobernada por c
 
 \subsection{Desarrollo Dirigido por Casos de Pruebas}
 
-El \emph{Desarrollo Dirigido por Casos de Pruebas} (\emph{TDD}, por su nombre en inglés \emph{Test Driven Development})~\cite{astels:2003} es un proceso ágil, iterativo e incremental, en el que el sistema de desarrolla para satisfacer unos casos de prueba bien definidos antes de construir cada iteración.
+El \emph{Desarrollo Dirigido por Casos de Pruebas} (\emph{TDD}, por su nombre en inglés \emph{Test Driven Development})~\cite{astels:2003} es un proceso ágil, iterativo e incremental, en el que el sistema se desarrolla para satisfacer unos casos de prueba bien definidos antes de construir cada iteración.
 
 El primer paso a realizar de acuerdo con esta metodología es definir una lista de requisitos. A continuación, se aplica el siguiente proceso de forma iterativa hasta completar el proyecto:
 
 \begin{enumerate}
 	\item Seleccionar uno o más requisitos.
 	\item Escribir casos de prueba que verifiquen que dichos requisitos se satisfacen .
-	\item Desarrollar el sistema de la forma sencilla posible para que pasar los casos de prueba.
+	\item Desarrollar el sistema de la forma más sencilla posible para pasar los casos de prueba.
 	\item Verificar que el conjunto de pruebas funciona correctamente.
 	\item Refactorizar la solución desarrollada en caso de que fuese necesario.
 	\item Actualizar la lista de requisitos.
