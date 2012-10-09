@@ -1,0 +1,7 @@
+[%
+  for (cl in Class.all()) {
+    var t := TemplateFactory.load('AttributesOneClass.egl');
+    t.populate ('currentClass', cl);
+    t.generate ('../src/' + cl.name + '.java');
+  }
+%]

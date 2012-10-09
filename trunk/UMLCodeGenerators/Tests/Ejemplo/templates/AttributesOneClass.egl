@@ -1,0 +1,18 @@
+public class [%=currentClass.name%] {
+	// Attributes of the class [%=currentClass.name%]
+	[% for (attr in currentClass.AllAttributes) {%]
+  		[%=attr.visibility%] [%=attr.type.name%] [%=attr.name%];    		
+    [%}%]
+    // Getters for each attribute of the class [%=currentClass.name%]
+    [% for (attr in currentClass.AllAttributes) {%]
+    	public [%=attr.type.name%] get[%=attr.name%] () {
+    		return [%=attr.name%];
+  		}
+    [%}%]
+    // Setters for each attribute of the class [%=currentClass.name%]
+    [% for (attr in currentClass.AllAttributes) {%]
+    	public void set[%=attr.name%] ([%=attr.type.name%] [%=attr.name%]) {
+   	 		this.[%=attr.name%] = [%=attr.name%];
+  		}  
+    [%}%]
+}
