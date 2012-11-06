@@ -1,0 +1,5 @@
+[%
+    -- Sacar la instancia del modelo
+    -- Model model = Model.all();
+ 	-- SAcar la coleccion de clases y procesarla  
+%]

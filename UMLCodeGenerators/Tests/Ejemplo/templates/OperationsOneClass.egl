@@ -1,5 +1,5 @@
 	// Operations of the class [%=currentClass.name%]
 	[% for (oper in currentClass.AllOperations) {%]
-  		 [%=oper.visibility%] [%=oper.type.name%]  [%=oper.name%] () {
+  		 [%=oper.visibility%] [%=oper.type.name %]  [%=oper.name%] () {
   		}   	
     [%}%]
