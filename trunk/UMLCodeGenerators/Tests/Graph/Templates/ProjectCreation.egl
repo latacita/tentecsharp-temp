@@ -1,0 +1,29 @@
+[%
+// Packages created by user
+var packages : Set;
+for (pack in Package.all.select(t|t.type.name.equals("Package"))) {	
+	if (pack.name.equals("UML Standard Profile")==false){
+		packages.add(pack);
+	}	
+}%]
+
+
+[%
+// Classes created by user
+var classes : Set;
+for (class in Class.all.select(t|t.type.name.equals("Class"))) {	
+	classes.add(class);
+}%]
+
+
+[%
+// Directories
+for (pack in packages) {   	 
+	for (class in pack.packagedElement.select(e|e.isTypeOf(Class))) { 
+  		var t := TemplateFactory.load('ClassCreation.egl');
+		t.populate ('currentClass', class);	
+		t.populate('currentPackage', pack);
+    	t.generate ('../src/' + pack.name + '/'+ class.name +'.cs');    	
+     }
+}
+%] 
