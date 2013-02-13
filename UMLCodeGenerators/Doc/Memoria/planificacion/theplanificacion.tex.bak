@@ -1,0 +1,46 @@
+%%==================================================================%%
+%% Author : Tejedo GonzÁlez, Daniel                                 %%
+%%          Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.0, 22/11/2012                                         %%                   
+%% Version: 2.0, 31/01/2013                                         %%                   
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Planificacion, planificacion                                     %%
+%%==================================================================%%
+
+Como se ha comentado con anterioridad, el objetivo de este Proyecto Fin de Carrera es el desarrollo de un editor para un novedoso lenguaje de especificación y validación de restricciones para árboles de características donde dichas restricciones puedan incluir características clonables. Dicho editor se desarrollará utilizando un moderno enfoque de \emph{Ingeniería de Lenguajes Dirigido por Modelos}. Por tanto, el proceso de desarrollo del presente proyecto queda prácticamente determinado por dicho enfoque, el cual posee un proceso de desarrollo bien definido, el cual se describió en la sección anterior. La Figura~\ref{fig:planning} muestra como dicho proceso de desarrollo se ha instanciado para nuestro caso particular. 
+
+%%==================================================================%%
+%% NOTA(Pablo): En esta imagen hay que hacer cambios                %%
+%%              Te los indico de foma verbal cuando pases por el    %%
+%%              despacho, pero hay que mejorar su consistencia      %% 
+%%==================================================================%%
+
+\begin{figure}[!tb]
+    \includegraphics[scale=0.74]{planificacion/planning.eps}
+    \caption{Proceso de desarrollo del Proyecto Fin de Carrera}
+    \label{fig:planning}
+\end{figure}
+
+Obviamente, la primera tarea (Figura~\ref{fig:planning}-\emph{T1}) en este proceso de desarrollo fue la de adquirir los conocimientos necesarios para la realización de todas las tareas posteriores. Ello implicaba adquirir los conocimientos relacionados con las \emph{Líneas de Producto Software}~\cite{} en general y con los árboles de características~\cite{} en particular, más concretamente, con la vesión de los árboles de características que soportan la definición de características clonables~\cite{}. Dado que el proyecto se debía integrar con una herramienta para la especificación y configuración de árboles de características concreta, denominada \emph{Hydra}~\cite{}, el siguiente paso fue el de familiarizarse con dicha herramienta y adquirir ciertos conocimientos sobre su arquitectura interna.
+
+A continuación, se tuvo que adquirir los conceptos necesarios para entender el funcionamiento de de la \emph{Ingeniería de Lenguajes Dirigida por Modelos}~\cite{}. La familiarización con las tecnologías concretas relacionadas con la \emph{Ingeniería de Lenguajes Dirigida por Modelos}, como la utilización de EMF (\emph{Eclipse Modelling Framework})~\cite{} para la definición de metamodelos, se realizó dentro de cada fase concreto del proyecto, a medida que se iba necesitando aprender a utilizar dichas tecnologías.
+
+%%========================================================================================%%
+%% NOTA(Pablo): No pongas los tiempos que te ha costado cada tarea. Normalmente, no 
+%%              interesa y da mala imagen                                                 
+%%========================================================================================%%
+
+Tras esta tarea inicial de adquisición de conocimientos previos, el resto del proyecto se estructura como un proyecto de desarrollo de un lenguaje software siguiendo un enfoque dirigido por modelos. Consecuentemente, la primera tarea tras la fase inicial de documentación (Figura~\ref{fig:planning}-\emph{T2}) fue la definición de la sintaxis abstracta, por medio de un metamodelo más un conjunto de restricciones externas, para el lenguaje que debía soportar nuestro editor. Para ello tuvimos que capturar los requisitos que debía satisfacer dicho lenguaje. Tras recoger dichos requisitos, se procedió al diseño del metamodelo y a la relización de las pruebas pertinentes con vistas a comprobar su correcto funcionamiento. Para crear dicho metamodelo se utilizó el lenguaje de metamodelado Ecore, integrado dentro de la herramienta EMF (Eclipse Modelling Framework)~\cite{}. 
+
+La tarea 3, definición de la sintaxis concreta, comprende un nuevo aprendizaje, en este caso el de la herramienta para creación de gramáticas para metamodelos llamada EMFText. Después hubo que hacer una nueva captura de requisitos, menos profunda que la anterior, para poder construir adecuadamente la gramática. La construcción de la misma tuvo como consecuencia sucesivas pruebas y cambios en el metamodelo hasta dejarlo terminado. Esta tarea tuvo una duración aproximada de 5 meses.
+
+La tarea 4, validación de sintaxis abstracta, comienza con el aprendizaje de una nueva herramienta, el EMF Validation Framework. Tras ello, se construyen los mecanismos necesarios para poder validar que las características a las que queremos aplicar las restricciones existen en el modelo importado, y también validar que una característica parseada como múltiple (con cardinalidad mayor que 1) sea en efecto múltiple en el modelo importado. Esta tarea tuvo una duración aproximada de 2 meses.
+
+La tarea 5, creación de la semántica del lenguaje, comprende la creación de los mecanismos para que las restricciones puedan ser validadas. Es decir, implementar el código que evalua si son ciertas o no, e implementar la interfaz que permite cargar una configuración del modelo. Esta tarea tuvo una duración aproximada de 2 meses.
+
+Todas estas tareas serán explicadas más en detalle en capítulos sucesivos.
+
+La metodología de desarrollo de este proyecto vino impuesta por la técnica de Ingeniería de Lenguajes Dirigida por Modelos. Es decir, no se pudo aplicar ninguna de las técnicas clásicas como "metodología incremental", pues las peculiares características de la ingeniería de modelos impiden que eso sea viable.
+
+
