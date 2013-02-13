@@ -1,0 +1,21 @@
+%%==================================================================%%
+%% Author : Tejedo González, Daniel                                 %%
+%%          Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.0, 25/11/2012                                         %%
+%% Version: 1.0, 06/02/2013                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Sintaxis abstracta,  pruebas                                     %%
+%%==================================================================%%
+
+Una vez creado nuestro metamodelo, debíamos probar que dicho metamodelo era correcto. Es decir, que permitía especificar todas las restricciones que deseábamos crear, a la vez que, por construcción, impedía la especificación de restricciones que debían ser consideradas como sintácticamente incorrectas.
+
+Para ello realizamos una serie de pruebas consistentes en la creación de varias instancias del metamodelo y observar el árbol de sintaxis abstracta generado, comprobando si éste se correspondía con el esperado.
+
+\begin{figure}[t]
+    \includegraphics[scale=0.6]{metamodelo/instpruebas.eps}
+    \caption{Conjunto de instrucciones que puso a prueba el funcionamiento}
+    \label{figmetains}
+\end{figure}
+
+Las instrucciones que fueron puestas a prueba fueron las que se ven en la Figura~\ref{figmetains}. Este conjunto de instrucciones servirán como pruebas también en momentos más avanzados del desarrollo. Dicho conjunto de pruebas fue diseñado para recoger de la forma más exhaustiva posible todas las combinaciones de metaclases posibles.
