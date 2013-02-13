@@ -1,0 +1,39 @@
+%%==================================================================%%
+%% Author : Tejedo, Daniel                                          %%
+%%          Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.0, dd/mm/yyyy                                         %%                   %%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Introducción, archivo raíz                                       %%
+%%==================================================================%%
+
+\chapterheader{Introducción}{Introducción}
+\label{chap:introduction}
+
+% Introducción al capítulo
+
+\chaptertoc
+
+\section{Introducción}
+\label{sec:intr:introduction}
+
+\input{introduction/theIntroduction.tex}
+
+\section{Motivación and Contribuciones}
+\label{sec:intr:motivation}
+
+TODO: Esta sección es más para tesis doctorales que para proyectos fin de carrera. La dejamos de momento pero se podría eliminar
+
+\section{Visión General del Proyecto}
+\label{sec:intr:overview}
+
+TODO: Esto está bien dejarlo, pero también es suprimible
+
+\section{Estructura del Documento}
+\label{sec:intr:organization}
+
+Esto es una especie de índice ampliado y se deja, suele ser bastante útil para que el que esté vago se lea esto y se acabe el problema.
+
+
+
+
+
