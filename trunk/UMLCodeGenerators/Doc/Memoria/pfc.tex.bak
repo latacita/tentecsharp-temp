@@ -1,7 +1,7 @@
 %%==================================================================%%
-%% Author : Tejedo, Daniel                                          %%
-%%          Sï¿½nchez Barreiro, Pablo                                 %%
-%% Version: 1.0, 08/10/2012                                         %%                   %%                                                                  %%
+%% Author : Abascal Fernández, Patricia                             %%
+%%          Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.0, 14/02/2013                                         %%                                                                                    %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Archivo raíz                                                     %%
 %%==================================================================%%
@@ -18,9 +18,6 @@
 \usepackage{amsfonts}
 \usepackage[spanish,activeacute]{babel}
 
-% \usepackage[T1]{fontenc}
-%\usepackage[scaled]{uarial}
-
 % File with main configuration
 \input{config/pfc_options.tex}
 
@@ -30,11 +27,11 @@
 %=====================================================================%
 %                           Authoring's details                          %
 %=====================================================================%
-\newcommand{\myname}{Daniel Tejedo González}  % name of author
+\newcommand{\myname}{Patricia Abascal Fernández}  % name of author
 \newcommand{\myboss}{Pablo Sánchez Barreiro} % name of supervisor
-\newcommand{\thesistitle}{Desarrollo de un entorno para la especificación y validación de restricciones en árboles de características con cardinalidad}
+\newcommand{\thesistitle}{}
 
-\newcommand{\englishtitle}{Development of enviroment for the specification and validation of constraints for cardinality-based feature model}
+\newcommand{\englishtitle}{}
 												  % work title
 \newcommand{\worktype}{Proyecto Fin de Carrera}   % work type
 \newcommand{\logo}{images/uc.eps}            % logo file (e.g. for the cover)
@@ -76,13 +73,13 @@
 \input{introduction/introduction.tex} % Chapter 1
 
 % Capítulo 2: Resumen del Estado del Arte
-\input{background/background.tex}
+% \input{background/background.tex}
 
 % Capítulo 3: Creación de la sintaxis abstracta
- \input{metamodelo/metamodelo.tex}
+% \input{metamodelo/metamodelo.tex}
 
 % Capítulo 4: Creacion de la gramatica
-\input{gramatica/raiz.tex}
+% \input{gramatica/raiz.tex}
 
 % Capítulo 5: Creacion de la semantica
 % \input{semantica/raiz.tex}
@@ -97,7 +94,7 @@
 % \input{populo/populo.tex} % Appendix I
 
 % CONFIG: Bibliography style
-% \input{config/bibliography.tex}
+\input{config/bibliography.tex}
 \bibliography{references/references}
 
 \end{document}
