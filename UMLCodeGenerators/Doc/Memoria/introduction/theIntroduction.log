@@ -1,13 +1,21 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2011.5.20)  17 JAN 2013 11:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.15)  17 FEB 2013 16:43
 entering extended mode
-**C:/Documents*and*Settings/Pablo/Mis*documentos/Alumnos/Daniel/PFC_Daniel/intr
-oduction/theIntroduction.tex
+**C:/Users/Patricia/Documents/UNIVERSIDAD/PFC/Repositorio/Doc/Memoria/introduct
+ion/theIntroduction.tex
 
-("C:/Documents and Settings/Pablo/Mis documentos/Alumnos/Daniel/PFC_Daniel/intr
-oduction/theIntroduction.tex"
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, sp
-anish, loaded.
+(C:/Users/Patricia/Documents/UNIVERSIDAD/PFC/Repositorio/Doc/Memoria/introducti
+on/theIntroduction.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
 
 ! LaTeX Error: Missing \begin{document}.
 
@@ -15,26 +23,26 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.22 E
-      l principal objetivo de este Proyecto de Fin de Carrera es continuar e...
+l.9 E
+     l principal objetivo de este Proyecto de Fin de Carrera es implementar ...
 
 ? 
 ! Emergency stop.
  ...                                              
                                                   
-l.22 E
-      l principal objetivo de este Proyecto de Fin de Carrera es continuar e...
+l.9 E
+     l principal objetivo de este Proyecto de Fin de Carrera es implementar ...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
  
 Here is how much of TeX's memory you used:
- 8 strings out of 495306
- 518 string characters out of 3182336
- 44920 words of memory out of 3000000
- 3314 multiletter control sequences out of 15000+200000
+ 8 strings out of 493921
+ 503 string characters out of 3147273
+ 49031 words of memory out of 3000000
+ 3400 multiletter control sequences out of 15000+200000
  3640 words of font info for 14 fonts, out of 3000000 for 9000
- 14 hyphenation exceptions out of 8191
- 6i,0n,4p,945b,14s stack positions out of 5000i,500n,10000p,200000b,50000s
-No pages of output.
+ 841 hyphenation exceptions out of 8191
+ 5i,0n,4p,575b,14s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
