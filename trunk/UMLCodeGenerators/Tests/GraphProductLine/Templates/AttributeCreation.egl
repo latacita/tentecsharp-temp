@@ -2,9 +2,12 @@
 @template
 operation Class classAttributes() { 
 	// Attributes 
+	
+	// Pablo: No generes atributos, genera propiedades de C#
 	var attributes: String="";		
 	for (attr in self.AllAttributes) {
 		if (attr.name.isEmpty()){
+			// Pablo: Esto sería un error y habría que abortar el proceso  
 		}else{				
 			attributes=attributes+attr.visibility+" ";
 			// If it's static
@@ -12,13 +15,14 @@ operation Class classAttributes() {
 				attributes=attributes+"static ";
 			}
 			// If it's an association
+			// Pablo: Esto te digo to como va
 			if (attr.isComposite){
 				// It it's a List		
 				if (attr.upperValue.value==-1 or attr.upperValue.value>1){
 					attributes=attributes+" List <"+attr.type.name+"> "+attr.name+";\n\t\t";
 				}else{
 					attributes=attributes+attr.type.name+" "+attr.name+";\n\t\t";  		
-				}
+				} // if
 			}else{
 		    	attributes=attributes+attr.type.name+" "+attr.name+";\n\t\t";  		
 		    }// if-association	
