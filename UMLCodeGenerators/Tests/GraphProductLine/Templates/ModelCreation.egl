@@ -1,5 +1,6 @@
 [%
 @template
 operation Model modelDeclaration() { %]
+// Añadir aquí una cabecera a cada archivo
 namespace [%=self.name%]{	
-[% } %]
+[% }  %]

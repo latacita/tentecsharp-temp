@@ -2,10 +2,17 @@
 operation currentPackages(): Set { 
 	// Packages created by user
 	var packages : Set;
-	for (pack in Package.all.select(t|t.type.name.equals("Package"))) {	
+	
+	// NOTA(Pablo): ¿No hay alguna forma de filtar más elegante?
+	// for (pack in Package.all.select(t|t.type.name.equals("Package"))) {
+    // NOTA(Pablo): Usa esto a ver que tal
+	for (pack in Package.all.select(t|t.isTypeOf(Package))) {
+		// Cargate este paquete del modelo y no consideres que esté
+		// Es cosas propia de UML y no debería de estar. 	
 		if (pack.name.equals("UML Standard Profile")==false){
 			packages.add(pack);
 		}	
 	}	
+		
 	return packages;
 } %]
