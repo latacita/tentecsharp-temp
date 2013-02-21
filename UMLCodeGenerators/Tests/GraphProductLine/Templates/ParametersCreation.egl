@@ -1,0 +1,20 @@
+[%
+@template
+operation Feature parameters() { 
+	// Method's parameters
+	var parameters: String;
+	for (oper in self) {
+		for (param in oper.ownedParameter){
+			if (param.type==null or param.name==""){
+				parameters="";
+			}else{
+				parameters=parameters+" "+param.type.name+" "+param.name+",";
+			}		
+		}
+    }
+    // Deleting the last "," of the string, if needed
+    if (not parameters.isEmpty()){	
+    	parameters = parameters.substring(0, parameters.length() - 1);
+    }%]
+    [%=parameters.trim%]
+[% } %]

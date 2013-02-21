@@ -1,0 +1,37 @@
+[%
+import "ModelCreation.egl";
+import "ClassDeclaration.egl";
+import "AttributeCreation.egl";
+import "MethodsCreation.egl";
+import "ParametersCreation.egl";
+%]
+[%=currentModel.modelDeclaration()%]
+	[%=currentClass.classDeclaration()%]
+		[%=currentClass.classAttributes()%]
+		
+		
+		----- Forma de realizar los métodos provisional -----		
+    	[%// Operations
+		var operations: String="";
+		for (oper in currentClass.AllOperations) {
+			// If it's the constructor
+			if (oper.name==currentClass.name){
+				operations=operations+"private "+currentPackage.name+"_init"+oper.name+"("+oper.parameters()+") {}\n\t\t";
+			}else{
+				// If it's a void method
+				if (oper.type==null or oper.type.isTypeOf(PrimitiveType)){
+				operations=operations+oper.visibility+" virtual void "+currentPackage.name+"_"+oper.name+"("+oper.parameters()+") {}\n\t\t";
+				}else{
+		  		 	operations=operations+oper.visibility+" virtual "+oper.type.name+" "+currentPackage.name+"_"+oper.name+"("+oper.parameters()+") {}\n\t\t";
+		  		}
+		  	}   	
+		}%]        	
+		[%=operations%]
+		
+	}
+} 
+
+
+
+
+
