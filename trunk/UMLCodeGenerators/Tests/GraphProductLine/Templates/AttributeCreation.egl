@@ -1,0 +1,29 @@
+[% 
+@template
+operation Class classAttributes() { 
+	// Attributes 
+	var attributes: String="";		
+	for (attr in self.AllAttributes) {
+		if (attr.name.isEmpty()){
+		}else{				
+			attributes=attributes+attr.visibility+" ";
+			// If it's static
+			if (attr.isStatic){
+				attributes=attributes+"static ";
+			}
+			// If it's an association
+			if (attr.isComposite){
+				// It it's a List		
+				if (attr.upperValue.value==-1 or attr.upperValue.value>1){
+					attributes=attributes+" List <"+attr.type.name+"> "+attr.name+";\n\t\t";
+				}else{
+					attributes=attributes+attr.type.name+" "+attr.name+";\n\t\t";  		
+				}
+			}else{
+		    	attributes=attributes+attr.type.name+" "+attr.name+";\n\t\t";  		
+		    }// if-association	
+		}// if-empty		
+	}//for
+	%]
+[%=attributes%]
+[% } %]

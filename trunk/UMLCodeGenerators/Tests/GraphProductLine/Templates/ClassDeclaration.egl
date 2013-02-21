@@ -1,0 +1,5 @@
+[%
+@template
+operation Class classDeclaration() { %]
+[%=self.visibility%] partial class [%=self.name%] {	
+[% } %]

@@ -1,0 +1,18 @@
+[%
+import "PackageCreation.egl";
+
+var modelProject := Model.allInstances().first();
+var packages : Set;
+packages := currentPackages();
+
+// Directories
+for (pack in packages) {   	 
+	for (class in pack.packagedElement.select(e|e.isTypeOf(Class))) { 
+  		var t := TemplateFactory.load('ClassCreation.egl');
+		t.populate ('currentClass', class);	
+		t.populate('currentPackage', pack);
+		t.populate('currentModel', modelProject);
+    	t.generate ('../'+modelProject.name+'/' + pack.name + '/'+ class.name +'.cs');    	
+     }
+}
+%] 
