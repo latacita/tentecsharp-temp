@@ -1,32 +1,36 @@
 [%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.2 
+// Last modification: 26/02/2013 
+// Description: This template generates the specification of
+//				the current class: declarations, attributes, 
+//				methods.
+////////////////////////////////////////////////////////////
 import "ModelCreation.egl";
 import "ClassDeclaration.egl";
-import "AttributeCreation.egl";
+import "PropertiesCreation.egl";
+import "PropertiesCreation.egl";
 import "MethodsCreation.egl";
 import "ParametersCreation.egl";
+import "UtilityMethodsCreation.egl";
+
 %]
+[%var p=currentPackage.name;%]
+// This is the content of the class named "[%=currentClass.name%]", which is 
+// in the package: "[%=currentPackage.name%]", from the "[%=currentModel.name%]" model. 
 [%=currentModel.modelDeclaration()%]
 	[%=currentClass.classDeclaration()%]
-		[%=currentClass.classAttributes()%]
+		// Properties from the current class 
 		
+		[%=currentClass.classPropertiesCreation()%]
+		// Utility methods from the current class 
 		
-		----- Forma de realizar los métodos provisional -----		
-    	[%// Operations
-		var operations: String="";
-		for (oper in currentClass.AllOperations) {
-			// If it's the constructor
-			if (oper.name==currentClass.name){
-				operations=operations+"private "+currentPackage.name+"_init"+oper.name+"("+oper.parameters()+") {}\n\t\t";
-			}else{
-				// If it's a void method
-				if (oper.type==null or oper.type.isTypeOf(PrimitiveType)){
-				operations=operations+oper.visibility+" virtual void "+currentPackage.name+"_"+oper.name+"("+oper.parameters()+") {}\n\t\t";
-				}else{
-		  		 	operations=operations+oper.visibility+" virtual "+oper.type.name+" "+currentPackage.name+"_"+oper.name+"("+oper.parameters()+") {}\n\t\t";
-		  		}
-		  	}   	
-		}%]        	
-		[%=operations%]
+		[%=classUtilityMethodsCreation()%]
+		// Constructor and methods from the from the current class		
+	[%=currentClass.classMethods(p)%]
+		
 		
 	}
 } 

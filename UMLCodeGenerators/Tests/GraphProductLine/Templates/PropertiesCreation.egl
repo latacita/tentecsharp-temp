@@ -1,0 +1,45 @@
+[% 
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.1 
+// Last modification: 27/02/2013 
+// Description: This operation generates the declaration of 
+//				the properties from the current class and
+//				their respective get and set methods.
+////////////////////////////////////////////////////////////
+import "Operations.eol";
+@template
+operation Class classPropertiesCreation() { 
+	// Properties 
+	var properties: String;		
+	for (prop in self.AllAttributes) {		
+		var getterAndSetter: String=" "+prop.firstToUpperCase()+" {\n\t\t\tget { return this."+prop.name+"; }"+"\n\t\t\tset { this."+prop.name+"= value; }"+"\n\t\t}\n\t\t";	
+		properties=properties+private();
+		var header;
+		// If it's static
+		properties=properties+prop.esStatic();
+		// If it's readonly
+		properties=properties+prop.esReadonly();
+		// Header to add in the public version of the property
+		header=prop.esStatic()+prop.esReadonly();		
+		// If it's an association
+		if (prop.isComposite){
+			// If it has more than one element, we have to specify the type of collection
+			if (prop.upperValue.value==-1 or prop.upperValue.value>1){
+				var collection=prop.typeCollection();
+				properties=properties+collection+" "+prop.name+";\n\t\t"+public()+header+collection+getterAndSetter;
+			}else{
+				// Association between classes with just one element.
+				var pro=prop.type.name;
+				properties=properties+pro+" "+prop.name+";\n\t\t"+public()+header+pro+getterAndSetter;
+			} // if-upperValue
+		}else{
+			// Rest of the propierties.
+		    var pro=prop.type.name;
+			properties=properties+pro+" "+prop.name+";\n\t\t"+public()+header+pro+getterAndSetter;
+		}// if-isComposite
+	}//for
+	%]
+[%=properties%]
+[% } %]

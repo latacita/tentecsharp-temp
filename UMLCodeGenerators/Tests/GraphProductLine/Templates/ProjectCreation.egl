@@ -1,12 +1,19 @@
 [%
-import "PackageCreation.egl";
- 
-var modelProject := Model.allInstances().first();
-var packages : Set;
-// packages := currentPackages();
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.0 
+// Last modification: 24/02/2013 
+// Description: Generates the project, the directories and 
+// 				the files of all code classes.
+////////////////////////////////////////////////////////////
 
-// Saca los paquetes directamente del modelo mejor
+// Select the model's project
+var modelProject := Model.allInstances().first();
+// Select the model's packages 
+var packages : Set;
 packages := modelProject.packagedElement.select(p|p.isTypeOf(Package));
+packages := modelProject.packagedElement.reject(p|p.name.equals("UML Standard Profile"));
 
 // Aquí deberías crear directamente un proyecto Visual C# con toda su pesca.
 // Lo puedes hacer más adelante. Puedes utilizar algún tipo de API de Visual 
@@ -15,13 +22,13 @@ packages := modelProject.packagedElement.select(p|p.isTypeOf(Package));
 // Directories
 for (pack in packages) {
     // Yo aquí crearía un directorio por cada paquete, aunque el paquete no
-    // tuviese nada    	 
+    // tuviese nada  
 	for (class in pack.packagedElement.select(e|e.isTypeOf(Class))) { 
   		var t := TemplateFactory.load('ClassCreation.egl');
 		t.populate ('currentClass', class);	
 		t.populate('currentPackage', pack);
-		t.populate('currentModel', modelProject);
-    	t.generate ('../'+modelProject.name+'/' + pack.name + '/'+ class.name +'.cs');    	
+		t.populate('currentModel', modelProject);    
+		t.generate ('../'+modelProject.name+'/' + pack.name + '/'+ class.name +'.cs'); 	   	
      }
 }
 %] 

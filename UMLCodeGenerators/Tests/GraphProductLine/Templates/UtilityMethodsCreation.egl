@@ -1,0 +1,21 @@
+[% 
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.1 
+// Last modification: 26/02/2013 
+// Description: This operation generates the utility methods
+//				of a given class.
+////////////////////////////////////////////////////////////
+import "Operations.eol";
+@template
+operation classUtilityMethodsCreation() { 
+	var equals=public()+virtual()+"bool Equals (Object o) {}\n";
+	var compareTo="\t\t"+public()+virtual()+"int CompareTo (Object o) {}\n";
+	var getHashCode="\t\t"+public()+virtual()+"int GetHashCode () {}\n";
+	var getType="\t\t"+public()+virtual()+"Type GetType () {}\n";
+	var toString="\t\t"+public()+virtual()+"String ToString() {}\n";
+	var utilities=equals+compareTo+getHashCode+getType+toString;
+	%]
+[%=utilities%]
+[% } %]

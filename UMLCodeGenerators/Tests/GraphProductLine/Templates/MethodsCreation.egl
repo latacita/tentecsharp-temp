@@ -1,20 +1,39 @@
 [%
-@template
-operation Class classMethods() { 
-	// Operations
-	var operations: String="";
-	for (oper in currentClass.AllOperations) {
-		// If it's the constructor
-		if (oper.name==currentClass.name){
-			operations=operations+"private "+currentPackage.name+"_init"+oper.name+"("+oper.parameters()+") {}\n\t\t";
-		}else{
-			// If it's a void method
-			if (oper.type==null or oper.type.isTypeOf(PrimitiveType)){
-			operations=operations+oper.visibility+" virtual void "+currentPackage.name+"_"+oper.name+"("+oper.parameters()+") {}\n\t\t";
-			}else{
-	  		 	operations=operations+oper.visibility+" virtual "+oper.type.name+" "+currentPackage.name+"_"+oper.name+"("+oper.parameters()+") {}\n\t\t";
-	  		}
-	  	}   	
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.2 
+// Last modification: 27/02/2013 
+// Description: This operation generates the methods of 
+//				the current class.
+////////////////////////////////////////////////////////////
+import "ReturnParameterCreation.egl";
+import "ParametersCreation.egl";
+import "Operations.eol";
+@template	
+operation Class classMethods(currentPackage: String) {   		
+	var opers: String;
+	var operations_void : Sequence;	
+	var operations_return: Sequence;
+	// Generate the constructor
+	opers=private()+currentPackage+"_init"+self.firstToUpperCase()+" () {}\n\t\t";
+	
+	// Generate the void methods	
+	operations_void := self.AllOperations.select(o|o.type==null or o.type.isTypeOf(PrimitiveType)); 
+	for (oper in operations_void) {
+		opers=opers+oper.visibility+" "+oper.esStatic()+virtual()+void()+currentPackage+"_"+oper.name+" ("+oper.parameters()+") {}\n\t\t";
+	}
+
+	// Generate the return methods		
+	for (oper in self.AllOperations){
+		for (par in oper.ownedParameter){
+			if (par.direction.toString().equals("return") and par.type.name<>"" and not oper.type.isTypeOf(PrimitiveType)){
+				operations_return.add(oper);
+			}					
+		}
+	}
+	for (oper in operations_return) {
+		opers=opers+oper.visibility+" "+oper.esStatic()+virtual()+oper.type.name+" "+currentPackage+"_"+oper.name+" ("+oper.parameters()+") : "+oper.returnParameter()+"{}\n\t\t";
 	}%]        	
-	[%=operations%]
-[% } %]
+	[%=opers%]
+[%}%]

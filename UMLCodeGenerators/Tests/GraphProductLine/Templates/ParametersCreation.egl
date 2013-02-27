@@ -1,20 +1,29 @@
 [%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.2 
+// Last modification: 27/02/2013 
+// Description: This operation returns the parameters for 
+//				the current method. 
+////////////////////////////////////////////////////////////
+import "Operations.eol";
 @template
 operation Feature parameters() { 
 	// Method's parameters
-	var parameters: String;
-	for (oper in self) {
-		for (param in oper.ownedParameter){
-			if (param.type==null or param.name==""){
-				parameters="";
-			}else{
-				parameters=parameters+" "+param.type.name+" "+param.name+",";
-			}		
-		}
-    }
-    // Deleting the last "," of the string, if needed
-    if (not parameters.isEmpty()){	
-    	parameters = parameters.substring(0, parameters.length() - 1);
+	var params: String;
+	var parameters: OrderedSet;	
+	// Reject blank and return parameters
+	parameters := self.ownedParameter.reject(p|p.name.isEmpty() or p.direction.toString().equals("return"));		
+	// Add to the var params each parameter from the given method
+	for (param in parameters){					
+			params=params+" "+param.type.name+" "+param.name+",";						
+	}
+	// Deleting the last "," of the string, if needed
+    if (not params.isEmpty()){	
+    	params = params.substring(0, params.length() - 1);
     }%]
-    [%=parameters.trim%]
-[% } %]
+	[%=params%] 
+[%} %]		
+ 
+   

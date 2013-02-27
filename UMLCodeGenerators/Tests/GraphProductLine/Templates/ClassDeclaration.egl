@@ -1,4 +1,12 @@
 [%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.0 
+// Last modification: 24/02/2013 
+// Description: This operation generates the declaration of 
+//				the current class.
+////////////////////////////////////////////////////////////
 @template
 operation Class classDeclaration() { %]
 [%=self.visibility%] partial class [%=self.name%] {	
