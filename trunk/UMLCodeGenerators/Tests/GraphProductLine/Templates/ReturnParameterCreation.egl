@@ -1,0 +1,25 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.1 
+// Last modification: 27/02/2013 
+// Description: This operation returns the return parameter  
+//				for the current method. 
+////////////////////////////////////////////////////////////
+import "Operations.eol";
+@template
+operation Feature returnParameter() { 
+	// Method's parameters
+	var params: String;
+	var return_parameter: Set;	
+	// Select the return parameter from the given method
+	return_parameter := self.ownedParameter.reject(p|p.direction.toString().equals("in"));	
+	for (param in return_parameter){		
+			params=params+" "+param.type.name;	
+	}	
+	%]
+	[%=params%] 
+[%} %]		
+ 
+   

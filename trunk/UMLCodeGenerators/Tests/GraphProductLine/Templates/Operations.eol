@@ -1,0 +1,71 @@
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.1 
+// Last modification: 26/02/2013 
+// Description: Operations to use in templates.
+////////////////////////////////////////////////////////////
+
+// This operation puts first letter of the Feature name in upper case
+operation Element firstToUpperCase() : String {
+	return self.name.firstToUpperCase;
+}
+// This operation returns the text "virtual" to include in the method's header
+operation virtual(): String { 
+	return "virtual ";	
+}
+// This operation returns the text "void" to include in the method's header
+operation void(): String { 
+	return "void ";	
+}
+// This operation returns the text "private" to include in the property or method's header
+operation private(): String { 
+	return "private ";	
+}
+// This operation returns the text "public" to include in the property or method's header
+operation public(): String { 
+	return "public ";	
+}
+// This operation returns the text "static" to include in the property or method's header
+operation static(): String { 
+	return "static ";	
+}
+// This operation returns the text "readonly" to include in the property or method's header
+operation readonly(): String { 
+	return "readonly ";	
+}
+// This operation returns the text "static" if the property or method is static
+operation Feature esStatic(): String { 
+	var s;
+	if (self.isStatic()){
+		s="static ";
+	}
+	return s;	
+}
+// This operation returns the text "readonly" if the property is readonly
+operation Feature esReadonly(): String { 
+	var s;
+	if (self.isReadonly()){
+		s="readonly ";
+	}
+	return s;	
+}
+// This operation returns the text corresponding to the type of collection
+// for the given feature
+operation Feature typeCollection(): String { 
+	var collection;
+		if (self.isOrdered and self.isUnique){
+			collection="SortedSet <"+self.type.name+">";
+		}
+		if (self.isOrdered and not self.isUnique){
+			collection="List <"+self.type.name+">";
+		}
+		if (not self.isOrdered and self.isUnique){
+				collection="Set <"+self.type.name+">";
+		}
+		if (not self.isOrdered and not self.isUnique){
+			collection="Array <"+self.type.name+">";						
+		}
+	return collection;	
+}
+
