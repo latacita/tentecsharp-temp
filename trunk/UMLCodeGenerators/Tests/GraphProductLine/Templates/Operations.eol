@@ -64,7 +64,7 @@ operation Feature typeCollection(): String {
 				collection="Set <"+self.type.name+">";
 		}
 		if (not self.isOrdered and not self.isUnique){
-			collection="Array <"+self.type.name+">";						
+			collection=self.type.name+" []";						
 		}
 	return collection;	
 }
