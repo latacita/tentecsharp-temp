@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.2 
-// Last modification: 27/02/2013 
+// Version: 1.3 
+// Last modification: 03/03/2013 
 // Description: This operation generates the methods of 
 //				the current class.
 ////////////////////////////////////////////////////////////
@@ -19,19 +19,29 @@ operation Class classMethods(currentPackage: String) {
 	opers=private()+currentPackage+"_init"+self.firstToUpperCase()+" () {}\n\t\t";
 	
 	// Generate the void methods	
-	operations_void := self.AllOperations.select(o|o.type==null or o.type.isTypeOf(PrimitiveType)); 
+	for (oper in self.AllOperations){	
+		// Select those operations which doesn't have a type (the return type field is empty)	
+		if (oper.type==null){
+			operations_void.add(oper);
+		}else{
+			// And also select those operations whose return type is void
+			if (oper.type.name.equals("void")){
+				operations_void.add(oper);
+			}
+		} 				
+	}
 	for (oper in operations_void) {
 		opers=opers+oper.visibility+" "+oper.esStatic()+virtual()+void()+currentPackage+"_"+oper.name+" ("+oper.parameters()+") {}\n\t\t";
-	}
-
-	// Generate the return methods		
+	}	
+	// Generate the return methods	
 	for (oper in self.AllOperations){
 		for (par in oper.ownedParameter){
-			if (par.direction.toString().equals("return") and par.type.name<>"" and not oper.type.isTypeOf(PrimitiveType)){
+			if (par.direction.toString().equals("return") and not par.type.name.equals("void")){							
 				operations_return.add(oper);
 			}					
 		}
-	}
+	}		
+	
 	for (oper in operations_return) {
 		opers=opers+oper.visibility+" "+oper.esStatic()+virtual()+oper.type.name+" "+currentPackage+"_"+oper.name+" ("+oper.parameters()+") : "+oper.returnParameter()+"{}\n\t\t";
 	}%]        	
