@@ -29,9 +29,7 @@ import "UtilityMethodsCreation.egl";
 		
 		[%=classUtilityMethodsCreation()%]
 		// Constructor and methods from the from the current class		
-	[%=currentClass.classMethods(p)%]
-		
-		
+	[%=currentClass.classMethods(p)%]		
 	}
 } 
 

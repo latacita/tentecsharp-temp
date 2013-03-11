@@ -40,8 +40,7 @@ operation Class classMethods(currentPackage: String) {
 				operations_return.add(oper);
 			}					
 		}
-	}		
-	
+	}			
 	for (oper in operations_return) {
 		opers=opers+oper.visibility+" "+oper.esStatic()+virtual()+oper.type.name+" "+currentPackage+"_"+oper.name+" ("+oper.parameters()+") : "+oper.returnParameter()+"{}\n\t\t";
 	}%]        	

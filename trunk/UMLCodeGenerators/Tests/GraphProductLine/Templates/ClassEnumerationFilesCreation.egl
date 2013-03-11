@@ -1,0 +1,26 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.1 
+// Last modification: 11/03/2013 
+// Description: Generates the files of all enumeration classes. 
+//				And return a set of all the paths.
+////////////////////////////////////////////////////////////
+operation classEnumerationFilesCreation(packages: Set, modelProject: Model, directory: String){
+	var paths: Set;
+	for (pack in packages) {
+	    var enumClasses=pack.packagedElement.select(e|e.isTypeOf(Enumeration));
+		for (en in enumClasses) { 
+	  		var t := TemplateFactory.load('EnumerationClassCreation.egl');
+			t.populate ('currentClass', en);	
+			t.populate('currentPackage', pack);
+			t.populate('currentModel', modelProject);    
+			var path=directory+"\\src\\" + pack.name + "\\"+ class.name +'.cs';
+			t.generate (path); 	
+			paths.add(path); 	   	
+	     }
+	}
+	return paths;
+}
+%]

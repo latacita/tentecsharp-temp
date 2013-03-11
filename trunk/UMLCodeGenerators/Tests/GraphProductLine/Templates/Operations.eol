@@ -68,4 +68,13 @@ operation Feature typeCollection(): String {
 		}
 	return collection;	
 }
-
+// This operation uses a Java Tool to create the empty directories
+operation directory(path:String) {
+	var sampleTool = new Native("pluginCreateDirectories.CreateDirectory");
+	sampleTool.creation(path);	
+}
+// This operation returns the current path
+operation path():String {
+	var sampleTool = new Native("pluginCreateDirectories.CreateDirectory");
+	return sampleTool.getPath();	
+}

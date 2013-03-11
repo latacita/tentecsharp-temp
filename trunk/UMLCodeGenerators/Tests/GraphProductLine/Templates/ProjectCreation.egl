@@ -2,33 +2,63 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.0 
-// Last modification: 24/02/2013 
-// Description: Generates the project, the directories and 
-// 				the files of all code classes.
+// Version: 1.3 
+// Last modification: 11/03/2013 
+// Description: Generates the Visual Studio project, the
+//				directories and the files of all code classes.
 ////////////////////////////////////////////////////////////
+import "ClassFilesCreation.egl";
+import "ClassEnumerationFilesCreation.egl";
+import "Operations.eol";
+
+import "VisualStudioProjectFiles/SlnFileCreation.egl";
+import "VisualStudioProjectFiles/AssemblyInfoFileCreation.egl";
+import "VisualStudioProjectFiles/CsprojectFileCreation.egl";
 
 // Select the model's project
-var modelProject := Model.allInstances().first();
+var modelProject : Model;
+modelProject= Model.allInstances().first();
+
 // Select the model's packages 
 var packages : Set;
 packages := modelProject.packagedElement.select(p|p.isTypeOf(Package));
 packages := modelProject.packagedElement.reject(p|p.name.equals("UML Standard Profile"));
 
-// Aquí deberías crear directamente un proyecto Visual C# con toda su pesca.
-// Lo puedes hacer más adelante. Puedes utilizar algún tipo de API de Visual 
-// Studio
-
-// Directories
+// Create the Visual Studio files and directories
+var path= "C:\\Users\\Patricia\\Desktop";
+// First level of directories and/or files: 
+// Create the main folder, which has the same name as the model
+var maindirectory=path+"\\"+modelProject.name;
+directory(maindirectory);
+// Second level of directories and/or files:
+// Create another folder with the same name as the model
+var secondleveldirectory=maindirectory+"\\"+modelProject.name;
+directory(secondleveldirectory);
+// Create the code files
+// Create the empty directories
 for (pack in packages) {
-    // Yo aquí crearía un directorio por cada paquete, aunque el paquete no
-    // tuviese nada  
-	for (class in pack.packagedElement.select(e|e.isTypeOf(Class))) { 
-  		var t := TemplateFactory.load('ClassCreation.egl');
-		t.populate ('currentClass', class);	
-		t.populate('currentPackage', pack);
-		t.populate('currentModel', modelProject);    
-		t.generate ('../'+modelProject.name+'/' + pack.name + '/'+ class.name +'.cs'); 	   	
-     }
+	var path=secondleveldirectory+"\\src\\"+pack.name;
+	directory(path);
 }
+// Add the source files to the corresponding directories 
+var pathsClasses=classFilesCreation(packages, modelProject, secondleveldirectory);
+var pathsEnumClasses=classEnumerationFilesCreation(packages, modelProject, secondleveldirectory);
+// Create the sln file
+var t := TemplateFactory.load('VisualStudioProjectFiles/SlnFileCreation.egl');
+t.populate('currentModel', modelProject);    
+t.generate (secondleveldirectory+'.sln'); 
+// Create the csproj file
+var t := TemplateFactory.load('CsprojectFileCreation.egl');
+var paths=pathsClasses+pathsEnumClasses;
+t.populate ('currentPaths', paths);	 
+t.generate (secondleveldirectory+'\\'+modelProject.name+'.csproj'); 
+// Third level of directories and/or files:
+// Create a folder called Properties
+var thirdleveldirectory=secondleveldirectory+"\\Properties";
+directory(thirdleveldirectory);
+// Create the AssemblyInfo file inside the properties' folder
+var t := TemplateFactory.load('AssemblyInfoFileCreation.egl');
+t.populate('currentModel', modelProject);    
+t.generate (thirdleveldirectory+'\\AssemblyInfo.cs'); 	
+
 %] 
