@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<!--
+        The following build script illustrates how to launch the example via ANT.
+        Ensure that External Tools Configuration specifies that the JRE to be used
+        is the same as the workspace.
+                1) Click External Tools Configuration... from the External Tools dropdown.
+                2) Select the ANT build for this build script.
+                3) Click the JRE tab.
+                4) Select the option that reads: "Run in the same JRE as the workspace."
+                5) Click Apply.
+                6) Click Run.
+-->
+<project basedir='.' default='all' name='[%=currentModel.name%]'>
+  <property name='nant.settings.currentframework' value='net-2.0'/>
+  <property name='build' value='bin'/>
+  <property name='src' value='src'/>
+    <target depends='[%=currentModel.name%]' name='all'/>
+    <target name='[%=currentModel.name%]'>
+    <csc debug='true' optimize='true' output='${build}/[%=currentModel.name%].exe' target='exe' 
+                warninglevel='4'>
+      <sources>
+        <include name='**/*.cs'/>
+      </sources>
+      <resources dynamicprefix="true">
+        <include name='**/*.resx'/>
+        <include name='${src}/[%=currentModel.name%]/*.bmp'/>
+      </resources>
+      <references>
+        <include name='System.dll'/>
+        <include name='System.Data.dll'/>
+        <include name='System.XML.dll'/>
+      </references>
+    </csc>
+    </target>
+</project>

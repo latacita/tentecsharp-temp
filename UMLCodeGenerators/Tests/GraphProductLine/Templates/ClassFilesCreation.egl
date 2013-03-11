@@ -1,0 +1,26 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.1 
+// Last modification: 11/03/2013 
+// Description: Generates the files of all code classes. And
+//				return a set of all the paths.
+////////////////////////////////////////////////////////////
+operation classFilesCreation(packages: Set, modelProject: Model, directory: String){
+	var paths: Set; 
+	for (pack in packages) {
+	    var classes=pack.packagedElement.select(e|e.isTypeOf(Class));
+		for (class in classes) { 
+	  		var t := TemplateFactory.load('ClassCreation.egl');
+			t.populate ('currentClass', class);	
+			t.populate('currentPackage', pack);
+			t.populate('currentModel', modelProject);    
+			var path=directory+"\\src\\" + pack.name + "\\"+ class.name +'.cs';
+			t.generate (path); 	
+			paths.add(path);
+	     }
+	}
+	return paths;
+}
+%]
