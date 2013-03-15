@@ -55,16 +55,24 @@ operation Feature esReadonly(): String {
 operation Feature typeCollection(): String { 
 	var collection;
 		if (self.isOrdered and self.isUnique){
-			collection="SortedSet <"+self.type.name+">";
+		    // It's a OrderedSet (rare case)
+ 			// Patricia toma decisión:
+ 			// 	 1-. Generar excepción diciendo que esto no está soportado
+ 			// 	 2-. Generar warning diciendo que está parcialmente soportado
+ 			// 	 3-. Crear una nueva clase que soporte las listas sin repetición 	     
+			// collection="IList <"+ self.type.name+">";
 		}
 		if (self.isOrdered and not self.isUnique){
-			collection="List <"+self.type.name+">";
+			// It's a List
+			collection="IList <"+self.type.name+">";
 		}
 		if (not self.isOrdered and self.isUnique){
-				collection="Set <"+self.type.name+">";
+			// It's a classical set
+			collection = "ISet <"+self.type.name+">";
 		}
 		if (not self.isOrdered and not self.isUnique){
-			collection=self.type.name+" []";						
+			// It's a bag
+			collection= "ICollection <"+self.type.name+">";						
 		}
 	return collection;	
 }

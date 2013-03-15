@@ -19,6 +19,7 @@ operation Class classAttributes() {
 			if (attr.isComposite){
 				// It it's a List		
 				if (attr.upperValue.value==-1 or attr.upperValue.value>1){
+					if (attr.)
 					attributes=attributes+" List <"+attr.type.name+"> "+attr.name+";\n\t\t";
 				}else{
 					attributes=attributes+attr.type.name+" "+attr.name+";\n\t\t";  		
