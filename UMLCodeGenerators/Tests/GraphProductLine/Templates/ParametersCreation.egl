@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.3 
-// Last modification: 28/02/2013 
+// Version: 1.4 
+// Last modification: 16/03/2013 
 // Description: This operation returns the parameters for 
 //				the current method. 
 ////////////////////////////////////////////////////////////
@@ -16,8 +16,14 @@ operation Feature parameters() {
 	// Reject blank and return parameters
 	parameters := self.ownedParameter.reject(p|p.name.isEmpty() or p.direction.toString().equals("return"));		
 	// Add to the var params each parameter from the given method
-	for (param in parameters){					
-			params=params+" "+param.type.name+" "+param.name+",";						
+	for (param in parameters){	
+		if(param.upperBound==-1 or param.upperBound>1){
+			// If the parameter is a collection
+			var collection=param.typeCollection();
+			params=params+" "+collection+" "+param.name+",";
+		}else{				
+			params=params+" "+param.type.name+" "+param.name+",";	
+		}							
 	}
 	// Deleting the last "," of the string, if needed
     if (not params.isEmpty()){	

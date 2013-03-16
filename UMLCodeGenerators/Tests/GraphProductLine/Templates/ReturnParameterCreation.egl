@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.1 
-// Last modification: 27/02/2013 
+// Version: 1.3 
+// Last modification: 16/03/2013 
 // Description: This operation returns the return parameter  
 //				for the current method. 
 ////////////////////////////////////////////////////////////
@@ -11,12 +11,20 @@ import "Operations.eol";
 @template
 operation Feature returnParameter() { 
 	// Method's parameters
-	var params: String;
+	// Default value
+	var params="void";
 	var return_parameter: Set;	
 	// Select the return parameter from the given method
 	return_parameter := self.ownedParameter.reject(p|p.direction.toString().equals("in"));	
-	for (param in return_parameter){		
-			params=params+" "+param.type.name;	
+	for (param in return_parameter){
+		if(param.upperBound==-1 or param.upperBound>1){
+			// If the return parameter is a collection
+			var collection=param.typeCollection();
+			params=collection;
+		}else{				
+			// If the return parameter is not a collection
+			params=param.type.name;		
+		}		 
 	}	
 	%]
 	[%=params%] 

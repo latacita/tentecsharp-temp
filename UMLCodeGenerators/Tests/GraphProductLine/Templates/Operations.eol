@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.1 
-// Last modification: 26/02/2013 
+// Version: 1.5 
+// Last modification: 16/03/2013 
 // Description: Operations to use in templates.
 ////////////////////////////////////////////////////////////
 
@@ -25,6 +25,10 @@ operation private(): String {
 // This operation returns the text "public" to include in the property or method's header
 operation public(): String { 
 	return "public ";	
+}
+// This operation returns the text "override" to include in the property or method's header
+operation override(): String { 
+	return "override ";	
 }
 // This operation returns the text "static" to include in the property or method's header
 operation static(): String { 
@@ -50,30 +54,29 @@ operation Feature esReadonly(): String {
 	}
 	return s;	
 }
-// This operation returns the text corresponding to the type of collection
-// for the given feature
-operation Feature typeCollection(): String { 
-	var collection;
+// This operation returns a lists of two elements:
+// 		0: A boolean indicates if the type collection is supported or not
+// 		1: The text corresponding to the type of collection for the given element
+operation Element typeCollection(): String { 
+	var collection: String; 
 		if (self.isOrdered and self.isUnique){
-		    // It's a OrderedSet (rare case)
- 			// Patricia toma decisión:
- 			// 	 1-. Generar excepción diciendo que esto no está soportado
- 			// 	 2-. Generar warning diciendo que está parcialmente soportado
- 			// 	 3-. Crear una nueva clase que soporte las listas sin repetición 	     
-			// collection="IList <"+ self.type.name+">";
+		    // It's a OrderedSet (rare case) 	
+		    // Warning message because it's a rare case     
+			createWindow("Warning: (Rare collection type) Found an unique and ordered collection which is not supported,\n it was replaced by an IList collection.");  
+			collection="IList <"+self.type.name+">";  
 		}
 		if (self.isOrdered and not self.isUnique){
 			// It's a List
-			collection="IList <"+self.type.name+">";
+			collection="IList <"+self.type.name+">"; 
 		}
 		if (not self.isOrdered and self.isUnique){
 			// It's a classical set
-			collection = "ISet <"+self.type.name+">";
+			collection = "ISet <"+self.type.name+">"; 
 		}
 		if (not self.isOrdered and not self.isUnique){
 			// It's a bag
-			collection= "ICollection <"+self.type.name+">";						
-		}
+			collection= "ICollection <"+self.type.name+">"; 
+		} 
 	return collection;	
 }
 // This operation uses a Java Tool to create the empty directories
@@ -86,3 +89,10 @@ operation path():String {
 	var sampleTool = new Native("pluginCreateDirectories.CreateDirectory");
 	return sampleTool.getPath();	
 }
+// This operation uses a Java Tool to create the window message
+operation createWindow(message:String) {
+	var sampleTool = new Native("pluginCreateWindows.CreateWindows");
+	sampleTool.createWindowMessage(message);	
+}
+
+

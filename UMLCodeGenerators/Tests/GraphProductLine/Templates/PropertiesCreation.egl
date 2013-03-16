@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.1 
-// Last modification: 27/02/2013 
+// Version: 1.3 
+// Last modification: 16/03/2013 
 // Description: This operation generates the declaration of 
 //				the properties from the current class and
 //				their respective get and set methods.
@@ -13,7 +13,7 @@ import "Operations.eol";
 operation Class classPropertiesCreation() { 
 	// Properties 
 	var properties: String;		
-	for (prop in self.AllAttributes) {		
+	for (prop in self.AllAttributes) {			
 		var getterAndSetter: String=" "+prop.firstToUpperCase()+" {\n\t\t\tget { return this."+prop.name+"; }"+"\n\t\t\tset { this."+prop.name+"= value; }"+"\n\t\t}\n\t\t";	
 		properties=properties+private();
 		var header;
@@ -21,24 +21,25 @@ operation Class classPropertiesCreation() {
 		properties=properties+prop.esStatic();
 		// If it's readonly
 		properties=properties+prop.esReadonly();
-		// Header to add in the public version of the property
+		// Header to add in the public version of the property		
 		header=prop.esStatic()+prop.esReadonly();		
-		// If it's an association
-		if (prop.isComposite){
-			// If it has more than one element, we have to specify the type of collection
-			if (prop.upperValue.value==-1 or prop.upperValue.value>1){
-				var collection=prop.typeCollection();
-				properties=properties+collection+" "+prop.name+";\n\t\t"+public()+header+collection+getterAndSetter;
-			}else{
-				// Association between classes with just one element.
-				var pro=prop.type.name;
-				properties=properties+pro+" "+prop.name+";\n\t\t"+public()+header+pro+getterAndSetter;
-			} // if-upperValue
+		// If it's a collection:
+		// 		If it has more than one element, we have to specify the type of collection
+		if(prop.upperBound==-1 or prop.upperBound>1){
+			// NOTE: The attributes must have a type. If not, it would give an error... Maybe add an exception here?
+			var collection=prop.typeCollection();
+			// Collections don't have get and set methods
+			properties=properties+collection+" "+prop.name+";\n\t\t";
 		}else{
-			// Rest of the propierties.
-		    var pro=prop.type.name;
-			properties=properties+pro+" "+prop.name+";\n\t\t"+public()+header+pro+getterAndSetter;
-		}// if-isComposite
+			// Association between classes with just one element.
+			var pro=prop.type.name;
+			// Static properties don't have get and set methods
+			if (prop.isStatic()){
+				properties=properties+pro+" "+prop.name+";\n\t\t";
+			}else{
+				properties=properties+pro+" "+prop.name+";\n\t\t"+public()+header+pro+getterAndSetter;
+			}//if-static
+		} // if-upperBound		
 	}//for
 	%]
 [%=properties%]

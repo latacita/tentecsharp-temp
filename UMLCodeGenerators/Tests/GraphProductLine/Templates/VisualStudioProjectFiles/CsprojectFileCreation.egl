@@ -2,10 +2,13 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.0 
-// Last modification: 11/03/2013 
+// Version: 1.1 
+// Last modification: 15/03/2013 
 // Description: Generates the .csproject Visual Studio file.
 ////////////////////////////////////////////////////////////
+
+import "EmptyPackagesForCsProject.egl";
+import "NonEmptyPackagesForCsProject.egl";
 %]
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -52,11 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    [%for (path in currentPaths){%]
-  	<Compile Include="[%=path%]"/>  	
-  	[%}%]
+    [%=nonEmptyPackages(nonemptyPackages)%]
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  
+  [% if (not emptyPackages.isEmpty()){%]
+  [%=emptyPackages(emptyPackages)%]
+  [%}%]
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
