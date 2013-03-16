@@ -9,8 +9,5 @@
 ////////////////////////////////////////////////////////////
 @template
 operation Class classDeclaration() { %]
-[%=self.visibility%] partial class [%=self.name%] {
-
-// Anhadirle un constructor vacio, es decir el metodo init 
-	
+[%=self.visibility%] partial class [%=self.name%] {	
 [% } %]
