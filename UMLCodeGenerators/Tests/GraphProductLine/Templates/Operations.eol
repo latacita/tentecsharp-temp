@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.5 
-// Last modification: 16/03/2013 
+// Version: 1.7 
+// Last modification: 18/03/2013 
 // Description: Operations to use in templates.
 ////////////////////////////////////////////////////////////
 
@@ -54,6 +54,10 @@ operation Feature esReadonly(): String {
 	}
 	return s;	
 }
+// This operation returns the elemento with the first letter in lower case 
+operation Element firstToLowerCase(): String { 
+	return self.name.firstToLowerCase();	
+}
 // This operation returns a lists of two elements:
 // 		0: A boolean indicates if the type collection is supported or not
 // 		1: The text corresponding to the type of collection for the given element
@@ -91,8 +95,12 @@ operation path():String {
 }
 // This operation uses a Java Tool to create the window message
 operation createWindow(message:String) {
-	var sampleTool = new Native("pluginCreateWindows.CreateWindows");
-	sampleTool.createWindowMessage(message);	
+	var sampleTool = new Native("pluginCreateMessageWindow.CreateMessageWindow");
+	sampleTool.createMessageWindow(message);	
 }
-
+// This operation uses a Java Tool to create the save to disk dialog
+operation createSaveToDiskWindow(): String {
+	var sampleTool = new Native("pluginCreateSelectDiretoryWindow.CreateSelectDirectoryWindow");
+	return sampleTool.createSelectDirectoryWindow();	
+}
 
