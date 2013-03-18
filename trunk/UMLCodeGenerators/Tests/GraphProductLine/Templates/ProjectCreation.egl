@@ -23,16 +23,10 @@ modelProject= Model.allInstances().first();
 var packages : Set;
 packages := modelProject.packagedElement.select(p|p.isTypeOf(Package));
 packages := modelProject.packagedElement.reject(p|p.name.equals("UML Standard Profile"));
-
-//-------------------------------------------------------------
 // User selects a directory where to save the project file
-//var path= createSaveToDiskWindow();
+var path= createSaveToDiskWindow();
 // The directory is created
-// directory(path);
-//--------------------------------------------------------------
-var path="C:\\Users\\Patricia\\Desktop";
-
-
+directory(path);
 // Create the Visual Studio files and directories inside the directory selected by the user
 // First level of directories and/or files: 
 // Create the main folder, which has the same name as the model
