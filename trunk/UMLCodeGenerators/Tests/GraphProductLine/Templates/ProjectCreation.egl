@@ -23,10 +23,16 @@ modelProject= Model.allInstances().first();
 var packages : Set;
 packages := modelProject.packagedElement.select(p|p.isTypeOf(Package));
 packages := modelProject.packagedElement.reject(p|p.name.equals("UML Standard Profile"));
+
+//-------------------------------------------------------------
 // User selects a directory where to save the project file
-var path= createSaveToDiskWindow();
+//var path= createSaveToDiskWindow();
 // The directory is created
-directory(path);
+// directory(path);
+//--------------------------------------------------------------
+var path="C:\\Users\\Patricia\\Desktop";
+
+
 // Create the Visual Studio files and directories inside the directory selected by the user
 // First level of directories and/or files: 
 // Create the main folder, which has the same name as the model
@@ -38,10 +44,11 @@ var secondleveldirectory=maindirectory+"\\"+modelProject.name;
 directory(secondleveldirectory);
 // Create the code files
 // Create the empty directories
+var a: Set;
 for (pack in packages) {
 	var path=secondleveldirectory+"\\src\\"+pack.name;
-	directory(path);
-}
+	directory(path); 
+} 
 // Add the source files to the corresponding directories 
 var pathsClasses=classFilesCreation(packages, modelProject, secondleveldirectory);
 // Enumeration Classes generation is implemented but not working because there's a bug in Epsilon
