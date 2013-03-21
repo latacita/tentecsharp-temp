@@ -1,0 +1,125 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.5 
+// Last modification: 21/03/2013 
+// Description: Returns a set including all bidirections from
+//				the current model
+////////////////////////////////////////////////////////////
+import "Operations.eol";
+operation bidirectionalRelations(): Set{
+	// List of relations where each element is:
+	//			{{<NameFromCurrentClass>, <NameFromRelationClass>}, <RelationNameCurrentClassToRelationClass>, 
+	//			 {<NameFromPackageCurrentClass>, <NameFromPackageRelationClass>}, <MultiplicityOfTheRelation>} 
+	var relations: List;
+	//Select the packages created by the user
+	var packages := Package.all.select(p|p.isTypeOf(Package));
+	packages := Package.all.reject(p|p.name.equals("UML Standard Profile"));	
+	// Set of classes names
+	var classesName: Set;		
+	// Select relations between classes
+	for (pack in packages){
+		var classes=pack.packagedElement.select(e|e.isTypeOf(Class));
+		for (class in classes){
+			// Select non-primitive-type attributes
+			var attributes=class.AllAttributes.reject(e|e.isTypeOf(PrimitiveType));				
+		 	for (attrib in attributes){	  		 			
+			 		var relatedClasses: List;
+			 		var relation: List;	
+			 		var nameRelations: List;
+			 		var package:List;	
+			 		var multiplicity:List;					 					 			 		  
+					// Pick the class which has an attribute of type class				
+					relatedClasses.add(class.name);
+					// Pick the class where the class attribute comes from
+					relatedClasses.add(attrib.type.name);
+					// Add both classes to the relation
+					relation.add(relatedClasses);
+					// Save the name of the relation
+					nameRelations.add(attrib.name);
+					relation.add(nameRelations); 
+					// Save the packages
+					package.add(pack.name);
+					package.add(attrib.type.Package.name);
+					relation.add(package); 
+					// Save the multiplicity
+					if (attrib.upperBound > 1 or attrib.upperBound == -1){
+						// It's a collection						
+						multiplicity.add(attrib.typeCollection());
+					}else{
+						// It's one to one
+						multiplicity.add(1);
+					}
+					relation.add(multiplicity);
+					// Add the relation to the list of relations  		
+					relations.add(relation);
+ 			}//for-attrib 	 
+ 			// Add the name of the class to the list of classes' names
+ 			classesName.add(class.name);
+		}//for-class
+	}//for-pack  
+	 
+	// Select those relations which are relations between classes created by user
+	var finalRelations: Set;
+	var firstCorrect= false;
+	var secondCorrect= false;
+	for (rel in relations){ 
+		// Check if both elements from relation are classes and not primitive types
+		for (c in classesName){		 	
+			if (rel[0][0] == c){ 
+				firstCorrect=true; 							
+			}
+			if (rel[0][1] == c){ 	
+				secondCorrect=true; 	
+			}
+		}//if-c
+		// If they are both classes, add to the final list
+		if (firstCorrect and secondCorrect){ 
+			 finalRelations.add(rel);
+		}
+		firstCorrect= false;
+		secondCorrect= false;
+	}  
+	
+	var bidirectionalRelations: Set;
+	var numRelations=finalRelations.size();
+	// Bidireccionalidad
+	for (r in Sequence{0..numRelations-1}){ 
+		for (ri in Sequence{0..numRelations-1}){
+			if (finalRelations[ri][0][0] == finalRelations[r][0][1] 
+				and finalRelations[ri][0][1]==finalRelations[r][0][0]
+				and finalRelations[ri][2][0]==finalRelations[r][2][1]
+				and finalRelations[ri][2][1]==finalRelations[r][2][0]
+				){ 
+					// Structure of each element of bidirectionalRelations set: 
+					//		{{<NameFromCurrentClass>, <NameFromRelationClass>}, <RelationNameCurrentClassToRelationClass>, 
+					//	     {<NameFromPackageCurrentClass>, <NameFromPackageRelationClass>}, 
+					//		 {<MultiplictyOfTheRelationCurrentClass>, <MultiplictyOfTheRelationRelationClass>}} 
+					// Add both classes
+					var relat:List;
+					relat.add(finalRelations[r][0]);
+					// Add relation from current class to relation class
+					var rel:List;
+					rel.add(finalRelations[r][1][0]); 
+					rel.add(finalRelations[ri][1][0]);
+					relat.add(rel);
+					// Add packages from both classes
+					var pack:List;
+					pack.add(finalRelations[r][2][0]);
+					pack.add(finalRelations[ri][2][0]);
+					relat.add(pack); 					 
+					// Add the multiplicity
+					var mult:List;
+					mult.add(finalRelations[r][3][0]);
+					mult.add(finalRelations[ri][3][0]);	
+					relat.add(mult);				
+					// Add the relation to the list of bidirectional relations
+					bidirectionalRelations.add(relat);
+			}//if
+		}//for-re 
+	}//for-r  
+	return bidirectionalRelations;
+}
+
+%]
