@@ -9,7 +9,7 @@
 ////////////////////////////////////////////////////////////
 import "Operations.eol";
 @template
-operation Feature parameters() { 
+operation Feature parameters(currentPackage: String, path: String) { 
 	// Method's parameters
 	var params: String;
 	var parameters: OrderedSet;	
@@ -19,7 +19,7 @@ operation Feature parameters() {
 	for (param in parameters){	
 		if(param.upperBound==-1 or param.upperBound>1){
 			// If the parameter is a collection
-			var collection=param.typeCollection();
+			var collection=param.typeCollection(currentPackage, path);
 			params=params+" "+collection+" "+param.name+",";
 		}else{				
 			params=params+" "+param.type.name+" "+param.name+",";	

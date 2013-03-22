@@ -8,7 +8,7 @@
 //				return a set of all the paths.
 ////////////////////////////////////////////////////////////
 import "BidirectionalRelations.egl";
-operation classFilesCreation(packages: Set, modelProject: Model, directory: String){
+operation classFilesCreation(packages: Set, modelProject: Model, directory: String, path: String){
 	var paths_empty: Set; 
 	var paths_notempty: Set; 
 	
@@ -27,8 +27,9 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 				t.populate ('currentClass', class);	
 				t.populate('currentPackage', pack);
 				t.populate('currentModel', modelProject);  
+				t.populate('path', path); 
 				t.populate('bidirectionalRelations',bidirectionalRelations);  
-				var path=directory+"\\src\\" + pack.name + "\\"+ class.name +'.cs';
+				var path=directory+"\\src\\" + pack.name + "\\"+ class.name +'.cs'; 
 				t.generate (path); 	
 				paths_notempty.add(path);
 		     }//for-class

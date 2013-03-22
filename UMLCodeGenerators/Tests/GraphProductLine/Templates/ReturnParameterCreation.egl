@@ -9,7 +9,7 @@
 ////////////////////////////////////////////////////////////
 import "Operations.eol";
 @template
-operation Feature returnParameter() { 
+operation Feature returnParameter(currentPackage: String, path: String) { 
 	// Method's parameters
 	// Default value
 	var params="void";
@@ -19,7 +19,7 @@ operation Feature returnParameter() {
 	for (param in return_parameter){
 		if(param.upperBound==-1 or param.upperBound>1){
 			// If the return parameter is a collection
-			var collection=param.typeCollection();
+			var collection=param.typeCollection(currentPackage, path);
 			params=collection;
 		}else{				
 			// If the return parameter is not a collection

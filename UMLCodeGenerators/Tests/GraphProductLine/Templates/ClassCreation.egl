@@ -61,12 +61,12 @@ var isBidirectional=false;%]
 		 			// If it's a bidirectional relation one to many
 		 			if ((multiplicity[0]<>1 and multiplicity[1]==1)){    
 		 				// If the current class is the collection part of the relation
-		 				elements.add(setImplementationOneToManyCollectionPart(nameThisClassRelation, nameOtherClassRelation, classRelated, currentClass.name, multiplicity[0]));
+		 				elements.add(setImplementationOneToManyCollectionPart(nameThisClassRelation, nameOtherClassRelation, classRelated, currentClass.name, multiplicity[0].typeCollection(p, path)));
 		 				elements.add(nameThisClassRelation); 
 		 			}
 		 			// If it's a bidirectional relation many to many
 		 			if ((multiplicity[0]<>1 and multiplicity[1]<>1)){   
-		 				elements.add(setImplementationManyToMany(nameThisClassRelation, nameOtherClassRelation, classRelated, currentClass.name, multiplicity[0]));
+		 				elements.add(setImplementationManyToMany(nameThisClassRelation, nameOtherClassRelation, classRelated, currentClass.name, multiplicity[0].typeCollection(p, path)));
 		 				elements.add(nameThisClassRelation); 
 		 			
 		 			}
@@ -78,12 +78,12 @@ var isBidirectional=false;%]
 				}//if-currentClass
 			}//for-bidirectionalRelations  
 		%] 
-		[%=currentClass.classPropertiesCreation(implementation, isBidirectional, allBidirectionalImplementations)%]
+		[%=currentClass.classPropertiesCreation(path, p, implementation, isBidirectional, allBidirectionalImplementations)%]
 		// Utility methods from the current class 
 		
 		[%=classUtilityMethodsCreation()%]
 		// Constructor and methods from the from the current class		
-	[%=currentClass.classMethods(p)%]	
+	[%=currentClass.classMethods(p, path)%]	
 	
 
 	
