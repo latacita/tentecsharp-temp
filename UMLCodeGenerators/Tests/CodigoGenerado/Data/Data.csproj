@@ -43,28 +43,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\BasicGraph\Graph.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\Color\Color.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PrintHeader\Graph.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasHerencia\PatientPerson.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasHerencia\Persona.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\Color\Edge.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\Hombre.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\Recursive\Graph.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\Color\Graph.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasColecciones\Clase1.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\BasicGraph\Edge.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\Trabajador.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\Color\Node.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\Alumno.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasHerencia\DoctorPerson.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\Curso.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\WeightGraph\Edge.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\Recursive\Node.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\BasicGraph\Node.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\WeightGraph\Graph.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\Proyecto.cs" />
-	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\Mujer.cs" />
+    <Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\BasicGraph\Edge.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PruebasHerencia\PatientPerson.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PruebasBidireccionalidad\Trabajador.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PruebasBidireccionalidad\Proyecto.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\Color\Edge.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\Color\Graph.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\BasicGraph\Node.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PruebasHerencia\DoctorPerson.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\WeightGraph\Edge.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\Color\Node.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PruebasBidireccionalidad\Mujer.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PruebasBidireccionalidad\Curso.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\WeightGraph\Graph.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\Color\Color.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PruebasHerencia\Persona.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\Recursive\Node.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\Recursive\Graph.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PruebasBidireccionalidad\CLASEB.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\BasicGraph\Graph.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PruebasColecciones\Clase1.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PrintHeader\Graph.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PruebasBidireccionalidad\CLASEA.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PruebasBidireccionalidad\Hombre.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\P\Data\Data\src\PruebasBidireccionalidad\Alumno.cs" />
 	
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
