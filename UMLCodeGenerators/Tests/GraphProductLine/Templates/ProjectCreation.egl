@@ -69,7 +69,8 @@ t.populate('currentModel', modelProject);
 t.generate (thirdleveldirectory+'\\AssemblyInfo.cs'); 	
 
 var message ="Info Message:\n\t If there was relations in the model without a name assigned, it has been created as the following:\n\t\t";
-message=message+"relationFromClass_<NameOfTheClass>\n";
+message=message+"relationFromClass_<NameOfTheClass>.\n";
+message=message+"Info Message:\n\tIf there are relations without multiplicity assigned, by default they are created One To One\n\tif it's not correct please change the model and generate the code again.\n";
 // Write in the log file
 writeInFile(path+"\\log.txt", message);  
 // Show the log file
