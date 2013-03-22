@@ -22,6 +22,11 @@ namespace Data{
 			get { return this.Collection; }
 			set { this.Collection= value; }
 		}
+		private IList <int> weirdCase;
+		public IList <int> WeirdCase {
+			get { return this.WeirdCase; }
+			set { this.WeirdCase= value; }
+		}
 		
 		// Utility methods from the current class 
 		
