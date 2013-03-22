@@ -11,7 +11,7 @@ import "ReturnParameterCreation.egl";
 import "ParametersCreation.egl";
 import "Operations.eol";
 @template	
-operation Class classMethods(currentPackage: String) {   		
+operation Class classMethods(currentPackage: String, path: String) {   		
 	var opers: String;
 	var operations_void : Sequence;	
 	var operations_return: Sequence;
@@ -49,11 +49,11 @@ operation Class classMethods(currentPackage: String) {
 	}//if-operations
 	// Generate the void methods
 	for (oper in operations_void) {			
-		opers=opers+oper.visibility+" "+oper.esStatic()+virtual()+void()+currentPackage+"_"+oper.name+" ("+oper.parameters()+") {}\n\t\t";
+		opers=opers+oper.visibility+" "+oper.esStatic()+virtual()+void()+currentPackage+"_"+oper.name+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
 	}	
 	// Generate the return methods		
 	for (oper in operations_return) {
-		opers=opers+oper.visibility+" "+oper.esStatic()+virtual()+oper.returnParameter()+" "+currentPackage+"_"+oper.name+" ("+oper.parameters()+") {}\n\t\t";
+		opers=opers+oper.visibility+" "+oper.esStatic()+virtual()+oper.returnParameter(currentPackage, path)+" "+currentPackage+"_"+oper.name+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
 	}%]        	
 	[%=opers%]
 [%}%]

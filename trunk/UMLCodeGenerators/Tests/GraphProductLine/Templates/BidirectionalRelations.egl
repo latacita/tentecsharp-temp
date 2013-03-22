@@ -18,13 +18,15 @@ operation bidirectionalRelations(): Set{
 	packages := Package.all.reject(p|p.name.equals("UML Standard Profile"));	
 	// Set of classes names
 	var classesName: Set;		
+ 
 	// Select relations between classes
 	for (pack in packages){
-		var classes=pack.packagedElement.select(e|e.isTypeOf(Class));
+		var classes=pack.packagedElement.select(e|e.isTypeOf(Class)); 
 		for (class in classes){
 			// Select non-primitive-type attributes
 			var attributes=class.AllAttributes.reject(e|e.isTypeOf(PrimitiveType));				
-		 	for (attrib in attributes){	  		 			
+		 	for (attrib in attributes){	  	
+		 			//(attrib.type.name).println();	 			
 			 		var relatedClasses: List;
 			 		var relation: List;	
 			 		var nameRelations: List;
@@ -37,7 +39,13 @@ operation bidirectionalRelations(): Set{
 					// Add both classes to the relation
 					relation.add(relatedClasses);
 					// Save the name of the relation
-					nameRelations.add(attrib.name);
+					// If the user didn't write a name for the relation by default it's
+					// called relationFromClass_<ClassName>					
+					if (attrib.name==""){
+						nameRelations.add("relationFromClass_"+class.name);
+					} else{
+						nameRelations.add(attrib.name);
+					}//if-attrib
 					relation.add(nameRelations); 
 					// Save the packages
 					package.add(pack.name);
@@ -46,7 +54,7 @@ operation bidirectionalRelations(): Set{
 					// Save the multiplicity
 					if (attrib.upperBound > 1 or attrib.upperBound == -1){
 						// It's a collection						
-						multiplicity.add(attrib.typeCollection());
+						multiplicity.add(attrib);   
 					}else{
 						// It's one to one
 						multiplicity.add(1);
@@ -102,7 +110,8 @@ operation bidirectionalRelations(): Set{
 					// Add relation from current class to relation class
 					var rel:List;
 					rel.add(finalRelations[r][1][0]); 
-					rel.add(finalRelations[ri][1][0]);
+					rel.add(finalRelations[ri][1][0]); 
+					 
 					relat.add(rel);
 					// Add packages from both classes
 					var pack:List;

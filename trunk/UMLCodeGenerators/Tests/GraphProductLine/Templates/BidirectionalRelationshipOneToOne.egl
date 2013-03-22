@@ -9,7 +9,7 @@
 //				bidirectional relationships
 ////////////////////////////////////////////////////////////
 operation setImplementationOneToOne (nameThisClassRelation: String, nameOtherClassRelation: String,  classRelated: String): String{
-	var implementation:String;	 
+	var implementation:String;	  
 	var thisClassProperty = nameThisClassRelation.firstToUpperCase();
 	var otherClassProperty = nameOtherClassRelation.firstToUpperCase();
 	

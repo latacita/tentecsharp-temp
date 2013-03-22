@@ -11,7 +11,7 @@
 import "Operations.eol";
 
 @template
-operation Class classPropertiesCreation(bidirectionalImplementation: List, isBidirectional: Boolean, allBidirectionalImplementations: List) {  
+operation Class classPropertiesCreation(path: String, currentPackage: String, bidirectionalImplementation: List, isBidirectional: Boolean, allBidirectionalImplementations: List) {  
 	// Properties 
 	var properties: String;	
 	// Getter and setter 
@@ -22,7 +22,7 @@ operation Class classPropertiesCreation(bidirectionalImplementation: List, isBid
 		if (isBidirectional){		
 			// If the current property is bidirectional
 			for (elemento in allBidirectionalImplementations){  
-				 if (prop.name == elemento[1]){ 
+				 if (prop.name == "" or prop.name == elemento[1]){ 
 				 	// Add the implemented get and set methods and the aditional set method to deal with bidirectionality		 	
 				 	properties=properties+elemento[0];				 	  
 				 }//if-prop
@@ -42,7 +42,7 @@ operation Class classPropertiesCreation(bidirectionalImplementation: List, isBid
 			// 		If it has more than one element, we have to specify the type of collection
 			if(prop.upperBound==-1 or prop.upperBound>1){
 				// NOTE: The attributes must have a type. If not, it would give an error... Maybe add an exception here?
-				var collection=prop.typeCollection();
+				var collection=prop.typeCollection(currentPackage, path);
 				// Collections don't have get and set methods
 				properties=properties+collection+" "+prop.firstToLowerCase()+";\n\t\t"+public()+header+collection+getterAndSetter;
 			}else{
