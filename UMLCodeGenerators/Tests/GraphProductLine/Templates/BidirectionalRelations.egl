@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.5 
-// Last modification: 21/03/2013 
+// Version: 1.6 
+// Last modification: 23/03/2013 
 // Description: Returns a set including all bidirections from
 //				the current model
 ////////////////////////////////////////////////////////////
@@ -122,9 +122,13 @@ operation bidirectionalRelations(): Set{
 					var mult:List;
 					mult.add(finalRelations[r][3][0]);
 					mult.add(finalRelations[ri][3][0]);	
-					relat.add(mult);				
-					// Add the relation to the list of bidirectional relations
-					bidirectionalRelations.add(relat);
+					relat.add(mult);									
+					// Don't add those relations which are reflexive were the source and 
+					// the end are the same, to avoid recursivity
+					if (relat[1][0] <> relat[1][1]){
+						// Add the relation to the list of bidirectional relations
+						bidirectionalRelations.add(relat); 
+					}//if-relat	
 			}//if
 		}//for-re 
 	}//for-r  
