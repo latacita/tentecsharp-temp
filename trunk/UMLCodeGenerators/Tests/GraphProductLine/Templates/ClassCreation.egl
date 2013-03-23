@@ -51,25 +51,24 @@ var isBidirectional=false;%]
 		 			if (multiplicity[0]==1 and multiplicity[1]==1){ 
 		 				elements.add(setImplementationOneToOne(nameThisClassRelation, nameOtherClassRelation, classRelated));
 		 				elements.add(nameThisClassRelation); 
-		 			} 
+		 			}//if-bidirectional-one-to-one
 		 			// If it's a bidirectional relation one to many
 		 			if ((multiplicity[0]==1 and multiplicity[1]<>1)){   
 		 				// If the current class is the simple part of the relation
 		 				elements.add(setImplementationOneToManySimplePart(nameThisClassRelation, nameOtherClassRelation, classRelated, currentClass.name));
 		 				elements.add(nameThisClassRelation); 
-		 			}
+		 			}//if-bidirectional-one-to-many
 		 			// If it's a bidirectional relation one to many
 		 			if ((multiplicity[0]<>1 and multiplicity[1]==1)){    
 		 				// If the current class is the collection part of the relation
 		 				elements.add(setImplementationOneToManyCollectionPart(nameThisClassRelation, nameOtherClassRelation, classRelated, currentClass.name, multiplicity[0].typeCollection(p, path)));
 		 				elements.add(nameThisClassRelation); 
-		 			}
+		 			}//if-bidirectional-one-to-many
 		 			// If it's a bidirectional relation many to many
 		 			if ((multiplicity[0]<>1 and multiplicity[1]<>1)){   
 		 				elements.add(setImplementationManyToMany(nameThisClassRelation, nameOtherClassRelation, classRelated, currentClass.name, multiplicity[0].typeCollection(p, path)));
-		 				elements.add(nameThisClassRelation); 
-		 			
-		 			}
+		 				elements.add(nameThisClassRelation);
+		 			}//if-bidirectional-many-to-many
 		 			// Put the variable set to true because it's bidirectional
 		 			isBidirectional=true; 
 		 			// Add the current elements to the list of implementations from all the bidirectional relations
