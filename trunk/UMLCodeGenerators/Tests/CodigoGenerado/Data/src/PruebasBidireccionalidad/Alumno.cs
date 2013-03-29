@@ -3,10 +3,10 @@ using System.Collections.Generic;
 // This is the content of the class named "Alumno", which is 
 // in the package: "PruebasBidireccionalidad", from the "Data" model. 
 namespace Data{	
-	 	public partial class Alumno{
-
-		// Properties from the current class 
+	 	 partial class Alumno{
  
+		// Properties from the current class 		 
+		
 		private Curso matriculado;
 		public Curso Matriculado {
 			get { return this.matriculado; }
@@ -33,6 +33,7 @@ namespace Data{
 				}
 			 }
 		}
+		 
 		
 		// Aditional methods
 
@@ -46,6 +47,7 @@ namespace Data{
 		{
 			this.matriculado = m;
 		}
+		 
 		
 		// Utility methods from the current class 
 		
@@ -55,12 +57,10 @@ namespace Data{
 		public virtual override Type GetType ();
 		public virtual override string ToString();
 
+		
 		// Constructor and methods from the from the current class		
-	        	
 		private void PruebasBidireccionalidad_initAlumno () {}
 			
-	
-
 	
 	
 	}
