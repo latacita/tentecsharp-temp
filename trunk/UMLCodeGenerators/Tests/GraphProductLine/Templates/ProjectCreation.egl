@@ -1,0 +1,83 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.4 
+// Last modification: 15/03/2013 
+// Description: Generates the Visual Studio project, the
+//				directories and the files of all code classes.
+////////////////////////////////////////////////////////////
+import "ClassFilesCreation.egl";
+import "ClassEnumerationFilesCreation.egl";
+import "Operations.eol";
+
+import "VisualStudioProjectFiles/SlnFileCreation.egl";
+import "VisualStudioProjectFiles/AssemblyInfoFileCreation.egl";
+import "VisualStudioProjectFiles/CsprojectFileCreation.egl";
+
+// Select the model's project
+var modelProject : Model;
+modelProject= Model.allInstances().first();
+
+// Select the model's packages 
+var packages : Collection;
+packages := modelProject.packagedElement.select(p|p.isTypeOf(Package));
+packages := modelProject.packagedElement.reject(p|p.name.equals("UML Standard Profile"));
+
+// User selects a directory where to save the project file
+var path= createSaveToDiskWindow();
+// The directory is created
+directory(path); 
+ 
+// Create the Visual Studio files and directories inside the directory selected by the user
+// First level of directories and/or files: 
+// Create the main folder, which has the same name as the model
+var maindirectory=path+"\\"+modelProject.name;
+directory(maindirectory);
+// Second level of directories and/or files:
+// Create another folder with the same name as the model
+var secondleveldirectory=maindirectory+"\\"+modelProject.name;
+directory(secondleveldirectory);
+// Create the code files
+// Create the empty directories
+var a: Set;
+for (pack in packages) {
+	var path=secondleveldirectory+"\\src\\"+pack.name;
+	directory(path); 
+} 
+// Add the source files to the corresponding directories 
+var pathsClasses=classFilesCreation(packages, modelProject, secondleveldirectory, path);
+// Enumeration Classes generation is implemented but not working because there's a bug in Epsilon
+//var pathsEnumClasses=classEnumerationFilesCreation(packages, modelProject, secondleveldirectory);
+// Create the sln file
+var t := TemplateFactory.load('VisualStudioProjectFiles/SlnFileCreation.egl');
+t.populate('currentModel', modelProject);    
+t.generate (secondleveldirectory+'.sln'); 
+// Create the csproj file
+var t := TemplateFactory.load('CsprojectFileCreation.egl');
+var paths=pathsClasses;//+pathsEnumClasses; 
+t.populate('emptyPackages',paths[0]);
+t.populate ('nonemptyPackages', paths[1]); 
+t.generate (secondleveldirectory+'\\'+modelProject.name+'.csproj'); 
+// Third level of directories and/or files:
+// Create a folder called Properties
+var thirdleveldirectory=secondleveldirectory+"\\Properties";
+directory(thirdleveldirectory);
+// Create the AssemblyInfo file inside the properties' folder
+var t := TemplateFactory.load('AssemblyInfoFileCreation.egl');
+t.populate('currentModel', modelProject);    
+t.generate (thirdleveldirectory+'\\AssemblyInfo.cs'); 	
+
+var message ="Info Message:\n\t If there were relations in the model without a name assigned, it has been created as the following:\n\t\t";
+message=message+"relationFromClass_<NameOfTheClass>.\n";
+message=message+"Info Message:\n\t If there were properties in the model without a name assigned, it has been created as the following:\n\t\t";
+message=message+"property_<Number>_From_<NameOfTheClass>.\n";
+message=message+"Info Message:\n\tIf there are relations without multiplicity assigned, by default they are created One To One\n\tif it's not correct please change the model and generate the code again.\n";
+// Write in the log file
+writeInFile(path+"\\log.txt", message);  
+// Show the log file
+createWindowAndShowMessages(path+"\\log.txt");
+// Delete the log file after the execution
+deleteFile(path, "log.txt");  
+
+%] 

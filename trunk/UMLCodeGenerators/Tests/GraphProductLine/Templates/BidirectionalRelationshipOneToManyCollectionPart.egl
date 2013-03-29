@@ -1,0 +1,52 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.3 
+// Last modification: 29/03/2013 
+// Description: This template generates the implemented version
+//				of the set method, and an aditional one, to 
+//				bidirectional relationships one to many
+//				(if the current class is the one with collection relation)
+////////////////////////////////////////////////////////////
+operation setImplementationOneToManyCollectionPart (nameThisClassRelation: String, nameOtherClassRelation: String,  currentClass: String, classRelated: String, collectionName: String): List{
+	var implementation:String;	
+	var thisClassProperty = nameThisClassRelation.firstToUpperCase();
+	var otherClassProperty = nameOtherClassRelation.firstToUpperCase(); 
+	
+	var collectionDeclaration=collectionName+" "+nameThisClassRelation+" = new "; 
+	// If the collection is a ISet
+	if (collectionName.equals("ISet <"+classRelated+">")){
+		collectionDeclaration=collectionDeclaration+"HashSet<"+classRelated+">();"; 
+	}  
+	// If the collection is a IList
+	if (collectionName.equals("IList <"+classRelated+">")){
+		collectionDeclaration=collectionDeclaration+"List<"+classRelated+">();"; 
+	} 
+	// If the collection is a ICollection
+	if (collectionName.equals("ICollection <"+classRelated+">")){
+		collectionDeclaration=collectionDeclaration+"Collection<"+classRelated+">();"; 
+	}
+	
+	// Creating the string which contains the implementation of the methods
+	// Implementation of the Add method 
+	implementation="\n\t\tpublic void add"+classRelated+"("+classRelated+" a)\n\t\t{\n\t";
+	implementation=implementation+"\t\tif (a."+otherClassProperty+" != this || a."+otherClassProperty+" == null)\n\t\t\t{\n\t\t";
+	implementation=implementation+"\t\tthis."+nameThisClassRelation+".Remove(a);\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t";
+	implementation=implementation+"\t\t"+"if (! this."+nameThisClassRelation+".Contains(a))\n\t\t\t\t{\n\t\t\t\t\tthis.";
+	implementation=implementation+nameThisClassRelation+".Add(a);\n\t\t\t\t}\n\t\t\t}\n\t\t}";
+	// Implementation of the Remove method
+	implementation=implementation+"\n\t\tpublic void remove"+classRelated+"("+classRelated+" a)\n\t\t{\n\t";
+	implementation=implementation+"\t\tif (a."+otherClassProperty+" == this)\n\t\t\t{\n\t\t";
+	implementation=implementation+"\t\tthis."+nameThisClassRelation+".Remove(a);\n\t\t";
+	implementation=implementation+"\t\ta.Set"+currentClass+"(null);\n\t\t\t}\n\t\t}";
+	// Implementation of the Get method
+	implementation=implementation+"\n\t\tpublic "+collectionName+" get"+currentClass+"()\n\t\t{\n\t";
+	implementation=implementation+"\t\treturn this."+nameThisClassRelation+";\n\t\t}\n\t\t"; 
+	
+	var finalImplementation: List;
+	finalImplementation.add(collectionDeclaration);
+	finalImplementation.add(implementation);
+	
+	return finalImplementation; 
+}%]

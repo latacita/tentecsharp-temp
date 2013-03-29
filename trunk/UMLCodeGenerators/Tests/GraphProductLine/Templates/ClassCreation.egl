@@ -1,0 +1,46 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.8
+// Last modification: 28/03/2013 
+// Description: This template generates the specification of
+//				the current class: declarations, properties, 
+//				methods.
+////////////////////////////////////////////////////////////
+import "ModelCreation.egl";
+import "ClassDeclaration.egl"; 
+import "MethodsCreation.egl"; 
+import "PropertiesGeneration.egl";
+import "UtilityMethodsCreation.egl";
+%]
+using System;
+using System.Collections.Generic;
+[%
+var p=currentPackage.name; 
+%]
+// This is the content of the class named "[%=currentElement.name%]", which is 
+// in the package: "[%=currentPackage.name%]", from the "[%=currentModel.name%]" model. 
+[%=currentModel.modelDeclaration()%]
+	[%=currentElement.classDeclaration(isInterface)%] 
+		// Properties from the current class 		 
+		
+		[%var propertiesAndAdditionalMethods=currentElement.propertiesGeneration(false, bidirectionalRelations, p, path);%]
+		[%=propertiesAndAdditionalMethods[0]%] 
+		[%=propertiesAndAdditionalMethods[1]%] 
+		
+		// Utility methods from the current class 
+		
+		[%=classUtilityMethodsCreation()%]
+		
+		// Constructor and methods from the from the current class		
+		[%=currentElement.classMethods(p, path)%]	
+	
+	
+	}
+} 
+  
+
+
+
+

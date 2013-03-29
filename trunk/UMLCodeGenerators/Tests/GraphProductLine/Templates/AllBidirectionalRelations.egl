@@ -1,0 +1,85 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.6
+// Last modification: 29/03/2013 
+// Description: This template return all the bidirectional
+//				implementations from the current project.
+////////////////////////////////////////////////////////////
+import "Operations.eol";
+import "BidirectionalRelationShipManyToMany.egl";
+import "BidirectionalRelationShipOneToOne.egl";
+import "BidirectionalRelationShipOneToManyCollectionPart.egl";
+import "BidirectionalRelationShipOneToManySimplePart.egl";
+operation Element getAllBidirectionalRelations(isInterface: Boolean, bidirectionalRelations: Set, pack: String, path: String): List{
+	var allBidirectionalImplementations: List;
+	// Checking all the bidirectional relations 
+	for (b in bidirectionalRelations){
+		// If the current class is a class with a bidirectional relation
+		if (self.name == b[0][0]){					
+	 		// Separate the elements
+			// Name of the relation from current class
+			var nameThisClassRelation= b[1][0];
+			// Name of the relation from the related class
+			var nameOtherClassRelation= b[1][1];
+			// Current Class
+			var currentClass= self.name; 			
+			// Related Class
+			var classRelated; 
+			if (isInterface){
+				classRelated="Interface_"+b[0][1];
+			}else{
+				classRelated = b[0][1];
+			} 
+			// Multiplicity
+			var multiplicity=b[3]; 
+			// Elements is a list where each element is defined as the following:
+			//			{<Generated code from implementation of the bidirectional relation>, <namenameThisClassRelation>} 
+			var elements: List; 
+			// If it's a bidirectional relation one to one
+			if (multiplicity[0]==1 and multiplicity[1]==1){ 
+				var implementation = setImplementationOneToOne(nameThisClassRelation, nameOtherClassRelation, classRelated); 
+				var propertiesAndMethods: List;
+				propertiesAndMethods.add(implementation[0]);
+				propertiesAndMethods.add(implementation[1]);
+				elements.add(propertiesAndMethods);
+		 		elements.add(nameThisClassRelation); 
+			}//if-bidirectional-one-to-one
+			// If it's a bidirectional relation one to many
+			if ((multiplicity[0]==1 and multiplicity[1]<>1)){   
+				// If the current class is the simple part of the relation 
+				var implementation = setImplementationOneToManySimplePart(nameThisClassRelation, nameOtherClassRelation, currentClass, classRelated);
+				var propertiesAndMethods: List;
+				propertiesAndMethods.add(implementation[0]);
+				propertiesAndMethods.add(implementation[1]);
+				elements.add(propertiesAndMethods);
+		 		elements.add(nameThisClassRelation); 
+			}//if-bidirectional-one-to-many
+			// If it's a bidirectional relation one to many
+			if ((multiplicity[0]<>1 and multiplicity[1]==1)){    
+				// If the current class is the collection part of the relation				
+				var implementation = setImplementationOneToManyCollectionPart(nameThisClassRelation, nameOtherClassRelation, currentClass, classRelated, multiplicity[0].typeCollection(pack, path));
+				var propertiesAndMethods: List;
+				propertiesAndMethods.add(implementation[0]);
+				propertiesAndMethods.add(implementation[1]);
+				elements.add(propertiesAndMethods);
+		 		elements.add(nameThisClassRelation); 
+		 	}//if-bidirectional-one-to-many
+		 	// If it's a bidirectional relation many to many
+		 	if ((multiplicity[0]<>1 and multiplicity[1]<>1)){ 
+		 		var implementation = setImplementationManyToMany(nameThisClassRelation, nameOtherClassRelation, currentClass, classRelated, multiplicity[0].typeCollection(pack, path));
+				var propertiesAndMethods: List;
+				propertiesAndMethods.add(implementation[0]);
+				propertiesAndMethods.add(implementation[1]);
+				elements.add(propertiesAndMethods);
+		 		elements.add(nameThisClassRelation); 
+		 	}//if-bidirectional-many-to-many 
+		 	// Add the current elements to the list of implementations from all the bidirectional relations
+		 	// from the current class
+		 	allBidirectionalImplementations.add(elements); 
+		}//if-currentClass
+	}//for-bidirectionalRelations    
+	return allBidirectionalImplementations;
+}
+%] 

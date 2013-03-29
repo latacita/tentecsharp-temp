@@ -1,0 +1,24 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.3
+// Last modification: 29/03/2013 
+// Description: This operation generates the properties.
+////////////////////////////////////////////////////////////
+import "AllBidirectionalRelations.egl";
+import "PropertiesCreation.egl";
+operation Element propertiesGeneration(isInterface: Boolean, bidirectionalRelations: Set, pack: String, path: String): List{
+	var implementations: List;
+	var bidirectionalImplementations: List;
+	var isBidirectional=false; 
+	if (not bidirectionalRelations.isEmpty()){
+		implementations=self.getAllBidirectionalRelations(isInterface, bidirectionalRelations, pack, path); 
+		if (implementations.size>0){
+			bidirectionalImplementations=implementations;	
+			isBidirectional=true;	
+		}//if-implementations-size
+	}//if-not-empty
+    return self.classPropertiesCreation(path, pack, isBidirectional, bidirectionalImplementations);
+}
+%]					

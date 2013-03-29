@@ -1,0 +1,133 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.5 
+// Last modification: 28/03/2013 
+// Description: Generates the files of all code classes. And
+//				return a set of all the paths.
+////////////////////////////////////////////////////////////
+import "Operations.eol";
+import "BidirectionalRelations.egl"; 
+import "MethodsCreation.egl";
+import "PropertiesGeneration.egl";
+import "MultipleHierarchyClasses.egl";
+
+operation classFilesCreation(packages: Set, modelProject: Model, directory: String, path: String){
+	var paths_empty: Set; 
+	var paths_notempty: Set; 
+	var isInterface=false;
+	
+	var isBidirectional=false;
+	var bidirectionalImplementations: List;
+  
+	// Select bidirectional relations
+	var bidirectionalRelations=bidirectionalRelations();
+	for (pack in packages) { 
+		// Classes from the model
+	    var classes=pack.packagedElement.select(e|e.isTypeOf(Class)); 
+	    // Interfaces from the model
+	    var interfaces=pack.packagedElement.select(e|e.isTypeOf(Interface));
+	    // If the package is empty
+	    if (classes.size()==0 and interfaces.size()==0){
+	    	var path="src\\" + pack.name + "\\";
+	    	paths_empty.add(path);
+	    // If it's not empty, create all the classes and interfaces inside the package
+	    }else{
+	    	// Create the classes (the ones which are child of none or one class).
+			for (class in classes) { 
+				var hierarchy = class.hierarchy(); 
+				if (hierarchy.size<=1){ 
+					isInterface=false;
+					var t := TemplateFactory.load('ClassCreation.egl');
+					t.populate ('currentElement', class);	
+					t.populate('currentPackage', pack);
+					t.populate('currentModel', modelProject);  
+					t.populate('path', path); 
+					t.populate('isInterface', isInterface); 
+					t.populate('bidirectionalRelations', bidirectionalRelations);  
+					var path=directory+"\\src\\" + pack.name + "\\"+ class.name +'.cs'; 
+					t.generate (path); 	
+					paths_notempty.add(path);
+				}//if-hiearchy
+			}//for-class 
+			// Create the interfaces
+			for (interface in interfaces) { 
+		     	isInterface=true;
+		  		var t := TemplateFactory.load('ClassCreation.egl');
+				t.populate ('currentElement', interface);	
+				t.populate('currentPackage', pack);
+				t.populate('currentModel', modelProject);  
+				t.populate('path', path); 
+				t.populate('isInterface', isInterface); 
+				t.populate('bidirectionalRelations', bidirectionalRelations);  
+				var path=directory+"\\src\\" + pack.name + "\\"+ interface.name +'.cs'; 
+				t.generate (path); 	
+				paths_notempty.add(path);
+		     }//for-interface 
+		}//if-classes-size 
+	}//for-package
+	
+	// Save the multiple hierarchy tuples  
+	var multipleHierarchyClasses = multipleHierarchyClasses(packages); 
+	for (element in multipleHierarchyClasses){
+		// Parents  
+		var parents=element[0];
+		// Child  
+		var child=element[1]; 
+		// Parents packages
+		var parentsPackages=element[2]; 
+		// Variable to iterate the parentsPackages
+		var iter=0; 
+		// Child package
+		var childPackages=element[3];
+		for (parent in parents){
+			var path=directory+"\\src\\" + parentsPackages[iter].name + "\\Interface_"+ parent.name +'.cs';  
+			// Need to create the appropiate interface 
+			// Extract properties from the parent class
+			var interfaceName="Interface_"+ parent.name;
+			var properties=parent.propertiesGeneration(true, bidirectionalRelations, parentsPackages[iter].name, path);  
+			// Extract methods from the parent class
+			var methods=parent.classMethods(parentsPackages[iter].name, path); 
+			// Create the interface (only implements the properties).
+			var t := TemplateFactory.load('InterfaceCreation.egl');
+			t.populate ('currentInterface', parent);	
+			t.populate('currentPackage', parentsPackages[iter]);
+			t.populate('currentModel', modelProject);  
+			t.populate('currentProperties', properties[0]);      
+			t.populate('currentAditionalMethods', properties[1]);   
+			t.generate (path); 	
+			paths_notempty.add(path); 
+			// Create the class (only implements the methods). 
+			var t := TemplateFactory.load('ClassCreationMultipleHierarchyCase.egl'); 
+			t.populate ('currentElement', parent);	
+			t.populate('currentPackage', parentsPackages[iter]);
+			t.populate('currentModel', modelProject);  							
+			t.populate('currentMethods', methods); 
+			t.populate('currentParents', parent.hierarchy()); 
+			t.populate('isInterface', false);      
+			var path=directory+"\\src\\" + parentsPackages[iter].name + "\\"+ parent.name +'.cs';  
+			t.generate (path); 	
+			paths_notempty.add(path); 
+			// Iterate the parentsPackages
+			iter=iter+1;
+		}//for-parents
+		// Create the child class with as many collections as parents has, so it can access the methods.
+		var path=directory+"\\src\\" + childPackages.name + "\\"+ child.name +'.cs'; 
+		var t := TemplateFactory.load('ChildClassHierarchyCase.egl'); 
+		t.populate ('currentElement', child);	
+		t.populate('currentPackage', childPackages);
+		t.populate('currentModel', modelProject);  
+		t.populate('currentParents', child.hierarchy());  
+		t.populate('path', path);
+		t.populate('bidirectionalRelations', bidirectionalRelations);
+		t.generate (path); 	
+		paths_notempty.add(path); 
+	}//for-element-multipleHierarchyClasses  
+	// Set of two sets, one for empty and the other one for non empty paths
+	var paths:List;
+	paths.add(paths_empty);
+	paths.add(paths_notempty);
+	return paths;
+}
+%]

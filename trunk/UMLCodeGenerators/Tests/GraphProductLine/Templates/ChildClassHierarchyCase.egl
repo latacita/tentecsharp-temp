@@ -1,0 +1,71 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.4
+// Last modification: 29/03/2013 
+// Description: This template generates the child class for
+//				a multiple hierarchy case. 
+////////////////////////////////////////////////////////////
+import "ModelCreation.egl";
+import "ClassDeclaration.egl"; 
+import "MethodsCreation.egl"; 
+import "PropertiesGeneration.egl";
+import "PropertiesCreation.egl";
+import "UtilityMethodsCreation.egl"; 
+%]
+using System;
+using System.Collections.Generic;
+[%
+var p=currentPackage.name;  
+%]
+// This is the content of the class named "[%=currentElement.name%]", which is 
+// in the package: "[%=currentPackage.name%]", from the "[%=currentModel.name%]" model. 
+
+[%=currentModel.modelDeclaration()%]
+[%
+var declaration: List; 
+var parentClassesNames: Set;
+for (h in currentParents){ 
+	// Hierarchy classes for the current class declaration
+	declaration.add(" Interface_"+h.general.name);
+	parentClassesNames.add(h.general.name);
+} 
+var interfaceSet: Set; 
+interfaceSet=currentElement.interfaceRealization;
+// If it's a child of an interface
+if (not interfaceSet.isEmpty){	   
+	for (inter in interfaceSet){
+		declaration.add(inter.contract.name);
+	}	
+}
+var header;
+// Concatenate all the class and interfaces' parents
+for (el in declaration){
+	header=header+" "+el+",";
+}
+// Deleting the last "," of the string, if needed
+if (header<> null){	
+    	header = header.substring(0, header.length() - 1);
+}  
+%] 
+		
+	partial class [%=currentElement.name%]: [%=header%]{
+		// Properties from the current class 
+	[%
+	for (p in parentClassesNames){%] 
+		private ISet <[%=p%]> relationFromClass_[%=p%];
+		public ISet <[%=p%]> RelationFromClass_[%=p%] {
+			get { return this.relationFromClass_[%=p%]; }
+			set { this.relationFromClass_[%=p%]= value; }
+		}
+	[%}%]	     
+		// Utility methods from the current class 
+		
+		[%=classUtilityMethodsCreation()%] 
+		
+		// Constructor and methods from the from the current class	
+		
+		[%=currentElement.classMethods(p, path)%] 
+	}
+} 
