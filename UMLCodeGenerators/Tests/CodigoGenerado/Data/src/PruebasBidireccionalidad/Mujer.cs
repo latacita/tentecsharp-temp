@@ -3,10 +3,10 @@ using System.Collections.Generic;
 // This is the content of the class named "Mujer", which is 
 // in the package: "PruebasBidireccionalidad", from the "Data" model. 
 namespace Data{	
-	 	public partial class Mujer{
-
-		// Properties from the current class 
+	 	 partial class Mujer{
  
+		// Properties from the current class 		 
+		
 		private Hombre marido;
 		public Hombre Marido {
 			get { return this.marido; }
@@ -20,7 +20,7 @@ namespace Data{
 						{
 							value.Esposa.SetMarido_aditional(null);
 							value.SetEsposa_aditional(null);
-							this.Marido.SetEsposa_adicional(null);
+							this.Marido.SetEsposa_aditional(null);
 							this.SetMarido_aditional(null);
 						
 							this.SetMarido_aditional(value);
@@ -52,6 +52,7 @@ namespace Data{
 				}
 			 }
 		}
+		 
 		
 		// Aditional set method to control bidirectional relationship
 
@@ -59,6 +60,7 @@ namespace Data{
 		{
 			 this.marido=m;
 		}
+		 
 		
 		// Utility methods from the current class 
 		
@@ -68,12 +70,10 @@ namespace Data{
 		public virtual override Type GetType ();
 		public virtual override string ToString();
 
+		
 		// Constructor and methods from the from the current class		
-	        	
 		private void PruebasBidireccionalidad_initMujer () {}
 			
-	
-
 	
 	
 	}

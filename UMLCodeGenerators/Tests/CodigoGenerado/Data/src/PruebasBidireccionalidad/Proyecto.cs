@@ -3,11 +3,12 @@ using System.Collections.Generic;
 // This is the content of the class named "Proyecto", which is 
 // in the package: "PruebasBidireccionalidad", from the "Data" model. 
 namespace Data{	
-	 	public partial class Proyecto{
-
-		// Properties from the current class 
+	 	 partial class Proyecto{
  
-		ISet <Trabajador> trabajadores = new HashSet<Trabajador>();
+		// Properties from the current class 		 
+		
+		ISet <Trabajador> trabajadores = new HashSet<Trabajador>(); 
+		
 		public void addTrabajador(Trabajador a)
 		{
 			if (! this.trabajadores.Contains(a))
@@ -18,7 +19,7 @@ namespace Data{
 		}
 		public void removeTrabajador(Trabajador a)
 		{
-			if (this.trabajadores.Contains(a)
+			if (this.trabajadores.Contains(a))
 			{
 				this.trabajadores.Remove(a);
 				a.removeProyecto(this);
@@ -28,6 +29,7 @@ namespace Data{
 		{
 			return this.trabajadores;
 		}
+		 
 		
 		// Utility methods from the current class 
 		
@@ -37,12 +39,10 @@ namespace Data{
 		public virtual override Type GetType ();
 		public virtual override string ToString();
 
+		
 		// Constructor and methods from the from the current class		
-	        	
 		private void PruebasBidireccionalidad_initProyecto () {}
 			
-	
-
 	
 	
 	}

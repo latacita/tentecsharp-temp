@@ -3,10 +3,10 @@ using System.Collections.Generic;
 // This is the content of the class named "Edge", which is 
 // in the package: "BasicGraph", from the "Data" model. 
 namespace Data{	
-	 	public partial class Edge{
-
-		// Properties from the current class 
+	 	 partial class Edge{
  
+		// Properties from the current class 		 
+		
 		private Node a;
 		public Node A {
 			get { return this.a; }
@@ -17,6 +17,8 @@ namespace Data{
 			get { return this.b; }
 			set { this.b= value; }
 		}
+		 
+		 
 		
 		// Utility methods from the current class 
 		
@@ -26,14 +28,12 @@ namespace Data{
 		public virtual override Type GetType ();
 		public virtual override string ToString();
 
+		
 		// Constructor and methods from the from the current class		
-	        	
 		private void BasicGraph_initEdge () {}
 		public virtual void BasicGraph_print (	 
 		) {}
 			
-	
-
 	
 	
 	}
