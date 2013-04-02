@@ -1,0 +1,30 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.1
+// Last modification: 01/04/2013 
+// Description: This template generates an enumeration class 
+//				from the current model.
+////////////////////////////////////////////////////////////
+import "../ModelCreation.egl";
+%]
+[%=currentModel.modelDeclaration()%]
+	enum [%=currentClass.name%] {	
+[%
+var literals:="\t\t";
+	for (lit in currentClass.ownedLiterals){
+		if (lit.type==null or lit.name==""){
+			literals="";
+		}else{
+			literals=literals+" "+lit.name+",\n\t\t";
+		}		
+	}
+    
+    // Deleting the last "," of the string, if needed
+    if (not literals.isEmpty()){	
+    		literals = literals.substring(0, literals.length() - 2);
+    }    %]
+[%=literals%]
+	};
+}
