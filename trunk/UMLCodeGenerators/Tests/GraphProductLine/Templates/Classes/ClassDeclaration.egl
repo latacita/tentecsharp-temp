@@ -1,0 +1,52 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.4 
+// Last modification: 28/03/2013 
+// Description: This operation generates the declaration of 
+//				the current class or interface. 
+//				Adds hierarchy and realization if needed.
+//////////////////////////////////////////////////////////// 
+operation Element classDeclaration(isInterface: Boolean) {  
+	// Check if the current class is child of another class
+	var hierarchy= self.generalization.first();   
+	// Check if the current class has interfaces 
+	var interfaceSet: Set;
+	if (self.isTypeOf(Class)){ 
+		interfaceSet=self.interfaceRealization;
+	} 
+	var declaration= self.visibility;
+	if (isInterface){
+		// Declaration of the interface 
+		// (valid for hierarchy and non hierarchy classes)
+		declaration="partial interface "+self.name;
+	}else{
+		// Declaration of the class 
+		// (valid for hierarchy and non hierarchy classes)
+		declaration="partial class "+self.name;
+	}
+	// If it's a child
+	if (hierarchy <> null){	 
+		// Declaration example -> partial class Child : Parent  
+		declaration=declaration+" : "+hierarchy.general.name;
+	}
+	// If it's a child of an interface
+	if (not interfaceSet.isEmpty){	 
+		// Declaration example -> partial class Child : Interface_Parent   
+		var interfaces;
+		for (inter in interfaceSet){
+			interfaces=interfaces+" "+inter.contract.name+",";
+		}
+		// Deleting the last "," of the string, if needed
+	    if (not interfaces.isEmpty()){	
+	    	interfaces = interfaces.substring(0, interfaces.length() - 1);
+	    }
+		declaration=declaration+" , "+interfaces;
+	}  
+	// Adding the square bracket to the declaration 
+	declaration=declaration+"{"; %]
+ 	[%=declaration%]
+[% } %]
+
+ 
