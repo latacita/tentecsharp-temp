@@ -60,7 +60,7 @@ if (interfaceSize>0){
 var path= createSaveToDiskWindow();
 // The directory is created
 directory(path); 
-// PARA PRUEBAS var path="C:\\Users\\Patricia\\Desktop";
+// PARA HACER PRUEBAS RAPIDO->  var path="C:\\Users\\Patricia\\Desktop";
  
 // Create the Visual Studio files and directories inside the directory selected by the user
 // First level of directories and/or files: 
