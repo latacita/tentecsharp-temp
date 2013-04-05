@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.9
-// Last modification: 02/04/2013 
+// Version: 2.0
+// Last modification: 05/04/2013 
 // Description: Operations to use in templates.
 ////////////////////////////////////////////////////////////
  
@@ -34,6 +34,14 @@ operation override(): String {
 operation static(): String { 
 	return "static ";	
 }
+// This operation returns the text "abstract" if the element is abstract
+operation Element abstract(): String { 
+	var ab="";
+	if (self.isAbstract){
+		ab=" abstract";
+	} 
+	return ab;	
+} 
 // This operation returns the text "readonly" to include in the property or method's header
 operation readonly(): String { 
 	return "readonly ";	

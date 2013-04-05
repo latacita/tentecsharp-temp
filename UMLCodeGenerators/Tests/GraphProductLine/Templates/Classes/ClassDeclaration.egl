@@ -2,12 +2,13 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.4 
-// Last modification: 28/03/2013 
+// Version: 1.5
+// Last modification: 05/04/2013 
 // Description: This operation generates the declaration of 
 //				the current class or interface. 
 //				Adds hierarchy and realization if needed.
 //////////////////////////////////////////////////////////// 
+import "../Operations.eol";
 operation Element classDeclaration(isInterface: Boolean) {  
 	// Check if the current class is child of another class
 	var hierarchy= self.generalization.first();   
@@ -24,7 +25,11 @@ operation Element classDeclaration(isInterface: Boolean) {
 	}else{
 		// Declaration of the class 
 		// (valid for hierarchy and non hierarchy classes)
-		declaration="partial class "+self.name;
+		if (self.isAbstract()){
+			declaration=self.abstract()+" class "+self.name;
+		}else{
+			declaration="partial class "+self.name;
+		}
 	}
 	// If it's a child
 	if (hierarchy <> null){	 

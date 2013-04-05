@@ -8,7 +8,7 @@
 ////////////////////////////////////////////////////////////
 
 import "../ClassElements/ModelCreation.egl";
-import "../PropertiesGeneration.egl"; 
+import "../ClassElements/PropertiesGeneration.egl"; 
 import "ClassDeclaration.egl";  
 %]
 using System;

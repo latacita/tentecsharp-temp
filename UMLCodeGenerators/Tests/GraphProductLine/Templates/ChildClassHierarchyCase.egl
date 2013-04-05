@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.5
-// Last modification: 01/04/2013 
+// Version: 1.6
+// Last modification: 05/04/2013 
 // Description: This template generates the child class for
 //				a multiple hierarchy case. 
 ////////////////////////////////////////////////////////////
@@ -13,6 +13,7 @@ import "ClassElements/MethodsCreation.egl";
 import "ClassElements/PropertiesGeneration.egl";
 import "ClassElements/PropertiesCreation.egl";
 import "ClassElements/UtilityMethodsCreation.egl"; 
+import "Operations.eol";
 %]
 using System;
 using System.Collections.Generic;
@@ -50,7 +51,7 @@ if (header<> null){
 }  
 %] 
 		
-	partial class [%=currentElement.name%]: [%=header%]{
+	partial[%=currentElement.abstract()%] class [%=currentElement.name%]: [%=header%]{
 		// Properties from the current class 
 	[%
 	for (p in parentClassesNames){%] 
