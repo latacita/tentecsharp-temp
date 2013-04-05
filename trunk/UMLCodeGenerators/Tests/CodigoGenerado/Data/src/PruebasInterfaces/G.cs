@@ -14,7 +14,7 @@ namespace Data{
 
 		// Constructor and methods from the from the current interface		
 		private void PruebasInterfaces_initG () {}
-		public virtual 	ICollection <int> 
+		public  virtual 	ICollection <int> 
 		 PruebasInterfaces_operacionG (	 
 		) {}
 			

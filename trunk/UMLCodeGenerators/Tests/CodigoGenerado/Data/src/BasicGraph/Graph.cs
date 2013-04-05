@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // This is the content of the class named "Graph", which is 
 // in the package: "BasicGraph", from the "Data" model. 
 namespace Data{	
-	 	 partial class Graph{
+	 	partial class Graph{
  
 		// Properties from the current class 		 
 		
@@ -31,9 +31,9 @@ namespace Data{
 		
 		// Constructor and methods from the from the current class		
 		private void BasicGraph_initGraph () {}
-		public virtual void BasicGraph_print (	 
+		public  virtual void BasicGraph_addEdge (	 
 		) {}
-		public virtual void BasicGraph_addEdge (	 Node n, Node m 
+		public  virtual void BasicGraph_addEdge (	 Node n, Node m 
 		) {}
 			
 	

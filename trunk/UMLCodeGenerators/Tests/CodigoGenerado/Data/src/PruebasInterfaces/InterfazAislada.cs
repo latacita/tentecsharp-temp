@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // This is the content of the class named "InterfazAislada", which is 
 // in the package: "PruebasInterfaces", from the "Data" model. 
 namespace Data{	
-	 	 partial interface InterfazAislada{
+	 	partial interface InterfazAislada{
  
 		// Properties from the current class 		 
 		
@@ -21,9 +21,9 @@ namespace Data{
 		
 		// Constructor and methods from the from the current class		
 		private void PruebasInterfaces_initInterfazAislada () {}
-		public virtual void PruebasInterfaces_operacionInterfazAislada (	 
+		public  virtual void PruebasInterfaces_operacionInterfazAislada2 (	 
 		) {}
-		public virtual void PruebasInterfaces_operacionInterfazAislada2 (	 int a 
+		public  virtual void PruebasInterfaces_operacionInterfazAislada2 (	 int a 
 		) {}
 			
 	

@@ -1,21 +1,21 @@
 using System;
 using System.Collections.Generic;
 // This is the content of the class named "Persona", which is 
-// in the package: "PruebasHerencia", from the "Data" model. 
+// in the package: "PruebasBidireccionalidad", from the "Data" model. 
 namespace Data{	
 	 	partial class Persona{
  
 		// Properties from the current class 		 
 		
-		private String Name;
-		public String Name {
-			get { return this.Name; }
-			set { this.Name= value; }
+		private Persona property_0_From_Persona;
+		public Persona Property_0_From_Persona {
+			get { return this.property_0_From_Persona; }
+			set { this.property_0_From_Persona= value; }
 		}
-		private String Surname;
-		public String Surname {
-			get { return this.Surname; }
-			set { this.Surname= value; }
+		private Persona property_1_From_Persona;
+		public Persona Property_1_From_Persona {
+			get { return this.property_1_From_Persona; }
+			set { this.property_1_From_Persona= value; }
 		}
 		 
 		 
@@ -30,7 +30,7 @@ namespace Data{
 
 		
 		// Constructor and methods from the from the current class		
-		private void PruebasHerencia_initPersona () {}
+		private void PruebasBidireccionalidad_initPersona () {}
 			
 	
 	

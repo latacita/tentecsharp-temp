@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // This is the content of the class named "Trabajador", which is 
 // in the package: "PruebasBidireccionalidad", from the "Data" model. 
 namespace Data{	
-	 	 partial class Trabajador{
+	 	partial class Trabajador{
  
 		// Properties from the current class 		 
 		

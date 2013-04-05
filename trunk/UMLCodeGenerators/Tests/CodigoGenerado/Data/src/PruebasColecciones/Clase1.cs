@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // This is the content of the class named "Clase1", which is 
 // in the package: "PruebasColecciones", from the "Data" model. 
 namespace Data{	
-	 	 partial class Clase1{
+	 	partial class Clase1{
  
 		// Properties from the current class 		 
 		
@@ -41,9 +41,9 @@ namespace Data{
 		
 		// Constructor and methods from the from the current class		
 		private void PruebasColecciones_initClase1 () {}
-		public virtual void PruebasColecciones_OperacionConParametroCollection (	 IList <Node> CollectionList, int numero 
+		public  virtual void PruebasColecciones_OperacionConReturnCollection (	 IList <Node> CollectionList, int numero 
 		) {}
-		public virtual 	ICollection <Node> 
+		public  virtual 	ICollection <Node> 
 		 PruebasColecciones_OperacionConReturnCollection (	 
 		) {}
 			

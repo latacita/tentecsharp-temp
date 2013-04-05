@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // This is the content of the class named "Graph", which is 
 // in the package: "PrintHeader", from the "Data" model. 
 namespace Data{	
-	 	 partial class Graph{
+	 	partial class Graph{
  
 		// Properties from the current class 		 
 		
@@ -22,11 +22,11 @@ namespace Data{
 		
 		// Constructor and methods from the from the current class		
 		private void PrintHeader_initGraph () {}
-		public virtual void PrintHeader_Print (	 
+		public  virtual void PrintHeader_PrintSubLevelHeader (	 
 		) {}
-		public static virtual void PrintHeader_PrintTopLevelHeader (	 
+		public  static virtual void PrintHeader_PrintSubLevelHeader (	 
 		) {}
-		public static virtual void PrintHeader_PrintSubLevelHeader (	 
+		public  static virtual void PrintHeader_PrintSubLevelHeader (	 
 		) {}
 			
 	

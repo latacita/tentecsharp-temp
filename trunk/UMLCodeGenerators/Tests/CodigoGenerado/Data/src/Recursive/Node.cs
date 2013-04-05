@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // This is the content of the class named "Node", which is 
 // in the package: "Recursive", from the "Data" model. 
 namespace Data{	
-	 	 partial class Node{
+	 	partial class Node{
  
 		// Properties from the current class 		 
 		
@@ -26,7 +26,7 @@ namespace Data{
 		
 		// Constructor and methods from the from the current class		
 		private void Recursive_initNode () {}
-		public virtual void Recursive_print (	 
+		public  virtual void Recursive_print (	 
 		) {}
 			
 	

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // This is the content of the class named "DoctorPerson", which is 
 // in the package: "PruebasHerencia", from the "Data" model. 
 namespace Data{	
-	 	 partial class DoctorPerson : Persona{
+	 	partial class DoctorPerson : Persona{
  
 		// Properties from the current class 		 
 		

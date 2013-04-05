@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-// This is the content of the class named "Graph", which is 
-// in the package: "Color", from the "Data" model. 
+// This is the content of the class named "Clase2", which is 
+// in the package: "PaquetesSinNombre", from the "Data" model. 
 namespace Data{	
-	 	partial class Graph{
+	 	partial class Clase2{
  
 		// Properties from the current class 		 
 		
@@ -20,7 +20,7 @@ namespace Data{
 
 		
 		// Constructor and methods from the from the current class		
-		private void Color_initGraph () {}
+		private void PaquetesSinNombre_initClase2 () {}
 			
 	
 	

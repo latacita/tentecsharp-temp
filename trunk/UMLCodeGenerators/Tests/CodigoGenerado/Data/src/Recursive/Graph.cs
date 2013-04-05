@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // This is the content of the class named "Graph", which is 
 // in the package: "Recursive", from the "Data" model. 
 namespace Data{	
-	 	 partial class Graph{
+	 	partial class Graph{
  
 		// Properties from the current class 		 
 		

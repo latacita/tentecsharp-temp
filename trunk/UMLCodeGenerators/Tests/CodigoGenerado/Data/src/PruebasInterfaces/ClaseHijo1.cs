@@ -33,7 +33,7 @@ namespace Data{
 		// Constructor and methods from the from the current class	
 		
 		private void PruebasInterfaces_initClaseHijo1 () {}
-		public virtual 	int 
+		public  virtual 	int 
 		 PruebasInterfaces_operacionHijo (	 
 		) {}
 		 
