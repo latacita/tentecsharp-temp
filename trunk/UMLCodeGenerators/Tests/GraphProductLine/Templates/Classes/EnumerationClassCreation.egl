@@ -7,7 +7,7 @@
 // Description: This template generates an enumeration class 
 //				from the current model.
 ////////////////////////////////////////////////////////////
-import "../ModelCreation.egl";
+import "../ClassElements/ModelCreation.egl";
 %]
 [%=currentModel.modelDeclaration()%]
 	enum [%=currentClass.name%] {	

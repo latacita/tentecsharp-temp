@@ -29,6 +29,13 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 			createErrorWindow(message); 
 			throw (message);
 		}
+		// Enumeration classes from the model
+		var enumClasses=pack.packagedElement.select(e|e.isTypeOf(Enumeration));
+		if (enumClasses.size>0){
+			var message = "EXCEPTION: There is an enumeration class in the package \""+pack.name+"\". Enumeration classes aren't currently supported.";
+			createErrorWindow(message); 
+			throw (message);
+		}
 		// Classes from the model
 	    var classes=pack.packagedElement.select(e|e.isTypeOf(Class)); 
 	    // Interfaces from the model
