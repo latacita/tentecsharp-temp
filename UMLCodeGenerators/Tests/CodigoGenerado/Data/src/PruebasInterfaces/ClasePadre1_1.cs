@@ -14,7 +14,7 @@ namespace Data{
 
 		// Constructor and methods from the from the current interface		
 		private void PruebasInterfaces_initClasePadre1_1 () {}
-		public virtual void PruebasInterfaces_operacionPadre1 (	 
+		public  virtual void PruebasInterfaces_operacionPadre1 (	 
 		) {}
 			
 	}

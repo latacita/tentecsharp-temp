@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // This is the content of the class named "Graph", which is 
 // in the package: "WeightGraph", from the "Data" model. 
 namespace Data{	
-	 	 partial class Graph{
+	 	partial class Graph{
  
 		// Properties from the current class 		 
 		
@@ -21,7 +21,7 @@ namespace Data{
 		
 		// Constructor and methods from the from the current class		
 		private void WeightGraph_initGraph () {}
-		public virtual void WeightGraph_addEdge (	 Node n, Node m, float w 
+		public  virtual void WeightGraph_addEdge (	 Node n, Node m, float w 
 		) {}
 			
 	

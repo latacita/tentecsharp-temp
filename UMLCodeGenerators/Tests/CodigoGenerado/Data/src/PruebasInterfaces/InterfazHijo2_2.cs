@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // This is the content of the class named "InterfazHijo2_2", which is 
 // in the package: "PruebasInterfaces", from the "Data" model. 
 namespace Data{	
-	 	 partial interface InterfazHijo2_2{
+	 	partial interface InterfazHijo2_2{
  
 		// Properties from the current class 		 
 		

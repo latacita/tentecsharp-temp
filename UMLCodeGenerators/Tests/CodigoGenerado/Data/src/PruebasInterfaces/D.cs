@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // This is the content of the class named "D", which is 
 // in the package: "PruebasInterfaces", from the "Data" model. 
 namespace Data{	
-	 	 partial class D{
+	 	partial class D{
  
 		// Properties from the current class 		 
 		
