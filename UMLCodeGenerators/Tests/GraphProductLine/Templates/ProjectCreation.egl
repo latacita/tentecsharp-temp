@@ -2,7 +2,7 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.7
+// Version: 1.8
 // Last modification: 05/04/2013 
 // Description: Generates the Visual Studio project, the
 //				directories and the files of all code classes.
@@ -52,6 +52,21 @@ if (interfaceSize>0){
 		throw (message);
 	}else{
 		message = "EXCEPTION: There are "+interfaceSize+ " interfaces which don't belong to a package. Please put them into one to generate the project.";
+		createErrorWindow(message); 
+		throw (message);
+	}
+} 
+// Select the model's enumeration classes outside package 
+var enumClasses := modelProject.packagedElement.select(p|p.isTypeOf(Enumeration));
+var enumClassSize = enumClasses.size;
+if (enumClassSize>0){
+	var message;
+	if (enumClassSize==1){
+		message = "EXCEPTION: There is "+enumClassSize+ " enumeration class which doesn't belong to a package. Enumeration classes aren't currently supported.";
+		createErrorWindow(message); 
+		throw (message);
+	}else{
+		message = "EXCEPTION: There are "+enumClassSize+ " enumeration classes which don't belong to a package. Enumeration classes aren't currently supported.";
 		createErrorWindow(message); 
 		throw (message);
 	}
