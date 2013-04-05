@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.5
-// Last modification: 02/04/2013 
+// Version: 1.7
+// Last modification: 05/04/2013 
 // Description: Generates the Visual Studio project, the
 //				directories and the files of all code classes.
 ////////////////////////////////////////////////////////////
@@ -25,7 +25,7 @@ packages := modelProject.packagedElement.select(p|p.isTypeOf(Package));
 packages := packages.reject(p|p.name.equals("UML Standard Profile"));
 packages := packages.reject(p|p.isTypeOf(Class));
 packages := packages.reject(p|p.isTypeOf(Interface));
-
+ 
 // Select the model's classes outside package 
 var classes := modelProject.packagedElement.select(p|p.isTypeOf(Class));
 var classSize = classes.size;
@@ -57,10 +57,11 @@ if (interfaceSize>0){
 	}
 } 
 // User selects a directory where to save the project file
-var path= createSaveToDiskWindow();
+//var path= createSaveToDiskWindow();
 // The directory is created
-directory(path); 
-// PARA HACER PRUEBAS RAPIDO->  var path="C:\\Users\\Patricia\\Desktop";
+//directory(path); 
+// PARA HACER PRUEBAS RAPIDO->  
+var path="C:\\Users\\Patricia\\Desktop";
  
 // Create the Visual Studio files and directories inside the directory selected by the user
 // First level of directories and/or files: 
@@ -72,14 +73,8 @@ directory(maindirectory);
 var secondleveldirectory=maindirectory+"\\"+modelProject.name;
 directory(secondleveldirectory);
 // Create the code files
-// Create the empty directories
-var a: Set;
-for (pack in packages) {
-	var path=secondleveldirectory+"\\src\\"+pack.name;
-	directory(path); 
-} 
 // Add the source files to the corresponding directories 
-var pathsClasses=classFilesCreation(packages, modelProject, secondleveldirectory, path);
+var pathsClasses=classFilesCreation(packages, modelProject, secondleveldirectory+"\\src\\", path); 
 // Enumeration Classes generation is implemented but not working because there's a bug in Epsilon
 //var pathsEnumClasses=classEnumerationFilesCreation(packages, modelProject, secondleveldirectory);
 // Create the sln file

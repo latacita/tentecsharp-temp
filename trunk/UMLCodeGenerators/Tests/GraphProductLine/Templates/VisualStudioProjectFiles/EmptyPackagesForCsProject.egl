@@ -9,11 +9,11 @@
 ////////////////////////////////////////////////////////////
  
 operation emptyPackages(packages:Set):String { 
-	var code="<ItemGroup>\n\t\t";
+	var code="<ItemGroup>\n\t";
   	for (path in packages){
-  		code=code+"<Folder Include=\""+path+"\" />\n\t";
+  		code=code+"\t<Folder Include=\""+path+"\" />\n\t";
   	}
-  	code=code+"</ItemGroup>";
+  	code=code+"</ItemGroup>"; 
   	return code;
 }
 %]

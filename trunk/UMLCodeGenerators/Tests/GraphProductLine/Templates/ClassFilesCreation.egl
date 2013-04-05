@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.7
-// Last modification: 01/04/2013 
+// Version: 1.8
+// Last modification: 05/04/2013 
 // Description: Generates the files of all code classes. And
 //				return a set of all the paths.
 ////////////////////////////////////////////////////////////
@@ -22,19 +22,44 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 	
 	// Select bidirectional relations
 	var bidirectionalRelations=bidirectionalRelations();
-	for (pack in packages) { 
+	for (pack in packages) {
+		// If the package doesn't have name, throw an exception
+		if (pack.name=""){
+			var message = "EXCEPTION: There is a package which doesn't have a name. Please name it in order to generate the project.";
+			createErrorWindow(message); 
+			throw (message);
+		}
 		// Classes from the model
 	    var classes=pack.packagedElement.select(e|e.isTypeOf(Class)); 
 	    // Interfaces from the model
-	    var interfaces=pack.packagedElement.select(e|e.isTypeOf(Interface));
+	    var interfaces=pack.packagedElement.select(e|e.isTypeOf(Interface));	    
+		// Packages from the model
+	    var packag=pack.packagedElement.select(e|e.isTypeOf(Package));
+	    if (packag.size>0){
+	    	for (p in packag){
+	    		var pa=classFilesCreation(packag, modelProject, directory + pack.name +"\\", path); 
+				paths_empty=paths_empty+pa[0]; 
+				paths_notempty=paths_notempty+pa[1];   
+	    	}
+	    } 
 	    // If the package is empty
 	    if (classes.size()==0 and interfaces.size()==0){
-	    	var path="src\\" + pack.name + "\\";
-	    	paths_empty.add(path);
+	    	var path = directory+pack.name + "\\"; 
+	    	directory(path);
+	    	// Pick the part from the path neccesary to generate empty VS folders
+	    	var position=directory.lastIndexOf("src") ;
+	    	path=path.substring(position, path.length()); 
+	    	paths_empty.add(path); 
 	    // If it's not empty, create all the classes and interfaces inside the package
 	    }else{
 	    	// Create the classes (the ones which are child of none or one class).
-			for (class in classes) {  
+			for (class in classes) {
+				// If the class doesn't have name, throw an exception
+				if (class.name=""){
+					var message = "EXCEPTION: There is a class which doesn't have a name in the package \""+pack.name+"\". Please name it in order to generate the project.";
+					createErrorWindow(message); 
+					throw (message);
+				}
 				var hierarchy = class.hierarchy(); 
 				if (hierarchy.size<=1){ 
 					isInterface=false;
@@ -45,13 +70,19 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 					t.populate('path', path); 
 					t.populate('isInterface', isInterface); 
 					t.populate('bidirectionalRelations', bidirectionalRelations);  
-					var path=directory+"\\src\\" + pack.name + "\\"+ class.name +'.cs'; 
+					var path=directory+ pack.name + "\\"+ class.name +'.cs'; 
 					t.generate (path); 	
 					paths_notempty.add(path);
 				}//if-hiearchy
 			}//for-class 
 			// Create the interfaces
-			for (interface in interfaces) { 
+			for (interface in interfaces) {
+				// If the interface doesn't have name, throw an exception
+				if (interface.name=""){
+					var message = "EXCEPTION: There is an interface which doesn't have a name in the package \""+pack.name+"\". Please name it in order to generate the project.";
+					createErrorWindow(message); 
+					throw (message);
+				}
 		     	isInterface=true;
 		  		var t := TemplateFactory.load('ClassCreation.egl');
 				t.populate ('currentElement', interface);	
@@ -60,7 +91,7 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 				t.populate('path', path); 
 				t.populate('isInterface', isInterface); 
 				t.populate('bidirectionalRelations', bidirectionalRelations);  
-				var path=directory+"\\src\\" + pack.name + "\\"+ interface.name +'.cs'; 
+				var path=directory + pack.name + "\\"+ interface.name +'.cs'; 
 				t.generate (path); 	
 				paths_notempty.add(path);
 		     }//for-interface 
@@ -81,7 +112,7 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 		// Child package
 		var childPackages=element[3];
 		for (parent in parents){
-			var path=directory+"\\src\\" + parentsPackages[iter].name + "\\Interface_"+ parent.name +'.cs';  
+			var path=directory + parentsPackages[iter].name + "\\Interface_"+ parent.name +'.cs';  
 			// Need to create the appropiate interface 
 			// Extract properties from the parent class
 			var interfaceName="Interface_"+ parent.name;
@@ -105,19 +136,19 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 			t.populate('currentMethods', methods); 
 			t.populate('currentParents', parent.hierarchy()); 
 			t.populate('isInterface', false);      
-			var path=directory+"\\src\\" + parentsPackages[iter].name + "\\"+ parent.name +'.cs';  
+			var path=directory + parentsPackages[iter].name + "\\"+ parent.name +'.cs';  
 			t.generate (path); 	
 			paths_notempty.add(path); 
 			// Iterate the parentsPackages
 			iter=iter+1;
 		}//for-parents
 		// Create the child class with as many collections as parents has, so it can access the methods.
-		var path=directory+"\\src\\" + childPackages.name + "\\"+ child.name +'.cs'; 
+		var path=directory+ childPackages.name + "\\"+ child.name +'.cs'; 
 		var t := TemplateFactory.load('ChildClassHierarchyCase.egl'); 
 		t.populate ('currentElement', child);	
 		t.populate('currentPackage', childPackages);
 		t.populate('currentModel', modelProject);  
-		t.populate('currentParents', child.hierarchy());  
+		t.populate('currentParents', child.hierarchy());
 		t.populate('path', path);
 		t.populate('bidirectionalRelations', bidirectionalRelations);
 		t.generate (path); 	
@@ -126,7 +157,7 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 	// Set of two sets, one for empty and the other one for non empty paths
 	var paths:List;
 	paths.add(paths_empty);
-	paths.add(paths_notempty);
+	paths.add(paths_notempty);  
 	return paths;
 }
 %]
