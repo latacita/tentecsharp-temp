@@ -2,14 +2,13 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.5
-// Last modification: 05/04/2013 
+// Version: 1.6
+// Last modification: 08/04/2013 
 // Description: This operation returns the parameters for 
 //				the current method. 
 ////////////////////////////////////////////////////////////
-import "../Operations.eol";
-@template
-operation Feature parameters(currentPackage: String, path: String) { 
+import "../Operations.eol"; 
+operation Feature parameters(currentPackage: String, path: String): String { 
 	// Method's parameters
 	var params: String;
 	var parameters: Collection;	
@@ -24,7 +23,7 @@ operation Feature parameters(currentPackage: String, path: String) {
 		if (param.name==""){			
 			par="param_"+iter; 
 		}else{
-			par=param.name; 
+			par=param.name;  
 		} 
 		// Throws exception if a type is not assigned for a parameter
 		if (param.type==null){
@@ -46,8 +45,9 @@ operation Feature parameters(currentPackage: String, path: String) {
 	// Deleting the last "," of the string, if needed
     if (not params.isEmpty()){	
     	params = params.substring(0, params.length() - 1);
-    }%]
-	[%=params%] 
-[%} %]		
+    }    
+	params=params+" ";
+	return params;
+}%]		
  
    

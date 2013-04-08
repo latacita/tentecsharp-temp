@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.9
-// Last modification: 02/04/2013 
+// Version: 2.0
+// Last modification: 08/04/2013 
 // Description: This operation generates the declaration of 
 //				the properties from the current class and
 //				their respective get and set methods.
@@ -28,7 +28,7 @@ operation Element classPropertiesCreation(path: String, currentPackage: String, 
 			propertyname="property_"+iter+"_From_"+self.name;
 			propertyName="Property_"+iter+"_From_"+self.name;
 		}else{
-			propertyname=prop.name;
+			propertyname=prop.name.firstToLowerCase();
 			propertyName=prop.firstToUpperCase();
 		} 
 		// Check it the current class has bidirectional relations

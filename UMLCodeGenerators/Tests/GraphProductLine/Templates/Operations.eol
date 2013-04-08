@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.0
-// Last modification: 05/04/2013 
+// Version: 2.1
+// Last modification: 08/04/2013 
 // Description: Operations to use in templates.
 ////////////////////////////////////////////////////////////
  
@@ -12,7 +12,7 @@ operation Element firstToUpperCase() : String {
 }
 // This operation returns the text "virtual" to include in the method's header
 operation virtual(): String { 
-	return "virtual ";	
+	return " virtual ";	
 }
 // This operation returns the text "void" to include in the method's header
 operation void(): String { 
@@ -28,29 +28,29 @@ operation public(): String {
 }
 // This operation returns the text "override" to include in the property or method's header
 operation override(): String { 
-	return "override ";	
+	return " override ";	
 }
 // This operation returns the text "static" to include in the property or method's header
 operation static(): String { 
-	return "static ";	
+	return " static ";	
 }
 // This operation returns the text "abstract" if the element is abstract
 operation Element abstract(): String { 
 	var ab="";
 	if (self.isAbstract){
-		ab=" abstract";
+		ab=" abstract ";
 	} 
 	return ab;	
 } 
 // This operation returns the text "readonly" to include in the property or method's header
 operation readonly(): String { 
-	return "readonly ";	
+	return " readonly ";	
 }
 // This operation returns the text "static" if the property or method is static
 operation Feature esStatic(): String { 
 	var s;
 	if (self.isStatic()){
-		s="static ";
+		s=" static ";
 	}
 	return s;	
 }
@@ -58,7 +58,7 @@ operation Feature esStatic(): String {
 operation Feature esReadonly(): String { 
 	var s;
 	if (self.isReadonly()){
-		s="readonly ";
+		s=" readonly ";
 	}
 	return s;	
 }
