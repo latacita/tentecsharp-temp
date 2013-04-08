@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.8 
-// Last modification: 05/04/2013 
+// Version: 1.9 
+// Last modification: 08/04/2013 
 // Description: This operation generates the methods of 
 //				the current class or interface.
 ////////////////////////////////////////////////////////////
@@ -15,7 +15,7 @@ operation Element classMethods(currentPackage: String, path: String): String {
 	var operations_void : Sequence;	
 	var operations_return: Sequence;
 	// Generate the constructor
-	opers=private()+void()+currentPackage+"_init"+self.firstToUpperCase()+" () {}\n\t\t";
+	opers=private()+void()+currentPackage+"_init"+self.firstToUpperCase()+" ( ) {}\n\t\t";
 	// Iterator to name methods (if they don't have names)
 	var iter=0;
 	var methodname; 
@@ -58,11 +58,11 @@ operation Element classMethods(currentPackage: String, path: String): String {
 	}//if-operations
 	// Generate the void methods
 	for (oper in operations_void) {			
-		opers=opers+oper.visibility+" "+oper.abstract()+" "+oper.esStatic()+virtual()+void()+currentPackage+"_"+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
+		opers=opers+oper.visibility+oper.abstract()+oper.esStatic()+virtual()+void()+currentPackage+"_"+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
 	}	
 	// Generate the return methods		
 	for (oper in operations_return) {
-		opers=opers+oper.visibility+" "+oper.abstract()+" "+oper.esStatic()+virtual()+oper.returnParameter(currentPackage, path)+" "+currentPackage+"_"+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
+		opers=opers+oper.visibility+oper.abstract()+oper.esStatic()+virtual()+oper.returnParameter(currentPackage, path)+" "+currentPackage+"_"+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
 	}
 	return opers;
 }%]

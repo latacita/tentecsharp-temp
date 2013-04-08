@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.8
-// Last modification: 05/04/2013 
+// Version: 1.9
+// Last modification: 08/04/2013 
 // Description: Generates the files of all code classes. And
 //				return a set of all the paths.
 ////////////////////////////////////////////////////////////
@@ -136,7 +136,7 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 			t.generate (path); 	
 			paths_notempty.add(path); 
 			// Create the class (only implements the methods). 
-			var t := TemplateFactory.load('../ClassCreationMultipleHierarchyCase.egl'); 
+			var t := TemplateFactory.load('ClassCreationMultipleHierarchyCase.egl'); 
 			t.populate ('currentElement', parent);	
 			t.populate('currentPackage', parentsPackages[iter]);
 			t.populate('currentModel', modelProject);  							

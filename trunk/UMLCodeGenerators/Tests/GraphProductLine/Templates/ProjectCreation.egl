@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.8
-// Last modification: 05/04/2013 
+// Version: 1.9
+// Last modification: 08/04/2013 
 // Description: Generates the Visual Studio project, the
 //				directories and the files of all code classes.
 ////////////////////////////////////////////////////////////
@@ -97,7 +97,7 @@ var t := TemplateFactory.load('VisualStudioProjectFiles/SlnFileCreation.egl');
 t.populate('currentModel', modelProject);    
 t.generate (secondleveldirectory+'.sln'); 
 // Create the csproj file
-var t := TemplateFactory.load('CsprojectFileCreation.egl');
+var t := TemplateFactory.load('VisualStudioProjectFiles/CsprojectFileCreation.egl');
 var paths=pathsClasses;//+pathsEnumClasses; 
 t.populate('emptyPackages',paths[0]);
 t.populate ('nonemptyPackages', paths[1]); 
@@ -107,7 +107,7 @@ t.generate (secondleveldirectory+'\\'+modelProject.name+'.csproj');
 var thirdleveldirectory=secondleveldirectory+"\\Properties";
 directory(thirdleveldirectory);
 // Create the AssemblyInfo file inside the properties' folder
-var t := TemplateFactory.load('AssemblyInfoFileCreation.egl');
+var t := TemplateFactory.load('VisualStudioProjectFiles/AssemblyInfoFileCreation.egl');
 t.populate('currentModel', modelProject);    
 t.generate (thirdleveldirectory+'\\AssemblyInfo.cs'); 	
 
