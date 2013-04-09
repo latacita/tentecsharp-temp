@@ -1,0 +1,187 @@
+var path= "C:\\Users\\Patricia\\Desktop\\Casos_Validos\\";
+
+// CLASSES
+@test
+operation classWithNameAndWithoutType() { 
+	assertLineWithMatch(path+"Data\\src\\BasicGraph\\Edge.cs", "partial class Edge");
+}
+@test
+operation classTypeAbstract() { 
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\ClaseAbstracta.cs", "abstract  class ClaseAbstracta");
+}
+@test
+operation classHierarchyOneOrManyClasses() { 
+	assertLineWithMatch(path+"Data\\src\\PruebasInterfaces\\ClaseHijo1.cs", "partial class ClaseHijo1:   Interface_ClasePadre1_1,  Interface_ClasePadre1_2");
+}
+@test
+operation classHierarchyClassesAndInterfaces() {  
+	assertLineWithMatch(path+"Data\\src\\PruebasInterfaces\\ClaseHijo2.cs", "partial class ClaseHijo2:   Interface_ClasePadre2_5,  Interface_ClasePadre2_3,  Interface_ClasePadre2_4, InterfazHijo2_1, InterfazHijo2_2");
+}  
+@test
+operation classWithoutProperties() { 
+	assertEqualDirectories(path+"Data\\src\\BasicGraph\\Edge.cs", path+"Data\\src\\BasicGraph\\Edge.cs");
+}
+@test
+operation classWithoutMethods() { 
+	 assertEqualDirectories(path+"Data\\src\\PruebasHerencia\\DoctorPerson.cs", path+"Data\\src\\PruebasHerencia\\DoctorPerson.cs");
+}
+@test
+operation classWithoutPropertiesNorMethods() {  
+	assertEqualDirectories(path+"Data\\src\\Recursive\\Graph.cs", path+"Data\\src\\Recursive\\Graph.cs");
+}
+@test
+operation classWithProperties() {  
+	assertEqualDirectories(path+"Data\\src\\PruebasHerencia\\Persona.cs", path+"Data\\src\\PruebasHerencia\\Persona.cs");	
+	assertLineWithMatch(path+"Data\\src\\BasicGraph\\Edge.cs", "private Node a;");
+}  
+@test
+operation classWithMethods() {  
+	assertEqualDirectories(path+"Data\\src\\Recursive\\Node.cs", path+"Data\\src\\Recursive\\Node.cs");
+	assertLineWithMatch(path+"Data\\src\\Recursive\\Node.cs", "virtual void Recursive_print");
+}
+@test
+operation classWithPropertiesAndMethods() {  
+	assertEqualDirectories(path+"Data\\src\\PruebasColecciones\\Clase1.cs", path+"Data\\src\\PruebasColecciones\\Clase1.cs");
+} 
+
+// PACKAGES
+@test
+operation packageWithName() { 
+	assertEqualDirectories(path+"Data\\src\\BasicGraph", path+"Data\\src\\BasicGraph");
+}
+@test
+operation packageWithClassesAndInterfaces() { 
+	assertEqualDirectories(path+"Data\\src\\PruebasInterfaces", path+"\\Data\\src\\PruebasInterfaces");
+}
+@test
+operation emptyPackage() { 
+	assertEqualDirectories(path+"Data\\src\\PruebasBidireccionalidad\\PaqueteDentroDePaquete\\PaqueteDentroDePaqueteDentroDePaquete", path+"\\Data\\src\\PruebasBidireccionalidad\\PaqueteDentroDePaquete\\PaqueteDentroDePaqueteDentroDePaquete");
+}
+@test
+operation packageInsideOtherPackage() { 
+	assertEqualDirectories(path+"Data\\src\\PruebasBidireccionalidad\\PaqueteDentroDePaquete", path+"\\Data\\src\\PruebasBidireccionalidad\\PaqueteDentroDePaquete");
+}
+
+// INTERFACE
+@test
+operation interfaceWithName() {  
+	assertEqualDirectories(path+"Data\\src\\PruebasInterfaces\\Interface_B.cs", path+"Data\\src\\PruebasInterfaces\\Interface_B.cs");
+}
+@test
+operation interfaceWithMethods() {  
+	assertEqualDirectories(path+"Data\\src\\PruebasInterfaces\\InterfazAislada.cs", path+"Data\\src\\PruebasInterfaces\\InterfazAislada.cs"); 
+}
+@test
+operation interfaceWithoutMethods() {  
+	assertEqualDirectories(path+"Data\\src\\PruebasInterfaces\\InterfazHijo2_1.cs", path+"Data\\src\\PruebasInterfaces\\InterfazHijo2_1.cs"); 
+}
+
+// PROPERTIES
+@test
+operation propertyWithName() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "int a");
+}
+@test
+operation propertyWithoutName() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "property_1_From_Clase_1");
+}
+@test
+operation staticProperty() {  
+	assertLineWithMatch(path+"Data\\src\\Color\\Node.cs", "  static  readonly Color color");
+}
+@test
+operation collectionProperty() {  
+	assertLineWithMatch(path+"Data\\src\\PruebasColecciones\\Clase1.cs", "IList <int> list");
+	assertLineWithMatch(path+"Data\\src\\PruebasColecciones\\Clase1.cs", "ISet <int> set");
+	assertLineWithMatch(path+"Data\\src\\PruebasColecciones\\Clase1.cs", "ICollection <int> collection"); 
+	assertLineWithMatch(path+"Data\\src\\PruebasColecciones\\Clase1.cs", "IList <int> weirdCase");
+}
+@test
+operation propertyIsObject() {  
+	assertLineWithMatch(path+"Data\\src\\Recursive\\Node.cs", "Graph childGraph"); 
+}
+@test
+operation bidirectionalRelation() {  
+	// One to one
+	assertLineWithMatch(path+"Data\\src\\PruebasBidireccionalidad\\Mujer.cs", "value.Esposa.SetMarido_aditional"); 
+	// One to many
+	assertLineWithMatch(path+"Data\\src\\PruebasBidireccionalidad\\Alumno.cs", "removeMatriculado()"); 
+	// Many to many
+	assertLineWithMatch(path+"Data\\src\\PruebasBidireccionalidad\\Proyecto.cs", "addTrabajador"); 
+}
+
+// METHODS
+@test
+operation methodWithName() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "PaquetePruebas_metodoSinTipo"); 
+}
+@test
+operation methodWithoutName() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "PaquetePruebas_method_4"); 
+}
+@test
+operation methodWithoutTypeAndWithoutParams() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "PaquetePruebas_metodoSinTipo"); 
+}
+@test
+operation methodWithoutTypeAndWithParams() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "PaquetePruebas_metodoSinTipoConParam"); 
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "int a"); 
+}
+@test
+operation methodVoidWithoutParams() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "PaquetePruebas_metodoVoidSinParam"); 
+}
+@test
+operation methodVoidWithParams() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "PaquetePruebas_metodoVoidConParam"); 
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "String a"); 
+}
+@test ///////
+operation methodReturnPrimitiveTypeWithoutParams() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "double PaquetePruebas_metodoRetornaPrimSinParam"); 
+}
+@test
+operation methodReturnPrimitiveTypeWithParams() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "int PaquetePruebas_metodoRetornaPrimConParam"); 
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "String a"); 
+}
+@test 
+operation methodReturnCollectionWithoutParams() {  
+	assertLineWithMatch(path+"Data\\src\\PruebasColecciones\\Clase1.cs", "ICollection <Node> PruebasColecciones_OperacionConReturnCollection");   
+}
+@test
+operation methodReturnCollectionWithParams() {  
+	assertLineWithMatch(path+"Data\\src\\PruebasColecciones\\Clase1.cs", "PruebasColecciones_OperacionConParametroCollection"); 
+	assertLineWithMatch(path+"Data\\src\\PruebasColecciones\\Clase1.cs", "IList <Node> CollectionList"); 
+}
+@test
+operation staticMethod() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "static  virtual void PaquetePruebas_metodoEstatico"); 
+}
+@test
+operation abstractMethod() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\ClaseAbstracta.cs", "public abstract  static  virtual void PaquetePruebas_metodoAbstracto"); 
+}
+
+// PARAMETERS
+@test
+operation parameterWithoutName() {  
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "double param_0"); 
+}
+
+// SIMPLE HIERARCHY
+@test
+operation simpleHierarchy() {  
+	assertLineWithMatch(path+"Data\\src\\PruebasHerencia\\DoctorPerson.cs", "DoctorPerson : Persona"); 
+}
+
+// EXCEPTIONS
+@test
+operation thowsExceptions() {   
+	assertError(runTarget('C:\\Users\\Patricia\\Documents\\UNIVERSIDAD\\PFC\\Eclipse_1\\GraphProductLine\\Templates\\ProjectCreation.egl'));
+	assertError(runTarget('C:\\Users\\Patricia\\Documents\\UNIVERSIDAD\\PFC\\Eclipse_1\\GraphProductLine\\Templates\\ClassFilesCreation.egl'));
+	assertError(runTarget('C:\\Users\\Patricia\\Documents\\UNIVERSIDAD\\PFC\\Eclipse_1\\GraphProductLine\\Templates\\PropertiesCreation.egl'));
+	assertError(runTarget('C:\\Users\\Patricia\\Documents\\UNIVERSIDAD\\PFC\\Eclipse_1\\GraphProductLine\\Templates\\ParametersCreation.egl'));
+	assertError(runTarget('C:\\Users\\Patricia\\Documents\\UNIVERSIDAD\\PFC\\Eclipse_1\\GraphProductLine\\Templates\\BidirectionalRelations.egl')); 
+}
