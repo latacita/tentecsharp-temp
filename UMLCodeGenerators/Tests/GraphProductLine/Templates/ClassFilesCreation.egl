@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.0
-// Last modification: 09/04/2013 
+// Version: 1.9
+// Last modification: 08/04/2013 
 // Description: Generates the files of all code classes. And
 //				return a set of all the paths.
 ////////////////////////////////////////////////////////////
@@ -126,12 +126,12 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 			var properties=parent.propertiesGeneration(true, bidirectionalRelations, parentsPackages[iter].name, path);  
 			// Extract methods from the parent class
 			var methods=parent.classMethods(parentsPackages[iter].name, path); 
-			// Create the interface (only implements the properties). 
+			// Create the interface (only implements the properties).
 			var t := TemplateFactory.load('Classes/InterfaceCreation.egl');
 			t.populate ('currentInterface', parent);	
 			t.populate('currentPackage', parentsPackages[iter]);
 			t.populate('currentModel', modelProject);  
-			t.populate('currentMethods', methods);      
+			t.populate('currentProperties', properties[0]);      
 			t.populate('currentAditionalMethods', properties[1]);   
 			t.generate (path); 	
 			paths_notempty.add(path); 
@@ -139,8 +139,8 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 			var t := TemplateFactory.load('ClassCreationMultipleHierarchyCase.egl'); 
 			t.populate ('currentElement', parent);	
 			t.populate('currentPackage', parentsPackages[iter]);
-			t.populate('currentModel', modelProject);  	 
-			t.populate('currentProperties', properties[0]); 
+			t.populate('currentModel', modelProject);  							
+			t.populate('currentMethods', methods); 
 			t.populate('currentParents', parent.hierarchy()); 
 			t.populate('isInterface', false);      
 			var path=directory + parentsPackages[iter].name + "\\"+ parent.name +'.cs';  
