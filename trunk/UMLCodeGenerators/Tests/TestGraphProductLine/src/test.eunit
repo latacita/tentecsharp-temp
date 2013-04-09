@@ -79,7 +79,7 @@ operation interfaceWithoutMethods() {
 // PROPERTIES
 @test
 operation propertyWithName() {  
-	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "int a");
+	assertLineWithMatch(path+"Data\\src\\PaquetePruebas\\Clase_1.cs", "( int a )");
 }
 @test
 operation propertyWithoutName() {  
