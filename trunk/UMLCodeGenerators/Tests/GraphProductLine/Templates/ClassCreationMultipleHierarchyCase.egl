@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.5
-// Last modification: 09/04/2013 
+// Version: 1.4
+// Last modification: 01/04/2013 
 // Description: This template generates the parent classes for
 //				a multiple hierarchy case 
 //				(this means, only its methods). 
@@ -11,7 +11,7 @@
 import "ClassElements/ModelCreation.egl";
 import "Classes/ClassDeclaration.egl"; 
 import "ClassElements/MethodsCreation.egl"; 
-import "ClassElements/UtilityMethodsCreation.egl";
+import "ClassElements/UtilityMethodsCreation.egl"; 
 %]
 using System;
 using System.Collections.Generic; 
@@ -50,7 +50,9 @@ if (header <> null){
 // in the package: "[%=currentPackage.name%]", from the "[%=currentModel.name%]" model. 
 [%=currentModel.modelDeclaration()%]
 	partial class [%=currentElement.name%]: [%=header%]{
-		// Properties from the current class  
-		[%=currentProperties%] 
+		// Utility methods from the current class  
+		[%=classUtilityMethodsCreation()%]
+		// Constructor and methods from the from the current interface		
+		[%=currentMethods%]	
 	}
 } 
