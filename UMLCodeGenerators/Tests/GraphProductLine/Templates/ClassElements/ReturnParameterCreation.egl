@@ -2,14 +2,13 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.4 
-// Last modification: 28/03/2013 
+// Version: 1.5
+// Last modification: 09/04/2013 
 // Description: This operation returns the return parameter  
 //				for the current method. 
 ////////////////////////////////////////////////////////////
-import "../Operations.eol";
-@template
-operation Feature returnParameter(currentPackage: String, path: String) { 
+import "../Operations.eol"; 
+operation Feature returnParameter(currentPackage: String, path: String): String { 
 	// Method's parameters
 	// Default value
 	var params="void";
@@ -26,8 +25,7 @@ operation Feature returnParameter(currentPackage: String, path: String) {
 			params=param.type.name;		
 		}//if-paramUpperBound		 
 	}//for-param
-	%]
-	[%=params%] 
-[%} %]		
+	return params;	
+} %]		
  
    
