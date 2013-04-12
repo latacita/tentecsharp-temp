@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.3 
-// Last modification: 29/03/2013 
+// Version: 1.4
+// Last modification: 12/04/2013 
 // Description: This template generates the implemented version
 //				of the set method, and an aditional one, to 
 //				bidirectional relationships one to many
@@ -30,18 +30,18 @@ operation setImplementationOneToManyCollectionPart (nameThisClassRelation: Strin
 	
 	// Creating the string which contains the implementation of the methods
 	// Implementation of the Add method 
-	implementation="\n\t\tpublic void add"+classRelated+"("+classRelated+" a)\n\t\t{\n\t";
+	implementation="\n\t\tpublic void add_"+classRelated+"_FromProperty_"+thisClassProperty+"("+classRelated+" a)\n\t\t{\n\t";
 	implementation=implementation+"\t\tif (a."+otherClassProperty+" != this || a."+otherClassProperty+" == null)\n\t\t\t{\n\t\t";
 	implementation=implementation+"\t\tthis."+nameThisClassRelation+".Remove(a);\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t";
 	implementation=implementation+"\t\t"+"if (! this."+nameThisClassRelation+".Contains(a))\n\t\t\t\t{\n\t\t\t\t\tthis.";
 	implementation=implementation+nameThisClassRelation+".Add(a);\n\t\t\t\t}\n\t\t\t}\n\t\t}";
 	// Implementation of the Remove method
-	implementation=implementation+"\n\t\tpublic void remove"+classRelated+"("+classRelated+" a)\n\t\t{\n\t";
+	implementation=implementation+"\n\t\tpublic void remove_"+classRelated+"_FromProperty_"+thisClassProperty+"("+classRelated+" a)\n\t\t{\n\t";
 	implementation=implementation+"\t\tif (a."+otherClassProperty+" == this)\n\t\t\t{\n\t\t";
 	implementation=implementation+"\t\tthis."+nameThisClassRelation+".Remove(a);\n\t\t";
-	implementation=implementation+"\t\ta.Set"+currentClass+"(null);\n\t\t\t}\n\t\t}";
+	implementation=implementation+"\t\ta.set_"+otherClassProperty+"_From_"+currentClass+"(null);\n\t\t\t}\n\t\t}";
 	// Implementation of the Get method
-	implementation=implementation+"\n\t\tpublic "+collectionName+" get"+currentClass+"()\n\t\t{\n\t";
+	implementation=implementation+"\n\t\tpublic "+collectionName+" get_"+classRelated+"_FromProperty_"+thisClassProperty+"()\n\t\t{\n\t";
 	implementation=implementation+"\t\treturn this."+nameThisClassRelation+";\n\t\t}\n\t\t"; 
 	
 	var finalImplementation: List;

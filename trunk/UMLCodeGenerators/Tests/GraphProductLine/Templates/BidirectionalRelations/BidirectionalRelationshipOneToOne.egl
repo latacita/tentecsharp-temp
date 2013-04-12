@@ -12,7 +12,7 @@ operation setImplementationOneToOne (nameThisClassRelation: String, nameOtherCla
 	var implementation:String;	  
 	var thisClassProperty = nameThisClassRelation.firstToUpperCase();
 	var otherClassProperty = nameOtherClassRelation.firstToUpperCase();
-	
+	 
 	// Creating the string which contains the implementation of the set method	 
 	implementation=implementation+"\n\n\t\t\t\tif ("+thisClassProperty+" != null)\n\t\t\t\t{\n\t\t\t\t";
     implementation=implementation+"\tif (value."+otherClassProperty+" != null)\n\t\t\t\t\t{";
@@ -39,7 +39,7 @@ operation setImplementationOneToOne (nameThisClassRelation: String, nameOtherCla
 	var getandset="private "+classRelated+" "+nameThisClassRelation+";\n\t\tpublic "+classRelated+" "+thisClassProperty+" {\n\t\t\tget { return this."+nameThisClassRelation+"; }"+"\n\t\t\tset { "+implementation+" }"+"\n\t\t}\n\t\t";
 	
 	var methods= "\n\t\t// Aditional set method to control bidirectional relationship";
-	methods=methods+"\n\n\t\tpublic void Set"+thisClassProperty+"_aditional("+classRelated+" m)\n\t\t{\n\t\t\t this."+nameThisClassRelation+"=m;\n\t\t}\n\t\t";
+	methods=methods+"\n\n\t\tpublic void set"+thisClassProperty+"_aditional("+classRelated+" m)\n\t\t{\n\t\t\t this."+nameThisClassRelation+"=m;\n\t\t}\n\t\t";
 
 	var finalImplementation: List;
 	finalImplementation.add(getandset);

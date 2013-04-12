@@ -36,8 +36,12 @@ operation Feature parameters(currentPackage: String, path: String): String {
 			// If the parameter is a collection
 			var collection=param.typeCollection(currentPackage, path);
 			params=params+" "+collection+" "+par+",";
-		}else{				
-			params=params+" "+param.type.name+" "+par+",";	
+		}else{
+			if(param.type.name=="Integer"){
+				params=params+toInt()+par+",";
+			}else{
+				params=params+" "+param.type.name+" "+par+",";	
+			} 
 		}				
 		// Increase the iterator
 		iter=iter+1;					
