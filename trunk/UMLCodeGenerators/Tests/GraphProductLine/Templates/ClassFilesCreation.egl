@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.9
-// Last modification: 08/04/2013 
+// Version: 2.0
+// Last modification: 12/04/2013 
 // Description: Generates the files of all code classes. And
 //				return a set of all the paths.
 ////////////////////////////////////////////////////////////
@@ -12,6 +12,8 @@ import "ClassElements/MethodsCreation.egl";
 import "ClassElements/PropertiesGeneration.egl";
 import "BidirectionalRelations/BidirectionalRelations.egl";
 import "Classes/MultipleHierarchyClasses.egl";
+
+import "ClassElements/CollectionMultipleHierarchy.egl"; 
 operation classFilesCreation(packages: Set, modelProject: Model, directory: String, path: String){
 	var paths_empty: Set; 
 	var paths_notempty: Set; 
@@ -130,36 +132,50 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 			var t := TemplateFactory.load('Classes/InterfaceCreation.egl');
 			t.populate ('currentInterface', parent);	
 			t.populate('currentPackage', parentsPackages[iter]);
-			t.populate('currentModel', modelProject);  
+			t.populate('currentModel', modelProject);
+			t.populate('currentMethods', methods);
 			t.populate('currentProperties', properties[0]);      
-			t.populate('currentAditionalMethods', properties[1]);   
+			t.populate('currentAditionalMethods', properties[1]);    
 			t.generate (path); 	
 			paths_notempty.add(path); 
+			var c;
+			if (parent.hierarchy().size>1){
+				var currentParents=parent.hierarchy();
+				var parentClassesNames: Set;
+				for (h in currentParents){ 
+					// Hierarchy classes for the current class declaration 
+					parentClassesNames.add(h.general.name);
+				} 
+				c=collectionMultipleHierarchy(parentClassesNames);
+			}  
 			// Create the class (only implements the methods). 
-			var t := TemplateFactory.load('ClassCreationMultipleHierarchyCase.egl'); 
+			var t := TemplateFactory.load('ClassCreationMultipleHierarchyCase.egl');
+			var path=directory + parentsPackages[iter].name + "\\"+ parent.name +'.cs'; 
 			t.populate ('currentElement', parent);	
 			t.populate('currentPackage', parentsPackages[iter]);
 			t.populate('currentModel', modelProject);  							
 			t.populate('currentMethods', methods); 
 			t.populate('currentParents', parent.hierarchy()); 
-			t.populate('isInterface', false);      
-			var path=directory + parentsPackages[iter].name + "\\"+ parent.name +'.cs';  
+			t.populate('currentCollections', c);  
+			t.populate('isInterface', false);   
 			t.generate (path); 	
 			paths_notempty.add(path); 
 			// Iterate the parentsPackages
 			iter=iter+1;
 		}//for-parents
-		// Create the child class with as many collections as parents has, so it can access the methods.
-		var path=directory+ childPackages.name + "\\"+ child.name +'.cs'; 
-		var t := TemplateFactory.load('ChildClassHierarchyCase.egl'); 
-		t.populate ('currentElement', child);	
-		t.populate('currentPackage', childPackages);
-		t.populate('currentModel', modelProject);  
-		t.populate('currentParents', child.hierarchy());
-		t.populate('path', path);
-		t.populate('bidirectionalRelations', bidirectionalRelations);
-		t.generate (path); 	
-		paths_notempty.add(path); 
+		// Create the child class with as many collections as parents has, so it can access the methods. 
+		if (not fileExists(directory+childPackages.name+"\\Interface_"+child.name+".cs")){ 
+			var path=directory+childPackages.name + "\\"+ child.name +'.cs'; 
+			var t := TemplateFactory.load('ChildClassHierarchyCase.egl');  
+			t.populate ('currentElement', child);
+			t.populate('currentPackage', childPackages);
+			t.populate('currentModel', modelProject);  
+			t.populate('currentParents', child.hierarchy()); 
+			t.populate('bidirectionalRelations',bidirectionalRelations);
+			t.populate('path', path); 
+			t.generate (path); 	
+			paths_notempty.add(path); 
+		}
 	}//for-element-multipleHierarchyClasses  
 	// Set of two sets, one for empty and the other one for non empty paths
 	var paths:List;

@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.8
-// Last modification: 28/03/2013 
+// Version: 1.9
+// Last modification: 12/04/2013 
 // Description: This template generates the specification of
 //				the current class: declarations, properties, 
 //				methods.
@@ -18,18 +18,24 @@ using System;
 using System.Collections.Generic;
 [%
 var p=currentPackage.name; 
+var name;
+if (isInterface){
+	name="interface";
+}else{
+	name="class";
+}
 %]
-// This is the content of the class named "[%=currentElement.name%]", which is 
+// This is the content of the [%=name%] named "[%=currentElement.name%]", which is 
 // in the package: "[%=currentPackage.name%]", from the "[%=currentModel.name%]" model. 
 [%=currentModel.modelDeclaration()%]
 	[%=currentElement.classDeclaration(isInterface)%] 
-		// Properties from the current class 		 
+		// Properties from the current [%=name%] 		 
 		
 		[%var propertiesAndAdditionalMethods=currentElement.propertiesGeneration(false, bidirectionalRelations, p, path);%]
 		[%=propertiesAndAdditionalMethods[0]%] 
 		[%=propertiesAndAdditionalMethods[1]%] 
 		
-		// Utility methods from the current class 
+		// Utility methods from the current [%=name%] 
 		
 		[%=classUtilityMethodsCreation()%]
 		
