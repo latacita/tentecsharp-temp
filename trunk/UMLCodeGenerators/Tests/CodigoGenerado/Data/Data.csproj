@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9F9332CA-52A3-463E-9460-064EF806DE22}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vacio</RootNamespace>
+    <AssemblyName>Vacio</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\ClasePadre2_2.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\ClasePadre2_4.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\Alumno.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\CLASEB.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\ClasePadre2.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\C.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\A.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\ClaseHijo2.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\BasicGraph\Graph.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasHerencia\PatientPerson.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasHerencia\Persona.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\Interface_C.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\Color\Edge.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasColecciones\Clase1.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\Color\Graph.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\BasicGraph\Edge.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\ClasePadre1.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\Trabajador.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\InterfazHijo2_1.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\Interface_ClasePadre2_2.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasHerencia\DoctorPerson.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\Curso.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\WeightGraph\Edge.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\WeightGraph\Graph.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\Interface_ClasePadre2_3.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\RecursivePerson.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\Mujer.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\Interface_E.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\ClaseHijo.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\Color\Color.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\Hombre.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PaqueteAdicionalInterfaces\Interface_F.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\Recursive\Graph.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\Interface_ClasePadre2.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\ClasePadre2_3.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\Interface_ClasePadre1.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\B.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\Recursive\Node.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\Interface_B.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PrintHeader\Graph.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\D.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\E.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PaqueteAdicionalInterfaces\F.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\CLASEA.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\Color\Node.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\InterfazHijo2_2.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\Interface_ClasePadre2_4.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasInterfaces\InterfazAislada.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\BasicGraph\Node.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\src\PruebasBidireccionalidad\Proyecto.cs" />
+	
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+		<Folder Include="src\PruebasPaqueteVacio\" />
+	</ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
