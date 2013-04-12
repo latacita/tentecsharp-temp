@@ -18,10 +18,12 @@ operation bidirectionalRelations(): Set{
 	packages := Package.all.reject(p|p.name.equals("UML Standard Profile"));	
 	// Set of classes names
 	var classesName: Set; 
+	var id;
 	// Select relations between classes
 	for (pack in packages){
 		var classes=pack.packagedElement.select(e|e.isTypeOf(Class)); 
 		for (class in classes){
+			id=0;
 			// Select non-primitive-type attributes
 			var attributes=class.AllAttributes.reject(e|e.isTypeOf(PrimitiveType));				
 		 	for (attrib in attributes){	  	
@@ -48,7 +50,7 @@ operation bidirectionalRelations(): Set{
 					// If the user didn't write a name for the relation by default it's
 					// called relationFromClass_<ClassName>					
 					if (attrib.name==""){
-						nameRelations.add("relationFromClass_"+class.name);
+						nameRelations.add("relation"+id+"_FromClass_"+class.name);
 					} else{
 						nameRelations.add(attrib.name);
 					}//if-attrib
@@ -64,7 +66,7 @@ operation bidirectionalRelations(): Set{
 					}else{
 						// It current bidirectional property doesn't have multiplicity, throw an exception 
 						if (attrib.upperValue==null and attrib.type.isTypeOf(Class) and attrib.association <> null){
-							var message = "EXCEPTION: Property \""+attrib.name+ "\" from package: \""+pack.name+ "\" doesn't have multiplicity assigned.";
+							var message = "EXCEPTION: Property \""+attrib.name+ "\" from class: \""+class.name+"\", from package: \""+pack.name+ "\" doesn't have multiplicity assigned.";
 							createErrorWindow(message); 
 							throw (message);  
 						}else{ 
@@ -75,6 +77,7 @@ operation bidirectionalRelations(): Set{
 					relation.add(multiplicity);
 					// Add the relation to the list of relations  		
 					relations.add(relation); 
+					id=id+1;
  			}//for-attrib 	 
  			// Add the name of the class to the list of classes' names
  			classesName.add(class.name);

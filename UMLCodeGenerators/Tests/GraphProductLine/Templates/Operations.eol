@@ -62,7 +62,11 @@ operation Feature esReadonly(): String {
 	}
 	return s;	
 }
-// This operation returns the elemento with the first letter in lower case 
+// This operation returns the text "int"
+operation toInt(): String { 
+	return " Int ";	
+}
+// This operation returns the element with the first letter in lower case 
 operation Element firstToLowerCase(): String { 
 	return self.name.firstToLowerCase();	
 }

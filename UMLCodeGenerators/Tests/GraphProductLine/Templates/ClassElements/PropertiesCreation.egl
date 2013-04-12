@@ -2,7 +2,7 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.1
+// Version: 2.2
 // Last modification: 12/04/2013 
 // Description: This operation generates the declaration of 
 //				the properties from the current class and
@@ -57,16 +57,19 @@ operation Element classPropertiesCreation(path: String, currentPackage: String, 
 			if(prop.upperBound==-1 or prop.upperBound>1){ 
 				var collection=prop.typeCollection(currentPackage, path);
 				// Collections don't have get and set methods
-				properties=properties+collection+" "+propertyname+";\n\t\t"+public()+header+collection+getterAndSetter;
+				properties=properties+collection+" "+propertyname+";\n\t\t";
 			}else{
 				// It current property doesn't have multiplicity, throw an exception 
 				if (prop.upperValue==null and prop.type.isTypeOf(Class) and prop.association <> null){ 
-					var message = "EXCEPTION: Property \""+propertyname+ "\" from package: \""+currentPackage+ "\" doesn't have multiplicity assigned.";
+					var message = "EXCEPTION: Property \""+propertyname+ "\" from class: \""+self.name+"\", from package: \""+currentPackage+ "\" doesn't have multiplicity assigned.";
 					createErrorWindow(message); 
 					throw (message);
 				} 
 				// Association between classes with just one element.
-				var pro=prop.type.name;				
+				var pro=prop.type.name;
+				if(prop.type.name=="Integer"){
+					pro=toInt();
+				} 
 				// Static properties don't have get and set methods
 				if (prop.isStatic()){
 					properties=properties+pro+" "+propertyname+";\n\t\t";

@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.5
-// Last modification: 09/04/2013 
+// Version: 1.6
+// Last modification: 12/04/2013 
 // Description: This operation returns the return parameter  
 //				for the current method. 
 ////////////////////////////////////////////////////////////
@@ -22,7 +22,11 @@ operation Feature returnParameter(currentPackage: String, path: String): String 
 			params=collection;
 		}else{				
 			// If the return parameter is not a collection
-			params=param.type.name;		
+			if(param.type.name=="Integer"){
+				params=toInt();
+			}else{
+				params=param.type.name;
+			}
 		}//if-paramUpperBound		 
 	}//for-param
 	return params;	
