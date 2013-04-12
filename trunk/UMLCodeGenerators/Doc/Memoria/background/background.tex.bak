@@ -37,4 +37,6 @@ Este capítulo trata de describir a grandes rasgos las técnicas, tecnologías y he
 \label{sec:back:eplugins}
 \input{background/eplugins.tex}
 
-\section{}
+\section{Sumario}
+\label{sec:back:sumario}
+\input{background/sumario.tex}
