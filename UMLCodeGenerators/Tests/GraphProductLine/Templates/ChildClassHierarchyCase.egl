@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.6
-// Last modification: 05/04/2013 
+// Version: 1.7
+// Last modification: 12/04/2013 
 // Description: This template generates the child class for
 //				a multiple hierarchy case. 
 ////////////////////////////////////////////////////////////
@@ -12,7 +12,8 @@ import "Classes/ClassDeclaration.egl";
 import "ClassElements/MethodsCreation.egl"; 
 import "ClassElements/PropertiesGeneration.egl";
 import "ClassElements/PropertiesCreation.egl";
-import "ClassElements/UtilityMethodsCreation.egl"; 
+import "ClassElements/UtilityMethodsCreation.egl";
+import "ClassElements/CollectionMultipleHierarchy.egl"; 
 import "Operations.eol";
 %]
 using System;
@@ -51,16 +52,13 @@ if (header<> null){
 }  
 %] 
 		
-	partial[%=currentElement.abstract()%] class [%=currentElement.name%]: [%=header%]{
-		// Properties from the current class 
-	[%
-	for (p in parentClassesNames){%] 
-		private ISet <[%=p%]> relationFromClass_[%=p%];
-		public ISet <[%=p%]> RelationFromClass_[%=p%] {
-			get { return this.relationFromClass_[%=p%]; }
-			set { this.relationFromClass_[%=p%]= value; }
-		}
-	[%}%]	     
+	partial[%=currentElement.abstract()%] class [%=currentElement.name%]: [%=header%] {
+		// Properties from the current class
+		[%=collectionMultipleHierarchy(parentClassesNames)%]
+		[%var propertiesAndAdditionalMethods=currentElement.propertiesGeneration(false, bidirectionalRelations, p, path);%]
+		[%=propertiesAndAdditionalMethods[0]%] 
+		[%=propertiesAndAdditionalMethods[1]%]  
+		
 		// Utility methods from the current class 
 		
 		[%=classUtilityMethodsCreation()%] 

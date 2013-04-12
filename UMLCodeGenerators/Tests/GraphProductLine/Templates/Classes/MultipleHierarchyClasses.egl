@@ -2,14 +2,14 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.3 
-// Last modification: 28/02/2013 
+// Version: 1.4
+// Last modification: 12/04/2013 
 // Description: This operation returns the multiple hierarchy
 //				classes.
 ////////////////////////////////////////////////////////////
-operation multipleHierarchyClasses(packages: Set): Set{
+operation multipleHierarchyClasses(packages: Set): List{
 	// Each element of the set as follows: <ParentClass>, <PackageParentClass>, <ChildClass>, <PackageChildClass>
-	var multipleHierarchyParents: Set;
+	var multipleHierarchyParents: List;
 	for (pack in packages) {
 	    var classes=pack.packagedElement.select(e|e.isTypeOf(Class)); 
 	 	for (class in classes) { 
@@ -38,7 +38,7 @@ operation multipleHierarchyClasses(packages: Set): Set{
 	}//for-pack   
 	 
 	// Each element as follows: {{<ParentClasses>}, <ChildClass>, {<PackagesParentClasses>}, <PackageClass>}
-	var finalList: Set; 
+	var finalList: List; 
 	for (elem1 in multipleHierarchyParents){  
 		var final: List;
 		var firstElem: List;  

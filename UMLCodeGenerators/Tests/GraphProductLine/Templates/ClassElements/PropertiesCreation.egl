@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.0
-// Last modification: 08/04/2013 
+// Version: 2.1
+// Last modification: 12/04/2013 
 // Description: This operation generates the declaration of 
 //				the properties from the current class and
 //				their respective get and set methods.
@@ -20,7 +20,8 @@ operation Element classPropertiesCreation(path: String, currentPackage: String, 
 	var getterAndSetter: String;	 
 	// Iterator to name properties (if they don't have names)
 	var iter=0;
-	for (prop in self.AllAttributes) {		
+	var isFromBidirectionalRelation=false;
+	for (prop in self.getAttributes()) {
 		var propertyname;
 		var propertyName;
 		// If a property doesn't have name, put a default one
@@ -29,20 +30,19 @@ operation Element classPropertiesCreation(path: String, currentPackage: String, 
 			propertyName="Property_"+iter+"_From_"+self.name;
 		}else{
 			propertyname=prop.name.firstToLowerCase();
-			propertyName=prop.firstToUpperCase();
+			propertyName=prop.firstToUpperCase(); 
 		} 
-		// Check it the current class has bidirectional relations
-		if (isBidirectional){ 
-			// If the current property is bidirectional
-			for (element in allBidirectionalImplementations){  
-				 if (prop.name == "" or prop.name == element[1]){ 
-				 	// Add the implemented get and set methods and the aditional set method to deal with bidirectionality		 	
-				 	properties=properties+element[0][0];  
-				 	additionalMethods=additionalMethods+element[0][1];
-				 }//if-prop
-			}//for-allBidirectionalImplementations
-		// If it's not a class with bidirectional relations
-		}else{
+		// Check it the current class has bidirectional relations 
+		// If the current property is bidirectional
+		for (element in allBidirectionalImplementations){  
+			 if (prop.name == "" or prop.name == element[1]){ 
+			 	// Add the implemented get and set methods and the aditional set method to deal with bidirectionality		 	
+			 	properties=properties+element[0][0];  
+			 	additionalMethods=additionalMethods+element[0][1];
+			 	isFromBidirectionalRelation=true;
+			 }//if-prop
+		}//for-allBidirectionalImplementations  
+		if(isFromBidirectionalRelation==false){ 
 			getterAndSetter=" "+propertyName+" {\n\t\t\tget { return this."+propertyname+"; }"+"\n\t\t\tset { this."+propertyname+"= value; }"+"\n\t\t}\n\t\t";	 
 			properties=properties+private();	 
 			var header;
@@ -73,11 +73,12 @@ operation Element classPropertiesCreation(path: String, currentPackage: String, 
 				}else{
 					properties=properties+pro+" "+propertyname+";\n\t\t"+public()+header+pro+getterAndSetter;
 				}//if-static
-			} // if-upperBound	
-		}//if-bidirectional
-		// Increase the iterator
-		iter=iter+1;
-	}//for	
+			} // if-upperBound	 
+			// Increase the iterator
+			iter=iter+1;
+		}//if-isFromBidirectionalRelation
+		isFromBidirectionalRelation=false;
+	}//for	  
 	finalResult.add(properties);
 	finalResult.add(additionalMethods);
 	return finalResult;
