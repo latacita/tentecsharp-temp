@@ -22,7 +22,7 @@ operation Element classMethods(currentPackage: String, path: String): String {
 	var isReturn=false;
 	// Separate void from return methods
 	//getOperations()
-	for (oper in self.AllOperations){  
+	for (oper in self.getOperations()){  
 		for (par in oper.ownedParameter){ 
 			// Void methods:			
 			// And also select those operations whose return type is void
