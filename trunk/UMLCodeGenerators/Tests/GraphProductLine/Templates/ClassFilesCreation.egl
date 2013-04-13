@@ -12,7 +12,6 @@ import "ClassElements/MethodsCreation.egl";
 import "ClassElements/PropertiesGeneration.egl";
 import "BidirectionalRelations/BidirectionalRelations.egl";
 import "Classes/MultipleHierarchyClasses.egl";
-
 import "ClassElements/CollectionMultipleHierarchy.egl"; 
 operation classFilesCreation(packages: Set, modelProject: Model, directory: String, path: String){
 	var paths_empty: Set; 

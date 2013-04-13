@@ -7,9 +7,7 @@
 // Description: This template generates an interface class.
 ////////////////////////////////////////////////////////////
 
-import "../ClassElements/ModelCreation.egl";
-import "../ClassElements/PropertiesGeneration.egl"; 
-import "ClassDeclaration.egl";  
+import "../ClassElements/ModelCreation.egl"; 
 import "../ClassElements/UtilityMethodsCreation.egl"; 
 %]
 using System;

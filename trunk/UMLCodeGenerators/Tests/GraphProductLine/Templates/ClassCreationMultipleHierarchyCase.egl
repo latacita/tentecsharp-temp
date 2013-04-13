@@ -8,11 +8,8 @@
 //				a multiple hierarchy case 
 //				(this means, only its methods). 
 ////////////////////////////////////////////////////////////
-import "ClassElements/ModelCreation.egl";
-import "Classes/ClassDeclaration.egl"; 
-import "ClassElements/MethodsCreation.egl"; 
-import "ClassElements/UtilityMethodsCreation.egl"; 
-import "ClassElements/PropertiesGeneration.egl";
+import "ClassElements/ModelCreation.egl";  
+import "ClassElements/UtilityMethodsCreation.egl";  
 %]
 using System;
 using System.Collections.Generic; 

@@ -7,11 +7,9 @@
 // Description: This template generates the child class for
 //				a multiple hierarchy case. 
 ////////////////////////////////////////////////////////////
-import "ClassElements/ModelCreation.egl";
-import "Classes/ClassDeclaration.egl";
+import "ClassElements/ModelCreation.egl"; 
 import "ClassElements/MethodsCreation.egl"; 
-import "ClassElements/PropertiesGeneration.egl";
-import "ClassElements/PropertiesCreation.egl";
+import "ClassElements/PropertiesGeneration.egl"; 
 import "ClassElements/UtilityMethodsCreation.egl";
 import "ClassElements/CollectionMultipleHierarchy.egl"; 
 import "Operations.eol";
