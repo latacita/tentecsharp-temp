@@ -6,11 +6,7 @@
 // Last modification: 12/04/2013 
 // Description: Generates the collections to implement the
 //				multiple hierarchy case.
-////////////////////////////////////////////////////////////
-import "ModelCreation.egl";
-import "../Classes/ClassDeclaration.egl"; 
-import "MethodsCreation.egl"; 
-import "UtilityMethodsCreation.egl";  
+//////////////////////////////////////////////////////////// 
 operation collectionMultipleHierarchy(parentClassesNames: Set): String{
 	var s;
 	for (p in parentClassesNames){  
