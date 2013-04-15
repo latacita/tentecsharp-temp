@@ -6,6 +6,7 @@
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Background/Slicer Pattern                                        %%
 %===================================================================%%
+
 Antes de proceder a la explicación del Patrón Slicer, es conveniente presentar el concepto de Clase Parcial C\# de manera breve al lector. Las clases parciales C\#~\cite{albahari:2010} permiten dividir la implementación de una clase en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan en tiempo de compilación para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. Por lo tanto, las clases parciales C\# parecen un mecanismo adecuado para implementar características, tal como ha sido identificado por diversos autores~\cite{laguna:2007,laguna:2010}, dado que cada incremento en funcionalidad perteneciente a una característica se podría encapsular en una clase parcial separada. Sin embargo, las clases parciales tiene un serio inconveniente para ser utilizadas como un mecanismo de apoyo a la orientación de características: no son compatibles con la extensión de métodos ni la reescritura. El Patrón Slicer surge como patrón para solución de esta limitación.
 
 El problema a solucionar por el Patrón Slicer tiene su origen en el hecho de que no se puede disponer de métodos con el mismo nombre en diferentes clases parciales.
