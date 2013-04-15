@@ -1,7 +1,8 @@
 %%==================================================================%%
-%% Author : Tejedo GonzÁlez, Daniel                                 %%
+%% Author : Abascal Fernández, Patricia                             %%
 %%          SÁnchez Barreiro, Pablo                                 %%
-%% Version: 1.0, 18/11/2012                                         %%                   %%                                                                  %%
+%% Version: 1.0, 12/04/2013                                         %%
+%%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Antecedentes, archivo raÍz                                       %%
 %%==================================================================%%
@@ -9,34 +10,43 @@
 \chapterheader{Antecedentes}{Antecedentes}
 \label{chap:background}
 
+%% TODO: Revisar y actualizarla
+
 Este capítulo trata de describir a grandes rasgos las técnicas, tecnologías y herramientas utilizadas para el desarrollo del presente Proyecto Fin de Carrera. En primer lugar, se introducirá el caso de estudio que se utilizará de forma recurrente a lo largo del proyecto, que es una línea de productos software para software de control para hogares inteligentes. Para ello se describen en primer lugar diversos conceptos relacionados el dominio del proyecto, como son las líneas de productos software y los árboles de características. A continuación, se describen dos principales herramientas de Ingeniería de Lenguajes Dirigida por Modelos utilizadas: \emph{Ecore} y \emph{EMFText}. Por último, se describe brevemente la arquitectura de plugins de Eclipse, dado que nuestro proyecto debía integrarse en dicho entorno.
 
 \chaptertoc
 
 \section{Caso de Estudio: Software para Hogares Inteligentes}
 \label{sec:back:spl}
+
 \input{background/casoEstudio.tex}
 
-\section{Líneas de producto software}
+\section{Líneas de Producto Software}
 \label{sec:back:spl}
+
 \input{background/spl.tex}
 
-\section{Árboles de características}
-\label{sec:back:fmodels}
-\input{background/features.tex}
+\section{TENTE}
+\label{sec:back:tente}
 
-\section{\emph{Eclipse Modelling Framework}}
-\label{sec:back:ecore}
-\input{background/ecore.tex}
+% \input{background/tente.tex}
 
-\section{EMFText}
-\label{sec:back:emftext}
-\input{background/emftext.tex}
+\section{Diseño Orientado a Características con UML}
+\label{sec:back:uml}
 
-\section{Arquitectura de plugins de Eclipse}
+% \input{background/packageMerge.tex}
+
+\section{Slicer Pattern}
+\label{sec:back:slicer}
+
+% \input{background/ecore.tex}
+
+\section{Generación de Código con Epsilon}
 \label{sec:back:eplugins}
-\input{background/eplugins.tex}
+
+% \input{background/epsilon.tex}
 
 \section{Sumario}
 \label{sec:back:sumario}
-\input{background/sumario.tex}
+
+% \input{background/sumario.tex}

@@ -1,6 +1,60 @@
-@BOOK{pohl:2009,
-  author =       {Klaus Pohl},
-  title =        {Requirements Engineering},
-  publisher =    {Springer},
-  year =         {2010},
+% This file was created with JabRef 2.9.2.
+% Encoding: Cp1252
+
+@ARTICLE{perez:2011,
+  author = {Alejandro Pérez, Pablo Sánchez},
+  title = {The Slicer Pattern: Implementing Software Product Lines using C'\#'
+	Partial Clases},
+  year = {2011},
+  owner = {Patricia},
+  timestamp = {2013.02.14}
+}
+
+@ARTICLE{dimitris:2011,
+  author = {Dimitrios S. Kolovos, Louis M. Rose, and James R. Williams},
+  title = {Using Model-to-Text Transformation for Dynamic Web-based Model Navigation},
+  year = {2011},
+  owner = {Patricia},
+  timestamp = {2013.02.14}
+}
+
+@BOOK{kleppe:2008,
+  title = {Software Language Engineering: Creating domain-specific using metamodels},
+  publisher = {Addison-Wesley},
+  year = {2009},
+  author = {Anneke Kleppe},
+  owner = {Patricia},
+  timestamp = {2013.02.14}
+}
+
+@ARTICLE{sanchez:2010,
+  author = {Pablo Sánchez, Elio López, Lidia Fuentes},
+  title = {Are C'\#' Partial Classes Suitable for Implementing Feature-Oriented
+	Decompositions? An Exploratory Study},
+  year = {2010},
+  owner = {Patricia},
+  timestamp = {2013.02.14}
+}
+
+@BOOK{pohl:2010,
+  title = {Software Product Line Engineering: foundations, principles, and techniques},
+  publisher = {Springer},
+  year = {2010},
+  author = {Klaus Pohl},
+  owner = {Patricia},
+  timestamp = {2013.02.14}
+}
+
+@MANUAL{uml:2010,
+  title = {UML Superstructure Specification, v2.4.1},
+  year = {2010},
+  owner = {Patricia},
+  timestamp = {2013.02.14}
+}
+
+@book{kakola:2006,
+	author = {T. Kakola and J. C. Dueñas},
+	publisher = {Springer-Verlag Berlin},
+	title = {{Software Product Lines: Research Issues in Engineering and Management}},
+	year = {2006},
 }
