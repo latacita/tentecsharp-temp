@@ -58,3 +58,170 @@
 	title = {{Software Product Lines: Research Issues in Engineering and Management}},
 	year = {2006},
 }
+
+@INPROCEEDINGS{fuentes:2009:caise,
+  author  = {Lidia Fuentes and Carlos Nebrera and Pablo S{\'a}nchez},
+  title   = {{Feature-Oriented Model-Driven Software Product Lines: The TENTE Approach}},
+  booktitle = {Proceedings of the Forum at the CAiSE 2009 Conference},
+  year    = {2009},
+  editor  = {Eric Yu and Johann Eder and Colette Rolland},
+  volume  = {453},
+  series  = {CEUR Workshop Proceedings},
+  pages   = {67--72},
+  address = {Amsterdam (The Netherlands)},
+  month   = {June},
+}
+
+@INBOOK{sanchez:2011:tente,
+  chapter = {{Product-Driven Software Product Line Engineering }},
+  title   = {{Aspect-Oriented Model-Driven Software Product Lines}},
+  publisher = {Cambridge University Press},
+  year    = {2011},
+  editor  = {Awais Rashid and Jean-Claude Royer and Andreas Rummler},
+  author  = {Steffen Zschaler and Pablo Sánchez and Carlos Nebrera and Lidia Fuentes
+			 and Vaidas Gasiunas and Ludger Fiege},
+  month = {August},
+}
+
+@techreport{omg:uml:2005,
+	author = {Om, G.},
+	institution = {Object Management Group},
+	title = {{Unified Modeling Language: Superstructure version 2.0, formal/05-07-04}},
+	url = {http://www.omg.org/docs/formal/05-07-04.pdf},
+	year = {2005}
+}
+
+@article{aracic:2006,
+  author    = {Ivica Aracic and
+			   Vaidas Gasiunas and
+			   Mira Mezini and
+			   Klaus Ostermann},
+  title     = {{An Overview of CaesarJ}},
+  booktitle = {T. Aspect-Oriented Software Development I},
+  year      = {2006},
+  pages     = {135-173}
+}
+
+@inproceedings{loughran:2008,
+  author    = {Neil Loughran and
+			   Pablo S{\'a}nchez and
+			   Alessandro Garcia and
+			   Lidia Fuentes},
+  title     = {Language Support for Managing Variability in Architectural
+			   Models},
+  booktitle = {Software Composition},
+  year      = {2008},
+  pages     = {36-51},
+}
+
+@INPROCEEDINGS{sanchez:2008,
+  author = {Pablo S{\'a}nchez and Neil Loughran and Lidia Fuentes and Alessandro Garcia},
+  title  = {{Engineering Languages for Specifying Product-Derivation Processes in Software Product Lines}},
+  booktitle = {Software Language Engineering, First International Conference (SLE)},
+  year   = {2008},
+  editor = {Dragan Gasevic and Ralf L{\"a}mmel and Eric Van Wyk},
+  volume = {5452},
+  series = {Lecture Notes in Computer Science},
+  pages   = {188-207},
+  address = {Toulouse, France},
+  month   = {September},
+}
+
+@inproceedings{figueiredo:2008,
+  author    = {Eduardo Figueiredo and N{\'e}lio Cacho and Cl{\'a}udio Sant'Anna and
+			   Mario Monteiro and Uir{\'a} Kulesza and Alessandro Garcia and
+			   S{\'e}rgio Soares and Fabiano Cutigi Ferrari and Safoora Shakil Khan and
+			   Fernando Castor Filho and Francisco Dantas},
+  title     = {{Evolving Software Product Lines with Aspects: An Empirical Study on Design Stability}},
+  booktitle = {Proc. of 30th Int. Conference on Software Engineering (ICSE)},
+  year      = {2008},
+  pages     = {261--270},
+  address   = {Leipzig (Germany)},
+  month     = {May},
+}
+
+@ARTICLE{joault:2008,
+  author  = {Fr{\'e}d{\'e}ric Jouault and Freddy Allilaire and Jean B{\'e}zivin and Ivan Kurtev},
+  title   = {{ATL: A Model Transformation Tool}},
+  journal = {Science of Computer Programming},
+  year    = {2008},
+  volume  = {72},
+  pages   = {31--39},
+  number  = {1-2},
+  month   = {June},
+}
+
+@INPROCEEDINGS{kolovos:2008,
+  author = {Dimitrios S. Kolovos and Richard F. Paige and Fiona Polack},
+  title  = {{The Epsilon Transformation Language}},
+  booktitle = {First International Conference on Theory and Practice of Model Transformations (ICMT)},
+  year   = {2008},
+  editor = {Antonio Vallecillo and Jeff Gray and Alfonso Pierantonio},
+  volume = {5063},
+  series = {Lecture Notes in Computer Science},
+  pages  = {46--60},
+  address = {Z{\"u}rich (Switzerland)},
+  month  = {July},
+}
+
+@inproceedings{herrman:2002,
+  author    = {Stephan Herrmann},
+  title     = {Object Teams: Improving Modularity for Crosscutting Collaborations},
+  booktitle = {NetObjectDays},
+  year      = {2002},
+  pages     = {248-264},
+}
+
+@inproceedings{madsen:1989,
+	author    = {Ole Lehrmann Madsen and Birger Moller-pedersen},
+	title     = {Virtual lasses: a powerful mechanism in object-oriented programming},
+	booktitle = {Conference on Object-Oriented Programming Systems, Languages, and Applications},
+	volume    = {24},
+	pages     = {397--406},
+	year      = {1989},
+}
+
+@BOOK{chappell:2006,
+  title = {{Understanding .NET (2nd Edition)}},
+  publisher = {Addison-Wesley Professional},
+  year = {2006},
+  author = {David Chappell},
+  month = {September},
+}
+
+@inproceedings{fons:2008,
+  author    = {Carlos Cetina and
+			   Joan Fons and
+			   Vicente Pelechano},
+  title     = {Applying Software Product Lines to Build Autonomic Pervasive
+			   Systems},
+  booktitle = {SPLC},
+  year      = {2008},
+  pages     = {117-126},
+}
+
+@inproceedings{laguna:2007,
+  author    = {Miguel A. Laguna and
+			   Bruno Gonz{\'a}lez-Baixauli and
+			   Jos{\'e} M. Marqu{\'e}s},
+  title     = {{Seamless development of software product lines}},
+  booktitle = {GPCE},
+  year      = {2007},
+  pages     = {85-94},
+  ee        = {http://doi.acm.org/10.1145/1289971.1289988},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@inproceedings{elio:2010,
+  author    = {Elio Alexis López Salamanca},
+  title     = {{Programación Orientada a Característica Usando Clases Parciales en C\#}},
+  year      = {2010},
+}
+
+@BOOK{albahari:2010,
+  AUTHOR    = {Joseph Albahari and Ben Albahari},
+  TITLE     =     {C\# 4.0 in a Nutshell: The Definitive Reference},
+  PUBLISHER =    {},
+  YEAR =         {2010},
+  month =        {},
+}

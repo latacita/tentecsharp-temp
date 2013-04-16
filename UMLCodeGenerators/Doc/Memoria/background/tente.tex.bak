@@ -1,0 +1,68 @@
+%%==================================================================%%
+%% Author : Abascal Fernández, Patricia                             %%
+%%          Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.0, 15/04/2013                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Background/TENTE                               %%
+%===================================================================%%
+
+TENTE~\cite{fuentes:2009:caise,sanchez:2011:tente} es una moderna metodología para el desarrollo de líneas de productos software desarrollada en el contexto del proyecto AMPLE\footnote{www.ample-project.net}. TENTE integra diversos avances para el desarrollo de líneas de productos software, tales como avanzadas técnicas de modularización y desarrollo software dirigido por modelos.
+
+Las técnicas avanzadas de modularización permiten el encapsulamiento en módulos bien definidos y fácilmente componibles de las diferentes características de una familia de productos software, lo cual simplifica el proceso de construcción de productos específicos. Dicha modularización de características se realiza desde la fase arquitectónica, usando mecanismos específicos del lenguaje de modelado UML~\cite{uml:2005}. Después, mediante el uso de generadores de código, a partir del diseño arquitectónico de una familia de productos software se genera el esqueleto de su implementación. Dicha implementación se realiza en el lenguaje CaesarJ~\cite{aracic:2006}, una extensión de Java que incluye potentes mecanismos para soportar la separación y composición de características. Dichos esqueletos se completan manualmente, obteniéndose al final un conjunto de módulos software, o piezas, cuya composición da lugar a productos software concretos\footnote{El nombre de la metodología proviene del célebre juego de construcción TENTE, versión española del popular Lego.}. Esta fase constituye la definición de la infraestructura desde la cual se derivarán los productos concretos.
+
+Para la derivación de productos concretos desde la infraestructura descrita en el párrafo anterior, TENTE usa
+un innovador lenguaje, denominado VML~\cite{loughran:2008,sanchez:2008}, basado en transformaciones de modelo a modelo de orden superior. Dicho lenguaje sirve para especificar qué acciones hay que realizar sobre un modelo que describe la familia completa de productos software para adaptarlo a las necesidades del cliente. Posteriormente, dada una lista con las características que el cliente desea incluir o excluir de su producto concreto, VML es capaz de transformar automáticamente el modelo de la familia de productos software para adaptarlo a las necesidades de dicho cliente.
+
+Acto seguido, se utiliza dicho modelo de un producto concreto como entrada para un generador automático de código, que creará el código necesario para componer los módulos o piezas software que se constituyeron durante la creación de la infraestructura de la línea de productos software.
+
+Esta metodología posee diversas ventajas:
+
+\begin{enumerate}
+	\item Gracias al uso de técnicas orientadas a características, como el operador \emph{merge} de UML y el lenguaje CaesarJ, se facilita la modularización y composición de características, lo que facilita no sólo el proceso de obtención de productos concretos, sino también la reutilización y evolución de dichas características~\cite{figueiredo:2008}.
+	\item Gracias al uso de técnicas dirigidas por modelos, se automatiza gran parte del proceso, evitando tareas repetitivas, largas, tediosas y monótonas, usualmente propensas a errores.
+	\item Gracias al uso de lenguajes avanzados (como VML) y tecnologías estándares de modelado (como UML) se evita que los desarrolladores, tanto de la infraestructura como de los productos concretos, tengan que poseer cierta experiencia en el uso de técnicas de desarrollo software dirigido por modelos tales como creación de transformaciones de modelo a modelo en lenguajes como ATL~\cite{joault:2008} o Epsilon~\cite{kolovos:2008}.
+\end{enumerate}
+
+No obstante, a pesar de sus bondades, se han encontrado diversas dificultades a la hora de transferir esta metodología a las empresas de desarrollo software situadas en el entorno cántabro. Las principales dificultades provienen de dos fuentes distintas pero relacionadas, descritas a continuación.
+
+\paragraph{Problema 1: Resistencia a cambiar el lenguaje de implementación habitual} \ \\
+
+En primer lugar, y éste no es un solo un problema encontrado en el entorno de Cantabria, TENTE está basado en el uso del lenguaje CaesarJ como lenguaje de implementación. Podría usarse, con el coste asociado de tener que escribir nuevos generadores de código, lenguajes similares a CaesarJ tales como ObjectTeams~\cite{herrman:2002}. En cualquier caso, hace falta un lenguaje con fuerte soporte para la modularización y composición de características, y en especial, con soporte para \emph{clases virtuales}~\cite{madsen:1989}. La mayoría de las empresas son bastante reticentes a cambiar su lenguaje habitual de programación, debido fundamentalmente a dos motivos:
+
+\begin{enumerate}
+\item El coste de aprendizaje que ello supone, ya que los programadores han de familiarizarse con nuevos conceptos y técnicas de codificación software.
+\item El uso de un nuevo lenguaje de programación podría dejar obsoletas muchas herramientas, como suites para la ejecución de casos de prueba, que la empresa podría tener asociadas al anterior lenguaje de programación.
+\end{enumerate}
+
+Además, en el caso de lenguajes de reciente creación como CaesarJ u ObjectTeams, aunque los compiladores están completamente desarrollados y son bastante estables, las facilidades auxiliares asociadas a un lenguaje de programación maduro tipo Java o C\# no están a menudo disponibles. Por ejemplo, CaesarJ no soporta compilación incremental por el momento, por lo que un ligero cambio en el nombre de un atributo obliga a recompilar el proyecto completo.
+
+\paragraph{Problema 2: Obligatoriedad de usar la plataforma .NET} \ \\
+
+Debido a diferentes razones estratégicas de negocio, la mayoría de las empresas de desarrollo software en Cantabria trabajan casi en exclusiva sobre la plataforma .NET~\cite{chappell:2006}, siendo además bastante reticentes a considerar el cambio a otras plataformas. La mayoría de los lenguajes con fuerte soporte para orientación a características, como suele ser el caso habitual en los lenguajes académicos, están basados en Java.
+
+Por tanto, TENTE es una tecnología llena de ventajas, pero quizás excesivamente innovadora para el momento actual. Por dicho motivo, se decidió crear una nueva metodología, basada en TENTE, pero que resultase más fácilmente transferible a la industria. Para favorecer dicha transferencia, se tomaron dos decisiones estratégicas:
+
+\begin{enumerate}
+	\item El lenguaje de programación usado en el nivel de implementación tenía que ser un lenguaje comercial estándar, tipo Java, C\# o C++. Esto evitaría los problemas derivados de obligar a las empresas a aprender un nuevo lenguaje y estilo de programación, y sobre todo, a cambiar sus entornos de desarrollo.
+	\item El nuevo lenguaje de programación de la metodología debía ser C\#~\cite{fons:2008}, al ser éste el lenguaje bandera de la plataforma .NET, y al desarrollar las empresas del entorno de nuestra universidad casi en exclusiva software para dicha plataforma.
+\end{enumerate}
+
+Tal nueva metodología recibiría el nombre de TENTE.NET (versión para la plataforma .NET de la metodología TENTE), y está actualmente en fase de desarrollo. El primer paso para la adaptación de la metodología TENTE a la plataforma .NET era encontrar un mecanismo para simular las facilidades ofrecidas por lenguajes orientados a características dentro del lenguaje C\#. Tomando las ideas de Laguna et al~\cite{laguna:2007} como base, se pensó inicialmente que las \emph{clases parciales} proporcionadas por C\# podían ser un mecanismo adecuado para alcanzar cierto grado de desarrollo orientado a características. Sin embargo, un posterior estudio realizado por López et al~\cite{elio:2010} demostraba que las clases parciales de C\# poseían más limitaciones de las inicialmente previstas por Laguna et al para la implementación de diseños software orientados a características.
+
+Por tanto, el siguiente paso hacia la construcción de la variante para .NET de la metodología TENTE era la solución de tales limitaciones. Para solventar tales limitaciones, se idearon una serie de patrones, cuya aplicación servía para solucionar las limitaciones encontradas.
+
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+Se ha escogido dicho caso de estudio por tres razones principales:
+
+\begin{enumerate}
+	\item El dominio del caso de estudio es uno de los dominios donde la aplicación de un enfoque de líneas de productos es casi obligatorio, dado la alta variabilidad existente en dicho dominio.
+	\item Dicho caso de estudio es un \emph{benchmark} bastante exhaustivo para analizar las debilidades y fortalezas de los nuevas propuestas relacionadas con la ingeniería de líneas de productos software. Más concretamente, fue usado durante 3 años dentro del contexto AMPLE, para evaluar los nuevos resultados que dicho proyecto de investigación fue produciendo. Durante este periodo, demostró ser un \emph{benchmark} bastante completo, exigente y útil para testar los resultados que se iban produciendo.
+\end{enumerate}
+
+Dicho caso de estudio ha sido satisfactoriamente implementado en este proyecto fin de carrera, mostrando la validez de los patrones creados para solventar las limitaciones de las clases parciales de C\#. Además, se han creado una serie de generadores de código que permiten componer características mediante la instanciación automática de dichos patrones. Como resultado del proyecto, se han creado dos extensiones al entorno de desarrollo Visual Studio 2010. El primero de ellos permite definir modelos de productos concretos acordes a las necesidades y requisitos de cada usuario. Dicha extensión además comprueba que los modelos creados no den lugar a productos erróneos o no válidos. La segundo extensión utiliza estos modelos de productos concretos para componer las módulos software pertenecientes a la infraestructura de la línea de productos de forma automática mediante generación de código.
+
+El objetivo del presente proyecto es evaluar las debilidades y fortalezas de dichos patrones mediante su aplicación al desarrollo de una línea de productos software para hogares inteligentes.
+
