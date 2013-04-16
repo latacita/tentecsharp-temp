@@ -29,12 +29,12 @@ Este capítulo trata de describir a grandes rasgos las técnicas, tecnologías y he
 \section{TENTE}
 \label{sec:back:tente}
 
-\input{background/tente.tex}
+%%\input{background/tente.tex}
 
 \section{Diseño Orientado a Características con UML}
 \label{sec:back:uml}
 
-% \input{background/packageMerge.tex}
+% \input{background/docUML.tex}
 
 \section{Slicer Pattern}
 \label{sec:back:slicer}
@@ -49,4 +49,4 @@ Este capítulo trata de describir a grandes rasgos las técnicas, tecnologías y he
 \section{Sumario}
 \label{sec:back:sumario}
 
-% \input{background/sumario.tex}
+\input{background/sumario.tex}
