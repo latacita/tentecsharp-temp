@@ -10,7 +10,7 @@ Epsilon~\cite{kolovos:2008} es una plataforma para la construcción de lenguajes
 
 \paragraph{Epsilon Generation Language(EGL)} \ \\
 
-EGL proporciona un lenguaje apropiado para las transformaciones modelo a texto (\emph{model-to-text-transformation}, abreviado M2T). EGL puede ser usado para transformar modelos en varios tipos de artefactos de carácter textual, incluyendo códigos ejecutables (por ejemplo Java), informes (por ejemplo en HTML), imágenes (por ejemplo usando DOT), especificaciones formales (por ejemplo el lenguaje Z), o incluso aplicaciones completas generadas con múltiples lenguajes (por ejemplo HTML, Javascript y CSS).
+EGL es un \emph{plug-in} para Eclipse que proporciona un lenguaje apropiado para las transformaciones modelo a texto (\emph{model-to-text-transformation}, abreviado M2T). EGL puede ser usado para transformar modelos en varios tipos de artefactos de carácter textual, incluyendo códigos ejecutables (por ejemplo Java), informes (por ejemplo en HTML), imágenes (por ejemplo usando DOT), especificaciones formales (por ejemplo el lenguaje Z), o incluso aplicaciones completas generadas con múltiples lenguajes (por ejemplo HTML, Javascript y CSS).
 
 EGL es un generador de código basado en plantillas; es decir, que la parte programada se asemeja al contenido que se va a generar, proporcionan además diversas caracteríticas que simplicifan y dan soporte a la generación de texto desde modelos. La Figura~\ref{back:fig:epsilonEGL} muestra un ejemplo sencillo del modelo de entrada para un programa EGL, donde se pueden observar tres clases: Persona, Alumno y Profesor. Supongamos que se quiere obtener el nombre de las clases, para ello se debería generar un código similar al de la Figura~\ref{back:code:generacionClases} donde aparece un bucle (líneas 1-3) que recorre todas las clases contenidas en el modelo de entrada y en cada una de ellas (línea 2) se genera el texto "El modelo contiene la clase: <nombre de la clase>". De esta forma, el resultado para el ejemplo de la Figura~\ref{back:fig:epsilonEGL} después de haber sido tratado mediante EGL tal como muestra la Figura~\ref{back:code:generacionClases} queda expuesto en la Figura~\ref{back:code:resultadogeneracionClases}.
 
@@ -107,7 +107,7 @@ El principal objetivo de EOL es proporcionar un conjunto rehusable operaciones q
 6
 7 operation Integer add2() : Integer {
 8   return self + 2;
-9 } 
+9 }
 \end{verbatim}
 \end{footnotesize}
 \end{center}
