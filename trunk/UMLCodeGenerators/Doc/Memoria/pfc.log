@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.15)  15 APR 2013 11:35
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.15)  16 APR 2013 12:03
 entering extended mode
 **C:/Users/Patricia/Documents/UNIVERSIDAD/PFC/Repositorio/Doc/Memoria/pfc.tex
 (C:/Users/Patricia/Documents/UNIVERSIDAD/PFC/Repositorio/Doc/Memoria/pfc.tex
@@ -255,11 +255,7 @@ TextBlockOrigin set to 0pt x 0pt
 ))
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\config/ren
 ame.tex)
-(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\pfc.aux
-
-LaTeX Warning: Label `sec:back:spl' multiply defined.
-
-)
+(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\pfc.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
@@ -272,7 +268,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
- ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count102
 \scratchdimen=\dimen125
@@ -303,53 +300,33 @@ Package minitoc Info: I0006
 (minitoc)             pfc.mtc1 is empty on input line 18.
 
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\background
-/tente.tex
+/epsilon.tex
 
-LaTeX Warning: Citation `fuentes:2009:caise' on page 1 undefined on input line 
-10.
+! LaTeX Error: Can be used only in preamble.
 
-
-LaTeX Warning: Citation `sanchez:2011:tente' on page 1 undefined on input line 
-10.
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 10.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 10.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 10.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 10.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.10 ...como avanzadas técnicas de modularizació
-                                                  n y desarrollo software di...
-
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 \usepackage
+               [spanish,activeacute]{babel}
 ? 
 ! Emergency stop.
-<inserted text> 
-                $
-l.10 ...como avanzadas técnicas de modularizació
-                                                  n y desarrollo software di...
-End of file on the terminal!
+ ...                                              
+                                                  
+l.9 \usepackage
+               [spanish,activeacute]{babel}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
  
 Here is how much of TeX's memory you used:
- 4087 strings out of 493921
- 55605 string characters out of 3147273
- 136716 words of memory out of 3000000
- 7110 multiletter control sequences out of 15000+200000
- 12650 words of font info for 48 fonts, out of 3000000 for 9000
+ 4000 strings out of 493921
+ 54467 string characters out of 3147273
+ 135716 words of memory out of 3000000
+ 7051 multiletter control sequences out of 15000+200000
+ 5804 words of font info for 21 fonts, out of 3000000 for 9000
  842 hyphenation exceptions out of 8191
- 34i,8n,43p,949b,197s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,1n,43p,949b,88s stack positions out of 5000i,500n,10000p,200000b,50000s
 !  ==> Fatal error occurred, no output PDF file produced!

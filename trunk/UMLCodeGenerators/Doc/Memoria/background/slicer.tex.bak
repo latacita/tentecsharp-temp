@@ -68,4 +68,4 @@ File MyHouse/Gateway.cs
 \label{back:code:constSlicerPattern}
 \end{figure}
 
-Concluyendo con el Patrón Slicer, tanto los métodos regulares como con los constructores pueden ser extendidos y reescritos usando dicho patrón y solucionando así las limitaciones ofrecidas por el uso de clases parciales~\cite{sanchez:2010} como mecanismo de soporte orientado a características.
+Concluyendo con el Patrón Slicer, tanto los métodos regulares como con los constructores pueden ser extendidos y reescritos usando dicho patrón y solucionando así las limitaciones ofrecidas por el uso de clases parciales como mecanismo de soporte orientado a características.
