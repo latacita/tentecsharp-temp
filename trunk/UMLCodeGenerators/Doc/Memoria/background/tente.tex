@@ -1,55 +1,53 @@
 %%==================================================================%%
-%% Author : Abascal Fern√°ndez, Patricia                             %%
-%%          S√°nchez Barreiro, Pablo                                 %%
-%% Version: 1.0, 15/04/2013                                         %%
+%% Author : Abascal Fern·ndez, Patricia                             %%
+%%          S·nchez Barreiro, Pablo                                 %%
+%% Version: 1.0, 17/04/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
-%% Background/TENTE                               %%
+%% Background/TENTE                                                 %%
 %===================================================================%%
 
-TENTE~\cite{fuentes:2009:caise,sanchez:2011:tente} es una moderna metodolog√≠a para el desarrollo de l√≠neas de productos software desarrollada en el contexto del proyecto AMPLE\footnote{www.ample-project.net}. TENTE integra diversos avances para el desarrollo de l√≠neas de productos software, tales como avanzadas t√©cnicas de modularizaci√≥n y desarrollo software dirigido por modelos.
+TENTE~\cite{fuentes:2009:caise,sanchez:2011:tente} es una moderna metodologÌa para el desarrollo de lÌneas de productos software desarrollada en el contexto del proyecto AMPLE\footnote{www.ample-project.net}. TENTE integra diversos avances para el desarrollo de lÌneas de productos software, tales como avanzadas tÈcnicas de modularizaciÛn y desarrollo software dirigido por modelos.
 
-Las t√©cnicas avanzadas de modularizaci√≥n permiten el encapsulamiento en m√≥dulos bien definidos y f√°cilmente componibles de las diferentes caracter√≠sticas de una familia de productos software, lo cual simplifica el proceso de construcci√≥n de productos espec√≠ficos. Dicha modularizaci√≥n de caracter√≠sticas se realiza desde la fase arquitect√≥nica, usando mecanismos espec√≠ficos del lenguaje de modelado UML~\cite{uml:2005}. Despu√©s, mediante el uso de generadores de c√≥digo, a partir del dise√±o arquitect√≥nico de una familia de productos software se genera el esqueleto de su implementaci√≥n. Dicha implementaci√≥n se realiza en el lenguaje CaesarJ~\cite{aracic:2006}, una extensi√≥n de Java que incluye potentes mecanismos para soportar la separaci√≥n y composici√≥n de caracter√≠sticas. Dichos esqueletos se completan manualmente, obteni√©ndose al final un conjunto de m√≥dulos software, o piezas, cuya composici√≥n da lugar a productos software concretos\footnote{El nombre de la metodolog√≠a proviene del c√©lebre juego de construcci√≥n TENTE, versi√≥n espa√±ola del popular Lego.}. Esta fase constituye la definici√≥n de la infraestructura desde la cual se derivar√°n los productos concretos.
+Las tÈcnicas avanzadas de modularizaciÛn permiten el encapsulamiento en mÛdulos bien definidos y f·cilmente componibles de las diferentes caracterÌsticas de una familia de productos software, lo cual simplifica el proceso de construcciÛn de productos especÌficos. Dicha modularizaciÛn de caracterÌsticas se realiza desde la fase arquitectÛnica, usando mecanismos especÌficos del lenguaje de modelado UML~\cite{uml:2005}. DespuÈs, mediante el uso de generadores de cÛdigo, a partir del diseÒo arquitectÛnico de una familia de productos software se genera el esqueleto de su implementaciÛn. Dicha implementaciÛn se realiza en el lenguaje CaesarJ~\cite{aracic:2006}, una extensiÛn de Java que incluye potentes mecanismos para soportar la separaciÛn y composiciÛn de caracterÌsticas. Dichos esqueletos se completan manualmente, obteniÈndose al final un conjunto de mÛdulos software, o piezas, cuya composiciÛn da lugar a productos software concretos\footnote{El nombre de la metodologÌa proviene del cÈlebre juego de construcciÛn TENTE, versiÛn espaÒola del popular Lego.}. Esta fase constituye la definiciÛn de la infraestructura desde la cual se derivar·n los productos concretos.
 
-Para la derivaci√≥n de productos concretos desde la infraestructura descrita en el p√°rrafo anterior, TENTE usa
-un innovador lenguaje, denominado VML~\cite{loughran:2008,sanchez:2008}, basado en transformaciones de modelo a modelo de orden superior. Dicho lenguaje sirve para especificar qu√© acciones hay que realizar sobre un modelo que describe la familia completa de productos software para adaptarlo a las necesidades del cliente. Posteriormente, dada una lista con las caracter√≠sticas que el cliente desea incluir o excluir de su producto concreto, VML es capaz de transformar autom√°ticamente el modelo de la familia de productos software para adaptarlo a las necesidades de dicho cliente.
+Para la derivaciÛn de productos concretos desde la infraestructura descrita en el p·rrafo anterior, TENTE usa
+un innovador lenguaje, denominado VML~\cite{loughran:2008,sanchez:2008}, basado en transformaciones de modelo a modelo de orden superior. Dicho lenguaje sirve para especificar quÈ acciones hay que realizar sobre un modelo que describe la familia completa de productos software para adaptarlo a las necesidades del cliente. Posteriormente, dada una lista con las caracterÌsticas que el cliente desea incluir o excluir de su producto concreto, VML es capaz de transformar autom·ticamente el modelo de la familia de productos software para adaptarlo a las necesidades de dicho cliente.
 
-Acto seguido, se utiliza dicho modelo de un producto concreto como entrada para un generador autom√°tico de c√≥digo, que crear√° el c√≥digo necesario para componer los m√≥dulos o piezas software que se constituyeron durante la creaci√≥n de la infraestructura de la l√≠nea de productos software.
+Acto seguido, se utiliza dicho modelo de un producto concreto como entrada para un generador autom·tico de cÛdigo, que crear· el cÛdigo necesario para componer los mÛdulos o piezas software que se constituyeron durante la creaciÛn de la infraestructura de la lÌnea de productos software.
 
-Esta metodolog√≠a posee diversas ventajas:
-
-\begin{enumerate}
-	\item Gracias al uso de t√©cnicas orientadas a caracter√≠sticas, como el operador \emph{merge} de UML y el lenguaje CaesarJ, se facilita la modularizaci√≥n y composici√≥n de caracter√≠sticas, lo que facilita no s√≥lo el proceso de obtenci√≥n de productos concretos, sino tambi√©n la reutilizaci√≥n y evoluci√≥n de dichas caracter√≠sticas~\cite{figueiredo:2008}.
-	\item Gracias al uso de t√©cnicas dirigidas por modelos, se automatiza gran parte del proceso, evitando tareas repetitivas, largas, tediosas y mon√≥tonas, usualmente propensas a errores.
-	\item Gracias al uso de lenguajes avanzados (como VML) y tecnolog√≠as est√°ndares de modelado (como UML) se evita que los desarrolladores, tanto de la infraestructura como de los productos concretos, tengan que poseer cierta experiencia en el uso de t√©cnicas de desarrollo software dirigido por modelos tales como creaci√≥n de transformaciones de modelo a modelo en lenguajes como ATL~\cite{joault:2008} o Epsilon~\cite{kolovos:2008}.
-\end{enumerate}
-
-No obstante, a pesar de sus bondades, se han encontrado diversas dificultades a la hora de transferir esta metodolog√≠a a las empresas de desarrollo software situadas en el entorno c√°ntabro. Las principales dificultades provienen de dos fuentes distintas pero relacionadas, descritas a continuaci√≥n.
-
-\paragraph{Problema 1: Resistencia a cambiar el lenguaje de implementaci√≥n habitual} \ \\
-
-En primer lugar, y √©ste no es un solo un problema encontrado en el entorno de Cantabria, TENTE est√° basado en el uso del lenguaje CaesarJ como lenguaje de implementaci√≥n. Podr√≠a usarse, con el coste asociado de tener que escribir nuevos generadores de c√≥digo, lenguajes similares a CaesarJ tales como ObjectTeams~\cite{herrman:2002}. En cualquier caso, hace falta un lenguaje con fuerte soporte para la modularizaci√≥n y composici√≥n de caracter√≠sticas, y en especial, con soporte para \emph{clases virtuales}~\cite{madsen:1989}. La mayor√≠a de las empresas son bastante reticentes a cambiar su lenguaje habitual de programaci√≥n, debido fundamentalmente a dos motivos:
+Esta metodologÌa posee diversas ventajas:
 
 \begin{enumerate}
-\item El coste de aprendizaje que ello supone, ya que los programadores han de familiarizarse con nuevos conceptos y t√©cnicas de codificaci√≥n software.
-\item El uso de un nuevo lenguaje de programaci√≥n podr√≠a dejar obsoletas muchas herramientas, como suites para la ejecuci√≥n de casos de prueba, que la empresa podr√≠a tener asociadas al anterior lenguaje de programaci√≥n.
+	\item Gracias al uso de tÈcnicas orientadas a caracterÌsticas, como el operador \emph{merge} de UML y el lenguaje CaesarJ, se facilita la modularizaciÛn y composiciÛn de caracterÌsticas, lo que facilita no sÛlo el proceso de obtenciÛn de productos concretos, sino tambiÈn la reutilizaciÛn y evoluciÛn de dichas caracterÌsticas~\cite{figueiredo:2008}.
+	\item Gracias al uso de tÈcnicas dirigidas por modelos, se automatiza gran parte del proceso, evitando tareas repetitivas, largas, tediosas y monÛtonas, usualmente propensas a errores.
+	\item Gracias al uso de lenguajes avanzados (como VML) y tecnologÌas est·ndares de modelado (como UML) se evita que los desarrolladores, tanto de la infraestructura como de los productos concretos, tengan que poseer cierta experiencia en el uso de tÈcnicas de desarrollo software dirigido por modelos tales como creaciÛn de transformaciones de modelo a modelo en lenguajes como ATL~\cite{joault:2008} o Epsilon~\cite{kolovos:2008}.
 \end{enumerate}
 
-Adem√°s, en el caso de lenguajes de reciente creaci√≥n como CaesarJ u ObjectTeams, aunque los compiladores est√°n completamente desarrollados y son bastante estables, las facilidades auxiliares asociadas a un lenguaje de programaci√≥n maduro tipo Java o C\# no est√°n a menudo disponibles. Por ejemplo, CaesarJ no soporta compilaci√≥n incremental por el momento, por lo que un ligero cambio en el nombre de un atributo obliga a recompilar el proyecto completo.
+No obstante, a pesar de sus bondades, se han encontrado diversas dificultades a la hora de transferir esta metodologÌa a las empresas de desarrollo software situadas en el entorno c·ntabro. Las principales dificultades provienen de dos fuentes distintas pero relacionadas, descritas a continuaciÛn.
+
+\paragraph{Problema 1: Resistencia a cambiar el lenguaje de implementaciÛn habitual} \ \\
+
+En primer lugar, y Èste no es un solo un problema encontrado en el entorno de Cantabria, TENTE est· basado en el uso del lenguaje CaesarJ como lenguaje de implementaciÛn. PodrÌa usarse, con el coste asociado de tener que escribir nuevos generadores de cÛdigo, lenguajes similares a CaesarJ tales como ObjectTeams~\cite{herrman:2002}. En cualquier caso, hace falta un lenguaje con fuerte soporte para la modularizaciÛn y composiciÛn de caracterÌsticas, y en especial, con soporte para \emph{clases virtuales}~\cite{madsen:1989}. La mayorÌa de las empresas son bastante reticentes a cambiar su lenguaje habitual de programaciÛn, debido fundamentalmente a dos motivos:
+
+\begin{enumerate}
+\item El coste de aprendizaje que ello supone, ya que los programadores han de familiarizarse con nuevos conceptos y tÈcnicas de codificaciÛn software.
+\item El uso de un nuevo lenguaje de programaciÛn podrÌa dejar obsoletas muchas herramientas, como suites para la ejecuciÛn de casos de prueba, que la empresa podrÌa tener asociadas al anterior lenguaje de programaciÛn.
+\end{enumerate}
+
+Adem·s, en el caso de lenguajes de reciente creaciÛn como CaesarJ u ObjectTeams, aunque los compiladores est·n completamente desarrollados y son bastante estables, las facilidades auxiliares asociadas a un lenguaje de programaciÛn maduro tipo Java o C\# no est·n a menudo disponibles. Por ejemplo, CaesarJ no soporta compilaciÛn incremental por el momento, por lo que un ligero cambio en el nombre de un atributo obliga a recompilar el proyecto completo.
 
 \paragraph{Problema 2: Obligatoriedad de usar la plataforma .NET} \ \\
 
-Debido a diferentes razones estrat√©gicas de negocio, la mayor√≠a de las empresas de desarrollo software en Cantabria trabajan casi en exclusiva sobre la plataforma .NET~\cite{chappell:2006}, siendo adem√°s bastante reticentes a considerar el cambio a otras plataformas. La mayor√≠a de los lenguajes con fuerte soporte para orientaci√≥n a caracter√≠sticas, como suele ser el caso habitual en los lenguajes acad√©micos, est√°n basados en Java.
+Debido a diferentes razones estratÈgicas de negocio, la mayorÌa de las empresas de desarrollo software en Cantabria trabajan casi en exclusiva sobre la plataforma .NET~\cite{chappell:2006}, siendo adem·s bastante reticentes a considerar el cambio a otras plataformas. La mayorÌa de los lenguajes con fuerte soporte para orientaciÛn a caracterÌsticas, como suele ser el caso habitual en los lenguajes acadÈmicos, est·n basados en Java.
 
-Por tanto, TENTE es una tecnolog√≠a llena de ventajas, pero quiz√°s excesivamente innovadora para el momento actual. Por dicho motivo, se decidi√≥ crear una nueva metodolog√≠a, basada en TENTE, pero que resultase m√°s f√°cilmente transferible a la industria. Para favorecer dicha transferencia, se tomaron dos decisiones estrat√©gicas:
+Por tanto, TENTE es una tecnologÌa llena de ventajas, pero quiz·s excesivamente innovadora para el momento actual. Por dicho motivo, se decidiÛ crear una nueva metodologÌa, basada en TENTE, pero que resultase m·s f·cilmente transferible a la industria. Para favorecer dicha transferencia, se tomaron dos decisiones estratÈgicas:
 
 \begin{enumerate}
-	\item El lenguaje de programaci√≥n usado en el nivel de implementaci√≥n ten√≠a que ser un lenguaje comercial est√°ndar, tipo Java, C\# o C++. Esto evitar√≠a los problemas derivados de obligar a las empresas a aprender un nuevo lenguaje y estilo de programaci√≥n, y sobre todo, a cambiar sus entornos de desarrollo.
-	\item El nuevo lenguaje de programaci√≥n de la metodolog√≠a deb√≠a ser C\#~\cite{fons:2008}, al ser √©ste el lenguaje bandera de la plataforma .NET, y al desarrollar las empresas del entorno de nuestra universidad casi en exclusiva software para dicha plataforma.
+	\item El lenguaje de programaciÛn usado en el nivel de implementaciÛn tenÌa que ser un lenguaje comercial est·ndar, tipo Java, C\# o C++. Esto evitarÌa los problemas derivados de obligar a las empresas a aprender un nuevo lenguaje y estilo de programaciÛn, y sobre todo, a cambiar sus entornos de desarrollo.
+	\item El nuevo lenguaje de programaciÛn de la metodologÌa debÌa ser C\#~\cite{fons:2008}, al ser Èste el lenguaje bandera de la plataforma .NET, y al desarrollar las empresas del entorno de nuestra universidad casi en exclusiva software para dicha plataforma.
 \end{enumerate}
 
-Tal nueva metodolog√≠a recibir√≠a el nombre de TENTE.NET (versi√≥n para la plataforma .NET de la metodolog√≠a TENTE), y est√° actualmente en fase de desarrollo. El primer paso para la adaptaci√≥n de la metodolog√≠a TENTE a la plataforma .NET era encontrar un mecanismo para simular las facilidades ofrecidas por lenguajes orientados a caracter√≠sticas dentro del lenguaje C\#. Tomando las ideas de Laguna et al~\cite{laguna:2007} como base, se pens√≥ inicialmente que las \emph{clases parciales} proporcionadas por C\# pod√≠an ser un mecanismo adecuado para alcanzar cierto grado de desarrollo orientado a caracter√≠sticas. Sin embargo, un posterior estudio realizado por L√≥pez et al~\cite{elio:2010} demostraba que las clases parciales de C\# pose√≠an m√°s limitaciones de las inicialmente previstas por Laguna et al para la implementaci√≥n de dise√±os software orientados a caracter√≠sticas.
+Tal nueva metodologÌa recibirÌa el nombre de TENTE.NET (versiÛn para la plataforma .NET de la metodologÌa TENTE), y est· actualmente en fase de desarrollo. El primer paso para la adaptaciÛn de la metodologÌa TENTE a la plataforma .NET era encontrar un mecanismo para simular las facilidades ofrecidas por lenguajes orientados a caracterÌsticas dentro del lenguaje C\#. Tomando las ideas de Laguna et al~\cite{laguna:2007} como base, se pensÛ inicialmente que las \emph{clases parciales} proporcionadas por C\# podÌan ser un mecanismo adecuado para alcanzar cierto grado de desarrollo orientado a caracterÌsticas. Sin embargo, un posterior estudio realizado por LÛpez et al~\cite{elio:2010} demostraba que las clases parciales de C\# poseÌan m·s limitaciones de las inicialmente previstas por Laguna et al para la implementaciÛn de diseÒos software orientados a caracterÌsticas.
 
-Por tanto, el siguiente paso hacia la construcci√≥n de la variante para .NET de la metodolog√≠a TENTE era la soluci√≥n de tales limitaciones. 
-
-Para solventar dichas limitaciones, se ide√≥ un patr√≥n, cuya aplicaci√≥n serv√≠a para solucionar las limitaciones encontradas. En la siguiente secci√≥n se describir√° el patr√≥n utilizado para tal fin, denominado Patr√≥n Slicer.
+Por tanto, el siguiente paso hacia la construcciÛn de la variante para .NET de la metodologÌa TENTE era la soluciÛn de tales limitaciones. La siguiente secciÛn profundiza en el concepto expuesto brevemente en la presente secciÛn, el diseÒo orientado a caracterÌsticas. 
