@@ -3,26 +3,11 @@
 %%          Sánchez Barreiro, Pablo                                 %%
 %% Version: 1.0, 15/04/2013                                         %%
 %%                                                                  %%
-%% Memoria del Proyecto Fin de Carrera                              %% 
+%% Memoria del Proyecto Fin de Carrera                              %%
 %% Planificacion/CasoEstudio                                        %%
 %%==================================================================%%
 
 El objetivo último del presente proyecto es la construcción de una línea de productos software sobre la plataforma .NET para hogares automatizados y/o inteligentes.
-
-%%===========================================================================%%
-%% NOTA(Pablo): Dado el contexto del proyecto, este párrafo no interesa      %%
-%%===========================================================================%%
-%%
-%% Se ha elegido este dominio de aplicación por ser un dominio donde el uso
-%% de un enfoque basado en Líneas de Productos Software se hace casi
-%% imperativo, debido a la gran variabilidad existente en estos productos.
-%% Esta  variabilidad se debe tanto a motivos de hardware, dado que los
-%% dispositivos a ser controlados e interconectados pueden variar enormemente,
-%% como funcionales, dado que existen multitud de funcionalidades que se pueden
-%% ofrecer de manera opcional o alternativa al usuario, no siendo necesario que
-%% un determinado hogar las posea todas ellas.
-%%
-%%===========================================================================%%
 
 El objetivo de estos hogares es aumentar la comodidad y seguridad de sus habitantes, así como hacer un uso más eficiente de la energía consumida. Los ejemplos más comunes de tareas automatizadas dentro de un hogar inteligente son el control de las luces, ventanas, puertas, persianas, aparatos de frío/calor, así como otros dispositivos, que forman parte de un hogar. Un hogar inteligente también busca incrementar la seguridad de sus habitantes mediante sistemas automatizados de vigilancia y alerta de potenciales situaciones de riesgo. Por ejemplo, el sistema debería encargarse de detección de humos o de la existencia de ventanas abiertas cuando se abandona el hogar.
 

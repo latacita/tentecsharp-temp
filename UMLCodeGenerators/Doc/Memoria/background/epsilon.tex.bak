@@ -1,23 +1,23 @@
 %%==================================================================%%
-%% Author : Abascal Fern√°ndez, Patricia                             %%
-%%          S√°nchez Barreiro, Pablo                                 %%
-%% Version: 1.0, 16/04/2013                                         %%
+%% Author : Abascal Fern·ndez, Patricia                             %%
+%%          S·nchez Barreiro, Pablo                                 %%
+%% Version: 1.1, 17/04/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
-%% Background/Generaci√≥n de C√≥digo con Epsilon                      %%
+%% Background/GeneraciÛn de CÛdigo con Epsilon                      %%
 %===================================================================%%
-Epsilon~\cite{kolovos:2008} es una plataforma para la construcci√≥n de lenguajes consistentes e interoperables para las tareas de gesti√≥n de modelado tales como transformaci√≥n de modelos, generaci√≥n de c√≥digo, comparaci√≥n de modelos, t√©cnicas merge, refactorizaci√≥n y validaci√≥n. El presente proyecto se ha centrado en la generaci√≥n de c√≥digo y por tanto en los lenguajes \emph{Epsilon Generation Language} (EGL) y \emph{Epsilon Object Language}(EOL) proporcionados por Epsilon, que se analizan con m√°s detalle en las siguiente secciones.
+Epsilon~\cite{kolovos:2008} es una plataforma para la construcciÛn de lenguajes consistentes e interoperables para las tareas de gestiÛn de modelado tales como transformaciÛn de modelos, generaciÛn de cÛdigo, comparaciÛn de modelos, tÈcnicas merge, refactorizaciÛn y validaciÛn. El presente proyecto se ha centrado en la generaciÛn de cÛdigo y por tanto en los lenguajes \emph{Epsilon Generation Language} (EGL) y \emph{Epsilon Object Language}(EOL) proporcionados por Epsilon, que se analizan con m·s detalle en las siguiente secciones.
 
 \paragraph{Epsilon Generation Language(EGL)} \ \\
 
-EGL proporciona un lenguaje apropiado para las transformaciones modelo a texto (\emph{model-to-text-transformation}, abreviado M2T). EGL puede ser usado para transformar modelos en varios tipos de artefactos de car√°cter textual, incluyendo c√≥digos ejecutables (por ejemplo Java), informes (por ejemplo en HTML), im√°genes (por ejemplo usando DOT), especificaciones formales (por ejemplo el lenguaje Z), o incluso aplicaciones completas generadas con m√∫ltiples lenguajes (por ejemplo HTML, Javascript y CSS).
+EGL es un \emph{plug-in} para Eclipse que proporciona un lenguaje apropiado para las transformaciones modelo a texto (\emph{model-to-text-transformation}, abreviado M2T). EGL puede ser usado para transformar modelos en varios tipos de artefactos de car·cter textual, incluyendo cÛdigos ejecutables (por ejemplo Java), informes (por ejemplo en HTML), im·genes (por ejemplo usando DOT), especificaciones formales (por ejemplo el lenguaje Z), o incluso aplicaciones completas generadas con m˙ltiples lenguajes (por ejemplo HTML, Javascript y CSS).
 
-EGL es un generador de c√≥digo basado en plantillas; es decir, que la parte programada se asemeja al contenido que se va a generar, proporcionan adem√°s diversas caracter√≠ticas que simplicifan y dan soporte a la generaci√≥n de texto desde modelos. La Figura~\ref{back:fig:epsilonEGL} muestra un ejemplo sencillo del modelo de entrada para un programa EGL, donde se pueden observar tres clases: Persona, Alumno y Profesor. Supongamos que se quiere obtener el nombre de las clases, para ello se deber√≠a generar un c√≥digo similar al de la Figura~\ref{back:code:generacionClases} donde aparece un bucle (l√≠neas 1-3) que recorre todas las clases contenidas en el modelo de entrada y en cada una de ellas (l√≠nea 2) se genera el texto "El modelo contiene la clase: <nombre de la clase>". De esta forma, el resultado para el ejemplo de la Figura~\ref{back:fig:epsilonEGL} despu√©s de haber sido tratado mediante EGL tal como muestra la Figura~\ref{back:code:generacionClases} queda expuesto en la Figura~\ref{back:code:resultadogeneracionClases}.
+EGL es un generador de cÛdigo basado en plantillas; es decir, que la parte programada se asemeja al contenido que se va a generar, proporcionan adem·s diversas caracterÌticas que simplicifan y dan soporte a la generaciÛn de texto desde modelos. La Figura~\ref{back:fig:epsilonEGL} muestra un ejemplo sencillo del modelo de entrada para un programa EGL, donde se pueden observar tres clases: Persona, Alumno y Profesor. Supongamos que se quiere obtener el nombre de las clases, para ello se deberÌa generar un cÛdigo similar al de la Figura~\ref{back:code:generacionClases} donde aparece un bucle (lÌneas 1-3) que recorre todas las clases contenidas en el modelo de entrada y en cada una de ellas (lÌnea 2) se genera el texto "El modelo contiene la clase: <nombre de la clase>". De esta forma, el resultado para el ejemplo de la Figura~\ref{back:fig:epsilonEGL} despuÈs de haber sido tratado mediante EGL tal como muestra la Figura~\ref{back:code:generacionClases} queda expuesto en la Figura~\ref{back:code:resultadogeneracionClases}.
 
 \begin{figure}[!tb]
   \centering
-	\includegraphics[width=.95\linewidth]{background/images/epsilonEGL.eps} \\
-  \caption{Ejemplo de modelo de entrada para generaci√≥n de c√≥digo con EGL}
+%	\includegraphics[width=.95\linewidth]{background/images/epsilonEGL} \\
+  \caption{Ejemplo de modelo de entrada para generaciÛn de cÛdigo con EGL}
   \label{back:fig:epsilonEGL}
 \end{figure}
 
@@ -31,7 +31,7 @@ EGL es un generador de c√≥digo basado en plantillas; es decir, que la parte prog
 \end{verbatim}
 \end{footnotesize}
 \end{center}
-\caption{Generaci√≥n del nombre de cada Class contenida en un modelo de entrada}
+\caption{GeneraciÛn del nombre de cada Class contenida en un modelo de entrada}
 \label{back:code:generacionClases}
 \end{figure}
 
@@ -45,11 +45,11 @@ EGL es un generador de c√≥digo basado en plantillas; es decir, que la parte prog
 \end{verbatim}
 \end{footnotesize}
 \end{center}
-\caption{Resultado de la generaci√≥n del nombre de cada Class contenida en un modelo de entrada}
+\caption{Resultado de la generaciÛn del nombre de cada Class contenida en un modelo de entrada}
 \label{back:code:resultadogeneracionClases}
 \end{figure}
 
- EGL no solo nos permite generar estos sencillos ejemplos, es una herramienta mucho m√°s potente que permite la generaci√≥n de funciones creadas espec√≠ficamente por el usuario para facilitar la obtenci√≥n de datos de los modelos de entrada. Tal como se aprecia en la Figura~\ref{back:code:generacionOperacion} se puede programar una operaci√≥n que implemente la cabecera de una clase Java y de esta forma invocar dicha funci√≥n tantas veces como sea necesario en aquellos programas EGL que lo necesiten. En la Figura~\ref{back:code:generacionOperacion} (l√≠nea 4) la operaci√≥n \emph{visibility} indica la visibilidad de \emph{self} siendo en este caso la visibilidad de la clase tal como muestra la l√≠nea 3; mientras que la operaci√≥n \emph{name} al igual que en la Figura~\ref{back:code:generacionClases} se refiere al nombre del elemento actual, en este caso el nombre de la clase.
+ EGL no solo nos permite generar estos sencillos ejemplos, es una herramienta mucho m·s potente que permite la generaciÛn de funciones creadas especÌficamente por el usuario para facilitar la obtenciÛn de datos de los modelos de entrada. Tal como se aprecia en la Figura~\ref{back:code:generacionOperacion} se puede programar una operaciÛn que implemente la cabecera de una clase Java y de esta forma invocar dicha funciÛn tantas veces como sea necesario en aquellos programas EGL que lo necesiten. En la Figura~\ref{back:code:generacionOperacion} (lÌnea 4) la operaciÛn \emph{visibility} indica la visibilidad de \emph{self} siendo en este caso la visibilidad de la clase tal como muestra la lÌnea 3; mientras que la operaciÛn \emph{name} al igual que en la Figura~\ref{back:code:generacionClases} se refiere al nombre del elemento actual, en este caso el nombre de la clase.
 
 \begin{figure}[tb!]
 \begin{center}
@@ -63,16 +63,16 @@ EGL es un generador de c√≥digo basado en plantillas; es decir, que la parte prog
 \end{verbatim}
 \end{footnotesize}
 \end{center}
-\caption{Uso de una operaci√≥n que especifica el texto generado para una declaraci√≥n de una clase Java}
+\caption{Uso de una operaciÛn que especifica el texto generado para una declaraciÛn de una clase Java}
 \label{back:code:generacionOperacion}
 \end{figure}
 
-El tipo Template proporciona tres utilidades b√°sicas al usuario:
+El tipo Template proporciona tres utilidades b·sicas al usuario:
 
 \begin{enumerate}
-	\item  Una Template puede invocar a otras Templates y por tanto pueden ser compartidas y reutilizadas entre programas EGL. En la Figura~\ref{back:code:template} (l√≠nea 2) se aprecia c√≥mo desde un programa EGL se llama a otro programa EGL.
-    \item El tipo Template permite al usuario definir el destino del texto generado (por ejemplo a una base de datos o ficheros para un proyecto en Visual Studio).  En la Figura~\ref{back:code:template} (l√≠nea 3) se presenta que el fichero de salida ser√° un fichero de extensi√≥n .txt.
-    \item Y por √∫ltimo, proporciona un conjunto de operaciones que se usan para controlar el destino del texto generado. En la Figura~\ref{back:code:template} (l√≠nea 3) se muestra c√≥mo se elige el fichero destino para almacenar el texto generado con la plantilla "ClassNames.egl".
+	\item  Una Template puede invocar a otras Templates y por tanto pueden ser compartidas y reutilizadas entre programas EGL. En la Figura~\ref{back:code:template} (lÌnea 2) se aprecia cÛmo desde un programa EGL se llama a otro programa EGL.
+    \item El tipo Template permite al usuario definir el destino del texto generado (por ejemplo a una base de datos o ficheros para un proyecto en Visual Studio).  En la Figura~\ref{back:code:template} (lÌnea 3) se presenta que el fichero de salida ser· un fichero de extensiÛn .txt.
+    \item Y por ˙ltimo, proporciona un conjunto de operaciones que se usan para controlar el destino del texto generado. En la Figura~\ref{back:code:template} (lÌnea 3) se muestra cÛmo se elige el fichero destino para almacenar el texto generado con la plantilla "ClassNames.egl".
 \end{enumerate}
 
 \begin{figure}[tb!]
@@ -93,7 +93,7 @@ El tipo Template proporciona tres utilidades b√°sicas al usuario:
 
 \paragraph{Epsilon Object Language(EOL)} \ \\
 
-El principal objetivo de EOL es proporcionar un conjunto rehusable operaciones que son comunes en la gesti√≥n de modelos. La Figura~\ref{back:code:eol} muestra un ejemplo de operaciones EOL. No es un lenguaje orientado a objetos en el sentido de que no define clases de s√≠ mismo pero sin embargo necesita gestionar objetos de los tipos definidos externamente a el (Figura~\ref{back:code:eol} l√≠neas 3 y 7, en este caso Integer). La l√≠nea 1 de la Figura~\ref{back:code:eol}
+El principal objetivo de EOL es proporcionar un conjunto rehusable operaciones que son comunes en la gestiÛn de modelos. La Figura~\ref{back:code:eol} muestra un ejemplo de operaciones EOL. No es un lenguaje orientado a objetos en el sentido de que no define clases de sÌ mismo pero sin embargo necesita gestionar objetos de los tipos definidos externamente a el (Figura~\ref{back:code:eol} lÌneas 3 y 7, en este caso objetos de tipo Integer). La lÌnea 1 de la Figura~\ref{back:code:eol} presenta un ejemplo de llamada a operaciones EOL, donde el primer elemento es un 1, de tipo Integer, que llama a la operaciÛn add1() y devuelve, tal como se aprecia en la lÌnea 4, el valor de \emph{self}+1 es decir 2. A continuaciÛn, se vuelve a tomar el valor 2, de tipo Integer, y se realiza la llamada a la operaciÛn add2() que devuelve el valor de \emph{self}+2 es decir 4. Y dicho contenido se imprime por pantalla (instrucciÛn \emph{println()}).
 
 \begin{figure}[tb!]
 \begin{center}
@@ -102,15 +102,17 @@ El principal objetivo de EOL es proporcionar un conjunto rehusable operaciones q
 1 1.add1().add2().println();
 2
 3 operation Integer add1() : Integer {
-4 return self + 1;
+4   return self + 1;
 5 }
 6
 7 operation Integer add2() : Integer {
-8 return self + 2;
-9 } 
+8   return self + 2;
+9 }
 \end{verbatim}
 \end{footnotesize}
 \end{center}
-\caption{Ejemplo de operaci√≥n EOL}
+\caption{Ejemplo de operaciÛn EOL}
 \label{back:code:eol}
 \end{figure}
+
+De esta forma, EOL permite encapsular aquellas operaciones EGL que se vayan a utilizar a lo largo de las respectivas plantillas para evitar la repeticiÛn innecesaria de cÛdigo.
