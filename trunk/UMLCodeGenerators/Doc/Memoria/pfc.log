@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.15)  17 APR 2013 15:10
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.4.18)  18 APR 2013 12:05
 entering extended mode
 **C:/Users/Patricia/Documents/UNIVERSIDAD/PFC/Repositorio/Doc/Memoria/pfc.tex
 (C:/Users/Patricia/Documents/UNIVERSIDAD/PFC/Repositorio/Doc/Memoria/pfc.tex
@@ -72,12 +72,12 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \@emptytoks=\toks18
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2008/07/08 v3.8m The Babel package
@@ -297,7 +297,7 @@ pters.tex)
 /background.tex
 Cap\'{\i }tulo 1.
 Package minitoc Info: I0006
-(minitoc)             pfc.mtc1 is empty on input line 17.
+(minitoc)             pfc.mtc1 is empty on input line 15.
 
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\background
 /casoEstudio.tex [1
@@ -323,196 +323,31 @@ LaTeX Warning: Citation `pohl:2010' on page 3 undefined on input line 10.
 
 LaTeX Warning: Citation `kakola:2006' on page 3 undefined on input line 10.
 
-[3])
-(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\background
-/tente.tex
 
-LaTeX Warning: Citation `fuentes:2009:caise' on page 4 undefined on input line 
-10.
-
-
-LaTeX Warning: Citation `sanchez:2011:tente' on page 4 undefined on input line 
-10.
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 10.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 10.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-LaTeX Warning: Citation `uml:2005' on page 4 undefined on input line 12.
-
-
-LaTeX Warning: Citation `aracic:2006' on page 4 undefined on input line 12.
-
-[4]
-
-LaTeX Warning: Citation `loughran:2008' on page 5 undefined on input line 15.
-
-
-LaTeX Warning: Citation `sanchez:2008' on page 5 undefined on input line 15.
-
-
-LaTeX Warning: Citation `figueiredo:2008' on page 5 undefined on input line 22.
-
-
-
-Overfull \hbox (3.99678pt too wide) in paragraph at lines 23--24
-\OT1/cmr/m/n/10.95 par-te del pro-ce-so, evi-tan-do ta-reas re-pe-ti-ti-vas, la
-r-gas, te-dio-sas y monoto-
- []
-
-
-LaTeX Warning: Citation `joault:2008' on page 5 undefined on input line 24.
-
-
-LaTeX Warning: Citation `kolovos:2008' on page 5 undefined on input line 24.
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
-
- []
-
-
-LaTeX Warning: Citation `herrman:2002' on page 6 undefined on input line 31.
-
-
-LaTeX Warning: Citation `madsen:1989' on page 6 undefined on input line 31.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
-
- []
-
-
-LaTeX Warning: Citation `chappell:2006' on page 6 undefined on input line 42.
-
-[6]
-
-LaTeX Warning: Citation `fons:2008' on page 7 undefined on input line 48.
-
-
-LaTeX Warning: Citation `laguna:2007' on page 7 undefined on input line 51.
-
-
-LaTeX Warning: Citation `elio:2010' on page 7 undefined on input line 51.
-
-)
-(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\background
-/docUML.tex
-
-LaTeX Warning: Citation `kastner:2008' on page 7 undefined on input line 10.
-
-[7]
-
-LaTeX Warning: Citation `aracic:2006' on page 8 undefined on input line 14.
-
-[8])
-(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\background
-/slicer.tex
-
-LaTeX Warning: Citation `albahari:2010' on page 9 undefined on input line 10.
-
-
-LaTeX Warning: Citation `laguna:2007' on page 9 undefined on input line 10.
-
-
-LaTeX Warning: Citation `laguna:2010' on page 9 undefined on input line 10.
-
-
-LaTeX Warning: Citation `perez:2011' on page 9 undefined on input line 14.
-
-
-Overfull \hbox (19.29684pt too wide) in paragraph at lines 23--24
-\OT1/cmss/m/n/10 ter-Mng \OT1/cmr/m/n/10.95 y \OT1/cmss/m/n/10 Smar-tE-nergy-Mn
-g \OT1/cmr/m/n/10.95 han si-do trans-for-ma-das en \OT1/cmss/m/n/10 hea-ter-Mng
-[]thermometerChanged
- []
-
-
-Overfull \hbox (23.95331pt too wide) in paragraph at lines 23--24
-\OT1/cmss/m/n/10 Mng[]thermometerChanged \OT1/cmr/m/n/10.95 pue-de ex-ten-der d
-el meto-do \OT1/cmss/m/n/10 hea-ter-Mng[]thermometerChanged\OT1/cmr/m/n/10.95 
-.
- []
-
-[9]
-
-LaTeX Warning: Citation `sanchez:2010' on page 10 undefined on input line 71.
-
-)
-(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\background
-/epsilon.tex
-
-LaTeX Warning: Citation `kolovos:2008' on page 10 undefined on input line 9.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10]
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-
- []
-
-[11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
-
- []
-
-) [13]
-(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\background
-/sumario.tex))
-(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\pfc.bbl)
-Package minitoc Info: I0009
-(minitoc)             Listing minitoc auxiliary files. 
-(minitoc)             Creating the pfc.maf file.
-
-
-Package minitoc(hints) Warning: W0059
-(minitoc(hints))                You have used \minitoc, 
-(minitoc(hints))                but not \dominitoc.
-
-
-Package minitoc(hints) Warning: W0068
-(minitoc(hints))                You have used \minitoc but not 
-(minitoc(hints))                \tableofcontents
-(minitoc(hints))                nor \faketableofcontents.
-
-
-Package minitoc(hints) Warning: W0024
-(minitoc(hints))                Some hints have been written 
-(minitoc(hints))                in the pfc.log file.
-
-[14]
-(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\pfc.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+! LaTeX Error: Unknown graphics extension: .eps.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20 ...nd/images/domainAplicationEngineering.eps}
+                                                   \\
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.20 ...nd/images/domainAplicationEngineering.eps}
+                                                   \\
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ 
 Here is how much of TeX's memory you used:
- 4177 strings out of 493921
- 57801 string characters out of 3147273
- 145739 words of memory out of 3000000
- 7174 multiletter control sequences out of 15000+200000
- 13122 words of font info for 50 fonts, out of 3000000 for 9000
+ 4066 strings out of 493921
+ 55506 string characters out of 3147273
+ 139716 words of memory out of 3000000
+ 7107 multiletter control sequences out of 15000+200000
+ 6112 words of font info for 22 fonts, out of 3000000 for 9000
  842 hyphenation exceptions out of 8191
- 34i,12n,43p,1422b,502s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on pfc.pdf (14 pages, 185505 bytes).
-PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 34i,12n,43p,1156b,502s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
