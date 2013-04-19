@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.2
-// Last modification: 16/04/2013 
+// Version: 2.3
+// Last modification: 19/04/2013 
 // Description: This operation generates the methods of 
 //				the current class or interface.
 ////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ operation Element classMethods(currentPackage: String, path: String): String {
 		}else{
 			methodname=oper.name; 
 		} 
-		opers=opers+private()+oper.abstract()+oper.esStatic()+virtual()+void()+currentPackage+"_"+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
+		opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()+virtual()+void()+currentPackage+"_"+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
 		// Increase the iterator
 		iter=iter+1;
 	} 
@@ -69,8 +69,8 @@ operation Element classMethods(currentPackage: String, path: String): String {
 			methodname="method_"+iter; 
 		}else{
 			methodname=oper.name; 
-		} 
-		opers=opers+private()+oper.abstract()+oper.esStatic()+virtual()+oper.returnParameter(currentPackage, path)+" "+currentPackage+"_"+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
+		}  
+		opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()+virtual()+oper.returnParameter(currentPackage, path)+" "+currentPackage+"_"+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
 		// Increase the iterator
 		iter=iter+1;
 	} 

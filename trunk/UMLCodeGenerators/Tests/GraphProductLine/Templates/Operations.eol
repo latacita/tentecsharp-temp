@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.2
-// Last modification: 12/04/2013 
+// Version: 2.3
+// Last modification: 19/04/2013 
 // Description: Operations to use in templates.
 ////////////////////////////////////////////////////////////
  
@@ -42,6 +42,16 @@ operation Element abstract(): String {
 	} 
 	return ab;	
 } 
+// This operation returns the text "private" or "protected" according to the property or method's visibility
+operation Element visibility(): String {
+	var vis;
+	if (self.visibility.name=="protected"){
+		vis="protected ";
+	}else{
+		vis="private ";
+	}
+	return vis;	
+}
 // This operation returns the text "readonly" to include in the property or method's header
 operation readonly(): String { 
 	return " readonly ";	
