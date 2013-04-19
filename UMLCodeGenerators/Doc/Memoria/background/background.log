@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.15)  15 APR 2013 11:29
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=latex 2013.4.19)  19 APR 2013 09:59
 entering extended mode
 **C:/Users/Patricia/Documents/UNIVERSIDAD/PFC/Repositorio/Doc/Memoria/backgroun
 d/background.tex
@@ -27,11 +27,11 @@ End of file on the terminal!
 
  
 Here is how much of TeX's memory you used:
- 7 strings out of 493921
- 339 string characters out of 3147273
+ 7 strings out of 493922
+ 339 string characters out of 3147296
  49031 words of memory out of 3000000
  3400 multiletter control sequences out of 15000+200000
  3640 words of font info for 14 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  5i,0n,1p,167b,8s stack positions out of 5000i,500n,10000p,200000b,50000s
-!  ==> Fatal error occurred, no output PDF file produced!
+No pages of output.
