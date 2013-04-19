@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.2
-// Last modification: 12/04/2013 
+// Version: 2.3
+// Last modification: 19/04/2013 
 // Description: This operation generates the declaration of 
 //				the properties from the current class and
 //				their respective get and set methods.
@@ -42,7 +42,7 @@ operation Element classPropertiesCreation(path: String, currentPackage: String, 
 			 	isFromBidirectionalRelation=true;
 			 }//if-prop
 		}//for-allBidirectionalImplementations  
-		if(isFromBidirectionalRelation==false){ 
+		if(isFromBidirectionalRelation==false and prop.visibility.name<>"protected"){ 
 			getterAndSetter=" "+propertyName+" {\n\t\t\tget { return this."+propertyname+"; }"+"\n\t\t\tset { this."+propertyname+"= value; }"+"\n\t\t}\n\t\t";	 
 			properties=properties+private();	 
 			var header;
@@ -79,6 +79,9 @@ operation Element classPropertiesCreation(path: String, currentPackage: String, 
 			} // if-upperBound	 
 			// Increase the iterator
 			iter=iter+1;
+		}else{
+			// It the property is protected, it doesn't have getters or setters
+			properties=properties+prop.visibility()+prop.type.name+" "+propertyname+";\n\t\t";
 		}//if-isFromBidirectionalRelation
 		isFromBidirectionalRelation=false;
 	}//for	  
