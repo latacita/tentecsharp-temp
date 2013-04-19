@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.4.18)  18 APR 2013 12:05
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=latex 2013.4.19)  19 APR 2013 14:47
 entering extended mode
-**C:/Users/Patricia/Documents/UNIVERSIDAD/PFC/Repositorio/Doc/Memoria/pfc.tex
-(C:/Users/Patricia/Documents/UNIVERSIDAD/PFC/Repositorio/Doc/Memoria/pfc.tex
+**pfc.tex
+(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\pfc.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -123,18 +123,13 @@ Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: pdftex.def on input line 130.
+Package color Info: Driver file: dvips.def on input line 130.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvips.def"
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count96
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\rotating\rotating.sty"
 Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
@@ -155,7 +150,7 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: dvips.def on input line 91.
 )
 \Gin@req@height=\dimen107
 \Gin@req@width=\dimen108
@@ -163,7 +158,7 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count97
+\c@r@tfl@t=\count96
 \rotFPtop=\skip58
 \rotFPbot=\skip59
 \rot@float@box=\box30
@@ -198,10 +193,10 @@ Package minitoc Info: I0012
 Package minitoc Info: I0031
 (minitoc)             ==> this version is configured for UNIX-like 
 (minitoc)                 (long extensions) file names.
-\c@mtc=\count98
-\c@minitocdepth=\count99
-\c@ptc=\count100
-\c@parttocdepth=\count101
+\c@mtc=\count97
+\c@minitocdepth=\count98
+\c@ptc=\count99
+\c@parttocdepth=\count100
 \ptcindent=\skip62
 Package minitoc Info: I0010
 (minitoc)             The english language is selected.
@@ -268,25 +263,11 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
-
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count102
-\scratchdimen=\dimen125
-\scratchbox=\box35
-\nofMPsegments=\count103
-\nofMParguments=\count104
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count105
-\MPscratchDim=\dimen126
-\MPnumerator=\count106
-\makeMPintoPDFobject=\count107
-\everyMPtoPDFconversion=\toks25
-)
 Package minitoc(hints) Info: I0049
 (minitoc(hints))             ==> You requested the hints option. 
 (minitoc(hints))             Some hints are eventually given below.
- ABD: EveryShipout initializing macros
+
+ABD: EveryShipout initializing macros
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\config/beg
 in.tex)
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\Config/hea
@@ -300,54 +281,71 @@ Package minitoc Info: I0006
 (minitoc)             pfc.mtc1 is empty on input line 15.
 
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\background
-/casoEstudio.tex [1
+/epsilon.tex
+
+LaTeX Warning: Citation `kolovos:2008' on page 1 undefined on input line 9.
 
 
-
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--29
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-[2])
-(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\background
-/spl.tex
-
-LaTeX Warning: Citation `pohl:2010' on page 3 undefined on input line 10.
+[1
 
 
-LaTeX Warning: Citation `kakola:2006' on page 3 undefined on input line 10.
+
+]
+LaTeX Font Info:    Try loading font information for U+msa on input line 15.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 15.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+File: background/images/epsilonEGL.eps Graphic file (type eps)
+
+<background/images/epsilonEGL.eps> [2]
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+
+ []
+
+[3]))
+(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\pfc.bbl)
+Package minitoc Info: I0009
+(minitoc)             Listing minitoc auxiliary files. 
+(minitoc)             Creating the pfc.maf file.
 
 
-! LaTeX Error: Unknown graphics extension: .eps.
+Package minitoc(hints) Warning: W0059
+(minitoc(hints))                You have used \minitoc, 
+(minitoc(hints))                but not \dominitoc.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.20 ...nd/images/domainAplicationEngineering.eps}
-                                                   \\
-? 
-! Emergency stop.
- ...                                              
-                                                  
-l.20 ...nd/images/domainAplicationEngineering.eps}
-                                                   \\
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
 
- 
+Package minitoc(hints) Warning: W0068
+(minitoc(hints))                You have used \minitoc but not 
+(minitoc(hints))                \tableofcontents
+(minitoc(hints))                nor \faketableofcontents.
+
+
+Package minitoc(hints) Warning: W0024
+(minitoc(hints))                Some hints have been written 
+(minitoc(hints))                in the pfc.log file.
+
+[4]
+(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\pfc.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4066 strings out of 493921
- 55506 string characters out of 3147273
- 139716 words of memory out of 3000000
- 7107 multiletter control sequences out of 15000+200000
- 6112 words of font info for 22 fonts, out of 3000000 for 9000
+ 3666 strings out of 493922
+ 50184 string characters out of 3147296
+ 129667 words of memory out of 3000000
+ 6695 multiletter control sequences out of 15000+200000
+ 10926 words of font info for 41 fonts, out of 3000000 for 9000
  842 hyphenation exceptions out of 8191
- 34i,12n,43p,1156b,502s stack positions out of 5000i,500n,10000p,200000b,50000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 34i,13n,43p,1192b,363s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on pfc.dvi (4 pages, 13840 bytes).
