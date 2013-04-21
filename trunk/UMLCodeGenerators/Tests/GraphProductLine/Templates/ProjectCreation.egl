@@ -72,11 +72,11 @@ if (enumClassSize>0){
 	}
 } 
 // User selects a directory where to save the project file
-//var path= createSaveToDiskWindow();
+var path= createSaveToDiskWindow();
 // The directory is created
-//directory(path); 
+directory(path); 
 // PARA HACER PRUEBAS RAPIDO->  
-var path="C:\\Users\\Patricia\\Desktop";
+//var path="C:\\Users\\Patricia\\Desktop";
  
 // Create the Visual Studio files and directories inside the directory selected by the user
 // First level of directories and/or files: 
@@ -115,11 +115,10 @@ var message ="Info Message:\n\t If there were relations in the model without a n
 message=message+"relationFromClass_<NameOfTheClass>.\n";
 message=message+"Info Message:\n\t If there were properties in the model without a name assigned, it has been created as the following:\n\t\t";
 message=message+"property_<Number>_From_<NameOfTheClass>.\n";
-message=message+"Info Message:\n\tIf there are relations without multiplicity assigned, by default they are created One To One\n\tif it's not correct please change the model and generate the code again.\n";
 // Write in the log file
 writeInFile(path+"\\log.txt", message);  
 // Show the log file
-//createWindowAndShowMessages(path+"\\log.txt");
+createWindowAndShowMessages(path+"\\log.txt");
 // Delete the log file after the execution
 deleteFile(path, "log.txt");  
 
