@@ -15,7 +15,7 @@ Para estudiar las ventajas del diseño orientado a características nos basaremos 
 
 Asimismo, CaesarJ también introduce el concepto de \emph{clases virtuales}. Una clase virtual es una clase perteneciente a una familia de clases y que es susceptible de ser heredada y sobreescrita por familias de clases que hereden de la familia de clases que contiene dicha clase virtual. La Figura~\ref{back:fig:caesarJExpressions} ilustra esta situación. Las familias de clases se representan mediante paquetes UML, y herencia entre clases, mediante relaciones \emph{merge}. Cuando una familia de clases hereda de otra, hereda implícitamente todas sus clases virtuales. Si la primera contiene clases virtuales con el mismo nombre que la familia de clases que hereda, entonces la clase virtual de la familia de clases hija hereda de la clase virtual con el mismo nombre de la familia de clases padre. Por ejemplo, en la Figura~\ref{back:fig:caesarJExpressions}, la clase \imp{Mult} de la familia de clases \imp{Eval} heredaría implícitamente de la clase \imp{Mult} de la familia de clases \imp{Basic}. En cada familia de clases hija, se pueden añadir por tanto nuevos atributos y métodos a las clases virtuales de las familias de clases padre. Además, gracias al avanzado sistema de tipos de CaesarJ, se pueden añadir nuevas relaciones de herencia.
 
-\begin{figure}[ht!] 
+\begin{figure}[ht!]
   \centering
   \includegraphics[width=.55\linewidth]{background/images/CaesarJExpressions.eps} \\
   \caption{Diseño para resolver el problema de las expresiones con CaesarJ}
@@ -25,7 +25,7 @@ Asimismo, CaesarJ también introduce el concepto de \emph{clases virtuales}. Una 
 Además, las referencias entre clases se actualizan automáticamente. Por ejemplo, en el caso de la Figura~\ref{back:fig:caesarJExpressions}, aunque no se haga explícitamente, cualquier referencia a una clase del tipo \imp{Expression} dentro de la familia de clases \imp{Eval} se referirá a la clase virtual \imp{Expression} de la familia de clases \imp{Eval} y no a la clase virtual de mismo nombre de la familia de clases \imp{Expressions}. De esta forma, las referencias están siempre actualizadas a su versión más extendida.
 
 Para implementar una línea de productos software, cada característica se considera como una familia de clases.
-Dentro de cada familia de clases, cada característica se diseña usando las técnicas tradicionales de la orientación a objetos, tal como se muestra en la Figura~\ref{back:fig:caesarJExpressions}.
+Dentro de cada familia de clases, cada característica se diseña usando las técnicas tradicionales de la orientación a objetos, tal como se muestra en la figura~\ref{back:fig:caesarJExpressions}.
 
 \begin{figure}[ht!]
   \centering \includegraphics[width=.55\linewidth]{background/images/Configuration.eps} \\

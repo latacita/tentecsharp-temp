@@ -17,7 +17,7 @@
 \usepackage{url}
 \usepackage{amsfonts}
 \usepackage[spanish,activeacute]{babel}
-\usepackage{listings}
+\usepackage{tabularx}
 % File with main configuration
 \input{config/pfc_options.tex}
 
@@ -76,7 +76,7 @@
 \input{background/background.tex}
 
 % Capítulo 3: Domain Engineering
-% \input{domainEngineering/introduccion.tex}
+\input{domainEngineering/domain.tex}
 
 % Capítulo 6: Discusión, Conclusiones y Trabajos Futuros
 % \todo{Capítulo 7: Discusión, Conclusiones y Trabajos Futuros}

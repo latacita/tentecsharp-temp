@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=latex 2013.4.19)  19 APR 2013 14:47
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=latex 2013.4.19)  21 APR 2013 12:44
 entering extended mode
 **pfc.tex
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\pfc.tex
@@ -105,6 +105,16 @@ Package babel Info: Making < an active character on input line 630.
 Package babel Info: Making > an active character on input line 630.
 Package babel Info: Making ' an active character on input line 657.
 ))
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
+Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
+\TX@col@width=\dimen107
+\TX@old@table=\dimen108
+\TX@old@col=\dimen109
+\TX@target=\dimen110
+\TX@delta=\dimen111
+\TX@cols=\count96
+\TX@ftn=\toks20
+)
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\config/pfc
 _options.tex ("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
 \fancy@headwidth=\skip49
@@ -139,7 +149,7 @@ Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks20
+\KV@toks@=\toks21
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
@@ -152,17 +162,17 @@ File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: dvips.def on input line 91.
 )
-\Gin@req@height=\dimen107
-\Gin@req@width=\dimen108
+\Gin@req@height=\dimen112
+\Gin@req@width=\dimen113
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count96
+\c@r@tfl@t=\count97
 \rotFPtop=\skip58
 \rotFPbot=\skip59
 \rot@float@box=\box30
-\rot@mess@toks=\toks21
+\rot@mess@toks=\toks22
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\minitoc\minitoc.sty"
 Package: minitoc 2008/07/16 v60 Package minitoc (JPFD)
@@ -181,7 +191,7 @@ Package minitoc Info: I0023
 (minitoc)             part level macros available.
 Package minitoc Info: I0003
 (minitoc)             chapter level macros available.
-\mtc@toks=\toks22
+\mtc@toks=\toks23
 \mtc@strutbox=\box31
 \mtc@hstrutbox=\box32
 Package minitoc Info: I0002
@@ -193,10 +203,10 @@ Package minitoc Info: I0012
 Package minitoc Info: I0031
 (minitoc)             ==> this version is configured for UNIX-like 
 (minitoc)                 (long extensions) file names.
-\c@mtc=\count97
-\c@minitocdepth=\count98
-\c@ptc=\count99
-\c@parttocdepth=\count100
+\c@mtc=\count98
+\c@minitocdepth=\count99
+\c@ptc=\count100
+\c@parttocdepth=\count101
 \ptcindent=\skip62
 Package minitoc Info: I0010
 (minitoc)             The english language is selected.
@@ -218,14 +228,14 @@ File: spanish.mld 2008/04/03
 ("C:\Program Files\MiKTeX 2.9\tex\latex\epsf\epsf.sty"
 This is `epsf.tex' v2.7.4 <14 February 2011>
 \epsffilein=\read1
-\epsfframemargin=\dimen109
-\epsfframethickness=\dimen110
-\epsfrsize=\dimen111
-\epsftmp=\dimen112
-\epsftsize=\dimen113
-\epsfxsize=\dimen114
-\epsfysize=\dimen115
-\pspoints=\dimen116
+\epsfframemargin=\dimen114
+\epsfframethickness=\dimen115
+\epsfrsize=\dimen116
+\epsftmp=\dimen117
+\epsftsize=\dimen118
+\epsfxsize=\dimen119
+\epsfysize=\dimen120
+\pspoints=\dimen121
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\textpos\textpos.sty"
 Package: textpos 2012/11/13 v1.7i
 
@@ -235,83 +245,83 @@ Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 )
 \TP@textbox=\box33
 \TP@holdbox=\box34
-\TPHorizModule=\dimen117
-\TPVertModule=\dimen118
-\TP@margin=\dimen119
-\TP@absmargin=\dimen120
+\TPHorizModule=\dimen122
+\TPVertModule=\dimen123
+\TP@margin=\dimen124
+\TP@absmargin=\dimen125
 
 Grid set 16 x 16 = 37.34424pt x 52.81541pt
-\TPboxrulesize=\dimen121
-\TP@ox=\dimen122
-\TP@oy=\dimen123
-\TP@tbargs=\toks23
-\TP@prevdepth=\dimen124
+\TPboxrulesize=\dimen126
+\TP@ox=\dimen127
+\TP@oy=\dimen128
+\TP@tbargs=\toks24
+\TP@prevdepth=\dimen129
 TextBlockOrigin set to 0pt x 0pt
 ))
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\config/ren
 ame.tex)
-(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\pfc.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\pfc.aux
+
+LaTeX Warning: Label `domain:sec:transf' multiply defined.
+
+)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
 Package minitoc(hints) Info: I0049
 (minitoc(hints))             ==> You requested the hints option. 
 (minitoc(hints))             Some hints are eventually given below.
-
-ABD: EveryShipout initializing macros
+ ABD: EveryShipout initializing macros
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\config/beg
 in.tex)
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\Config/hea
 ders.tex)
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\config/cha
 pters.tex)
-(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\background
-/background.tex
+(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\domainEngi
+neering/domain.tex
 Cap\'{\i }tulo 1.
 Package minitoc Info: I0006
-(minitoc)             pfc.mtc1 is empty on input line 15.
+(minitoc)             pfc.mtc1 is empty on input line 16.
 
-(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\background
-/epsilon.tex
-
-LaTeX Warning: Citation `kolovos:2008' on page 1 undefined on input line 9.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-
+(C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\domainEngi
+neering/gen.tex
+File: domainEngineering/images/Templates.eps Graphic file (type eps)
+ <domainEngineering/images/Templates.eps>
+Overfull \hbox (44.2603pt too wide) in paragraph at lines 12--12
+ [][] 
  []
+
+
+LaTeX Warning: Float too large for page by 38.82225pt on input line 15.
 
 [1
 
 
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 15.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 15.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-File: background/images/epsilonEGL.eps Graphic file (type eps)
-
-<background/images/epsilonEGL.eps> [2]
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
-[3]))
+[2]
+File: domainEngineering/images/VentanaDirectorio.eps Graphic file (type eps)
+ <domainEngineering/images/VentanaDirectorio.eps>
+File: domainEngineering/images/ErrorWindow.eps Graphic file (type eps)
+
+<domainEngineering/images/ErrorWindow.eps>
+File: domainEngineering/images/FinalWindow.eps Graphic file (type eps)
+
+<domainEngineering/images/FinalWindow.eps>))
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\pfc.bbl)
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
@@ -333,19 +343,19 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the pfc.log file.
 
-[4]
+[3] [4] [5]
 (C:\Users\Patricia\Documents\UNIVERSIDAD\PFC\Repositorio\Doc\Memoria\pfc.aux)
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3666 strings out of 493922
- 50184 string characters out of 3147296
- 129667 words of memory out of 3000000
- 6695 multiletter control sequences out of 15000+200000
- 10926 words of font info for 41 fonts, out of 3000000 for 9000
+ 3663 strings out of 493922
+ 50034 string characters out of 3147296
+ 129621 words of memory out of 3000000
+ 6703 multiletter control sequences out of 15000+200000
+ 6716 words of font info for 24 fonts, out of 3000000 for 9000
  842 hyphenation exceptions out of 8191
- 34i,13n,43p,1192b,363s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,13n,43p,510b,363s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on pfc.dvi (4 pages, 13840 bytes).
+Output written on pfc.dvi (5 pages, 13760 bytes).

@@ -15,7 +15,7 @@ La instanciación del Patrón Slicer~\cite{perez:2011} en los métodos regulares, c
 
 \begin{figure}[!tb]
   \centering
-%	\includegraphics[width=.95\linewidth]{background/images/slicerPattern} \\
+  \includegraphics[width=.95\linewidth]{background/images/slicerPattern} \\
   \caption{Proceso de Desarrollo de una Línea de Productos Software}
   \label{back:fig:slicerPattern}
 \end{figure}
@@ -24,7 +24,7 @@ Usando esta estrategia se puede comprobar cómo, por ejemplo, las versiones del m
 
 Para generar un producto específico es necesario que, a nivel de Ingeniería de Aplicación, se cree la denominada "versión limpia" del método \imp{thermometerChanged}, es decir, sin el prefijo. Mientras que las versiones de dicho método creadas en el nivel de Ingeniería del Dominio que han sido prefijadas con el nombre de la característica a la que cada método pertenece pasarán a ser denominadas "versiones sucias" de dicho método. Además, para asegurar que se invoca la versión correcta del método, no se deberían poder invocar los métodos \imp{heaterMng\_thermometerChanged} y \imp{smartEnergyMng\_thermometerChanged} directamente y por dicha razón todas las versiones sucias de los métodos son privadas. De dicha forma los objetos de las demás clases sólo podrán invocar a la versión limpia del método y dicha versión, redireccionará la llamada a las versiones sucias de los métodos correspondientes de acuerdo a las características seleccionadas.
 
-Sin embargo este patrón no puede ser utilizado para los constructores de la clase ya que los constructores no se pueden renombrar porque deben tener un nombre específico. De esta forma, la instanciación del Patrón Slicer en los constructores se realiza de forma diferente a la instanciación del resto de métodos. De esta forma, cada clase parcial X correspondiente a una caracterísica F tendrá un método privado llamado <F>\_init\_<X> que contendrá el fragmento de la lógica del constructor correspondiente a la característica F.
+Sin embargo este patrón no puede ser utilizado para los constructores de la clase ya que los constructores no se pueden renombrar porque deben tener un nombre específico. De esta forma, la instanciación del Patrón Slicer en los constructores se realiza de forma diferente a la instanciación del resto de métodos. De esta forma, cada clase parcial X correspondiente a una caracterísica F tendrá un método privado llamado $<$F$>$\_init\_$<$X$>$ que contendrá el fragmento de la lógica del constructor correspondiente a la característica F.
 
 La Figura~\ref{back:code:constSlicerPattern} muestra cómo se aplica dicha técnica. Se puede apreciar cómo la lógica del constructor para \emph{Gateway} ha sido encapsulada en un método llamado  \imp{baseSystem\_initGateway} (Figura~\ref{back:code:constSlicerPattern} líneas 03-06). La misma técnica ha sido usada en la Figura~\ref{back:code:constSlicerPattern} líneas 10-12 con la característica \imp{WindowMng}. El siguiente paso es encontrar un mecanismo que permita componer dichos fragmentos de acuerdo a una selección de  características dada, de esta forma, como se puede apreciar en la Figura~\ref{back:code:constSlicerPattern} líneas 16-20, el constructor para la clase Gateway es creado con las características seleccionadas por el usuario final, en el caso analizado, por ejemplo, solo se ha seleccionado la característica \imp{WindowMng}.
 
@@ -68,4 +68,4 @@ File MyHouse/Gateway.cs
 \label{back:code:constSlicerPattern}
 \end{figure}
 
-Concluyendo con el Patrón Slicer, tanto los métodos regulares como con los constructores pueden ser extendidos y reescritos usando dicho patrón y solucionando así las limitaciones ofrecidas por el uso de clases parciales~\cite{sanchez:2010} como mecanismo de soporte orientado a características.
+Concluyendo con el Patrón Slicer, tanto los métodos regulares como con los constructores pueden ser extendidos y reescritos usando dicho patrón y solucionando así las limitaciones ofrecidas por el uso de clases parciales~\cite{sanchez:2010} como mecanismo de soporte orientado a características. Utilizando todo lo expuesto en las secciones anteriores, en la siguiente sección se expone a grandes rasgos el funcionamiento de los generadores de código que serán empleados durante la fase de Ingeniería del Dominio del presente proyecto.
