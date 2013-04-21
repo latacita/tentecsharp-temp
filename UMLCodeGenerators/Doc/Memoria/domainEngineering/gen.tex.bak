@@ -1,0 +1,36 @@
+%%==================================================================%%
+%% Author : Abascal Fernández, Patricia                             %%
+%% Author : Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.1, 21/04/2013                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Capítulo Domain Engineering, Archivo raíz                        %%
+%%==================================================================%%
+
+El hogar inteligente posee una serie de dispositivos que se descomponen en sensores y actuadores. Los sensores son los encargados de obtener ciertos datos, como por ejemplo, los grados que hace en una habitación o la apertura que tiene una ventana. Los actuadores se encargan de ejecutar las ordenes, por ejemplo, de que una persiana se abra o se cierre o de que la calefacción se encienda a unos determinados grados.
+
+Tanto los sensores como los actuadores se encuentran conectados a un dispositivo central que los coordina, el cual se conoce como puerta de enlace o Gateway. Dicho Gateway se encarga de recibir los datos de los sensores, procesarlos y enviar las ordenes adecuadas a los actuadores. De igual modo, el Gateway recibe órdenes de los usuarios que son ejecutadas por los actuadores para modificar los elementos de la casa.
+
+Además el Gateway posee una lista de las plantas que tiene el hogar, a su vez cada planta contiene otra lista de las habitaciones que se encuentran en dicha planta, y un objeto tiempo que se encarga de simular el transcurso del tiempo en el sistema.
+
+En la figura \ref{domain:fig:defArq} se puede observar el diseño UML que representa todo lo dicho anteriormente, quedando reflejado como el Gateway es la pieza central del sistema.
+
+\begin{figure}[!tb]
+ \centering
+ \includegraphics[width=.45\linewidth]{domainEngineering/Images/definicionArq.eps} \\
+ \caption{Diseño UML que muestra la definición arquitectónica}
+ \label{domain:fig:defArq}
+\end{figure}
+
+Para que el usuario pueda monitorizar y controlar la situación de los elementos es necesario la creación de una interfaz gráfica que represente las funcionalidades propias del Gateway. De igual modo, es necesaria otra interfaz gráfica que juegue el papel de simulador, ya que la implementación presentada en este proyecto no está conectada a dispositivos reales, y por ello es necesario simular valores para los sensores, tales como la temperatura, y el tiempo del sistema. Ambas interfaces gráficas se conectarán al Gateway para poder comunicarse con todos los dispositivos.
+
+Debido a que el Gateway simplifica la comunicación entre los objetos del sistema siendo éste un objeto que gestiona la distribución de mensajes entre sensores, actuadores, e interfaces gráficas, se puede decir que sigue el patrón de diseño denominado \emph{mediador}\cite{gamma:1994} (\emph{Mediator pattern}, en inglés).
+
+En el diseño arquitectónico descrito anteriormente se observa que existen dependencias entre objetos de forma que cuando un objeto cambia de estado, todos sus objetos dependientes son notificados y actualizados. Tales dependencias son:
+\begin{enumerate}
+\item Las interfaces gráficas y el Gateway tienen que ser notificados y actualizados cada vez que un sensor cambie.
+\item Tanto el Gateway como las interfaces gráficas tienen que ser actualizados cuando el tiempo actual del sistema cambie.
+\end{enumerate}
+Claramente esto puede ser modelado siguiendo el patrón de diseño llamado \emph{observador}\cite{gamma:1994} (\emph{Observer pattern}, en inglés), es decir, por cada objeto que vaya a ser observado es necesario crear una lista donde se registrarán todos los observadores, de este modo cada vez que se produzca una modificación en el objeto observado, éste utilizará la lista para notificar a todos sus observadores que se ha producido un cambio.
+
+Con el diseño arquitectónico básico definido y teniendo en cuenta que el presente proyecto implementa una línea de productos software para hogares inteligentes, se debe encapsular cada una de las características ,para que posteriormente cada aplicación creada pueda ser compuesta de diferentes maneras. Por ello se hará uso de las clases parciales y la herencia para encapsular cada característica. Este proceso iterativo será descrito con mas detalle en las siguientes secciones.

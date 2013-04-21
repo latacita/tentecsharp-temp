@@ -1,0 +1,27 @@
+%%==================================================================%%
+%% Author : Abascal Fernández, Patricia                             %%
+%% Author : Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.1, 21/04/2013                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Capítulo Domain Engineering, Archivo raíz                        %%
+%%==================================================================%%
+
+\chapterheader{Ingeniería del Dominio}{Ingeniería del Dominio}
+\label{chap:domain}
+
+En este capítulo se describe la fase de \emph{Ingeniería del Dominio} (en inglés, \emph{Domain Engineering}) de nuestra línea de productos software. Dentro de dicha fase .....................
+
+\chaptertoc
+
+\section{Transformaciones de Modelo UML a C\#}
+\label{domain:sec:transf}
+
+%\input{domainEngineering/transformation.tex}
+
+\section{Generadores de Código C\#}
+\label{domain:sec:transf}
+
+\input{domainEngineering/gen.tex}
+
+\section{Sumario}
