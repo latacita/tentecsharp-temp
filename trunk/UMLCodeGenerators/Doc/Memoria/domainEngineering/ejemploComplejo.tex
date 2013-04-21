@@ -7,7 +7,7 @@
 %% Domain Engineering/Ejemplo de Generación de Código C#: Caso Complejo     %%
 %%==========================================================================%%
 Antes de comenzar a exponer los ejemplos más complejo, vamos a introducir aquellos conceptos que pasamos por algo en la sección \ref{domain:sec:transf} dada su complejidad: las relaciones bidireccionales y la herencia múltiple.
- 
+
  \paragraph{Relaciones Bidireccionales} \ \\
  \begin{figure}[!tb]
   \centering
@@ -21,7 +21,7 @@ Las relaciones bidireccionales son aquellas en las que ambas clases relacionadas
    \item Bidireccionales one to one, en las que cada clase recibe un elemento de la clase opuesta (figura \ref{dom:fig:bid}, Mujer-Marido).
    \item Bidireccionales one to many, en la que una de las clases recibe un elemento de la clase destino y la otra recibe una colección de elementos de la clase opuesta (figura \ref{dom:fig:bid}, Alumno-Curso).
    \item Bidireccionales many to many, en la que ambas clases reciben colecciones de la clase opuesta (figura \ref{dom:fig:bid}, Trabajadores-Proyectos).
- \end{itemize} 
+ \end{itemize}
 
 \paragraph{Herencia múltiple} \ \\
 
@@ -37,11 +37,11 @@ Las relaciones bidireccionales son aquellas en las que ambas clases relacionadas
   \includegraphics[width=.80\linewidth]{domainEngineering/images/herenciamultiple_implementada.eps} \\
   \caption{Tipos de relaciones bidireccionales}
   \label{dom:fig:hersol}
-\end{figure} 
+\end{figure}
 Los modelos UML admiten la herencia múltiple de clases, pero lenguajes como C\# no por lo que hay que transformar el modelo iniciar para adaptarlo y que funcione correctamente. Podemos encontrarnos con un conjunto de clases como el descrito en la figura \ref{dom:fig:her} donde se puede apreciar que la clase \imp{Profesor Universitario} presenta herencia múltiple de las clases \imp{Profesor} e \imp{Investigador}, por tanto debemos procesar la información de forma que funcione correctamente en C\#, las modificaciones que debemos realizar son:
 
 \begin{itemize}
-  \item Por cada una de las clases padre, \imp{Profesor} e \imp{Investigador}, se generan sendas interfaces \imp{Interfaz\_Profesor} e \imp{Interfaz\_Investigador}. 
+  \item Por cada una de las clases padre, \imp{Profesor} e \imp{Investigador}, se generan sendas interfaces \imp{Interfaz\_Profesor} e \imp{Interfaz\_Investigador}.
   \item Las clases padre solo contienen los métodos de la clase y heredan de sus respectivas interfaces.
   \item Las interfaces correspondientes a las clases padre tienen los métodos y las propiedades de la respectiva clase.
   \item La clase hija, \imp{Profesor Universitario}, hereda ahora de las interfaces \imp{Interfaz\_Profesor} e \imp{Interfaz\_Investigador} en lugar de heredar de las clases \imp{Profesor} e \imp{Investigador} como ocurría en el modelo inicial.

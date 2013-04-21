@@ -1,7 +1,7 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %%          Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.2, 17/04/2013                                         %%
+%% Version: 1.3, 21/04/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Background/Slicer Pattern                                        %%
@@ -26,12 +26,11 @@ Para generar un producto específico es necesario que, a nivel de Ingeniería de A
 
 Sin embargo este patrón no puede ser utilizado para los constructores de la clase ya que los constructores no se pueden renombrar porque deben tener un nombre específico. De esta forma, la instanciación del Patrón Slicer en los constructores se realiza de forma diferente a la instanciación del resto de métodos. De esta forma, cada clase parcial X correspondiente a una caracterísica F tendrá un método privado llamado $<$F$>$\_init\_$<$X$>$ que contendrá el fragmento de la lógica del constructor correspondiente a la característica F.
 
-La figura~\ref{back:code:constSlicerPattern} muestra cómo se aplica dicha técnica. Se puede apreciar cómo la lógica del constructor para \emph{Gateway} ha sido encapsulada en un método llamado  \imp{baseSystem\_initGateway} (figura~\ref{back:code:constSlicerPattern} líneas 03-06). La misma técnica ha sido usada en la figura~\ref{back:code:constSlicerPattern} líneas 10-12 con la característica \imp{WindowMng}. El siguiente paso es encontrar un mecanismo que permita componer dichos fragmentos de acuerdo a una selección de  características dada, de esta forma, como se puede apreciar en la figura~\ref{back:code:constSlicerPattern} líneas 16-20, el constructor para la clase Gateway es creado con las características seleccionadas por el usuario final, en el caso analizado, por ejemplo, solo se ha seleccionado la característica \imp{WindowMng}.
+El listing ~\ref{back:code:constSlicerPattern} muestra cómo se aplica dicha técnica. Se puede apreciar cómo la lógica del constructor para \emph{Gateway} ha sido encapsulada en un método llamado  \imp{baseSystem\_initGateway} (listing ~\ref{back:code:constSlicerPattern} líneas 03-06). La misma técnica ha sido usada en el listing ~\ref{back:code:constSlicerPattern} líneas 10-12 con la característica \imp{WindowMng}. El siguiente paso es encontrar un mecanismo que permita componer dichos fragmentos de acuerdo a una selección de  características dada, de esta forma, como se puede apreciar en el listing ~\ref{back:code:constSlicerPattern} líneas 16-20, el constructor para la clase Gateway es creado con las características seleccionadas por el usuario final, en el caso analizado, por ejemplo, solo se ha seleccionado la característica \imp{WindowMng}.
 
-\begin{figure}[tb!]
-\begin{center}
-\begin{footnotesize}
-\begin{verbatim}
+\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
+                    caption=Código para el constructor de la clase Gateway usando clases parciales y patrón slicer,
+                    label=back:code:constSlicerPattern]
 File BaseSystem/Gateway.cs
 --------------------------------------------------------
 01 public partial class Gateway {
@@ -61,11 +60,6 @@ File MyHouse/Gateway.cs
 19          windowMng_initGateway();
 20      }
 21 }
-\end{verbatim}
-\end{footnotesize}
-\end{center}
-\caption{Código para el constructor de la clase Gateway usando clases parciales y patrón slicer}
-\label{back:code:constSlicerPattern}
-\end{figure}
+\end{lstlisting} 
 
 Concluyendo con el Patrón Slicer, tanto los métodos regulares como con los constructores pueden ser extendidos y reescritos usando dicho patrón y solucionando así las limitaciones ofrecidas por el uso de clases parciales~\cite{sanchez:2010} como mecanismo de soporte orientado a características. Utilizando todo lo expuesto en las secciones anteriores, en la siguiente sección se expone a grandes rasgos el funcionamiento de los generadores de código que serán empleados durante la fase de Ingeniería del Dominio del presente proyecto.

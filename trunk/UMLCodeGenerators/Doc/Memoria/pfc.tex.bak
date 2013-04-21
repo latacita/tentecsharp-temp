@@ -73,8 +73,9 @@
 % \input{introduction/introduction.tex} % Chapter 1
 
 % Capítulo 2: Resumen del Estado del Arte
-\input{background/background.tex}
-
+%\input{background/background.tex}
+\lstdefinestyle{sharpc}{language=[Sharp]C, frame=lr, rulecolor=\color{blue!80!black}}
+ 
 % Capítulo 3: Domain Engineering
 \input{domainEngineering/domain.tex}
 
