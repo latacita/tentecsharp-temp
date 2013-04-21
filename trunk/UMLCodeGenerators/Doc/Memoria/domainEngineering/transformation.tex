@@ -75,53 +75,53 @@
 File PaqueteLleno/B.cs
 --------------------------------------------------------
 01 namespace Ejemplo{
-02 		partial class B: C{
-03			...
-04			private virtual void B_initB ( ) {}
-05			protected virtual PaqueteLleno_println ( ) {}
-06		}
+02     partial class B: C{
+03          ...
+04          private virtual void B_initB ( ) {}
+05          protected virtual PaqueteLleno_println ( ) {}
+06     }
 07 }
 
 File PaqueteLleno/A.cs
 --------------------------------------------------------
 08 namespace Ejemplo{
-09 		partial class A: C{
-10			private B elemB;
-11			public B elemB {
-12				get { return this.elemB; }
-13				set { this.elemB= value; }
-14			}
-15			...
-16			private virtual void A_initA ( ) {}
-17			private virtual ISet<B> PaqueteLleno_add (int a) { }
-18		}
+09     partial class A: C{
+10          private B elemB;
+11          public B elemB {
+12              get { return this.elemB; }
+13              set { this.elemB= value; }
+14          }
+15          ...
+16          private virtual void A_initA ( ) {}
+17          private virtual ISet<B> PaqueteLleno_add (int a) { }
+18     }
 19 }
 
 File PaqueteLleno/C.cs
 --------------------------------------------------------
 20 namespace Ejemplo{
-21 		partial class C: I{
-22			private int num;
-23			public int num {
-24				get { return this.num; }
-25				set { this.num= value; }
-26			}
-27			...
-28			private virtual void C_initC ( ) {}
-29		}
+21      partial class C: I{
+22          private int num;
+23          public int num {
+24              get { return this.num; }
+25              set { this.num= value; }
+26          }
+27          ...
+28          private virtual void C_initC ( ) {}
+29      }
 30 }
 
 File PaqueteLleno/I.cs
 --------------------------------------------------------
 31 namespace Ejemplo{
-32 		partial interface I{			
-33			public virtual override bool Equals (Object o);
-34			public virtual override int CompareTo (Object o);
-35			public virtual override int GetHashCode ( );
-36			public virtual override Type GetType ( );
-37			public virtual override string ToString( );
-38			private virtual void I_initI ( ) {}
-39		}
+32     partial interface I{			
+33          public virtual override bool Equals (Object o);
+34          public virtual override int CompareTo (Object o);
+35          public virtual override int GetHashCode ( );
+36          public virtual override Type GetType ( );
+37          public virtual override string ToString( );
+38          private virtual void I_initI ( ) {}
+39     }
 40 }
 \end{verbatim}
 \end{footnotesize}
