@@ -1,0 +1,147 @@
+%%==================================================================%%
+%% Author : Abascal Fernández, Patricia                             %%
+%% Author : Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.0, 20/04/2013                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Domain Engineering/Transformación UML a C#                       %%
+%%==================================================================%%
+
+
+
+\begin{table}%
+\begin{tabularx}{15cm}{|l|X|}
+\hline
+{\bf Elemento en UML} & {\bf Elemento en C\#} \\
+\hline
+   % Modelo
+\multicolumn{ 1}{|l|}{Modelo} &
+   Namespace del proyecto. Los namespaces permiten agrupar entidades tales como paquetes, clases, objetos y funciones bajo el mismo nombre. De esta forma, se pueden tener varios namespaces en el mismo proyecto que son independientes entre sí. \\
+\hline
+   % Paquete
+\multicolumn{ 1}{|l|}{Paquete  } &
+    Directorio con el mismo nombre que dicho paquete en el modelo, y contendrá tantos ficheros como clases o interfaces contenga. \\
+\multicolumn{ 1}{|l|}{} &
+    Directorio vacío con el mismo nombre que dicho paquete en el modelo por cada paquete vacío que haya en el modelo UML.   \\
+\hline
+   % Atributo
+\multicolumn{ 1}{|l|}{Atributo} &
+    Cada atributo será tratado como una propiedad de C\# con los correspondientes métodos getter y setter.  \\
+\multicolumn{ 1}{|l|}{} &
+    Si el atributo tiene visibilidad \emph{protected} o es \emph{static} no poseerá los métodos getter y setter. \\
+\hline
+   % Parámetro
+\multicolumn{ 1}{|l|}{Parámetro} &
+    Identificar si es de retorno de una operación o de entrada a la misma y aplicar el tipo de dato correspondiente.\\
+\hline
+    % Clase
+\multicolumn{ 1}{|l|}{Clase} &
+    Clase parcial C\# siguiendo el patrón slicer, es decir $<$nombre del paquete al que pertenece$>$\_$<$nombre de la clase$>$. Al crear la clase, añadir también los métodos de utilidad. \\
+\hline
+   % Interfaz
+\multicolumn{ 1}{|l|}{Interfaz} &
+   Interfaz C\#  implementada siguiendo el patrón slicer. \\
+\hline
+   % Operacion
+\multicolumn{ 1}{|l|}{Operación} &
+    Método C\# privado y renombrado siguiendo el patrón slicer de la forma $<$nombre del paquete al que pertenece$>$\_$<$nombre de la operación$>$, para evitar posibles conflictos, todos los métodos serán virtuales.\\
+\multicolumn{ 1}{|l|}{} &
+    Los métodos \emph{protected} no se cambiarán a privados para respetar la visibilidad requerida inicialmente por el usuario.  \\
+\hline
+   % Constructor
+\multicolumn{ 1}{|l|}{Constructor} &
+    Cada clase parcial correspondiente a una característica tendrá un método privado llamado $<$nombre del paquete al que pertenece$>$\_init$<$nombre de la clase$>$ que contendrá la porción de constructor que corresponde a la característica. \\
+\hline
+   % Asociación entre clases
+\multicolumn{ 1}{|l|}{Asociación} &
+    \emph{Asociación simple:} Se añade el atributo, o colección, de tipo Class a la clase destino.\\
+\multicolumn{ 1}{|l|}{} &
+    \emph{Asociación bidireccional:} Dependiendo del tipo de bidireccionalidad (one to one, one to many o many to many) se añaden los atributos y métodos adicionales necesarios para implementar el correcto funcionamiento de dicha asociación.  \\
+\hline
+   % Generalización
+\multicolumn{ 1}{|l|}{Generalización} &
+    \emph{Herencia simple:} Una clase hereda de otra clase.\\
+\multicolumn{ 1}{|l|}{} &
+    \emph{Herencia múltiple:} Una clase hereda de varias clases y se debe realizar la transformación correspondiente mediante la creación de interfaces ya que en C\# no se permite la herencia múltiple de varias clases pero sí de varias interfaces.   \\
+\hline
+\end{tabularx}
+  \caption{Transformación de elementos del modelo UML a código C\#}
+  \label{dom:fig:tranf}
+\end{table}%
+
+ \begin{figure}[!tb]
+  \centering
+  \includegraphics[width=.95\linewidth]{domainEngineering/images/Transformaciones.eps} \\
+  \caption{Ejemplo de Modelo UML simplificado}
+  \label{dom:fig:ejemplo}
+\end{figure}
+
+ El primer paso para la transformación de modelo a código (\emph{model-to-text}, M2T) es la identificación de los distintos elementos que nos podemos encontrar en un diagrama de clases UML y hallar el equivalente en código (C\# en nuestro caso). Hay que tener en cuenta que la transformación no es trivial y es necesario procesar la información obtenida del modelo para generar el código adecuadamente. En la tabla \ref{dom:fig:tranf} se encuentra un resumen de dicho proceso. A continuación se procede al análisis más detallado de cada uno de los elementos de dicha tabla, para ello nos apoyaremos en la Figura\ref{dom:fig:ejemplo}.
+
+El modelo de la Figura\ref{dom:fig:ejemplo} es \imp{Ejemplo} y por tanto cada clase del proyecto debería comenzar definiendo el namespace del modelo en cuestión mediante la línea de código C\#: \imp{namespace Ejemplo\{}.
+
+En la Figura\ref{dom:fig:ejemplo} hay dos paquetes \imp{PaqueteLleno} y \imp{PaqueteVacío}, por tanto, en el directorio destino donde se generan los ficheros del modelo deberán aparecer dos carpetas con dichos nombres. La carpeta \imp{PaqueteLleno} contendrá en su interior 4 ficheros denominados A.cs, B.cs, C.cs e I.cs, uno por cada clase o interfaz que se encuentra en su interior, mientras que la carpeta \imp{PaqueteVacío} no contendrá ningún archivo en su interior.
+
+Tal como se aprecia en la Figura\ref{dom:fig:ejemplo}, la clase A del paquete PaqueteLleno, tiene un atributo llamado \imp{num}, tal como indica la tabla \ref{dom:fig:tranf} la transformación consiste en generar una propiedad con sus respectivos métodos getter y setter. De tal forma, el código generado sería el mostrado en la Figura\ref{back:code:prop}.
+
+\begin{figure}[tb!]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+01 private int num;
+02 public int Num {
+03      get { return this.num; }
+04      set { this.num= value; }
+05 }
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Código generado para el atributo \imp{num} de la clase \imp{B} de la Figura{dom:fig:ejemplo}}
+\label{back:code:prop}
+\end{figure}
+
+\begin{figure}[tb!]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+01 private ISet<B> PaqueteLleno_add (int a) {}
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Código generado para la operación \imp{add} de la clase \imp{A} de la Figura{dom:fig:ejemplo}}
+\label{back:code:oper}
+\end{figure}
+
+La Figura\ref{dom:fig:ejemplo} presenta la clase \imp A con una operación \imp{add} que tiene un atributo \imp{a: int} y que retorna una colección de elementos de tipo \imp B. Con este ejemplo quedan ilustrados los puntos de operación y parámetro descritos en la tabla\ref{dom:fig:tranf}, el resultado de dichas transformaciones aparece en la Figura\ref{back:code:oper}.
+
+\begin{figure}[tb!]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+File PaqueteLleno/B.cs
+--------------------------------------------------------
+01 ...
+02 partial class B: C{
+
+File PaqueteLleno/A.cs
+--------------------------------------------------------
+01 ...
+02 partial class A: C{
+
+File PaqueteLleno/C.cs
+--------------------------------------------------------
+01 ...
+02 partial class C: I{
+
+File PaqueteLleno/C.cs
+--------------------------------------------------------
+01 ...
+02 partial interface I{
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Código generado para la operación \imp{add} de la clase \imp{A} de la Figura{dom:fig:ejemplo}}
+\label{back:code:classes}
+\end{figure}
+
+Para la generación de clases e interfaces de la Figura\ref{dom:fig:ejemplo}, el resultado sería el mostrado en la Figura\ref{back:code:classes}. Se aprecia también las herencias correspondientes.
