@@ -26,7 +26,7 @@ EGL es un generador de código basado en plantillas; es decir, que la parte progr
 \begin{footnotesize}
 \begin{verbatim}
 1 [% for (c in Class.all) { %]
-2 El modelo contiene la clase: [%=c.name%]
+2     El modelo contiene la clase: [%=c.name%]
 3 [% } %]
 \end{verbatim}
 \end{footnotesize}
@@ -58,7 +58,7 @@ EGL es un generador de código basado en plantillas; es decir, que la parte progr
 1 [%=c.declaration()%]
 2 [% @template
 3 operation Class declaration() { %]
-4 [%=self.visibility] class [%=self.name%] {}
+4     [%=self.visibility] class [%=self.name%] {}
 5 [% } %]
 \end{verbatim}
 \end{footnotesize}
