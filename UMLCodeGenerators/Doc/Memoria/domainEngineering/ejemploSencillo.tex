@@ -1,15 +1,15 @@
 %%==========================================================================%%
 %% Author : Abascal Fernández, Patricia                                     %%
 %% Author : Sánchez Barreiro, Pablo                                         %%
-%% Version: 1.1, 21/04/2013                                                 %%
+%% Version: 1.2, 21/04/2013                                                 %%
 %%                                                                          %%
 %% Memoria del Proyecto Fin de Carrera                                      %%
 %% Domain Engineering/Ejemplo de Generación de Código C#: Caso Sencillo     %%
 %%==========================================================================%%
-\begin{figure}[tb!]
-\begin{center}
-\begin{footnotesize}
-\begin{verbatim}
+ 
+\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
+                    caption=Implementación del generador de código \imp{MethodsCreation},  
+                    label=dom:code:method]
 01 [%import "ReturnParameterCreation.egl";
 02 import "ParametersCreation.egl";
 03 import "../Operations.eol";
@@ -44,9 +44,9 @@
 31          methodname="method_"+iter;
 32      }else{
 33          methodname=oper.name;
-34		}
-35      opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()+virtual()
-              +void()+currentPackage+"_"+methodname
+34      }
+35      opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()
+              +virtual()+void()+currentPackage+"_"+methodname
               +" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
 36      // Increase the iterator
 37      iter=iter+1;
@@ -57,22 +57,19 @@
 42      }else{
 43          methodname=oper.name;
 44      }
-45      opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()+virtual()
-             +oper.returnParameter(currentPackage, path)+" "+currentPackage+"_"+methodname
-             +" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
+45      opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()
+             +virtual()+oper.returnParameter(currentPackage, path)
+             +" "+currentPackage+"_"+methodname
+             +" ("+oper.parameters(currentPackage, path)
+             +") {}\n\t\t";
 46      // Increase the iterator
 47      iter=iter+1;
 48  }
 49  return opers;
-50 }%]
-\end{verbatim}
-\end{footnotesize}
-\end{center}
-\caption{Implementación del generador de código \imp{MethodsCreation}}
-\label{dom:code:method}
-\end{figure}
+50 }%]  
+\end{lstlisting} 
 
-Para introducir al lector en la implementación de los generadores de código, vamos a analizar en detalle uno de los generadores de código más sencillos: \imp{MethodsCreation}, el fichero fuente aparece en la figura \ref{dom:code:method}. Vamos a proceder al análisis detallado del mismo:
+Para introducir al lector en la implementación de los generadores de código, vamos a analizar en detalle uno de los generadores de código más sencillos: \imp{MethodsCreation}, el fichero fuente aparece en el listing \ref{dom:code:method}. Vamos a proceder al análisis detallado del mismo:
 \begin{itemize}
   \item Líneas 1-3, generadores de código que utiliza y fichero \imp{Operations.eol} que contiene las funciones básicas comunes a los generadores de código.
   \item Línea 4, descripción de la función que retornará el texto generado.
