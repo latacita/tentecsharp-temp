@@ -35,4 +35,9 @@ En este capítulo se describe la fase de \emph{Ingeniería del Dominio} (en inglés
 
 \input{domainEngineering/ejemploComplejo.tex}
 
+\section{Pruebas con EUnit}
+\label{domain:sec:pruebas}
+
+\input{domainEngineering/pruebas.tex}
+
 \section{Sumario}

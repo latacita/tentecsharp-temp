@@ -23,6 +23,37 @@ Las relaciones bidireccionales son aquellas en las que ambas clases relacionadas
    \item Bidireccionales many to many, en la que ambas clases reciben colecciones de la clase opuesta (figura \ref{dom:fig:bid}, Trabajadores-Proyectos).
  \end{itemize}
 
+ Llegados a este punto, basándonos en los ejemplos de la figura \ref{dom:fig:bid} nos surgen algunas preguntas:
+ \begin{enumerate}
+   \item ¿Si una mujer A tiene un esposo B y ese esposo B tiene una mujer que no sea A?
+   \item ¿Si un alumno tiene asignado un curso pero ese curso no tiene a dicho alumno en su lista de alumnado?
+   \item ¿Si un trabajador tiene asignado un proyecto pero en el listado de trabajadores dicho trabajador no aparece?
+ \end{enumerate}
+¿Existe alguna forma de poner solución a estos problemas?, la respuesta es \"sí\", a la hora de tratar este tipo de relaciones bidireccionales en los generadores de código correspondientes no basta con generar las propiedades tal como hemos estado haciendo hasta ahora sino que debemos implementar las propiedades a generar de una forma cuidadosa y exhaustiva para que no se produzcan este tipo de incoherencias, incluso recurriendo a la creación de métodos adicionales. Veamos a grandes rasgos cómo sería la implementación de la relación bidireccional one to one:
+\begin{table}%
+\begin{tabularx}{15cm}{|l|X|X|}
+ \hline
+{}&{\textbf{Mujer soltera}}&{\textbf{Mujer casada}} \\ \hline
+\multirow{3}{*}{\textbf{Hombre soltero}} &
+                Se casan el hombre soltero y la mujer soltera.
+                & La mujer casada se divorcia. \\
+&  & El antiguo marido de la mujer divorciada queda soltero. \\
+&  & La mujer divorciada y el hombre soltero se casan. \\ \hline
+\multirow{6}{*}{\textbf{Hombre casado}} & El hombre casado se divorcia. & El hombre casado se divorcia. \\
+& La antigua mujer del marido divorciado queda soltera. & La antigua mujer del marido divorciado queda soltera. \\
+& Se casan la mujer soltera y el hombre divorciado. & La mujer casada se divorcia. \\
+&  & El antiguo marido de la mujer divorciada queda soltero. \\
+&  & Se casan la mujer divorciada y el hombre divorciado. \\ \hline
+\end{tabularx}
+\end{table}%
+
+\begin{tabulary}{10cm}{|L|C|R|J|}
+\hline
+Ejemplo de celda alineada a izquierda& Ejemplo de celda con texto
+centrado & Ejemplo de celda alineada a derecha & Ejemplo de celda
+contexto justificado\\
+\hline
+\end{tabulary}
 \paragraph{Herencia múltiple} \ \\
 
 \begin{figure}[!tb]
@@ -38,26 +69,13 @@ Las relaciones bidireccionales son aquellas en las que ambas clases relacionadas
   \caption{Tipos de relaciones bidireccionales}
   \label{dom:fig:hersol}
 \end{figure}
-Los modelos UML admiten la herencia múltiple de clases, pero lenguajes como C\# no por lo que hay que transformar el modelo iniciar para adaptarlo y que funcione correctamente. Podemos encontrarnos con un conjunto de clases como el descrito en la figura \ref{dom:fig:her} donde se puede apreciar que la clase \imp{Profesor Universitario} presenta herencia múltiple de las clases \imp{Profesor} e \imp{Investigador}, por tanto debemos procesar la información de forma que funcione correctamente en C\#, las modificaciones que debemos realizar son:
+Los modelos UML admiten la herencia múltiple de clases pero lenguajes como C\# no, por lo que hay que transformar el modelo inicial y adaptarlo para funcione correctamente. Podemos encontrarnos con un conjunto de clases como el descrito en la figura \ref{dom:fig:her} donde se puede apreciar que la clase \imp{Profesor Universitario} presenta herencia múltiple de las clases \imp{Profesor} e \imp{Investigador}, por tanto, debemos procesar la información de forma que el código generado funcione de la forma esperada en C\#, las modificaciones que debemos realizar son:
 
 \begin{itemize}
   \item Por cada una de las clases padre, \imp{Profesor} e \imp{Investigador}, se generan sendas interfaces \imp{Interfaz\_Profesor} e \imp{Interfaz\_Investigador}.
   \item Las clases padre solo contienen los métodos de la clase y heredan de sus respectivas interfaces.
   \item Las interfaces correspondientes a las clases padre tienen los métodos y las propiedades de la respectiva clase.
   \item La clase hija, \imp{Profesor Universitario}, hereda ahora de las interfaces \imp{Interfaz\_Profesor} e \imp{Interfaz\_Investigador} en lugar de heredar de las clases \imp{Profesor} e \imp{Investigador} como ocurría en el modelo inicial.
-  \item La clase hija incorpora, además de sus propiedades y métodos, colecciones para acceder a las clases \imp{Profesor} e \imp{Investigador}.
+  \item La clase hija incorpora, además de sus propiedades y métodos, posee tantas colecciones como clases padre tenga, en el ejemplo \imp{profesores} e \imp{investigadores}.
 \end{itemize}
 
-
-
-
-
-
-\lstdefinestyle{sharpc}{language=[Sharp]C, frame=lr, rulecolor=\color{blue!80!black}}
-
-\begin{document}
-
-\lstset{style=sharpc}
-\begin{lstlisting}
-Your c# code here
-\end{lstlisting}
