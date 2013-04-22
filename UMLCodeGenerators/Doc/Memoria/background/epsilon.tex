@@ -6,28 +6,30 @@
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Background/Generación de Código con Epsilon                      %%
 %===================================================================%%
-Epsilon~\cite{kolovos:2008} es una plataforma para la construcción de lenguajes consistentes e interoperables para las tareas de gestión de modelado tales como transformación de modelos, generación de código, comparación de modelos, técnicas merge, refactorización y validación. El presente proyecto se ha centrado en la generación de código y por tanto en los lenguajes \emph{Epsilon Generation Language} (EGL) y \emph{Epsilon Object Language}(EOL) proporcionados por Epsilon, que se analizan con más detalle a continuación.
+Epsilon~\cite{kolovos:2008} es una plataforma para la construcción de lenguajes consistentes e interoperables para las tareas de gestión de modelado tales como transformación de modelos, generación de código, comparación de modelos, técnicas merge, refactorización y validación. El presente proyecto se ha centrado en la generación de código y por tanto en los lenguajes \emph{Epsilon Generation Language} (EGL) y \emph{Epsilon Object Language} (EOL) proporcionados por Epsilon, que se analizan con más detalle a continuación.
 
 \paragraph{Epsilon Generation Language(EGL)} \ \\
 
 EGL es un \emph{plug-in} para Eclipse que proporciona un lenguaje apropiado para las transformaciones modelo a texto (\emph{model-to-text-transformation}, abreviado M2T). EGL puede ser usado para transformar modelos en varios tipos de artefactos de carácter textual, incluyendo códigos ejecutables (por ejemplo Java), informes (por ejemplo en HTML), imágenes (por ejemplo usando DOT), especificaciones formales (por ejemplo el lenguaje Z), o incluso aplicaciones completas generadas con múltiples lenguajes (por ejemplo HTML, Javascript y CSS).
 
-EGL es un generador de código basado en plantillas; es decir, que la parte programada se asemeja al contenido que se va a generar, proporcionan además diversas características que simplicifan y dan soporte a la generación de texto desde modelos. La figura~\ref{back:fig:epsilonEGL} muestra un ejemplo sencillo del modelo de entrada para un programa EGL, donde se pueden observar tres clases: Persona, Alumno y Profesor. Supongamos que se quiere obtener el nombre de las clases, para ello se debería generar un código similar al del listing ~\ref{back:code:generacionClases} donde aparece un bucle (líneas 1-3) que recorre todas las clases contenidas en el modelo de entrada y en cada una de ellas (línea 2) se genera el texto \emph{El modelo contiene la clase: $<$nombre de la clase$>$}. De esta forma el resultado para el ejemplo de la figura~\ref{back:fig:epsilonEGL}, después de haber sido tratado mediante EGL tal como muestra el listing ~\ref{back:code:generacionClases}, queda expuesto en el listing ~\ref{back:code:resultadogeneracionClases}.
+EGL es un generador de código basado en plantillas; es decir, que la parte programada se asemeja al contenido que se va a generar, proporcionan además diversas características que simplicifan y dan soporte a la generación de texto desde modelos. La figura~\ref{back:fig:epsilonEGL} muestra un ejemplo sencillo del modelo de entrada para un programa EGL, donde se pueden observar tres clases: Persona, Alumno y Profesor. Supongamos que se quiere obtener el nombre de las clases, para ello se debería generar un código similar al del listing ~\ref{back:code:generacionClases} donde aparece un bucle (líneas 1-3) que recorre todas las clases contenidas en el modelo de entrada y en cada una de ellas (línea 2) se genera el texto \emph{El modelo contiene la clase: $<$nombre de la clase$>$}. De esta forma el resultado para el ejemplo de la figura~\ref{back:fig:epsilonEGL}, después de haber sido tratado mediante EGL tal como muestra el listing~\ref{back:code:generacionClases}, queda expuesto en el listing~\ref{back:code:resultadogeneracionClases}.
 
 \begin{figure}[!tb]
   \centering
-	\includegraphics[width=.70\linewidth]{background/images/epsilonEGL} \\
+	\includegraphics[width=.40\linewidth]{background/images/epsilonEGL.eps} \\
   \caption{Ejemplo de modelo de entrada para generación de código con EGL}
   \label{back:fig:epsilonEGL}
 \end{figure}
 
+
 \begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
                     caption=Generación del nombre de cada Class contenida en un modelo de entrada,
                     label=back:code:generacionClases]
+
 1 [% for (c in Class.all) { %]
 2     El modelo contiene la clase: [%=c.name%]
 3 [% } %]
-\end{lstlisting} 
+\end{lstlisting}
 
 \begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
                     caption=Resultado de la generación del nombre de cada Class contenida en un modelo de entrada,
@@ -35,19 +37,20 @@ EGL es un generador de código basado en plantillas; es decir, que la parte progr
 1 El modelo contiene la clase: Persona
 2 El modelo contiene la clase: Alumno
 3 El modelo contiene la clase: Profesor
-\end{lstlisting} 
+\end{lstlisting}
 
  EGL no solo nos permite generar estos sencillos ejemplos, es una herramienta mucho más potente que permite la generación de funciones creadas específicamente por el usuario para facilitar la obtención de datos de los modelos de entrada. Tal como se aprecia en el listing ~\ref{back:code:generacionOperacion} se puede programar una operación que implemente la cabecera de una clase Java y de esta forma invocar dicha función tantas veces como sea necesario en aquellos programas EGL que lo necesiten. En el listing ~\ref{back:code:generacionOperacion} (línea 4) la operación \emph{visibility} indica la visibilidad de \emph{self} siendo en este caso la visibilidad de la clase tal como muestra la línea 3. Mientras que la operación \emph{name}, al igual que en el listing ~\ref{back:code:generacionClases}, se refiere al nombre del elemento actual, en este caso el nombre de la clase.
 
 \begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
                     caption=Uso de una operación que especifica el texto generado para una declaración de una clase Java,
                     label=back:code:generacionOperacion]
+
 1 [%=c.declaration()%]
 2 [% @template
 3 operation Class declaration() { %]
 4     [%=self.visibility] class [%=self.name%] {}
 5 [% } %]
-\end{lstlisting} 
+\end{lstlisting}
 
 El tipo Template proporciona tres utilidades básicas al usuario:
 
@@ -74,6 +77,7 @@ El principal objetivo de EOL es proporcionar un conjunto rehusable operaciones q
 \begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
                     caption=Ejemplo de operación EOL,
                     label=back:code:eol]
+
 1 1.add1().add2().println();
 2
 3 operation Integer add1() : Integer {
@@ -83,6 +87,6 @@ El principal objetivo de EOL es proporcionar un conjunto rehusable operaciones q
 7 operation Integer add2() : Integer {
 8   return self + 2;
 9 }
-\end{lstlisting} 
+\end{lstlisting}
 
 De esta forma, EOL permite encapsular aquellas operaciones EGL que se vayan a utilizar a lo largo de las respectivas plantillas para evitar la repetición innecesaria de código.
