@@ -1,0 +1,98 @@
+%%==========================================================================%%
+%% Author : Abascal Fernández, Patricia                                     %%
+%% Author : Sánchez Barreiro, Pablo                                         %%
+%% Version: 1.2, 22/04/2013                                                 %%
+%%                                                                          %%
+%% Memoria del Proyecto Fin de Carrera                                      %%
+%% Domain Engineering/Pruebas con EUnit                                     %%
+%%==========================================================================%%
+EUnit es un sistema de pruebas \cite{kolovos:2008} unitarias que proporciona assertions para la comparación de modelos, archivos y directorios. Un assertion es un predicado, verdadero o falso, colocado en un programa para indicar que el desarrollador cree que el predicado es siempre cierto en ese lugar. Las pruebas pueden reutilizarse con diferentes conjuntos de modelos y datos de entrada, y las diferencias entre los modelos esperados y los reales pueden ser visualizadas gráficamente.
+
+Al comenzar la fase de pruebas me encontré con el problema inicial de que EUnit no tenía implementada la comparación de fragmentos de texto en los ficheros generados que era precisamente la manera de comprobar que los generadores de código funcionaban correctamente. De tal forma procedí a realizar una petición en el foro de la plataforma e incorporaron una nueva assertion denominada \imp{assertLineWithMatch} que permitía comprobar si un fichero disponía de un determinado fragmento de texto o no (líneas 1-4 del listing \ref{dom:code:eunit}). También era necesario comprobar que los ficheros y directorios se creaban correctamente por lo que la assertion \imp{assertEqualDirectories} es válida para tal fin (líneas 6-9 del listing \ref{dom:code:eunit}). Y por último, se debe comprobar que las plantillas lanzan las excepciones oportunas para los casos no válidos, mediante la combinación de las instrucciones \imp{assertError} y \imp{runTarget}, se puede comprobar si el fichero deseado lanza o no una excepción (líneas 11-16 del listing \ref{dom:code:eunit}). Con estas assertions se procede a realizar todos los casos de prueba descritos en la tabla \ref{dom:table:bid} con resultados satisfactorios.
+
+\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
+                    caption=Pruebas de los generadores de código con EUnit,
+                    label=dom:code:eunit]
+01 @test
+02 operation classWithNameAndWithoutType() {
+03    assertLineWithMatch(path+"Data\\src\\BasicGraph\\Edge.cs", "partial class Edge");
+04 } 
+05 ...
+06 @test
+07 operation emptyPackage() {
+08    assertEqualDirectories(path+"Data\\src\\PruebasBidireccionalidad\\PaqueteVacio",
+                          path+"\\Data\\src\\PruebasBidireccionalidad\\PaqueteVacio");
+09 }
+10 ...
+11 @test
+12 operation thowsExceptions() {
+13    ...
+14    assertError(runTarget(pathTemplates+'\\Templates\\ParametersCreation.egl'));
+15    ...
+16 }
+\end{lstlisting}
+
+
+\begin{table}%
+\begin{tabularx}{17cm}{|l|X|l|}
+ \hline
+{}&{Casos válidos}&{Casos no válidos} \\ \hline
+\multirow{12}{*}{Clase} & Clase con nombre. & Clase fuera de un paquete. \\
+& Clase tipo abstract. & Clase sin nombre.\\
+& Clase sin tipo. & Clase enumerada.\\
+& Clase que hereda de una o varias clases. &\\
+& Clase que hereda de una o varias interfaces. &\\
+& Clase que hereda de clases e interfaces. &\\
+& Clase sin propiedades. &\\
+& Clase sin métodos. &\\
+& Clase sin propiedades ni métodos. &\\
+& Clase con propiedades. &\\
+& Clase con métodos. &\\
+& Clase con propiedades y métodos. &\\
+\hline
+\multirow{4}{*}{Paquete} & Paquete con nombre. & Paquete sin nombre. \\
+& Paquete con clases e interfaces en su interior. & \\
+& Paquete vacío. & \\
+& Paquete dentro de otro paquete (recursividad). & \\
+\hline
+\multirow{3}{*}{Interfaz} & Interfaz con nombre. & Interfaz sin nombre. \\
+& Interfaz sin métodos. & Interfaz fuera de paquete.\\
+& Interfaz con métodos. & \\
+\hline
+\multirow{10}{*}{Propiedad} & Propiedad con nombre. & Propiedad sin tipo. \\
+& Propiedad sin nombre (se debe poner uno por defecto). & Asociaciones sin multiplicidad.\\
+& Propiedad estática (no lleva métodos getter ni setter). & \\
+& Propiedad protected (no lleva métodos getter ni setter). & \\
+& Propiedad no estática (lleva métodos getter ni setter). & \\
+& Propiedad es una colección. & \\
+& Propiedad es una asociación simple. & \\
+& Propiedad es una asociación bidireccional one to one. & \\
+& Propiedad es una asociación bidireccional one to many. & \\
+& Propiedad es una asociación bidireccional many to many. & \\
+\hline
+\multirow{14}{*}{Método} & Método con nombre. & \\
+& Método sin nombre (se debe poner uno por defecto). &  \\
+& Método sin tipo (se debe poner void por defecto). &  \\
+& Método sin tipo (se debe poner void por defecto) y sin parámetros. & \\
+& Método sin tipo (se debe poner void por defecto) y con parámetros. &  \\
+& Método void sin parámetros. &  \\
+& Método void con parámetros. &  \\
+& Método retorna tipo primitivo sin parámetros. &  \\
+& Método retorna tipo primitivo con parámetros. &  \\
+& Método retorna colección sin parámetros. &  \\
+& Método retorna colección con parámetros. &  \\
+& Método estático. &  \\
+& Método abstracto. &  \\
+& Método protected. &  \\
+\hline
+\multirow{3}{*}{Parámetros de método} & Parámetro con nombre. & Parámetro sin tipo. \\
+& Parámetro sin nombre (se debe poner uno por defecto). & \\
+& Parámetro con tipo. & \\
+\hline
+\multirow{2}{*}{Herencia} & Herencia simple. &   \\
+& Herencia múltiple (se debe implementar interfaces y clases adicionales, si fuera necesario). & \\
+\hline
+\end{tabularx}
+\caption{Solución para evitar incoherencias en el código C\# en la bidireccionalidad one to one}
+\label{dom:table:bid}
+\end{table}% 
