@@ -9,7 +9,7 @@
 Tras explicar a grandes rasgos las transformaciones de modelo a código en la sección \ref{domain:sec:transf}, se procede a comentar la implementación de los generadores de código correspondientes. La figura \ref{dom:fig:templates} muestra la jerarquía de los generadores de código implementados.
 \begin{figure}[!tb]
   \center
-  \includegraphics[scale=.75, angle=90]{domainEngineering/images/Templates.eps} \\
+  \includegraphics[scale=.75]{domainEngineering/images/Templates.eps} \\
   \caption{Jerarquía de los generadores de código implementados}
   \label{dom:fig:templates}
 \end{figure}
@@ -83,15 +83,15 @@ El punto de partida es el generador de código llamado \imp{ProjectCreation}, a p
  \end{itemize}
 
 Para utilizar los Java Tools en los generadores de código es necesario implementar funciones EOL para cada una de las funciones descritas ellos. La figura \ref{dom:code:writeinfile} muestra un ejemplo de cómo se realiza dicho proceso, en las líneas 1-4 se describe la creación de la función a utilizar en los generadores de código, en la línea 5 se importa dicho fichero EOL para hacer uso de las funciones implementadas en el generador \imp{ProjectCreation}, mientras que la línea 7 muestra la forma de uso de la función \imp{writeInFile}.
-\begin{figure}[tb]
+\begin{figure}[tb!]
 \begin{center}
 \begin{footnotesize}
 \begin{verbatim}
 File Operations.eol
 --------------------------------------------------------
 01 operation writeInFile(path:String, message:String) {
-02	var sampleTool = new Native("pluginWriteInFile.WriteInFile");
-03	sampleTool.writeInFile(path, message);	
+02     var sampleTool = new Native("pluginWriteInFile.WriteInFile");
+03     sampleTool.writeInFile(path, message);	
 04}
 
 File ProjectCreation.egl
