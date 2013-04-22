@@ -46,4 +46,4 @@ Este capítulo trata de describir a grandes rasgos las técnicas, tecnologías y he
 \section{Sumario}
 \label{sec:back:sumario}
 
-%\input{background/sumario.tex}
+\input{background/sumario.tex}
