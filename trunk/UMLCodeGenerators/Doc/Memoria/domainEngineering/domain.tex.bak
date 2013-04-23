@@ -16,28 +16,23 @@ En este capítulo se describe la fase de \emph{Ingeniería del Dominio} (en inglés
 
 \section{Transformaciones de Modelo UML a C\#}
 \label{domain:sec:transf}
-
-%\input{domainEngineering/transformation.tex}
+\input{domainEngineering/transformation.tex}
 
 \section{Generadores de Código C\#}
 \label{domain:sec:transf}
-
-%\input{domainEngineering/gen.tex}
+\input{domainEngineering/gen.tex}
 
 
 \section{Ejemplo de Generación de Código C\#: Caso Sencillo}
 \label{domain:sec:ejsencillo}
-
-%\input{domainEngineering/ejemploSencillo.tex}
+\input{domainEngineering/ejemploSencillo.tex}
 
 \section{Ejemplo de Generación de Código C\#: Caso Complejo}
 \label{domain:sec:ejcomplejo}
-
 \input{domainEngineering/ejemploComplejo.tex}
 
 \section{Pruebas con EUnit}
 \label{domain:sec:pruebas}
-
 \input{domainEngineering/pruebas.tex}
 
 \section{Sumario}

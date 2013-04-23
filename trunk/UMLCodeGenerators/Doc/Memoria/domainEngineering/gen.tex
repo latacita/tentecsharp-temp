@@ -1,12 +1,12 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %% Author : Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.1, 21/04/2013                                         %%
+%% Version: 1.2, 23/04/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Domain Engineering/Generadores de Código C#                      %%
 %%==================================================================%%
-Tras explicar a grandes rasgos las transformaciones de modelo a código en la sección \ref{domain:sec:transf}, se procede a comentar la implementación de los generadores de código correspondientes. La figura \ref{dom:fig:templates} muestra la jerarquía de los generadores de código implementados. 
+Tras explicar a grandes rasgos las transformaciones de modelo a código en la sección \ref{domain:sec:transf}, se procede a comentar la implementación de los generadores de código correspondientes. La figura \ref{dom:fig:templates} muestra la jerarquía de los generadores de código implementados.
 
 \begin{figure}[!tb]
   \center
@@ -35,21 +35,21 @@ El punto de partida es el generador de código llamado \imp{ProjectCreation}, a p
    \item Una vez generados todos los elementos de la clase, se genera el fichero fuente correspondiente.
  \end{enumerate}
 
- Después de haber generado todos los paquetes, clases e interfaces del proyecto se deben generar los ficheros necesarios para que dicho proyecto pueda ser abierto con el programa Visual Studio sin problemas. Para ello es necesario generar una serie de ficheros específicos de dicha plataforma, dichos ficheros se describen a continuación:
+ Después de haber generado todos los paquetes, clases e interfaces del proyecto se deben generar los ficheros necesarios para que dicho proyecto pueda ser abierto con el programa Visual Studio sin problemas. Para ello es necesario generar una serie de ficheros específicos de dicha plataforma, los ficheros se describen a continuación:
  \begin{itemize}
    \item SlnFileCreation, genera el fichero .sln que contiene información del entorno del sistema.
    \item CsprojectFilesCreation, genera el fichero .csproj correspondiente para incluir los directorios creados en el proyecto Visual Studio.
    \item AssemblyInfoFileCreation, genera el fichero .cs que contiene la información general sobre las directivas de ensamblado.
  \end{itemize}
 
- Aunque no aparezca en el diagrama, todos los generadores de código utilizan además el fichero Operations, que es un fichero EOL que dispone de operaciones básicas que se utilizan recurrentemente en el resto de generadores, por nombrar algunos ejemplos, dicho fichero contiene funciones del estilo:
+ Aunque no aparezca en el diagrama, todos los generadores de código utilizan además el fichero \emph{Operations.eol}, que es un fichero EOL que dispone de operaciones básicas que se utilizan recurrentemente en el resto de generadores, por nombrar algunos ejemplos, dicho fichero contiene funciones del estilo:
  \begin{itemize}
    \item \emph{abstract}, retorna el texto \imp{abstract} cuando el elemento sobre el que está siendo utilizado es abstracto.
    \item \emph{typeCollection}, retorna el tipo de colección correspondiente al elemento sobre el que se está actuando.
    \item \emph{hierarchy}, retorna las clases de las que hereda el elemento en cuestión.
  \end{itemize}
 
- Adicionalmente a los generadores de código EGL y EOL, en los sucesivos párrafos se habla en detalle de los Java Tools adicionales que se han elaborado para hacer más gráfico y sencillo al usuario el proceso de ejecución de los generadores de código.
+ Adicionalmente a los generadores de código EGL y EOL, en los sucesivos párrafos se habla en detalle de los Java Tools que se han elaborado para hacer más gráfico y sencillo al usuario el proceso de ejecución de los generadores de código.
 
  \paragraph{Java Tool} \ \\
 
@@ -102,6 +102,6 @@ File ProjectCreation.egl
 06 ...
 07 writeInFile(path+"\\log.txt", message);
 08 ...
-\end{lstlisting} 
+\end{lstlisting}
 
  Una vez explicado el funcionamiento de los generadores de código y los java tools implementados, en las siguientes secciones se procederá a explicar de forma detallada varios ejemplos de generadores. Primero uno sencillo que sea fácil de comprender para el lector no experto en el tema y después dos casos más complejos.

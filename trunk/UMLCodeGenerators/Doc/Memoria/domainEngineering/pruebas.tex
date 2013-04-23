@@ -1,12 +1,12 @@
 %%==========================================================================%%
 %% Author : Abascal Fernández, Patricia                                     %%
 %% Author : Sánchez Barreiro, Pablo                                         %%
-%% Version: 1.2, 22/04/2013                                                 %%
+%% Version: 1.3, 23/04/2013                                                 %%
 %%                                                                          %%
 %% Memoria del Proyecto Fin de Carrera                                      %%
 %% Domain Engineering/Pruebas con EUnit                                     %%
 %%==========================================================================%%
-EUnit es un sistema de pruebas \cite{kolovos:2008} unitarias que proporciona assertions para la comparación de modelos, archivos y directorios. Un assertion es un predicado, verdadero o falso, colocado en un programa para indicar que el desarrollador cree que el predicado es siempre cierto en ese lugar. Las pruebas pueden reutilizarse con diferentes conjuntos de modelos y datos de entrada, y las diferencias entre los modelos esperados y los reales pueden ser visualizadas gráficamente.
+EUnit es un sistema de pruebas \cite{kolovos:2008} unitarias que proporciona assertions para la comparación de modelos, archivos y directorios. Una \emph{assertion} es un predicado, verdadero o falso, colocado en un programa para indicar que el desarrollador cree que el predicado es siempre cierto en ese lugar. Las pruebas pueden reutilizarse con diferentes conjuntos de modelos y datos de entrada, y las diferencias entre los modelos esperados y los reales pueden ser visualizadas gráficamente.
 
 Al comenzar la fase de pruebas me encontré con el problema inicial de que EUnit no tenía implementada la comparación de fragmentos de texto en los ficheros generados que era precisamente la manera de comprobar que los generadores de código funcionaban correctamente. De tal forma procedí a realizar una petición en el foro de la plataforma e incorporaron una nueva assertion denominada \imp{assertLineWithMatch} que permitía comprobar si un fichero disponía de un determinado fragmento de texto o no (líneas 1-4 del listing \ref{dom:code:eunit}). También era necesario comprobar que los ficheros y directorios se creaban correctamente por lo que la assertion \imp{assertEqualDirectories} es válida para tal fin (líneas 6-9 del listing \ref{dom:code:eunit}). Y por último, se debe comprobar que las plantillas lanzan las excepciones oportunas para los casos no válidos, mediante la combinación de las instrucciones \imp{assertError} y \imp{runTarget}, se puede comprobar si el fichero deseado lanza o no una excepción (líneas 11-16 del listing \ref{dom:code:eunit}). Con estas assertions se procede a realizar todos los casos de prueba descritos en la tabla \ref{dom:table:bid} con resultados satisfactorios.
 
@@ -15,19 +15,20 @@ Al comenzar la fase de pruebas me encontré con el problema inicial de que EUnit 
                     label=dom:code:eunit]
 01 @test
 02 operation classWithNameAndWithoutType() {
-03    assertLineWithMatch(path+"Data\\src\\BasicGraph\\Edge.cs", "partial class Edge");
-04 } 
+03    assertLineWithMatch(path+"Data\\src\\BasicGraph\\Edge.cs",
+                          "partial class Edge");
+04 }
 05 ...
 06 @test
 07 operation emptyPackage() {
-08    assertEqualDirectories(path+"Data\\src\\PruebasBidireccionalidad\\PaqueteVacio",
-                          path+"\\Data\\src\\PruebasBidireccionalidad\\PaqueteVacio");
+08    assertEqualDirectories(path+"Data\\src\\PaqueteVacio",
+                             path+"\\Data\\src\\PaqueteVacio");
 09 }
 10 ...
 11 @test
 12 operation thowsExceptions() {
 13    ...
-14    assertError(runTarget(pathTemplates+'\\Templates\\ParametersCreation.egl'));
+14    assertError(runTarget(pathTemplates+'\\ParametersCreation.egl'));
 15    ...
 16 }
 \end{lstlisting}
@@ -95,4 +96,7 @@ Al comenzar la fase de pruebas me encontré con el problema inicial de que EUnit 
 \end{tabularx}
 \caption{Solución para evitar incoherencias en el código C\# en la bidireccionalidad one to one}
 \label{dom:table:bid}
-\end{table}% 
+\end{table}%
+
+Durante este capítulo se han descrito la fase de \emph{Ingeniería del Dominio} de nuestra línea de productos software. Dentro de dicha fase se ha analizado cómo se transforman los elementos del modelo a código C\#, el desarrollo e implementación de los generadores de código junto con la explicación de varios ejemplos y se ha concluído con la fase de pruebas.
+
