@@ -18,9 +18,9 @@ Antes de comenzar a exponer los ejemplos más complejo, vamos a introducir aquell
 
 Las relaciones bidireccionales son aquellas en las que ambas clases relacionadas disponen de atributos de la clase opuesta. Existen tres tipos de relaciones bidireccionales:
  \begin{itemize}
-   \item Bidireccionales one to one, en las que cada clase recibe un elemento de la clase opuesta (figura \ref{dom:fig:bid}, Mujer-Marido).
-   \item Bidireccionales one to many, en la que una de las clases recibe un elemento de la clase destino y la otra recibe una colección de elementos de la clase opuesta (figura \ref{dom:fig:bid}, Alumno-Curso).
-   \item Bidireccionales many to many, en la que ambas clases reciben colecciones de la clase opuesta (figura \ref{dom:fig:bid}, Trabajadores-Proyectos).
+   \item \emph{Bidireccionalidad one to one}, en las que cada clase recibe un elemento de la clase opuesta (figura \ref{dom:fig:bid}, Mujer-Marido).
+   \item Bidireccionalidad one to many, en la que una de las clases recibe un elemento de la clase destino y la otra recibe una colección de elementos de la clase opuesta (figura \ref{dom:fig:bid}, Alumno-Curso).
+   \item Bidireccionalidad many to many, en la que ambas clases reciben colecciones de la clase opuesta (figura \ref{dom:fig:bid}, Trabajadores-Proyectos).
  \end{itemize}
 
  Llegados a este punto, basándonos en los ejemplos de la figura \ref{dom:fig:bid} nos surgen algunas preguntas:
@@ -29,31 +29,22 @@ Las relaciones bidireccionales son aquellas en las que ambas clases relacionadas
    \item ¿Si un alumno tiene asignado un curso pero ese curso no tiene a dicho alumno en su lista de alumnado?
    \item ¿Si un trabajador tiene asignado un proyecto pero en el listado de trabajadores dicho trabajador no aparece?
  \end{enumerate}
-¿Existe alguna forma de poner solución a estos problemas?, la respuesta es \"sí\", a la hora de tratar este tipo de relaciones bidireccionales en los generadores de código correspondientes no basta con generar las propiedades tal como hemos estado haciendo hasta ahora sino que debemos implementar las propiedades a generar de una forma cuidadosa y exhaustiva para que no se produzcan este tipo de incoherencias, incluso recurriendo a la creación de métodos adicionales. Veamos a grandes rasgos cómo sería la implementación de la relación bidireccional one to one:
+¿Existe alguna forma de poner solución a estos problemas?, la respuesta es \"sí\", a la hora de tratar este tipo de relaciones bidireccionales en los generadores de código correspondientes no basta con generar las propiedades tal como hemos estado haciendo hasta ahora sino que debemos implementar las propiedades a generar de una forma cuidadosa y exhaustiva para que no se produzcan este tipo de incoherencias, incluso recurriendo a la creación de métodos adicionales. Veamos a grandes rasgos en la tabla \ref{dom:table:bid} cómo sería la implementación de la relación bidireccional one to one:
 \begin{table}%
 \begin{tabularx}{15cm}{|l|X|X|}
  \hline
 {}&{\textbf{Mujer soltera}}&{\textbf{Mujer casada}} \\ \hline
-\multirow{3}{*}{\textbf{Hombre soltero}} &
+{\textbf{Hombre soltero}} &
                 Se casan el hombre soltero y la mujer soltera.
-                & La mujer casada se divorcia. \\
-&  & El antiguo marido de la mujer divorciada queda soltero. \\
-&  & La mujer divorciada y el hombre soltero se casan. \\ \hline
-\multirow{6}{*}{\textbf{Hombre casado}} & El hombre casado se divorcia. & El hombre casado se divorcia. \\
-& La antigua mujer del marido divorciado queda soltera. & La antigua mujer del marido divorciado queda soltera. \\
-& Se casan la mujer soltera y el hombre divorciado. & La mujer casada se divorcia. \\
-&  & El antiguo marido de la mujer divorciada queda soltero. \\
-&  & Se casan la mujer divorciada y el hombre divorciado. \\ \hline
+&  La mujer casada se divorcia. El antiguo marido de la mujer divorciada queda soltero. La mujer divorciada y el hombre soltero se casan. \\ \hline
+{\textbf{Hombre casado}} & El hombre casado se divorcia. La antigua mujer del marido divorciado queda soltera. Se casan la mujer soltera y el hombre divorciado.
+& El hombre casado se divorcia. La antigua mujer del marido divorciado queda soltera. La mujer casada se divorcia. El antiguo marido de la mujer divorciada queda soltero. Se casan la mujer divorciada y el hombre divorciado. \\ \hline
 \end{tabularx}
+\caption{Solución para evitar incoherencias en el código C\# en la bidireccionalidad one to one}
+\label{dom:table:bid}
 \end{table}%
+El siguiente paso sería pasar dicha tabla a código C\# y comprobar que funciona correctamente. Se sigue un proceso análogo para el resto de relaciones bidireccionales.
 
-\begin{tabulary}{10cm}{|L|C|R|J|}
-\hline
-Ejemplo de celda alineada a izquierda& Ejemplo de celda con texto
-centrado & Ejemplo de celda alineada a derecha & Ejemplo de celda
-contexto justificado\\
-\hline
-\end{tabulary}
 \paragraph{Herencia múltiple} \ \\
 
 \begin{figure}[!tb]
