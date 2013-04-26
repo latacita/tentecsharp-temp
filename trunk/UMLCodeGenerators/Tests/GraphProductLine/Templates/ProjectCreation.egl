@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.9
-// Last modification: 08/04/2013 
+// Version: 2.2
+// Last modification: 26/04/2013 
 // Description: Generates the Visual Studio project, the
 //				directories and the files of all code classes.
 ////////////////////////////////////////////////////////////
@@ -16,9 +16,21 @@ import "VisualStudioProjectFiles/AssemblyInfoFileCreation.egl";
 import "VisualStudioProjectFiles/CsprojectFileCreation.egl";
 
 // Select the model's project
-var modelProject : Model;
-modelProject= Model.allInstances().first();
-
+var modelProject : Model; 
+var m= Model.allInstances().reject(m|m.name.equals("PrimitiveTypes") or m.name.equals("JavaPrimitiveTypes"));
+var models:List;
+// Add the models' name to a list of models
+for (mod in m){
+	models.add(mod.name);
+} 
+// Call the operation which returns the selected option by the user
+var e= chooseModel(models);
+// The model to generate will be the chosen by the user
+for (mod in m){
+	if (e.equals(mod.name)){
+		modelProject=mod;
+	}
+}
 // Select the model's packages 
 var packages : Collection;
 packages := modelProject.packagedElement.select(p|p.isTypeOf(Package));
@@ -72,11 +84,11 @@ if (enumClassSize>0){
 	}
 } 
 // User selects a directory where to save the project file
-var path= createSaveToDiskWindow();
+//var path= createSaveToDiskWindow();
 // The directory is created
-directory(path); 
+//directory(path); 
 // PARA HACER PRUEBAS RAPIDO->  
-//var path="C:\\Users\\Patricia\\Desktop";
+var path="C:\\Users\\Patricia\\Desktop";
  
 // Create the Visual Studio files and directories inside the directory selected by the user
 // First level of directories and/or files: 
@@ -118,7 +130,7 @@ message=message+"property_<Number>_From_<NameOfTheClass>.\n";
 // Write in the log file
 writeInFile(path+"\\log.txt", message);  
 // Show the log file
-createWindowAndShowMessages(path+"\\log.txt");
+//createWindowAndShowMessages(path+"\\log.txt");
 // Delete the log file after the execution
 deleteFile(path, "log.txt");  
 
