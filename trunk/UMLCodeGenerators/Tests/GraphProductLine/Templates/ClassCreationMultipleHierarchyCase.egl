@@ -1,0 +1,57 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.5
+// Last modification: 12/04/2013 
+// Description: This template generates the parent classes for
+//				a multiple hierarchy case 
+//				(this means, only its methods). 
+////////////////////////////////////////////////////////////
+import "ClassElements/ModelCreation.egl";  
+import "ClassElements/UtilityMethodsCreation.egl";  
+%]
+using System;
+using System.Collections.Generic; 
+[%
+var declaration: List;  
+var parentClassesNames: Set;
+declaration.add("Interface_"+currentElement.name);  
+for (h in currentParents){ 
+	// Hierarchy classes for the current class declaration 
+	if (currentParents.size>1){
+		declaration.add(" Interface_"+h.general.name);
+	}else{
+		parentClassesNames.add(h.general.name);
+	}
+} 
+var interfaceSet: Set; 
+interfaceSet=currentElement.interfaceRealization;
+// If it's a child of an interface
+if (not interfaceSet.isEmpty){	   
+	for (inter in interfaceSet){
+		declaration.add(inter.contract.name);
+	}	
+}
+var finalDeclaration=declaration+parentClassesNames;
+var header;
+// Concatenate all the classes and interfaces for the header
+for (el in finalDeclaration){
+	header=header+" "+el+",";
+}
+// Deleting the last "," of the string, if needed
+if (header <> null){	
+    	header = header.substring(0, header.length() - 1);
+}   
+%] 
+// This is the content of the class named "[%=currentElement.name%]", which is 
+// in the package: "[%=currentPackage.name%]", from the "[%=currentModel.name%]" model. 
+[%=currentModel.modelDeclaration()%]
+	partial class [%=currentElement.name%]: [%=header%]{
+		[%=currentCollections%]  
+		// Utility methods from the current class  
+		[%=classUtilityMethodsCreation()%]
+		// Constructor and methods from the from the current interface		
+		[%=currentMethods%]	
+	}
+} 
