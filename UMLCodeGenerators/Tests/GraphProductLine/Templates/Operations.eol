@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.3
-// Last modification: 19/04/2013 
+// Version: 2.6
+// Last modification: 26/04/2013 
 // Description: Operations to use in templates.
 ////////////////////////////////////////////////////////////
  
@@ -155,4 +155,9 @@ operation fileExists(path:String): Boolean{
 operation createWindowAndShowMessages(path:String): String {
 	var sampleTool = new Native("pluginCreateWindowAndShowMessages.CreateWindowAndShowMessages");
 	return sampleTool.createWindowAndShowMessages(path);
+} 
+// This operation uses a Java Tool to create a window and show the different models in the project
+operation chooseModel (models: List): String {
+	var sampleTool = new Native("pluginChooseModel.ChooseModel"); 
+	return sampleTool.windowChooseModel(models);
 } 
