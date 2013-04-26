@@ -1,0 +1,78 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 2.3
+// Last modification: 19/04/2013 
+// Description: This operation generates the methods of 
+//				the current class or interface.
+////////////////////////////////////////////////////////////
+import "ReturnParameterCreation.egl";
+import "ParametersCreation.egl";
+import "../Operations.eol"; 
+operation Element classMethods(currentPackage: String, path: String): String {   		
+	var opers: String;
+	var operations_void : Sequence;	
+	var operations_return: Sequence;
+	// Generate the constructor
+	opers=private()+void()+currentPackage+"_init"+self.firstToUpperCase()+" ( ) {}\n\t\t";
+	// Iterator to name methods (if they don't have names)
+	var iter=0;
+	var methodname; 
+	var isReturn=false;
+	// Separate void from return methods
+	//getOperations()
+	for (oper in self.getOperations()){  
+		for (par in oper.ownedParameter){ 
+			// Void methods:			
+			// And also select those operations whose return type is void
+			// Select those operations which doesn't have a type (the return type field is empty)	
+			if (oper.type==null){
+				isReturn=false; 
+			}else{  
+				if (par.direction.toString().equals("return")){ 
+					// Select those operations which doesn't have a return type (the return type field is empty)
+					if (not par.type.name.isDefined()){  
+						// By default, thread those operations like void operations
+						isReturn=false;
+					}else{
+						isReturn=true; 
+					}//if-par-type
+				}//if-par-direction 
+			}//if-oper-type 
+		}//if-parameters 
+		if (isReturn){
+			// The current operation is a return method
+			operations_return.add(oper);  
+		}else{
+			// The current operation is a void method
+			operations_void.add(oper); 
+		}		 
+	}//if-operations
+	 
+	// Generate the void methods
+	for (oper in operations_void) {  
+		// If a method doesn't have name, put a default one
+		if (oper.name==""){
+			methodname="method_"+iter; 
+		}else{
+			methodname=oper.name; 
+		} 
+		opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()+virtual()+void()+currentPackage+"_"+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
+		// Increase the iterator
+		iter=iter+1;
+	} 
+	// Generate the return methods		
+	for (oper in operations_return) {
+		// If a method doesn't have name, put a default one
+		if (oper.name==""){
+			methodname="method_"+iter; 
+		}else{
+			methodname=oper.name; 
+		}  
+		opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()+virtual()+oper.returnParameter(currentPackage, path)+" "+currentPackage+"_"+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
+		// Increase the iterator
+		iter=iter+1;
+	} 
+	return opers;
+}%]

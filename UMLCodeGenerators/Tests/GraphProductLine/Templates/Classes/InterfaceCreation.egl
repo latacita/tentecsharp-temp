@@ -1,0 +1,30 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.5
+// Last modification: 12/04/2013 
+// Description: This template generates an interface class.
+////////////////////////////////////////////////////////////
+
+import "../ClassElements/ModelCreation.egl"; 
+import "../ClassElements/UtilityMethodsCreation.egl"; 
+%]
+using System;
+using System.Collections.Generic; 
+
+// This is the content of the interface named "[%=currentInterface.name%]", which is 
+// in the package: "[%=currentPackage.name%]",  from the "[%=currentModel.name%]" model. 
+[%=currentModel.modelDeclaration()%]
+	partial interface Interface_[%=currentInterface.name%]{ 
+		// Properties from the current interface 		 
+		[%=currentProperties%]		
+		[%=currentAditionalMethods%] 
+		
+		// Utility methods from the current class 		
+		[%=classUtilityMethodsCreation()%] 		
+		// Constructor and methods from the from the current class			
+		[%=currentMethods%] 
+	}
+} 
+  
