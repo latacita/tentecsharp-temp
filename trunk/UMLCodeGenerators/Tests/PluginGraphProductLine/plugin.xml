@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+      <tool
+            class="pluginCreateDirectories.CreateDirectory"
+            defaultName="CreateDirectory">
+      </tool>
+      <tool
+            class="pluginCreateMessageWindow.CreateMessageWindow"
+            defaultName="CreateMessageWindow">
+      </tool>
+      <tool
+            class="pluginCreateSelectDiretoryWindow.CreateSelectDirectoryWindow"
+            defaultName="CreateSelectDirectoryWindow">
+      </tool>
+      <tool
+            class="pluginCreateWindowAndShowMessages.CreateWindowAndShowMessages"
+            defaultName="CreateWindowAndShowMessages">
+      </tool>
+      <tool
+            class="pluginWriteInFile.WriteInFile"
+            defaultName="WriteInFile">
+      </tool> 
+      <tool
+            class="pluginChooseModel.ChooseModel"
+            defaultName="ChooseModel">
+      </tool> 
+   </extension>
+
+</plugin>
