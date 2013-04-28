@@ -1,0 +1,55 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 2.0
+// Last modification: 12/04/2013 
+// Description: Generates the files of all code classes. And
+//				return a set of all the paths.
+////////////////////////////////////////////////////////////
+import "../Operations.eol";
+
+import "MergeClasses.egl";
+import "SpecificPath.egl";
+import "ExtractClassesAndOperations.egl";
+import "FuseElements.egl"; 
+operation specificClassFilesCreation(packages: Set, modelProject: Model, directory: String, path: String){
+	var paths_notemptyMyProject: Set;
+	var isInterface=false;
+	
+	var packagesMerges;
+	for (pack in packages) {
+		if (pack.name=="MyHome"){
+			// Select the path of all the packages needed to implement the current product
+			packagesMerges=mergeClasses(packages,pack);
+			var packagesUsed=specificPath(packagesMerges,pack);
+			// Extract the classes and operations needed to implement the current product
+			var classesAndOperations=pack.extractClassesAndOperations(packagesUsed, "");
+			// Fuses the operations from the classes which are in different packages 
+			// in order to implement the current product
+			var fusedElements=fuseElements(classesAndOperations); 
+			// Generate the files
+			for (element in fusedElements){
+				var isInterface: Boolean; 
+				if (element[0].type.name=="Class"){
+					isInterface=false;
+				}
+				if (element[0].type.name=="Interface"){
+					isInterface=true;
+				}
+				var t := TemplateFactory.load('SpecificProduct/CleanVersionClassCreation.egl');
+				t.populate ('currentElement', element[0].name);
+				t.populate('currentPackage', pack);
+				t.populate('currentModel', modelProject);
+				t.populate('currentMethods', element[1]);
+				t.populate('path', path); 
+				t.populate('isInterface', isInterface);
+				var path=directory + pack.name + "\\"+ element[0].name +'.cs'; 
+				t.generate (path);
+				paths_notemptyMyProject.add(path); 
+			}		  	
+		}
+	}//for-element-multipleHierarchyClasses  
+	return paths_notemptyMyProject;
+}
+%]

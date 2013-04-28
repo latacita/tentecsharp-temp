@@ -1,0 +1,27 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.1
+// Last modification: 26/04/2013
+// Description:  Packages needed to create the specific product.
+////////////////////////////////////////////////////////////
+operation specificPath (packages: Set, basePackage: Package): Set{
+	var pack:Set;
+	pack.add(basePackage);
+	for (element in packages){
+		// If the current element is the one created specifically by the user
+		if(element[0]==basePackage){
+			// For each of the packages which requires
+			for (e in element[1]){
+				// Find the packages which said packages uses recursively
+				var l=specificPath(packages,e);
+				for (el in l){
+					pack.add(el);
+				}//for-el
+			}//for-e
+		}//if-element
+	}//for-element
+	return pack;
+}
+%]

@@ -1,0 +1,35 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.1
+// Last modification: 28/04/2013 
+// Description: This template generates the specification of
+//				the current class to the specific selection of
+//				components
+//////////////////////////////////////////////////////////// 
+import "../ClassElements/ModelCreation.egl"; 
+%]
+using System;
+using System.Collections.Generic;
+[%
+var p=currentPackage.name; 
+var name;
+if (isInterface){
+	name="interface";
+}else{
+	name="class";
+}
+%]
+// This is the content of the [%=name%] named "[%=currentElement%]", which is 
+// in the package: "[%=p%]", from the "[%=currentModel.name%]" model. 
+[%=currentModel.modelDeclaration()%]
+	public [%=name%] [%=currentElement%]{ 
+		// Constructor and methods from the from the current class		
+		[%for (method in currentMethods){%]
+		[%=method%]
+		[%}%]	
+	 
+	}
+} 
+  
