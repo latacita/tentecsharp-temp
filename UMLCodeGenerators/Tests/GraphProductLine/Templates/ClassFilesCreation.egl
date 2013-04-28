@@ -13,17 +13,20 @@ import "ClassElements/PropertiesGeneration.egl";
 import "BidirectionalRelations/BidirectionalRelations.egl";
 import "Classes/MultipleHierarchyClasses.egl";
 import "ClassElements/CollectionMultipleHierarchy.egl"; 
+
 operation classFilesCreation(packages: Set, modelProject: Model, directory: String, path: String){
 	var paths_empty: Set; 
 	var paths_notempty: Set; 
+	var paths_notemptyMyProject: Set;
 	var isInterface=false;
 	
 	var isBidirectional=false;
 	var bidirectionalImplementations: List; 
 	
+	var packagesMerges;
 	// Select bidirectional relations
 	var bidirectionalRelations=bidirectionalRelations();
-	for (pack in packages) {
+	for (pack in packages) { 
 		// If the package doesn't have name, throw an exception
 		if (pack.name=""){
 			var message = "EXCEPTION: There is a package which doesn't have a name. Please name it in order to generate the project.";
@@ -40,7 +43,7 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 		// Classes from the model
 	    var classes=pack.packagedElement.select(e|e.isTypeOf(Class)); 
 	    // Interfaces from the model
-	    var interfaces=pack.packagedElement.select(e|e.isTypeOf(Interface));	    
+	    var interfaces=pack.packagedElement.select(e|e.isTypeOf(Interface));
 		// Packages from the model
 	    var packag=pack.packagedElement.select(e|e.isTypeOf(Package));
 	    if (packag.size>0){
@@ -126,7 +129,7 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 			var interfaceName="Interface_"+ parent.name;
 			var properties=parent.propertiesGeneration(true, bidirectionalRelations, parentsPackages[iter].name, path);  
 			// Extract methods from the parent class
-			var methods=parent.classMethods(parentsPackages[iter].name, path); 
+			var methods=parent.classMethods(parentsPackages[iter].name, path,false); 
 			// Create the interface (only implements the properties).
 			var t := TemplateFactory.load('Classes/InterfaceCreation.egl');
 			t.populate ('currentInterface', parent);	
@@ -176,10 +179,11 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 			paths_notempty.add(path); 
 		}
 	}//for-element-multipleHierarchyClasses  
-	// Set of two sets, one for empty and the other one for non empty paths
+	// Set of three sets, empty and non empty paths and the specific one
 	var paths:List;
 	paths.add(paths_empty);
-	paths.add(paths_notempty);  
+	paths.add(paths_notempty);
+	paths.add(paths_notemptyMyProject);
 	return paths;
 }
 %]

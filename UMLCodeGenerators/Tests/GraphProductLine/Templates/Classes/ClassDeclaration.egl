@@ -20,15 +20,15 @@ operation Element classDeclaration(isInterface: Boolean) {
 	var declaration= self.visibility;
 	if (isInterface){
 		// Declaration of the interface 
-		// (valid for hierarchy and non hierarchy classes)
-		declaration="partial interface "+self.name;
+		// (valid for hierarchy and non hierarchy classes)		
+		declaration=declaration+"partial interface "+self.name;
 	}else{
 		// Declaration of the class 
 		// (valid for hierarchy and non hierarchy classes)
 		if (self.isAbstract()){
 			declaration=self.abstract()+" class "+self.name;
 		}else{
-			declaration="partial class "+self.name;
+			declaration=declaration+"partial class "+self.name;
 		}
 	}
 	// If it's a child
