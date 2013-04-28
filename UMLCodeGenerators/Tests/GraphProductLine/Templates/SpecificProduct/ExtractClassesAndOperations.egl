@@ -1,0 +1,53 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.2
+// Last modification: 28/04/2013
+// Description:  Extract the classes and methods from the
+//				 specification chosen by the user.
+////////////////////////////////////////////////////////////
+import "../ClassElements/MethodsCreation.egl";
+operation Element extractClassesAndOperations (packages: Set, path: String): Set{
+	var result: Set;
+	for (pack in packages){
+		// Classes from the model
+	    var classes=pack.packagedElement.select(e|e.isTypeOf(Class)); 
+	    // Interfaces from the model
+	    var interfaces=pack.packagedElement.select(e|e.isTypeOf(Interface));
+	    var packageElements: Set;
+	    for (class in classes){
+	    	// Extract the methods
+	    	var allmethods=class.classMethods(self.name, path, true); 
+	    	// Tranform the text to a list of operations 
+	    	var methods = allmethods.replaceAll("\t","").split("\n"); 
+	    	// Tuple: 
+	    	//			First element: class
+	    	//			Second element: methods from the class
+	    	var tuple: List;
+	    	tuple.add(class);
+	    	tuple.add(methods);	      
+	    	packageElements.add(tuple); 
+	    }//for-class
+	    for (interface in interfaces){
+	    	// Extract the methods
+	    	var methods=interface.classMethods(self.name, path, true);
+	    	// Tuple: 
+	    	//			First element: class
+	    	//			Second element: methods from the class
+	    	var tuple: List;
+	    	tuple.add(interface);
+	    	tuple.add(methods);	     
+	    	packageElements.add(tuple); 
+	    }//for-interface
+	    // Tuple:
+	    //			First element: package
+	    // 			Second element: list of elements (<class>,(<operation1>,<operation2>,...))
+	    var tuple: List;
+	    tuple.add(pack.name);
+	    tuple.add(packageElements);
+	    result.add(tuple); 
+	} 
+	return result;
+}
+%]
