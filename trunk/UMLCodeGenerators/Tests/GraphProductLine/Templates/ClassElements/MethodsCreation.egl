@@ -3,19 +3,23 @@
 //
 // Author: Patricia Abascal Fernández
 // Version: 2.3
-// Last modification: 19/04/2013 
+// Last modification: 26/04/2013 
 // Description: This operation generates the methods of 
 //				the current class or interface.
 ////////////////////////////////////////////////////////////
 import "ReturnParameterCreation.egl";
 import "ParametersCreation.egl";
 import "../Operations.eol"; 
-operation Element classMethods(currentPackage: String, path: String): String {   		
+operation Element classMethods(currentPackage: String, path: String, isCleanVersion: Boolean): String {   		
 	var opers: String;
 	var operations_void : Sequence;	
 	var operations_return: Sequence;
 	// Generate the constructor
-	opers=private()+void()+currentPackage+"_init"+self.firstToUpperCase()+" ( ) {}\n\t\t";
+	opers=private()+void();
+	if (not isCleanVersion){  
+		opers=opers+currentPackage+"_init";
+	}
+	opers=opers+self.firstToUpperCase()+" ( ) {}\n\t\t";
 	// Iterator to name methods (if they don't have names)
 	var iter=0;
 	var methodname; 
@@ -58,7 +62,11 @@ operation Element classMethods(currentPackage: String, path: String): String {
 		}else{
 			methodname=oper.name; 
 		} 
-		opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()+virtual()+void()+currentPackage+"_"+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
+		opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()+virtual()+void();
+		if (not isCleanVersion){
+			opers=opers+currentPackage+"_";
+		}
+		opers=opers+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
 		// Increase the iterator
 		iter=iter+1;
 	} 
@@ -70,7 +78,11 @@ operation Element classMethods(currentPackage: String, path: String): String {
 		}else{
 			methodname=oper.name; 
 		}  
-		opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()+virtual()+oper.returnParameter(currentPackage, path)+" "+currentPackage+"_"+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
+		opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()+virtual()+oper.returnParameter(currentPackage, path)+" ";
+		if (not isCleanVersion){
+			opers=opers+currentPackage+"_";
+		}
+		opers=opers+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
 		// Increase the iterator
 		iter=iter+1;
 	} 

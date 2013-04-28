@@ -2,14 +2,16 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.0 
-// Last modification: 11/03/2013 
+// Version: 1.2
+// Last modification: 28/04/2013 
 // Description: Generates the .sln Visual Studio file.
 ////////////////////////////////////////////////////////////
 %]
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[%=currentModel.name%]", "[%=currentModel.name%]\[%=currentModel.name%].csproj", "{C3CD54E7-59A1-4CE4-9F33-87BA9A13E4E3}"
+# Visual Studio 2010 
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[%=currentModel%]", "[%=currentModel%]\[%=currentModel%]\[%=currentModel%].csproj", "{C3CD54E7-59A1-4CE4-9F33-87BA9A13E4E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[%=currentImplementation%]", "[%=currentModel%]\[%=currentImplementation%]\[%=currentImplementation%].csproj", "{99CD815D-E4C4-4FC2-8415-C1D30C46DA7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C3CD54E7-59A1-4CE4-9F33-87BA9A13E4E3}.Debug|x86.Build.0 = Debug|x86
 		{C3CD54E7-59A1-4CE4-9F33-87BA9A13E4E3}.Release|x86.ActiveCfg = Release|x86
 		{C3CD54E7-59A1-4CE4-9F33-87BA9A13E4E3}.Release|x86.Build.0 = Release|x86
+		{99CD815D-E4C4-4FC2-8415-C1D30C46DA7E}.Debug|x86.ActiveCfg = Debug|x86
+		{99CD815D-E4C4-4FC2-8415-C1D30C46DA7E}.Debug|x86.Build.0 = Debug|x86
+		{99CD815D-E4C4-4FC2-8415-C1D30C46DA7E}.Release|x86.ActiveCfg = Release|x86
+		{99CD815D-E4C4-4FC2-8415-C1D30C46DA7E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

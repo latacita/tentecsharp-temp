@@ -2,14 +2,15 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.2
-// Last modification: 26/04/2013 
+// Version: 2.4
+// Last modification: 28/04/2013 
 // Description: Generates the Visual Studio project, the
 //				directories and the files of all code classes.
 ////////////////////////////////////////////////////////////
 import "Operations.eol";
 import "ClassFilesCreation.egl";
 import "Classes/ClassEnumerationFilesCreation.egl";
+import "SpecificProduct/SpecificProduct.egl";
 
 import "VisualStudioProjectFiles/SlnFileCreation.egl";
 import "VisualStudioProjectFiles/AssemblyInfoFileCreation.egl";
@@ -43,7 +44,7 @@ packages := modelProject.packagedElement.select(p|p.isTypeOf(Package));
 packages := packages.reject(p|p.name.equals("UML Standard Profile"));
 packages := packages.reject(p|p.isTypeOf(Class));
 packages := packages.reject(p|p.isTypeOf(Interface));
- 
+  
 // Select the model's classes outside package 
 var classes := modelProject.packagedElement.select(p|p.isTypeOf(Class));
 var classSize = classes.size;
@@ -107,28 +108,43 @@ var secondleveldirectory=maindirectory+"\\"+modelProject.name;
 directory(secondleveldirectory);
 // Create the code files
 // Add the source files to the corresponding directories 
-var pathsClasses=classFilesCreation(packages, modelProject, secondleveldirectory+"\\src\\", path); 
+var pathsClasses=classFilesCreation(packages, modelProject, secondleveldirectory+'\\'+modelProject.name+"\\src\\", path);
 // Enumeration Classes generation is implemented but not working because there's a bug in Epsilon
 //var pathsEnumClasses=classEnumerationFilesCreation(packages, modelProject, secondleveldirectory);
 // Create the sln file
 var t := TemplateFactory.load('VisualStudioProjectFiles/SlnFileCreation.egl');
-t.populate('currentModel', modelProject);    
+t.populate('currentModel', modelProject.name);
+t.populate('currentImplementation', "My_"+modelProject.name);
 t.generate (secondleveldirectory+'.sln'); 
 // Create the csproj file
 var t := TemplateFactory.load('VisualStudioProjectFiles/CsprojectFileCreation.egl');
 var paths=pathsClasses;//+pathsEnumClasses; 
 t.populate('emptyPackages',paths[0]);
 t.populate ('nonemptyPackages', paths[1]); 
-t.generate (secondleveldirectory+'\\'+modelProject.name+'.csproj'); 
+t.generate (secondleveldirectory+'\\'+modelProject.name+'\\'+modelProject.name+'.csproj');
+// Create the csproj file for the specific product
+var pathsClasses=specificClassFilesCreation(packages, modelProject, secondleveldirectory+'\\My_'+modelProject.name+'\\src\\', path);
+var t := TemplateFactory.load('VisualStudioProjectFiles/CsprojectFileCreation.egl');
+var paths=pathsClasses;//+pathsEnumClasses; 
+var li: List;
+t.populate('emptyPackages', li); 
+t.populate ('nonemptyPackages', paths);  
+t.generate (secondleveldirectory+'\\My_'+modelProject.name+'\\My_'+modelProject.name+'.csproj');
 // Third level of directories and/or files:
 // Create a folder called Properties
-var thirdleveldirectory=secondleveldirectory+"\\Properties";
+var thirdleveldirectory=secondleveldirectory+'\\'+modelProject.name+"\\Properties";
 directory(thirdleveldirectory);
 // Create the AssemblyInfo file inside the properties' folder
 var t := TemplateFactory.load('VisualStudioProjectFiles/AssemblyInfoFileCreation.egl');
-t.populate('currentModel', modelProject);    
+t.populate('currentModel', modelProject.name);    
+t.generate (thirdleveldirectory+'\\AssemblyInfo.cs');  
+// Create a folder called Properties for the specific product
+var thirdleveldirectory=secondleveldirectory+'\\My_'+modelProject.name+'\\Properties';
+directory(thirdleveldirectory);
+// Create the AssemblyInfo file inside the properties' folder for the specific product
+var t := TemplateFactory.load('VisualStudioProjectFiles/AssemblyInfoFileCreation.egl');
+t.populate('currentModel', 'My_'+modelProject.name);
 t.generate (thirdleveldirectory+'\\AssemblyInfo.cs'); 	
-
 var message ="Info Message:\n\t If there were relations in the model without a name assigned, it has been created as the following:\n\t\t";
 message=message+"relationFromClass_<NameOfTheClass>.\n";
 message=message+"Info Message:\n\t If there were properties in the model without a name assigned, it has been created as the following:\n\t\t";

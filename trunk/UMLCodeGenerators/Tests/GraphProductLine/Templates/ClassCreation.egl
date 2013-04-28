@@ -40,7 +40,7 @@ if (isInterface){
 		[%=classUtilityMethodsCreation()%]
 		
 		// Constructor and methods from the from the current class		
-		[%=currentElement.classMethods(p, path)%]	
+		[%=currentElement.classMethods(p, path,false)%]	
 	
 	
 	}
