@@ -2,14 +2,13 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.4
-// Last modification: 28/04/2013 
+// Version: 2.5
+// Last modification: 29/04/2013 
 // Description: Generates the Visual Studio project, the
 //				directories and the files of all code classes.
 ////////////////////////////////////////////////////////////
 import "Operations.eol";
-import "ClassFilesCreation.egl";
-import "Classes/ClassEnumerationFilesCreation.egl";
+import "ClassFilesCreation.egl"; 
 import "SpecificProduct/SpecificProduct.egl";
 
 import "VisualStudioProjectFiles/SlnFileCreation.egl";
@@ -52,7 +51,7 @@ if (classSize>0){
 	var message;
 	if (classSize==1){
 		message = "EXCEPTION: There is "+classSize+ " class which doesn't belong to a package. Please put it into one to generate the project.";
-		createErrorWindow(message); 
+		createErrorWindow(message);
 		throw (message);
 	}else{
 		message = "EXCEPTION: There are "+classSize+ " classes which don't belong to a package. Please put them into one to generate the project.";
@@ -94,8 +93,10 @@ if (enumClassSize>0){
 //var path= createSaveToDiskWindow();
 // The directory is created
 //directory(path); 
+//var rootPath= path.replaceAll("\'", "\\");
 // PARA HACER PRUEBAS RAPIDO->  
 var path="C:\\Users\\Patricia\\Desktop";
+var rootPath="C:\\Users\\Patricia\\Desktop\\Data";
  
 // Create the Visual Studio files and directories inside the directory selected by the user
 // First level of directories and/or files: 
@@ -108,9 +109,7 @@ var secondleveldirectory=maindirectory+"\\"+modelProject.name;
 directory(secondleveldirectory);
 // Create the code files
 // Add the source files to the corresponding directories 
-var pathsClasses=classFilesCreation(packages, modelProject, secondleveldirectory+'\\'+modelProject.name+"\\src\\", path);
-// Enumeration Classes generation is implemented but not working because there's a bug in Epsilon
-//var pathsEnumClasses=classEnumerationFilesCreation(packages, modelProject, secondleveldirectory);
+var pathsClasses=classFilesCreation(packages, modelProject, secondleveldirectory+'\\'+modelProject.name+"\\src\\", path, rootPath);
 // Create the sln file
 var t := TemplateFactory.load('VisualStudioProjectFiles/SlnFileCreation.egl');
 t.populate('currentModel', modelProject.name);
@@ -118,14 +117,14 @@ t.populate('currentImplementation', "My_"+modelProject.name);
 t.generate (secondleveldirectory+'.sln'); 
 // Create the csproj file
 var t := TemplateFactory.load('VisualStudioProjectFiles/CsprojectFileCreation.egl');
-var paths=pathsClasses;//+pathsEnumClasses; 
+var paths=pathsClasses; 
 t.populate('emptyPackages',paths[0]);
 t.populate ('nonemptyPackages', paths[1]); 
 t.generate (secondleveldirectory+'\\'+modelProject.name+'\\'+modelProject.name+'.csproj');
 // Create the csproj file for the specific product
-var pathsClasses=specificClassFilesCreation(packages, modelProject, secondleveldirectory+'\\My_'+modelProject.name+'\\src\\', path);
+var pathsClasses=specificClassFilesCreation(packages, modelProject, secondleveldirectory+'\\My_'+modelProject.name+'\\src\\', path, rootPath);
 var t := TemplateFactory.load('VisualStudioProjectFiles/CsprojectFileCreation.egl');
-var paths=pathsClasses;//+pathsEnumClasses; 
+var paths=pathsClasses;  
 var li: List;
 t.populate('emptyPackages', li); 
 t.populate ('nonemptyPackages', paths);  
@@ -154,6 +153,5 @@ writeInFile(path+"\\log.txt", message);
 // Show the log file
 //createWindowAndShowMessages(path+"\\log.txt");
 // Delete the log file after the execution
-deleteFile(path, "log.txt");  
-
+deleteFile(path, "log.txt");    
 %] 

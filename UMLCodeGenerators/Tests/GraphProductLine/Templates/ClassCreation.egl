@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.9
-// Last modification: 12/04/2013 
+// Version: 2.0
+// Last modification: 29/04/2013 
 // Description: This template generates the specification of
 //				the current class: declarations, properties, 
 //				methods.
@@ -31,7 +31,7 @@ if (isInterface){
 	[%=currentElement.classDeclaration(isInterface)%] 
 		// Properties from the current [%=name%] 		 
 		
-		[%var propertiesAndAdditionalMethods=currentElement.propertiesGeneration(false, bidirectionalRelations, p, path);%]
+		[%var propertiesAndAdditionalMethods=currentElement.propertiesGeneration(false, bidirectionalRelations, p, path, rootPath);%]
 		[%=propertiesAndAdditionalMethods[0]%] 
 		[%=propertiesAndAdditionalMethods[1]%] 
 		
@@ -40,7 +40,7 @@ if (isInterface){
 		[%=classUtilityMethodsCreation()%]
 		
 		// Constructor and methods from the from the current class		
-		[%=currentElement.classMethods(p, path,false)%]	
+		[%=currentElement.classMethods(p, path, false, rootPath)%]	
 	
 	
 	}

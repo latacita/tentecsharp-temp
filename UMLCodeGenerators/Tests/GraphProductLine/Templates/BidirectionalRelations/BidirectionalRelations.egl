@@ -2,13 +2,13 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.0
-// Last modification: 02/04/2013 
+// Version: 2.1
+// Last modification: 29/04/2013 
 // Description: Returns a set including all bidirections from
 //				the current model
 ////////////////////////////////////////////////////////////
 import "../Operations.eol";
-operation bidirectionalRelations(): Set{
+operation bidirectionalRelations(rootPath: String): Set{
 	// List of relations where each element is:
 	//			{{<NameFromCurrentClass>, <NameFromRelationClass>}, <RelationNameCurrentClassToRelationClass>, 
 	//			 {<NameFromPackageCurrentClass>, <NameFromPackageRelationClass>}, <MultiplicityOfTheRelation>} 
@@ -26,8 +26,7 @@ operation bidirectionalRelations(): Set{
 			id=0;
 			// Select non-primitive-type attributes
 			var attributes=class.AllAttributes.reject(e|e.isTypeOf(PrimitiveType));				
-		 	for (attrib in attributes){	  	
-		 			//(attrib.type.name).println();	 			
+		 	for (attrib in attributes){	  	  			
 			 		var relatedClasses: List;
 			 		var relation: List;	
 			 		var nameRelations: List;
@@ -38,7 +37,8 @@ operation bidirectionalRelations(): Set{
 					// Throws exception if a type is not assigned for a property
 					if (attrib.type==null){
 						var message = "EXCEPTION: Property \""+attrib.name+ "\" from package: \""+pack.name+ "\" doesn't have a type assigned.";
-						createErrorWindow(message); 
+						deleteProject(rootPath);
+						createErrorWindow(message);
 						throw (message);  
 					}else{
 						// Pick the class where the class attribute comes from
@@ -67,7 +67,8 @@ operation bidirectionalRelations(): Set{
 						// It current bidirectional property doesn't have multiplicity, throw an exception 
 						if (attrib.upperValue==null and attrib.type.isTypeOf(Class) and attrib.association <> null){
 							var message = "EXCEPTION: Property \""+attrib.name+ "\" from class: \""+class.name+"\", from package: \""+pack.name+ "\" doesn't have multiplicity assigned.";
-							createErrorWindow(message); 
+							deleteProject(rootPath);
+							createErrorWindow(message);
 							throw (message);  
 						}else{ 
 							// It's one to one

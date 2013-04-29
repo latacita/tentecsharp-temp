@@ -2,13 +2,13 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.2
-// Last modification: 28/04/2013
+// Version: 1.3
+// Last modification: 29/04/2013
 // Description:  Extract the classes and methods from the
 //				 specification chosen by the user.
 ////////////////////////////////////////////////////////////
 import "../ClassElements/MethodsCreation.egl";
-operation Element extractClassesAndOperations (packages: Set, path: String): Set{
+operation Element extractClassesAndOperations (packages: Set, path: String, rootPath: String): Set{
 	var result: Set;
 	for (pack in packages){
 		// Classes from the model
@@ -18,7 +18,7 @@ operation Element extractClassesAndOperations (packages: Set, path: String): Set
 	    var packageElements: Set;
 	    for (class in classes){
 	    	// Extract the methods
-	    	var allmethods=class.classMethods(self.name, path, true); 
+	    	var allmethods=class.classMethods(self.name, path, true, rootPath); 
 	    	// Tranform the text to a list of operations 
 	    	var methods = allmethods.replaceAll("\t","").split("\n"); 
 	    	// Tuple: 
@@ -31,7 +31,7 @@ operation Element extractClassesAndOperations (packages: Set, path: String): Set
 	    }//for-class
 	    for (interface in interfaces){
 	    	// Extract the methods
-	    	var methods=interface.classMethods(self.name, path, true);
+	    	var methods=interface.classMethods(self.name, path, true, rootPath);
 	    	// Tuple: 
 	    	//			First element: class
 	    	//			Second element: methods from the class

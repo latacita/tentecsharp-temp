@@ -2,13 +2,13 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.4
-// Last modification: 01/04/2013 
+// Version: 1.5
+// Last modification: 29/04/2013 
 // Description: This operation generates the properties.
 ////////////////////////////////////////////////////////////
 import "PropertiesCreation.egl";
 import "../BidirectionalRelations/AllBidirectionalRelations.egl";
-operation Element propertiesGeneration(isInterface: Boolean, bidirectionalRelations: Set, pack: String, path: String): List{
+operation Element propertiesGeneration(isInterface: Boolean, bidirectionalRelations: Set, pack: String, path: String, rootPath: String): List{
 	var implementations: List;
 	var bidirectionalImplementations: List;
 	var isBidirectional=false; 
@@ -19,6 +19,6 @@ operation Element propertiesGeneration(isInterface: Boolean, bidirectionalRelati
 			isBidirectional=true;	
 		}//if-implementations-size
 	}//if-not-empty
-    return self.classPropertiesCreation(path, pack, isBidirectional, bidirectionalImplementations);
+    return self.classPropertiesCreation(path, pack, isBidirectional, bidirectionalImplementations, rootPath);
 }
 %]					
