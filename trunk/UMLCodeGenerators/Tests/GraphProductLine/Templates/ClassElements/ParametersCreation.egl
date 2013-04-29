@@ -28,22 +28,23 @@ operation Feature parameters(currentPackage: String, path: String, rootPath: Str
 		// Throws exception if a type is not assigned for a parameter
 		if (param.type==null){
 			var message = "EXCEPTION: Parameter \""+par+ "\" from package: \""+currentPackage+ "\" doesn't have a type assigned.";
-			//deleteProject(rootPath); 
-			//createErrorWindow(message);
-			throw (message);  
-		}
-		// Check if the parameter is a collection
-		if(param.upperBound==-1 or param.upperBound>1){
-			// If the parameter is a collection
-			var collection=param.typeCollection(currentPackage, path);
-			params=params+" "+collection+" "+par+",";
+			deleteProject(rootPath); 
+			createErrorWindow(message);
+			throw (message);
 		}else{
-			if(param.type.name=="Integer"){
-				params=params+toInt()+par+",";
+			// Check if the parameter is a collection
+			if(param.upperBound==-1 or param.upperBound>1){
+				// If the parameter is a collection
+				var collection=param.typeCollection(currentPackage, path);
+				params=params+" "+collection+" "+par+",";
 			}else{
-				params=params+" "+param.type.name+" "+par+",";	
-			} 
-		}				
+				if(param.type.name=="Integer"){
+					params=params+toInt()+par+",";
+				}else{
+					params=params+" "+param.type.name+" "+par+",";	
+				} 
+			}		
+		}		
 		// Increase the iterator
 		iter=iter+1;					
 	}
