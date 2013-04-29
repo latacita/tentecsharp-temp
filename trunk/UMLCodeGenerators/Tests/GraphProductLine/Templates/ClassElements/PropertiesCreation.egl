@@ -2,14 +2,14 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.3
-// Last modification: 19/04/2013 
+// Version: 2.4
+// Last modification: 29/04/2013 
 // Description: This operation generates the declaration of 
 //				the properties from the current class and
 //				their respective get and set methods.
 ////////////////////////////////////////////////////////////
 import "../Operations.eol"; 
-operation Element classPropertiesCreation(path: String, currentPackage: String, isBidirectional: Boolean, allBidirectionalImplementations: List) : List{  
+operation Element classPropertiesCreation(path: String, currentPackage: String, isBidirectional: Boolean, allBidirectionalImplementations: List, rootPath: String) : List{  
 	// Final result of the operation
 	var finalResult: List;
 	// Additional methods to implement bidirectionality;
@@ -62,6 +62,7 @@ operation Element classPropertiesCreation(path: String, currentPackage: String, 
 				// It current property doesn't have multiplicity, throw an exception 
 				if (prop.upperValue==null and prop.type.isTypeOf(Class) and prop.association <> null){ 
 					var message = "EXCEPTION: Property \""+propertyname+ "\" from class: \""+self.name+"\", from package: \""+currentPackage+ "\" doesn't have multiplicity assigned.";
+					deleteProject(rootPath);
 					createErrorWindow(message); 
 					throw (message);
 				} 

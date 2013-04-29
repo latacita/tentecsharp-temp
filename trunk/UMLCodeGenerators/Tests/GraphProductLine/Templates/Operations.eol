@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.6
-// Last modification: 26/04/2013 
+// Version: 2.7
+// Last modification: 29/04/2013 
 // Description: Operations to use in templates.
 ////////////////////////////////////////////////////////////
  
@@ -145,6 +145,11 @@ operation writeInFile(path:String, message:String) {
 operation deleteFile(path:String, message:String) {
 	var sampleTool = new Native("pluginWriteInFile.WriteInFile");
 	sampleTool.deleteFile(path, message);	
+}
+// This operation uses a Java Tool to delete the log file
+operation deleteProject(path:String) {
+	var sampleTool = new Native("pluginWriteInFile.WriteInFile");
+	sampleTool.deleteProject(path);	
 }
 // This operation uses a Java Tool to check if a file exists
 operation fileExists(path:String): Boolean{

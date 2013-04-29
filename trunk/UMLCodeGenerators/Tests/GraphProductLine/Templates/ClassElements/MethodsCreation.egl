@@ -2,15 +2,15 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.3
-// Last modification: 26/04/2013 
+// Version: 2.4
+// Last modification: 29/04/2013 
 // Description: This operation generates the methods of 
 //				the current class or interface.
 ////////////////////////////////////////////////////////////
 import "ReturnParameterCreation.egl";
 import "ParametersCreation.egl";
 import "../Operations.eol"; 
-operation Element classMethods(currentPackage: String, path: String, isCleanVersion: Boolean): String {   		
+operation Element classMethods(currentPackage: String, path: String, isCleanVersion: Boolean, rootPath: String): String {   		
 	var opers: String;
 	var operations_void : Sequence;	
 	var operations_return: Sequence;
@@ -66,7 +66,7 @@ operation Element classMethods(currentPackage: String, path: String, isCleanVers
 		if (not isCleanVersion){
 			opers=opers+currentPackage+"_";
 		}
-		opers=opers+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
+		opers=opers+methodname+" ("+oper.parameters(currentPackage, path, rootPath)+") {}\n\t\t";
 		// Increase the iterator
 		iter=iter+1;
 	} 
@@ -82,7 +82,7 @@ operation Element classMethods(currentPackage: String, path: String, isCleanVers
 		if (not isCleanVersion){
 			opers=opers+currentPackage+"_";
 		}
-		opers=opers+methodname+" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
+		opers=opers+methodname+" ("+oper.parameters(currentPackage, path, rootPath)+") {}\n\t\t";
 		// Increase the iterator
 		iter=iter+1;
 	} 
