@@ -1,7 +1,7 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %% Author : Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.1, 21/04/2013                                         %%
+%% Version: 1.2, 23/04/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Domain Engineering/Generadores de Código C#                      %%
@@ -42,18 +42,18 @@ El punto de partida es el generador de código llamado \imp{ProjectCreation}, a p
    \item AssemblyInfoFileCreation, genera el fichero .cs que contiene la información general sobre las directivas de ensamblado.
  \end{itemize}
 
- Aunque no aparezca en el diagrama, todos los generadores de código utilizan además el fichero Operations, que es un fichero EOL que dispone de operaciones básicas que se utilizan recurrentemente en el resto de generadores, por nombrar algunos ejemplos, dicho fichero contiene funciones del estilo:
+ Aunque no aparezca en el diagrama, todos los generadores de código utilizan además el fichero \emph{Operations.eol}, que es un fichero EOL que dispone de operaciones básicas que se utilizan recurrentemente en el resto de generadores, por nombrar algunos ejemplos, dicho fichero contiene funciones del estilo:
  \begin{itemize}
    \item \emph{abstract}, retorna el texto \imp{abstract} cuando el elemento sobre el que está siendo utilizado es abstracto.
    \item \emph{typeCollection}, retorna el tipo de colección correspondiente al elemento sobre el que se está actuando.
    \item \emph{hierarchy}, retorna las clases de las que hereda el elemento en cuestión.
  \end{itemize}
 
- Adicionalmente a los generadores de código EGL y EOL, en los sucesivos párrafos se habla en detalle de los Java Tools adicionales que se han elaborado para hacer más gráfico y sencillo al usuario el proceso de ejecución de los generadores de código.
+ Adicionalmente a los generadores de código EGL y EOL, en los sucesivos párrafos se habla en detalle de los Java Tools que se han elaborado para hacer más gráfico y sencillo al usuario el proceso de ejecución de los generadores de código.
 
  \paragraph{Java Tool} \ \\
 
- Un Java Tool es una porción de código java que tras ser empaquetada como plug-in se puede incorporar en el directorio de instalación de Epsilon y utilizar las funciones implementadas en las plantillas de generación de código creadas. Se han desarrollado cuatro Java Tools en total:
+ Un Java Tool es una porción de código java que tras ser empaquetada como plug-in se puede incorporar en el directorio de instalación de Epsilon y utilizar las funciones implementadas en las plantillas de generación de código creadas. Se han desarrollado cinco Java Tools en total:
 
  \begin{figure}[!tb]
   \centering

@@ -1,7 +1,7 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %% Author : Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.2, 21/04/2013                                         %%
+%% Version: 1.3, 23/04/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Domain Engineering/Transformación UML a C#                       %%
@@ -28,6 +28,10 @@
     Después de identificar si es de retorno de una operación o de entrada a la misma se aplica la transformación al tipo de dato correspondiente.\\
 \hline
     % Clase
+\multicolumn{ 1}{|l|}{Clase} &
+    Clase parcial C\# siguiendo el patrón slicer, es decir $<$nombre del paquete al que pertenece$>$\_$<$nombre de la clase$>$. Al crear la clase, añadir también los métodos de utilidad. \\
+\hline
+    % Clase enumerada
 \multicolumn{ 1}{|l|}{Clase} &
     Clase parcial C\# siguiendo el patrón slicer, es decir $<$nombre del paquete al que pertenece$>$\_$<$nombre de la clase$>$. Al crear la clase, añadir también los métodos de utilidad. \\
 \hline
