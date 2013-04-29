@@ -7,7 +7,7 @@
 ////////////////////////////////////////////////////////////
 package pluginWriteInFile;
 
-import java.io.BufferedWriter;
+import java.io.BufferedWriter; 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -42,6 +42,19 @@ public class WriteInFile {
 		File file = new File(path+"\\"+name);
 		file.delete();
 	}
+	// Delete a directory
+	public static void deleteProject(String dir){ 
+		deleteDir(new File(dir));
+	}
+	private static void deleteDir(File dir) {
+        if (dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i=0; i<children.length; i++) {
+                deleteDir(new File(dir, children[i]));                
+            }
+        } 
+        dir.delete();
+    } 
 	// Checks if a file exists
 	public boolean fileExists(String path){
 		boolean exists;
@@ -53,5 +66,5 @@ public class WriteInFile {
 			exists=false;
 		}
 		return exists;
-	}
+	} 
 }
