@@ -109,45 +109,47 @@ operation bidirectionalRelations(rootPath: String): Set{
 	
 	var bidirectionalRelations: Set;
 	var numRelations=finalRelations.size();
-	// Bidireccionalidad
-	for (r in Sequence{0..numRelations-1}){ 
-		for (ri in Sequence{0..numRelations-1}){
-			if (finalRelations[ri][0][0] == finalRelations[r][0][1] 
-				and finalRelations[ri][0][1]==finalRelations[r][0][0]
-				and finalRelations[ri][2][0]==finalRelations[r][2][1]
-				and finalRelations[ri][2][1]==finalRelations[r][2][0]
-				){ 
-					// Structure of each element of bidirectionalRelations set: 
-					//		{{<NameFromCurrentClass>, <NameFromRelationClass>}, <RelationNameCurrentClassToRelationClass>, 
-					//	     {<NameFromPackageCurrentClass>, <NameFromPackageRelationClass>}, 
-					//		 {<MultiplictyOfTheRelationCurrentClass>, <MultiplictyOfTheRelationRelationClass>}} 
-					// Add both classes
-					var relat:List;
-					relat.add(finalRelations[r][0]);
-					// Add relation from current class to relation class
-					var rel:List;
-					rel.add(finalRelations[r][1][0]); 
-					rel.add(finalRelations[ri][1][0]); 					 
-					relat.add(rel);
-					// Add packages from both classes
-					var pack:List;
-					pack.add(finalRelations[r][2][0]);
-					pack.add(finalRelations[ri][2][0]);
-					relat.add(pack); 					 
-					// Add the multiplicity
-					var mult:List;
-					mult.add(finalRelations[r][3][0]);
-					mult.add(finalRelations[ri][3][0]);	
-					relat.add(mult);									
-					// Don't add those relations which are reflexive were the source and 
-					// the end are the same, to avoid recursivity
-					if (relat[1][0] <> relat[1][1]){
-						// Add the relation to the list of bidirectional relations
-						bidirectionalRelations.add(relat); 
-					}//if-relat	 
-			}//if
-		}//for-re 
-	}//for-r   
+	if (numRelations>0){ 
+		// Bidireccionalidad
+		for (r in Sequence{0..numRelations-1}){ 
+			for (ri in Sequence{0..numRelations-1}){
+				if (finalRelations[ri][0][0] == finalRelations[r][0][1] 
+					and finalRelations[ri][0][1]==finalRelations[r][0][0]
+					and finalRelations[ri][2][0]==finalRelations[r][2][1]
+					and finalRelations[ri][2][1]==finalRelations[r][2][0]
+					){ 
+						// Structure of each element of bidirectionalRelations set: 
+						//		{{<NameFromCurrentClass>, <NameFromRelationClass>}, <RelationNameCurrentClassToRelationClass>, 
+						//	     {<NameFromPackageCurrentClass>, <NameFromPackageRelationClass>}, 
+						//		 {<MultiplictyOfTheRelationCurrentClass>, <MultiplictyOfTheRelationRelationClass>}} 
+						// Add both classes
+						var relat:List;
+						relat.add(finalRelations[r][0]);
+						// Add relation from current class to relation class
+						var rel:List;
+						rel.add(finalRelations[r][1][0]); 
+						rel.add(finalRelations[ri][1][0]); 					 
+						relat.add(rel);
+						// Add packages from both classes
+						var pack:List;
+						pack.add(finalRelations[r][2][0]);
+						pack.add(finalRelations[ri][2][0]);
+						relat.add(pack); 					 
+						// Add the multiplicity
+						var mult:List;
+						mult.add(finalRelations[r][3][0]);
+						mult.add(finalRelations[ri][3][0]);	
+						relat.add(mult);									
+						// Don't add those relations which are reflexive were the source and 
+						// the end are the same, to avoid recursivity
+						if (relat[1][0] <> relat[1][1]){
+							// Add the relation to the list of bidirectional relations
+							bidirectionalRelations.add(relat); 
+						}//if-relat	 
+				}//if
+			}//for-re 
+		}//for-r
+	}
 	return bidirectionalRelations;
 }
 %]
