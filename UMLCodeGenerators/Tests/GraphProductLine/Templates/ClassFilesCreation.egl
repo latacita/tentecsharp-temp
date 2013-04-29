@@ -2,7 +2,7 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.1
+// Version: 2.2
 // Last modification: 29/04/2013 
 // Description: Generates the files of all code classes. And
 //				return a set of all the paths.
@@ -37,6 +37,12 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 		// Enumeration classes from the model
 		var enumClasses=pack.packagedElement.select(e|e.isTypeOf(Enumeration)); 
 		for (en in enumClasses){
+			if (en.name=""){
+				var message = "EXCEPTION: There is an enumeration class which doesn't have a name in the package \""+pack.name+"\". Please name it in order to generate the project.";
+				deleteProject(rootPath);
+				createErrorWindow(message);
+				throw (message);
+			}
 	    	var t := TemplateFactory.load('Classes/EnumerationClassCreation.egl');
 			t.populate ('currentClass', en);	
 			t.populate('currentPackage', pack);
