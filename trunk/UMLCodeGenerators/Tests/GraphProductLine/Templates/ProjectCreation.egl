@@ -17,7 +17,7 @@ import "VisualStudioProjectFiles/CsprojectFileCreation.egl";
 
 // Select the model's project
 var modelProject : Model;  
-var m= Model.allInstances().reject(m|m.name.equals("PrimitiveTypes") or m.name.equals("JavaPrimitiveTypes"));
+var m= Model.allInstances().reject(m|m.name.equals("PrimitiveTypes") or m.name.equals("JavaPrimitiveTypes") or m.name.equals("UML"));
 // If there's more than a model in the project
 if (m.size>1){
 	var models:List;

@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.1
-// Last modification: 28/04/2013
+// Version: 1.2
+// Last modification: 02/05/2013
 // Description: Fuse the operations of classes with the same
 //				name in different packages.
 //////////////////////////////////////////////////////////// 
@@ -12,40 +12,44 @@ operation fuseElements (elements: Set): Set{
 	//		First element: Name of the class
 	//		Second element: List of operations from the current class
 	var result: Set;
-	for (e1 in elements){
+	for (cleanClassAndOpers in elements){
 		// Package name
-		var pack=e1[0];  
+		var pack=cleanClassAndOpers[0];  
 		// For each class of the current package
-		for (elem in e1[1]){
+		for (cleanVersion in cleanClassAndOpers[1]){
 			// Current class name
-			var class=elem[0];
+			var class=cleanVersion[0];
 			var methods: Set; 
 			// Methods from the current class
-			for (m in elem[1]){	
+			for (m in cleanVersion[1]){	
 				methods.add(m);
-			}//for-m
+			}//for-m 
 			// For each package
-			for (e2 in elements){
+			for (otherCleanClassAndOpers in elements){
+				// Package name
+				var otherPack=otherCleanClassAndOpers[0];
 				// If the current package is different from this current one
-				if (pack<>e2[0]){ 
+				if (pack<>otherPack){ 
 					// For each of its classes
-					for (e3 in e2[1]){ 
+					for (otherCleanVersion in otherCleanClassAndOpers[1]){  
+						// Current class name
+						var otherClass=otherCleanVersion[0];  
 						// If the current class is equal to this one 
-						if (class==e3[0]){
+						if (class.name==otherClass.name){ 
 							// Add the operations to the operations of the current class
-							for (m in e3[1]){
-								methods.add(m);
+							for (m in otherCleanVersion[1]){
+								methods.add(m); 
 							}//for-m
 						}//if-class
-					}//for-e3
-				}//if-pack
-			}//for-e2
+					}//for-otherCleanVersion
+				}//if-pack 
+			}//for-otherCleanClassAndOpers
 			var tuple: List;
 			tuple.add(class);
 			tuple.add(methods); 
 			result.add(tuple); 
-		}//for-elem
-	}//for-e1
+		}//for-cleanVersion
+	}//for-cleanClassAndOpers 
 	return result;
 }
 %]
