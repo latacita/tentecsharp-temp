@@ -41,9 +41,9 @@ if (m.size>1){
 var packages : Collection;
 packages := modelProject.packagedElement.select(p|p.isTypeOf(Package));
 packages := packages.reject(p|p.name.equals("UML Standard Profile"));
+packages := packages.reject(p|p.name.equals("UML"));
 packages := packages.reject(p|p.isTypeOf(Class));
-packages := packages.reject(p|p.isTypeOf(Interface));
-  
+packages := packages.reject(p|p.isTypeOf(Interface)); 
 // Select the model's classes outside package 
 var classes := modelProject.packagedElement.select(p|p.isTypeOf(Class));
 var classSize = classes.size;

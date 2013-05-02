@@ -15,7 +15,8 @@ operation bidirectionalRelations(rootPath: String): Set{
 	var relations: List;
 	//Select the packages created by the user
 	var packages := Package.all.select(p|p.isTypeOf(Package));
-	packages := Package.all.reject(p|p.name.equals("UML Standard Profile"));	
+	packages := Package.all.reject(p|p.name.equals("UML Standard Profile"));
+	packages := Package.all.reject(p|p.name.equals("UML"));
 	// Set of classes names
 	var classesName: Set; 
 	var id;
@@ -63,7 +64,7 @@ operation bidirectionalRelations(rootPath: String): Set{
 					if (attrib.upperBound > 1 or attrib.upperBound == -1){
 						// It's a collection						
 						multiplicity.add(attrib);   
-					}else{
+					}else{  
 						// It current bidirectional property doesn't have multiplicity, throw an exception 
 						if (attrib.upperValue==null and attrib.type.isTypeOf(Class) and attrib.association <> null){
 							var message = "EXCEPTION: Property \""+attrib.name+ "\" from class: \""+class.name+"\", from package: \""+pack.name+ "\" doesn't have multiplicity assigned.";
