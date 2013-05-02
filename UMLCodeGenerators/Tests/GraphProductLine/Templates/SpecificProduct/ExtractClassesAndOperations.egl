@@ -18,7 +18,7 @@ operation Element extractClassesAndOperations (packages: Set, path: String, root
 	    var packageElements: Set;
 	    for (class in classes){
 	    	// Extract the methods
-	    	var allmethods=class.classMethods(self.name, path, true, rootPath); 
+	    	var allmethods=class.classMethods(self.name, path, true, rootPath);
 	    	// Tranform the text to a list of operations 
 	    	var methods = allmethods.replaceAll("\t","").split("\n"); 
 	    	// Tuple: 
