@@ -23,7 +23,7 @@ operation specificClassFilesCreation(packages: Set, modelProject: Model, directo
 		if (not pack.profileApplication.isEmpty()){
 			// Select the path of all the packages needed to implement the current product
 			packagesMerges=mergeClasses(packages,pack);
-			var packagesUsed=specificPath(packagesMerges, pack);
+			var packagesUsed=specificPath(packagesMerges, pack); 
 			// Extract the classes and operations needed to implement the current product
 			var classesAndOperations=pack.extractClassesAndOperations(packagesUsed, "", rootPath);
 			// Fuses the operations from the classes which are in different packages 

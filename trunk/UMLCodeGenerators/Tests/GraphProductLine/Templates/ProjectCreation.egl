@@ -44,6 +44,11 @@ packages := packages.reject(p|p.name.equals("UML Standard Profile"));
 packages := packages.reject(p|p.name.equals("UML"));
 packages := packages.reject(p|p.isTypeOf(Class));
 packages := packages.reject(p|p.isTypeOf(Interface)); 
+
+
+var siOno= isAccessible("SmartEnergyMng", "BaseSystem", packages); 
+siOno.println();
+
 // Select the model's classes outside package 
 var classes := modelProject.packagedElement.select(p|p.isTypeOf(Class));
 var classSize = classes.size;
