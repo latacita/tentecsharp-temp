@@ -1,0 +1,147 @@
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.3
+// Last modification: 06/05/2013 
+// Description: Operations to use in the implementation of 
+//				specific product.
+////////////////////////////////////////////////////////////
+
+// This operation returns true/false depending if the pack2 is accessible from
+// the pack1. Also receives as parameter the set of packages from the given model
+operation isAccessible (pack1: String, pack2: String, packages: Set): Boolean{
+	var maps = mapPackages(packages);
+	var packagesAccessibles = allAccessiblePackages(pack1, maps); 
+	return packagesAccessibles.contains(pack2);
+} 
+// This operation returns all the possible paths given the current implementation
+operation getPaths (pack: String, packages: Set): List{
+	var maps = mapPackages(packages); 
+	return allPaths(pack, maps);
+} 
+// This operation returns a Map where each key is a package from the model and
+// its values are the direct merge packages
+operation mapPackages (packages: Set): Map{ 
+	var packagesMerges: Map;
+	for (pack in packages){
+		var tuple:Map;
+		var merges:Set;
+		var elements=pack.packageMerge;
+		for (elem in elements){
+			merges.add(elem.mergedPackage.name);
+		}
+		packagesMerges.put(pack.name, merges);
+	} 
+	return packagesMerges;
+}
+// This operation returns a Set of all the accessible packages from the
+// given one 
+operation allAccessiblePackages (basePackage: String, packages: Map): Set{
+	var result: Set; 
+	var values = packages.get(basePackage);
+	for (value in values){
+		result.add(value); 
+		var all = allAccessiblePackages(value, packages);
+		for (elem in all){
+			result.add(elem);
+		}
+	}  
+	return result;
+}
+// This operation returns the list of elements for each path
+operation elements (e:List, finalPackages:List):List{ 
+	var list:List;
+	var laux:List;
+	// First element is String type
+	list.add(e[0]); 
+	// If said element isn't a final package 
+	// (one which doesn't merge with other packages)
+	if (not finalPackages.contains(e[0])){	
+		// Recursively call the method
+		laux=elements(e[1], finalPackages); 
+	} 
+	// Create the list of elements
+	for (element in laux){
+		list.add(element);
+	}  
+	return list; 
+}
+// This operation returns a list of the packages which doesn't have
+// merge relations with other packages
+operation finalPackages (map: Map): List{
+	var finalPackages: List;
+	for (m in map.keySet()){  
+		// If the current map's element doesn't have values, it means
+		// it's a root package
+		if (map.get(m).isEmpty()){
+			// Add it to the list of final packages
+			finalPackages.add(m);
+		}
+	}
+	return finalPackages;
+}
+// Internal implementation of all the paths for the specific product
+operation allPathsIntern (basePackage: String, packages: Map):List{
+	var result: List;
+	var li: List;
+	var values = packages.get(basePackage); 
+	li.add(basePackage); 
+	for (value in values){ 
+		var all = allPathsIntern(value, packages); 
+		for (elem in all){  
+			li.add(elem);  
+		} 
+	}  
+	result.add(li); 
+	return result;
+}
+// This operation returns a list of all the possible paths from the given
+// implementation by the user
+operation allPaths (package: String, map:Map):List{ 
+	var elements = allPathsIntern (package, map);  
+	var paths: List;  
+	for (element in elements[0]){ 
+		if (element.type.name=="Sequence"){ 
+			var n:List;
+			// Each element is as follows:
+			//		<NameOfTheRootPackage>, (<ChildPackages>, <ChildPackages>, ...)
+			for (el in element){  
+				var base: List;
+				var path:List;
+				if (el.type.name=="Sequence"){
+					// Recursively until catch the root package
+					var elem=elements(el, finalPackages(map));  
+					for (u in elem){
+						path.add(u);
+					}    
+				}else{
+					// If it's the first component of the tuple, it's a String
+					base.add(el); 
+				} 
+				if (not base.isEmpty()){
+					n.add(el);
+				}
+				if (not path.isEmpty()){
+					n.add(path); 
+				}
+			}
+			paths.add(n); 
+		} 
+	}      
+	var result: List; 
+	// Generates the final list from the current implementation
+	for (p in paths){ 
+		var base= p[0];
+		for (u in Sequence{1..p.size-1}){ 
+			var lista: List;
+			lista.add(package);
+			lista.add(base);
+			for (l in p[u]){ 
+				lista.add(l);
+			} 
+			result.add(lista);
+		}  
+	}
+	// List of paths
+	return result;
+}

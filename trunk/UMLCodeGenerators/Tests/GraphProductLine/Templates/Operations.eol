@@ -166,39 +166,5 @@ operation chooseModel (models: List): String {
 	var sampleTool = new Native("pluginChooseModel.ChooseModel"); 
 	return sampleTool.windowChooseModel(models);
 } 
-// This operation returns a Map where each key is a package from the model and
-// its values are the direct merge packages
-operation mapPackages (packages: Set): Map{ 
-	var packagesMerges: Map;
-	for (pack in packages){
-		var tuple:Map;
-		var merges:Set;
-		var elements=pack.packageMerge;
-		for (elem in elements){
-			merges.add(elem.mergedPackage.name);
-		}
-		packagesMerges.put(pack.name, merges);
-	} 
-	return packagesMerges;
-}
-// This operation returns a Set of all the accessible packages from the
-// given one 
-operation allAccessiblePackages (basePackage: String, packages: Map): Set{
-	var result: Set; 
-	var values = packages.get(basePackage);
-	for (value in values){
-		result.add(value); 
-		var all = allAccessiblePackages(value, packages);
-		for (elem in all){
-			result.add(elem);
-		}
-	}  
-	return result;
-}
-// This operation returns true/false depending if the pack2 is accessible from
-// the pack1. Also receives as parameter the set of packages from the given model
-operation isAccessible (pack1: String, pack2: String, packages: Set): Boolean{
-	var maps = mapPackages(packages);
-	var packagesAccessibles = allAccessiblePackages(pack1, maps);
-	return packagesAccessibles.contains(pack2);
-}
+
+
