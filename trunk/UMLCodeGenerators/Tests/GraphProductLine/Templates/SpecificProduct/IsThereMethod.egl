@@ -1,0 +1,35 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.2
+// Last modification: 11/05/2013 
+// Description: Checks if the given method is implemented in
+//				the current package.
+//////////////////////////////////////////////////////////// 
+operation Package isThereMethod(finalClass:String, finalMethod:String): List{
+	// Classes from the current package
+	var classes=self.packagedElement.select(e|e.isTypeOf(Class)); 
+	var contains=false;
+	var result:List;
+	var operat;
+	// For each class from the current package
+	for (class in classes){  
+		if (class.name.equals(finalClass)){
+			// Look the operations for each class
+			for (oper in class.getOperations()){ 
+			 	// If true means that the current package implements current
+			 	// operation and we have to stop the proccess on that path 
+			 	contains = finalMethod.contains(oper.name);
+			 	if (contains){ 
+			 		operat=oper;
+			 		break;
+			 	}
+			}//for-oper
+		}//if-class-equals-current-element 
+	}//for-class
+	result.add(operat);
+	result.add(contains); 
+	return result;
+}
+%]

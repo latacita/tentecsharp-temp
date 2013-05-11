@@ -1,0 +1,27 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.1
+// Last modification: 11/05/2013
+// Description:  Extract the name of the params from the 
+//				 current operation.
+////////////////////////////////////////////////////////////
+operation Operation interParams(): String { 
+	// Method's parameters
+	var params: String; 
+	// Reject blank and return parameters
+	var parameters := self.ownedParameter.reject(p| p.direction.toString().equals("return"));
+	// Add to the var params each parameter from the given method
+	for (param in parameters){
+		params=params+" "+param.name+","; 
+	}
+	// Deleting the last "," of the string, if needed
+    if (not params.isEmpty()){	
+    	params = params.substring(0, params.length() - 1);
+    }    
+	params=params+" ";
+	return params;
+}%]		
+ 
+   

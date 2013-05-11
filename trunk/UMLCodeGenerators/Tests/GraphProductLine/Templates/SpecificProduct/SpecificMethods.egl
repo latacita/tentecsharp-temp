@@ -1,0 +1,55 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.2
+// Last modification: 11/05/2013
+// Description:  Generates the implementation for the 
+//				 clean version of the currrent class and the
+//				 intern implementation of said methods.
+////////////////////////////////////////////////////////////
+import "../ClassElements/ParametersCreation.egl";
+import "../ClassElements/ReturnParameterCreation.egl";
+import "../SpecificProduct/InternParams.egl";
+operation specificMethods(deepestVersions:Set, currentClass: String): String{
+	var methods:Set;
+	for (version in deepestVersions){
+		if (version[0][0]==currentClass){
+			var method: List;
+			// Name of operation
+			method.add(version[0][1].name);
+			// Visibility
+			method.add(version[0][1].visibility());
+			// Return param
+			method.add(version[0][1].returnParameter("", ""));
+			// Params
+			method.add(version[0][1].parameters("", "", ""));
+			// Intern params
+			method.add(version[0][1].interParams());
+			// Each element is a list like the following:
+			// 		<nameOper>,<visibility>,<returnParams>,<params>,<internParams>
+			methods.add(method);
+		}//if-version
+	}//for-version
+	var result: String;
+	// Generation of the methods and their intern implementations.
+	for (method in methods){
+		var visibility:String;
+		if (method[1].equals("protected")){
+			visibility="protected";
+		}else{
+			visibility="public";
+		}//if-method
+		result=result+visibility+" virtual "+method[2]+" "+method[0]+" ("+method[3]+"){\n";
+		var inter:String; 
+		for (version in deepestVersions){
+			if (version[0][0]==currentClass and version[0][1].name==method[0]){ 
+				inter=inter+"\t"+version[1]+" ("+method[4]+");\n";
+			}//if-version
+		}//for-version
+		inter=inter+"}\n";
+		result=result+inter;
+	}//for-method
+	return result;
+}
+%]

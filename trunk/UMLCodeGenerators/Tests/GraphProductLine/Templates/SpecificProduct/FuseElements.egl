@@ -35,7 +35,7 @@ operation fuseElements (elements: Set): Set{
 						// Current class name
 						var otherClass=otherCleanVersion[0];  
 						// If the current class is equal to this one 
-						if (class.name==otherClass.name){ 
+						if (class==otherClass){ 
 							// Add the operations to the operations of the current class
 							for (m in otherCleanVersion[1]){
 								methods.add(m); 

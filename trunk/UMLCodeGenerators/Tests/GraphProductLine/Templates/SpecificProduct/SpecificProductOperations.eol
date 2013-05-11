@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.3
-// Last modification: 06/05/2013 
+// Version: 1.4
+// Last modification: 11/05/2013 
 // Description: Operations to use in the implementation of 
 //				specific product.
 ////////////////////////////////////////////////////////////
@@ -15,7 +15,7 @@ operation isAccessible (pack1: String, pack2: String, packages: Set): Boolean{
 	return packagesAccessibles.contains(pack2);
 } 
 // This operation returns all the possible paths given the current implementation
-operation getPaths (pack: String, packages: Set): List{
+operation getPaths (pack: Package, packages: Set): List{
 	var maps = mapPackages(packages); 
 	return allPaths(pack, maps);
 } 
@@ -28,9 +28,9 @@ operation mapPackages (packages: Set): Map{
 		var merges:Set;
 		var elements=pack.packageMerge;
 		for (elem in elements){
-			merges.add(elem.mergedPackage.name);
+			merges.add(elem.mergedPackage);
 		}
-		packagesMerges.put(pack.name, merges);
+		packagesMerges.put(pack, merges);
 	} 
 	return packagesMerges;
 }
@@ -81,7 +81,7 @@ operation finalPackages (map: Map): List{
 	return finalPackages;
 }
 // Internal implementation of all the paths for the specific product
-operation allPathsIntern (basePackage: String, packages: Map):List{
+operation allPathsIntern (basePackage: Package, packages: Map):List{
 	var result: List;
 	var li: List;
 	var values = packages.get(basePackage); 
@@ -97,7 +97,7 @@ operation allPathsIntern (basePackage: String, packages: Map):List{
 }
 // This operation returns a list of all the possible paths from the given
 // implementation by the user
-operation allPaths (package: String, map:Map):List{ 
+operation allPaths (package: Package, map:Map):List{ 
 	var elements = allPathsIntern (package, map);  
 	var paths: List;  
 	for (element in elements[0]){ 

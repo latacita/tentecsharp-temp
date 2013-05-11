@@ -1,0 +1,42 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.3
+// Last modification: 11/05/2013 
+// Description: Generates the implementation of the clean
+//				methods.
+//////////////////////////////////////////////////////////// 
+import "../SpecificProduct/SpecificProductOperations.eol";
+import "../SpecificProduct/BranchFromSpecificProduct.egl";
+import "../SpecificProduct/SpecificMethods.egl";
+operation implementationCleanMethods(fuseElements: Set, pack: Package, packages: Set){
+////////////////////////////////
+//var siOno= isAccessible("SmartEnergyMng", "BaseSystem", packages); 
+//siOno.println(); //BaseSystem
+	// Get the possible paths
+	var paths=getPaths(pack, packages);
+ 	var deepestVersions:Set;
+ 	var classes:Set;
+	var found=false;
+	// For each possible path
+	for (path in paths){ 
+		// Calculate the inter implementation for all the methods 
+		var map=branch(path, fuseElements); 
+		var keys=map.keySet();
+		// Rearrange the deepest versions of the methods from the 
+		// classes of the specific product
+		for (key in keys){
+			var list: List;
+			list.add(key.flatten());
+			list.add(map.get(key));
+			deepestVersions.add(list);
+			classes.add(key[0]);
+		}//for-key
+	}//for-path 
+	for (class in classes){
+		class.println();
+		specificMethods(deepestVersions, class).println();
+	}//for-class
+}
+%]
