@@ -1,0 +1,52 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.2
+// Last modification: 11/05/2013
+// Description:  Extract the map structure from the current
+//				 branch, including the deepest versions of
+//				 the methods.
+////////////////////////////////////////////////////////////
+import "../SpecificProduct/IsThereMethod.egl"; 
+operation branch(path: List, fuseElements:Set): Map{
+var map: Map;  
+var found=false; 
+// For every pack
+for (pack in path){
+	// Look which one implements each of the elements from the generated product
+	for (element in fuseElements){
+		// Extract the classes from the current pack
+		var classes = pack.packagedElement.select(e|e.isTypeOf(Class));
+		var listClass:List;
+		for (c in classes){
+			listClass.add(c.name);
+		}
+		// Check if it implements a class from the generated product
+		var implInCurrentPack=listClass.includes(element[0]);
+		// If implements a class from the generated product
+		if (implInCurrentPack){	
+			// Check if it implements a method from the class 
+			for (method in element[1]){ 
+				var isThereMethod = pack.isThereMethod(element[0], method);
+				// If implements a method from the generated product
+				if (isThereMethod[1]){ 
+					var impl=pack.name+"_"+isThereMethod[0].name; 
+					var tuple: List;
+					tuple.add(element[0]);
+					tuple.add(isThereMethod[0]);
+					tuple.add(pack.name);
+					// If we haven't found a deeper version
+					if (map.get(tuple)==null){
+						// We have just found the most deep version of the operation
+						// so it stops looking for it in the rest of the path
+						map.put(tuple,impl);
+					}//if-map 
+				}//if-isThereMethod
+			}//for-method
+		}//if-implInCurrentPack
+	}//for-element
+}//for-pack
+return map;
+}
+%]

@@ -8,15 +8,14 @@
 //				return a set of all the paths.
 ////////////////////////////////////////////////////////////
 import "../Operations.eol";
-
 import "MergeClasses.egl";
 import "SpecificPath.egl";
 import "ExtractClassesAndOperations.egl";
 import "FuseElements.egl"; 
+import "ImplementationCleanMethods.egl";
 operation specificClassFilesCreation(packages: Set, modelProject: Model, directory: String, path: String, rootPath: String){
 	var paths_notemptyMyProject: Set;
-	var isInterface=false;
-	
+	var isInterface=false;	
 	var packagesMerges;
 	for (pack in packages) { 
 		// If the current package is the combination chosen by the user
@@ -25,10 +24,15 @@ operation specificClassFilesCreation(packages: Set, modelProject: Model, directo
 			packagesMerges=mergeClasses(packages,pack);
 			var packagesUsed=specificPath(packagesMerges, pack); 
 			// Extract the classes and operations needed to implement the current product
-			var classesAndOperations=pack.extractClassesAndOperations(packagesUsed, "", rootPath);
+			var classesAndOperations=pack.extractClassesAndOperations(packagesUsed, "", rootPath); 
 			// Fuses the operations from the classes which are in different packages 
 			// in order to implement the current product
 			var fusedElements=fuseElements(classesAndOperations); 
+			//---------------
+			implementationCleanMethods(fusedElements, pack, packages).println();
+			
+			
+			
 			// Generate the files
 			for (element in fusedElements){
 				var isInterface: Boolean; 
@@ -39,13 +43,13 @@ operation specificClassFilesCreation(packages: Set, modelProject: Model, directo
 					isInterface=true;
 				} 
 				var t := TemplateFactory.load('SpecificProduct/CleanVersionClassCreation.egl');
-				t.populate ('currentElement', element[0].name);
+				t.populate ('currentElement', element[0]);
 				t.populate('currentPackage', pack);
 				t.populate('currentModel', modelProject);
 				t.populate('currentMethods', element[1]);
 				t.populate('path', path); 
 				t.populate('isInterface', isInterface);
-				var path=directory + pack.name + "\\"+ element[0].name +'.cs'; 
+				var path=directory + pack.name + "\\"+ element[0] +'.cs'; 
 				t.generate (path);
 				paths_notemptyMyProject.add(path); 
 			}//for-element

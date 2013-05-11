@@ -25,7 +25,7 @@ operation Element extractClassesAndOperations (packages: Set, path: String, root
 	    	//			First element: class
 	    	//			Second element: methods from the class
 	    	var tuple: List;
-	    	tuple.add(class);
+	    	tuple.add(class.name);
 	    	tuple.add(methods);	      
 	    	packageElements.add(tuple); 
 	    }//for-class
@@ -36,7 +36,7 @@ operation Element extractClassesAndOperations (packages: Set, path: String, root
 	    	//			First element: class
 	    	//			Second element: methods from the class
 	    	var tuple: List;
-	    	tuple.add(interface);
+	    	tuple.add(interface.name);
 	    	tuple.add(methods);	     
 	    	packageElements.add(tuple); 
 	    }//for-interface
