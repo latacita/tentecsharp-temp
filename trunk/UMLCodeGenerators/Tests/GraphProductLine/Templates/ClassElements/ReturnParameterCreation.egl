@@ -25,9 +25,9 @@ operation Feature returnParameter(currentPackage: String, path: String): String 
 			if(param.type.name=="Integer"){
 				params=toInt();
 			}else{
-				params=param.type.name;
+				params=param.type.name;  
 			}
-		}//if-paramUpperBound		 
+		}//if-paramUpperBound
 	}//for-param
 	return params;	
 } %]		

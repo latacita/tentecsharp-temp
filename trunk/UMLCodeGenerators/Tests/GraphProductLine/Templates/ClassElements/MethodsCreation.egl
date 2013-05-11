@@ -24,8 +24,7 @@ operation Element classMethods(currentPackage: String, path: String, isCleanVers
 	var iter=0;
 	var methodname; 
 	var isReturn=false;
-	// Separate void from return methods
-	//getOperations()
+	// Separate void from return methods 
 	for (oper in self.getOperations()){  
 		for (par in oper.ownedParameter){ 
 			// Void methods:			
