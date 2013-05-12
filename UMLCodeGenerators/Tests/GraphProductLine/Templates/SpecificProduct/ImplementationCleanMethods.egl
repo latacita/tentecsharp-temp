@@ -10,10 +10,8 @@
 import "../SpecificProduct/SpecificProductOperations.eol";
 import "../SpecificProduct/BranchFromSpecificProduct.egl";
 import "../SpecificProduct/SpecificMethods.egl";
-operation implementationCleanMethods(fuseElements: Set, pack: Package, packages: Set): List{
-////////////////////////////////
-//var siOno= isAccessible("SmartEnergyMng", "BaseSystem", packages); 
-//siOno.println(); //BaseSystem
+import "../SpecificProduct/RearrangeMethods.egl";
+operation implementationCleanMethods(fuseElements: Set, pack: Package, packages: Set): List{ 
 	// Get the possible paths
 	var paths=getPaths(pack, packages);
  	var deepestVersions:Set;
@@ -21,7 +19,7 @@ operation implementationCleanMethods(fuseElements: Set, pack: Package, packages:
  	var result:List;
 	var found=false;
 	// For each possible path
-	for (path in paths){ 
+	for (path in paths){
 		// Calculate the inter implementation for all the methods 
 		var map=branch(path, fuseElements); 
 		var keys=map.keySet();
@@ -31,16 +29,17 @@ operation implementationCleanMethods(fuseElements: Set, pack: Package, packages:
 			var list: List;
 			list.add(key.flatten());
 			list.add(map.get(key));
-			deepestVersions.add(list);
+			deepestVersions.add(list); 
 			classes.add(key[0]);  
 		}//for-key
-	}//for-path 
-	for (class in classes){
+	}//for-path
+	deepestVersions=rearrangeMethods(deepestVersions, paths, packages);
+	for (class in classes){ 
 		var listMethods: List;
 		//Name of the class
 		listMethods.add(class);
 		// Metdhos of the class
-		listMethods.add(specificMethods(deepestVersions, class));
+		listMethods.add(specificMethods(deepestVersions, class.name));
 		// Add the list to the list of implementations
 		result.add(listMethods); 
 	}//for-class

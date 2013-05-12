@@ -14,23 +14,23 @@ import "../SpecificProduct/InternParams.egl";
 operation specificMethods(deepestVersions:Set, currentClass: String): String{
 	var methods:Set;
 	for (version in deepestVersions){
-		if (version[0][0]==currentClass){
-			// If it's the constructor
-			if (version[0][1].equals(currentClass)){
+		if (version[0][0].name==currentClass){
+			// If it's the constructor 
+			if (version[0][1].name.equals(currentClass)){
 				var method: List;
 				// Name of operation
-				method.add(version[0][1]);
+				method.add(version[0][1].name);
 				// Visibility
 				method.add("public");
 				// Return param
 				method.add("void");
 				// Params
-				method.add("");
+				method.add(" ");
 				// Intern params
-				method.add(""); 
+				method.add(" "); 
 				// Each element is a list like the following:
 				// 		<nameOper>,<visibility>,<returnParams>,<params>,<internParams> 
-				methods.add(method);
+				methods.add(method); 
 			}else{
 				var method: List;
 				// Name of operation
@@ -62,20 +62,20 @@ operation specificMethods(deepestVersions:Set, currentClass: String): String{
 		var inter:String; 
 		for (version in deepestVersions){ 
 			// If it's the constructor
-			if (version[0][1]==version[0][0]){
+			if (version[0][1]==version[0][0].name){
 				if (version[0][0]==currentClass and version[0][1]==method[0]){ 
-							inter=inter+"\t\t\t"+version[1]+" ("+method[4]+");\n";
+					inter=inter+"\t\t\t"+version[1]+" ("+method[4]+");\n";
 				}//if-version[0][0]
 			// If it's a method
 			}else{ 
-				if (version[0][0]==currentClass and version[0][1].name==method[0]){ 
+				if (version[0][0].name==currentClass and version[0][1].name==method[0]){ 
 					inter=inter+"\t\t\t"+version[1]+" ("+method[4]+");\n";
 				}//if-version[0][0] 
 			}//if-constructor
 		}//for-version
 		inter=inter+"\t\t}\n";
 		result=result+inter;
-	}//for-method 
+	}//for-method  
 	return result;
 }
 %]

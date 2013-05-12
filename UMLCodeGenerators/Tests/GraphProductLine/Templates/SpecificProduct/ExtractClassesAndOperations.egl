@@ -13,8 +13,6 @@ operation Element extractClassesAndOperations (packages: Set, path: String, root
 	for (pack in packages){
 		// Classes from the model
 	    var classes=pack.packagedElement.select(e|e.isTypeOf(Class)); 
-	    // Interfaces from the model
-	    var interfaces=pack.packagedElement.select(e|e.isTypeOf(Interface));
 	    var packageElements: Set;
 	    for (class in classes){
 	    	// Extract the methods
@@ -25,19 +23,33 @@ operation Element extractClassesAndOperations (packages: Set, path: String, root
 	    	//			First element: class
 	    	//			Second element: methods from the class
 	    	var tuple: List;
-	    	tuple.add(class.name);
+	    	tuple.add(class);
 	    	tuple.add(methods);	      
 	    	packageElements.add(tuple); 
 	    }//for-class
+	    // Tuple:
+	    //			First element: package
+	    // 			Second element: list of elements (<class>,(<operation1>,<operation2>,...))
+	    var tuple: List;
+	    tuple.add(pack.name);
+	    tuple.add(packageElements);
+	    result.add(tuple); 
+	}//for-pack
+	for (pack in packages){ 
+	    // Interfaces from the model
+	    var interfaces=pack.packagedElement.select(e|e.isTypeOf(Interface));
+	    var packageElements: Set;
 	    for (interface in interfaces){
 	    	// Extract the methods
-	    	var methods=interface.classMethods(self.name, path, true, rootPath);
+	    	var allmethods=interface.classMethods(self.name, path, true, rootPath);
+	    	// Tranform the text to a list of operations 
+	    	var methods = allmethods.replaceAll("\t","").split("\n"); 
 	    	// Tuple: 
 	    	//			First element: class
 	    	//			Second element: methods from the class
 	    	var tuple: List;
-	    	tuple.add(interface.name);
-	    	tuple.add(methods);	     
+	    	tuple.add(interface);
+	    	tuple.add(methods);	      
 	    	packageElements.add(tuple); 
 	    }//for-interface
 	    // Tuple:
@@ -47,7 +59,7 @@ operation Element extractClassesAndOperations (packages: Set, path: String, root
 	    tuple.add(pack.name);
 	    tuple.add(packageElements);
 	    result.add(tuple); 
-	} 
+	}//for-pack 
 	return result;
 }
 %]

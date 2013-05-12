@@ -1,17 +1,17 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.4
-// Last modification: 11/05/2013 
+// Version: 1.5
+// Last modification: 12/05/2013 
 // Description: Operations to use in the implementation of 
 //				specific product.
 ////////////////////////////////////////////////////////////
 
 // This operation returns true/false depending if the pack2 is accessible from
 // the pack1. Also receives as parameter the set of packages from the given model
-operation isAccessible (pack1: String, pack2: String, packages: Set): Boolean{
-	var maps = mapPackages(packages);
-	var packagesAccessibles = allAccessiblePackages(pack1, maps); 
+operation isAccessible (pack1: Package, pack2: Package, packages: Set): Boolean{ 
+	var maps = mapPackages(packages); 
+	var packagesAccessibles = allAccessiblePackages(pack1, maps);  
 	return packagesAccessibles.contains(pack2);
 } 
 // This operation returns all the possible paths given the current implementation
@@ -19,6 +19,58 @@ operation getPaths (pack: Package, packages: Set): List{
 	var maps = mapPackages(packages); 
 	return allPaths(pack, maps);
 } 
+// This operation return a subset from the given set, only including operations
+// from the desired package
+operation extractOperationsFromGivenPackage(pack:Package, list:Set):Set{
+	var result:Set;
+	for (element in list){
+		if(element[0][2]==pack.name){
+			result.add(element);
+		}//if-element[0][2]
+	}//for-element 
+	return result;
+}
+// Return a list of all the conflict operations between two given packages
+operation conflictOpers(pack1: String, pack2: String, versions: Set): Set{
+	var conflicts:Set;
+	// Select only the implemented operations in the given packs
+	for (version in versions){
+		if (version[0][2] == pack1 or version[0][2]== pack2){
+			conflicts.add(version);
+		}//if-version[0][2]
+	}//for-version	  
+	var listConflicts:Set;
+	for (conflict in conflicts){ 
+		var class=conflict[0][0];
+		var method;
+		// If it's the constructor
+		if (class==conflict[0][1]){
+			method=conflict[0][1];
+		// If it's a method
+		}else{
+			method=conflict[0][1].name;
+		}//if-class
+		// Exclude the current case from the rest of the conflicts 
+		var otherConflicts=conflicts.excluding(conflict);
+		for (conf in otherConflicts){  
+			// If it's the constructor
+			if (conf[0][0]==conf[0][1]){
+				// If it's the same constructor and same class for both packages
+				if (class==conf[0][0] and method==conf[0][0]){
+					// It's a conflict
+					listConflicts.add(conf);  
+				}//if-class
+			}else{
+				// If it's the same method and same class for both packages
+				if (class==conf[0][0] and method==conf[0][1].name){ 
+					// It's a conflict
+					listConflicts.add(conf);   
+				}//if-class
+			}//if-conf[0][0]
+		}//for-conf
+	}//for-conflict 
+	return listConflicts;
+}
 // This operation returns a Map where each key is a package from the model and
 // its values are the direct merge packages
 operation mapPackages (packages: Set): Map{ 
@@ -36,16 +88,16 @@ operation mapPackages (packages: Set): Map{
 }
 // This operation returns a Set of all the accessible packages from the
 // given one 
-operation allAccessiblePackages (basePackage: String, packages: Map): Set{
-	var result: Set; 
-	var values = packages.get(basePackage);
+operation allAccessiblePackages (basePackage: Package, packages: Map): Set{
+	var result: Set;   
+	var values = packages.get(basePackage); 
 	for (value in values){
-		result.add(value); 
+		result.add(value);  
 		var all = allAccessiblePackages(value, packages);
 		for (elem in all){
 			result.add(elem);
 		}
-	}  
+	}
 	return result;
 }
 // This operation returns the list of elements for each path

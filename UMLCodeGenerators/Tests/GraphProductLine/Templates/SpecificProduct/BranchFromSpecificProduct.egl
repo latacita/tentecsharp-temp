@@ -18,16 +18,20 @@ for (pack in path){
 	for (element in fuseElements){
 		// Extract the classes from the current pack
 		var classes = pack.packagedElement.select(e|e.isTypeOf(Class));
-		var listClass:List;
+		var interfaces = pack.packagedElement.select(e|e.isTypeOf(Interface));
+		var listClassAndInterfaces:List;
 		for (c in classes){
-			listClass.add(c.name);
+			listClassAndInterfaces.add(c);
 		}
+		for (i in interfaces){
+			listClassAndInterfaces.add(i);
+		} 
 		// Check if it implements a class from the generated product
-		var implInCurrentPack=listClass.includes(element[0]);
+		var implInCurrentPack=listClassAndInterfaces.includes(element[0]);
 		// If implements a class from the generated product
 		if (implInCurrentPack){	
 			// Add the constructor
-			var const=pack.name+"_init"+element[0];
+			var const=pack.name+"_init"+element[0].name;
 			var tuple: List;
 			tuple.add(element[0]);
 			tuple.add(element[0]);
@@ -35,7 +39,7 @@ for (pack in path){
 			map.put(tuple,const);
 			// Check if it implements a method from the class 
 			for (method in element[1]){ 
-				var isThereMethod = pack.isThereMethod(element[0], method);
+				var isThereMethod = pack.isThereMethod(element[0].name, method);
 				// If implements a method from the generated product
 				if (isThereMethod[1]){
 					// Add the method
