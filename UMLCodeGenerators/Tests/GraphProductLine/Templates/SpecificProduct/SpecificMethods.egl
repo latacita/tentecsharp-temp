@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.2
-// Last modification: 11/05/2013
+// Version: 1.4
+// Last modification: 12/05/2013
 // Description:  Generates the implementation for the 
 //				 clean version of the currrent class and the
 //				 intern implementation of said methods.
@@ -15,41 +15,67 @@ operation specificMethods(deepestVersions:Set, currentClass: String): String{
 	var methods:Set;
 	for (version in deepestVersions){
 		if (version[0][0]==currentClass){
-			var method: List;
-			// Name of operation
-			method.add(version[0][1].name);
-			// Visibility
-			method.add(version[0][1].visibility());
-			// Return param
-			method.add(version[0][1].returnParameter("", ""));
-			// Params
-			method.add(version[0][1].parameters("", "", ""));
-			// Intern params
-			method.add(version[0][1].interParams());
-			// Each element is a list like the following:
-			// 		<nameOper>,<visibility>,<returnParams>,<params>,<internParams>
-			methods.add(method);
+			// If it's the constructor
+			if (version[0][1].equals(currentClass)){
+				var method: List;
+				// Name of operation
+				method.add(version[0][1]);
+				// Visibility
+				method.add("public");
+				// Return param
+				method.add("void");
+				// Params
+				method.add("");
+				// Intern params
+				method.add(""); 
+				// Each element is a list like the following:
+				// 		<nameOper>,<visibility>,<returnParams>,<params>,<internParams> 
+				methods.add(method);
+			}else{
+				var method: List;
+				// Name of operation
+				method.add(version[0][1].name);
+				// Visibility
+				method.add(version[0][1].visibility());
+				// Return param
+				method.add(version[0][1].returnParameter("", ""));
+				// Params
+				method.add(version[0][1].parameters("", "", ""));
+				// Intern params
+				method.add(version[0][1].interParams()); 
+				// Each element is a list like the following:
+				// 		<nameOper>,<visibility>,<returnParams>,<params>,<internParams> 
+				methods.add(method); 
+			}//if-constructor
 		}//if-version
 	}//for-version
 	var result: String;
 	// Generation of the methods and their intern implementations.
 	for (method in methods){
-		var visibility:String;
-		if (method[1].equals("protected")){
+		var visibility:String; 
+		if (method[1].equals("protected ")){ 
 			visibility="protected";
 		}else{
 			visibility="public";
 		}//if-method
-		result=result+visibility+" virtual "+method[2]+" "+method[0]+" ("+method[3]+"){\n";
+		result=result+"\t\t"+visibility+" virtual "+method[2]+" "+method[0]+" ("+method[3]+"){\n";
 		var inter:String; 
-		for (version in deepestVersions){
-			if (version[0][0]==currentClass and version[0][1].name==method[0]){ 
-				inter=inter+"\t"+version[1]+" ("+method[4]+");\n";
-			}//if-version
+		for (version in deepestVersions){ 
+			// If it's the constructor
+			if (version[0][1]==version[0][0]){
+				if (version[0][0]==currentClass and version[0][1]==method[0]){ 
+							inter=inter+"\t\t\t"+version[1]+" ("+method[4]+");\n";
+				}//if-version[0][0]
+			// If it's a method
+			}else{ 
+				if (version[0][0]==currentClass and version[0][1].name==method[0]){ 
+					inter=inter+"\t\t\t"+version[1]+" ("+method[4]+");\n";
+				}//if-version[0][0] 
+			}//if-constructor
 		}//for-version
-		inter=inter+"}\n";
+		inter=inter+"\t\t}\n";
 		result=result+inter;
-	}//for-method
+	}//for-method 
 	return result;
 }
 %]

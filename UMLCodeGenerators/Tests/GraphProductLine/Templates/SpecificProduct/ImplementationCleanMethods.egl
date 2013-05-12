@@ -2,15 +2,15 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.3
-// Last modification: 11/05/2013 
+// Version: 1.4
+// Last modification: 12/05/2013 
 // Description: Generates the implementation of the clean
 //				methods.
 //////////////////////////////////////////////////////////// 
 import "../SpecificProduct/SpecificProductOperations.eol";
 import "../SpecificProduct/BranchFromSpecificProduct.egl";
 import "../SpecificProduct/SpecificMethods.egl";
-operation implementationCleanMethods(fuseElements: Set, pack: Package, packages: Set){
+operation implementationCleanMethods(fuseElements: Set, pack: Package, packages: Set): List{
 ////////////////////////////////
 //var siOno= isAccessible("SmartEnergyMng", "BaseSystem", packages); 
 //siOno.println(); //BaseSystem
@@ -18,6 +18,7 @@ operation implementationCleanMethods(fuseElements: Set, pack: Package, packages:
 	var paths=getPaths(pack, packages);
  	var deepestVersions:Set;
  	var classes:Set;
+ 	var result:List;
 	var found=false;
 	// For each possible path
 	for (path in paths){ 
@@ -31,12 +32,18 @@ operation implementationCleanMethods(fuseElements: Set, pack: Package, packages:
 			list.add(key.flatten());
 			list.add(map.get(key));
 			deepestVersions.add(list);
-			classes.add(key[0]);
+			classes.add(key[0]);  
 		}//for-key
 	}//for-path 
 	for (class in classes){
-		class.println();
-		specificMethods(deepestVersions, class).println();
+		var listMethods: List;
+		//Name of the class
+		listMethods.add(class);
+		// Metdhos of the class
+		listMethods.add(specificMethods(deepestVersions, class));
+		// Add the list to the list of implementations
+		result.add(listMethods); 
 	}//for-class
+	return result;
 }
 %]

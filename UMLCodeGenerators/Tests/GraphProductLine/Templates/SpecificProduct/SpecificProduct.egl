@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.2
-// Last modification: 02/05/2013 
+// Version: 2.3
+// Last modification: 12/05/2013 
 // Description: Generates the files of all code classes. And
 //				return a set of all the paths.
 ////////////////////////////////////////////////////////////
@@ -15,7 +15,7 @@ import "FuseElements.egl";
 import "ImplementationCleanMethods.egl";
 operation specificClassFilesCreation(packages: Set, modelProject: Model, directory: String, path: String, rootPath: String){
 	var paths_notemptyMyProject: Set;
-	var isInterface=false;	
+	var isInterface=false;
 	var packagesMerges;
 	for (pack in packages) { 
 		// If the current package is the combination chosen by the user
@@ -27,14 +27,11 @@ operation specificClassFilesCreation(packages: Set, modelProject: Model, directo
 			var classesAndOperations=pack.extractClassesAndOperations(packagesUsed, "", rootPath); 
 			// Fuses the operations from the classes which are in different packages 
 			// in order to implement the current product
-			var fusedElements=fuseElements(classesAndOperations); 
-			//---------------
-			implementationCleanMethods(fusedElements, pack, packages).println();
-			
-			
-			
+			var fusedElements=fuseElements(classesAndOperations);
+			// Creates the clean version of the methods and their intern implementations
+			var listImplCleamMethods=implementationCleanMethods(fusedElements, pack, packages);
 			// Generate the files
-			for (element in fusedElements){
+			for (element in listImplCleamMethods){
 				var isInterface: Boolean; 
 				if (element[0].type.name=="Class"){
 					isInterface=false;

@@ -26,16 +26,24 @@ for (pack in path){
 		var implInCurrentPack=listClass.includes(element[0]);
 		// If implements a class from the generated product
 		if (implInCurrentPack){	
+			// Add the constructor
+			var const=pack.name+"_init"+element[0];
+			var tuple: List;
+			tuple.add(element[0]);
+			tuple.add(element[0]);
+			tuple.add(pack.name);
+			map.put(tuple,const);
 			// Check if it implements a method from the class 
 			for (method in element[1]){ 
 				var isThereMethod = pack.isThereMethod(element[0], method);
 				// If implements a method from the generated product
-				if (isThereMethod[1]){ 
+				if (isThereMethod[1]){
+					// Add the method
 					var impl=pack.name+"_"+isThereMethod[0].name; 
 					var tuple: List;
 					tuple.add(element[0]);
 					tuple.add(isThereMethod[0]);
-					tuple.add(pack.name);
+					tuple.add(pack.name); 
 					// If we haven't found a deeper version
 					if (map.get(tuple)==null){
 						// We have just found the most deep version of the operation
