@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.2
-// Last modification: 02/05/2013 
+// Version: 1.3
+// Last modification: 12/05/2013 
 // Description: This template generates the specification of
 //				the current class to the specific selection of
 //				components
@@ -26,9 +26,9 @@ if (isInterface){
 namespace My_[%=currentModel.name%]{
 	public [%=name%] [%=currentElement%]{ 
 		// Constructor and methods from the from the current class		
-		[%for (method in currentMethods){%]
-		[%=method%]
-		[%}%]	
+[%for (method in currentMethods){%]
+[%=method%]
+[%}%]	
 	 
 	}
 } 
