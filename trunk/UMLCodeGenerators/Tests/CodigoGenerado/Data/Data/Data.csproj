@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9F9332CA-52A3-463E-9460-064EF806DE22}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vacio</RootNamespace>
+    <AssemblyName>Vacio</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\WindowMng\WindowCtrl.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\BaseSystem\Floor.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\LightSimulation\Gateway.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\HeaterMng\Actuator.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\BaseSystem\Gateway.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\LigthMng\LigthCtrl.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\WindowMng\WindowSensor.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\BlindMng\BlindSensor.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\HeaterMng\HeaterCtrl.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\LigthMng\SensorLigthCtrl.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\HeaterMng\Thermometer.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\WindowMng\Int.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\SmartEnergyMng\Gateway.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\HeaterMng\Sensor.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\WindowMng\Gateway.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\HeaterMng\Gateway.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\BaseSystem\Time.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\BaseSystem\Room.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\BlindMng\BlindCtrl.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\BaseSystem\Device.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\BlindMng\Gateway.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\BlindMng\Int.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\BlindSimulation\Gateway.cs" />
+	<Compile Include="C:\Users\Patricia\Desktop\Data\Data\Data\src\LigthMng\Gateway.cs" />
+	
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+		<Folder Include="src\BlindMng\Design\" />
+		<Folder Include="src\LigthMng\Requirements\" />
+		<Folder Include="src\HeaterMng\Design\" />
+		<Folder Include="src\LigthMng\Design\" />
+		<Folder Include="src\BlindMng\Requirements\" />
+		<Folder Include="src\WindowMng\Design\" />
+		<Folder Include="src\HeaterMng\Requirements\" />
+		<Folder Include="src\WindowMng\Requirements\" />
+	</ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
