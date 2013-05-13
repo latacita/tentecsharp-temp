@@ -35,7 +35,7 @@ for (pack in path){
 			var tuple: List;
 			tuple.add(element[0]);
 			tuple.add(element[0]);
-			tuple.add(pack.name);
+			tuple.add(pack);
 			map.put(tuple,const);
 			// Check if it implements a method from the class 
 			for (method in element[1]){ 
@@ -47,7 +47,7 @@ for (pack in path){
 					var tuple: List;
 					tuple.add(element[0]);
 					tuple.add(isThereMethod[0]);
-					tuple.add(pack.name); 
+					tuple.add(pack); 
 					// If we haven't found a deeper version
 					if (map.get(tuple)==null){
 						// We have just found the most deep version of the operation

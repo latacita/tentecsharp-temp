@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 1.0
-// Last modification: 26/04/2013 
+// Version: 1.1
+// Last modification: 13/05/2013 
 // Description:  All merge relations in the model.
 ////////////////////////////////////////////////////////////
 operation mergeClasses (packages: Set, basePackage: Package): Set{
@@ -11,7 +11,7 @@ operation mergeClasses (packages: Set, basePackage: Package): Set{
 	//		- First component: Name of the current package
 	//		- Second component: List of packages which current package needs
 	var packagesMerges: Set; 
-	for (pack in packages){
+	for (pack in packages){ 
 		var tuple:List;
 		var merges:Set;
 		tuple.add(pack);

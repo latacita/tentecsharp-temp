@@ -30,6 +30,21 @@ operation extractOperationsFromGivenPackage(pack:Package, list:Set):Set{
 	}//for-element 
 	return result;
 }
+// This operations deletes the methods which are redundant
+operation fixedDeepestVersions(list:Set, packages:Set):Set{
+	var result=list;
+	for (e in list){  
+		var newL=list.excluding(e);
+		for (e1 in newL){  
+			var isA=isAccessible (e[0][2], e1[0][2], packages);
+			// Delete the redundant method
+			if (isA and e[0][0].name==e1[0][0].name and e[0][1].name==e1[0][1].name){  
+				result=result.excluding(e1); 
+			}//if-isA
+		}//for-e1
+	}//for-e
+	return result;
+}
 // Return a list of all the conflict operations between two given packages
 operation conflictOpers(pack1: String, pack2: String, versions: Set): Set{
 	var conflicts:Set;
@@ -58,13 +73,13 @@ operation conflictOpers(pack1: String, pack2: String, versions: Set): Set{
 				// If it's the same constructor and same class for both packages
 				if (class==conf[0][0] and method==conf[0][0]){
 					// It's a conflict
-					listConflicts.add(conf);  
+					listConflicts.add(conf); 
 				}//if-class
 			}else{
 				// If it's the same method and same class for both packages
 				if (class==conf[0][0] and method==conf[0][1].name){ 
 					// It's a conflict
-					listConflicts.add(conf);   
+					listConflicts.add(conf); 
 				}//if-class
 			}//if-conf[0][0]
 		}//for-conf
