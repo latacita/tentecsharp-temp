@@ -2,8 +2,8 @@
 ////////////////////////////////////////////////////////////
 //
 // Author: Patricia Abascal Fernández
-// Version: 2.4
-// Last modification: 29/04/2013 
+// Version: 2.5
+// Last modification: 13/05/2013 
 // Description: This operation generates the methods of 
 //				the current class or interface.
 ////////////////////////////////////////////////////////////
@@ -57,7 +57,10 @@ operation Element classMethods(currentPackage: String, path: String, isCleanVers
 	for (oper in operations_void) {  
 		// If a method doesn't have name, put a default one
 		if (oper.name==""){
-			methodname="method_"+iter; 
+			var message = "EXCEPTION: Method from class: \""+self.name+"\", from package: \""+currentPackage+ "\" doesn't have a name assigned.";
+			deleteProject(rootPath);
+			createErrorWindow(message); 
+			throw (message);
 		}else{
 			methodname=oper.name; 
 		} 
@@ -73,7 +76,10 @@ operation Element classMethods(currentPackage: String, path: String, isCleanVers
 	for (oper in operations_return) {
 		// If a method doesn't have name, put a default one
 		if (oper.name==""){
-			methodname="method_"+iter; 
+			var message = "EXCEPTION: Method from class: \""+self.name+"\", from package: \""+currentPackage+ "\" doesn't have a name assigned.";
+			deleteProject(rootPath);
+			createErrorWindow(message); 
+			throw (message);
 		}else{
 			methodname=oper.name; 
 		}  
