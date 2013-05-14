@@ -10,7 +10,7 @@
 \chapterheader{Ingeniería del Dominio}{Ingeniería del Dominio}
 \label{chap:domain}
 
-En este capítulo se describe la fase de \emph{Ingeniería del Dominio} (en inglés, \emph{Domain Engineering}) de nuestra línea de productos software. Dentro de dicha fase .....................
+En este capítulo se describe la fase de \emph{Ingeniería del Dominio} (en inglés, \emph{Domain Engineering}) de nuestra línea de productos software. Dentro de dicha fase analizaremos cómo se transforman los elementos del modelo a código C\#, profundizaremos en el desarrollo e implementación de los generadores de código junto con la explicación de varios ejemplos y concluiremos con la fase de pruebas de dicha etapa del proyecto.
 
 \chaptertoc
 
@@ -36,3 +36,4 @@ En este capítulo se describe la fase de \emph{Ingeniería del Dominio} (en inglés
 \input{domainEngineering/pruebas.tex}
 
 \section{Sumario}
+Durante este capítulo se han descrito la fase de \emph{Ingeniería del Dominio} de nuestra línea de productos software. Dentro de dicha fase se ha analizado cómo se transforman los elementos del modelo a código C\#, el desarrollo e implementación de los generadores de código junto con la explicación de varios ejemplos y se ha concluído con la fase de pruebas.

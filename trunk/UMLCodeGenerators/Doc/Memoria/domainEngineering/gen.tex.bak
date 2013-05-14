@@ -1,12 +1,12 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %% Author : Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.2, 23/04/2013                                         %%
+%% Version: 1.2, 29/04/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Domain Engineering/Generadores de Código C#                      %%
 %%==================================================================%%
-Tras explicar a grandes rasgos las transformaciones de modelo a código en la sección \ref{domain:sec:transf}, se procede a comentar la implementación de los generadores de código correspondientes. La figura \ref{dom:fig:templates} muestra la jerarquía de los generadores de código implementados.
+Tras explicar a grandes rasgos las transformaciones de modelo a código en la sección \ref{application:sec:transf}, se procede a comentar la implementación de los generadores de código correspondientes. La figura \ref{app:fig:templates} muestra la jerarquía de los generadores de código implementados.
 
 \begin{figure}[!tb]
   \center
@@ -55,6 +55,13 @@ El punto de partida es el generador de código llamado \imp{ProjectCreation}, a p
 
  Un Java Tool es una porción de código java que tras ser empaquetada como plug-in se puede incorporar en el directorio de instalación de Epsilon y utilizar las funciones implementadas en las plantillas de generación de código creadas. Se han desarrollado cinco Java Tools en total:
 
+\begin{figure}[!tb]
+  \centering
+  \includegraphics[width=.75\linewidth]{domainEngineering/images/SeleccionModelo.eps} \\
+  \caption{Ventana de selección de modelo}
+  \label{dom:fig:selecMod}
+\end{figure}
+
  \begin{figure}[!tb]
   \centering
   \includegraphics[width=.75\linewidth]{domainEngineering/images/VentanaDirectorio.eps} \\
@@ -81,7 +88,8 @@ El punto de partida es el generador de código llamado \imp{ProjectCreation}, a p
    \item pluginCreateMessageWindow, genera la ventana con los errores y/o información oportunos (figura \ref{dom:fig:error}).
    \item pluginCreateSelectDirectoryWindow, genera un entorno de exploración por el equipo para elegir el destino de la generación del proyecto (figura \ref{dom:fig:dir}).
    \item pluginCreateWindowAndShowMessages, genera una ventana al final de la ejecución con información para el usuario (figura \ref{dom:fig:final}).
-   \item pluginWriteInFile, genera el fichero que contendrá la información para mostrar al usuario al final la ejecución.
+   \item pluginWriteInFile, genera el fichero que contendrá la información para mostrar al usuario al final la ejecución, también implementa funciones para borrar ficheros y/o directorios en el caso de que fuera oportuno.
+   \item pluginChooseModel, genera la ventana de selección de modelo para aquellos proyectos que tienen varios (figura \ref{dom:fig:selecMod}).
  \end{itemize}
 
 Para utilizar los Java Tools en los generadores de código es necesario implementar funciones EOL para cada una de las funciones descritas ellos. El listing \ref{dom:code:writeinfile} muestra un ejemplo de cómo se realiza dicho proceso, en las líneas 1-4 se describe la creación de la función a utilizar en los generadores de código, en la línea 5 se importa dicho fichero EOL para hacer uso de las funciones implementadas en el generador \imp{ProjectCreation}, mientras que la línea 7 muestra la forma de uso de la función \imp{writeInFile}.
