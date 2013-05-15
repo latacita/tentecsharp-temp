@@ -1,0 +1,38 @@
+%%==================================================================%%
+%% Author : Abascal Fernández, Patricia                             %%
+%% Author : Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.1, 21/04/2013                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Capítulo Domain Engineering, Archivo raíz                        %%
+%%==================================================================%%
+
+\chapterheader{Ingeniería de Aplicación}{Ingeniería de Aplicación}
+\label{chap:application}
+
+En este capítulo se describe la fase de \emph{Ingeniería de Aplicación} (en inglés, \emph{Application Engineering}) de nuestra línea de productos software. Dentro de dicha fase analizaremos cómo se transforman los elementos del modelo a código C\#, profundizaremos en el desarrollo e implementación de los generadores de código junto con la explicación de varios ejemplos y concluiremos con la fase de pruebas de dicha etapa del proyecto.
+
+\chaptertoc
+\section{Algoritmo para la implementación del producto específico}
+\label{application:sec:alg}
+\input{applicationEngineering/algoritmo.tex}
+
+\section{Generadores de Código C\#}
+\label{application:sec:transf}
+\input{applicationEngineering/gen.tex}
+
+\section{Ejemplo de Generación de Código C\#: Caso Sencillo}
+\label{application:sec:ejsencillo}
+%\input{applicationEngineering/ejemploSencillo.tex}
+
+\section{Ejemplo de Generación de Código C\#: Caso Complejo}
+\label{application:sec:ejcomplejo}
+%\input{applicationEngineering/ejemploComplejo.tex}
+
+\section{Pruebas con EUnit}
+\label{application:sec:pruebas}
+%\input{applicationEngineering/pruebas.tex}
+
+\section{Sumario}
+Durante este capítulo se han descrito la fase de \emph{Ingeniería de Aplicación} de nuestra línea de productos software. ------------Dentro de dicha fase se ha analizado cómo se transforman los elementos del modelo a código C\#, el desarrollo e implementación de los generadores de código junto con la explicación de varios ejemplos y se ha concluído con la fase de pruebas.
+
