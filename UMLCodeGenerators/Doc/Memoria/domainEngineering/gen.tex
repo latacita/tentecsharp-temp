@@ -10,12 +10,12 @@ Tras explicar a grandes rasgos las transformaciones de modelo a código en la sec
 
 \begin{figure}[!tb]
   \center
-  \includegraphics[scale=0.80,angle=90]{domainEngineering/images/Templates.eps} \\
-  \caption{Jerarquía de los generadores de código implementados}
+  \includegraphics[scale=0.80,angle=0]{domainEngineering/images/Templates.eps} \\
+  \caption{Jerarquía de los generadores de código implementados en la fase de Ingeniería de Dominio}
   \label{dom:fig:templates}
 \end{figure}
 
-El punto de partida es el generador de código llamado \imp{ProjectCreation}, a partir de el se invoca a la plantilla \imp{ClassFilesCreation} que determina si un elemento es:
+El punto de partida es el generador de código llamado \imp{ProjectCreation}, a partir de él se invoca a la plantilla \imp{ClassFilesCreation} que determina si un elemento es:
 
  \begin{itemize}
    \item Una clase o interfaz, en tal caso llamaría a su vez al generador de código \imp{ClassCreation}.
