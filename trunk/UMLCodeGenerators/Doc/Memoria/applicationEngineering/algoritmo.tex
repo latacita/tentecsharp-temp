@@ -1,0 +1,168 @@
+%%==================================================================%%
+%% Author : Abascal Fernández, Patricia                             %%
+%% Author : Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.5, 15/05/2013                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Application Engineering/Algoritmo                                %%
+%%==================================================================%%
+
+En el capítulo \ref{chap:domain}, se ha descrito el desarrollo de la generación de código para todos los elementos del modelo de entrada. En la presente sección de describirá de forma detalla el proceso de generación de código para un producto específico, para ello nos apoyaremos en la figura \ref{app:fig:ejemplo}.
+\begin{figure}[!tb]
+  \center
+  \includegraphics[scale=0.50,angle=0]{applicationEngineering/images/Algoritmo.eps} \\
+  \caption{Ejemplo de apoyo para la explicación del algoritmo}
+  \label{app:fig:templates}
+\end{figure}
+
+El primer paso es crear un \emph{profile} que nos permita diferenciar las características del modelo de la selección de características requeridas para elaborar el producto específico. Un profile es un mecanismo genérico de extensión que permite personalizar los modelos UML para un dominio particular. En nuestro caso aplicamos dicho profile a la metaclase paquete tal como se aprecia en la figura \ref{app:fig:ejemplo} y denominamos al profile \imp{CasoConcreto}, se ha sombreado en el modelo aquel paquete al que le ha sido aplicado el profile \imp{CasoConcreto} para poder diferenciarlo visualmente del resto de paquetes del modelo.
+
+Partiendo del paquete que ha sido caracterizado con el profile, es necesario calcular todas las rutas del modelo que son requeridas, en la figura \ref{app:fig:ejemplo} se aprecia cómo hay una única ruta formada por los paquetes: \imp{Cinco} $\rightarrow$ \imp{Cuatro} $\rightarrow$ \imp{Uno}.
+
+Una vez reconocida la ruta, o conjunto de rutas, se procede a identificar el total de clases a implementar, en qué paquetes (de entre los de la ruta seleccionada) aparecen y las respectivas operaciones que implementan. En el ejemplo de la figura \ref{app:fig:ejemplo} tenemos tres clases a implementar: \imp{A}, \imp{B} y \imp{C}.
+\begin{itemize}
+  \item Clase A, está implementada en el paquete \imp{Uno} y \imp{Cuatro}.
+  \item Clase B, está implementada en el paquete \imp{Uno} y \imp{Cuatro}.
+  \item Clase C, está implementada en el paquete \imp{Uno}.
+\end{itemize}
+Nos encontramos así con dos conflictos, puesto que la misma clase (en nuestro caso la clase \imp{A} y la \imp{B}) está implementadas en dos paquetes diferentes. En estos casos, debemos buscar las operaciones que dicha clase implementa en ambos paquetes, de esta forma tenemos que:
+\begin{itemize}
+  \item Clase A, implementa las operaciones \imp{println()} y \imp{remove (int i)} en el paquete \imp{Cuatro}, mientras que en el paquete \imp{Uno} implementa la operación \imp{println()}.
+  \item Clase B, implementa la operación \imp{close()} en el paquete \imp{Cuatro}, mientras que en el paquete \imp{Uno} implementa la operación \imp{open()}.
+\end{itemize}
+En este punto tenemos un conflicto, en la operación \imp{println()} de la clase \imp{A}, ya que tenemos dos versiones del método la implementada en el paquete \imp{Cuatro} y la implementada en el paquete \imp{Uno}, nos quedamos con la versión más profunda del método es decir, con la versión implementada en el paquete \imp{Cuatro}.
+
+Para la generación del constructor de las clases basta con comprobar el paquete más profundo donde está implementada dicha clase, en nuestro ejemplo:
+\begin{itemize}
+  \item Clase A, implementada en el paquete \imp{Cuatro}.
+  \item Clase B, implementada en el paquete \imp{Cuatro}.
+  \item Clase C, implementada en el paquete \imp{Uno}.
+\end{itemize}
+
+\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
+                    caption=Código generado para el producto específico seleccionado en la figura \ref{app:fig:ejemplo},
+                    label=app:code:ejemplo]
+File Cinco/A.cs
+--------------------------------------------------------
+01 namespace My_Ejemplo{
+02     public class A{
+03        public virtual void A ( ) {
+04             Cuatro_A_initA ( );
+05        }
+06        public virtual println ( ) {
+07	           Cuatro_println ( );
+08        }
+09        public virtual remove ( int i ) {
+10             Cuatro_remove ( i );
+11        }
+12     }
+13 }
+
+File Cinco/B.cs
+--------------------------------------------------------
+14 namespace My_Ejemplo{
+15     public class B{
+15          public virtual void B_initB ( ) {
+16              Cuatro_B_initB ( );
+17          }
+18          public virtual close ( ) {
+19              Cuatro_close ( );
+20          }
+21     }
+22 }
+
+File Cinco/C.cs
+--------------------------------------------------------
+23 namespace My_Ejemplo{
+24     public class C{
+25          public virtual void C_initC ( ) {
+26              Uno_C_initC ( );
+27          }
+28          public virtual ISet<int> add ( int i) {
+29              Uno_add ( i );
+30          }
+31     }
+32 }
+
+\end{lstlisting}
+
+Procedemos entonces a generar el código para la versión clean de tanto la clase como los métodos tal como se aprecia en el listing \ref{app:code:ejemplo}.
+
+Renombramos el modelo aplicado añadiendo un "My\_" (líneas 1, 14 y 23) para denotar que ese es el modelo que contiene la implementación específica del producto seleccionado.
+
+Tal como comentamos anteriormente, la llamada interna de los constructores se corresponde con la de aquel paquete más profundo en la selección específica que implemente dicha clase (líneas 4, 16 y 26).
+
+Y tras resolver los conflictos con aquellos métodos implementados en varios paquetes (en nuestro ejemplo el método \imp{print()} de la clase \imp{A}) obtenemos el código descrito en el listing \ref{app:code:ejemplo}.
+
+\begin{figure}[!tb]
+  \center
+  \includegraphics[scale=0.50,angle=0]{applicationEngineering/images/Algoritmo1.eps} \\
+  \caption{Ejemplo complejo de apoyo para la explicación del algoritmo}
+  \label{app:fig:ejemplo1}
+\end{figure}
+
+Analizamos ahora un ejemplo más complejo de generación de código de un producto específico, supongamos ahora el ejemplo descrito en la figura \ref{app:fig:ejemplo1}.
+
+En este caso tenemos tres rutas: \imp{Cinco} $\rightarrow$ \imp{Seis} $\rightarrow$ \imp{Tres} $\rightarrow$ \imp{Uno}, \imp{Cinco} $\rightarrow$ \imp{Seis} $\rightarrow$ \imp{Cuatro} $\rightarrow$ \imp{Uno} y \imp{Cinco} $\rightarrow$ \imp{Dos} $\rightarrow$ \imp{Uno}.
+
+Debemos por tanto analizar los caminos independientes, en este caso hay dos, por un lado el camino \imp{Cinco} $\rightarrow$ \imp{Dos} $\rightarrow$ \imp{Uno} y por otro el formado por \imp{Cinco} $\rightarrow$ \imp{Seis} (que se bifurca a su vez en dos).
+
+A la hora de extraer la implementación interna de los métodos, debemos incluir ambas ramas puesto que son independientes entre sí y por tanto sus versiones de los métodos no entran en conflicto. De esta forma, y tal como se describe en el listing \ref{app:code:ejemplo1}, para la clase \imp{B} tanto el método \imp{close()} como el constructor se realizan llamadas internas a ambas versiones de dicho paquete (líneas 15-22).
+
+Para la implementación interna de la clase A, procedemos de manera análoga al ejemplo \ref{app:fig:ejemplo}, es decir, la clase \imp{A} implementará los métodos \imp{print()}, \imp{add(int i)}, \imp{remove()} y el constructor (listing \ref{app:code:ejemplo1}, líneas 3-14). Como los caminos \imp{Cinco} $\rightarrow$ \imp{Seis} $\rightarrow$ \imp{Tres} $\rightarrow$ \imp{Uno} y \imp{Cinco} $\rightarrow$ \imp{Seis} $\rightarrow$ \imp{Cuatro} $\rightarrow$ \imp{Uno} son dependientes entre sí, debemos seleccionar una vez más las versiones más profundas de cada método que entre en conflicto.
+
+\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
+                    caption=Código generado para el producto específico seleccionado en la figura \ref{app:fig:ejemplo1},
+                    label=app:code:ejemplo1]
+File Cinco/A.cs
+--------------------------------------------------------
+01 namespace My_Ejemplo{
+02     public class A{
+03          public virtual void A ( ) {
+04              Seis_A_initA ( );
+05          }
+06          public virtual println ( ) {
+07              Seis_println ( );
+08          }
+09          public virtual add ( int i ) {
+10              Seis_add ( i );
+11          }
+12          public virtual remove ( int i ) {
+13              Cuatro_remove ( i );
+14          }
+15     }
+16 }
+
+File Cinco/B.cs
+--------------------------------------------------------
+14 namespace My_Ejemplo{
+15     public class B{
+15          public virtual void B_initB ( ) {
+16              Dos_B_initB ( );
+17              Seis_B_initB ( );
+18          }
+19          public virtual close ( ) {
+20              Dos_close ( );
+21              Seis_close ( );
+22          }			
+23     }
+24 }
+
+File Cinco/C.cs
+--------------------------------------------------------
+25 namespace My_Ejemplo{
+26     public class C{
+27          public virtual void C_initC ( ) {
+28              Uno_C_initC ( );
+29          }
+30          public virtual ISet<int> add ( int i) {
+31              Uno_add ( i );
+32          }
+33     }
+34 }
+
+\end{lstlisting}
+
+Al igual que como se ha comentado hasta ahora, también podemos incluir más de un paquete con profile para generar varios productos específicos, para cada uno de ellos se creará la implementación específica seleccionada, las soluciones son obviamente independientes entre sí.
+
+Así pues queda explicado en detalle el proceso de generación de código para un producto específico del modelo UML a código C\#. En la siguiente sección se profundizará en la implementación y generación de código C\#.

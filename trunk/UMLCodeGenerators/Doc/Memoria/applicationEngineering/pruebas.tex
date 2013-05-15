@@ -1,0 +1,26 @@
+%%==========================================================================%%
+%% Author : Abascal Fernández, Patricia                                     %%
+%% Author : Sánchez Barreiro, Pablo                                         %%
+%% Version: 1.1, 15/05/2013                                                 %%
+%%                                                                          %%
+%% Memoria del Proyecto Fin de Carrera                                      %%
+%% Application Engineering/Pruebas                                          %%
+%%==========================================================================%%
+
+A diferencia de la fase de Ingeniería del Dominio, en esta fase no se utiliza EUnit para realizar las pruebas ya que la flexibilidad de dicha herramienta no se ajusta a las comprobaciones que deben realizarse. De tal forma se procede a crear todos los casos descritos en el cuadro \ref{app:table:pruebas} como modelos independientes y se prueba uno a uno si el código generado para los productos específicos se corresponde con el esperado.
+
+\begin{table}%
+\begin{tabularx}{13cm}{|X|l|}
+ \hline
+{Casos válidos}&{Casos no válidos} \\ \hline
+Un profile y un único camino. & Paquetes recursivos. \\
+Un profile y varios caminos independientes. &\\
+Un profile y varios caminos dependientes. &\\
+Varios profiles y varios caminos independientes. &\\
+Varios profiles y varios caminos dependientes. &\\
+\hline
+\end{tabularx}
+\caption{Casos de prueba para la fase de Ingeniería de la Aplicación}
+\label{app:table:pruebas}
+\end{table}%
+
