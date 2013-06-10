@@ -6,17 +6,70 @@
 %% Introducción                                                     %%
 %%==================================================================%%
 
-El principal objetivo de este Proyecto de Fin de Carrera es implementar un conjunto de generadores de código que permitan transformar modelos orientados a características para una línea de productos software en una implementación de dichos diseños para la plataforma .NET utilizando para ello las facilidades que ofrecen las clases parciales del lenguaje C\# basadas en el Patrón Slicer. A continuación intentaremos introducir de forma breve al lector en estos conceptos.
+El principal objetivo de este Proyecto de Fin de Carrera es implementar un conjunto de generadores de código que permitan transformar modelos UML orientados a características en código C\#. Para dar soporte a la orientación a características a nivel de código C\#, se utilizará el patrón de diseño
+\emph{Slicer}. Dicho patrón fue específicamente para tal propósito como parte de otro Proyecto Fin de Carrera presentado en esta misma Facultad~\cite{}. 
 
-%%%%%%%%%%%% Lineas de productos software %%%%%%%%%%%%
+La \emph{orientación a características}~\cite{} tiene como objetivo  encapsular porciones coherentes de la funcionalidad proporcionadas por una aplicación en módulos independientes llamados \emph{características}. La orientación a características eleva el nivel al cual se agrupa la funcionalidad de un sistema del concepto de clase al concepto de \emph{conjunto} o \emph{familia de clases}, las cuales se añaden o eliminan de una aplicación como un todo. 
 
-El objetivo de la \emph{Línea de Producto Software} ~\cite{pohl:2010}, de un segmento particular de mercado, es reutilizar una base común de tecnología y proporcionar productos personalizados, acordes a las necesidades del cliente de manera eficiente, eficaz y a un coste razonable.
+De esta forma, podemos obtener productos con funcionalidades ligeramente diferentes mediante la simple incorporación o eliminación de módulos representando características. 
 
-El uso de las líneas de producto software permite la reducción de costes de desarrollo por la reutilización de la tecnología en los distintos sistemas, a mayor cantidad de productos a desarrollar mayor rentabilidad respecto a los sistemas creados individualmente. Ofrece alta calidad en el producto resultante porque se realizan pruebas de los componentes de la plataforma en diferentes tipos de producto para ayudar a detectar y corregir errores. Reduce el tiempo de creación debido a la reutilización de los componentes ya existentes para cada nuevo producto y reduce también el esfuerzo requerido por el mantenimiento ya que cuando se cambia algo de un componente de la plataforma, ese cambio se propaga a todos los componentes que lo empleen, y de esta forma se reduce el esfuerzo de aprender cómo funciona cada elemento individualmente.
+Lo que convierte la obtención de diferentes versiones de una misma aplicación combinando diferentes conjuntos de características en una tarea sencilla. Los \emph{diseños orientados a características} deben asegurar que el resultado de la composición de un conjunto de características produce como resultado una aplicación correcta y segura.
 
-En contraposición a la flexibilidad que ofrece el desarrollo de software individual, específico para cliente pero que supone grandes costes, las líneas de producto software delimitan las variaciones de sus productos a un conjunto prefijado y optimizan, por tanto, los procesos para dichas variaciones.
 
-La línea de productos software se puede extrapolar a otros ámbitos de producción. Un ejemplo clásico de línea de productos es la fabricación de automóviles, donde se ofrece al cliente un modelo base al cual puede añadir aquellos extras que así desee, personalizando el vehículo y adaptándolo a sus necesidades. De esta forma partiendo del mismo modelo y de unas variaciones adicionales preestablecidas, y diseñadas de tal forma que se adaptan perfectamente al modelo seleccionado, se puede obtener gran cantidad de variaciones en el modelo final de manera automática.
+La orientación a características~\cite{} se utiliza frecuentemente como mecanismo de diseño e implementación de las conocidas como \emph{Líneas de Productos Sw}~\cite{}.
+
+El objetivo de una \emph{Líneas de Productos Sw}~\cite{} es ... \todo{Copiar la definición del proyecto de Alejandro o de Daniel}.
+
+%%===================================================================%%
+%% NOTA(Pablo): Establecer relación entre ambos paradigmas           %%
+%%===================================================================%%
+
+Este Proyecto Fin de Carrera se enmarca dentro un proyecto general y más ambicioso
+
+Dichos generadores de código se integrarían en una metodología más amplia para el desarrollo de \emph{Líneas de Productos Software}~\cite{}, denominada Te.Net.
+
+
+es integrar dichos generadores en la metodología de desarrollo de \emph{Líneas de Productos Software}~\cite{} denominada TE.NET, una versión para la plataforma .NET de la metodología TENTE~\cite{}. A continuación intentaremos introducir de forma breve al lector en estos conceptos.
+
+
+
+Dada la cantidad de terminología novedosa contenida en la descripción del proyecto, procedemos a describir brevemente la historia precedente a la gestación del mismo.
+
+
+%%===================================================================%%
+%% NOTA(Pablo): Esto se mueve mejor a antecedentes                   %%
+%%===================================================================%%
+%%
+%% El uso de las líneas de producto software permite la reducción
+%% de costes de desarrollo por la reutilización de la tecnología en
+%% los distintos sistemas, a mayor cantidad de productos a desarrollar
+%% mayor rentabilidad respecto a los sistemas creados individualmente.
+%% Ofrece alta calidad en el producto resultante porque se realizan
+%% pruebas de los componentes de la plataforma en diferentes tipos
+%% de producto para ayudar a detectar y corregir errores. Reduce el
+%% tiempo de creación debido a la reutilización de los componentes ya
+%% existentes para cada nuevo producto y reduce también el esfuerzo
+%% requerido por el mantenimiento ya que cuando se cambia algo de un
+%% componente de la plataforma, ese cambio se propaga a todos los
+%% componentes que lo empleen, y de esta forma se reduce el esfuerzo
+%% de aprender cómo funciona cada elemento individualmente.
+%%
+%% En contraposición a la flexibilidad que ofrece el desarrollo de
+%% software individual, específico para cliente pero que supone grandes
+%%  costes, las líneas de producto software delimitan las variaciones
+%% de sus productos a un conjunto prefijado y optimizan, por tanto, los
+%% procesos para dichas variaciones.
+%%
+%%
+%% La línea de productos software se puede extrapolar a otros ámbitos de
+%% producción. Un ejemplo clásico de línea de productos es la fabricación
+%% de automóviles, donde se ofrece al cliente un modelo base al cual puede
+%% añadir aquellos extras que así desee, personalizando el vehículo y
+%%  adaptándolo a sus necesidades. De esta forma partiendo del mismo modelo
+%% y de unas variaciones adicionales preestablecidas, y diseñadas de tal
+%% forma que se adaptan perfectamente al modelo seleccionado, se puede
+%% obtener gran cantidad de variaciones en el modelo final de manera
+%% automática.
 
 En el ámbito del desarrollo software, las empresas ya no se centran en la creación de un producto específico para un cliente (por ejemplo, diseñar y construir un portal para la Universidad de Cantabria), sino en un domino (por ejemplo, diseñar y construir un portal para universidades). Los principales desafíos a los que se enfrentan las empresas son: delimitar dicho dominio, identificar las distintas variaciones que se van a permitir y desarrollar la infraestructura que permita realizar los productos a bajo coste sin reducir la calidad.
 
@@ -27,9 +80,6 @@ El proceso de desarrollo de la línea de productos software se divide en dos proc
 
 Por otra parte, la \emph{Ingeniería de la Aplicación} se encarga de la creación de los productos para clientes concretos. Partiendo de la plataforma creada en la fase de Ingeniería de Dominio, y reutilizando tantos componentes como fuera necesario, se crea una especialización del producto base acorde a los requisitos del cliente.
 
-%%%%%%%%%%%% Programación orientada a características %%%%%%%%%%%%
-
- Una de las técnicas más utilizadas para realizar dicho análisis es el \emph{diseño orientado a características}\cite{sanchez:2010}, que intenta encapsular porciones coherentes de funcionalidad proporcionadas por una aplicación en módulos independientes llamados características. Lo que convirte la obtención de diferentes versiones de una misma aplicación combinando diferentes conjuntos de características en una tarea sencilla. Los \emph{diseños orientados a características} deben asegurar que el resultado de la composición de un conjunto de características produce como resultado una aplicación correcta y segura.
 
 %%%%%%%%%%%% Clases parciales y patrón Slicer %%%%%%%%%%%%
 Tal como se ha descrito al inicio de este apartado, el objetivo del presente Proyecto Fin de Carrera consiste en el desarrollo e implementación de unos generadores de código que permitan la tranformación del diseño de los modelos en una implementación en código C\# de dichos diseños, para ello se usarán las prestaciones que ofrecen el uso de las clases parciales del lenguaje C\# basadas en el patrón Slicer.
