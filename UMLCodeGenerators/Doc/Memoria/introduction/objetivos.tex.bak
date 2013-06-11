@@ -1,0 +1,7 @@
+
+
+El principal objetivo de este Proyecto de Fin de Carrera es implementar un conjunto de generadores de código que permitan transformar modelos UML orientados a características en código C\#. Para dar soporte a la orientación a características a nivel de código C\#, se utilizará el patrón de diseño
+\emph{Slicer}. Dicho patrón fue específicamente para tal propósito como parte de otro Proyecto Fin de Carrera presentado en esta misma Facultad~\cite{}.
+
+%%%%%%%%%%%% Retoma el objetivo del proyecto %%%%%%%%%%%%
+El objetivo de este Proyecto Fin de Carrera es implementar generadores de código que abordarán tanto la implementación de la familia de productos software cubierta por la línea de productos, como la configuración de productos concretos pertenecientes a dicha familia utilizando las prestaciones de las clases parciales en C\# y el Patrón Slicer. Con esto esperamos haber aclarado el primer párrafo de esta sección al lector no familiarizado con las líneas de productos software, clases parciales en lenguaje C\# y/o el Patrón Slicer.
