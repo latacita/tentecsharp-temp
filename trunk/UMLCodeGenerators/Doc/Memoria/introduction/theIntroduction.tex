@@ -1,43 +1,43 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %%          Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.2, 23/04/2013                                         %%                                                                                    %%                                                                  %%
+%% Version: 1.2, 11/06/2013                                         %%                                                                                    %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Introducción                                                     %%
 %%==================================================================%%
 
-El principal objetivo de este Proyecto de Fin de Carrera es implementar un conjunto de generadores de código que permitan transformar modelos UML orientados a características en código C\#. Para dar soporte a la orientación a características a nivel de código C\#, se utilizará el patrón de diseño
-\emph{Slicer}. Dicho patrón fue específicamente para tal propósito como parte de otro Proyecto Fin de Carrera presentado en esta misma Facultad~\cite{}. 
+%%==================================================================%%
+%% NOTA(Pablo): Al final vamos a escribir la introducción de arriba %%
+%%              a abajo, es decir, comenzamos hablando de Líneas de %%
+%%              Productos Software, luego hablamos de TENTE,        %%
+%%              luego de Te.NET, del patrón Slicer y por último     %%
+%%              ya hablamos de los objetivos concretos del proyecto %%
+%%==================================================================%%
 
-La \emph{orientación a características}~\cite{} tiene como objetivo  encapsular porciones coherentes de la funcionalidad proporcionadas por una aplicación en módulos independientes llamados \emph{características}. La orientación a características eleva el nivel al cual se agrupa la funcionalidad de un sistema del concepto de clase al concepto de \emph{conjunto} o \emph{familia de clases}, las cuales se añaden o eliminan de una aplicación como un todo. 
+Las \emph{Líneas de Productos Software}~\citep{} se han popularizado en la última década como un adecuado paradigma para el desarrollo, mantenimiento y gestión de proyectos software altamente similares. Por ejemplo, ...
 
-De esta forma, podemos obtener productos con funcionalidades ligeramente diferentes mediante la simple incorporación o eliminación de módulos representando características. 
+\todo{Describir un ejemplo de empresa que desarrolla un producto software, el producto software tiene éxito, y a continuación se lo pide otra empresa pero modificado, a continuación otra empresa, nuevamente modificado, y así sucesivamente. Describir los problemas que surgirían si esto se realiza siguiendo un enfoque tradicional. Explicar en una sola frase que dicho problema se puede resolver con las líneas de productos software. Inspírate en el proyecto de Alejandro, y antes de escribir el ejemplo, mándame cual sería el ejemplo}
 
-Lo que convierte la obtención de diferentes versiones de una misma aplicación combinando diferentes conjuntos de características en una tarea sencilla. Los \emph{diseños orientados a características} deben asegurar que el resultado de la composición de un conjunto de características produce como resultado una aplicación correcta y segura.
+En relación con las líneas de productos software, y dentro del proyecto europeo \emph{AMPLE (Aspect-oriented Model-Driven Product Line Engineering)}~\citep{}, el profesor Pablo Sánchez, actualmente adscrito a la Universidad de Cantabria, junto con otros investigadores, creó la metodología TENTE~\citep{}. La principal novedad de dicha metodología era la de integrar diversos avances que se habían ido realizando en los paradigmas del desarrollo software orientado a características y el desarrollo software dirigido por modelos.
+
+La \emph{orientación a características}~\cite{} tiene como objetivo  encapsular porciones coherentes de la funcionalidad proporcionadas por una aplicación en módulos independientes llamados \emph{características}. La orientación a características eleva el nivel al cual se agrupa la funcionalidad de un sistema del concepto de clase al concepto de \emph{conjunto} o \emph{familia de clases}, las cuales se añaden o eliminan de una aplicación como piezas o módulos indivisibles. De esta forma, las variaciones existentes en una familia de productos software se encapsulan en \emph{características}, las cuales se añaden o eliminan de un producto concreto de acuerdo a las necesidades de cada cliente en particular.
+
+\todo{Describir en un párrafo cuál es el objetivo del desarrollo software dirigido por modelos}
+
+Una vez definida la metodología TENTE, se decidió proceder a su transferencia tecnológica. Fue en este punto donde se encontró un obstáculo que en principio parecía insalvable.
+
+\todo{Explicar l problema derivado de la utilización de CaesarJ como lenguaje de programación. Inspírate en el proyecto de Alejandro}
+
+Por tanto, se decidió que si se quería transferir la metodología TENTE a la industria software, debíamos rediseñar dicha metodología para que utilizase como lenguaje de programación un lenguaje orientado a objetos convencional, al estilo de Java o C\#, en lugar de CaesarJ. Dada la preferencia de la mayoría de las empresas del sector industrial cántabro por la plataforma .Net~\citep{}, se decidió elegir como lenguaje destino C\#, el lenguaje de programación insignia de la plataforma .Net. La siguiente sección describe el estado actual de la metodología .Net.
 
 
-La orientación a características~\cite{} se utiliza frecuentemente como mecanismo de diseño e implementación de las conocidas como \emph{Líneas de Productos Sw}~\cite{}.
 
-El objetivo de una \emph{Líneas de Productos Sw}~\cite{} es ... \todo{Copiar la definición del proyecto de Alejandro o de Daniel}.
+
+
+
 
 %%===================================================================%%
-%% NOTA(Pablo): Establecer relación entre ambos paradigmas           %%
-%%===================================================================%%
-
-Este Proyecto Fin de Carrera se enmarca dentro un proyecto general y más ambicioso
-
-Dichos generadores de código se integrarían en una metodología más amplia para el desarrollo de \emph{Líneas de Productos Software}~\cite{}, denominada Te.Net.
-
-
-es integrar dichos generadores en la metodología de desarrollo de \emph{Líneas de Productos Software}~\cite{} denominada TE.NET, una versión para la plataforma .NET de la metodología TENTE~\cite{}. A continuación intentaremos introducir de forma breve al lector en estos conceptos.
-
-
-
-Dada la cantidad de terminología novedosa contenida en la descripción del proyecto, procedemos a describir brevemente la historia precedente a la gestación del mismo.
-
-
-%%===================================================================%%
-%% NOTA(Pablo): Esto se mueve mejor a antecedentes                   %%
+%% NOTA(Pablo): Mira a ver si de esto quieres aprovechar algo
 %%===================================================================%%
 %%
 %% El uso de las líneas de producto software permite la reducción
@@ -70,28 +70,52 @@ Dada la cantidad de terminología novedosa contenida en la descripción del proyec
 %% forma que se adaptan perfectamente al modelo seleccionado, se puede
 %% obtener gran cantidad de variaciones en el modelo final de manera
 %% automática.
+%%
+%%  En el ámbito del desarrollo software, las empresas ya no se centran en la creación
+%%  de un producto específico para un cliente (por ejemplo, diseñar y construir un
+%%  portal para la Universidad de Cantabria), sino en un domino (por ejemplo, diseñar
+%%  y construir un portal para universidades). Los principales desafíos a los que se
+%%  enfrentan las empresas son: delimitar dicho dominio, identificar las distintas
+%%  variaciones que se van a permitir y desarrollar la infraestructura que permita
+%%  realizar los productos a bajo coste sin reducir la calidad.
+%%
 
-En el ámbito del desarrollo software, las empresas ya no se centran en la creación de un producto específico para un cliente (por ejemplo, diseñar y construir un portal para la Universidad de Cantabria), sino en un domino (por ejemplo, diseñar y construir un portal para universidades). Los principales desafíos a los que se enfrentan las empresas son: delimitar dicho dominio, identificar las distintas variaciones que se van a permitir y desarrollar la infraestructura que permita realizar los productos a bajo coste sin reducir la calidad.
+%%==================================================================%%
+%% NOTA(Pablo): Este ejemplo no me gusta mucho, pero se podría      %%
+%%              utilizar                                            %%
+%%==================================================================%%
+%% 
+%% Por ejemplo, supongamos que un cliente quiere un vehículo con varias
+%% características adicionales entre las que se encuentran: aire 
+%% acondicionado, sensor de lluvia, medidor de temperatura en grados 
+%% Celsius y GPS integrado en idioma español e inglés. La base de
+%% nuestro producto final será el vehículo, al cual iremos añadiendo 
+%% las distintas características requeridas por el cliente. Hay 
+%% algunas peculiaridades, la clase del medidor de temperatura puede
+%% estar a su vez fragmentada en varios componentes (temperatura en
+%% Celsius, temperatura en Farentheit) y de los cuales en el modelo
+%% final solo usaremos uno de ellos, el de temperatura en Celsius. 
+%% Lo mismo ocurre con el selector de idiomas para el GPS, solo se
+%% elegirá el idioma español e inglés. De esta forma, el producto 
+%% final juntará todas estas características dentro de un mismo 
+%% elemento que será el vehículo entregado al usuario final 
+%% atendiendo a sus requisitos.
+%%
+%%==================================================================%%
 
 
 %%%%%%%%%%%% Metodologías de desarrollo de líneas de productos software %%%%%%%%%%%%
 
-El proceso de desarrollo de la línea de productos software se divide en dos procesos \cite{pohl:2010}: Ingeniería de Dominio e Ingeniería de la Aplicación. Por un lado la \emph{Ingeniería del Dominio} se encarga de la construcción de la plataforma mediante la delimitación del conjunto de aplicaciones para las que está creada, además de definir y construir qué características serán reusables y cuales específicas para cada uno de los productos que se desean fabricar.
+%%===================================================================%%
+%% NOTA(Pablo): Esto se va antecedentes
+%%===================================================================%%
+%%  El proceso de desarrollo de la línea de productos software se divide en dos procesos \cite{pohl:2010}: Ingeniería de %% Dominio e Ingeniería de la Aplicación. Por un lado la \emph{Ingeniería del Dominio} se encarga de la construcción de %% la plataforma mediante la delimitación del conjunto de aplicaciones para las que está creada, además de definir y
+%% construir qué características serán reusables y cuales específicas para cada uno de los productos que se desean
+%% fabricar.
+%%
+%% Por otra parte, la \emph{Ingeniería de la Aplicación} se encarga de la creación de los productos para clientes
+%% concretos. Partiendo de la plataforma creada en la fase de Ingeniería de Dominio, y reutilizando tantos componentes
+%% como fuera necesario, se crea una especialización del producto base acorde a los requisitos del cliente.
+%%
+%%
 
-Por otra parte, la \emph{Ingeniería de la Aplicación} se encarga de la creación de los productos para clientes concretos. Partiendo de la plataforma creada en la fase de Ingeniería de Dominio, y reutilizando tantos componentes como fuera necesario, se crea una especialización del producto base acorde a los requisitos del cliente.
-
-
-%%%%%%%%%%%% Clases parciales y patrón Slicer %%%%%%%%%%%%
-Tal como se ha descrito al inicio de este apartado, el objetivo del presente Proyecto Fin de Carrera consiste en el desarrollo e implementación de unos generadores de código que permitan la tranformación del diseño de los modelos en una implementación en código C\# de dichos diseños, para ello se usarán las prestaciones que ofrecen el uso de las clases parciales del lenguaje C\# basadas en el patrón Slicer.
-
-Las \emph{clases parciales} permiten a los desarrolladores fragmentar la implementación de una clase en un conjunto de ficheros, cada uno de los cuales contiene una porción, o incremento, de una funcionalidad de la clase. Sin embargo, no ofrecen ningún mecanismo para agrupar o encapsular características, por lo que no es posible ocultar clases y métodos que pertenecen a una característica específica de aquellas clases y métodos que pertenecen a características independientes. Además, permiten añadir nuevos atributos y métodos a existentes clases parciales pero no permite sobreescribir o extender métodos ya existentes.
-
-Para solventar dichos problemas, el profesor Pablo Sánchez, dentro del Departamento de Matemáticas, Estadística y Computación, ha desarrollado un patrón de diseño llamado \emph{Patrón Slicer} \cite{perez:2011} que parte de la siguiente idea: todos los problemas que se pretenden solucionar tienen origen en el hecho de no poner tener métodos con el mismo nombre en distintas clases parciales, hay que evitar dicha situación. Estos fragmentos de clases parciales, son combinados en tiempo de compilación para crear una única clase que auna todas las características seleccionadas inicialmente por el cliente.
-
-Por ejemplo, supongamos que un cliente quiere un vehículo con varias características adicionales entre las que se encuentran: aire acondicionado, sensor de lluvia, medidor de temperatura en grados Celsius y GPS integrado en idioma español e inglés. La base de nuestro producto final será el vehículo, al cual iremos añadiendo las distintas características requeridas por el cliente. Hay algunas peculiaridades, la clase del medidor de temperatura puede estar a su vez fragmentada en varios componentes (temperatura en Celsius, temperatura en Farentheit) y de los cuales en el modelo final solo usaremos uno de ellos, el de temperatura en Celsius. Lo mismo ocurre con el selector de idiomas para el GPS, solo se elegirá el idioma español e inglés. De esta forma, el producto final juntará todas estas características dentro de un mismo elemento que será el vehículo entregado al usuario final atendiendo a sus requisitos.
-
-%%%%%%%%%%%% Retoma el objetivo del proyecto %%%%%%%%%%%%
-El objetivo de este Proyecto Fin de Carrera es implementar generadores de código que abordarán tanto la implementación de la familia de productos software cubierta por la línea de productos, como la configuración de productos concretos pertenecientes a dicha familia utilizando las prestaciones de las clases parciales en C\# y el Patrón Slicer. Con esto esperamos haber aclarado el primer párrafo de esta sección al lector no familiarizado con las líneas de productos software, clases parciales en lenguaje C\# y/o el Patrón Slicer.
-
-%%%%%%%%%%%%%%%%%%%%% Sin modificar del fichero original
-Tras esta introducción, el resto del presente capítulo se estructura como sigue: La Sección []  proporciona []. Por último, la Sección~\ref{sec:intr:estructura} describe la estructura general del presente documento.
