@@ -14,22 +14,31 @@
 %%              ya hablamos de los objetivos concretos del proyecto %%
 %%==================================================================%%
 
-Las \emph{Líneas de Productos Software}~\citep{} se han popularizado en la última década como un adecuado paradigma para el desarrollo, mantenimiento y gestión de proyectos software altamente similares. Por ejemplo, ...
+Las \emph{Líneas de Productos Software}~\citep{pohl:2010,kakola:2006} se han popularizado en la última década como un adecuado paradigma para el desarrollo, mantenimiento y gestión de proyectos software altamente similares. Por ejemplo, ...
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \todo{Describir un ejemplo de empresa que desarrolla un producto software, el producto software tiene éxito, y a continuación se lo pide otra empresa pero modificado, a continuación otra empresa, nuevamente modificado, y así sucesivamente. Describir los problemas que surgirían si esto se realiza siguiendo un enfoque tradicional. Explicar en una sola frase que dicho problema se puede resolver con las líneas de productos software. Inspírate en el proyecto de Alejandro, y antes de escribir el ejemplo, mándame cual sería el ejemplo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 En relación con las líneas de productos software, y dentro del proyecto europeo \emph{AMPLE (Aspect-oriented Model-Driven Product Line Engineering)}~\footnote{www.ample-project.net}, el profesor Pablo Sánchez, actualmente adscrito a la Universidad de Cantabria, junto con otros investigadores, creó la metodología TENTE~\citep{fuentes:2009:caise,sanchez:2011:tente}. La principal novedad de dicha metodología era la de integrar diversos avances que se habían ido realizando en los paradigmas del desarrollo software orientado a características y el desarrollo software dirigido por modelos.
 
-La \emph{orientación a características}~\cite{} tiene como objetivo  encapsular porciones coherentes de la funcionalidad proporcionadas por una aplicación en módulos independientes llamados \emph{características}. La orientación a características eleva el nivel al cual se agrupa la funcionalidad de un sistema del concepto de clase al concepto de \emph{conjunto} o \emph{familia de clases}, las cuales se añaden o eliminan de una aplicación como piezas o módulos indivisibles. De esta forma, las variaciones existentes en una familia de productos software se encapsulan en \emph{características}, las cuales se añaden o eliminan de un producto concreto de acuerdo a las necesidades de cada cliente en particular.
+La \emph{orientación a características}~\cite{kastner:2008} tiene como objetivo encapsular porciones coherentes de la funcionalidad proporcionadas por una aplicación en módulos independientes llamados \emph{características}. La orientación a características eleva el nivel al cual se agrupa la funcionalidad de un sistema del concepto de clase al concepto de \emph{conjunto} o \emph{familia de clases}, las cuales se añaden o eliminan de una aplicación como piezas o módulos indivisibles. De esta forma, las variaciones existentes en una familia de productos software se encapsulan en \emph{características}, las cuales se añaden o eliminan de un producto concreto de acuerdo a las necesidades de cada cliente en particular.
 
-\todo{Describir en un párrafo cuál es el objetivo del desarrollo software dirigido por modelos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\todo{Describir en un párrafo cuál es el objetivo del desarrollo software dirigido por modelos}
+La automatización de dicho proceso se suele abordar usando técnicas de desarrollo software dirigido por modelos \cite{sami:2010}, donde el código necesario para la inclusión, exclusión o configuración de las características variables se realiza mediante la generación del código necesario para realizar tal composición desde modelos de alto nivel que especifican qué características deben estar presentes un determinado producto.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Una vez definida la metodología TENTE, se decidió proceder a su transferencia tecnológica. Fue en este punto donde se encontró un obstáculo que en principio parecía insalvable.
 
-\todo{Explicar el problema derivado de la utilización de CaesarJ como lenguaje de programación. Inspírate en el proyecto de Alejandro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\todo{Explicar el problema derivado de la utilización de CaesarJ como lenguaje de programación. Inspírate en el proyecto de Alejandro}
+Una vez definida la metodología TENTE, se decidió proceder a su transferencia tecnológica. Fue en este punto donde se encontró un obstáculo que en principio parecía insalvable. TENTE está basado en el uso del lenguaje CaesarJ como lenguaje de implementación, pero la mayor parte de las empresas del sector de desarrollo software se encuentran reticentes al cambio de su lenguaje habitual de programación debido fundamentalmente a dos motivos: (1) el coste de apredizaje por parte de sus programadores de los nuevos conceptos y técnicas de codificación y (2) el uso de un nuevo lenguaje podría dejar obsoletas muchas de las herramientas de la empresa como las suites para ejecución de pruebas.
 
-Por tanto, se decidió que si se quería transferir la metodología TENTE a la industria software, debíamos rediseñar dicha metodología para que utilizase como lenguaje de programación un lenguaje orientado a objetos convencional, al estilo de Java o C\#, en lugar de CaesarJ. Dada la preferencia de la mayoría de las empresas del sector industrial cántabro por la plataforma .Net~\citep{}, se decidió elegir como lenguaje destino C\#, el lenguaje de programación insignia de la plataforma .Net. La siguiente sección describe el estado actual de la metodología .Net.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Por tanto, se decidió que si se quería transferir la metodología TENTE a la industria software, debíamos rediseñar dicha metodología para que utilizase como lenguaje de programación un lenguaje orientado a objetos convencional, al estilo de Java o C\#, en lugar de CaesarJ. Dada la preferencia de la mayoría de las empresas del sector industrial cántabro por la plataforma .Net~\citep{david:2006}, se decidió elegir como lenguaje destino C\#, el lenguaje de programación insignia de la plataforma .Net. La siguiente sección describe el estado actual de la metodología .Net.
 
 
 
