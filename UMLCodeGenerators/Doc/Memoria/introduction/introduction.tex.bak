@@ -1,31 +1,35 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %%          Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.0, 14/02/2013                                         %%                                                                                    %%                                                                  %%
+%% Version: 2.0, 11/06/2013                                         %%                                                                                    %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
-%% Introducción                                                     %%
+%% Archivo raíz                                                     %%
 %%==================================================================%%
 
 \chapterheader{Introducción}{Introducción}
 \label{chap:introduction}
 
-Este capítulo sirve de introducción a la presente Memoria de Proyecto Fin de Carrera. En él se describen los objetivos generales del proyecto, así como el contexto donde se enmarca.  Por último, se describe como se estructura el presente documento.
+Este capítulo sirve de introducción a la presente Memoria de Proyecto Fin de Carrera. Para ello, en primer lugar se describe el contexto general donde se enmarca dicho proyecto y que da lugar al mismo. Se describe luego, a grandes rasgos, el proyecto para la metodología Te.Net, proyecto general de amplio alcance donde se inscribe el presente proyecto. A continuación, se exponen los objetivos principales del proyecto. Por último, se describe como se estructura el presente documento.
 
 \chaptertoc
 
-\section{Introducción}
+\section{Contexto del Proyecto}
 \label{sec:intr:introduction}
 
 \input{introduction/theIntroduction.tex}
 
-\section{Planificación del proyecto}
+\section{La metodología Te.NET}
+
+\input{introduction/metodologiaTenet.tex}
+
+\section{Motivación y Objetivos}
 \label{sec:intr:planning}
 
-% \input{planificacion/theplanificacion.tex}
+\input{introduction/objetivos.tex}
 
 \section{Estructura del Documento}
 \label{sec:intr:estructura}
 
-% \input{planificacion/theplanificacion.tex}
+\input{introduction/roadmap.tex}
 
 

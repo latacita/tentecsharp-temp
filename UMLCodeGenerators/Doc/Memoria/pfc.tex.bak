@@ -18,12 +18,12 @@
 \usepackage{amsfonts}
 \usepackage[spanish,activeacute]{babel}
 \usepackage{tabularx}
-
 \usepackage{listings}
 \usepackage{caption}
 \usepackage{multirow}
 \usepackage{tabulary}
 \usepackage{longtable}
+
 % File with main configuration
 \input{config/pfc_options.tex}
 
@@ -53,6 +53,7 @@
 \setcounter{minitocdepth}{1}
 
 \begin{document}
+
 \lstdefinelanguage{CSharp}
 {
  morecomment = [l]{//},
@@ -82,9 +83,9 @@
    enum,  namespace,  string}
 }
 % Cover page
-% \input{cover/cover.tex}
+\input{cover/cover.tex}
 
-% \input{cover/firstPage.tex}
+\input{cover/firstPage.tex}
 
 % reset page numbering
 \input{config/begin.tex}
@@ -93,23 +94,27 @@
 % \input{cover/acknowledgements.tex} % acknowledgements
 
 % Preface
-%\input{introduction/preface.tex}   % preface
+\input{introduction/preface.tex}   % prefacio español
+\input{introduction/preface(english).tex}   % prefacio inglés
 
 % Toc
-% \input{config/toc.tex}
+\input{config/toc.tex}
 
 \input{Config/headers.tex}
 
 \input{config/chapters.tex}
 
 % Capítulo 1: Introducción
-% \input{introduction/introduction.tex} % Chapter 1
+\input{introduction/introduction.tex} % Chapter 1
 
 % Capítulo 2: Resumen del Estado del Arte
-\input{background/background.tex}
+% \input{background/background.tex}
 
 % Capítulo 3: Domain Engineering
-\input{domainEngineering/domain.tex}
+% \input{domainEngineering/domain.tex}
+
+% Capítulo 4: Application Engineering
+\input{applicationEngineering/application.tex}
 
 % Capítulo 6: Discusión, Conclusiones y Trabajos Futuros
 % \todo{Capítulo 7: Discusión, Conclusiones y Trabajos Futuros}
@@ -122,6 +127,6 @@
 
 % CONFIG: Bibliography style
 %\input{config/bibliography.tex}
-\bibliography{references/references}
+% \bibliography{references/references}
 
 \end{document}
