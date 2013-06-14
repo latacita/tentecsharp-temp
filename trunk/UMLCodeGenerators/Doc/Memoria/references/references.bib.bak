@@ -114,6 +114,12 @@
   pages     = {36-51},
 }
 
+@inproceedings{loughran:2008,
+  author    = {Sami Beydeda, Matthias Book, and Volker Gruhn.},
+  title     = {Model-Driven Software Development},
+  booktitle = {Software Composition},
+  year      = {2010}, 
+}
 @INPROCEEDINGS{sanchez:2008,
   author = {Pablo S{\'a}nchez and Neil Loughran and Lidia Fuentes and Alessandro Garcia},
   title  = {{Engineering Languages for Specifying Product-Derivation Processes in Software Product Lines}},
@@ -268,4 +274,11 @@
   booktitle = {T. Aspect-Oriented Software Development I},
   year      = {2006},
   pages     = {135-173}
+}
+
+@article{kastner:2008,
+  author    = {Christian Kästner},
+  title     = {{An Overview of Feature-Oriented Software Development}},
+  booktitle = {Journal of Object Technology},
+  year      = {2008}
 }

@@ -1,35 +1,35 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %%          Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.2, 11/06/2013                                         %%                                                                                    %%                                                                  %%
+%% Version: 1.2, 14/06/2013                                         %%                                                                                    %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Introduccion/Metodologia TeNet                                   %%
 %%==================================================================%%
 
-Tal como se ha comentado en la sección anterior, la metodología Te.Net se trata de una variante de la tecnología TENTE. A diferencia de TENTE, la cual obliga a utilizar como lenguaje de programación final un lenguaje orientado a características que soporte el concepto de \emph{familia de clases}, al estilo de \emph{CaesarJ}~\citep{} u \emph{ObjectTeams}~\citep{}, Te.NEt utiliza como lenguaje de programación destino un lenguaje convencional orientado a objetos, más concretamente C\#.
+Tal como se ha comentado en la sección anterior, la metodología Te.Net se trata de una variante de la tecnología TENTE. A diferencia de TENTE, la cual obliga a utilizar como lenguaje de programación final un lenguaje orientado a características que soporte el concepto de \emph{familia de clases}, al estilo de \emph{CaesarJ}~\citep{ivica:2006} u \emph{ObjectTeams}~\citep{stephan:2002}, Te.NEt utiliza como lenguaje de programación destino un lenguaje convencional orientado a objetos, más concretamente C\#.
 
-El primer paso a realizar para llevar a cabo este rediseño de la metodología TENTE era analizar como se podía dar soporte a la orientación a aspectos en un lenguaje de programación orientado a objetos como C\#. Tras realizar una buscar opciones en el estado del arte actual, se encontró un prometedor trabajo~\citep{} en el cual se proponía la utilización de las clases parciales de C\# como mecanismos para dar soporte a la orientación características.
+El primer paso a realizar para llevar a cabo este rediseño de la metodología TENTE era analizar cómo se podía dar soporte a la orientación a aspectos en un lenguaje de programación orientado a objetos como C\#. Tras realizar una buscar opciones en el estado del arte actual, se encontró un prometedor trabajo~\citep{perez:2011} en el cual se proponía la utilización de las clases parciales de C\# como mecanismos para dar soporte a la orientación características.
 
 %%==================================================================%%
-%% NOTA(Pablo): Esto se pasaría  la parte de antecedentes           %%
+%% NOTA(Pablo): Esto se pasaría a la parte de antecedentes           %%
 %%==================================================================%%
 %%
-%% Las \emph{clases parciales} permiten a los desarrolladores fragmentar %% la implementación de una clase en un conjunto de ficheros, cada uno 
-%% de los cuales contiene una porción, o incremento, de una 
-%% funcionalidad de la clase. Sin embargo, no ofrecen ningún mecanismo 
+%% Las \emph{clases parciales} permiten a los desarrolladores fragmentar %% la implementación de una clase en un conjunto de ficheros, cada uno
+%% de los cuales contiene una porción, o incremento, de una
+%% funcionalidad de la clase. Sin embargo, no ofrecen ningún mecanismo
 %% para agrupar o encapsular características, por lo que no es posible
 %% ocultar clases y métodos que pertenecen a una característica
 %% específica de aquellas clases y métodos que pertenecen a
-%% características independientes. Además, permiten añadir nuevos 
+%% características independientes. Además, permiten añadir nuevos
 %% atributos y métodos a existentes clases parciales pero no permite
 %% sobreescribir o extender métodos ya existentes.
 %%
 %%==================================================================%%
 
-Por tanto, se decidió evaluar dicho trabajo en profundidad con objeto de verificar las ideas propuestas en el mismo. Los experimentos realizados~\citep{} revelaron diferentes debilidades de las clases parciales como mecanismo para la implementación de líneas de productos software.
+Por tanto, se decidió evaluar dicho trabajo en profundidad con objeto de verificar las ideas propuestas en el mismo. Los experimentos realizados~\citep{sanchez:2010} revelaron diferentes debilidades de las clases parciales como mecanismo para la implementación de líneas de productos software.
 
 Para solventar los problemas detectados, se creó, como resultado de otro Proyecto Fin de Carrera presentado en esta misma Facultad, un patrón de diseño denominado \emph{Slicer Pattern}~\cite{perez:2011}. Dentro de dicho Proyecto Fin de Carrera se implementó una línea de productos software para el desarrollo de software de gestión de hogares inteligentes.
 
-Una vez que se había solventado el problema de como soportar la orientación a características en C\#, la siguiente tarea a realizar era la de adaptar los generadores de códigos originales para que soportasen la generación de código en C\# en lugar de CaesarJ. Esta tarea constituye el objetivo principal de este proyecto, el cual se detalla en la siguiente sección.
- 
+Una vez que se había solventado el problema de cómo soportar la orientación a características en C\#, la siguiente tarea a realizar era la de adaptar los generadores de códigos originales para que soportasen la generación de código en C\# en lugar de CaesarJ. Esta tarea constituye el objetivo principal de este proyecto, el cual se detalla en la siguiente sección.
+
 
