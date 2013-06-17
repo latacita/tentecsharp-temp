@@ -1,34 +1,23 @@
 %%==================================================================%%
-%% Author : Abascal Fernández, Patricia                             %%
-%%          Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.1, 14/06/2013                                         %%                                                                                    %%                                                                  %%
+%% Author : Abascal FernÃ¡ndez, Patricia                             %%
+%%          SÃ¡nchez Barreiro, Pablo                                 %%
+%% Version: 1.0, 11/06/2013                                         %%                                                                                    %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
-%% Archivo raíz                                                     %%
+%% Archivo raÃ­z                                                     %%
 %%==================================================================%%
 
 \cdpchapter{Resumen}
- 
-El objetivo de una \emph{línea de productos software} es crear una infraestructura a partir de la cual se puedan derivar, tan automáticamente como sea posible, productos concretos pertenecientes a una familia de productos software. Una \emph{familia de productos software} es un conjunto de aplicaciones software similares, que por tanto comparten una serie de características comunes, pero que también presentan variaciones entre ellos.
 
-El software para el control de hogares automatizados es un claro ejemplo de dominio donde un enfoque de líneas de productos software resulta muy adecuado. Dicho dominio presenta un amplio rango de variaciones debido a los diferentes dispositivos que pueden ser controlados (por ejemplo, ventanas, puertas, luces, etc.) y las funciones que se desea que dichos dispositivos realicen (por ejemplo, simulación de presencia, control inteligente de la energía, etc.).
+Dentro del Departamento de MatemÃ¡ticas, EstadÃ­stica y ComputaciÃ³n se han desarrollado con anterioridad una serie de tÃ©cnicas para la implementaciÃ³n y configuraciÃ³n de lÃ­neas de productos software para la plataforma .NET basÃ¡ndose en las clases parciales de C\#. Dichas tÃ©cnicas se condensan en el denominado \emph{Slicer Pattern}. No obstante, la aplicaciÃ³n de dicho patrÃ³n de forma manual implica una serie de tareas manuales y repetitivas. 
 
-Dentro del Departamento de Matemáticas, Estadística y Computación se han desarrollado con anterioridad una serie de técnicas para la implementación y configuración de líneas de productos software para la plataforma .NET basándose en las clases parciales de C\# [1]. Dichas técnicas se condensan en el denominado Slicer Pattern. Por otra parte, la metodología TENTE [2], desarrollada, entre otros, por el profesor Pablo Sánchez, define una serie de modelos y transformaciones de modelo a código para el desarrollo y configuración de líneas de productos software.
+El objetivo de presente proyecto fin de carrera es desarrollar una serie de generadores de cÃ³digo que permitan automatizar la aplicaciÃ³n del \emph{Slicer Pattern}. Ello reducirÃ­a los tiempos de desarrollo; y , por tanto, el coste. AdemÃ¡s, al automatizarse el proceso se evita la introducciÃ³n de errores debidos a la intervenciÃ³n humana. Esto contribuye aumentar la calidad del producto final y a reducir los tiempos y costes de desarrollo; ya que el tiempo necesario para detectar y corregir estos potenciales errores desaparece.
 
-El objetivo de presente proyecto fin de carrera es desarrollar las herramientas necesarias para integrar las técnicas de implementación basadas en el Slicer Pattern dentro de la metodología TENTE, mediante la implementación de un conjunto de generadores de código que permitan transformar modelos orientados a características en UML 2.0 para una línea de productos software en una implementación de dichos diseños para la plataforma .NET utilizando para ello las facilidades que ofrecen las clases parciales del lenguaje C\# y el Slicer Pattern. 
-
-Los generadores de código se implementarán usando EGL [3], el lenguaje de transformación modelo a código de la suite de herramientas para la manipulación de modelos Epsilon.
-
+Para alcanzar dicho objetivo, este proyecto fin de carrera ha desarrollado una serie de generadores de cÃ³digo que transforman modelos de diseÃ±o, en UML 2.0, de una lÃ­nea de productos software en una implementaciÃ³n en C\# basada en el \emph{Slicer Pattern}. Dichos generadores de e cÃ³digo se han implementado usando EGL (\emph{Epsilon Generation Language}), el lenguaje de transformaciÃ³n modelo a cÃ³digo de la suite de herramientas para la manipulaciÃ³n de modelos \emph{Epsilon}.
 
 \paragraph{Palabras Clave} \ \\
 
-Línea de Productos Software, Generación de Código, Desarrollo Software Orientado a Características, TENTE, Clases Parciales C\#, Patrón Slicer, .NET, Epsilon.
+LÃ­nea de Productos Software, GeneraciÃ³n de CÃ³digo, Desarrollo Software Orientado a CaracterÃ­sticas, Clases Parciales C\#, PatrÃ³n Slicer, .NET, Epsilon, Te.NET, TENTE. 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%El objetivo de presente proyecto fin de carrera es desarrollar las herramientas necesarias para integrar las técnicas de implementación basadas en el Slicer Pattern dentro de la metodología TENTE. Para ello, el alumno deberá:
 
-%1. Implementar una serie de generadores de código que transformen modelos orientados a características en UML 2.0 a una implementación en C# basada en el Slicer Pattern.
-%2. Implementar una serie de generadores de código que permitan configurar una implementación de una línea de productos basada en el Slicer Pattern a partir de de una selección de características determinada.
-
-%Dichos generadores de código deberán integrarse como plugins dentro de la herramienta de modelado UML MagicDraw y de Eclipse. Los generadores de código se implementarán usando EGL [3], el lenguaje de transformación modelo a código de la suite de herramientas para la manipulación de modelos Epsilon. 
