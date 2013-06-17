@@ -1,7 +1,7 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %%          Sánchez Barreiro, Pablo                                 %%
-%% Version: 2.0, 11/06/2013                                         %%                                                                                    %%                                                                  %%
+%% Version: 2.1, 14/06/2013                                         %%                                                                                    %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Archivo raíz                                                     %%
 %%==================================================================%%
@@ -9,7 +9,7 @@
 \chapterheader{Introducción}{Introducción}
 \label{chap:introduction}
 
-Este capítulo sirve de introducción a la presente Memoria de Proyecto Fin de Carrera. Para ello, en primer lugar se describe el contexto general donde se enmarca dicho proyecto y que da lugar al mismo. Se describe luego, a grandes rasgos, el proyecto para la metodología Te.Net, proyecto general de amplio alcance donde se inscribe el presente proyecto. A continuación, se exponen los objetivos principales del proyecto. Por último, se describe como se estructura el presente documento.
+Este capítulo sirve de introducción a la presente Memoria de Proyecto Fin de Carrera. Para ello, en primer lugar se describe el contexto general donde se enmarca dicho proyecto y que da lugar al mismo. Se describe luego, a grandes rasgos, el proyecto para la metodología Te.Net, proyecto general de amplio alcance donde se inscribe el presente proyecto. A continuación, se exponen los objetivos principales del proyecto. Por último, se describe cómo se estructura el presente documento.
 
 \chaptertoc
 
