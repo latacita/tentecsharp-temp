@@ -61,9 +61,13 @@
   pages ={3–10}
   owner = {Patricia},
 }
-
-
-
+@BOOK{steinberg:2008,
+  author = {Dave Steinberg and Frank Budinsky and Marcelo Paternostro and Ed Merks},
+  title = {EMF: Eclipse Modeling Framework (2nd edition)},
+  publisher = {Addison-Wesley Professional},
+  year = {2008},
+  edition = {2},
+}
 @ARTICLE{sanchez:2010,
   author = {Pablo Sánchez, Elio López, Lidia Fuentes},
   title = {Are C'\#' Partial Classes Suitable for Implementing Feature-Oriented
@@ -304,6 +308,19 @@
   month =        {},
 }
 
+@BOOK{eric:2010,
+  AUTHOR    = {Eric Jendrock, Jennifer Ball, Debbie Carson, Ian Evans, Scott Fordin, Kim Haase},
+  TITLE     =     {The Java EE 5Tutorial For Sun Java System Application Server 9.1},
+  PUBLISHER =    {Oracle},
+  YEAR =         {2010},
+  pages =        {133-182},
+}
+@BOOK{mehdi:2013,
+  AUTHOR    = {Mehdi Achour, Friedhelm Betz, Antony Dovgal, Nuno Lopes, Hannes Magnusson},
+  TITLE     =     {PHP Manual},
+  PUBLISHER =    {The PHP Documentation Group},
+  YEAR =         {2013},
+}
 @inproceedings{laguna:2007,
   author    = {Miguel A. Laguna and
 			   Bruno Gonz{\'a}lez-Baixauli and
