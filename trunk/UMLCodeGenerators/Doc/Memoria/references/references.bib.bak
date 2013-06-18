@@ -27,6 +27,43 @@
   timestamp = {2013.02.14}
 }
 
+
+@BOOK{dimitrios:2012,
+  title ={The Epsilon Generation Language (EGL)}
+  booktitle = {The Epsilon Book},
+  year = {2012},
+  author = {Dimitrios Kolovos, Louis Rose, Richard Paige, Antonio García-Domínguez},
+  pages  = {117-140}
+  owner = {Patricia},
+}
+
+@BOOK{dimitrios1:2012,
+  title ={The Epsilon Object Language (EOL)}
+  booktitle = {The Epsilon Book},
+  year = {2012},
+  author = {Dimitrios Kolovos, Louis Rose, Richard Paige, Antonio García-Domínguez},
+  pages  = {23-66}
+  owner = {Patricia},
+}
+
+@ARTICLE{benavides:2010,
+  author = {Benavides, D., Segura, S. and Cortés, A. R.},
+  title = {Automated Analysis of Feature Models 20 Years Later: A Literature Review},
+  year = {2010},
+  owner = {Patricia},
+}
+
+@ARTICLE{chae:2009,
+  author = {Chae, W. and Blume, M.},
+  title = {Language Support for Feature-Oriented Poduct Line Engineering},
+  publisher = {Proceedings of the 1st Int.}
+  year = {2009},
+  pages ={3–10}
+  owner = {Patricia},
+}
+
+
+
 @ARTICLE{sanchez:2010,
   author = {Pablo Sánchez, Elio López, Lidia Fuentes},
   title = {Are C'\#' Partial Classes Suitable for Implementing Feature-Oriented
@@ -67,7 +104,7 @@
   editor  = {Eric Yu and Johann Eder and Colette Rolland},
   volume  = {453},
   series  = {CEUR Workshop Proceedings},
-  pages   = {67--72},
+  pages   = {67-72},
   address = {Amsterdam (The Netherlands)},
   month   = {June},
 }
@@ -114,11 +151,38 @@
   pages     = {36-51},
 }
 
-@inproceedings{loughran:2008,
+@inproceedings{alasdair:2004,
+  author    = {Alasdair Allan},
+  booktitle = {Pragmatic Unit Testing in Java with JUnit},
+  editor = {The Pragmatic Programmers},
+  year      = {2004},
+}
+
+@inproceedings{david:2006,
+  author    = {David Chappell},
+  title     = {Understanding .NET (2nd Edition)},
+  editor = {Addison-Wesley Professional},
+  year      = {2006},
+}
+@inproceedings{stephan:2002,
+  author    = {Stephan Herrmann},
+  title     = {Object teams: Improving modularity for crosscutting collaborations},
+  editor = {In NetObjectDays},
+  year      = {2002},
+  pages     = {248–264},
+}
+@inproceedings{ivica:2006,
+  author    = {Ivica Aracic, Vaidas Gasiunas, Mira Mezini, and Klaus Ostermann},
+  title     = {An Overview of CaesarJ},
+  year      = {2006},
+  pages     = {135–173},
+}
+
+@inproceedings{sami:2010,
   author    = {Sami Beydeda, Matthias Book, and Volker Gruhn.},
   title     = {Model-Driven Software Development},
-  booktitle = {Software Composition},
-  year      = {2010}, 
+  editor = {Springer},
+  year      = {2010},
 }
 @INPROCEEDINGS{sanchez:2008,
   author = {Pablo S{\'a}nchez and Neil Loughran and Lidia Fuentes and Alessandro Garcia},
@@ -277,7 +341,7 @@
 }
 
 @article{kastner:2008,
-  author    = {Christian Kästner},
+  author    = {Christian K{\"a}stner},
   title     = {{An Overview of Feature-Oriented Software Development}},
   booktitle = {Journal of Object Technology},
   year      = {2008}

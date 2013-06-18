@@ -1,20 +1,19 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %%          Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.2, 17/04/2013                                         %%
+%% Version: 1.2, 17/06/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Background/Slicer Pattern                                        %%
 %===================================================================%%
 
-El mecanismo utilizado por la metodología Te.Net para gestionar la variabilidad de una línea de productos a nivel de código es el \emph{Slicer Pattern}~\citep{}. Dicho patrón se basa fuertemente en el concepto de clases parciales existente en C\#. Por tanto, antes de proceder a la 
-descripción de dicho patrón, introduciremos al lector en el concepto de clase parcial. Más concretamente, nos centraremos en el concepto de clase parcial proporcionado por C\#. 
+El mecanismo utilizado por la metodología Te.Net para gestionar la variabilidad de una línea de productos a nivel de código es el \emph{Slicer Pattern}~\citep{perez:2011}. Dicho patrón se basa fuertemente en el concepto de clases parciales existente en C\#. Por tanto, antes de proceder a la descripción de dicho patrón, introduciremos al lector en el concepto de clase parcial. Más concretamente, nos centraremos en el concepto de clase parcial proporcionado por C\#.
 
-Las clases parciales de C\#~\citep{albahari:2010} permiten dividir la implementación de una clase en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan, en tiempo de compilación, para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales. 
+Las clases parciales de C\#~\citep{albahari:2010} permiten dividir la implementación de una clase en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan, en tiempo de compilación, para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales.
 
-Por lo tanto, las clases parciales C\# parecen un mecanismo adecuado para implementar características, tal como ha sido identificado por diversos autores~\cite{laguna:2007,laguna:2010}. La idea es que cada incremento en funcionalidad perteneciente a una característica se podría encapsular en una clase parcial separada. Cuando un cliente solicita un producto con una serie de características concretas, se combinarían (compilarían) las clases parciales correspondientes a esas características. Esto daría lugar a un producto que contendría única y exclusivamente las características seleccionadas. 
+Por lo tanto, las clases parciales C\# parecen un mecanismo adecuado para implementar características, tal como ha sido identificado por diversos autores~\cite{laguna:2007,laguna:2010}. La idea es que cada incremento en funcionalidad perteneciente a una característica se podría encapsular en una clase parcial separada. Cuando un cliente solicita un producto con una serie de características concretas, se combinarían (compilarían) las clases parciales correspondientes a esas características. Esto daría lugar a un producto que contendría única y exclusivamente las características seleccionadas.
 
-Ilustramos esta idea con un ejemplo. 
+Ilustramos esta idea con un ejemplo.
 
 %%==================================================================%%
 %% NOTA(Pablo): Mete aquí un ejemplo simple de como se divide       %%
@@ -22,31 +21,31 @@ Ilustramos esta idea con un ejemplo.
 %%              características.                                    %%
 %%              Copia y pega del artículo que se llama              %%
 %%              "Implementing Feature-Oriented Decompositions       %%
-%%               Using C# Partial Classes: An Exploratory Study"    %%                     
+%%               Using C# Partial Classes: An Exploratory Study"    %%
 %%               el cual te mando por correos.                      %%
 %%              Si te hacen falta las fuentes me las pides          %%
 %%              El ejemplo debe corresponderse con el modelo UML    %%
-%%              que sale en la sección de  
+%%              que sale en la sección de
 %%==================================================================%%
 
 Sin embargo, de acuerdo a una serie de experimentos realizados por Sánchez et al~\citep{}, las clases parciales tienen un serio inconveniente a la hora de implementar características. Utilizando clases parciales, no podemos ni sobreescribir ni extender métodos ya existentes dentro de una clase parcial. Ilustramos este problema con un ejemplo.
- 
+
 %%==================================================================%%
 %% NOTA(Pablo): Mete aquí un ejemplo simple que ilustre el problema %%
 %%              en sí. Lo puedes copiar del propio artículo que     %%
-%%              describe el Slicer Pattern                          %%            
+%%              describe el Slicer Pattern                          %%
 %%                                                                  %%
 %%==================================================================%%
 
-El \emph{Slicer Pattern} surge como solución para resolver estas limitaciones. Para ello, el \emph{Slicer Pattern} se basa en la siguiente idea: dado que el problema es que no podíamos tener métodos con el mismo nombre en diferentes clases parciales, la solución consiste en añadir un prefijo a cada método, de forma que cada método tenga un nombre diferente. Dicho prefijo será el nombre de la características a la cual pertenece la clase parcial que contiene cada método. 
+El \emph{Slicer Pattern} surge como solución para resolver estas limitaciones. Para ello, el \emph{Slicer Pattern} se basa en la siguiente idea: dado que el problema es que no podíamos tener métodos con el mismo nombre en diferentes clases parciales, la solución consiste en añadir un prefijo a cada método, de forma que cada método tenga un nombre diferente. Dicho prefijo será el nombre de la características a la cual pertenece la clase parcial que contiene cada método.
 
 La Figura~\ref{back:fig:slicerPattern} muestra como el ejemplo de la Figura~\ref{} ha sido refactorizado siguiendo dicha idea.
 
-%%==================================================================%% 
+%%==================================================================%%
 %% NOTA(Pablo): El ejemplo debe casar con el anterior. Cuando lo    %%
-%%              tengas listo, sigo mirando desde aquí,              %%   
-%%              que necesito saber como casa todo                   %%                    
-%%                                                                  %% 
+%%              tengas listo, sigo mirando desde aquí,              %%
+%%              que necesito saber como casa todo                   %%
+%%                                                                  %%
 %%==================================================================%%
 
 \begin{figure}[!tb]
