@@ -4,49 +4,67 @@
 0
 1
 pfc.tex
-20
-11
-7
+26
+17
+12
 
 pfc.tex
 TeX:ES
-152055803 0 99 30 -1 4148 0 0 509 692 0 45 2052 -1 -1 0 0 70 -1 -1 70 1 0 4148 -1   0
+152055803 0 -1 3821 -1 3979 0 0 509 692 0 25 342 -1 -1 0 0 70 -1 -1 70 1 0 3979 -1   0
 introduction\theIntroduction.tex
 TeX
 17838075 0 -1 7031 -1 7622 198 207 814 776 0 25 285 -1 -1 0 0 70 -1 -1 70 1 0 7622 -1   0
 introduction\metodologiaTenet.tex
 TeX
-1060859 0 -1 3092 -1 3092 132 138 1245 546 0 515 399 -1 -1 0 0 70 -1 -1 70 1 0 3092 -1   0
+1060859 0 -1 3092 -1 3092 132 138 1245 546 0 485 399 -1 -1 0 0 70 -1 -1 70 1 0 3092 -1   0
 references\references.bib
 BibTeX
 1049586 2 136 150 136 1 220 230 836 799 0 25 285 -1 -1 0 0 43 0 0 43 1 0 1 136   0
 introduction\objetivos.tex
 TeX
-1060859 0 -1 4594 -1 4590 154 161 1267 569 0 315 456 -1 -1 0 0 586 -1 -1 586 1 0 4590 -1   0
+1060859 0 -1 4595 -1 4591 154 161 1267 569 0 25 456 -1 -1 0 0 586 -1 -1 586 1 0 4591 -1   0
 introduction\roadmap.tex
 TeX
 1060859 0 -1 667 -1 676 176 184 1289 592 0 185 171 -1 -1 0 0 70 -1 -1 70 1 0 676 -1   0
 background\casoEstudio.tex
 TeX
-1060859 0 -1 4620 -1 4620 154 161 1484 569 0 405 760 -1 -1 0 0 -1 -1 -1 -1 1 0 4620 -1   0
+1060859 0 -1 4621 -1 4621 154 161 1484 569 0 25 570 -1 -1 0 0 70 -1 -1 70 1 0 4621 -1   0
 background\spl.tex
 TeX
-269496315 0 -1 5121 -1 5138 198 207 806 776 0 265 703 -1 -1 0 0 -1 -1 -1 -1 1 0 5138 -1   0
+1060859 1 -1 574 -1 0 198 207 806 776 0 25 0 -1 -1 0 0 70 -1 -1 70 1 0 0 -1   0
+background\fosd.tex
+TeX
+17838075 0 -1 628 -1 730 242 253 850 822 0 455 399 -1 -1 0 0 70 -1 -1 70 1 0 730 -1   0
+background\tente.tex
+TeX
+17838075 0 89 66 -1 3614 0 0 608 550 0 955 570 -1 -1 0 0 70 -1 -1 70 1 0 3614 -1   0
+introduction\introduction.tex
+TeX
+1060859 0 -1 1486 -1 1542 44 46 660 615 1 343 551 -1 -1 0 0 70 -1 -1 70 1 0 1542 -1   0
+background\slicer.tex
+TeX
+269496315 1 -1 3720 -1 3278 198 207 806 757 0 25 285 -1 -1 0 0 70 -1 -1 70 1 0 3278 -1   0
+background\epsilon.tex
+TeX
+1060859 0 -1 1573 -1 1690 132 138 1462 546 0 1365 304 -1 -1 0 0 -1 -1 -1 -1 1 0 1690 -1   0
+background\sumario.tex
+TeX:UNIX
+1159163 0 -1 0 -1 0 154 161 1484 569 0 25 0 -1 -1 0 0 -1 -1 -1 -1 1 0 0 -1   0
 introduction\preface.tex
 TeX
-1060859 0 -1 72 -1 747 22 23 1135 431 0 655 209 -1 -1 0 0 70 -1 -1 70 1 0 747 -1   0
+1060859 0 -1 72 -1 747 22 23 1135 431 0 655 190 -1 -1 0 0 70 -1 -1 70 1 0 747 -1   0
 background\background.tex
 TeX:UNIX
-1159163 0 -1 1145 -1 1176 132 138 1424 555 0 1265 -35 -1 -1 0 0 70 -1 -1 70 1 0 1176 -1   0
+1159163 0 -1 1908 -1 2033 132 138 1424 555 0 725 402 -1 -1 0 0 70 -1 -1 70 1 0 2033 -1   0
 introduction\theIntroduction(old).tex
 TeX
 17838075 0 -1 1113 -1 660 198 207 814 776 0 25 171 -1 -1 0 0 70 -1 -1 70 1 0 660 -1   0
+background\fosd.text
+DATA
+273678578 0 9 8 0 1 242 253 850 822 1 83 0 -1 -1 0 0 -1 -1 -1 -1 1 0 1 0   0
 introduction\preface(english).tex
 TeX
 286273531 4 -1 492 -1 493 132 138 1462 546 0 375 171 -1 -1 0 0 -1 -1 -1 -1 1 0 493 -1   0
-introduction\introduction.tex
-TeX
-269496315 0 -1 1604 -1 1616 44 46 660 615 1 273 494 -1 -1 0 0 70 -1 -1 70 1 0 1616 -1   0
 config\chapters.tex
 TeX:UNIX
 1159163 0 -1 0 -1 0 176 184 792 753 0 25 0 -1 -1 0 0 64 -1 -1 64 1 0 0 -1   0
@@ -92,16 +110,11 @@ ASCII:EDT
 >
 *background/casoEstudio.tex
 *background/spl.tex
+*background/fosd.tex
 *background/tente.tex
 *background/slicer.tex
 *background/epsilon.tex
 *background/sumario.tex
-<
-*applicationEngineering/application.tex
->
-*applicationEngineering/algoritmo.tex
-*applicationEngineering/gen.tex
-*applicationEngineering/pruebas.tex
 <
 *config/bibliography.tex
 *references/references.bib
