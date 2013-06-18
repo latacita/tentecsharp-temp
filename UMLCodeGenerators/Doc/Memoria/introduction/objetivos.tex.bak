@@ -1,7 +1,7 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %%          Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.2, 11/06/2013                                         %%                                                                                    %%                                                                  %%
+%% Version: 1.3, 14/06/2013                                         %%                                                                                    %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Introduccion/Metodologia TeNet                                   %%
 %%==================================================================%%
@@ -13,10 +13,19 @@
 %%              si lo crees necesario, tal y como hizo Alejandro    %%
 %%==================================================================%%
 
-El principal objetivo de este Proyecto de Fin de Carrera es implementar un conjunto de generadores de código que permitan transformar modelos UML orientados a características en código C\#. Para dar soporte a la orientación a características a nivel de código C\#, se utilizará el patrón de diseño \emph{Slicer}. Dicho patrón fue específicamente para tal propósito como parte de otro Proyecto Fin de Carrera presentado en esta misma Facultad~\cite{}.
+% El principal objetivo de este Proyecto de Fin de Carrera es implementar un conjunto de generadores de código que permitan transformar modelos UML orientados a características en código C\#. Para dar soporte a la orientación a características a nivel de código C\#, se utilizará el patrón de diseño \emph{Slicer}. Dicho patrón fue específicamente para tal propósito como parte de otro Proyecto Fin de Carrera presentado en esta misma Facultad~\cite{perez:2011}.
 
-%%%%%%%%%%%% Retoma el objetivo del proyecto %%%%%%%%%%%%
-El objetivo de este Proyecto Fin de Carrera es implementar generadores de código que abordarán tanto la implementación de la familia de productos software cubierta por la línea de productos, como la configuración de productos concretos pertenecientes a dicha familia utilizando las prestaciones de las clases parciales en C\# y el Patrón Slicer. Con esto esperamos haber aclarado el primer párrafo de esta sección al lector no familiarizado con las líneas de productos software, clases parciales en lenguaje C\# y/o el Patrón Slicer.
+% El objetivo de este Proyecto Fin de Carrera es implementar generadores de código que abordarán tanto la implementación de la familia de productos software cubierta por la línea de productos, como la configuración de productos concretos pertenecientes a dicha familia utilizando las prestaciones de las clases parciales en C\# y el Patrón Slicer. Con esto esperamos haber aclarado el primer párrafo de esta sección al lector no familiarizado con las líneas de productos software, clases parciales en lenguaje C\# y/o el Patrón Slicer.
 
+% Tal como se ha descrito al inicio de este apartado, el objetivo del presente Proyecto Fin de Carrera consiste en el desarrollo e implementación de unos generadores de código que permitan la tranformación del diseño de los modelos en una implementación en código C\# de dichos diseños, para ello se usarán las prestaciones que ofrecen el uso de las clases parciales del lenguaje C\# basadas en el patrón Slicer.
 
-Tal como se ha descrito al inicio de este apartado, el objetivo del presente Proyecto Fin de Carrera consiste en el desarrollo e implementación de unos generadores de código que permitan la tranformación del diseño de los modelos en una implementación en código C\# de dichos diseños, para ello se usarán las prestaciones que ofrecen el uso de las clases parciales del lenguaje C\# basadas en el patrón Slicer.
+Tal como se ha explicado en la sección anterior, la metodología Te.Net surge como solución para transferir la metodología TENTE a la industria software; en particular, para aquellas pequeñas y medianas empresas que no pueden permitirse, o son reticentes, la inversión necesaria para incorporar un nuevo lenguaje de programación a sus entornos de desarrollo. Dicha metodología está actualmente en desarrollo, siendo el siguiente paso a realizar la adaptación de los antiguos generadores de código de la metodología TENTE para que soporten los nuevos principios y lenguajes introducidos por la versión Te.Net.
+
+El objetivo de este Proyecto de Fin de Carrera consiste precisamente en implementar dichos generadores de código. Dichos generadores de código deberán soportar dos fases diferentes del desarrollo de una línea de productos software. Por una parte, a partir de un modelo de diseño UML 2.0 orientado a características~\citep{}, se deberán desarrollo generadores de código que transformen dicho modelo en una implementación en C\#, utilizando como mecanismo para la gestión de la variabilidad el \emph{Slicer Pattern}. Dicho código generado constituirá lo que se conoce como la implementación de referencia de una línea de productos software. 
+
+Por otra parte, se deberán crear generadores de código que permitan, a partir de una especificación de qué características deben estar presentes un producto concreto, generar el código necesario para personalizar la implementación de referencia anteriormente creada, de forma que se pueda obtener un producto concreto adecuado a las necesidades particulares de un cliente concreto.
+
+Por exigencias de los usuarios finales de este producto, el código generado deberá ser editable como un proyecto de Visual Studio 2010. Además, de acuerdo a principios generales de la metodología Te.Net, dichos generadores deberán ser implementados en el lenguaje EGL (\emph{Epsilon Generation Language})~\citep{}, el lenguaje de transformación de modelo a código de la \emph{suite} de desarrollo software
+dirigido por modelos Epsilon.
+
+ 
