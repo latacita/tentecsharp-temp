@@ -6,96 +6,26 @@
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Background/Generación de Código con Epsilon                      %%
 %===================================================================%%
-Epsilon~\cite{kolovos:2008} es una plataforma para la construcción de lenguajes consistentes e interoperables para las tareas de gestión de modelado tales como transformación de modelos, generación de código, comparación de modelos, técnicas merge, refactorización y validación. El presente proyecto se ha centrado en la generación de código y por tanto en los lenguajes \emph{Epsilon Generation Language} (EGL) y \emph{Epsilon Object Language}(EOL) proporcionados por Epsilon, que se analizan con más detalle a continuación.
 
-\paragraph{Epsilon Generation Language(EGL)} \ \\
+Epsilon~\cite{kolovos:2008} es una \emph{suite} de lenguajes y herramientas para el desarrollo software dirigido por modelos. En este sentido, Epsilon ofreces lenguajes para la transformación de modelo a modelo, modelo a texto, navegación a través de modelos o generación de editores textuales y/o gráficos para modelos, entre otras características. Epsilon se distribuye actualmente como un plug-in para Eclipse. El presente proyecto se ha centrado en la generación de código, para lo cual se han utilizado los lenguajes \emph{Epsilon Generation Language} (EGL)~\citep{}, que es el lenguaje de generación de código proporcionado por Epsilon; y \emph{Epsilon Object Language} (EOL), que es el lenguaje básico para la manipulación y navegación a través de modelos proporcionado por Epsilon. Describimos estos lenguajes en las siguiente subsecciones.
 
-EGL es un \emph{plug-in} para Eclipse que proporciona un lenguaje apropiado para las transformaciones modelo a texto (\emph{model-to-text-transformation}, abreviado M2T). EGL puede ser usado para transformar modelos en varios tipos de artefactos de carácter textual, incluyendo códigos ejecutables (por ejemplo Java), informes (por ejemplo en HTML), imágenes (por ejemplo usando DOT), especificaciones formales (por ejemplo el lenguaje Z), o incluso aplicaciones completas generadas con múltiples lenguajes (por ejemplo HTML, Javascript y CSS).
+\subsection{Epsilon Object Language(EOL)}
 
-EGL es un generador de código basado en plantillas; es decir, que la parte programada se asemeja al contenido que se va a generar, proporcionan además diversas características que simplicifan y dan soporte a la generación de texto desde modelos. La Figura~\ref{back:fig:epsilonEGL} muestra un ejemplo sencillo del modelo de entrada para un programa EGL, donde se pueden observar tres clases: Persona, Alumno y Profesor. Supongamos que se quiere obtener el nombre de las clases, para ello se debería generar un código similar al de la Figura~\ref{back:code:generacionClases} donde aparece un bucle (líneas 1-3) que recorre todas las clases contenidas en el modelo de entrada y en cada una de ellas (línea 2) se genera el texto \emph{El modelo contiene la clase: $<$nombre de la clase$>$}. De esta forma el resultado para el ejemplo de la Figura~\ref{back:fig:epsilonEGL}, después de haber sido tratado mediante EGL tal como muestra la Figura~\ref{back:code:generacionClases}, queda expuesto en la Figura~\ref{back:code:resultadogeneracionClases}.
+El principal objetivo de EOL es proporcionar un lenguaje para la manipulación a nivel de código para la gestión de modelos. EOL proporciona facilidades para cargar un modelo, navegar a través de sus elementos o leer los valores de sus elementos, entre otras cracterísticas.
+
+La Figura~\ref{back:code:eol} muestra un ejemplo del funcionamiento de EOL. EOL no es un lenguaje orientado a objetos en el sentido de que no permite definir clases. Sin embargo, EOL permite gestionar objetos de tipos o clases  externamente definidos, normalmente dentro del metamodelo o gramática que define un lenguaje de modelado. 
+
+%%=======================================================================================================%%
+%% NOTA(Pablo): Este ejemplo resulta demasiado sencillo. Prueba a hacer una función, por ejemplo, que    %%
+%%              devuelva true si una clase UML tiene más de un padre, es decir, está afectada por la     %%
+%%              herencia múltiple                                                                        %%
+%%              La descripción es buena, haz la nueva de ese estilo                                      %%
+%%=======================================================================================================%% 
+
+el (Figura~\ref{back:code:eol} líneas 3 y 7, en este caso objetos de tipo Integer). La línea 1 de la 
+ Figura~\ref{back:code:eol} presenta un ejemplo de llamada a operaciones EOL, donde el primer elemento es un 1, de tipo Integer, que llama a la operación add1() y devuelve, tal como se aprecia en la línea 4, el valor de \emph{self}+1 es decir 2. A continuación, se vuelve a tomar el valor 2, de tipo Integer, y se realiza la llamada a la operación add2() que devuelve el valor de \emph{self}+2 es decir 4. Y dicho contenido se imprime por pantalla (instrucción \emph{println()}).
 
 \begin{figure}[!tb]
-  \centering
-	\includegraphics[width=.95\linewidth]{background/images/epsilonEGL} \\
-  \caption{Ejemplo de modelo de entrada para generación de código con EGL}
-  \label{back:fig:epsilonEGL}
-\end{figure}
-
-\begin{figure}[tb!]
-\begin{center}
-\begin{footnotesize}
-\begin{verbatim}
-1 [% for (c in Class.all) { %]
-2 El modelo contiene la clase: [%=c.name%]
-3 [% } %]
-\end{verbatim}
-\end{footnotesize}
-\end{center}
-\caption{Generación del nombre de cada Class contenida en un modelo de entrada}
-\label{back:code:generacionClases}
-\end{figure}
-
-\begin{figure}[tb!]
-\begin{center}
-\begin{footnotesize}
-\begin{verbatim}
-1 El modelo contiene la clase: Persona
-2 El modelo contiene la clase: Alumno
-3 El modelo contiene la clase: Profesor
-\end{verbatim}
-\end{footnotesize}
-\end{center}
-\caption{Resultado de la generación del nombre de cada Class contenida en un modelo de entrada}
-\label{back:code:resultadogeneracionClases}
-\end{figure}
-
- EGL no solo nos permite generar estos sencillos ejemplos, es una herramienta mucho más potente que permite la generación de funciones creadas específicamente por el usuario para facilitar la obtención de datos de los modelos de entrada. Tal como se aprecia en la Figura~\ref{back:code:generacionOperacion} se puede programar una operación que implemente la cabecera de una clase Java y de esta forma invocar dicha función tantas veces como sea necesario en aquellos programas EGL que lo necesiten. En la Figura~\ref{back:code:generacionOperacion} (línea 4) la operación \emph{visibility} indica la visibilidad de \emph{self} siendo en este caso la visibilidad de la clase tal como muestra la línea 3. Mientras que la operación \emph{name}, al igual que en la Figura~\ref{back:code:generacionClases}, se refiere al nombre del elemento actual, en este caso el nombre de la clase.
-
-\begin{figure}[tb!]
-\begin{center}
-\begin{footnotesize}
-\begin{verbatim}
-1 [%=c.declaration()%]
-2 [% @template
-3 operation Class declaration() { %]
-4 [%=self.visibility] class [%=self.name%] {}
-5 [% } %]
-\end{verbatim}
-\end{footnotesize}
-\end{center}
-\caption{Uso de una operación que especifica el texto generado para una declaración de una clase Java}
-\label{back:code:generacionOperacion}
-\end{figure}
-
-El tipo Template proporciona tres utilidades básicas al usuario:
-
-\begin{enumerate}
-	\item  Una Template puede invocar a otras Templates y por tanto pueden ser compartidas y reutilizadas entre programas EGL. En la Figura~\ref{back:code:template} (línea 2) se aprecia cómo desde un programa EGL se llama a otro programa EGL.
-    \item El tipo Template permite al usuario definir el destino del texto generado (por ejemplo a una base de datos o ficheros para un proyecto en Visual Studio).  En la Figura~\ref{back:code:template} (línea 3) se presenta que el fichero de salida será un fichero de extensión .txt.
-    \item Y por último, proporciona un conjunto de operaciones que se usan para controlar el destino del texto generado. En la Figura~\ref{back:code:template} (línea 3) se muestra cómo se elige el fichero destino para almacenar el texto generado con la plantilla \emph{ClassNames.egl}.
-\end{enumerate}
-
-\begin{figure}[tb!]
-\begin{center}
-\begin{footnotesize}
-\begin{verbatim}
-1 [%
-2 var t : Template = TemplateFactory.load("ClassNames.egl");
-3 t.generate("Output.txt");
-4 %]
-\end{verbatim}
-\end{footnotesize}
-\end{center}
-\caption{Almacenar el nombre de cada Class en disco}
-\label{back:code:template}
-\end{figure}
-
-
-\paragraph{Epsilon Object Language(EOL)} \ \\
-
-El principal objetivo de EOL es proporcionar un conjunto rehusable operaciones que son comunes en la gestión de modelos. La Figura~\ref{back:code:eol} muestra un ejemplo de operaciones EOL. No es un lenguaje orientado a objetos en el sentido de que no define clases de sí mismo pero sin embargo necesita gestionar objetos de los tipos definidos externamente a el (Figura~\ref{back:code:eol} líneas 3 y 7, en este caso objetos de tipo Integer). La línea 1 de la Figura~\ref{back:code:eol} presenta un ejemplo de llamada a operaciones EOL, donde el primer elemento es un 1, de tipo Integer, que llama a la operación add1() y devuelve, tal como se aprecia en la línea 4, el valor de \emph{self}+1 es decir 2. A continuación, se vuelve a tomar el valor 2, de tipo Integer, y se realiza la llamada a la operación add2() que devuelve el valor de \emph{self}+2 es decir 4. Y dicho contenido se imprime por pantalla (instrucción \emph{println()}).
-
-\begin{figure}[tb!]
 \begin{center}
 \begin{footnotesize}
 \begin{verbatim}
@@ -115,4 +45,100 @@ El principal objetivo de EOL es proporcionar un conjunto rehusable operaciones q
 \label{back:code:eol}
 \end{figure}
 
-De esta forma, EOL permite encapsular aquellas operaciones EGL que se vayan a utilizar a lo largo de las respectivas plantillas para evitar la repetición innecesaria de código.
+De esta forma, EOL permite definir funciones auxiliares para la manipulación o gestión de modelos. Estas funciones pueden ser utilizadas desde otros lenguajes de la suite Epsilon. En nuestro caso, estas funciones auxiliares se invocan desde el lenguaje
+de transformación modelo a texto EGL, el cual se describe a continuación.
+
+\subsection{Epsilon Generation Language(EGL)}
+
+EGL es un lenguaje de transformación modelo a texto (\emph{model-to-text-transformation}). EGL puede ser tulizad para transformar modelos en diversos tipos de artefactos de carácter textual, incluyendo código (por ejemplo, Java), informes (por ejemplo, en HTML), imágenes (por ejemplo, gráficos SVG), especificaciones formales (por ejemplo, en el lenguaje Z), o incluso aplicaciones completas generadas con múltiples lenguajes (por ejemplo, HTML, Javascript, CSS, Java y SQL). En nuestro caso, utilizaremos EGL para la generación de código C\# desde modelos UML. 
+
+EGL es un generador de código basado en plantillas. Dichas plantillas son similares a las utilizadas en la generación de páginas web dinámicas, al estilo de sistemas como JSP (\emph{Java Server Pages})~\citep{} o PHP (\emph{PHP Hypertext Preprocessor})~\citep{}. 
+
+Las Figuras~\ref{back:code:generacionClases}, \ref{back:fig:epsilonEGL} y~\ref{back:code:resultadogeneracionClases} muestran un ejemplo sencillo del funcionamiento de EGL. La Figura~\ref{back:code:generacionClases} contiene una sencilla plantilla que genera un listado de las clases que contiene un modelo UML. El texto situado dentro de los caracteres de escape \texttt{[\%} y \texttt{\%]} aparecer tal cual en la salida producida por la plantilla. El código situado entre dichos caracteres de escape es código EGL que gobierna el proceso de generación de código.
+
+Por ejemplo, las líneas 1 y 3 declaran un bucle que recorre todas las clases contenidas en el modelo de entrada. En cada iteración, se procesa la línea 2, que genera automáticamente el texto fuera de los caracteres de escape (``El modelo contiene la clase: ''). A continuación, se añade a la salida, por medio del operador \emph{=}, el nombre de la clase \emph{c}, que corresponda con la iteración realizada. 
+
+La Figura~\ref{back:code:resultadogeneracionClases} muestra el resultado que produciría la plantilla de la Figura~\ref{back:code:generacionClases} para el modelo mostrado en la Figura~\ref{back:code:resultadogeneracionClases}.
+
+\begin{figure}[!tb]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+1 [% for (c in Class.all) { %]
+2 El modelo contiene la clase: [%=c.name%]
+3 [% } %]
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Generación del nombre de cada Class contenida en un modelo de entrada}
+\label{back:code:generacionClases}
+\end{figure}
+
+\begin{figure}[!tb]
+  \centering
+	\includegraphics[width=.95\linewidth]{background/images/epsilonEGL} \\
+  \caption{Ejemplo de modelo de entrada para generación de código con EGL}
+  \label{back:fig:epsilonEGL}
+\end{figure}
+
+\begin{figure}[!tb]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+1 El modelo contiene la clase: Persona
+2 El modelo contiene la clase: Alumno
+3 El modelo contiene la clase: Profesor
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Resultado de la generación del nombre de cada Class contenida en un modelo de entrada}
+\label{back:code:resultadogeneracionClases}
+\end{figure}
+
+Obviamente, EGL no sólo nos permite realizar estas sencillas operaciones. Por ejemplo, se pueden encapsular porciones reutilizables de código EGL en entidades bien definidos denominados \emph{templates}. Un \emph{template} tiene una funcionalidad similares a la de una \emph{función} o \emph{procedimiento} de un lenguaje de programación convencional.
+
+La Figura~\ref{back:code:generacionOperacion} muestra un ejemplo de template que sirve para generar la cabecera de una clase Java. La cabecera del template (línea 2) especifica que el template de aplica a objetos del tipo \emph{Class}, no precisando de ningún parámetro de entrada. La clase a la cual se aplica el template es un parámetro implícito de entrada a esta operación, a la cual se puede acceder a través del operador \emph{self}. Utilizando este operador, la línea 4 genera la cabecera de una calse java, de acuerdo a la visibilidad \emph{self.visibility} y nombre \emph{self.name} de la clase sobre la cual se invoca esta operación. Siendo $c$ un objeto de tipo \emph{Class}, invocar este template sería tan fácil como escribir \emph{c.getHeader()}.
+
+\begin{figure}[tb!]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+1 [% @template
+2 operation Class getHeader() { %]
+3 [%=self.visibility] class [%=self.name%] {}
+4 [% } %]
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Ejemplo de template en EGL}
+\label{back:code:generacionOperacion}
+\end{figure}
+
+%%=====================================================================================================%%
+%% NOTA(Pablo): Esto es interesante, pero se hace ya pesado, así que yo lo quitaría                    %%
+%%=====================================================================================================%%
+
+Un \emph{template} proporciona tres utilidades básicas al desarrollador EGL:
+
+\begin{enumerate}
+	\item Un \emph{template} permite modularizar y reutilizar el código utilizado en un proceso de transformación modelo a texto.
+    \item Un \emph{template} permite al usuario definir de forma fácil el destino del texto generado.  En la Figura~\ref{back:code:template} (línea 3) muestra un ejemplo de invocación de un template, cuyo destino es un fichero de texto denonimado \emph{oyutput.txt}
+    \item Y por último, proporciona un conjunto de operaciones que se usan para controlar el destino del texto generado. En la Figura~\ref{back:code:template} (línea 3) se muestra cómo se elige el fichero destino para almacenar el texto generado con la plantilla \emph{ClassNames.egl}.
+\end{enumerate}
+
+\begin{figure}[tb!]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+1 [%
+2 var t : Template = TemplateFactory.load("ClassNames.egl");
+3 t.generate("Output.txt");
+4 %]
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Almacenar el nombre de cada Class en disco}
+\label{back:code:template}
+\end{figure}
+
+
