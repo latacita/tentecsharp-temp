@@ -13,68 +13,8 @@ Las clases parciales de C\#~\citep{albahari:2010} permiten dividir la implementa
 
 Por lo tanto, las clases parciales C\# parecen un mecanismo adecuado para implementar características, tal como ha sido identificado por diversos autores~\cite{laguna:2007,laguna:2010}. La idea es que cada incremento en funcionalidad perteneciente a una característica se podría encapsular en una clase parcial separada. Cuando un cliente solicita un producto con una serie de características concretas, se combinarían (compilarían) las clases parciales correspondientes a esas características. Esto daría lugar a un producto que contendría única y exclusivamente las características seleccionadas.
 
-Ilustramos esta idea con un ejemplo basado en el caso de estudio del presente proyecto, expuesto en la Figura~\ref{back:fig:smartHome}. La Figura~\ref{back:code:partialClasses} muestra un ejemplo donde las clases parciales se aplican a la implementación de la clase \imp{Gateway}. La implementación de esta clase para las caracterísiticas \imp{HeaterMng} y \imp{SmartEnergyMng} ha sido separada en dos ficheros (Figura~\ref{back:code:partialClasses} líneas 0-8 y líneas 9-15) con el mismo nombre, pero emplazados en distintos directorios (\imp{HeaterMng/Gateway.cs} y \imp{SmartEnergyMng/Gateway.cs}). La clase \imp{Gateway} para la característica \imp{HeaterMng} (Figura~\ref{back:code:partialClasses} líneas 0-8) contiene una colección para controladores de temperatura (línea 2), al igual que el método \imp{heaterAdjustTemperature} (línea 4), acorde al modelo de la Figura~\ref{back:fig:smartHome}. La clase \imp{Gateway} para la característica \imp{SmartEnergyMng} (Figura~\ref{back:code:partialClasses} líneas 9-15) contiene los métodos \imp{adjustTemperature} (línea 12), \imp{findEmptyTime} (línea 13) y  \imp{checkTime} (línea 14).
-
-La Figura~\ref{back:code:partialClasses} (líneas)
-
-   
-Figure 3 (lines 17-27) shows a build file (SmartHome.csproj) for this project. This
-file indicates the Gateway partial classes for the InitialModel and the LightMng features
-must be included in the compilation unit; but the corresponding partial classes for
-the WindowMng and the SmartEnergyMng features must be excluded. Therefore, the
-compiler will produce a Gateway class with functionality to manage lights, but not to
-manage windows or heaters.
-Motivated by these results, some authors, such as Laguna et al (Laguna et al.,
-2007; Laguna and Marqu´es, 2010), proposed to used C# partial classes to implement
-feature-oriented designs. Next section will evaluate this idea, showing these initial
-results are not promising as they might seem.
-
-
-\begin{figure}[!tb]
-\begin{center}
-\begin{footnotesize}
-\begin{verbatim}
-File HeaterMng/Gateway.cs
---------------------------------------------------------
-0 namespace SmartHome {
-1    public partial class Gateway {
-2    private ISet <HeaterCtrl> heaterCtrl;
-3
-4       public void heaterAdjustTemperature (Int id, double temp) {...}
-7    }
-8 }
-
-File SmartEnergyMng/Gateway.cs
---------------------------------------------------------
-9 namespace SmartHome {
-10     public partial class Gateway { 
-11
-12     public void adjustTemperature (Int id_heater, double temperature) {...}
-13     protected void findEmptyTime ( ) {...}
-14     protected void checkTime ( ) {...}
-15 }
-
-File SmartHome.csproj
---------------------------------------------------------
-16 </Project>
-17 ...
-18 <ItemGroup>
-19 <Compile Include="BaseSystem\Gateway.cs" />
-20 <Compile Include="HeaterMng\Gateway.cs" />
-21 <!-- <Compile Include="WindowMng\Gateway.cs" />
-22 <!-- <Compile Include="LightMng\Gateway.cs" />
-23 <Compile Include="SmartEnergyMng\Gateway.cs" />
-24 -->
-25 ...
-26 </ItemGroup>
-27 </Project>
-\end{verbatim}
-\end{footnotesize}
-\end{center}
-\caption{Ejemplo de operación EOL}
-\label{back:code:partialClasses}
-\end{figure}
 %%==================================================================%%
+%% [DONE]                                                           %%
 %% NOTA(Pablo): Mete aquí un ejemplo simple de como se divide       %%
 %%              el código de las clases parciales utilizando        %%
 %%              características.                                    %%
@@ -87,7 +27,59 @@ File SmartHome.csproj
 %%              que sale en la sección de
 %%==================================================================%%
 
-Sin embargo, de acuerdo a una serie de experimentos realizados por Sánchez et al~\citep{}, las clases parciales tienen un serio inconveniente a la hora de implementar características. Utilizando clases parciales, no podemos ni sobreescribir ni extender métodos ya existentes dentro de una clase parcial. Ilustramos este problema con un ejemplo.
+Ilustramos esta idea con un ejemplo basado en el caso de estudio del presente proyecto, expuesto en la Figura~\ref{back:fig:smartHome}. La Figura~\ref{back:code:partialClasses} muestra un ejemplo donde las clases parciales se aplican a la implementación de la clase \imp{Gateway}. La implementación de esta clase para las caracterísiticas \imp{BaseSystem} y \imp{LightMng} ha sido separada en dos ficheros (Figura~\ref{back:code:partialClasses} líneas 0-9 y líneas 10-15) con el mismo nombre, pero emplazados en distintos directorios (\imp{BaseSystem/Gateway.cs} y \imp{LightMng/Gateway.cs}). La clase \imp{Gateway} para la característica \imp{BaseSystem} (Figura~\ref{back:code:partialClasses} líneas 0-9) contiene colecciones para sensores y actuadores (líneas 2 y 3), al igual que los métodos \imp{initializeAll}, \imp{checkAll} y \imp{switchDown} (líneas 5-7), acorde al modelo de la Figura~\ref{back:fig:smartHome}. La clase \imp{Gateway} para la característica \imp{LightMng} (Figura~\ref{back:code:partialClasses} líneas 10-15) contiene la colección \imp{ligthCtrl} (línea 12) y el método \imp{adjustLigth} (línea 14).
+
+La Figura~\ref{back:code:partialClasses} (líneas 16-28) muestra el fichero build (\imp{SmartHome.csproj}) para este proyecto. Ese fichero indica que las clases parciales para las características \imp{BaseSystem} y \imp{LightMng} deben ser incluídas en la unidad de compilación; pero las correspondientes clases parciales para las características \imp{BlindMng}, \imp{HeaterMng}, \imp{WindowMng} y \imp{SmartEnergyMng} deben ser excluídas. Por tanto, el compilador generará una clase \imp{Gateway} con la funcionalidad para controlar las lunes pero no para controlar las ventanas o las temperaturas.
+
+\begin{figure}[!tb]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+File BaseSystem/Gateway.cs
+--------------------------------------------------------
+0 namespace SmartHome {
+1    public partial class Gateway {
+2       protected IList<Sensor> sensors;
+3       protected IList<Actuator> actuators;
+4
+5       private void initializeAll ( ) {...}
+6       private void checkAll ( ) {...}
+7       private void switchDown ( ) {...}
+8    }
+9 }
+
+File LightMng/Gateway.cs
+--------------------------------------------------------
+10 namespace SmartHome {
+11     public partial class Gateway {
+12        private ISet <LigthCtrl> ligthCtrl;
+13
+14        private void adjustLigth ( Int id, Int ligthing ) {...}
+15 }
+
+File SmartHome.csproj
+--------------------------------------------------------
+16 </Project>
+17 ...
+18 <ItemGroup>
+19 <Compile Include="BaseSystem\Gateway.cs" />
+20 <Compile Include="LightMng\Gateway.cs" />
+21 <!-- <Compile Include="BlindMng\Gateway.cs" />
+22 <Compile Include="HeaterMng\Gateway.cs" />
+23 <Compile Include="WindowMng\Gateway.cs" />
+24 <Compile Include="SmartEnergyMng\Gateway.cs" />
+25 -->
+26 ...
+27 </ItemGroup>
+28 </Project>
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Implementación de la clase \imp{Gateway} usando clases parciales}
+\label{back:code:partialClasses}
+\end{figure}
+
+Sin embargo, de acuerdo a una serie de experimentos realizados por Sánchez et al~\citep{sanchez:2010,perez:2011}, las clases parciales tienen un serio inconveniente a la hora de implementar características. Utilizando clases parciales, no podemos ni sobreescribir ni extender métodos ya existentes dentro de una clase parcial. Ilustramos este problema con un ejemplo.
 
 %%==================================================================%%
 %% NOTA(Pablo): Mete aquí un ejemplo simple que ilustre el problema %%
@@ -95,6 +87,17 @@ Sin embargo, de acuerdo a una serie de experimentos realizados por Sánchez et al
 %%              describe el Slicer Pattern                          %%
 %%                                                                  %%
 %%==================================================================%%
+De acuerdo al modelo de la Figura~\ref{back:fig:smartHome} cuando se implementa la característica \imp{LightMng}, debemos añadir una nueva colección, llamada \imp{LightCtrl}, para almacenar objetos de tipo \imp{LightCtrl} para la clase \imp{Gateway}. 
+
+
+
+
+
+
+
+
+
+
 
 El \emph{Slicer Pattern} surge como solución para resolver estas limitaciones. Para ello, el \emph{Slicer Pattern} se basa en la siguiente idea: dado que el problema es que no podíamos tener métodos con el mismo nombre en diferentes clases parciales, la solución consiste en añadir un prefijo a cada método, de forma que cada método tenga un nombre diferente. Dicho prefijo será el nombre de la características a la cual pertenece la clase parcial que contiene cada método.
 
