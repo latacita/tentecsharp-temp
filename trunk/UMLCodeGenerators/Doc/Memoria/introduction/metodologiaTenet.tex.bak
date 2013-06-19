@@ -1,35 +1,35 @@
 %%==================================================================%%
-%% Author : Abascal Fern√°ndez, Patricia                             %%
-%%          S√°nchez Barreiro, Pablo                                 %%
-%% Version: 1.2, 14/06/2013                                         %%                                                                                    %%                                                                  %%
+%% Author : Abascal Fern·ndez, Patricia                             %%
+%%          S·nchez Barreiro, Pablo                                 %%
+%% Version: 1.3, 18/06/2013                                         %%                                                                                    %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Introduccion/Metodologia TeNet                                   %%
 %%==================================================================%%
 
-Tal como se ha comentado en la secci√≥n anterior, la metodolog√≠a Te.Net se trata de una variante de la tecnolog√≠a TENTE. A diferencia de TENTE, la cual obliga a utilizar como lenguaje de programaci√≥n final un lenguaje orientado a caracter√≠sticas que soporte el concepto de \emph{familia de clases}, al estilo de \emph{CaesarJ}~\citep{ivica:2006} u \emph{ObjectTeams}~\citep{stephan:2002}, Te.NEt utiliza como lenguaje de programaci√≥n destino un lenguaje convencional orientado a objetos, m√°s concretamente C\#.
+Tal como se ha comentado en la secciÛn anterior, la metodologÌa Te.Net se trata de una variante de la tecnologÌa TENTE. A diferencia de TENTE, la cual obliga a utilizar como lenguaje de programaciÛn final un lenguaje orientado a caracterÌsticas que soporte el concepto de \emph{familia de clases}, al estilo de \emph{CaesarJ}~\citep{ivica:2006} u \emph{ObjectTeams}~\citep{stephan:2002}, Te.NEt utiliza como lenguaje de programaciÛn destino un lenguaje convencional orientado a objetos, m·s concretamente C\#.
 
-El primer paso a realizar para llevar a cabo este redise√±o de la metodolog√≠a TENTE era analizar c√≥mo se pod√≠a dar soporte a la orientaci√≥n a aspectos en un lenguaje de programaci√≥n orientado a objetos como C\#. Tras realizar una buscar opciones en el estado del arte actual, se encontr√≥ un prometedor trabajo~\citep{perez:2011} en el cual se propon√≠a la utilizaci√≥n de las clases parciales de C\# como mecanismos para dar soporte a la orientaci√≥n caracter√≠sticas.
+El primer paso a realizar para llevar a cabo este rediseÒo de la metodologÌa TENTE era analizar cÛmo se podÌa dar soporte a la orientaciÛn a aspectos en un lenguaje de programaciÛn orientado a objetos como C\#. Tras realizar una buscar opciones en el estado del arte actual, se encontrÛ un prometedor trabajo~\citep{perez:2011} en el cual se proponÌa la utilizaciÛn de las clases parciales de C\# como mecanismos para dar soporte a la orientaciÛn caracterÌsticas.
 
 %%==================================================================%%
-%% NOTA(Pablo): Esto se pasar√≠a a la parte de antecedentes           %%
+%% NOTA(Pablo): Esto se pasarÌa a la parte de antecedentes           %%
 %%==================================================================%%
 %%
-%% Las \emph{clases parciales} permiten a los desarrolladores fragmentar %% la implementaci√≥n de una clase en un conjunto de ficheros, cada uno
-%% de los cuales contiene una porci√≥n, o incremento, de una
-%% funcionalidad de la clase. Sin embargo, no ofrecen ning√∫n mecanismo
-%% para agrupar o encapsular caracter√≠sticas, por lo que no es posible
-%% ocultar clases y m√©todos que pertenecen a una caracter√≠stica
-%% espec√≠fica de aquellas clases y m√©todos que pertenecen a
-%% caracter√≠sticas independientes. Adem√°s, permiten a√±adir nuevos
-%% atributos y m√©todos a existentes clases parciales pero no permite
-%% sobreescribir o extender m√©todos ya existentes.
+%% Las \emph{clases parciales} permiten a los desarrolladores fragmentar %% la implementaciÛn de una clase en un conjunto de ficheros, cada uno
+%% de los cuales contiene una porciÛn, o incremento, de una
+%% funcionalidad de la clase. Sin embargo, no ofrecen ning˙n mecanismo
+%% para agrupar o encapsular caracterÌsticas, por lo que no es posible
+%% ocultar clases y mÈtodos que pertenecen a una caracterÌstica
+%% especÌfica de aquellas clases y mÈtodos que pertenecen a
+%% caracterÌsticas independientes. Adem·s, permiten aÒadir nuevos
+%% atributos y mÈtodos a existentes clases parciales pero no permite
+%% sobreescribir o extender mÈtodos ya existentes.
 %%
 %%==================================================================%%
 
-Por tanto, se decidi√≥ evaluar dicho trabajo en profundidad con objeto de verificar las ideas propuestas en el mismo. Los experimentos realizados~\citep{sanchez:2010} revelaron diferentes debilidades de las clases parciales como mecanismo para la implementaci√≥n de l√≠neas de productos software.
+Por tanto, se decidiÛ evaluar dicho trabajo en profundidad con objeto de verificar las ideas propuestas en el mismo. Los experimentos realizados~\citep{sanchez:2010} revelaron diferentes debilidades de las clases parciales como mecanismo para la implementaciÛn de lÌneas de productos software.
 
-Para solventar los problemas detectados, se cre√≥, como resultado de otro Proyecto Fin de Carrera presentado en esta misma Facultad, un patr√≥n de dise√±o denominado \emph{Slicer Pattern}~\citep{perez:2011}. Dentro de dicho Proyecto Fin de Carrera se implement√≥ una l√≠nea de productos software para el desarrollo de software de gesti√≥n de hogares inteligentes.
+Para solventar los problemas detectados, se creÛ, como resultado de otro Proyecto Fin de Carrera presentado en esta misma Facultad, un patrÛn de diseÒo denominado \emph{Slicer Pattern}~\citep{perez:2011}. Dentro de dicho Proyecto Fin de Carrera se implementÛ una lÌnea de productos software para el desarrollo de software de gestiÛn de hogares inteligentes.
 
-Una vez que se hab√≠a solventado el problema de c√≥mo soportar la orientaci√≥n a caracter√≠sticas en C\#, la siguiente tarea a realizar era la de adaptar los generadores de c√≥digos originales para que soportasen la generaci√≥n de c√≥digo en C\# en lugar de CaesarJ. Esta tarea constituye el objetivo principal de este proyecto, el cual se detalla en la siguiente secci√≥n.
+Una vez que se habÌa solventado el problema de cÛmo soportar la orientaciÛn a caracterÌsticas en C\#, la siguiente tarea a realizar era la de adaptar los generadores de cÛdigos originales para que soportasen la generaciÛn de cÛdigo en C\# en lugar de CaesarJ. Esta tarea constituye el objetivo principal de este proyecto, el cual se detalla en la siguiente secciÛn.
 
 

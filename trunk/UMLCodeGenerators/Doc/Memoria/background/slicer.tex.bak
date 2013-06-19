@@ -1,7 +1,7 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %%          Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.2, 17/06/2013                                         %%
+%% Version: 1.3, 18/06/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Background/Slicer Pattern                                        %%
@@ -82,26 +82,53 @@ File SmartHome.csproj
 Sin embargo, de acuerdo a una serie de experimentos realizados por Sánchez et al~\citep{sanchez:2010,perez:2011}, las clases parciales tienen un serio inconveniente a la hora de implementar características. Utilizando clases parciales, no podemos ni sobreescribir ni extender métodos ya existentes dentro de una clase parcial. Ilustramos este problema con un ejemplo.
 
 %%==================================================================%%
+%% [DONE] 
 %% NOTA(Pablo): Mete aquí un ejemplo simple que ilustre el problema %%
 %%              en sí. Lo puedes copiar del propio artículo que     %%
 %%              describe el Slicer Pattern                          %%
 %%                                                                  %%
 %%==================================================================%%
-De acuerdo al modelo de la Figura~\ref{back:fig:smartHome} cuando se implementa la característica \imp{LightMng}, debemos añadir una nueva colección, llamada \imp{LightCtrl}, para almacenar objetos de tipo \imp{LightCtrl} para la clase \imp{Gateway}. 
+De acuerdo al modelo de la Figura~\ref{back:fig:smartHome} cuando se implementa la característica \imp{LightMng}, debemos añadir una nueva colección, llamada \imp{LightCtrl}, para almacenar objetos de tipo \imp{LightCtrl} para la clase \imp{Gateway}. Sin embargo, debemos también extender el contructor de la clase \imp{Gateway} para inicializar apropiadamente dicha colección.
 
+Siguiendo esta argumentación, se intenta escribir el código descrito en la Figura~\ref{back:code:constructor}. Contiene el constructor de la clase \imp{Gateway} de la característica \imp{BaseSystem} (Figura~\ref{back:code:constructor}, líneas 3-6). Este constructor debería ser extendido con la nueva funcionalidad en la clase parcial \imp{Gateway} de la característica \imp{WindowMng} (Figura~\ref{back:code:constructor}, líneas 10-12).
 
+Sin embargo, esto no es posible puesto que el compilador reporta un error indicando que el método \imp{Gateway()}, por ejemplo,  el constructor de la clase está duplicado y hay ambigüedad. Esto significa que no podemos separar la implementación de un método en varios archivos, ya que no se puede tener métodos con el mismo nombre en dos clases parciales distintas. Esto reduce la extensibilidad en la agregación de nuevos métodos y atributos.
 
+En el caso de la extensibilidad por sobreescritura, el problema es idéntico al anterior. Supongamos el caso de la característica \imp{SmartEnergyMng}. La clase parcial \imp{Gateway} de la característica \imp{SmartEnergyMng} debe sobreescribir el método \imp{adjustTemperature} de la clase \imp{Gateway} de la característica \imp{HeaterMng} para comprobar si las ventanas debe cerrarse antes de cambiar la temperatura. No obstante, como no podemos añadir un método \imp{adjustTemperature} a la clase parcial \imp{Gateway} de la característica \imp{SmartEnergyMng} con el mismo nombre que el declarado en la característica \imp{HeaterMng}, no hay forma de sobreescribir el método.
 
-
-
-
-
-
-
+\begin{figure}[!tb]
+\begin{center}
+\begin{footnotesize}
+\begin{verbatim}
+File BaseSystem/Gateway.cs
+--------------------------------------------------------
+1 public partial class Gateway {
+2 ...
+3    public Gateway() {
+4       this.floors = new List<Floor>();
+5       this.interfaces = new List<CentralGUI>();
+6    }
+7 }
+File LightMng/Gateway.cs
+--------------------------------------------------------
+8 public partial class Gateway {
+9
+10    protected IList<LightCtrl> lightCtrl;
+11
+12    public Gateway() {
+13       this.lightCtrl = new List<LightCtrl>();
+14    }
+15 }
+\end{verbatim}
+\end{footnotesize}
+\end{center}
+\caption{Implementación del constructor de la clase \imp{Gateway} usando clases parciales}
+\label{back:code:constructor}
+\end{figure}
 
 El \emph{Slicer Pattern} surge como solución para resolver estas limitaciones. Para ello, el \emph{Slicer Pattern} se basa en la siguiente idea: dado que el problema es que no podíamos tener métodos con el mismo nombre en diferentes clases parciales, la solución consiste en añadir un prefijo a cada método, de forma que cada método tenga un nombre diferente. Dicho prefijo será el nombre de la características a la cual pertenece la clase parcial que contiene cada método.
 
-La Figura~\ref{back:fig:slicerPattern} muestra como el ejemplo de la Figura~\ref{} ha sido refactorizado siguiendo dicha idea.
+La Figura~\ref{back:fig:slicerPattern} muestra como el ejemplo de la Figura~\ref{back:fig:smartHome} ha sido refactorizado siguiendo dicha idea.
 
 %%==================================================================%%
 %% NOTA(Pablo): El ejemplo debe casar con el anterior. Cuando lo    %%
