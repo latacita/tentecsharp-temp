@@ -1,0 +1,49 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.2
+// Last modification: 12/05/2013 
+// Description: Implements the algorithm to find the correct
+//				version to implement the methods and not a
+//				duplicate or redundant version of it.
+//////////////////////////////////////////////////////////// 
+import "../SpecificProduct/SpecificProductOperations.eol";
+operation rearrangeMethods(deepestVersions: Set, paths: List, packages:Set): Set{
+	// Select the independent paths 
+	for (thisPath in paths){
+		// Excluding the source  
+		var otherPaths=paths.excluding(thisPath);
+		thisPath=thisPath.excluding(thisPath[0]);
+		for (thisPack in thisPath){ 
+			for (otherPath in otherPaths){
+				otherPath=otherPath.excluding(otherPath[0]); 
+				// Dependent paths
+				if (otherPath.contains(thisPack)){ 
+					// Accesibility
+					for (otherPack in otherPath){ 
+						if (thisPack<>otherPack){
+							var isAccessible = isAccessible(thisPack,otherPack,packages);
+							// Extract the conflicts between packages
+							var conflicts=conflictOpers(thisPack.name, otherPack.name, deepestVersions); 
+							// If is accesible
+							if (isAccessible){
+								var elements=extractOperationsFromGivenPackage(otherPack, conflicts);
+								for(element in elements){
+									deepestVersions=deepestVersions.excluding(element);
+								}//for-element
+							}else{
+								var elements=extractOperationsFromGivenPackage(thisPack, conflicts);
+								for(element in elements){
+									deepestVersions=deepestVersions.excluding(element);
+								}//for-element
+							}//if-isAccessible
+						}//if-thisPack
+					}//for-otherPack
+				}//if-otherPath
+			}//for-otherPath
+		}//for-thisPack
+	}//for-thisPath 
+	return deepestVersions;
+}
+%]

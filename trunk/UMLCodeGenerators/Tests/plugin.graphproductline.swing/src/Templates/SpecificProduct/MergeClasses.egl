@@ -1,0 +1,27 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.1
+// Last modification: 13/05/2013 
+// Description:  All merge relations in the model.
+////////////////////////////////////////////////////////////
+operation mergeClasses (packages: Set, basePackage: Package): Set{
+	// Sets of elements where:
+	//		- First component: Name of the current package
+	//		- Second component: List of packages which current package needs
+	var packagesMerges: Set; 
+	for (pack in packages){ 
+		var tuple:List;
+		var merges:Set;
+		tuple.add(pack);
+		var elements=pack.packageMerge;
+		for (elem in elements){
+			merges.add(elem.mergedPackage);
+		}
+		tuple.add(merges);
+		packagesMerges.add(tuple); 
+	} 
+	return packagesMerges;
+}
+%]
