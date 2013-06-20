@@ -1,0 +1,14 @@
+[%
+operation allPaths (basePackage: String, packages: Map): Set{
+	var result: Set; 
+	var values = packages.get(basePackage);
+	for (value in values){
+		result.add(value); 
+		var all = allPaths(value, packages);
+		for (elem in all){
+			result.add(elem);
+		}
+	}  
+	return result;
+}
+%]

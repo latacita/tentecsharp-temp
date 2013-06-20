@@ -1,0 +1,49 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.6 
+// Last modification: 29/03/2013 
+// Description: This template generates the implemented version
+//				of the set method, and an aditional one, to 
+//				bidirectional relationships
+////////////////////////////////////////////////////////////
+operation setImplementationOneToOne (nameThisClassRelation: String, nameOtherClassRelation: String, classRelated: String): List{
+	var implementation:String;	  
+	var thisClassProperty = nameThisClassRelation.firstToUpperCase();
+	var otherClassProperty = nameOtherClassRelation.firstToUpperCase();
+	 
+	// Creating the string which contains the implementation of the set method	 
+	implementation=implementation+"\n\n\t\t\t\tif ("+thisClassProperty+" != null)\n\t\t\t\t{\n\t\t\t\t";
+    implementation=implementation+"\tif (value."+otherClassProperty+" != null)\n\t\t\t\t\t{";
+    implementation=implementation+"\n\t\t\t\t\t\tif (this != value."+otherClassProperty+")\n\t\t\t\t\t\t{";
+    implementation=implementation+"\n\t\t\t\t\t\t\t"+"value."+otherClassProperty+".Set"+thisClassProperty+"_aditional(null);\n\t\t\t\t\t\t";
+    implementation=implementation+"\t"+"value.Set"+otherClassProperty+"_aditional(null);\n\t\t\t\t\t\t";
+    implementation=implementation+"\t"+"this."+thisClassProperty+".Set"+otherClassProperty+"_aditional(null);\n\t\t\t\t\t\t";
+    implementation=implementation+"\t"+"this.Set"+thisClassProperty+"_aditional(null);\n\t\t\t\t\t\t";
+    implementation=implementation+"\n\t\t\t\t\t\t\t"+"this.Set"+thisClassProperty+"_aditional(value);\n\t\t\t\t\t\t";
+    implementation=implementation+"\t"+"value.Set"+otherClassProperty+"_aditional(this);\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\telse\n\t\t\t\t\t{";
+ 	implementation=implementation+"\n\t\t\t\t\t\tthis."+thisClassProperty+".Set"+otherClassProperty+"_aditional(null);"; 
+    implementation=implementation+"\n\t\t\t\t\t\t"+"this.Set"+thisClassProperty+"_aditional(null);\n\t\t\t\t\t\t"; 
+	implementation=implementation+"this.Set"+thisClassProperty+"_aditional(value);\n\t\t\t\t\t\t"; 
+    implementation=implementation+"value.Set"+otherClassProperty+"_aditional(this);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t\t{";
+  	implementation=implementation+"\n\t\t\t\t\tif (value."+otherClassProperty+" != null)\n\t\t\t\t\t{";
+	implementation=implementation+"\n\t\t\t\t\t\tvalue."+otherClassProperty+".Set"+thisClassProperty+"_aditional(null);";
+	implementation=implementation+"\n\t\t\t\t\t\tvalue.Set"+otherClassProperty+"_aditional(null);";
+	implementation=implementation+"\n\t\t\t\t\t\t"+"this.Set"+thisClassProperty+"_aditional(value);\n\t\t\t\t";
+    implementation=implementation+"\t\tvalue.Set"+otherClassProperty+"_aditional(this);\n\t\t\t\t\t}\n\t\t\t\t\telse\n\t\t\t\t\t{";
+	implementation=implementation+"\n\t\t\t\t\t\t"+"this.Set"+thisClassProperty+"_aditional(value);\n\t\t\t\t";
+    implementation=implementation+"\t\tvalue.Set"+otherClassProperty+"_aditional(this);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t";
+	
+	// Creating the string which contains the implementation of the whole Property
+	var getandset="private "+classRelated+" "+nameThisClassRelation+";\n\t\tpublic "+classRelated+" "+thisClassProperty+" {\n\t\t\tget { return this."+nameThisClassRelation+"; }"+"\n\t\t\tset { "+implementation+" }"+"\n\t\t}\n\t\t";
+	
+	var methods= "\n\t\t// Aditional set method to control bidirectional relationship";
+	methods=methods+"\n\n\t\tpublic void set"+thisClassProperty+"_aditional("+classRelated+" m)\n\t\t{\n\t\t\t this."+nameThisClassRelation+"=m;\n\t\t}\n\t\t";
+
+	var finalImplementation: List;
+	finalImplementation.add(getandset);
+	finalImplementation.add(methods);
+	
+	return finalImplementation;   
+}%]
