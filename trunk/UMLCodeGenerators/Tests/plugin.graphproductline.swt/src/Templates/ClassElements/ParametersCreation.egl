@@ -29,7 +29,7 @@ operation Feature parameters(currentPackage: String, path: String, rootPath: Str
 		if (param.type==null){
 			var message = "EXCEPTION: Parameter \""+par+ "\" from package: \""+currentPackage+ "\" doesn't have a type assigned.";
 			deleteProject(rootPath); 
-			//createErrorWindow(message);
+			createErrorWindow(message);
 			throw (message);
 		}else{
 			// Check if the parameter is a collection
