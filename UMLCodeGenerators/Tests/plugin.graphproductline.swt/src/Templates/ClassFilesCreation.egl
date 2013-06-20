@@ -31,7 +31,7 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 		if (pack.name=""){
 			var message = "EXCEPTION: There is a package which doesn't have a name. Please name it in order to generate the project.";
 			deleteProject(rootPath);
-			//createErrorWindow(message);
+			createErrorWindow(message);
 			throw (message);
 		}
 		// If the current package isn't the combination chosen by the user
@@ -42,7 +42,7 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 				if (en.name=""){
 					var message = "EXCEPTION: There is an enumeration class which doesn't have a name in the package \""+pack.name+"\". Please name it in order to generate the project.";
 					deleteProject(rootPath);
-					//createErrorWindow(message);
+					createErrorWindow(message);
 					throw (message);
 				}
 		    	var t := TemplateFactory.load('Classes/EnumerationClassCreation.egl');
@@ -82,7 +82,7 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 					if (class.name=""){
 						var message = "EXCEPTION: There is a class which doesn't have a name in the package \""+pack.name+"\". Please name it in order to generate the project.";
 						deleteProject(rootPath);
-						//createErrorWindow(message);
+						createErrorWindow(message);
 						throw (message);
 					}
 					var hierarchy = class.hierarchy(); 
@@ -107,7 +107,7 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 					if (interface.name=""){
 						var message = "EXCEPTION: There is an interface which doesn't have a name in the package \""+pack.name+"\". Please name it in order to generate the project.";
 						deleteProject(rootPath);
-						//createErrorWindow(message);
+						createErrorWindow(message);
 						throw (message);
 					}
 			     	isInterface=true;

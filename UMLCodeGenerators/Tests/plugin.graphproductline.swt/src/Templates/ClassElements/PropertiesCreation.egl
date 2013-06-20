@@ -63,7 +63,7 @@ operation Element classPropertiesCreation(path: String, currentPackage: String, 
 				if (prop.upperValue==null and prop.type.isTypeOf(Class) and prop.association <> null){ 
 					var message = "EXCEPTION: Property \""+propertyname+ "\" from class: \""+self.name+"\", from package: \""+currentPackage+ "\" doesn't have multiplicity assigned.";
 					deleteProject(rootPath);
-					//createErrorWindow(message); 
+					createErrorWindow(message); 
 					throw (message);
 				} 
 				// Association between classes with just one element.

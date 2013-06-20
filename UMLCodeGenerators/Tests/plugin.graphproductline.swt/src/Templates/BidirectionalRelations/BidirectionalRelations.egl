@@ -39,7 +39,7 @@ operation bidirectionalRelations(rootPath: String): Set{
 					if (attrib.type==null){
 						var message = "EXCEPTION: Property \""+attrib.name+ "\" from package: \""+pack.name+ "\" doesn't have a type assigned.";
 						deleteProject(rootPath);
-						//createErrorWindow(message);
+						createErrorWindow(message);
 						throw (message);  
 					}else{
 						// Pick the class where the class attribute comes from
@@ -70,7 +70,7 @@ operation bidirectionalRelations(rootPath: String): Set{
 						if (attrib.upperValue==null and attrib.type.isTypeOf(Class) and attrib.association <> null){
 							var message = "EXCEPTION: Property \""+attrib.name+ "\" from class: \""+class.name+"\", from package: \""+pack.name+ "\" doesn't have multiplicity assigned.";
 							deleteProject(rootPath);
-							//createErrorWindow(message);
+							createErrorWindow(message);
 							throw (message);  
 						}else{ 
 							// It's one to one

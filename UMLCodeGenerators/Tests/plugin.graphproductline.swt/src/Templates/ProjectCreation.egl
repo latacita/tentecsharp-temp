@@ -24,12 +24,12 @@ if (m.size>1){
 	// Add the models' name to a list of models
 	for (mod in m){
 		models.add(mod.name);
-	} 
+	}
 	// Call the operation which returns the selected option by the user
 	var e=chooseModel(models);
 	// The model to generate will be the chosen by the user
 	for (mod in m){
-		if (e.equals(mod.name)){ 
+		if (e.equals(mod.name)){
 			modelProject=mod;
 		}
 	}
@@ -51,11 +51,11 @@ if (classSize>0){
 	var message;
 	if (classSize==1){
 		message = "EXCEPTION: There is "+classSize+ " class which doesn't belong to a package. Please put it into one to generate the project.";
-		//createErrorWindow(message);
+		createErrorWindow(message);
 		throw (message);
 	}else{
 		message = "EXCEPTION: There are "+classSize+ " classes which don't belong to a package. Please put them into one to generate the project.";
-		//createErrorWindow(message); 
+		createErrorWindow(message); 
 		throw (message);
 	}
 } 
@@ -66,11 +66,11 @@ if (interfaceSize>0){
 	var message;
 	if (interfaceSize==1){
 		message = "EXCEPTION: There is "+interfaceSize+ " interface which doesn't belong to a package. Please put it into one to generate the project.";
-		//createErrorWindow(message); 
+		createErrorWindow(message); 
 		throw (message);
 	}else{
 		message = "EXCEPTION: There are "+interfaceSize+ " interfaces which don't belong to a package. Please put them into one to generate the project.";
-		//createErrorWindow(message); 
+		createErrorWindow(message); 
 		throw (message);
 	}
 } 
@@ -81,22 +81,22 @@ if (enumClassSize>0){
 	var message;
 	if (enumClassSize==1){
 		message = "EXCEPTION: There is "+enumClassSize+ " enumeration class which doesn't belong to a package. Enumeration classes aren't currently supported.";
-		//createErrorWindow(message); 
+		createErrorWindow(message); 
 		throw (message);
 	}else{
 		message = "EXCEPTION: There are "+enumClassSize+ " enumeration classes which don't belong to a package. Enumeration classes aren't currently supported.";
-		//createErrorWindow(message); 
+		createErrorWindow(message); 
 		throw (message);
 	}
-}  
+} 
 // User selects a directory where to save the project file
-//var path= createSaveToDiskWindow();
+var path= createSaveToDiskWindow();
 // The directory is created
-//directory(path); 
-//var rootPath= path.replaceAll("\'", "\\");
+directory(path); 
+var rootPath= path.replaceAll("\'", "\\");
 // PARA HACER PRUEBAS RAPIDO->  
-var path="C:\\Users\\Patricia\\Desktop";
-var rootPath="C:\\Users\\Patricia\\Desktop\\Data";
+//var path="C:\\Users\\Patricia\\Desktop";
+//var rootPath="C:\\Users\\Patricia\\Desktop\\Data";
  
 // Create the Visual Studio files and directories inside the directory selected by the user
 // First level of directories and/or files: 
@@ -144,16 +144,14 @@ directory(thirdleveldirectory);
 var t := TemplateFactory.load('VisualStudioProjectFiles/AssemblyInfoFileCreation.egl');
 t.populate('currentModel', 'My_'+modelProject.name);
 t.generate (thirdleveldirectory+'\\AssemblyInfo.cs'); 	
-var message ="Info Message:\n\nIf there were relations in the model without a name assigned, it has been created as the following:\n\t\t";
-message=message+"relationFromClass_<NameOfTheClass>.\n\n";
-message=message+"Info Message:\n\nIf there were properties in the model without a name assigned, it has been created as the following:\n\t\t";
-message=message+"property_<Number>_From_<NameOfTheClass>.\n\n";
+var message ="Info Message:\n\t If there were relations in the model without a name assigned, it has been created as the following:\n\t\t";
+message=message+"relationFromClass_<NameOfTheClass>.\n";
+message=message+"Info Message:\n\t If there were properties in the model without a name assigned, it has been created as the following:\n\t\t";
+message=message+"property_<Number>_From_<NameOfTheClass>.\n";
 // Write in the log file
 writeInFile(path+"\\log.txt", message);  
 // Show the log file
 createWindowAndShowMessages(path+"\\log.txt");
 // Delete the log file after the execution
-("You can check the log.txt file, which is shown under these lines, in the \""+path+"\" directory\nto see the warnings and useful info generated during the process.\n").println();
-message.println();
-//deleteFile(path, "log.txt");
+deleteFile(path, "log.txt");    
 %] 

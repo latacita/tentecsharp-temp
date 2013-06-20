@@ -59,7 +59,7 @@ operation Element classMethods(currentPackage: String, path: String, isCleanVers
 		if (oper.name==""){
 			var message = "EXCEPTION: Method from class: \""+self.name+"\", from package: \""+currentPackage+ "\" doesn't have a name assigned.";
 			deleteProject(rootPath);
-			//createErrorWindow(message); 
+			createErrorWindow(message); 
 			throw (message);
 		}else{
 			methodname=oper.name; 
@@ -78,7 +78,7 @@ operation Element classMethods(currentPackage: String, path: String, isCleanVers
 		if (oper.name==""){
 			var message = "EXCEPTION: Method from class: \""+self.name+"\", from package: \""+currentPackage+ "\" doesn't have a name assigned.";
 			deleteProject(rootPath);
-			//createErrorWindow(message); 
+			createErrorWindow(message); 
 			throw (message);
 		}else{
 			methodname=oper.name; 
