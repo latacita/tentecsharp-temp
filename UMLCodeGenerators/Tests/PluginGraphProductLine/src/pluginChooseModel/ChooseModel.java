@@ -8,21 +8,26 @@
 package pluginChooseModel;
  
 import java.util.List;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
-public class ChooseModel extends JFrame{ 
-	private static final long serialVersionUID = -2285558681904665221L; 
-	public String windowChooseModel (List<Object> m){  
-		Object models[] = (Object[]) m.toArray();  
-		JFrame frame = new JFrame();
-	    String name= (String) JOptionPane.showInputDialog(frame, 
-	        "Select the name of the model you want to generate.",
-	        "Choose the model",
-	        JOptionPane.QUESTION_MESSAGE, 
-	        null, 
-	        models, 
-	        models[0]); 
-	    return name; 
-	}
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.dialogs.ListDialog; 
+
+public class ChooseModel  {   
+	public String windowChooseModel (List<String> list){  
+		Display display = new Display();
+		Shell shell = new Shell(display); 
+		shell.setText("Choose the model");
+		ListDialog ld = new ListDialog(shell); 
+		ld.setAddCancelButton(true); 
+		ld.setContentProvider(new ArrayContentProvider()); 
+		ld.setLabelProvider(new LabelProvider()); 
+		ld.setInput(list); 
+		ld.setInitialSelections(list.toArray());  
+		ld.setTitle("Select the name of the model you want to generate."); 
+		ld.open();  
+		return ld.getResult()[0].toString();
+	}  
 }
