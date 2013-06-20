@@ -1,0 +1,159 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 2.5
+// Last modification: 29/04/2013 
+// Description: Generates the Visual Studio project, the
+//				directories and the files of all code classes.
+////////////////////////////////////////////////////////////
+import "Operations.eol";
+import "ClassFilesCreation.egl"; 
+import "SpecificProduct/SpecificProduct.egl";
+
+import "VisualStudioProjectFiles/SlnFileCreation.egl";
+import "VisualStudioProjectFiles/AssemblyInfoFileCreation.egl";
+import "VisualStudioProjectFiles/CsprojectFileCreation.egl";
+
+// Select the model's project
+var modelProject : Model;  
+var m= Model.allInstances().reject(m|m.name.equals("PrimitiveTypes") or m.name.equals("JavaPrimitiveTypes") or m.name.equals("UML"));
+// If there's more than a model in the project
+if (m.size>1){
+	var models:List;
+	// Add the models' name to a list of models
+	for (mod in m){
+		models.add(mod.name);
+	} 
+	// Call the operation which returns the selected option by the user
+	var e=chooseModel(models);
+	// The model to generate will be the chosen by the user
+	for (mod in m){
+		if (e.equals(mod.name)){ 
+			modelProject=mod;
+		}
+	}
+}else{
+	// If there's only a model in the project
+	modelProject=Model.allInstances().first();
+}
+// Select the model's packages 
+var packages : Collection;
+packages := modelProject.packagedElement.select(p|p.isTypeOf(Package));
+packages := packages.reject(p|p.name.equals("UML Standard Profile"));
+packages := packages.reject(p|p.name.equals("UML"));
+packages := packages.reject(p|p.isTypeOf(Class));
+packages := packages.reject(p|p.isTypeOf(Interface));
+// Select the model's classes outside package 
+var classes := modelProject.packagedElement.select(p|p.isTypeOf(Class));
+var classSize = classes.size;
+if (classSize>0){
+	var message;
+	if (classSize==1){
+		message = "EXCEPTION: There is "+classSize+ " class which doesn't belong to a package. Please put it into one to generate the project.";
+		//createErrorWindow(message);
+		throw (message);
+	}else{
+		message = "EXCEPTION: There are "+classSize+ " classes which don't belong to a package. Please put them into one to generate the project.";
+		//createErrorWindow(message); 
+		throw (message);
+	}
+} 
+// Select the model's interfaces outside package 
+var interface := modelProject.packagedElement.select(p|p.isTypeOf(Interface));
+var interfaceSize = interface.size;
+if (interfaceSize>0){
+	var message;
+	if (interfaceSize==1){
+		message = "EXCEPTION: There is "+interfaceSize+ " interface which doesn't belong to a package. Please put it into one to generate the project.";
+		//createErrorWindow(message); 
+		throw (message);
+	}else{
+		message = "EXCEPTION: There are "+interfaceSize+ " interfaces which don't belong to a package. Please put them into one to generate the project.";
+		//createErrorWindow(message); 
+		throw (message);
+	}
+} 
+// Select the model's enumeration classes outside package 
+var enumClasses := modelProject.packagedElement.select(p|p.isTypeOf(Enumeration));
+var enumClassSize = enumClasses.size;
+if (enumClassSize>0){
+	var message;
+	if (enumClassSize==1){
+		message = "EXCEPTION: There is "+enumClassSize+ " enumeration class which doesn't belong to a package. Enumeration classes aren't currently supported.";
+		//createErrorWindow(message); 
+		throw (message);
+	}else{
+		message = "EXCEPTION: There are "+enumClassSize+ " enumeration classes which don't belong to a package. Enumeration classes aren't currently supported.";
+		//createErrorWindow(message); 
+		throw (message);
+	}
+}  
+// User selects a directory where to save the project file
+//var path= createSaveToDiskWindow();
+// The directory is created
+//directory(path); 
+//var rootPath= path.replaceAll("\'", "\\");
+// PARA HACER PRUEBAS RAPIDO->  
+var path="C:\\Users\\Patricia\\Desktop";
+var rootPath="C:\\Users\\Patricia\\Desktop\\Data";
+ 
+// Create the Visual Studio files and directories inside the directory selected by the user
+// First level of directories and/or files: 
+// Create the main folder, which has the same name as the model
+var maindirectory=path+"\\"+modelProject.name;
+directory(maindirectory);
+// Second level of directories and/or files:
+// Create another folder with the same name as the model
+var secondleveldirectory=maindirectory+"\\"+modelProject.name;
+directory(secondleveldirectory);
+// Create the code files
+// Add the source files to the corresponding directories 
+var pathsClasses=classFilesCreation(packages, modelProject, secondleveldirectory+'\\'+modelProject.name+"\\src\\", path, rootPath);
+// Create the sln file
+var t := TemplateFactory.load('VisualStudioProjectFiles/SlnFileCreation.egl');
+t.populate('currentModel', modelProject.name);
+t.populate('currentImplementation', "My_"+modelProject.name);
+t.generate (secondleveldirectory+'.sln'); 
+// Create the csproj file
+var t := TemplateFactory.load('VisualStudioProjectFiles/CsprojectFileCreation.egl');
+var paths=pathsClasses; 
+t.populate('emptyPackages',paths[0]);
+t.populate ('nonemptyPackages', paths[1]); 
+t.generate (secondleveldirectory+'\\'+modelProject.name+'\\'+modelProject.name+'.csproj');
+// Create the csproj file for the specific product
+var pathsClasses=specificClassFilesCreation(packages, modelProject, secondleveldirectory+'\\My_'+modelProject.name+'\\src\\', path, rootPath);
+var t := TemplateFactory.load('VisualStudioProjectFiles/CsprojectFileCreation.egl');
+var paths=pathsClasses;
+var li: List;
+t.populate('emptyPackages', li); 
+t.populate ('nonemptyPackages', paths);  
+t.generate (secondleveldirectory+'\\My_'+modelProject.name+'\\My_'+modelProject.name+'.csproj');
+// Third level of directories and/or files:
+// Create a folder called Properties
+var thirdleveldirectory=secondleveldirectory+'\\'+modelProject.name+"\\Properties";
+directory(thirdleveldirectory);
+// Create the AssemblyInfo file inside the properties' folder
+var t := TemplateFactory.load('VisualStudioProjectFiles/AssemblyInfoFileCreation.egl');
+t.populate('currentModel', modelProject.name);    
+t.generate (thirdleveldirectory+'\\AssemblyInfo.cs');  
+// Create a folder called Properties for the specific product
+var thirdleveldirectory=secondleveldirectory+'\\My_'+modelProject.name+'\\Properties';
+directory(thirdleveldirectory);
+// Create the AssemblyInfo file inside the properties' folder for the specific product
+var t := TemplateFactory.load('VisualStudioProjectFiles/AssemblyInfoFileCreation.egl');
+t.populate('currentModel', 'My_'+modelProject.name);
+t.generate (thirdleveldirectory+'\\AssemblyInfo.cs'); 	
+var message ="Info Message:\n\nIf there were relations in the model without a name assigned, it has been created as the following:\n\t\t";
+message=message+"relationFromClass_<NameOfTheClass>.\n\n";
+message=message+"Info Message:\n\nIf there were properties in the model without a name assigned, it has been created as the following:\n\t\t";
+message=message+"property_<Number>_From_<NameOfTheClass>.\n\n";
+// Write in the log file
+writeInFile(path+"\\log.txt", message);  
+// Show the log file
+createWindowAndShowMessages(path+"\\log.txt");
+// Delete the log file after the execution
+("You can check the log.txt file, which is shown under these lines, in the \""+path+"\" directory\nto see the warnings and useful info generated during the process.\n").println();
+message.println();
+//deleteFile(path, "log.txt");
+%] 

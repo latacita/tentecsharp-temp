@@ -1,0 +1,214 @@
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.5
+// Last modification: 12/05/2013 
+// Description: Operations to use in the implementation of 
+//				specific product.
+////////////////////////////////////////////////////////////
+
+// This operation returns true/false depending if the pack2 is accessible from
+// the pack1. Also receives as parameter the set of packages from the given model
+operation isAccessible (pack1: Package, pack2: Package, packages: Set): Boolean{ 
+	var maps = mapPackages(packages); 
+	var packagesAccessibles = allAccessiblePackages(pack1, maps);  
+	return packagesAccessibles.contains(pack2);
+} 
+// This operation returns all the possible paths given the current implementation
+operation getPaths (pack: Package, packages: Set): List{
+	var maps = mapPackages(packages); 
+	return allPaths(pack, maps);
+} 
+// This operation return a subset from the given set, only including operations
+// from the desired package
+operation extractOperationsFromGivenPackage(pack:Package, list:Set):Set{
+	var result:Set;
+	for (element in list){
+		if(element[0][2]==pack.name){
+			result.add(element);
+		}//if-element[0][2]
+	}//for-element 
+	return result;
+}
+// This operations deletes the methods which are redundant
+operation fixedDeepestVersions(list:Set, packages:Set):Set{
+	var result=list;
+	for (e in list){  
+		var newL=list.excluding(e);
+		for (e1 in newL){  
+			var isA=isAccessible (e[0][2], e1[0][2], packages);
+			// Delete the redundant method
+			if (isA and e[0][0].name==e1[0][0].name and e[0][1].name==e1[0][1].name){  
+				result=result.excluding(e1); 
+			}//if-isA
+		}//for-e1
+	}//for-e
+	return result;
+}
+// Return a list of all the conflict operations between two given packages
+operation conflictOpers(pack1: String, pack2: String, versions: Set): Set{
+	var conflicts:Set;
+	// Select only the implemented operations in the given packs
+	for (version in versions){
+		if (version[0][2] == pack1 or version[0][2]== pack2){
+			conflicts.add(version);
+		}//if-version[0][2]
+	}//for-version	  
+	var listConflicts:Set;
+	for (conflict in conflicts){ 
+		var class=conflict[0][0];
+		var method;
+		// If it's the constructor
+		if (class==conflict[0][1]){
+			method=conflict[0][1];
+		// If it's a method
+		}else{
+			method=conflict[0][1].name;
+		}//if-class
+		// Exclude the current case from the rest of the conflicts 
+		var otherConflicts=conflicts.excluding(conflict);
+		for (conf in otherConflicts){  
+			// If it's the constructor
+			if (conf[0][0]==conf[0][1]){
+				// If it's the same constructor and same class for both packages
+				if (class==conf[0][0] and method==conf[0][0]){
+					// It's a conflict
+					listConflicts.add(conf); 
+				}//if-class
+			}else{
+				// If it's the same method and same class for both packages
+				if (class==conf[0][0] and method==conf[0][1].name){ 
+					// It's a conflict
+					listConflicts.add(conf); 
+				}//if-class
+			}//if-conf[0][0]
+		}//for-conf
+	}//for-conflict 
+	return listConflicts;
+}
+// This operation returns a Map where each key is a package from the model and
+// its values are the direct merge packages
+operation mapPackages (packages: Set): Map{ 
+	var packagesMerges: Map;
+	for (pack in packages){
+		var tuple:Map;
+		var merges:Set;
+		var elements=pack.packageMerge;
+		for (elem in elements){
+			merges.add(elem.mergedPackage);
+		}
+		packagesMerges.put(pack, merges);
+	} 
+	return packagesMerges;
+}
+// This operation returns a Set of all the accessible packages from the
+// given one 
+operation allAccessiblePackages (basePackage: Package, packages: Map): Set{
+	var result: Set;   
+	var values = packages.get(basePackage); 
+	for (value in values){
+		result.add(value);  
+		var all = allAccessiblePackages(value, packages);
+		for (elem in all){
+			result.add(elem);
+		}
+	}
+	return result;
+}
+// This operation returns the list of elements for each path
+operation elements (e:List, finalPackages:List):List{ 
+	var list:List;
+	var laux:List;
+	// First element is String type
+	list.add(e[0]); 
+	// If said element isn't a final package 
+	// (one which doesn't merge with other packages)
+	if (not finalPackages.contains(e[0])){	
+		// Recursively call the method
+		laux=elements(e[1], finalPackages); 
+	} 
+	// Create the list of elements
+	for (element in laux){
+		list.add(element);
+	}  
+	return list; 
+}
+// This operation returns a list of the packages which doesn't have
+// merge relations with other packages
+operation finalPackages (map: Map): List{
+	var finalPackages: List;
+	for (m in map.keySet()){  
+		// If the current map's element doesn't have values, it means
+		// it's a root package
+		if (map.get(m).isEmpty()){
+			// Add it to the list of final packages
+			finalPackages.add(m);
+		}
+	}
+	return finalPackages;
+}
+// Internal implementation of all the paths for the specific product
+operation allPathsIntern (basePackage: Package, packages: Map):List{
+	var result: List;
+	var li: List;
+	var values = packages.get(basePackage); 
+	li.add(basePackage); 
+	for (value in values){ 
+		var all = allPathsIntern(value, packages); 
+		for (elem in all){  
+			li.add(elem);  
+		} 
+	}  
+	result.add(li); 
+	return result;
+}
+// This operation returns a list of all the possible paths from the given
+// implementation by the user
+operation allPaths (package: Package, map:Map):List{ 
+	var elements = allPathsIntern (package, map);  
+	var paths: List;  
+	for (element in elements[0]){ 
+		if (element.type.name=="Sequence"){ 
+			var n:List;
+			// Each element is as follows:
+			//		<NameOfTheRootPackage>, (<ChildPackages>, <ChildPackages>, ...)
+			for (el in element){  
+				var base: List;
+				var path:List;
+				if (el.type.name=="Sequence"){
+					// Recursively until catch the root package
+					var elem=elements(el, finalPackages(map));  
+					for (u in elem){
+						path.add(u);
+					}    
+				}else{
+					// If it's the first component of the tuple, it's a String
+					base.add(el); 
+				} 
+				if (not base.isEmpty()){
+					n.add(el);
+				}
+				if (not path.isEmpty()){
+					n.add(path); 
+				}
+			}
+			paths.add(n); 
+		} 
+	}      
+	var result: List; 
+	// Generates the final list from the current implementation
+	for (p in paths){ 
+		var base= p[0];
+		for (u in Sequence{1..p.size-1}){ 
+			var lista: List;
+			lista.add(package);
+			lista.add(base);
+			for (l in p[u]){ 
+				lista.add(l);
+			} 
+			result.add(lista);
+		}  
+	}
+	// List of paths
+	return result;
+}
