@@ -1,0 +1,49 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.5
+// Last modification: 13/05/2013 
+// Description: Generates the implementation of the clean
+//				methods.
+//////////////////////////////////////////////////////////// 
+import "../SpecificProduct/SpecificProductOperations.eol";
+import "../SpecificProduct/BranchFromSpecificProduct.egl";
+import "../SpecificProduct/SpecificMethods.egl";
+import "../SpecificProduct/RearrangeMethods.egl";
+operation implementationCleanMethods(fuseElements: Set, pack: Package, packages: Set): List{ 
+	// Get the possible paths
+	var paths=getPaths(pack, packages);
+ 	var deepestVersions:Set;
+ 	var classes:Set;
+ 	var result:List;
+	var found=false;
+	// For each possible path
+	for (path in paths){
+		// Calculate the inter implementation for all the methods 
+		var map=branch(path, fuseElements);
+		var keys=map.keySet();
+		// Rearrange the deepest versions of the methods from the 
+		// classes of the specific product
+		for (key in keys){
+			var list: List;
+			list.add(key.flatten());
+			list.add(map.get(key));
+			deepestVersions.add(list);
+			classes.add(key[0]); 
+		}//for-key 
+	}//for-path 
+	var fixedDeepestVersions = fixedDeepestVersions(deepestVersions,packages); 
+	deepestVersions=rearrangeMethods(fixedDeepestVersions, paths, packages);
+	for (class in classes){ 
+		var listMethods: List;
+		//Name of the class
+		listMethods.add(class);
+		// methods of the class
+		listMethods.add(specificMethods(deepestVersions, class.name));
+		// Add the list to the list of implementations
+		result.add(listMethods);
+	}//for-class
+	return result;
+}
+%]

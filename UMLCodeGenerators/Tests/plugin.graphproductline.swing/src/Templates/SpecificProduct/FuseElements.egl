@@ -1,0 +1,55 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.2
+// Last modification: 02/05/2013
+// Description: Fuse the operations of classes with the same
+//				name in different packages.
+//////////////////////////////////////////////////////////// 
+operation fuseElements (elements: Set): Set{
+	// List of elements where each element is:
+	//		First element: Name of the class
+	//		Second element: List of operations from the current class
+	var result: Set;
+	for (cleanClassAndOpers in elements){
+		// Package name
+		var pack=cleanClassAndOpers[0];  
+		// For each class of the current package
+		for (cleanVersion in cleanClassAndOpers[1]){
+			// Current class name
+			var class=cleanVersion[0];
+			var methods: Set; 
+			// Methods from the current class
+			for (m in cleanVersion[1]){	
+				methods.add(m);
+			}//for-m 
+			// For each package
+			for (otherCleanClassAndOpers in elements){
+				// Package name
+				var otherPack=otherCleanClassAndOpers[0];
+				// If the current package is different from this current one
+				if (pack<>otherPack){ 
+					// For each of its classes
+					for (otherCleanVersion in otherCleanClassAndOpers[1]){  
+						// Current class name
+						var otherClass=otherCleanVersion[0];  
+						// If the current class is equal to this one 
+						if (class==otherClass){ 
+							// Add the operations to the operations of the current class
+							for (m in otherCleanVersion[1]){
+								methods.add(m); 
+							}//for-m
+						}//if-class
+					}//for-otherCleanVersion
+				}//if-pack 
+			}//for-otherCleanClassAndOpers
+			var tuple: List;
+			tuple.add(class);
+			tuple.add(methods); 
+			result.add(tuple); 
+		}//for-cleanVersion
+	}//for-cleanClassAndOpers 
+	return result;
+}
+%]

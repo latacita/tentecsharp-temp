@@ -1,0 +1,77 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 2.3
+// Last modification: 12/05/2013 
+// Description: Generates the files of all code classes for 
+//				the specific product.
+////////////////////////////////////////////////////////////
+import "../Operations.eol";
+import "MergeClasses.egl";
+import "SpecificPath.egl";
+import "ExtractClassesAndOperations.egl";
+import "FuseElements.egl"; 
+import "ImplementationCleanMethods.egl";
+operation specificClassFilesCreation(packages: Set, modelProject: Model, directory: String, path: String, rootPath: String){
+	var paths_notemptyMyProject: Set;
+	var isInterface=false;
+	var packagesMerges;
+	for (pack in packages) { 
+		// If the current package is the combination chosen by the user
+		if (not pack.profileApplication.isEmpty()){ 
+			// Packages from the model
+			var packag=pack.packagedElement.select(e|e.isTypeOf(Package));
+			if (packag.size>0){
+				var p1;
+				var p2;
+				var p3;
+				if (packag.size==1){
+					p1="is";
+					p2="package";
+					p3="it";
+				}else{
+					p1="are";
+					p2="packages";
+					p3="them";
+				}
+				var message = "EXCEPTION: There "+p1+" "+packag.size+" "+p2+" inside \""+pack.name+ "\". This is currently unsupported, please delete "+p3+" or move the elements to \""+pack.name+"\".";
+				deleteProject(rootPath);
+				createErrorWindow(message); 
+				throw (message);
+			} 
+			// Select the path of all the packages needed to implement the current product
+			packagesMerges=mergeClasses(packages,pack);
+			var packagesUsed=specificPath(packagesMerges, pack); 
+			// Extract the classes and operations needed to implement the current product
+			var classesAndOperations=pack.extractClassesAndOperations(packagesUsed, "", rootPath); 
+			// Fuses the operations from the classes which are in different packages 
+			// in order to implement the current product
+			var fusedElements=fuseElements(classesAndOperations);
+			// Creates the clean version of the methods and their intern implementations
+			var listImplCleanMethods=implementationCleanMethods(fusedElements, pack, packages);
+			// Generate the files
+			for (element in listImplCleanMethods){ 
+				var isInterface: Boolean; 
+				if (element[0].type.name=="Class"){
+					isInterface=false;
+				}
+				if (element[0].type.name=="Interface"){
+					isInterface=true;
+				} 
+				var path=directory + pack.name + "\\"+ element[0].name +'.cs';
+				var t := TemplateFactory.load('SpecificProduct/CleanVersionClassCreation.egl');
+				t.populate ('currentElement', element[0].name);
+				t.populate('currentPackage', pack);
+				t.populate('currentModel', modelProject);
+				t.populate('currentMethods', element[1]);
+				t.populate('path', path); 
+				t.populate('isInterface', isInterface);
+				t.generate (path);
+				paths_notemptyMyProject.add(path); 
+			}//for-element
+		}//if-profile-applicated
+	}//for-element-multipleHierarchyClasses   
+	return paths_notemptyMyProject;
+}
+%]

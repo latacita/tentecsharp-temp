@@ -1,0 +1,35 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 1.6
+// Last modification: 12/04/2013 
+// Description: This operation returns the return parameter  
+//				for the current method. 
+////////////////////////////////////////////////////////////
+import "../Operations.eol"; 
+operation Feature returnParameter(currentPackage: String, path: String): String { 
+	// Method's parameters
+	// Default value
+	var params="void";
+	var return_parameter: Set;	
+	// Select the return parameter from the given method
+	return_parameter := self.ownedParameter.reject(p|p.direction.toString().equals("in"));	
+	for (param in return_parameter){
+		if(param.upperBound==-1 or param.upperBound>1){
+			// If the return parameter is a collection
+			var collection=param.typeCollection(currentPackage, path);
+			params=collection;
+		}else{				
+			// If the return parameter is not a collection
+			if(param.type.name=="Integer"){
+				params=toInt();
+			}else{
+				params=param.type.name;  
+			}
+		}//if-paramUpperBound
+	}//for-param
+	return params;	
+} %]		
+ 
+   

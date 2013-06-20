@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<?eclipse version="3.4"?> 
+<plugin> 
+  
+   <extension
+         point="org.eclipse.ui.commands"> 
+      <command
+            name="Transformation UML to C#"
+            categoryId="plugin.graphproductline.commands.category"
+            id="plugin.graphproductline.commands.sampleCommand"> 
+      </command> 
+   </extension> 
+   <extension
+         point="org.eclipse.ui.handlers"> 
+      <handler
+            commandId="plugin.graphproductline.commands.sampleCommand"
+            class="SampleHandler"> 
+      </handler> 
+   </extension> 
+   <extension
+         point="org.eclipse.ui.bindings"> 
+      <key
+            commandId="plugin.graphproductline.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"> 
+      </key> 
+   </extension> 
+   <extension
+         point="org.eclipse.ui.menus"> 
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions"> 
+         <menu
+               label="Generate"
+               mnemonic="M"
+               id="plugin.graphproductline.menus.sampleMenu"> 
+            <command
+                  commandId="plugin.graphproductline.commands.sampleCommand"
+                  mnemonic="S"
+                  id="plugin.graphproductline.menus.sampleCommand"> 
+            </command> 
+         </menu> 
+      </menuContribution> 
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions"> 
+         <toolbar
+               id="plugin.graphproductline.toolbars.sampleToolbar"> 
+            <command
+                  commandId="plugin.graphproductline.commands.sampleCommand"
+                  icon="icons/tente.png"
+                  tooltip="Transformation UML to C#"
+                  id="plugin.graphproductline.toolbars.sampleCommand"> 
+            </command>  
+         </toolbar> 
+      </menuContribution> 
+      
+   </extension> 
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="org.eclipse.epsilon.perspective.popups.ecore"
+            nameFilter="*.ecore"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="RegisterMetamodelAction"
+               icon="icons/tente.gif"
+               id="org.eclipse.epsilon.emf.dt.RegisterMetamodelAction"
+               label="Register EPackages"/>
+       
+      </objectContribution>
+   </extension>
+</plugin> 
