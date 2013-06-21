@@ -7,7 +7,9 @@
 %% Background/Generación de Código con Epsilon                      %%
 %===================================================================%%
 
-Como se ha comentado con anterioridad, el objetivo de este Proyecto Fin de Carrera es el desarrollo de una serie de generadores de código que permitan automatizar la aplicación del \emph{Slicer Pattern}. Dichos generadores de código se desarrollarán utilizando un moderno enfoque de \emph{Ingeniería de Líneas de Productos Software}. Por tanto, el proceso de desarrollo del presente proyecto queda prácticamente determinado por dicho enfoque, el cual posee un proceso de desarrollo bien definido, el cual se describió en la sección~\ref{sec:back:spl}. La Figura~\ref{fig:planning} muestra como dicho proceso de desarrollo se ha instanciado para nuestro caso particular.
+Como se ha comentado con anterioridad, el objetivo de este Proyecto Fin de Carrera era el desarrollar una serie de generadores de código que permitan automatizar la aplicación del \emph{Slicer Pattern}. Este patrón se utiliza para la desarrollo de  líneas de producto software, en las cuales se distinguen claramente, tal como se ha comentado dos fases: \emph{Ingeniería del Dominio}, e \emph{Ingeniería de Aplicaciones} (ver Figura~\ref{back:fig:domainAplicEng}).
+
+Por tanto, el proceso de desarrollo del presente proyecto queda gobernado por dichas fases. La Figura~\ref{fig:planning} muestra dicho proceso de desarrollo.
 
 \begin{figure}[!tb]
     \includegraphics[scale=0.74]{background/images/planning.eps}
@@ -15,16 +17,21 @@ Como se ha comentado con anterioridad, el objetivo de este Proyecto Fin de Carre
     \label{fig:planning}
 \end{figure}
 
-Obviamente, la primera tarea (Figura~\ref{fig:planning}-\emph{T1A} y \emph{T1B}) en este proceso de desarrollo fue la de adquirir los conocimientos necesarios para la realización de todas las tareas posteriores. Ello implicaba adquirir los conocimientos relacionados con las \emph{Líneas de Producto Software}~\cite{pohl:2010, kakola:2006} en general y con el diseño orientado a modelos~\cite{kastner:2008}, las clases parciales~\cite{sanchez:2010} y el patrón slicer ~\cite{perez:2011} en particular. 
+Obviamente, la primera tarea (Figura~\ref{fig:planning}, \emph{T1A}), nada desdeñable, fue la de adquirir los conocimientos teóricos necesarios para la realización de todas las tareas posteriores. Ello implicaba adquirir los conocimientos relacionados con las \emph{Líneas de Producto Software}~\citep{pohl:2010, kakola:2006} en general; y con el diseño orientado a modelos~\citep{kastner:2008}, las clases parciales~\citep{sanchez:2010} y el \emph{Slicer Pattern}~\cite{perez:2011} en particular.
 
-Dado que el proyecto se debía implementar con una herramienta para el desarrollo software dirigido por modelos, denominado \emph{Epsilon}~\cite{kolovos:2008}, el siguiente paso (Figura~\ref{fig:planning}-\emph{T1B} y \emph{T1B}) fue familiarizarse con dicha herramienta y adquirir ciertos conocimientos sobre la utilización de EMF (\emph{Eclipse Modelling Framework})~\cite{steinberg:2008} para la definición de metamodelos y sobre los lenguajes a utilizar para la generación de código, EGL (\emph{Epsilon Generation Language})~\citep{dimitrios:2012} y EOL (\emph{Epsilon Object Language})~\citep{dimitrios:2012}. Además, por exigencias de los usuarios finales de este producto, el código generado debía ser editable como un proyecto de Visual Studio 2010, por lo que a continuación se procedió al manejo y aprendizaje de uso de dicha herramienta mediante la creación de un proyecto de línea de productos software aplicando los conceptos teóricos aprendidos en la etapa \emph{T1A}, es decir las clases parciales C\# y el \emph{Slicer Pattern}. 
+Dado que el proyecto se debía implementar con una herramienta para el desarrollo software dirigido por modelos, denominado \emph{Epsilon}~\cite{kolovos:2008}, el siguiente paso (Figura~\ref{fig:planning}, \emph{T1B}) fue familiarizarse con dicha herramienta. 
+
+Para ello fue necesario adquirir ciertos conocimientos sobre EMF (\emph{Eclipse Modelling Framework})~\cite{steinberg:2008}, el lenguaje para la definición de lenguajes de modelado que constituye el corazón de Epsilon. A continuación, se debió adquirir destreza con el lenguajes a utilizar para la generación de código, EGL (\emph{Epsilon Generation Language})~\citep{dimitrios:2012}, así como con EOL (\emph{Epsilon Object Language})~\citep{dimitrios:2012}, lenguaje 
+
+
+. Además, por exigencias de los usuarios finales de este producto, el código generado debía ser editable como un proyecto de Visual Studio 2010, por lo que a continuación se procedió al manejo y aprendizaje de uso de dicha herramienta mediante la creación de un proyecto de línea de productos software aplicando los conceptos teóricos aprendidos en la etapa \emph{T1A}, es decir las clases parciales C\# y el \emph{Slicer Pattern}.
 
 Tras esta tarea inicial de adquisición de conocimientos previos, el resto del proyecto se estructura como un proyecto de Ingeniería de Líneas de Producto Software. Consecuentemente, la primera tarea tras la fase inicial de documentación (Figura~\ref{fig:planning}-\emph{T2}) fue la fase dedicada a la implementación de la fase de \emph{Ingeniería del Dominio}, es decir, la implementación de los generadores de código necesarios para transformar el modelo UML dado en un proyecto Visual Studio escrito en lenguaje C\# y que estuviera implementado acorde a las clases parciales C\# y el \emph{Slicer Pattern}, conocimientos adquiridos en la fase \emph{T1} de la planificación. Completando el desarrollo de esta etapa con las pruebas pertinentes mediante el uso de la herramienta EUnit~\citep{dimitrios:2012}.
- 
+
 A continuación, de acuerdo con lo expuesto en la sección anterior, procedimos a desarrollar la implementación de la fase de \emph{Ingeniería de Aplicación} (Figura~\ref{fig:planning}-\emph{T3}) que se desarrolló de manera análoga a la fase \emph{T2}.
 
-%% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% 
-\todo{completar con la explicación de la creación del plugin}
+%% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %%
+\todo{completar con la explicación de la creación del plugin cuando lo termine}
 %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %% %%
 
 En este punto del proceso de desarrollo teníamos implementado el editor requerido, por lo que sólo restaba proceder a su despliegue (Figura~\ref{fig:planning}-\emph{T4}). Este despliegue implicaba su integración dentro de la arquitectura de plugins de Eclipse. Tras dicha integración, se procedió a realizar una serie de pruebas de aceptación, destinadas a comprobar que el trabajo realizado satisfacía las necesidades de los usuarios finales que iban a utilizar el producto creado.

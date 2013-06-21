@@ -9,7 +9,7 @@
 
 El \emph{diseño orientado a características}~\cite{kastner:2008} es un paradigma para la construcción, adaptación y síntesis de sistemas software a gran escala. Una \emph{característica} es una unidad coherente funcionalidad de un sistema software. Una características proporciona una opción de configuración potencial, ya que dicha característica debe poder ser incluida o excluida del producto software, dando lugar a productos software con diferentes funcionalidades. Por ejemplo, en el caso del software de gestión de hogares inteligentes, toda la funcionalidad relacionada con la gestión automática de luces, sería considerada como una característica.
 
-La idea básica del diseño orientado a características es descomponer un sistema software en módulos bien definidos, donde cada módulo encapsula una característica que el sistema ofrece. El objetivo de la descomposición es la construcción de software bien estructurado que puede ser adaptado a las necesidades del usuario y el entorno, mediante la selección y composición de las características adecuadas. 
+La idea básica del diseño orientado a características es descomponer un sistema software en módulos bien definidos, donde cada módulo encapsula una característica que el sistema ofrece. El objetivo de la descomposición es la construcción de software bien estructurado que puede ser adaptado a las necesidades del usuario y el entorno, mediante la selección y composición de las características adecuadas.
 
 Por tanto, a partir de un conjunto de características, se pueden generar multitud de sistemas software compartiendo características comunes y diferenciándose en otras, lo que hace que este paradigma sea especialmente adecuado para el diseño e implementación de \emph{línea de productos software}.
 
@@ -24,38 +24,38 @@ Dos conceptos comúnmente utilizados por los lenguajes orientados a característic
   \label{back:fig:smartHome}
 \end{figure}
 
-Una \emph{familia de clases} es un nuevo tipo de módulo que se utiliza para encapsular y gestionar como una unidad de composición un conjunto de clases pertenecientes a una misma característica. Por ejemplo, en nuestro caso de estudio, todas las clases que estén relacionadas con la gestión automáticas de luces, deberían estar encapsuladas en una misma familia de clases. Estas familias de clases se representan en el modelo UML de la Figura~\ref{back:fig:smartHome} como paquetes que contienen clases. Por ejemplo, el paquete \emph{LightMng} representa la familia de clases que se correspondería con la característica \emph{gestión de luces automáticas}. 
+Una \emph{familia de clases} es un nuevo tipo de módulo que se utiliza para encapsular y gestionar como una unidad de composición un conjunto de clases pertenecientes a una misma característica. Por ejemplo, en nuestro caso de estudio, todas las clases que estén relacionadas con la gestión automáticas de luces, deberían estar encapsuladas en una misma familia de clases. Estas familias de clases se representan en el modelo UML de la Figura~\ref{back:fig:smartHome} como paquetes que contienen clases. Por ejemplo, el paquete \emph{LightMng} representa la familia de clases que se correspondería con la característica \emph{gestión de luces automáticas}.
 
 Una \emph{clase virtual} es una clase perteneciente a una familia de clases y que es susceptible de ser heredada y sobreescrita por familias de clases, al estilo de  los métodos virtuales de una clase en el paradigma orientado a objetos~\citep{}.
 
-La herencia entre familias de clases se representa en nuestro modelo UML mediante relaciones \emph{merge}, de acuerdo a la técnica expuesta por~\cite{laguna:2010}. Cuando una familia de clases hereda de otra, hereda implícitamente todas sus clases virtuales. Todas las clases de una familia de clases son implícitamente clases virtuales. 
+La herencia entre familias de clases se representa en nuestro modelo UML mediante relaciones \emph{merge}, de acuerdo a la técnica expuesta por~\cite{laguna:2010}. Cuando una familia de clases hereda de otra, hereda implícitamente todas sus clases virtuales. Todas las clases de una familia de clases son implícitamente clases virtuales.
 
-Si una clase estuviese presente tanto en una familia de clases padre como en una familia de clases hija, como por ejemplo, \imp{Gateway} en \imp{LightMng} y \imp{BaseSystem} en la Figura~\ref{back:fig:smartHome}}, el resultado que se produce es el mismo que se produciría si la clase virtual perteneciente a la familia de clases hija, heredase de la clase virtual perteneciente a la familia de clases padre. Por ejemplo, en nuestro caso, la aplicación funcionaría como si clase \imp{Gateway} de \imp{LightMng} heredase de la clase \imp{Gateway} de \imp{BaseSystem}.
+Si una clase estuviese presente tanto en una familia de clases padre como en una familia de clases hija, como por ejemplo, \imp{Gateway} en \imp{LightMng} y \imp{BaseSystem} en la Figura~\ref{back:fig:smartHome}, el resultado que se produce es el mismo que se produciría si la clase virtual perteneciente a la familia de clases hija, heredase de la clase virtual perteneciente a la familia de clases padre. Por ejemplo, en nuestro caso, la aplicación funcionaría como si clase \imp{Gateway} de \imp{LightMng} heredase de la clase \imp{Gateway} de \imp{BaseSystem}.
 
-De este modo, una clase virtual de una familia de clases hija, puede añadir nuevos atributos y métodos a las clases virtuales de las familias de clases padre. De igual forma, se pueden sobreescribir métodos de las virtuales de las familias de clases padre. Señalar que la herencia múltiple entre familias de clases sí suele estar permitida y soportada en los lenguajes de programación orientados a características. 
+De este modo, una clase virtual de una familia de clases hija, puede añadir nuevos atributos y métodos a las clases virtuales de las familias de clases padre. De igual forma, se pueden sobreescribir métodos de las virtuales de las familias de clases padre. Señalar que la herencia múltiple entre familias de clases sí suele estar permitida y soportada en los lenguajes de programación orientados a características.
 
 %%=======================================================================%%
 %% NOTA(Pablo): Esto es demasiado técnico y en realidad no se utiliza    %%
 %%              en tu proyecto, aunque es una de las grandes ventajas    %%
 %%              de CaesarJ.                                              %%        %%=======================================================================%%
-%%  
-%% Además, las referencias entre clases se actualizan automáticamente. 
-%% Por ejemplo, en el caso de la figura~\ref{back:fig:smartHome}, aunque 
+%%
+%% Además, las referencias entre clases se actualizan automáticamente.
+%% Por ejemplo, en el caso de la figura~\ref{back:fig:smartHome}, aunque
 %% no se haga explícitamente, cualquier referencia a una clase del tipo
-%% \imp{Gateway} dentro de la familia de clases \imp{LightMng} se 
+%% \imp{Gateway} dentro de la familia de clases \imp{LightMng} se
 %% referirá a la clase virtual \imp{Gateway} de la familia de clases
-%% \imp{LightMng} y no a la clase virtual de mismo nombre de la familia 
-%% de clases \imp{BaseSystem}. De esta forma, las referencias están 
+%% \imp{LightMng} y no a la clase virtual de mismo nombre de la familia
+%% de clases \imp{BaseSystem}. De esta forma, las referencias están
 %% siempre actualizadas a su versión más extendida.
-%% 
+%%
 %%
 %%=======================================================================%%
 
-Para implementar una línea de productos software, cada característica se tiende a manipular como una familia de clases. Dentro de cada familia de clases, cada característica se diseña usando las técnicas tradicionales de la orientación a objetos, tal como se muestra en la figura~\ref{back:fig:smartHome}. 
+Para implementar una línea de productos software, cada característica se tiende a manipular como una familia de clases. Dentro de cada familia de clases, cada característica se diseña usando las técnicas tradicionales de la orientación a objetos, tal como se muestra en la figura~\ref{back:fig:smartHome}.
 
 Por último, comentar que no todas las características pueden ser correctamente implementadas como familia de clases. Por ejemplo, en nuestro ejemplo, una característica del sistema es el modo de operación de los aparatos de frío/calor, los cuales pueden funcionar en grados Celsius o Fahrenheit. Este tipo de variabilidad se implementa mejor introduciendo un parámetro de configuración en las clases que corresponda, que creando familias de clases separadas para cada opción. No obstante, los lenguajes de programación orientados a características no impiden la utilización de los mecanismos tradicionales de gestión de la variabilidad de los lenguajes orientados a objetos, como la parametrización o los patrones de diseño~\citep{}.
 
-Para realizar una configuración, es decir, para crear un producto concreto por composición de características, simplemente hay que crear una nueva familia de clases que herede de las familias de clases que correspondan a las características seleccionadas. Por ejemplo, si quisiéramos crear un producto concreto que tuviese las características \imp{LightMng} y \imp{WindowMng}, crearíamos una familia de clases, la cual estaría vacía, y la que le damos como nombre, por ejemplo, \imp{PatriciaHouse}. A continuación, hacemos que \imp{PatriciaHouse} herede de \imp{LightMng} y \imp{WindowMng}. De esta forma, ambas características se combinan en la familia de clases hija, la cual representaría un producto concreto con dichas características. Por tanto, el proceso de composición de características, se realiza mediante herencia entre familias de clases. 
+Para realizar una configuración, es decir, para crear un producto concreto por composición de características, simplemente hay que crear una nueva familia de clases que herede de las familias de clases que correspondan a las características seleccionadas. Por ejemplo, si quisiéramos crear un producto concreto que tuviese las características \imp{LightMng} y \imp{WindowMng}, crearíamos una familia de clases, la cual estaría vacía, y la que le damos como nombre, por ejemplo, \imp{PatriciaHouse}. A continuación, hacemos que \imp{PatriciaHouse} herede de \imp{LightMng} y \imp{WindowMng}. De esta forma, ambas características se combinan en la familia de clases hija, la cual representaría un producto concreto con dichas características. Por tanto, el proceso de composición de características, se realiza mediante herencia entre familias de clases.
 
 La siguiente sección proporciona una breve descripción sobre la metodología TENTE, una metodología orientada a características y dirigida por modelos para el desarrollo y configuración de líneas de productos software.
 

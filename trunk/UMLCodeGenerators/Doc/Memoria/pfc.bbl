@@ -1,0 +1,146 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\astroncite{dim}{}]{dimitrios:2012}
+{\em The Epsilon Generation Language (EGL)}.
+
+\bibitem[\protect\astroncite{Albahari and Albahari}{2010}]{albahari:2010}
+Albahari, J. and Albahari, B. (2010).
+\newblock {\em C\# 4.0 in a Nutshell: The Definitive Reference}.
+
+\bibitem[\protect\astroncite{Alejandro~Pérez}{2011}]{perez:2011}
+Alejandro~Pérez, P.~S. (2011).
+\newblock The slicer pattern: Implementing software product lines using c'\#'
+  partial clases.
+
+\bibitem[\protect\astroncite{Allan}{2004}]{alasdair:2004}
+Allan, A. (2004).
+\newblock In Programmers, T.~P., editor, {\em Pragmatic Unit Testing in Java
+  with JUnit}.
+
+\bibitem[\protect\astroncite{Aracic et~al.}{2006}]{aracic:2006}
+Aracic, I., Gasiunas, V., Mezini, M., and Ostermann, K. (2006).
+\newblock {An Overview of CaesarJ}.
+\newblock pages 135--173.
+
+\bibitem[\protect\astroncite{Benavides and Cortés}{2010}]{benavides:2010}
+Benavides, D., S.~S. and Cortés, A.~R. (2010).
+\newblock Automated analysis of feature models 20 years later: A literature
+  review.
+
+\bibitem[\protect\astroncite{Chae and Blume}{}]{chae:2009}
+Chae, W. and Blume, M.
+\newblock Language support for feature-oriented poduct line engineering.
+
+\bibitem[\protect\astroncite{Chappell}{2006}]{david:2006}
+Chappell, D. (2006).
+\newblock Understanding .net (2nd edition).
+
+\bibitem[\protect\astroncite{Eric~Jendrock}{2010}]{eric:2010}
+Eric~Jendrock, Jennifer~Ball, D. C. I. E. S. F. K.~H. (2010).
+\newblock {\em The Java EE 5Tutorial For Sun Java System Application Server
+  9.1}.
+\newblock Oracle.
+
+\bibitem[\protect\astroncite{Figueiredo et~al.}{2008}]{figueiredo:2008}
+Figueiredo, E., Cacho, N., Sant'Anna, C., Monteiro, M., Kulesza, U., Garcia,
+  A., Soares, S., Ferrari, F.~C., Khan, S.~S., Filho, F.~C., and Dantas, F.
+  (2008).
+\newblock {Evolving Software Product Lines with Aspects: An Empirical Study on
+  Design Stability}.
+\newblock In {\em Proc. of 30th Int. Conference on Software Engineering
+  (ICSE)}, pages 261--270, Leipzig (Germany).
+
+\bibitem[\protect\astroncite{Fuentes et~al.}{2009}]{fuentes:2009:caise}
+Fuentes, L., Nebrera, C., and S{\'a}nchez, P. (2009).
+\newblock {Feature-Oriented Model-Driven Software Product Lines: The TENTE
+  Approach}.
+\newblock In Yu, E., Eder, J., and Rolland, C., editors, {\em Proceedings of
+  the Forum at the CAiSE 2009 Conference}, volume 453 of {\em CEUR Workshop
+  Proceedings}, pages 67--72, Amsterdam (The Netherlands).
+
+\bibitem[\protect\astroncite{Herrmann}{2002}]{stephan:2002}
+Herrmann, S. (2002).
+\newblock Object teams: Improving modularity for crosscutting collaborations.
+\newblock page 248–264.
+
+\bibitem[\protect\astroncite{Ivica~Aracic and Ostermann}{2006}]{ivica:2006}
+Ivica~Aracic, Vaidas~Gasiunas, M.~M. and Ostermann, K. (2006).
+\newblock An overview of caesarj.
+\newblock page 135–173.
+
+\bibitem[\protect\astroncite{Kakola and Dueñas}{2006}]{kakola:2006}
+Kakola, T. and Dueñas, J.~C. (2006).
+\newblock {\em {Software Product Lines: Research Issues in Engineering and
+  Management}}.
+\newblock Springer-Verlag Berlin.
+
+\bibitem[\protect\astroncite{K{\"a}stner}{2008}]{kastner:2008}
+K{\"a}stner, C. (2008).
+\newblock {An Overview of Feature-Oriented Software Development}.
+
+\bibitem[\protect\astroncite{Kolovos et~al.}{2008}]{kolovos:2008}
+Kolovos, D.~S., Paige, R.~F., and Polack, F. (2008).
+\newblock {The Epsilon Transformation Language}.
+\newblock In Vallecillo, A., Gray, J., and Pierantonio, A., editors, {\em First
+  International Conference on Theory and Practice of Model Transformations
+  (ICMT)}, volume 5063 of {\em Lecture Notes in Computer Science}, pages
+  46--60, Z{\"u}rich (Switzerland).
+
+\bibitem[\protect\astroncite{Laguna et~al.}{2007}]{laguna:2007}
+Laguna, M.~A., Gonz{\'a}lez-Baixauli, B., and Marqu{\'e}s, J.~M. (2007).
+\newblock {Seamless development of software product lines}.
+\newblock In {\em GPCE}, pages 85--94.
+
+\bibitem[\protect\astroncite{Laguna and Marqu{\'e}s}{2010}]{laguna:2010}
+Laguna, M.~A. and Marqu{\'e}s, J.~M. (2010).
+\newblock Uml support for designing software product lines: The package merge
+  mechanism.
+\newblock {\em J. UCS}, 16(17):2313--2332.
+
+\bibitem[\protect\astroncite{Loughran et~al.}{2008}]{loughran:2008}
+Loughran, N., S{\'a}nchez, P., Garcia, A., and Fuentes, L. (2008).
+\newblock Language support for managing variability in architectural models.
+\newblock In {\em Software Composition}, pages 36--51.
+
+\bibitem[\protect\astroncite{Mehdi~Achour}{2013}]{mehdi:2013}
+Mehdi~Achour, Friedhelm~Betz, A. D. N. L. H.~M. (2013).
+\newblock {\em PHP Manual}.
+\newblock The PHP Documentation Group.
+
+\bibitem[\protect\astroncite{Pablo~Sánchez}{2010}]{sanchez:2010}
+Pablo~Sánchez, Elio~López, L.~F. (2010).
+\newblock Are c'\#' partial classes suitable for implementing feature-oriented
+  decompositions? an exploratory study.
+
+\bibitem[\protect\astroncite{Pohl}{2010}]{pohl:2010}
+Pohl, K. (2010).
+\newblock {\em Software Product Line Engineering: foundations, principles, and
+  techniques}.
+\newblock Springer.
+
+\bibitem[\protect\astroncite{Sami~Beydeda and Gruhn.}{2010}]{sami:2010}
+Sami~Beydeda, M.~B. and Gruhn., V. (2010).
+\newblock Model-driven software development.
+
+\bibitem[\protect\astroncite{S{\'a}nchez et~al.}{2008}]{sanchez:2008}
+S{\'a}nchez, P., Loughran, N., Fuentes, L., and Garcia, A. (2008).
+\newblock {Engineering Languages for Specifying Product-Derivation Processes in
+  Software Product Lines}.
+\newblock In Gasevic, D., L{\"a}mmel, R., and Wyk, E.~V., editors, {\em
+  Software Language Engineering, First International Conference (SLE)}, volume
+  5452 of {\em Lecture Notes in Computer Science}, pages 188--207, Toulouse,
+  France.
+
+\bibitem[\protect\astroncite{Steinberg et~al.}{2008}]{steinberg:2008}
+Steinberg, D., Budinsky, F., Paternostro, M., and Merks, E. (2008).
+\newblock {\em EMF: Eclipse Modeling Framework (2nd edition)}.
+\newblock Addison-Wesley Professional, 2 edition.
+
+\bibitem[\protect\astroncite{Zschaler et~al.}{2011}]{sanchez:2011:tente}
+Zschaler, S., Sánchez, P., Nebrera, C., Fuentes, L., Gasiunas, V., and Fiege,
+  L. (2011).
+\newblock {\em {Aspect-Oriented Model-Driven Software Product Lines}}, chapter
+  {Product-Driven Software Product Line Engineering }.
+\newblock Cambridge University Press.
+
+\end{thebibliography}
