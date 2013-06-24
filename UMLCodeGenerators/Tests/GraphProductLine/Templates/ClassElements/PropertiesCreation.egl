@@ -16,8 +16,11 @@ operation Element classPropertiesCreation(path: String, currentPackage: String, 
 	var additionalMethods: String;
 	// Properties 
 	var properties: String;	
-	// Getter and setter 
-	var getterAndSetter: String;	 
+	// Getter and setters 
+	var getter: String;	 
+	var setter: String;	
+	var firstPart: String;	
+	var lastPart: String;	
 	// Iterator to name properties (if they don't have names)
 	var iter=0;
 	var isFromBidirectionalRelation=false;
@@ -43,8 +46,16 @@ operation Element classPropertiesCreation(path: String, currentPackage: String, 
 			 }//if-prop
 		}//for-allBidirectionalImplementations  
 		if(isFromBidirectionalRelation==false and prop.visibility.name<>"protected"){ 
-			getterAndSetter=" "+propertyName+" {\n\t\t\tget { return this."+propertyname+"; }"+"\n\t\t\tset { this."+propertyname+"= value; }"+"\n\t\t}\n\t\t";	 
-			properties=properties+private();	 
+			firstPart=" "+propertyName;
+			getter=" {\n\t\t\tget { return this."+propertyname+"; }";
+			setter="\n\t\t\tset { this."+propertyname+"= value; }";
+			lastPart="\n\t\t}\n\t\t";	 
+			// If it's private it doesn't have getters and setters
+			if (prop.visibility.name.equals("private")){
+				properties=properties+private();
+			}else{
+				properties=properties+protected();
+			}
 			var header;
 			// If it's static
 			properties=properties+prop.esStatic();
@@ -71,11 +82,17 @@ operation Element classPropertiesCreation(path: String, currentPackage: String, 
 				if(prop.type.name=="Integer"){
 					pro=toInt();
 				} 
-				// Static properties don't have get and set methods
-				if (prop.isStatic()){
+				// Static and private properties don't have get and set methods
+				if (prop.isStatic() or prop.visibility.name.equals("private")){
 					properties=properties+pro+" "+propertyname+";\n\t\t";
 				}else{
-					properties=properties+pro+" "+propertyname+";\n\t\t"+public()+header+pro+getterAndSetter;
+					// Readonly and derived properties don't have set methods 
+					if (prop.isReadonly() or prop.isDerived()){
+						properties=properties+pro+" "+propertyname+";\n\t\t"+public()+header+pro+firstPart+getter+lastPart;
+					}else{
+						// Public properties have get and set methods
+						properties=properties+pro+" "+propertyname+";\n\t\t"+public()+header+pro+firstPart+getter+setter+lastPart;
+					}
 				}//if-static
 			} // if-upperBound	 
 			// Increase the iterator

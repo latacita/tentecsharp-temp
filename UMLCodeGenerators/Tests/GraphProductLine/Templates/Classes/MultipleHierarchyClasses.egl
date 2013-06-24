@@ -15,11 +15,11 @@ operation multipleHierarchyClasses(packages: Set): List{
 	 	for (class in classes) { 
 			var hierarchy = class.hierarchy(); 
 			// If it's multiple hierarchy
-			if (hierarchy.size>1){   
+			if (hierarchy.size>1){
 				for (hierar in hierarchy){
 					var tuple: List;
 					var parents: List;
-					var child: List;					
+					var child: List;
 					// Parent Class
 					parents.add(hierar.general);
 					// Parent's package

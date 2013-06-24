@@ -20,7 +20,7 @@ operation mergeClasses (packages: Set, basePackage: Package): Set{
 			merges.add(elem.mergedPackage);
 		}
 		tuple.add(merges);
-		packagesMerges.add(tuple);	
+		packagesMerges.add(tuple); 
 	} 
 	return packagesMerges;
 }

@@ -26,6 +26,10 @@ operation private(): String {
 operation public(): String { 
 	return "public ";	
 }
+// This operation returns the text "protected" to include in the property or method's header
+operation protected(): String { 
+	return "protected ";	
+}
 // This operation returns the text "override" to include in the property or method's header
 operation override(): String { 
 	return " override ";	
@@ -63,7 +67,7 @@ operation Feature esStatic(): String {
 		s=" static ";
 	}
 	return s;	
-}
+} 
 // This operation returns the text "readonly" if the property is readonly
 operation Feature esReadonly(): String { 
 	var s;
@@ -71,7 +75,7 @@ operation Feature esReadonly(): String {
 		s=" readonly ";
 	}
 	return s;	
-}
+} 
 // This operation returns the text "int"
 operation toInt(): String { 
 	return " Int ";	
