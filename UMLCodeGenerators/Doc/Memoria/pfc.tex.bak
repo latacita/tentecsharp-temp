@@ -23,6 +23,7 @@
 \usepackage{multirow}
 \usepackage{tabulary}
 \usepackage{longtable}
+\usepackage{natbib}
 
 % File with main configuration
 \input{config/pfc_options.tex}
@@ -111,7 +112,7 @@
 \input{background/background.tex}
 
 % Capítulo 3: Domain Engineering
-% \input{domainEngineering/domain.tex}
+\input{domainEngineering/domain.tex}
 
 % Capítulo 4: Application Engineering
 % \input{applicationEngineering/application.tex}

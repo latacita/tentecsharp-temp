@@ -6,8 +6,11 @@
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Domain Engineering/Transformación UML a C#                       %%
 %%==================================================================%%
+
+
 \begin{table}%
-\begin{tabularx}{15cm}{|l|X|}
+\begin{small}
+\begin{tabularx}{10cm}{|l|X|}
 \hline
 {\bf Elemento en UML} & {\bf Elemento en C\#} \\
 \hline
@@ -60,9 +63,11 @@
     \emph{Herencia múltiple:} Una clase hereda de varias clases y se debe realizar la transformación correspondiente mediante la creación de interfaces ya que en C\# no se permite la herencia múltiple de varias clases pero sí de varias interfaces.   \\
 \hline
 \end{tabularx}
+\end{small}
   \caption{Transformación de elementos del modelo UML a código C\#}
   \label{dom:fig:tranf}
 \end{table}%
+
 
  \begin{figure}[!tb]
   \centering
@@ -71,7 +76,11 @@
   \label{dom:fig:ejemplo}
 \end{figure}
 
- El primer paso para la transformación de modelo a código (\emph{model-to-text}, M2T) es la identificación de los distintos elementos que nos podemos encontrar en un diagrama de clases UML y hallar el equivalente en código (C\# en nuestro caso). Hay que tener en cuenta que la transformación no es trivial y es necesario procesar la información obtenida del modelo para generar el código adecuadamente. En la tabla \ref{dom:fig:tranf} se encuentra un resumen de dicho proceso. A continuación se procede al análisis más detallado de cada uno de los elementos de dicha tabla, para ello nos apoyaremos en la figura \ref{dom:fig:ejemplo}.
+
+Como hemos comentado, el primer paso para desarrollar una transformación de modelo a código es: (1) identificar los distintos casos o tipos de entrada con los que nos podemos encontrar; y (2) hallar un equivalente en el lenguaje destino (C\# en nuestro caso).  La Tabla~\ref{dom:fig:tranf} se encuentra un resumen de dicho proceso.
+
+
+A continuación se procede al análisis más detallado de cada uno de los elementos de dicha tabla, para ello nos apoyaremos en la figura \ref{dom:fig:ejemplo}.
 \begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
                     caption=Código generado para las clases y la interfaz del modelo de la figura \ref{dom:fig:ejemplo},
                     label=dom:code:ejemplo]
