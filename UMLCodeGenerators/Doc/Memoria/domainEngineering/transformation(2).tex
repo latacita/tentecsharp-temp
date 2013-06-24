@@ -1,0 +1,207 @@
+%%==================================================================%%
+%% Author : Abascal Fernández, Patricia                             %%
+%% Author : Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.4, 29/04/2013                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Domain Engineering/Transformación UML a C#                       %%
+%%==================================================================%%
+
+
+
+ \begin{figure}[!tb]
+  \centering
+  \includegraphics[width=.75\linewidth]{domainEngineering/images/Transformaciones.eps} \\
+  \caption{Ejemplo de Modelo UML simplificado}
+  \label{dom:fig:ejemplo}
+\end{figure}
+
+
+Como hemos comentado, el primer paso para desarrollar una transformación de modelo a código es: (1) identificar los distintos casos o tipos de entrada con los que nos podemos encontrar; y (2) hallar un equivalente en el lenguaje destino (C\# en nuestro caso). A continuación, mostramos los casos identificados (cómo título de cada subsección), y por cada caso, comentamos las equivalencias propuestas. Ciertas de estas reglas son específicas para líneas de productos software, mientras que otras, como la transformación de las asociaciones, son aplicables a cualquier transformación de UML 2.0 a C#.
+Cada regla de transformación la ilustramos utilizando el ejemplo de la Figura~\ref{back:fig:smartHome}.
+
+\subsection{Modelo}
+
+Un modelo UML, es decir, el elemento raíz que contiene al resto de los elementos de un modelo UML, se transforma en el \emph{namespace} para el proyecto C\#. Los \emph{namespaces} permiten agrupar entidades tales como paquetes, clases, objetos y funciones bajo el mismo nombre. De esta forma, se pueden tener varios \emph{namespaces} en el mismo proyecto que son independientes entre sí. 
+
+Recordar que para que varias clases parciales puedan ser combinadas, éstas deben pertenecer a un mismo \emph{namespace}. Por tanto, se utiliza como nombre de dicho \emph{namespace}, el nombre del modelo UML 2.0 que sirve de entrada a los generadores de código.
+
+Además, al transformar el modelo UML 2.0, se crea un proyecto Visual Studio 2010, inicialmente vacío, con el mismo nombre que el modelo UML 2.0.
+
+Para el caso de la Figura~\ref{back:fig:smartHome}, el nombre del modelo, el cual no aparece en el diagrama, es \emph{SmartHome}. Por tanto, se crearía un proyecto Visual Studio 2010, con \emph{SmartHome} como nombre. Dentro de dicho proyecto, se crearía un \emph{namespace} denominado \emph{SmartHome}.
+
+\subsection{Paquete} 
+
+Cada paquete UML 2.0 representa en nuestro caso una familia de clases, la cual encapsula una característica. Por tanto, por cada paquete UML 2.0, se crea una nueva carpeta o directorio, con el mismo nombre que el paquete, en el proyecto Visual Studio 2010 creado al transformar el modelo que contiene dicho paquete. En dicho directorio se colocarán todos los ficheros resultantes de transformar el contenido de dicho paquete.
+
+Por ejemplo, para el caso de la Figura~\ref{back:fig:smartHome}, durante la transformación del paquete \imp{WindowMng}, se crearía una nueva carpeta dentro del proyecto Visual Studio 2010 generado, denominada \imp{WindowMng}. Lo mismo se aplicaría al resto de los paquetes.
+
+\subsection{Tipos primitivos}
+\label{subsec:domain:primitiveType}
+
+Por cada tipo primitivo de UML 2.0, se establece una correspondencia con los tipos primitivos de C\#. Por ejemplo, un \emph{String} de UML 2.0 se transforma en \emph{String} de C\#. Un \emph{boolean} de UML 2.0 se transforma en un \emph{bool} de C\#. Esta correspondencia es bastante directa y no presenta problemas más de allá de tener que renombrar algunos tipos. 
+
+\todo{¿Es esto correcto?}
+
+\subsection{Clases Enumeradas}
+
+Cada clase enumerada UML 2.0, se transforma en un enumerado de C\#, con el mismo nombre que el enumerado UML 2.0. A continuación, se procesan los literales de la clase enumerado UML 2.0, añadiendo un literal con el mismo nombre al enumerado creado en C#. 
+
+Por ejemplo, la clase enumerada \imp{TempUnits} de la característica \imp{HeaterMng} se transformaría en un enumerado de C\#, con nombre \imp{TempUnits}, perteneciente al \emph{namespace} \imp{HeaterMng}, y con \imp{CELSIUS} y \imp{FARENHEIT} como literales. El Listado~\ref{} muestra el código resultante de esta transformación.
+
+\todo{Poner código}
+
+\subsection{Clase}
+
+Por cada clase UML 2.0 encontrada dentro de un paquete, se genera una clase parcial sita en el directorio correspondiente al paquete al cual pertenece. El nombre de la clase parcial es el mismo que el de la clase UML 2.0. 
+
+Por ejemplo, para la clase \emph{WindowCtrl}, del paquete \emph{WindowMng}, se crearía una clase parcial pública, denominada \emph{WindowCtrl}, y sita en la carpeta del proyecto \emph{WindowMng}.
+    
+A continuación, se procesan los contenidos de dicha clase, tal como se describe a continuación. 
+
+\subsection{Atributo} 
+
+Cada atributo de una clase en UML 2.0 se transforma en una propiedad de C\#, perteneciente a clase parcial correspondiente a la clase que posee el atributo en el modelo UML 2.0. Dicha propiedad tendrá siempre visibilidad \emph{protegida} (\emph{protected}), salvo que estuviese declarada como \emph{privada} (\emph{private})en el modelo UML 2.0, en cuyo caso se mantendrá la visibilidad privada.
+
+Si el atributo era público en el modelo UML, se le generarán métodos de acceso (\emph{getter} y \emph{setter}) a dicha propiedad. si el atributo fuese de solo lectura o derivado, no se le generaría método de escritura (\emph{setter}). 
+
+Si el atributo fuese estático (\emph{static}), se generará como estático en el código C\#, y no se le generarán métodos de acceso. 
+
+Si el tipo del atributo es un tipo primitivo y el atributo no es multivaluado, es decir, la cota superior de su multiplicidad es igual a 1, se utiliza como tipo su correspondiente en C\#, de acuerdo las correspondencias comentadas en la Sección~\ref{subsec:domain:primitiveType}. Si el tipo fuese una clase u otro tipo no primitivo, el tipo será el nombre resultante de transformar dicho elemento no primitivo.
+
+Por ejemplo, el atributo \imp{id} de la clase \imp{Actuator}, dentro de la característica \imp{BaseSystem}, se transformaría en una propiedad llamada \imp{id}, de la clase \imp{Actuator}, sita en la carpeta \imp{BaseSystem}, y perteneciente al \emph{namespace} \imp{SmartHome}. Como tipo para dicha propiedad, se utilizaría \imp{Int}. 
+
+Para el caso del el atributo \imp{units} de la clase \imp{Actuator}, dentro de la característica \imp{HeaterMng}, se utilizaría como tipo \imp{TempUnits}, ya que sería éste el nombre del enumerado resultante de transformar la clase enumerada que sirve como tipo de este atributo.
+
+Si el atributo fuese un atributo un atributo multivaluado, es decir, la cota superior de su multiplicidad es superior a 1, el tipo de la propiedad generada será una colección que use como tipo base el tipo del atributo. Dependiendo de ciertas propiedades del atributo \imp{isOrdered} e \imp{isUnique}, se deberá utilizar un tipo de colección u otro. 
+
+\todo{Explicar el tipo de colección elegida en cada caso y por qué}
+
+\subsection{Extremos de asociación}
+
+
+
+
+\hline
+   % Parámetro
+\multicolumn{ 1}{|l|}{Parámetro} &
+    Después de identificar si es de retorno de una operación o de entrada a la misma se aplica la transformación al tipo de dato correspondiente.\\
+\hline
+    % Clase
+\hline
+   % Interfaz
+\multicolumn{ 1}{|l|}{Interfaz} &
+   Interfaz C\#  implementada siguiendo el patrón slicer. \\
+\hline
+   % Operacion
+\multicolumn{ 1}{|l|}{Operación} &
+    Método C\# privado y renombrado siguiendo el patrón slicer de la forma $<$nombre del paquete al que pertenece$>$\_$<$nombre de la operación$>$, para evitar posibles conflictos, todos los métodos serán virtuales. Los métodos \emph{protected} no se cambiarán a privados para respetar la visibilidad requerida inicialmente por el usuario.  \\
+\hline
+   % Constructor
+\multicolumn{ 1}{|l|}{Constructor} &
+    Cada clase parcial correspondiente a una característica tendrá un método privado llamado $<$nombre del paquete al que pertenece$>$\_init$<$nombre de la clase$>$ que contendrá la porción de constructor que corresponde a la característica. \\
+\hline
+   % Asociación entre clases
+\multicolumn{ 1}{|l|}{Asociación} &
+    \emph{Asociación simple:} Se añade el atributo, simple o colección, de tipo Class a la clase destino.\\
+\multicolumn{ 1}{|l|}{} &
+    \emph{Asociación bidireccional:} Dependiendo del tipo de bidireccionalidad (one to one, one to many o many to many) se añaden los atributos y métodos adicionales necesarios para implementar el correcto funcionamiento de dicha asociación.  \\
+\hline
+   % Generalización
+\multicolumn{ 1}{|l|}{Generalización} &
+    \emph{Herencia simple:} Una clase hereda de otra clase.\\
+\multicolumn{ 1}{|l|}{} &
+    \emph{Herencia múltiple:} Una clase hereda de varias clases y se debe realizar la transformación correspondiente mediante la creación de interfaces ya que en C\# no se permite la herencia múltiple de varias clases pero sí de varias interfaces.   \\
+\hline
+\end{tabularx}
+\end{small}
+  \caption{Transformación de elementos del modelo UML a código C\#}
+  \label{dom:fig:tranf}
+\end{table}%
+
+
+%%===================================================================%% 
+
+
+A continuación se procede al análisis más detallado de cada uno de los elementos de dicha tabla, para ello nos apoyaremos en la Figura~\ref{dom:fig:ejemplo}.
+
+\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
+                    caption=Código generado para las clases y la interfaz del modelo de la figura \ref{dom:fig:ejemplo},
+                    label=dom:code:ejemplo]
+File PaqueteLleno/B.cs
+--------------------------------------------------------
+01 namespace Ejemplo{
+02     partial class B: C{
+03          ...
+04          private virtual void B_initB ( ) {}
+05          protected virtual PaqueteLleno_println ( ) {}
+06     }
+07 }
+
+File PaqueteLleno/A.cs
+--------------------------------------------------------
+08 namespace Ejemplo{
+09     partial class A: C{
+10          private B elemB;
+11          public B elemB {
+12              get { return this.elemB; }
+13              set { this.elemB= value; }
+14          }
+15          ...
+16          private virtual void A_initA ( ) {}
+17          private virtual ISet<B> PaqueteLleno_add (int a) { }
+18     }
+19 }
+
+File PaqueteLleno/C.cs
+--------------------------------------------------------
+20 namespace Ejemplo{
+21      partial class C: I{
+22          private int num;
+23          public int num {
+24              get { return this.num; }
+25              set { this.num= value; }
+26          }
+27          ...
+28          private virtual void C_initC ( ) {}
+29      }
+30 }
+
+File PaqueteLleno/I.cs
+--------------------------------------------------------
+31 namespace Ejemplo{
+32     partial interface I{			
+33          public virtual override bool Equals (Object o);
+34          public virtual override int CompareTo (Object o);
+35          public virtual override int GetHashCode ( );
+36          public virtual override Type GetType ( );
+37          public virtual override string ToString( );
+38          private virtual void I_initI ( ) {}
+39     }
+40 }
+
+File PaqueteLleno/E.cs
+--------------------------------------------------------
+41 namespace Ejemplo{	
+42     enum E {	
+43        Lunes,
+44        Martes,
+45     };
+46 }
+\end{lstlisting}
+
+El modelo de la figura \ref{dom:fig:ejemplo} es \imp{Ejemplo} y por tanto cada clase del proyecto debería comenzar definiendo el namespace del modelo en cuestión mediante la línea de código C\# tal como se aprecia en las líneas 1, 8, 20, 31 y 41 del listing \ref{dom:code:ejemplo}.
+
+En la figura \ref{dom:fig:ejemplo} hay dos paquetes \imp{PaqueteLleno} y \imp{PaqueteVacío}, por tanto, en el directorio destino donde se generan los ficheros del modelo deberán aparecer dos carpetas con dichos nombres. La carpeta \imp{PaqueteLleno} contendrá en su interior cuatro ficheros denominados A.cs, B.cs, C.cs, I.cs y E.cs, uno por cada clase, clase enumerada (listing \ref{dom:code:ejemplo} 41-46) o interfaz que se encuentra en su interior, mientras que la carpeta \imp{PaqueteVacío} no contendrá ningún archivo en su interior.
+
+Tal como se aprecia en la figura \ref{dom:fig:ejemplo}, la clase \imp{A} del paquete \imp{PaqueteLleno}, tiene un atributo llamado \imp{num} por lo que se genera una propiedad con sus respectivos métodos getter y setter tal como se muestra en el listing \ref{dom:code:ejemplo} en las líneas 22-26.
+
+La figura \ref{dom:fig:ejemplo} presenta la clase \imp A con una operación \imp{add} que tiene un parámetro \imp{a: int} y retorna una colección de elementos de tipo \imp{B} (listing \ref{dom:code:ejemplo} línea 17). De la misma forma, la clase \imp{B} tiene una operación \imp{println} de carácter \emph{protected} y por tanto su visibilidad no se transforma en \emph{private} (listing \ref{dom:code:ejemplo} línea 5). Con este ejemplo quedan ilustrados los puntos de operación y parámetro descritos en la tabla \ref{dom:fig:tranf}.
+
+Para la generación de clases e interfaces de la figura \ref{dom:fig:ejemplo}, el resultado sería el mostrado en las líneas 2, 9, 21 y 32 del listing \ref{dom:code:ejemplo}. Se aprecia también las herencias correspondientes.
+
+Aunque no esté reflejado en el modelo UML añadimos a cada clase, o interfaz, del modelo añadimos un constructor (listing \ref{dom:code:ejemplo} líneas 4, 16, 28 y 38) y unos métodos de utilidad (listing \ref{dom:code:ejemplo} líneas 33-37).
+
+Por último, la asociación simple de las clases \imp{A} y \imp{B} se traduce con las líneas de código descritas en las líneas 10-14 del listing \ref{dom:code:ejemplo}.
+
+Con esto queda explicado más detalladamente la transformación de modelo UML a código C\# descrita en la tabla \ref{dom:fig:tranf}. Se han omitido la herencia múltiple y las asociaciones bidireccionales por su complejidad. En la siguiente sección se profundizará en la implementación y creación de las transformaciones de modelo UML a código C\#.
