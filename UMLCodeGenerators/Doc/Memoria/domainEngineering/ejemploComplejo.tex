@@ -54,20 +54,3 @@ El siguiente paso sería pasar dicha tabla a código C\# y comprobar que funciona 
   \label{dom:fig:her}
 \end{figure}
 
- \begin{figure}[!tb]
-  \centering
-  \includegraphics[width=.80\linewidth]{domainEngineering/images/herenciamultiple_implementada.eps} \\
-  \caption{Tipos de relaciones bidireccionales}
-  \label{dom:fig:hersol}
-\end{figure}
-Los modelos UML admiten la herencia múltiple de clases pero lenguajes como C\# no, por lo que hay que transformar el modelo inicial y adaptarlo para funcione correctamente. Podemos encontrarnos con un conjunto de clases como el descrito en la figura \ref{dom:fig:her} donde se puede apreciar que la clase \imp{Profesor Universitario} presenta herencia múltiple de las clases \imp{Profesor} e \imp{Investigador}, por tanto, debemos procesar la información de forma que el código generado funcione de la forma esperada en C\#, las modificaciones que debemos realizar son:
-
-\begin{itemize}
-  \item Por cada una de las clases padre, \imp{Profesor} e \imp{Investigador}, se generan sendas interfaces \imp{Interfaz\_Profesor} e \imp{Interfaz\_Investigador}.
-  \item Las clases padre solo contienen los métodos de la clase y heredan de sus respectivas interfaces.
-  \item Las interfaces correspondientes a las clases padre tienen los métodos y las propiedades de la respectiva clase.
-  \item La clase hija, \imp{Profesor Universitario}, hereda ahora de las interfaces \imp{Interfaz\_Profesor} e \imp{Interfaz\_Investigador} en lugar de heredar de las clases \imp{Profesor} e \imp{Investigador} como ocurría en el modelo inicial.
-  \item La clase hija incorpora, además de sus propiedades y métodos, posee tantas colecciones como clases padre tenga, en el ejemplo \imp{profesores} e \imp{investigadores}.
-\end{itemize}
-
-Una vez concluidos los generadores de código, se debe proceder a comprobar que funciona como se espera, en eso consiste la fase de pruebas que se describe en la siguiente sección. 
