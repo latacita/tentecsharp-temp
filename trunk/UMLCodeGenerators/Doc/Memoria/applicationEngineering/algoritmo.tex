@@ -12,9 +12,9 @@ Para obtener una implementación completamente funcional de un producto concreto,
 El primer paso en el proceso de transformación es crear un nuevo proyecto y una nueva carpeta que represente el producto final.
 
 Para calcular todas las clases que deben estar incluidas en el producto final, recorremos el modelo desde el paquete que representa el producto concreto, y que será siempre un paquete \emph{hoja}, hacia arriba, hasta llegar a la raíz, o raíces, del modelo orientado a características. Normalmente, siempre hay un modelo raíz que contiene los elementos que son comunes a todos los productos.
-En nuestro caso, dicho recorrido generaría dos caminos distintos: (1) \imp{SmartEnergyMng}, \imp{WindowMng}, \imp{BaseSystem}; y (2) \imp{SmartEnergyMng}, \imp{HeaterMng}, \imp{BaseSystem}.
+En nuestro caso de la Figura~\ref{app:fig:conf1}, dicho recorrido generaría dos caminos distintos: (1) \imp{SmartEnergyMng}, \imp{WindowMng}, \imp{BaseSystem}; y (2) \imp{SmartEnergyMng}, \imp{HeaterMng}, \imp{BaseSystem}.
 
-Obviamente, una clase puede aparecer en más de un paquete. Por ejemplo, la clase \imp{Gateway} aparece en todos los paquetes, a excepción del que representa el producto final, de la Figura~\ref{}. No obstante, cada clase que esté en un camino desde el paquete hoja al paquete raíz, solo debe incluirse una vez en el producto final, aunque ésta aparezca varias veces. Por cada clase distinta presente en algunos de los caminos del paquete hoja a la raíz, generamos una nueva clase parcial, que colocamos en la carpeta que representa el producto final
+Obviamente, una clase puede aparecer en más de un paquete. Por ejemplo, la clase \imp{Gateway} aparece en todos los paquetes, a excepción del que representa el producto final, de la Figura~\ref{app:fig:conf1}. No obstante, cada clase que esté en un camino desde el paquete hoja al paquete raíz, solo debe incluirse una vez en el producto final, aunque ésta aparezca varias veces. Por cada clase distinta presente en algunos de los caminos del paquete hoja a la raíz, generamos una nueva clase parcial, que colocamos en la carpeta que representa el producto final
 
 A continuación, para cada clase, debemos calcular todos los métodos limpios que debemos generar. Para ello, al igual que ocurría con las clases parciales, recorremos todos los caminos existentes de raíz a hoja. Para cada clase, por cada método distinto, es decir, con diferente signatura, creamos una versión limpia de dicho método dentro de la clase parcial incluida en el producto final. El proceso de generación del esqueleto del método se realiza reutilizando las plantillas de generación de código y facilidades creadas para la Ingeniería de Dominio.
 
@@ -22,13 +22,35 @@ Por último, quedaría por generar el código de cada método, de forma que este del
 
 \subsection{Caso 1: Sólo existe una \emph{versión sucia} del método}
 
-Se trata del caso más simple. Sólo existe una \emph{versión sucia} del método, por lo que hay que hacer es delegar en él. \todo{Poner ejemplo con la figura}
+Se trata del caso más simple. Sólo existe una \emph{versión sucia} del método, por lo que hay que hacer es delegar en él. En nuestro ejemplo de la Figura~\ref{app:fig:conf1}, para la clase \imp{Gateway}, el método \imp{openWindow} solo está implementado en la característica \imp{WindowMng} por lo que la generación de código interna de dicha \emph{versión limpia} del método se correspondería con la \emph{versión sucia} \imp{WindowMng_openWindow} de la característica \imp{WindowMng}.
+
+\begin{figure}[!tb]
+  \center
+  \includegraphics[scale=0.80,angle=0]{applicationEngineering/images/Configuracion2.eps} \\
+  \caption{Creación de un producto específico en el diseño orientado a características del software para hogares inteligentes, configuración 2}
+  \label{app:fig:conf2}
+\end{figure}
 
 \subsection{Caso 2: Existen varias \emph{versiones sucias} independientes}
+Existen varias \emph{versiones sucias} independientes del método, lo que hay que hacer es delegar en ellas puesto que, al ser independientes, no suponen ningún tipo de conflicto. Para ilustrar este caso nos apoyaremos en la configuración de la Figura~\ref{app:fig:conf2} donde existen sendas \emph{versiones sucias} de los métodos \imp{switchOn} y \imp{swithOff} para las características \imp{BlindSimulation} y \imp{LightSimulation}. Nos centraremos en el método \imp{switchOn}. En la \emph{versión limpia} del método se realizarán dos llamadas a cada una de las \emph{versiones sucias} del método en dichas características, \imp{BlindSimulation_switchOn} y \imp{LightSimulation_switchOn}, el orden de las llamadas es indiferente ya que al ser caminos independientes no entran en conflicto. Con el método \imp{switchOff} se procede de forma análoga.
 
 \subsection{Caso 3: Existen \emph{versiones sucias} dependientes de un método}
 
-\subsection{Caso 3: Existen \emph{versiones sucias} dependientes e independientes de un método}
+Existen varias \emph{versiones sucias} dependientes de un método por lo que debemos quedarnos con la \imp{versión sucia} más cercana a la \emph{hoja}. En la Figura~\ref{app:fig:conf1} para el constructor de la clase \imp{Gateway} disponemos de las \emph{versiones sucias} correspondientes a las características \imp{SmartEnergy}, \imp{WindowMng}, \imp{HeaterMng} y \imp{BaseSystem}. Tal como comentamos en la Sección~\ref{application:sec:mod} es imposible crear un producto que incluya \imp{SmartEnergyMng} pero no \imp{WindowMng} o \imp{HeaterMng} por lo que la implementación del constructor de la característica \imp{SmartEnergyMng} engloba las \emph{versiones sucias} de \imp{WindowMng} y \imp{HeaterMng}. De tal forma, la generación interna del constructor para la clase \imp{Gateway} para la configuración de la Figura~\ref{app:fig:conf1}  se corresponderá con una llamada al método \imp{SmartEnergyMng_initGateway} de la característica \imp{SmartEnergyMng}.
+
+
+\begin{figure}[!tb]
+  \center
+  \includegraphics[scale=0.80,angle=0]{applicationEngineering/images/Configuracion3.eps} \\
+  \caption{Creación de un producto específico en el diseño orientado a características del software para hogares inteligentes, configuración 3}
+  \label{app:fig:conf3}
+\end{figure}
+
+\subsection{Caso 4: Existen \emph{versiones sucias} dependientes e independientes de un método}
+Existen \emph{versiones sucias} dependientes e independientes de un método, es el caso más complejo para la generación de código de cada método, debemos por tanto seleccionar la \emph{versión sucia} más cercana a la \emph{hoja} en el caso de las versiones dependientes y delegar en las \emph{versiones sucias} de aquellos caminos independientes. Tomemos como ejemplo la clase \imp{Gateway} para la configuración mostrada en la Figura~\ref{app:fig:conf3}. Hay cuatro caminos distintos: (1) \imp{BlindSimulation}, \imp{BlindMng}, \imp{BaseSystem}; (2) \imp{SmartEnergyMng}, \imp{WindowMng}, \imp{BaseSystem}; (3) \imp{SmartEnergyMng}, \imp{HeaterMng}, \imp{BaseSystem} y (4) \imp{LightSimulation}, \imp{LightMng}, \imp{BaseSystem}. Los caminos (1) y (4) son independientes respecto a los caminos (2) y (3), por lo que la implementación interna del constructor de la clase \imp{Gateway} contendrá las llamadas correspondientes a las \emph{versiones sucias} de los métodos en sendas características: \imp{BlindSimulation_initGateway} y \imp{LightSimulation_initGateway}. Por otra parte, y tal como comentamos en el caso 3, debemos quedarnos con la \imp{versión sucia} de la característica \imp{SmartEnergyMng} por tanto realizamos también la llamada al método \imp{SmartEnergyMng_initGateway}. El orden de estas tres llamadas dentro de la \emph{versión limpia} del constructor es indiferente puesto que son independientes entre si.
+
+
+Así pues queda explicado en detalle el proceso de generación de código para un producto específico del modelo UML a código C\#. En la siguiente sección se profundizará en la implementación y generación de código C\#.
 
 %%===============================================================================================%%
 %% NOTA(Pablo): Esto con las A, B y C es un lío y no me entero muy bien, así que mejor lo        %%
@@ -36,153 +58,152 @@ Se trata del caso más simple. Sólo existe una \emph{versión sucia} del método, p
 %%===============================================================================================%%
 
 
-En la presente sección de describirá de forma detalla el proceso de generación de código para un producto específico, para ello nos apoyaremos en la figura \ref{app:fig:ejemplo}.
-\begin{figure}[!tb]
-  \center
-  \includegraphics[scale=0.50,angle=0]{applicationEngineering/images/Algoritmo.eps} \\
-  \caption{Ejemplo de apoyo para la explicación del algoritmo}
-  \label{app:fig:templates}
-\end{figure}
+%En la presente sección de describirá de forma detalla el proceso de generación de código para un producto específico, para ello nos apoyaremos en la figura \ref{app:fig:ejemplo}.
+%\begin{figure}[!tb]
+%  \center
+%  \includegraphics[scale=0.50,angle=0]{applicationEngineering/images/Algoritmo.eps} \\
+%  \caption{Ejemplo de apoyo para la explicación del algoritmo}
+%  \label{app:fig:templates}
+%\end{figure}
 
 
-Nos encontramos así con dos conflictos, puesto que la misma clase (en nuestro caso la clase \imp{A} y la \imp{B}) está implementadas en dos paquetes diferentes. En estos casos, debemos buscar las operaciones que dicha clase implementa en ambos paquetes, de esta forma tenemos que:
-\begin{itemize}
-  \item Clase A, implementa las operaciones \imp{println()} y \imp{remove (int i)} en el paquete \imp{Cuatro}, mientras que en el paquete \imp{Uno} implementa la operación \imp{println()}.
-  \item Clase B, implementa la operación \imp{close()} en el paquete \imp{Cuatro}, mientras que en el paquete \imp{Uno} implementa la operación \imp{open()}.
-\end{itemize}
-En este punto tenemos un conflicto, en la operación \imp{println()} de la clase \imp{A}, ya que tenemos dos versiones del método la implementada en el paquete \imp{Cuatro} y la implementada en el paquete \imp{Uno}, nos quedamos con la versión más profunda del método es decir, con la versión implementada en el paquete \imp{Cuatro}.
+%Nos encontramos así con dos conflictos, puesto que la misma clase (en nuestro caso la clase \imp{A} y la \imp{B}) está implementadas en dos paquetes diferentes. En estos casos, debemos buscar las operaciones que dicha clase implementa en ambos paquetes, de esta forma tenemos que:
+%\begin{itemize}
+%  \item Clase A, implementa las operaciones \imp{println()} y \imp{remove (int i)} en el paquete \imp{Cuatro}, mientras que en el paquete \imp{Uno} implementa la operación \imp{println()}.
+%  \item Clase B, implementa la operación \imp{close()} en el paquete \imp{Cuatro}, mientras que en el paquete \imp{Uno} implementa la operación \imp{open()}.
+%\end{itemize}
+%En este punto tenemos un conflicto, en la operación \imp{println()} de la clase \imp{A}, ya que tenemos dos versiones del método la implementada en el paquete \imp{Cuatro} y la implementada en el paquete \imp{Uno}, nos quedamos con la versión más profunda del método es decir, con la versión implementada en el paquete %\imp{Cuatro}.
 
-Para la generación del constructor de las clases basta con comprobar el paquete más profundo donde está implementada dicha clase, en nuestro ejemplo:
-\begin{itemize}
-  \item Clase A, implementada en el paquete \imp{Cuatro}.
-  \item Clase B, implementada en el paquete \imp{Cuatro}.
-  \item Clase C, implementada en el paquete \imp{Uno}.
-\end{itemize}
+%Para la generación del constructor de las clases basta con comprobar el paquete más profundo donde está implementada dicha clase, en nuestro ejemplo:
+%\begin{itemize}
+%  \item Clase A, implementada en el paquete \imp{Cuatro}.
+%  \item Clase B, implementada en el paquete \imp{Cuatro}.
+%  \item Clase C, implementada en el paquete \imp{Uno}.
+%\end{itemize}
 
-\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
-                    caption=Código generado para el producto específico seleccionado en la figura \ref{app:fig:ejemplo},
-                    label=app:code:ejemplo]
-File Cinco/A.cs
---------------------------------------------------------
-01 namespace My_Ejemplo{
-02     public class A{
-03        public virtual void A ( ) {
-04             Cuatro_A_initA ( );
-05        }
-06        public virtual println ( ) {
-07	           Cuatro_println ( );
-08        }
-09        public virtual remove ( int i ) {
-10             Cuatro_remove ( i );
-11        }
-12     }
-13 }
+%\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
+%                    caption=Código generado para el producto específico seleccionado en la figura \ref{app:fig:ejemplo},
+%                    label=app:code:ejemplo]
+%File Cinco/A.cs
+%--------------------------------------------------------
+%01 namespace My_Ejemplo{
+%02     public class A{
+%03        public virtual void A ( ) {
+%04             Cuatro_A_initA ( );
+%05        }
+%06        public virtual println ( ) {
+%07	           Cuatro_println ( );
+%08        }
+%09        public virtual remove ( int i ) {
+%10             Cuatro_remove ( i );
+%11        }
+%12     }
+%13 }
 
-File Cinco/B.cs
---------------------------------------------------------
-14 namespace My_Ejemplo{
-15     public class B{
-15          public virtual void B_initB ( ) {
-16              Cuatro_B_initB ( );
-17          }
-18          public virtual close ( ) {
-19              Cuatro_close ( );
-20          }
-21     }
-22 }
+%File Cinco/B.cs
+%--------------------------------------------------------
+%14 namespace My_Ejemplo{
+%15     public class B{
+%15          public virtual void B_initB ( ) {
+%16              Cuatro_B_initB ( );
+%17          }
+%18          public virtual close ( ) {
+%19              Cuatro_close ( );
+%20          }
+%21     }
+%22 }
 
-File Cinco/C.cs
---------------------------------------------------------
-23 namespace My_Ejemplo{
-24     public class C{
-25          public virtual void C_initC ( ) {
-26              Uno_C_initC ( );
-27          }
-28          public virtual ISet<int> add ( int i) {
-29              Uno_add ( i );
-30          }
-31     }
-32 }
+%File Cinco/C.cs
+%--------------------------------------------------------
+%23 namespace My_Ejemplo{
+%24     public class C{
+%25          public virtual void C_initC ( ) {
+%26              Uno_C_initC ( );
+%27          }
+%28          public virtual ISet<int> add ( int i) {
+%29              Uno_add ( i );
+%30          }
+%31     }
+%32 }
 
-\end{lstlisting}
+%\end{lstlisting}
 
-Procedemos entonces a generar el código para la versión clean de tanto la clase como los métodos tal como se aprecia en el listing \ref{app:code:ejemplo}.
+%Procedemos entonces a generar el código para la versión clean de tanto la clase como los métodos tal como se aprecia en el listing \ref{app:code:ejemplo}.
 
-Renombramos el modelo aplicado añadiendo un "My\_" (líneas 1, 14 y 23) para denotar que ese es el modelo que contiene la implementación específica del producto seleccionado.
+%Renombramos el modelo aplicado añadiendo un "My\_" (líneas 1, 14 y 23) para denotar que ese es el modelo que contiene la implementación específica del producto seleccionado.
 
-Tal como comentamos anteriormente, la llamada interna de los constructores se corresponde con la de aquel paquete más profundo en la selección específica que implemente dicha clase (líneas 4, 16 y 26).
+%Tal como comentamos anteriormente, la llamada interna de los constructores se corresponde con la de aquel paquete más profundo en la selección específica que implemente dicha clase (líneas 4, 16 y 26).
 
-Y tras resolver los conflictos con aquellos métodos implementados en varios paquetes (en nuestro ejemplo el método \imp{print()} de la clase \imp{A}) obtenemos el código descrito en el listing \ref{app:code:ejemplo}.
+%Y tras resolver los conflictos con aquellos métodos implementados en varios paquetes (en nuestro ejemplo el método \imp{print()} de la clase \imp{A}) obtenemos el código descrito en el listing \ref{app:code:ejemplo}.
 
-\begin{figure}[!tb]
-  \center
-  \includegraphics[scale=0.50,angle=0]{applicationEngineering/images/Algoritmo1.eps} \\
-  \caption{Ejemplo complejo de apoyo para la explicación del algoritmo}
-  \label{app:fig:ejemplo1}
-\end{figure}
+%\begin{figure}[!tb]
+%  \center
+%  \includegraphics[scale=0.50,angle=0]{applicationEngineering/images/Algoritmo1.eps} \\
+%  \caption{Ejemplo complejo de apoyo para la explicación del algoritmo}
+%  \label{app:fig:ejemplo1}
+%\end{figure}
 
-Analizamos ahora un ejemplo más complejo de generación de código de un producto específico, supongamos ahora el ejemplo descrito en la figura \ref{app:fig:ejemplo1}.
+%Analizamos ahora un ejemplo más complejo de generación de código de un producto específico, supongamos ahora el ejemplo descrito en la figura \ref{app:fig:ejemplo1}.
 
-En este caso tenemos tres rutas: \imp{Cinco} $\rightarrow$ \imp{Seis} $\rightarrow$ \imp{Tres} $\rightarrow$ \imp{Uno}, \imp{Cinco} $\rightarrow$ \imp{Seis} $\rightarrow$ \imp{Cuatro} $\rightarrow$ \imp{Uno} y \imp{Cinco} $\rightarrow$ \imp{Dos} $\rightarrow$ \imp{Uno}.
+%En este caso tenemos tres rutas: \imp{Cinco} $\rightarrow$ \imp{Seis} $\rightarrow$ \imp{Tres} $\rightarrow$ \imp{Uno}, \imp{Cinco} $\rightarrow$ \imp{Seis} $\rightarrow$ \imp{Cuatro} $\rightarrow$ \imp{Uno} y \imp{Cinco} $\rightarrow$ \imp{Dos} $\rightarrow$ \imp{Uno}.
 
-Debemos por tanto analizar los caminos independientes, en este caso hay dos, por un lado el camino \imp{Cinco} $\rightarrow$ \imp{Dos} $\rightarrow$ \imp{Uno} y por otro el formado por \imp{Cinco} $\rightarrow$ \imp{Seis} (que se bifurca a su vez en dos).
+%Debemos por tanto analizar los caminos independientes, en este caso hay dos, por un lado el camino \imp{Cinco} $\rightarrow$ \imp{Dos} $\rightarrow$ \imp{Uno} y por otro el formado por \imp{Cinco} $\rightarrow$ \imp{Seis} (que se bifurca a su vez en dos).
 
-A la hora de extraer la implementación interna de los métodos, debemos incluir ambas ramas puesto que son independientes entre sí y por tanto sus versiones de los métodos no entran en conflicto. De esta forma, y tal como se describe en el listing \ref{app:code:ejemplo1}, para la clase \imp{B} tanto el método \imp{close()} como el constructor se realizan llamadas internas a ambas versiones de dicho paquete (líneas 15-22).
+%A la hora de extraer la implementación interna de los métodos, debemos incluir ambas ramas puesto que son independientes entre sí y por tanto sus versiones de los métodos no entran en conflicto. De esta forma, y tal como se describe en el listing \ref{app:code:ejemplo1}, para la clase \imp{B} tanto el método \imp{close()} como el constructor se realizan llamadas internas a ambas versiones de dicho paquete (líneas 15-22).
 
-Para la implementación interna de la clase A, procedemos de manera análoga al ejemplo \ref{app:fig:ejemplo}, es decir, la clase \imp{A} implementará los métodos \imp{print()}, \imp{add(int i)}, \imp{remove()} y el constructor (listing \ref{app:code:ejemplo1}, líneas 3-14). Como los caminos \imp{Cinco} $\rightarrow$ \imp{Seis} $\rightarrow$ \imp{Tres} $\rightarrow$ \imp{Uno} y \imp{Cinco} $\rightarrow$ \imp{Seis} $\rightarrow$ \imp{Cuatro} $\rightarrow$ \imp{Uno} son dependientes entre sí, debemos seleccionar una vez más las versiones más profundas de cada método que entre en conflicto.
+%Para la implementación interna de la clase A, procedemos de manera análoga al ejemplo \ref{app:fig:ejemplo}, es decir, la clase \imp{A} implementará los métodos \imp{print()}, \imp{add(int i)}, \imp{remove()} y el constructor (listing \ref{app:code:ejemplo1}, líneas 3-14). Como los caminos \imp{Cinco} $\rightarrow$ \imp{Seis} $\rightarrow$ \imp{Tres} $\rightarrow$ \imp{Uno} y \imp{Cinco} $\rightarrow$ \imp{Seis} $\rightarrow$ \imp{Cuatro} $\rightarrow$ \imp{Uno} son dependientes entre sí, debemos seleccionar una vez más las versiones más profundas de cada método que entre en conflicto.
 
-\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
-                    caption=Código generado para el producto específico seleccionado en la figura \ref{app:fig:ejemplo1},
-                    label=app:code:ejemplo1]
-File Cinco/A.cs
---------------------------------------------------------
-01 namespace My_Ejemplo{
-02     public class A{
-03          public virtual void A ( ) {
-04              Seis_A_initA ( );
-05          }
-06          public virtual println ( ) {
-07              Seis_println ( );
-08          }
-09          public virtual add ( int i ) {
-10              Seis_add ( i );
-11          }
-12          public virtual remove ( int i ) {
-13              Cuatro_remove ( i );
-14          }
-15     }
-16 }
+%\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
+%                    caption=Código generado para el producto específico seleccionado en la figura \ref{app:fig:ejemplo1},
+%                    label=app:code:ejemplo1]
+%File Cinco/A.cs
+%--------------------------------------------------------
+%01 namespace My_Ejemplo{
+%02     public class A{
+%03          public virtual void A ( ) {
+%04              Seis_A_initA ( );
+%05          }
+%06          public virtual println ( ) {
+%07              Seis_println ( );
+%08          }
+%09          public virtual add ( int i ) {
+%10              Seis_add ( i );
+%11          }
+%12          public virtual remove ( int i ) {
+%13              Cuatro_remove ( i );
+%14          }
+%15     }
+%16 }
 
-File Cinco/B.cs
---------------------------------------------------------
-14 namespace My_Ejemplo{
-15     public class B{
-15          public virtual void B_initB ( ) {
-16              Dos_B_initB ( );
-17              Seis_B_initB ( );
-18          }
-19          public virtual close ( ) {
-20              Dos_close ( );
-21              Seis_close ( );
-22          }			
-23     }
-24 }
+%File Cinco/B.cs
+%--------------------------------------------------------
+%14 namespace My_Ejemplo{
+%15     public class B{
+%15          public virtual void B_initB ( ) {
+%16              Dos_B_initB ( );
+%17              Seis_B_initB ( );
+%18          }
+%19          public virtual close ( ) {
+%20              Dos_close ( );
+%21              Seis_close ( );
+%22          }			
+%23     }
+%24 }
 
-File Cinco/C.cs
---------------------------------------------------------
-25 namespace My_Ejemplo{
-26     public class C{
-27          public virtual void C_initC ( ) {
-28              Uno_C_initC ( );
-29          }
-30          public virtual ISet<int> add ( int i) {
-31              Uno_add ( i );
-32          }
-33     }
-34 }
+%File Cinco/C.cs
+%--------------------------------------------------------
+%25 namespace My_Ejemplo{
+%26     public class C{
+%27          public virtual void C_initC ( ) {
+%28              Uno_C_initC ( );
+%29          }
+%30          public virtual ISet<int> add ( int i) {
+%31              Uno_add ( i );
+%32          }
+%33     }
+%34 }
 
-\end{lstlisting}
+%\end{lstlisting}
 
-Al igual que como se ha comentado hasta ahora, también podemos incluir más de un paquete con profile para generar varios productos específicos, para cada uno de ellos se creará la implementación específica seleccionada, las soluciones son obviamente independientes entre sí.
+%Al igual que como se ha comentado hasta ahora, también podemos incluir más de un paquete con profile para generar varios productos específicos, para cada uno de ellos se creará la implementación específica seleccionada, las soluciones son obviamente independientes entre sí.
 
-Así pues queda explicado en detalle el proceso de generación de código para un producto específico del modelo UML a código C\#. En la siguiente sección se profundizará en la implementación y generación de código C\#.
