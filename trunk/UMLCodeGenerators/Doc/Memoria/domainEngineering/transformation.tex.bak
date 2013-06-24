@@ -1,11 +1,12 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %% Author : Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.3, 23/04/2013                                         %%
+%% Version: 1.4, 29/04/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Domain Engineering/Transformación UML a C#                       %%
 %%==================================================================%%
+
 \begin{table}%
 \begin{tabularx}{15cm}{|l|X|}
 \hline
@@ -32,8 +33,8 @@
     Clase parcial C\# siguiendo el patrón slicer, es decir $<$nombre del paquete al que pertenece$>$\_$<$nombre de la clase$>$. Al crear la clase, añadir también los métodos de utilidad. \\
 \hline
     % Clase enumerada
-\multicolumn{ 1}{|l|}{Clase} &
-    Clase parcial C\# siguiendo el patrón slicer, es decir $<$nombre del paquete al que pertenece$>$\_$<$nombre de la clase$>$. Al crear la clase, añadir también los métodos de utilidad. \\
+\multicolumn{ 1}{|l|}{Clase Enumerada} &
+    Clase enumerada C\#. \\
 \hline
    % Interfaz
 \multicolumn{ 1}{|l|}{Interfaz} &
@@ -71,7 +72,11 @@
   \label{dom:fig:ejemplo}
 \end{figure}
 
- El primer paso para la transformación de modelo a código (\emph{model-to-text}, M2T) es la identificación de los distintos elementos que nos podemos encontrar en un diagrama de clases UML y hallar el equivalente en código (C\# en nuestro caso). Hay que tener en cuenta que la transformación no es trivial y es necesario procesar la información obtenida del modelo para generar el código adecuadamente. En la tabla \ref{dom:fig:tranf} se encuentra un resumen de dicho proceso. A continuación se procede al análisis más detallado de cada uno de los elementos de dicha tabla, para ello nos apoyaremos en la figura \ref{dom:fig:ejemplo}.
+Como hemos comentado, el primer paso para desarrollar una transformación de modelo a código es: 
+(1) identificación de los distintos casos o tipos de entrada con los que nos podemos encontrar; y (2) hallar un equivalente en el lenguaje destino (C\# en nuestro caso).  La Tabla~\ref{dom:fig:tranf} se encuentra un resumen de dicho proceso. 
+
+
+A continuación se procede al análisis más detallado de cada uno de los elementos de dicha tabla, para ello nos apoyaremos en la figura \ref{dom:fig:ejemplo}.
 \begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
                     caption=Código generado para las clases y la interfaz del modelo de la figura \ref{dom:fig:ejemplo},
                     label=dom:code:ejemplo]
@@ -126,11 +131,20 @@ File PaqueteLleno/I.cs
 38          private virtual void I_initI ( ) {}
 39     }
 40 }
+
+File PaqueteLleno/E.cs
+--------------------------------------------------------
+41 namespace Ejemplo{	
+42     enum E {	
+43        Lunes,
+44        Martes,
+45     };
+46 }
 \end{lstlisting}
 
-El modelo de la figura \ref{dom:fig:ejemplo} es \imp{Ejemplo} y por tanto cada clase del proyecto debería comenzar definiendo el namespace del modelo en cuestión mediante la línea de código C\# tal como se aprecia en las líneas 1, 8, 20 y 31 del listing \ref{dom:code:ejemplo}.
+El modelo de la figura \ref{dom:fig:ejemplo} es \imp{Ejemplo} y por tanto cada clase del proyecto debería comenzar definiendo el namespace del modelo en cuestión mediante la línea de código C\# tal como se aprecia en las líneas 1, 8, 20, 31 y 41 del listing \ref{dom:code:ejemplo}.
 
-En la figura \ref{dom:fig:ejemplo} hay dos paquetes \imp{PaqueteLleno} y \imp{PaqueteVacío}, por tanto, en el directorio destino donde se generan los ficheros del modelo deberán aparecer dos carpetas con dichos nombres. La carpeta \imp{PaqueteLleno} contendrá en su interior cuatro ficheros denominados A.cs, B.cs, C.cs e I.cs (jerarquía indicada en las líneas 1, 11, 26 y 40 del listing \ref{dom:code:ejemplo}), uno por cada clase o interfaz que se encuentra en su interior, mientras que la carpeta \imp{PaqueteVacío} no contendrá ningún archivo en su interior.
+En la figura \ref{dom:fig:ejemplo} hay dos paquetes \imp{PaqueteLleno} y \imp{PaqueteVacío}, por tanto, en el directorio destino donde se generan los ficheros del modelo deberán aparecer dos carpetas con dichos nombres. La carpeta \imp{PaqueteLleno} contendrá en su interior cuatro ficheros denominados A.cs, B.cs, C.cs, I.cs y E.cs, uno por cada clase, clase enumerada (listing \ref{dom:code:ejemplo} 41-46) o interfaz que se encuentra en su interior, mientras que la carpeta \imp{PaqueteVacío} no contendrá ningún archivo en su interior.
 
 Tal como se aprecia en la figura \ref{dom:fig:ejemplo}, la clase \imp{A} del paquete \imp{PaqueteLleno}, tiene un atributo llamado \imp{num} por lo que se genera una propiedad con sus respectivos métodos getter y setter tal como se muestra en el listing \ref{dom:code:ejemplo} en las líneas 22-26.
 
