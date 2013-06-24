@@ -7,7 +7,36 @@
 %% Application Engineering/Algoritmo                                %%
 %%==================================================================%%
 
-En el capítulo \ref{chap:domain}, se ha descrito el desarrollo de la generación de código para todos los elementos del modelo de entrada. En la presente sección de describirá de forma detalla el proceso de generación de código para un producto específico, para ello nos apoyaremos en la figura \ref{app:fig:ejemplo}.
+Para obtener una implementación completamente funcional de un producto concreto, con unas características determinadas, de acuerdo con el \emph{Slicer Pattern} (ver Sección~\ref{}), es necesario: (1) crear una clase parcial por cada clase que deba estar incluida en el producto final; (2) crear la \emph{versión limpia} de cada constructor y cada método que deba estar incluido en el producto final; y (3) hacer que dichas versiones limpias deleguen en las \emph{versiones sucias} que corresponda. 
+
+El primer paso en el proceso de transformación es crear un nuevo proyecto y una nueva carpeta que represente el producto final. 
+
+Para calcular todas las clases que deben estar incluidas en el producto final, recorremos el modelo desde el paquete que representa el producto concreto, y que será siempre un paquete \emph{hoja}, hacia arriba, hasta llegar a la raíz, o raíces, del modelo orientado a características. Normalmente, siempre hay un modelo raíz que contiene los elementos que son comunes a todos los productos. 
+En nuestro caso, dicho recorrido generaría dos caminos distintos: (1) \imp{SmartEnergyMng}, \imp{WindowMng}, \imp{BaseSystem}; y (2) \imp{SmartEnergyMng}, \imp{HeaterMng}, \imp{BaseSystem}.
+
+Obviamente, una clase puede aparecer en más de un paquete. Por ejemplo, la clase \imp{Gateway} aparece en todos los paquetes, a excepción del que representa el producto final, de la Figura~\ref{}. No obstante, cada clase que esté en un camino desde el paquete hoja al paquete raíz, solo debe incluirse una vez en el producto final, aunque ésta aparezca varias veces. Por cada clase distinta presente en algunos de los caminos del paquete hoja a la raíz, generamos una nueva clase parcial, que colocamos en la carpeta que representa el producto final
+
+A continuación, para cada clase, debemos calcular todos los métodos limpios que debemos generar. Para ello, al igual que ocurría con las clases parciales, recorremos todos los caminos existentes de raíz a hoja. Para cada clase, por cada método distinto, es decir, con diferente signatura, creamos una versión limpia de dicho método dentro de la clase parcial incluida en el producto final. El proceso de generación del esqueleto del método se realiza reutilizando las plantillas de generación de código y facilidades creadas para la Ingeniería de Dominio.
+
+Por último, quedaría por generar el código de cada método, de forma que este delegue en la versión sucia del método que corresponda. Es esta fase del algoritmo de generación de código la que entraña mayor dificultad, porque pueden darse diversos casos. Analizamos cada caso a continuación.
+
+\subsection{Caso 1: Sólo existe una \emph{versión sucia} del método}
+
+Se trata del caso más simple. Sólo existe una \emph{versión sucia} del método, por lo que hay que hacer es delegar en él. \todo{Poner ejemplo con la figura}
+
+\subsection{Caso 2: Existen varias \emph{versiones sucias} independientes}
+
+\subsection{Caso 3: Existen \emph{versiones sucias} dependientes de un método}
+
+\subsection{Caso 3: Existen \emph{versiones sucias} dependientes e independientes de un método}
+
+%%===============================================================================================%%
+%% NOTA(Pablo): Esto con las A, B y C es un lío y no me entero muy bien, así que mejor lo        %%
+%%              eliminamos                                                                       %%
+%%===============================================================================================%%
+
+
+En la presente sección de describirá de forma detalla el proceso de generación de código para un producto específico, para ello nos apoyaremos en la figura \ref{app:fig:ejemplo}.
 \begin{figure}[!tb]
   \center
   \includegraphics[scale=0.50,angle=0]{applicationEngineering/images/Algoritmo.eps} \\
@@ -15,16 +44,7 @@ En el capítulo \ref{chap:domain}, se ha descrito el desarrollo de la generación 
   \label{app:fig:templates}
 \end{figure}
 
-El primer paso es crear un \emph{profile} que nos permita diferenciar las características del modelo de la selección de características requeridas para elaborar el producto específico. Un profile es un mecanismo genérico de extensión que permite personalizar los modelos UML para un dominio particular. En nuestro caso aplicamos dicho profile a la metaclase paquete tal como se aprecia en la figura \ref{app:fig:ejemplo} y denominamos al profile \imp{CasoConcreto}, se ha sombreado en el modelo aquel paquete al que le ha sido aplicado el profile \imp{CasoConcreto} para poder diferenciarlo visualmente del resto de paquetes del modelo.
 
-Partiendo del paquete que ha sido caracterizado con el profile, es necesario calcular todas las rutas del modelo que son requeridas, en la figura \ref{app:fig:ejemplo} se aprecia cómo hay una única ruta formada por los paquetes: \imp{Cinco} $\rightarrow$ \imp{Cuatro} $\rightarrow$ \imp{Uno}.
-
-Una vez reconocida la ruta, o conjunto de rutas, se procede a identificar el total de clases a implementar, en qué paquetes (de entre los de la ruta seleccionada) aparecen y las respectivas operaciones que implementan. En el ejemplo de la figura \ref{app:fig:ejemplo} tenemos tres clases a implementar: \imp{A}, \imp{B} y \imp{C}.
-\begin{itemize}
-  \item Clase A, está implementada en el paquete \imp{Uno} y \imp{Cuatro}.
-  \item Clase B, está implementada en el paquete \imp{Uno} y \imp{Cuatro}.
-  \item Clase C, está implementada en el paquete \imp{Uno}.
-\end{itemize}
 Nos encontramos así con dos conflictos, puesto que la misma clase (en nuestro caso la clase \imp{A} y la \imp{B}) está implementadas en dos paquetes diferentes. En estos casos, debemos buscar las operaciones que dicha clase implementa en ambos paquetes, de esta forma tenemos que:
 \begin{itemize}
   \item Clase A, implementa las operaciones \imp{println()} y \imp{remove (int i)} en el paquete \imp{Cuatro}, mientras que en el paquete \imp{Uno} implementa la operación \imp{println()}.

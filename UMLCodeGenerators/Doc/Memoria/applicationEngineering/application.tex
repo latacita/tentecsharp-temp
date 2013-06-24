@@ -10,11 +10,23 @@
 \chapterheader{Ingeniería de Aplicación}{Ingeniería de Aplicación}
 \label{chap:application}
 
-En este capítulo se describe la fase de \emph{Ingeniería de Aplicación} (en inglés, \emph{Application Engineering}) de nuestra línea de productos software. Dentro de dicha fase analizaremos el algoritmo necesario para la generación del producto específico, profundizaremos en el desarrollo e implementación de los generadores de código necesarios para tal fin y concluiremos con la fase de pruebas de dicha etapa del proyecto.
+El capítulo anterior describió el funcionamiento y desarrollo de los generadores de código para la fase de \emph{Ingeniería del Dominio}. Dichos generadores eran los encargados de crear los esqueletos de la implementación de referencia, los cuales debían completarse luego a mano. Este capítulo describen el funcionamiento y desarrollo de los generadores de código para la fase de \emph{Ingeniería de Aplicaciones}, los cuales tienen como objetivo adaptar la implementación de referencia a las necesidades de cada cliente. 
 
 \chaptertoc
+
+\section{Introducción}
+\label{application:sec:intro}
+
+\input{applicationEngineering/introduccion.tex}
+
+\section{Configuración de productos a nivel arquitectónico}
+\label{application:sec:alg}
+
+\input{applicationEngineering/modeloEntrada.tex}
+
 \section{Algoritmo para la implementación del producto específico}
 \label{application:sec:alg}
+
 \input{applicationEngineering/algoritmo.tex}
 
 \section{Generadores de Código C\#}
