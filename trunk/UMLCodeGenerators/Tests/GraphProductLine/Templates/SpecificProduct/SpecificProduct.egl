@@ -4,8 +4,8 @@
 // Author: Patricia Abascal Fernández
 // Version: 2.3
 // Last modification: 12/05/2013 
-// Description: Generates the files of all code classes. And
-//				return a set of all the paths.
+// Description: Generates the files of all code classes for 
+//				the specific product.
 ////////////////////////////////////////////////////////////
 import "../Operations.eol";
 import "MergeClasses.egl";

@@ -90,13 +90,13 @@ if (enumClassSize>0){
 	}
 } 
 // User selects a directory where to save the project file
-//var path= createSaveToDiskWindow();
+var path= createSaveToDiskWindow();
 // The directory is created
-//directory(path); 
-//var rootPath= path.replaceAll("\'", "\\");
+directory(path); 
+var rootPath= path.replaceAll("\'", "\\");
 // PARA HACER PRUEBAS RAPIDO->  
-var path="C:\\Users\\Patricia\\Desktop";
-var rootPath="C:\\Users\\Patricia\\Desktop\\Data";
+//var path="C:\\Users\\Patricia\\Desktop";
+//var rootPath="C:\\Users\\Patricia\\Desktop\\Data";
  
 // Create the Visual Studio files and directories inside the directory selected by the user
 // First level of directories and/or files: 
@@ -151,7 +151,7 @@ message=message+"property_<Number>_From_<NameOfTheClass>.\n";
 // Write in the log file
 writeInFile(path+"\\log.txt", message);  
 // Show the log file
-//createWindowAndShowMessages(path+"\\log.txt");
+createWindowAndShowMessages(path+"\\log.txt");
 // Delete the log file after the execution
 deleteFile(path, "log.txt");    
 %] 
