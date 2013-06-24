@@ -22,7 +22,7 @@ Cada regla de transformación la ilustramos utilizando el ejemplo de la Figura~\r
 
 \subsection{Modelo}
 
-Un modelo UML, es decir, el elemento raíz que contiene al resto de los elementos de un modelo UML, se transforma en el \emph{namespace} para el proyecto C\#. Los \emph{namespaces} permiten agrupar entidades tales como paquetes, clases, objetos y funciones bajo el mismo nombre. De esta forma, se pueden tener varios \emph{namespaces} en el mismo proyecto que son independientes entre sí. 
+Un modelo UML, es decir, el elemento raíz que contiene al resto de los elementos de un modelo UML, se transforma en el \emph{namespace} para el proyecto C\#. Los \emph{namespaces} permiten agrupar entidades tales como paquetes, clases, objetos y funciones bajo el mismo nombre. De esta forma, se pueden tener varios \emph{namespaces} en el mismo proyecto que son independientes entre sí.
 
 Recordar que para que varias clases parciales puedan ser combinadas, éstas deben pertenecer a un mismo \emph{namespace}. Por tanto, se utiliza como nombre de dicho \emph{namespace}, el nombre del modelo UML 2.0 que sirve de entrada a los generadores de código.
 
@@ -30,7 +30,7 @@ Además, al transformar el modelo UML 2.0, se crea un proyecto Visual Studio 2010
 
 Para el caso de la Figura~\ref{back:fig:smartHome}, el nombre del modelo, el cual no aparece en el diagrama, es \emph{SmartHome}. Por tanto, se crearía un proyecto Visual Studio 2010, con \emph{SmartHome} como nombre. Dentro de dicho proyecto, se crearía un \emph{namespace} denominado \emph{SmartHome}.
 
-\subsection{Paquete} 
+\subsection{Paquete}
 
 Cada paquete UML 2.0 representa en nuestro caso una familia de clases, la cual encapsula una característica. Por tanto, por cada paquete UML 2.0, se crea una nueva carpeta o directorio, con el mismo nombre que el paquete, en el proyecto Visual Studio 2010 creado al transformar el modelo que contiene dicho paquete. En dicho directorio se colocarán todos los ficheros resultantes de transformar el contenido de dicho paquete.
 
@@ -39,88 +39,92 @@ Por ejemplo, para el caso de la Figura~\ref{back:fig:smartHome}, durante la tran
 \subsection{Tipos primitivos}
 \label{subsec:domain:primitiveType}
 
-Por cada tipo primitivo de UML 2.0, se establece una correspondencia con los tipos primitivos de C\#. Por ejemplo, un \emph{String} de UML 2.0 se transforma en \emph{String} de C\#. Un \emph{boolean} de UML 2.0 se transforma en un \emph{bool} de C\#. Esta correspondencia es bastante directa y no presenta problemas más de allá de tener que renombrar algunos tipos. 
-
-\todo{¿Es esto correcto?}
+Por cada tipo primitivo de UML 2.0, se establece una correspondencia con los tipos primitivos de C\#. Por ejemplo, un \emph{String} de UML 2.0 se transforma en \emph{String} de C\#. Un \emph{boolean} de UML 2.0 se transforma en un \emph{bool} de C\#. Esta correspondencia es bastante directa y no presenta problemas más de allá de tener que renombrar algunos tipos.
 
 \subsection{Clases Enumeradas}
 
-Cada clase enumerada UML 2.0, se transforma en un enumerado de C\#, con el mismo nombre que el enumerado UML 2.0. A continuación, se procesan los literales de la clase enumerado UML 2.0, añadiendo un literal con el mismo nombre al enumerado creado en C#. 
+Cada clase enumerada UML 2.0, se transforma en un enumerado de C\#, con el mismo nombre que el enumerado UML 2.0. A continuación, se procesan los literales de la clase enumerado UML 2.0, añadiendo un literal con el mismo nombre al enumerado creado en C#.
 
-Por ejemplo, la clase enumerada \imp{TempUnits} de la característica \imp{HeaterMng} se transformaría en un enumerado de C\#, con nombre \imp{TempUnits}, perteneciente al \emph{namespace} \imp{HeaterMng}, y con \imp{CELSIUS} y \imp{FARENHEIT} como literales. El Listado~\ref{} muestra el código resultante de esta transformación.
+Por ejemplo, la clase enumerada \imp{TempUnits} de la característica \imp{HeaterMng} se transformaría en un enumerado de C\#, con nombre \imp{TempUnits}, perteneciente al \emph{namespace} \imp{HeaterMng}, y con \imp{CELSIUS} y \imp{FARENHEIT} como literales. El Listado~\ref{dom:code:enum} muestra el código resultante de esta transformación.
 
-\todo{Poner código}
+\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
+                    caption=Código generado para la clase enumerada \imp{TempUnits},
+                    label=dom:code:enum]
+01 namespace SmartHome{
+02    enum TempUnits {
+03        CELSIUS,
+04        FARENHEIT
+05    };
+06 }
+\end{lstlisting}
 
 \subsection{Clase}
-
-Por cada clase UML 2.0 encontrada dentro de un paquete, se genera una clase parcial sita en el directorio correspondiente al paquete al cual pertenece. El nombre de la clase parcial es el mismo que el de la clase UML 2.0. 
+\label{subsec:domain:class}
+Por cada clase UML 2.0 encontrada dentro de un paquete, se genera una clase parcial sita en el directorio correspondiente al paquete al cual pertenece. El nombre de la clase parcial es el mismo que el de la clase UML 2.0.
 
 Por ejemplo, para la clase \emph{WindowCtrl}, del paquete \emph{WindowMng}, se crearía una clase parcial pública, denominada \emph{WindowCtrl}, y sita en la carpeta del proyecto \emph{WindowMng}.
-    
-A continuación, se procesan los contenidos de dicha clase, tal como se describe a continuación. 
 
-\subsection{Atributo} 
+A continuación, se procesan los contenidos de dicha clase, tal como se describe a continuación.
 
-Cada atributo de una clase en UML 2.0 se transforma en una propiedad de C\#, perteneciente a clase parcial correspondiente a la clase que posee el atributo en el modelo UML 2.0. Dicha propiedad tendrá siempre visibilidad \emph{protegida} (\emph{protected}), salvo que estuviese declarada como \emph{privada} (\emph{private})en el modelo UML 2.0, en cuyo caso se mantendrá la visibilidad privada.
+\subsection{Atributo}
+\label{subsec:domain:atrib}
+Cada atributo de una clase en UML 2.0 se transforma en una propiedad de C\#, perteneciente a clase parcial correspondiente a la clase que posee el atributo en el modelo UML 2.0. Dicha propiedad tendrá siempre visibilidad \emph{protegida} (\emph{protected}), salvo que estuviese declarada como \emph{privada} (\emph{private}) en el modelo UML 2.0, en cuyo caso se mantendrá la visibilidad privada.
 
-Si el atributo era público en el modelo UML, se le generarán métodos de acceso (\emph{getter} y \emph{setter}) a dicha propiedad. si el atributo fuese de solo lectura o derivado, no se le generaría método de escritura (\emph{setter}). 
+Si el atributo era público en el modelo UML, se le generarán métodos de acceso (\emph{getter} y \emph{setter}) a dicha propiedad. Si el atributo fuese de solo lectura o derivado, no se le generaría método de escritura (\emph{setter}).
 
-Si el atributo fuese estático (\emph{static}), se generará como estático en el código C\#, y no se le generarán métodos de acceso. 
+Si el atributo fuese estático (\emph{static}), se generará como estático en el código C\#, y no se le generarán métodos de acceso.
 
 Si el tipo del atributo es un tipo primitivo y el atributo no es multivaluado, es decir, la cota superior de su multiplicidad es igual a 1, se utiliza como tipo su correspondiente en C\#, de acuerdo las correspondencias comentadas en la Sección~\ref{subsec:domain:primitiveType}. Si el tipo fuese una clase u otro tipo no primitivo, el tipo será el nombre resultante de transformar dicho elemento no primitivo.
 
-Por ejemplo, el atributo \imp{id} de la clase \imp{Actuator}, dentro de la característica \imp{BaseSystem}, se transformaría en una propiedad llamada \imp{id}, de la clase \imp{Actuator}, sita en la carpeta \imp{BaseSystem}, y perteneciente al \emph{namespace} \imp{SmartHome}. Como tipo para dicha propiedad, se utilizaría \imp{Int}. 
+Por ejemplo, el atributo \imp{id} de la clase \imp{Actuator}, dentro de la característica \imp{BaseSystem}, se transformaría en una propiedad llamada \imp{id}, de la clase \imp{Actuator}, sita en la carpeta \imp{BaseSystem}, y perteneciente al \emph{namespace} \imp{SmartHome}. Como tipo para dicha propiedad, se utilizaría \imp{Int}.
 
-Para el caso del el atributo \imp{units} de la clase \imp{Actuator}, dentro de la característica \imp{HeaterMng}, se utilizaría como tipo \imp{TempUnits}, ya que sería éste el nombre del enumerado resultante de transformar la clase enumerada que sirve como tipo de este atributo.
+Para el caso del atributo \imp{units} de la clase \imp{Actuator}, dentro de la característica \imp{HeaterMng}, se utilizaría como tipo \imp{TempUnits}, ya que sería éste el nombre del enumerado resultante de transformar la clase enumerada que sirve como tipo de este atributo.
 
-Si el atributo fuese un atributo un atributo multivaluado, es decir, la cota superior de su multiplicidad es superior a 1, el tipo de la propiedad generada será una colección que use como tipo base el tipo del atributo. Dependiendo de ciertas propiedades del atributo \imp{isOrdered} e \imp{isUnique}, se deberá utilizar un tipo de colección u otro. 
+Si el atributo fuese un atributo un atributo multivaluado, es decir, la cota superior de su multiplicidad es superior a 1, el tipo de la propiedad generada será una colección que use como tipo base el tipo del atributo. Dependiendo de ciertas propiedades del atributo \imp{isOrdered} e \imp{isUnique}, se deberá utilizar un tipo de colección u otro:
 
-\todo{Explicar el tipo de colección elegida en cada caso y por qué}
-
+%\todo{Explicar el tipo de colección elegida en cada caso y por qué}
+\begin{itemize}
+  \item Si el atributo tiene la propiedad \imp{isOrdered=false} e \imp{isUnique=false} estamos ante una colección que admite elementos repetidos y no precisa estar ordenada, por tanto una \imp{ICollection}.
+  \item Si el atributo tiene la propiedad \imp{isOrdered=false} e \imp{isUnique=true} se trata de un conjunto \imp{ISet} ya que la colección es de elementos únicos y no es necesario que esté ordenada.
+  \item Si el atributo tiene la propiedad \imp{isOrdered=true} e \imp{isUnique=false} se corresponde con una propiedad de tipo lista \imp{IList} porque son elementos en los que el orden es relevante y admite repeticiones.
+  \item En último lugar, si el atributo tiene la propiedad \imp{isOrdered=true} e \imp{isUnique=true} estamos ante un caso raro y no utilizado del que no se conocen equivalencias en lenguaje C\# por lo que realiza una transformación a \imp{IList}, haciendo saber al usuario final durante el proceso que se ha realizado dicha transformación, en el caso de que fuera necesaria.
+\end{itemize}
+ 
 \subsection{Extremos de asociación}
+Por cada asociación entre clases en UML 2.0 se transforma en una asociación C\#. Estas asociaciones pueden ser de dos tipos:
+\begin{itemize}
+  \item Unidireccional. Por ejemplo, la asociación \imp{indoorThem} de la característica \imp{SmartEnergyMng} indica que la clase \imp{Gateway} de dicha característica dispone de una propiedad de tipo \imp{ThermometerCtrl} de carácter monovaluado puesto que presenta multiplicidad 1. Por otro lado, en la asociación \imp{actuators} de la característica \imp{InitialModel} se aprecia que dicha propiedad es de carácter multivaluado en tal caso se procedería a analizar el tipo de colección de la que se trata tal como se describió en la Sección \ref\label{subsec:domain:atrib}.
+  \item Bidireccional. Aquellos casos en los que la asociación tiene lugar en ambos sentidos y por tanto las dos clases involucradas poseen atributos de la otra y viceversa. Dependiendo del tipo de bidireccionalidad (one to one, one to many o many to many) se añaden los atributos y métodos adicionales necesarios para implementar el correcto funcionamiento de dicha asociación, se profundizará sobre este tipo de asociaciones en la Sección \ref{domain:sec:ejcomplejo}.
+\end{itemize} 
+
+\subsection{Generalización}
+Por cada generalización en UML 2.0 se transforma en una generalización C\#. Estas generalizaciones pueden ser de dos tipos:
+   \begin{itemize}
+  \item Simple. Por ejemplo, la generalización en la característica \imp{WindowMng} de la clase \imp{WindowCtrl} respecto a la clase \imp{Actuator} quedaría reflejado en un cambio de la declaración de dicha clase parcial de forma que pasaría de estar definida como: \imp{partial class WindowCtrl} a estar definida así: \imp{partial class WindowCtrl : Actuator}
+  \item Múltiple. Cuando una clase de una característica posee varias generalizaciones se deben crear interfaces equivalentes a dichas clases a generalizar ya que en C\# no se permite la herencia múltiple de varias clases pero sí de varias interfaces. Se profundizará sobre este tipo de generalizaciones en la Sección \ref{domain:sec:ejcomplejo}.
+\end{itemize}
+    
+\subsection{Operación}
+Cada operación de una clase en UML 2.0 se transforma en un método de C\#, perteneciente a clase parcial correspondiente a la clase que posee la operación en el modelo UML 2.0. Dicho método tendrá siempre la visibilidad privada (\emph{private}) y será renombrado acorde al Patrón Slicer. Además para evitar posibles conflictos, todos los métodos serán virtuales. Los métodos con visibilidad \emph{protected} no se modificarán a visibilidad privada para respetar la visibilidad requerida inicialmente por el usuario.
+
+Por ejemplo, el método \imp{openWindow} de la clase \imp{Gateway} perteneciente a la característica \imp{SmartEnergyMng} será renombrado como \imp{SmartEnergyMng\_openWindow} en la correspondiente clase parcial \imp{Gateway} dentro de la carpeta del proyecto \imp{SmartEnergyMng}.
+
+Las operaciones cuentan con parámetros que se describen a continuación.
+
+\subsection{Parámetro}
+Las operaciones presentan dos tipos de parámetros: de entrada o de retorno. Para ambos de procede de forma análoga al tratamiento de los atributos descritos en la Sección \ref{subsec:domain:atrib}. Por ejemplo, la operación mencionada en la sección anterior, \imp{openWindow}, cuenta con un parámetro de entrada \imp{id} de tipo primitivo en este caso \imp{Integer}, es una operación de tipo \imp{void} ya que no dispone de un parámetro de retorno asociado. 
+
+\subsection{Constructor}
+Cada clase parcial generada a partir de cada clase UML 2.0 encontrada dentro de un paquete en el modelo, implementa un método privado que se corresponde con la porción de constructor para dicha clase en dicha característica.
+
+Por ejemplo, para la clase parcial \imp{Gateway} de la característica \imp{HeaterMng}, se genera un método denominado \imp{HeaterMng\_initGateway}. De manera análoga, para la clase parcial \imp{Gateway} de la característica \imp{WindowMng}, se genera un método denominado \imp{WindowMng\_initGateway} y así sucesivamente.
+
+\subsection{Interfaz}
+La generación de interfaces se realiza de forma análoga a la generación de clases tal como se ha explicado en la Sección \ref{subsec:domain:class}.
 
 
 
-
-\hline
-   % Parámetro
-\multicolumn{ 1}{|l|}{Parámetro} &
-    Después de identificar si es de retorno de una operación o de entrada a la misma se aplica la transformación al tipo de dato correspondiente.\\
-\hline
-    % Clase
-\hline
-   % Interfaz
-\multicolumn{ 1}{|l|}{Interfaz} &
-   Interfaz C\#  implementada siguiendo el patrón slicer. \\
-\hline
-   % Operacion
-\multicolumn{ 1}{|l|}{Operación} &
-    Método C\# privado y renombrado siguiendo el patrón slicer de la forma $<$nombre del paquete al que pertenece$>$\_$<$nombre de la operación$>$, para evitar posibles conflictos, todos los métodos serán virtuales. Los métodos \emph{protected} no se cambiarán a privados para respetar la visibilidad requerida inicialmente por el usuario.  \\
-\hline
-   % Constructor
-\multicolumn{ 1}{|l|}{Constructor} &
-    Cada clase parcial correspondiente a una característica tendrá un método privado llamado $<$nombre del paquete al que pertenece$>$\_init$<$nombre de la clase$>$ que contendrá la porción de constructor que corresponde a la característica. \\
-\hline
-   % Asociación entre clases
-\multicolumn{ 1}{|l|}{Asociación} &
-    \emph{Asociación simple:} Se añade el atributo, simple o colección, de tipo Class a la clase destino.\\
-\multicolumn{ 1}{|l|}{} &
-    \emph{Asociación bidireccional:} Dependiendo del tipo de bidireccionalidad (one to one, one to many o many to many) se añaden los atributos y métodos adicionales necesarios para implementar el correcto funcionamiento de dicha asociación.  \\
-\hline
-   % Generalización
-\multicolumn{ 1}{|l|}{Generalización} &
-    \emph{Herencia simple:} Una clase hereda de otra clase.\\
-\multicolumn{ 1}{|l|}{} &
-    \emph{Herencia múltiple:} Una clase hereda de varias clases y se debe realizar la transformación correspondiente mediante la creación de interfaces ya que en C\# no se permite la herencia múltiple de varias clases pero sí de varias interfaces.   \\
-\hline
-\end{tabularx}
-\end{small}
-  \caption{Transformación de elementos del modelo UML a código C\#}
-  \label{dom:fig:tranf}
-\end{table}%
-
-
-%%===================================================================%% 
+%%===================================================================%%
 
 
 A continuación se procede al análisis más detallado de cada uno de los elementos de dicha tabla, para ello nos apoyaremos en la Figura~\ref{dom:fig:ejemplo}.

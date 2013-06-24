@@ -26,15 +26,14 @@ Para introducir al lector en la implementación de los generadores de código, vam
   \item Línea 49, se retorna el string con todos los métodos de la clase o interfaz actual.
 \end{itemize}
 
-Un vez explicado un ejemplo sencillo, las siguiente sección {domain:sec:ejcomplejo} explica ejemplos más complejos que quedan a la curiosidad del lector.
-
 \begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
                     caption=Implementación del generador de código \imp{MethodsCreation},
                     label=dom:code:method]
-01 [%import "ReturnParameterCreation.egl";
+01 [\%import "ReturnParameterCreation.egl";
 02 import "ParametersCreation.egl";
 03 import "../Operations.eol";
-04 operation Element classMethods(currentPackage: String, path: String): String {   		
+04 operation Element classMethods(currentPackage: String, path: String)
+                     : String {   		
 05  ...
 06  opers=private()+void()+currentPackage+"_init"
           +self.firstToUpperCase()+" ( ) {}\n\t\t";
@@ -90,5 +89,5 @@ Un vez explicado un ejemplo sencillo, las siguiente sección {domain:sec:ejcomple
 50 }%]
 \end{lstlisting}
 
-
+Un vez explicado un ejemplo sencillo, la siguiente sección \ref{domain:sec:ejcomplejo} explica ejemplos más complejos que quedan a la curiosidad del lector.
 
