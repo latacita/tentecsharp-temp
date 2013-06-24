@@ -7,11 +7,11 @@
 %% Application Engineering/Algoritmo                                %%
 %%==================================================================%%
 
-Para obtener una implementación completamente funcional de un producto concreto, con unas características determinadas, de acuerdo con el \emph{Slicer Pattern} (ver Sección~\ref{}), es necesario: (1) crear una clase parcial por cada clase que deba estar incluida en el producto final; (2) crear la \emph{versión limpia} de cada constructor y cada método que deba estar incluido en el producto final; y (3) hacer que dichas versiones limpias deleguen en las \emph{versiones sucias} que corresponda. 
+Para obtener una implementación completamente funcional de un producto concreto, con unas características determinadas, de acuerdo con el \emph{Slicer Pattern} (ver Sección~\ref{sec:back:slicer}), es necesario: (1) crear una clase parcial por cada clase que deba estar incluida en el producto final; (2) crear la \emph{versión limpia} de cada constructor y cada método que deba estar incluido en el producto final; y (3) hacer que dichas versiones limpias deleguen en las \emph{versiones sucias} que corresponda.
 
-El primer paso en el proceso de transformación es crear un nuevo proyecto y una nueva carpeta que represente el producto final. 
+El primer paso en el proceso de transformación es crear un nuevo proyecto y una nueva carpeta que represente el producto final.
 
-Para calcular todas las clases que deben estar incluidas en el producto final, recorremos el modelo desde el paquete que representa el producto concreto, y que será siempre un paquete \emph{hoja}, hacia arriba, hasta llegar a la raíz, o raíces, del modelo orientado a características. Normalmente, siempre hay un modelo raíz que contiene los elementos que son comunes a todos los productos. 
+Para calcular todas las clases que deben estar incluidas en el producto final, recorremos el modelo desde el paquete que representa el producto concreto, y que será siempre un paquete \emph{hoja}, hacia arriba, hasta llegar a la raíz, o raíces, del modelo orientado a características. Normalmente, siempre hay un modelo raíz que contiene los elementos que son comunes a todos los productos.
 En nuestro caso, dicho recorrido generaría dos caminos distintos: (1) \imp{SmartEnergyMng}, \imp{WindowMng}, \imp{BaseSystem}; y (2) \imp{SmartEnergyMng}, \imp{HeaterMng}, \imp{BaseSystem}.
 
 Obviamente, una clase puede aparecer en más de un paquete. Por ejemplo, la clase \imp{Gateway} aparece en todos los paquetes, a excepción del que representa el producto final, de la Figura~\ref{}. No obstante, cada clase que esté en un camino desde el paquete hoja al paquete raíz, solo debe incluirse una vez en el producto final, aunque ésta aparezca varias veces. Por cada clase distinta presente en algunos de los caminos del paquete hoja a la raíz, generamos una nueva clase parcial, que colocamos en la carpeta que representa el producto final
