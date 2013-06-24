@@ -1,38 +1,42 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %% Author : Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.1, 21/04/2013                                         %%
+%% Version: 1.2, 15/05/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
-%% Capítulo Domain Engineering, Archivo raíz                        %%
+%% Capítulo Application Engineering, Archivo raíz                   %%
 %%==================================================================%%
 
 \chapterheader{Ingeniería de Aplicación}{Ingeniería de Aplicación}
 \label{chap:application}
 
-En este capítulo se describe la fase de \emph{Ingeniería de Aplicación} (en inglés, \emph{Application Engineering}) de nuestra línea de productos software. Dentro de dicha fase analizaremos cómo se transforman los elementos del modelo a código C\#, profundizaremos en el desarrollo e implementación de los generadores de código junto con la explicación de varios ejemplos y concluiremos con la fase de pruebas de dicha etapa del proyecto.
+El capítulo anterior describió el funcionamiento y desarrollo de los generadores de código para la fase de \emph{Ingeniería del Dominio}. Dichos generadores eran los encargados de crear los esqueletos de la implementación de referencia, los cuales debían completarse luego a mano. Este capítulo describen el funcionamiento y desarrollo de los generadores de código para la fase de \emph{Ingeniería de Aplicaciones}, los cuales tienen como objetivo adaptar la implementación de referencia a las necesidades de cada cliente. 
 
 \chaptertoc
+
+\section{Introducción}
+\label{application:sec:intro}
+
+\input{applicationEngineering/introduccion.tex}
+
+\section{Configuración de productos a nivel arquitectónico}
+\label{application:sec:alg}
+
+\input{applicationEngineering/modeloEntrada.tex}
+
 \section{Algoritmo para la implementación del producto específico}
 \label{application:sec:alg}
+
 \input{applicationEngineering/algoritmo.tex}
 
 \section{Generadores de Código C\#}
 \label{application:sec:transf}
 \input{applicationEngineering/gen.tex}
 
-\section{Ejemplo de Generación de Código C\#: Caso Sencillo}
-\label{application:sec:ejsencillo}
-%\input{applicationEngineering/ejemploSencillo.tex}
-
-\section{Ejemplo de Generación de Código C\#: Caso Complejo}
-\label{application:sec:ejcomplejo}
-%\input{applicationEngineering/ejemploComplejo.tex}
-
-\section{Pruebas con EUnit}
+\section{Pruebas}
 \label{application:sec:pruebas}
-%\input{applicationEngineering/pruebas.tex}
+\input{applicationEngineering/pruebas.tex}
 
 \section{Sumario}
-Durante este capítulo se han descrito la fase de \emph{Ingeniería de Aplicación} de nuestra línea de productos software. ------------Dentro de dicha fase se ha analizado cómo se transforman los elementos del modelo a código C\#, el desarrollo e implementación de los generadores de código junto con la explicación de varios ejemplos y se ha concluído con la fase de pruebas.
+Durante este capítulo se han descrito la fase de \emph{Ingeniería de Aplicación} de nuestra línea de productos software. Dentro de dicha fase se ha analizado el algoritmo necesario para la generación del producto específico, se ha profundizado también en el desarrollo e implementación de los generadores de código necesarios para tal fin y se ha concluído con la fase de pruebas de dicha etapa del proyecto.
 
