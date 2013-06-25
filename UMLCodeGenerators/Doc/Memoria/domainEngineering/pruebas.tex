@@ -1,46 +1,34 @@
-%%==========================================================================%%
-%% Author : Abascal Fernández, Patricia                                     %%
-%% Author : Sánchez Barreiro, Pablo                                         %%
-%% Version: 1.4, 29/04/2013                                                 %%
-%%                                                                          %%
-%% Memoria del Proyecto Fin de Carrera                                      %%
-%% Domain Engineering/Pruebas con EUnit                                     %%
-%%==========================================================================%%
-EUnit es un sistema de pruebas \cite{kolovos:2008} unitarias que proporciona assertions para la comparación de modelos, archivos y directorios. Una \emph{assertion} es un predicado, verdadero o falso, colocado en un programa para indicar que el desarrollador cree que el predicado es siempre cierto en ese lugar. Las pruebas pueden reutilizarse con diferentes conjuntos de modelos y datos de entrada, y las diferencias entre los modelos esperados y los reales pueden ser visualizadas gráficamente.
+%%=======================================================================%%
+%% Author : Abascal Fernández, Patricia                                  %%
+%% Author : Sánchez Barreiro, Pablo                                      %%   %%                                                                       %%
+%% Version: 2.0, 25/06/2013                                              %%   %%                                                                       %%
+%% Memoria del Proyecto Fin de Carrera                                   %% %% Domain Engineering/Pruebas con EUnit                                  %%   %%=======================================================================%%
 
-Al comenzar la fase de pruebas me encontré con el problema inicial de que EUnit no tenía implementada la comparación de fragmentos de texto en los ficheros generados que era precisamente la manera de comprobar que los generadores de código funcionaban correctamente. De tal forma procedí a realizar una petición en el foro de la plataforma e incorporaron una nueva assertion denominada \imp{assertLineWithMatch} que permitía comprobar si un fichero disponía de un determinado fragmento de texto o no (líneas 1-4 del listing \ref{dom:code:eunit}). También era necesario comprobar que los ficheros y directorios se creaban correctamente por lo que la assertion \imp{assertEqualDirectories} es válida para tal fin (líneas 6-9 del listing \ref{dom:code:eunit}). Y por último, se debe comprobar que las plantillas lanzan las excepciones oportunas para los casos no válidos, mediante la combinación de las instrucciones \imp{assertError} y \imp{runTarget}, se puede comprobar si el fichero deseado lanza o no una excepción (líneas 11-16 del listing \ref{dom:code:eunit}). Con estas assertions se procede a realizar todos los casos de prueba descritos en la tabla \ref{dom:table:prueba} con resultados satisfactorios.
+Una vez implementados los generadores de código, la siguiente tarea era comprobar su correcto funcionamiento. Para ello creamos, de forma sistemática, una serie de pruebas unitarias que permitiesen comprobar el correcto funcionamiento de los generadores de código para un exhaustivo conjunto de diferentes tipos de entrada. Estas pruebas unitarias se implementaron en \emph{EUnit}~\cite{kolovos:2008}, el lenguaje de definición de pruebas de la suite Epsilon. El funcionamiento de \emph{EUnit} es similar al de \emph{JUnit}, pero aplicado a los lenguajes de la suite Epsilon, como EGL. 
 
-\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
-                    caption=Pruebas de los generadores de código con EUnit,
-                    label=dom:code:eunit]
-01 @test
-02 operation classWithNameAndWithoutType() {
-03    assertLineWithMatch(path+"Data\\src\\BasicGraph\\Edge.cs",
-                          "partial class Edge");
-04 }
-05 ...
-06 @test
-07 operation emptyPackage() {
-08    assertEqualDirectories(path+"Data\\src\\PaqueteVacio",
-                             path+"\\Data\\src\\PaqueteVacio");
-09 }
-10 ...
-11 @test
-12 operation thowsExceptions() {
-13    ...
-14    assertError(runTarget(pathTemplates+'\\ParametersCreation.egl'));
-15    ...
-16 }
-\end{lstlisting}
+Para comprobar que el funcionamiento del generador de código es correcto, se diseña el caso de prueba y se crea la salida de ese caso de prueba de forma manual. A continuación, se ejecuta el caso de prueba y se comprueba que la salida generada coincide con la esperada, que es la creada manualmente. Al intentar implementar estas pruebas en \emph{EUnit}, nos encontramos con el problema inicial de que este lenguaje no tenía implementada la comparación de fragmentos de texto en ficheros, que era precisamente la funcionalidad que nos hacía falta. No obstante, se cursó una petición a los creadores de Epsilon, los cuales, muy amablamente, incorporaron dicha funcionalidad a \emph{EUnit}. De igual forma, añadieron otra funcionalidad para comprobar que dos directorios contenían los mismos archivos (\imp{assertEqualDirectories}).
 
+Para el diseño de los casos de prueba se siguió inicialmente un enfoque de caja negra, basado en una adaptación de la técnica de clases de equivalencia y análisis de valores límite al entorno de los modelos software. Una vez ejecutadas estas pruebas, se analizó la cobertura alcanzada, definiendo pruebas adicionales, ya de caja blanca, de forma que la cobertura alcanzada fuese del 100\%.
+ 
+La Tabla~\ref{dom:table:prueba} resume algunos de los casos de prueba
+ejecutados. Concretamente, se muestran los casos de prueba para analizar el comportamiento de las plantillas de generación de código para paquetes y clases. 
+
+%%======================================================================%%
+%%
 
 \begin{table}%
-\begin{tabularx}{17cm}{|l|X|l|}
+\begin{small}
+\begin{tabularx}{|l|p@10cm|l|}
  \hline
 {}&{Casos válidos}&{Casos no válidos} \\ \hline
+\multirow{4}{*}{Paquete} & Paquete con nombre. & Paquete sin nombre. \\
+& Paquete con clases e interfaces en su interior. & \\
+& Paquete vacío. & \\
+& Paquete dentro de otro paquete (recursividad). & \\
+\hline
 \multirow{12}{*}{Clase} & Clase con nombre. & Clase fuera de un paquete. \\
 & Clase tipo abstract. & Clase sin nombre.\\
-& Clase sin tipo. & Clase enumerada.\\
+& Clase sin tipo. & \\
 & Clase que hereda de una o varias clases. &\\
 & Clase que hereda de una o varias interfaces. &\\
 & Clase que hereda de clases e interfaces. &\\
@@ -50,11 +38,6 @@ Al comenzar la fase de pruebas me encontré con el problema inicial de que EUnit 
 & Clase con propiedades. &\\
 & Clase con métodos. &\\
 & Clase con propiedades y métodos. &\\
-\hline
-\multirow{4}{*}{Paquete} & Paquete con nombre. & Paquete sin nombre. \\
-& Paquete con clases e interfaces en su interior. & \\
-& Paquete vacío. & \\
-& Paquete dentro de otro paquete (recursividad). & \\
 \hline
 \multirow{4}{*}{Clase Enumerada} & Clase enumerada con nombre. & Clase enumerada sin nombre. \\
 & Clase enumerada con literales. & \\
@@ -97,8 +80,37 @@ Al comenzar la fase de pruebas me encontré con el problema inicial de que EUnit 
 & Herencia múltiple (se debe implementar interfaces y clases adicionales, si fuera necesario). & \\
 \hline
 \end{tabularx}
-\caption{Casos de prueba para la fase de Ingeniería de Dominio}
+\end{small}
+\caption{Casos de prueba para lo generadores de Ingeniería del Dominio}
 \label{dom:table:prueba}
 \end{table}%
+
+
+
+
+\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
+                    caption=Pruebas de los generadores de código con EUnit,
+                    label=dom:code:eunit]
+01 @test
+02 operation classWithNameAndWithoutType() {
+03    assertLineWithMatch(path+"Data\\src\\BasicGraph\\Edge.cs",
+                          "partial class Edge");
+04 }
+05 ...
+06 @test
+07 operation emptyPackage() {
+08    assertEqualDirectories(path+"Data\\src\\PaqueteVacio",
+                             path+"\\Data\\src\\PaqueteVacio");
+09 }
+10 ...
+11 @test
+12 operation thowsExceptions() {
+13    ...
+14    assertError(runTarget(pathTemplates+'\\ParametersCreation.egl'));
+15    ...
+16 }
+\end{lstlisting}
+
+
 
 
