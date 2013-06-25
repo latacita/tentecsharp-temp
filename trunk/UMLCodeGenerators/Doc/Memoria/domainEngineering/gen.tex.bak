@@ -1,11 +1,14 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %% Author : Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.2, 29/04/2013                                         %%
+%% Version: 2.9, 25/04/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Domain Engineering/Generadores de Código C#                      %%
 %%==================================================================%%
+
+Para implementar los generadores de código, se procedió en encapsular cada una de las reglas descritas en la sección anterior en un \emph{template} de EGL. Además, se crearon una serie de funciones auxiliares en EOL. Por ejemplo, se creó una función auxiliar para determinar el tipo de colección que debe ser utilizada para transformar un atributo multivaluado, es decir, con cota superior de su multiplicidad mayor que uno. 
+
 Tras explicar a grandes rasgos las transformaciones de modelo a código en la sección \ref{dom:sec:transf}, se procede a comentar la implementación de los generadores de código correspondientes. La figura \ref{dom:fig:templates} muestra la jerarquía de los generadores de código implementados.
 
 \begin{figure}[!tb]

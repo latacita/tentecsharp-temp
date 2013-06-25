@@ -9,23 +9,27 @@
 
 Para implementar los generadores de código, se procedió en encapsular cada una de las reglas descritas en la sección anterior en un \emph{template} de EGL. Además, se crearon una serie de funciones auxiliares en EOL. Por ejemplo, se creó una función auxiliar para determinar el tipo de colección que debe ser utilizada para transformar un atributo multivaluado, es decir, con cota superior de su multiplicidad mayor que uno. 
 
-Tras explicar a grandes rasgos las transformaciones de modelo a código en la sección \ref{dom:sec:transf}, se procede a comentar la implementación de los generadores de código correspondientes. La figura \ref{dom:fig:templates} muestra la jerarquía de los generadores de código implementados.
+Uno de los mayores problemas que normalmente plantean los generadores de código es que la generación de código es secuencial, no permitiendo la vuelta a atrás. Por ejemplo, si generamos una clase y más tarde descubrimos que dicha clase debe ser modificada porque actúa como clase padre en una herencia múltiple, ya no podremos volver a abrir dicha clase para añadirle la relación de herencia con la interfaz que ha de crearse. 
 
+Por tanto, antes de generar una clase, debemos asegurarnos de que no va a necesitar ser modificada posteriormente. Ello implica que hay que tener especial cuidado a la hora de diseñar el orden en el cual se ejecutan las plantillas, o \emph{templates} de generación de código. La Figura~\ref{dom:fig:templates} muestra el orden de ejecución de las plantillas creadas en nuestro caso. Explicamos parte de dicha figura, aunque no la describiremos entera, por razones de espacio.
+ 
 \begin{figure}[!tb]
   \center
-  \includegraphics[scale=0.80,angle=0]{domainEngineering/images/Templates.eps} \\
-  \caption{Jerarquía de los generadores de código implementados en la fase de Ingeniería de Dominio}
+  \includegraphics[width=\linewidth]{domainEngineering/images/Templates.eps} \\
+  \caption{Orden de ejecución de las plantillas de generación de código}
   \label{dom:fig:templates}
 \end{figure}
 
-El punto de partida es el generador de código llamado \imp{ProjectCreation}, a partir de él se invoca a la plantilla \imp{ClassFilesCreation} que determina si un elemento es:
+El punto de partida es el generador de código llamado \imp{ProjectCreation}, encargado de procesar el elemento \emph{modelo}, que constituye la raíz del proyecto, así como los \emph{paquetes} que contiene dicho modelo. Con ello generamos el proyecto \emph{Visual Studio 2010} que constituye la salida del generador, más la estructura de carpetas acorde al modelo de características definido.
+ 
+A partir de él se invoca a la plantilla \imp{ClassFilesCreation} que determina si un clasificador contenido dentro de un paquete es:
 
- \begin{itemize}
+\begin{itemize}
    \item Una clase o interfaz, en tal caso llamaría a su vez al generador de código \imp{ClassCreation}.
-   \item Una clase con herencia múltiple, en este caso se requiere un tratamiento especial que veremos más adelante en detalle, en tal caso llamaría a su vez a los generadores de código \imp{ClassCreationMultipleHierarchyCase}, \imp{ChildClassHierarchyCase} e \imp{InterfaceCreation}.
- \end{itemize}
+   \item Una clase con herencia múltiple, en cuyo caso se invoca a \imp{ClassCreationMultipleHierarchyCase}, \imp{ChildClassHierarchyCase} e \imp{InterfaceCreation}.
+\end{itemize}
 
- Una vez se ha determinado el tipo de elemento de los descritos en la enumeración anterior, se procede a generar el fichero fuente correspondiente a dicho elemento. Para ello, y en un orden secuencial estricto, se hacen llamadas a las plantillas descritas en forma de árbol en la figura \ref{dom:fig:templates}. Por ejemplo, para la generación de una clase el proceso sería tal como se muestra a continuación:
+Una vez se ha determinado el tipo de elemento de los descritos en la enumeración anterior, se procede a generar el fichero fuente correspondiente a dicho elemento. Para ello, y en un orden secuencial estricto, se hacen llamadas a las plantillas descritas en forma de árbol en la figura \ref{dom:fig:templates}. Por ejemplo, para la generación de una clase el proceso sería tal como se muestra a continuación:
  \begin{enumerate}
    \item ProjectCreation
    \item ClassFilesCreation, se determina que es una clase.
@@ -51,6 +55,9 @@ El punto de partida es el generador de código llamado \imp{ProjectCreation}, a p
    \item \emph{typeCollection}, retorna el tipo de colección correspondiente al elemento sobre el que se está actuando.
    \item \emph{hierarchy}, retorna las clases de las que hereda el elemento en cuestión.
  \end{itemize}
+ 
+
+ 
 
  Adicionalmente a los generadores de código EGL y EOL, en los sucesivos párrafos se habla en detalle de los Java Tools que se han elaborado para hacer más gráfico y sencillo al usuario el proceso de ejecución de los generadores de código.
 
