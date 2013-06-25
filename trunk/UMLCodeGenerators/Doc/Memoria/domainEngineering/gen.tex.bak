@@ -10,7 +10,7 @@ Tras explicar a grandes rasgos las transformaciones de modelo a código en la sec
 
 \begin{figure}[!tb]
   \center
-  \includegraphics[scale=0.80,angle=90]{domainEngineering/images/Templates.eps} \\
+  \includegraphics[scale=0.80,angle=0]{domainEngineering/images/Templates.eps} \\
   \caption{Jerarquía de los generadores de código implementados en la fase de Ingeniería de Dominio}
   \label{dom:fig:templates}
 \end{figure}
