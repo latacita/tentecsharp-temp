@@ -106,7 +106,9 @@ Al igual que en los atributos de las clases, si el extremo de asociación tiene m
 
 Además, para el caso de las asociaciones bidireccionales, se genera cierta lógica adicional, la cual está encargada de mantener la restricción de integridad impuesta por la bidireccionalidad.
 
-Por ejemplo, \todo{COMPLETAR CON DOS EJEMPLOS EXTRAIDOS DEL EJEMPLO PROPORCIONADO}
+%\todo{COMPLETAR CON DOS EJEMPLOS EXTRAIDOS DEL EJEMPLO PROPORCIONADO}
+Por ejemplo, supongamos un objeto \imp{m} de tipo \imp{Mujer} y un objeto \imp{h} de tipo \imp{Hombre} que no tienen asignadas sus respectivas referencias a \imp{marido} y \imp{esposa}, es decir están solteros. Asignamos al objeto \imp{m} como \imp{marido} el objeto \imp{h}, es decir, estamos casando a \imp{m} con \imp{h}, internamente debemos relacionar \imp{h} con \imp{m} para cumplir la restricción de integridad que relaciona a ambos individuos entre sí. Si ahora decidimos cambiar la referencia de \imp{marido} del objeto \imp{m} por la de otro objeto de tipo \imp{Hombre} denominado \imp{h1}, deberíamos primero borrar la referencia de \imp{esposa} de \imp{h} y la referencia de \imp{marido} de \imp{m}, es decir, estamos divorciado a \imp{h} y \imp{m}. El siguiente paso sería asignar al objeto \imp{m} como \imp{marido} al objeto \imp{h1}, es decir, estamos casando a \imp{m} con \imp{h1} e, internamente y como ya hemos comentado, debemos relacionar \imp{h} con \imp{m}. Procedemos de forma análoga y generado la lógica requerida en el resto de bidireccionalidades.
+
 
 \subsection{Operación}
 
