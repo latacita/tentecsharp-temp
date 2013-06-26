@@ -2,7 +2,8 @@
 %% Author : Abascal Fernández, Patricia                                  %%
 %% Author : Sánchez Barreiro, Pablo                                      %%   %%                                                                       %%
 %% Version: 2.0, 25/06/2013                                              %%   %%                                                                       %%
-%% Memoria del Proyecto Fin de Carrera                                   %% %% Domain Engineering/Pruebas con EUnit                                  %%   %%=======================================================================%%
+%% Memoria del Proyecto Fin de Carrera                                   %%
+%% Domain Engineering/Pruebas con EUnit                                   %%   %%=======================================================================%%
 
 Una vez implementados los generadores de código, la siguiente tarea era comprobar su correcto funcionamiento. Para ello creamos, de forma sistemática, una serie de pruebas unitarias que permitiesen comprobar el correcto funcionamiento de los generadores de código para un exhaustivo conjunto de diferentes tipos de entrada. Estas pruebas unitarias se implementaron en \emph{EUnit}~\cite{kolovos:2008}, el lenguaje de definición de pruebas de la suite Epsilon. El funcionamiento de \emph{EUnit} es similar al de \emph{JUnit}, pero aplicado a los lenguajes de la suite Epsilon, como EGL.
 
@@ -15,7 +16,7 @@ ejecutados. Concretamente, se muestran los casos de prueba para analizar el comp
 
 \begin{table}%
 \begin{small}
-\begin{tabularx}{\linewidth}{|l|p{10cm}|l|}
+\begin{tabularx}{\linewidth}{|l|p{6cm}|l|}
  \hline
 {}&{Casos válidos}&{Casos no válidos} \\ \hline
 \multirow{4}{*}{Paquete} & Paquete con nombre. & Paquete sin nombre. \\
@@ -69,21 +70,21 @@ ejecutados. Concretamente, se muestran los casos de prueba para analizar el comp
 \end{lstlisting}
 
 %%======================================================================%%
-%% NOTA(Pablo): Esto es ya demasiado detalle                            %% 
+%% NOTA(Pablo): Esto es ya demasiado detalle                            %%
 %%======================================================================%%
-%% \multirow{4}{*}{Clase Enumerada} & Clase enumerada con nombre. & Clase 
+%% \multirow{4}{*}{Clase Enumerada} & Clase enumerada con nombre. & Clase
 %% enumerada sin nombre. \\
 %% & Clase enumerada con literales. & \\
 %% & Clase enumerada vacía. & \\
 %% \hline
-%% \multirow{3}{*}{Interfaz} & Interfaz con nombre. 
+%% \multirow{3}{*}{Interfaz} & Interfaz con nombre.
 %% & Interfaz sin nombre. \\
 %% & Interfaz sin métodos. & Interfaz fuera de paquete.\\
 %% & Interfaz con métodos. & \\
 %% \hline
-%% \multirow{10}{*}{Propiedad} & Propiedad con nombre. 
+%% \multirow{10}{*}{Propiedad} & Propiedad con nombre.
 %% & Propiedad sin tipo. \\
-%% & Propiedad sin nombre (se debe poner uno por defecto). 
+%% & Propiedad sin nombre (se debe poner uno por defecto).
 %% & Asociaciones sin multiplicidad.\\
 %% & Propiedad estática (no lleva métodos getter ni setter). & \\
 %% & Propiedad protected (no lleva métodos getter ni setter). & \\
@@ -97,7 +98,7 @@ ejecutados. Concretamente, se muestran los casos de prueba para analizar el comp
 %% \multirow{14}{*}{Método} & Método con nombre. &  Método sin nombre. \\
 %% & Método sin tipo (se debe poner void por defecto). & \\
 %% & Método sin tipo (se debe poner void por defecto) y sin parámetros. & \\
-%% & Método sin tipo (se debe poner void por defecto) 
+%% & Método sin tipo (se debe poner void por defecto)
 %% y con parámetros. &  \\
 %% & Método void sin parámetros. &  \\
 %% & Método void con parámetros. &  \\
@@ -109,13 +110,13 @@ ejecutados. Concretamente, se muestran los casos de prueba para analizar el comp
 %% & Método abstracto. &  \\
 %% & Método protected. &  \\
 %% \hline
-%% \multirow{3}{*}{Parámetros de método} & Parámetro con nombre. 
+%% \multirow{3}{*}{Parámetros de método} & Parámetro con nombre.
 %% & Parámetro sin tipo. \\
 %% & Parámetro sin nombre (se debe poner uno por defecto). & \\
 %% & Parámetro con tipo. & \\
 %% \hline
 %% \multirow{2}{*}{Herencia} & Herencia simple. &   \\
-%% & Herencia múltiple (se debe implementar interfaces 
+%% & Herencia múltiple (se debe implementar interfaces
 %% y clases adicionales, si fuera necesario). & \\
 %% \hline
 
