@@ -1,0 +1,14 @@
+%%==================================================================%%
+%% Author : Abascal Fernández, Patricia                             %%
+%% Author : Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.5, 15/05/2013                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Conclusiones, conclusiones                                       %%
+%%==================================================================%%
+
+Para el desarrollo de estos generadores de código se ha utilizado la herramienta Epsilon que ofrece funcionalidades bastante potentes, pero dada su reciente aparición y su constante desarrollo, aún presentan ciertas carencias que han de ser resueltas. Siendo una de esas carencias que más necesaria e imprescindible considero, la integración con Eclipse. Ha sido imposible empaquetarlo como plug-in debido a una excepción interna producida por el llenado memoria durante la ejecución del mismo. Otra carencia que debe mejorar es la incompatibilidad de dicho proceso con la librería \emph{Java.swt} para la generación del entorno gráfico de nuestros generadores de código.
+
+En muchos momentos del desarrollo nos encontramos con errores que los propios desarrolladores desconocían, por ejemplo a la hora de tratar modelos UML que tuvieran clases enumeradas se lanzaba una excepción que, tras reportarlo como bug y varios meses después, fue solucionado por los desarrolladores en la última versión de la herramienta. Incluso durante la fase de pruebas con \emph{EUnit} me topé con ciertas funcionalidades que no habían sido implementadas y que necesitaba para la comparación de generación de código obtenido con la generación de código esperado,  por lo que tuve que escribir varias veces en el foro oficial de Epsilon y tratar, una vez más, con los desarrolladores que pusieron solución a dichos imprevistos.
+
+El mayor freno que sufrió el desarrollo fue debido en la mayoría de los casos a problemas con las propias herramientas. Aún así, fue muy satisfactorio poder desarrollar los generadores de código utilizando un lenguaje funcional, ya que difiere de lo que en muchas ocasiones aprendí a los lenguajes aprendidos a lo largo de mis estudios. Creo que la construcción de Software Orientado a Características y las Líneas de Producto Software tienen mucho futuro, ya que permiten ahorrar tiempo, costes y crear productos acordes a las necesidades de cada usuario concreto y en cuanto las herramientas consigan estandarizarse no me cabe duda que serán utilizadas de un modo mucho más frecuente en el futuro. 

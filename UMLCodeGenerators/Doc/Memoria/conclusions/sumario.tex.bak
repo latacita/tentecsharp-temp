@@ -1,0 +1,12 @@
+%%==================================================================%%
+%% Author : Abascal Fernández, Patricia                             %%
+%%          Sánchez Barreiro, Pablo                                 %%
+%% Version: 1.1, 21/06/2013                                         %%
+%%                                                                  %%
+%% Memoria del Proyecto Fin de Carrera                              %%
+%% Antecedentes, Sumario                                            %%
+%%==================================================================%%
+
+Durante este capítulo se han descrito los conceptos necesarios para comprender el ámbito y el alcance de este proyecto. Se ha descrito el caso de estudio que se utilizará a lo largo del documento además se ha especificado qué es una línea de productos software y la tecnología TENTE utilizada para su desarrollo, el diseño orientado a características UML, la respuesta a las limitaciones de las clases parciales en C\# mediante el uso del patrón slicer y la generación de código con Epsilon.
+
+En el siguiente capítulo profundizaremos acerca de la fase dedicada a la implementación de los generadores de código que se corresponde con la fase de \emph{Ingeniería del Dominio} del desarrollo de líneas de producto software. 
