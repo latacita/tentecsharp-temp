@@ -7,25 +7,32 @@
 %% Domain Engineering/Generadores de Código C#                      %%
 %%==================================================================%%
 
-Para implementar los generadores de código, se procedió en encapsular cada una de las reglas descritas en la sección anterior en un \emph{template} de EGL. Además, se crearon una serie de funciones auxiliares en EOL. Por ejemplo, se creó una función auxiliar para determinar el tipo de colección que debe ser utilizada para transformar un atributo multivaluado, es decir, con cota superior de su multiplicidad mayor que uno. 
+Para implementar los generadores de código, se procedió en encapsular cada una de las reglas descritas en la sección anterior en un \emph{template} de EGL. Además, se crearon una serie de funciones auxiliares en EOL. Por ejemplo, se creó una función auxiliar para determinar el tipo de colección que debe ser utilizada para transformar un atributo multivaluado, es decir, con cota superior de su multiplicidad mayor que uno.
 
-Tras explicar a grandes rasgos las transformaciones de modelo a código en la sección \ref{dom:sec:transf}, se procede a comentar la implementación de los generadores de código correspondientes. La figura \ref{dom:fig:templates} muestra la jerarquía de los generadores de código implementados.
+Uno de los mayores problemas que normalmente plantean los generadores de código es que la generación de código es secuencial, no permitiendo la vuelta a atrás. Por ejemplo, si generamos una clase y más tarde descubrimos que dicha clase debe ser modificada porque actúa como clase padre en una herencia múltiple, ya no podremos volver a abrir dicha clase para añadirle la relación de herencia con la interfaz que ha de crearse.
+
+Por tanto, antes de generar una clase, debemos asegurarnos de que no va a necesitar ser modificada posteriormente. Ello implica que hay que tener especial cuidado a la hora de diseñar el orden en el cual se ejecutan las plantillas, o \emph{templates} de generación de código. La Figura~\ref{dom:fig:templates} muestra el orden de ejecución de las plantillas creadas en nuestro caso. Explicamos parte de dicha figura, aunque no la describiremos entera, por razones de espacio.
 
 \begin{figure}[!tb]
   \center
-  \includegraphics[scale=0.80,angle=0]{domainEngineering/images/Templates.eps} \\
-  \caption{Jerarquía de los generadores de código implementados en la fase de Ingeniería de Dominio}
+  \includegraphics[width=\linewidth]{domainEngineering/images/Templates.eps} \\
+  \caption{Orden de ejecución de las plantillas de generación de código}
   \label{dom:fig:templates}
 \end{figure}
 
-El punto de partida es el generador de código llamado \imp{ProjectCreation}, a partir de él se invoca a la plantilla \imp{ClassFilesCreation} que determina si un elemento es:
+El punto de partida es el generador de código llamado \imp{ProjectCreation}, encargado de procesar el elemento \emph{modelo}, que constituye la raíz del proyecto, así como los \emph{paquetes} que contiene dicho modelo, además de crear el proyecto \emph{Visual Studio 2010} que constituye la salida del generador.  Dicho \emph{template} tiene , por tanto, dos tareas claramente diferenciadas: (1) por una parte, debe generar el código correspondiente a la arquitectura de referencia, lo que se hace a través de la plantilla \imp{ClassFilesCreation}; y (2) por otra parte, debe generar todos los ficheros auxiliares y la estructura que constituyen un proyecto \emph{Visual Studio 2010}, como el fichero de construcción (fichero \emph{.csproj}) que indica que clases parciales deben compilarse cuando se construye el proyecto (ver Figura~\ref{back:code:partialClasses}). Para generar estos ficheros auxiliares, se utilizan las plantillas \imp{SlnFileCreation},  \imp{CsprojectFileCreation} y \imp{AssemblyInfoFileCreation}.
 
- \begin{itemize}
-   \item Una clase o interfaz, en tal caso llamaría a su vez al generador de código \imp{ClassCreation}.
-   \item Una clase con herencia múltiple, en este caso se requiere un tratamiento especial que veremos más adelante en detalle, en tal caso llamaría a su vez a los generadores de código \imp{ClassCreationMultipleHierarchyCase}, \imp{ChildClassHierarchyCase} e \imp{InterfaceCreation}.
- \end{itemize}
+La plantilla \imp{ProcessPackageContents} procesa por cada paquete, su contenido. Dependiendo del tipo de cada elemento, se realiza una acción diferente, tal como se describe a continuación.
 
- Una vez se ha determinado el tipo de elemento de los descritos en la enumeración anterior, se procede a generar el fichero fuente correspondiente a dicho elemento. Para ello, y en un orden secuencial estricto, se hacen llamadas a las plantillas descritas en forma de árbol en la figura \ref{dom:fig:templates}. Por ejemplo, para la generación de una clase el proceso sería tal como se muestra a continuación:
+Si se trata de una clase enumerada, se invoca el template \imp{EnumerationClassCreation}, con dicho elemento como argumento.
+
+Se procesan todas las clases con herencia múltiple, para aplicar el \emph{mixin pattern}. Para ello se ejecutan las plantillas \imp{ParentImplMultipleInheritanceCase}, que se encarga de procesar las clases padre involucradas en herencias múltiples; y \imp{ParentInterfaceMultipleInheritanceCase}, que se encarga de crear las interfaces para estas clases padre. Ambas plantillas hacen uso de las plantillas \imp{MethodsCreation} y \imp{UtilityMethodsCreation}, encargadas de procesar los métodos de dichas clases e interfaces y de crear los métodos de infraestructura que fuesen necesarios, tal como \imp{Equals} o \imp{CompareTo}.
+
+A continuación, se ejecuta la plantilla \imp{ChildClassMultipleInheritance}, encargada de procesar una clase hija involucrada en herencia múltiple. Para ello se procesan sus atributos (\imp{PropertiesGeneration}), sus métodos \imp{MethodsCreation} y sus métodos de infraestructura \imp{UtilityMethodsCreation}. 
+
+Seguidamente, se procesan las clases no afectadas, como hijas o como padres, por herencia múltiple. Estas clases se procesan a través de la plantilla \imp{ClassCreation}, que funciona igual que la plantilla \imp{ChildClassMultipleInheritance}, a excepción de que no se generan delegados para los \emph{mixins}. 
+
+Una vez se ha determinado el tipo de elemento de los descritos en la enumeración anterior, se procede a generar el fichero fuente correspondiente a dicho elemento. Para ello, y en un orden secuencial estricto, se hacen llamadas a las plantillas descritas en forma de árbol en la figura \ref{dom:fig:templates}. Por ejemplo, para la generación de una clase el proceso sería tal como se muestra a continuación:
  \begin{enumerate}
    \item ProjectCreation
    \item ClassFilesCreation, se determina que es una clase.
@@ -51,6 +58,9 @@ El punto de partida es el generador de código llamado \imp{ProjectCreation}, a p
    \item \emph{typeCollection}, retorna el tipo de colección correspondiente al elemento sobre el que se está actuando.
    \item \emph{hierarchy}, retorna las clases de las que hereda el elemento en cuestión.
  \end{itemize}
+
+
+
 
  Adicionalmente a los generadores de código EGL y EOL, en los sucesivos párrafos se habla en detalle de los Java Tools que se han elaborado para hacer más gráfico y sencillo al usuario el proceso de ejecución de los generadores de código.
 

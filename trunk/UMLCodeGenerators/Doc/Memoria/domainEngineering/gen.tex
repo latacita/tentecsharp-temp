@@ -7,12 +7,12 @@
 %% Domain Engineering/Generadores de Código C#                      %%
 %%==================================================================%%
 
-Para implementar los generadores de código, se procedió en encapsular cada una de las reglas descritas en la sección anterior en un \emph{template} de EGL. Además, se crearon una serie de funciones auxiliares en EOL. Por ejemplo, se creó una función auxiliar para determinar el tipo de colección que debe ser utilizada para transformar un atributo multivaluado, es decir, con cota superior de su multiplicidad mayor que uno. 
+Para implementar los generadores de código, se procedió en encapsular cada una de las reglas descritas en la sección anterior en un \emph{template} de EGL. Además, se crearon una serie de funciones auxiliares en EOL. Por ejemplo, se creó una función auxiliar para determinar el tipo de colección que debe ser utilizada para transformar un atributo multivaluado, es decir, con cota superior de su multiplicidad mayor que uno.
 
-Uno de los mayores problemas que normalmente plantean los generadores de código es que la generación de código es secuencial, no permitiendo la vuelta a atrás. Por ejemplo, si generamos una clase y más tarde descubrimos que dicha clase debe ser modificada porque actúa como clase padre en una herencia múltiple, ya no podremos volver a abrir dicha clase para añadirle la relación de herencia con la interfaz que ha de crearse. 
+Uno de los mayores problemas que normalmente plantean los generadores de código es que la generación de código es secuencial, no permitiendo la vuelta a atrás. Por ejemplo, si generamos una clase y más tarde descubrimos que dicha clase debe ser modificada porque actúa como clase padre en una herencia múltiple, ya no podremos volver a abrir dicha clase para añadirle la relación de herencia con la interfaz que ha de crearse.
 
 Por tanto, antes de generar una clase, debemos asegurarnos de que no va a necesitar ser modificada posteriormente. Ello implica que hay que tener especial cuidado a la hora de diseñar el orden en el cual se ejecutan las plantillas, o \emph{templates} de generación de código. La Figura~\ref{dom:fig:templates} muestra el orden de ejecución de las plantillas creadas en nuestro caso. Explicamos parte de dicha figura, aunque no la describiremos entera, por razones de espacio.
- 
+
 \begin{figure}[!tb]
   \center
   \includegraphics[width=\linewidth]{domainEngineering/images/Templates.eps} \\
@@ -20,106 +20,34 @@ Por tanto, antes de generar una clase, debemos asegurarnos de que no va a necesi
   \label{dom:fig:templates}
 \end{figure}
 
-El punto de partida es el generador de código llamado \imp{ProjectCreation}, encargado de procesar el elemento \emph{modelo}, que constituye la raíz del proyecto, así como los \emph{paquetes} que contiene dicho modelo. Con ello generamos el proyecto \emph{Visual Studio 2010} que constituye la salida del generador, más la estructura de carpetas acorde al modelo de características definido.
- 
-A partir de él se invoca a la plantilla \imp{ClassFilesCreation} que determina si un clasificador contenido dentro de un paquete es:
+El punto de partida es el generador de código llamado \imp{ProjectCreation}, encargado de procesar el elemento \emph{modelo}, que constituye la raíz del proyecto, así como los \emph{paquetes} que contiene dicho modelo, además de crear el proyecto \emph{Visual Studio 2010} que constituye la salida del generador.  Dicho \emph{template} tiene , por tanto, dos tareas claramente diferenciadas: (1) por una parte, debe generar el código correspondiente a la arquitectura de referencia, lo que se hace a través de la plantilla \imp{ClassFilesCreation}; y (2) por otra parte, debe generar todos los ficheros auxiliares y la estructura que constituyen un proyecto \emph{Visual Studio 2010}, como el fichero de construcción (fichero \emph{.csproj}) que indica que clases parciales deben compilarse cuando se construye el proyecto (ver Figura~\ref{back:code:partialClasses}). Para generar estos ficheros auxiliares, se utilizan las plantillas \imp{SlnFileCreation},  \imp{CsprojectFileCreation} y \imp{AssemblyInfoFileCreation}.
 
-\begin{itemize}
-   \item Una clase o interfaz, en tal caso llamaría a su vez al generador de código \imp{ClassCreation}.
-   \item Una clase con herencia múltiple, en cuyo caso se invoca a \imp{ClassCreationMultipleHierarchyCase}, \imp{ChildClassHierarchyCase} e \imp{InterfaceCreation}.
-\end{itemize}
+La plantilla \imp{ProcessPackageContents} procesa por cada paquete, su contenido. Dependiendo del tipo de cada elemento, se realiza una acción diferente, tal como se describe a continuación.
 
-Una vez se ha determinado el tipo de elemento de los descritos en la enumeración anterior, se procede a generar el fichero fuente correspondiente a dicho elemento. Para ello, y en un orden secuencial estricto, se hacen llamadas a las plantillas descritas en forma de árbol en la figura \ref{dom:fig:templates}. Por ejemplo, para la generación de una clase el proceso sería tal como se muestra a continuación:
- \begin{enumerate}
-   \item ProjectCreation
-   \item ClassFilesCreation, se determina que es una clase.
-   \item ClassCreation, se indica la ruta para guardar el fichero que se va a generar.
-   \item ModelCreation, genera el namespace del proyecto.
-   \item ClassDeclaration, genera la declaración de la clase parcial.
-   \item PropertiesGeneration, genera las propiedades de la clase.
-   \item MethodsCreation, genera los métodos de la clase.
-   \item UtilityMethodsCreation, genera los métodos de utilidad de la clase.
-   \item Una vez generados todos los elementos de la clase, se genera el fichero fuente correspondiente.
- \end{enumerate}
+Si se trata de una clase enumerada, se invoca el template \imp{EnumerationClassCreation}, con dicho elemento como argumento.
 
- Después de haber generado todos los paquetes, clases e interfaces del proyecto se deben generar los ficheros necesarios para que dicho proyecto pueda ser abierto con el programa Visual Studio sin problemas. Para ello es necesario generar una serie de ficheros específicos de dicha plataforma, los ficheros se describen a continuación:
- \begin{itemize}
-   \item SlnFileCreation, genera el fichero .sln que contiene información del entorno del sistema.
-   \item CsprojectFilesCreation, genera el fichero .csproj correspondiente para incluir los directorios creados en el proyecto Visual Studio.
-   \item AssemblyInfoFileCreation, genera el fichero .cs que contiene la información general sobre las directivas de ensamblado.
- \end{itemize}
+Se procesan todas las clases con herencia múltiple, para aplicar el \emph{mixin pattern}. Para ello se ejecutan las plantillas \imp{ParentImplMultipleInheritanceCase}, que se encarga de procesar las clases padre involucradas en herencias múltiples; y \imp{ParentInterfaceMultipleInheritanceCase}, que se encarga de crear las interfaces para estas clases padre. Ambas plantillas hacen uso de las plantillas \imp{MethodsCreation} y \imp{UtilityMethodsCreation}, encargadas de procesar los métodos de dichas clases e interfaces y de crear los métodos de infraestructura que fuesen necesarios, tal como \imp{Equals} o \imp{CompareTo}.
 
- Aunque no aparezca en el diagrama, todos los generadores de código utilizan además el fichero \emph{Operations.eol}, que es un fichero EOL que dispone de operaciones básicas que se utilizan recurrentemente en el resto de generadores, por nombrar algunos ejemplos, dicho fichero contiene funciones del estilo:
- \begin{itemize}
-   \item \emph{abstract}, retorna el texto \imp{abstract} cuando el elemento sobre el que está siendo utilizado es abstracto.
-   \item \emph{typeCollection}, retorna el tipo de colección correspondiente al elemento sobre el que se está actuando.
-   \item \emph{hierarchy}, retorna las clases de las que hereda el elemento en cuestión.
- \end{itemize}
- 
+A continuación, se ejecuta la plantilla \imp{ChildClassMultipleInheritance}, encargada de procesar una clase hija involucrada en herencia múltiple. Para ello se procesan el esqueleto de la clase \imp{ClassDeclaration}, sus atributos (\imp{PropertiesGeneration}), sus métodos \imp{MethodsCreation} y sus métodos de infraestructura \imp{UtilityMethodsCreation}.
 
- 
+Seguidamente, se procesan las clases no afectadas, como hijas o como padres, por herencia múltiple. Estas clases se procesan a través de la plantilla \imp{ClassCreation}, que funciona igual que la plantilla \imp{ChildClassMultipleInheritance}, a excepción de que no se genera el código de los delegados para los \emph{mixins}.
 
- Adicionalmente a los generadores de código EGL y EOL, en los sucesivos párrafos se habla en detalle de los Java Tools que se han elaborado para hacer más gráfico y sencillo al usuario el proceso de ejecución de los generadores de código.
+Cada plantilla invocada hace uso a su vez de otras subplantillas, que por razones de claridad y espacio no detallamos. Por ejemplo, la plantilla \imp{PropertiesGeneration} encargada de procesar atributos y extremos de asociación, hace uso de diversas plantillas para procesar los extremos pertenecientes a asociaciones doblemente navegables, tal como se indica en la Figura~\ref{}.
 
- \paragraph{Java Tool} \ \\
+Por último, comentar que todas las plantillas utilizan diversas funciones auxiliares especificadas en EOL. Por ejemplo, existen funciones para determinar si una clase está involucrada en una herencia múltiple o para devolver todas las clases padre de una clase dada. Además, junto con las funciones auxiliares de EOL, se han creado una serie de funciones auxiliares en Java, invocables desde EOL, y EGL, lo que se conoce en argot Epsilon como una \emph{Java Tool}, para poder manipular el sistema de ficheros. Esto era necesario, por ejemplo, para poder crear la estructura de carpetas del proyecto Visual Studio 2010.
 
- Un Java Tool es una porción de código java que tras ser empaquetada como plug-in se puede incorporar en el directorio de instalación de Epsilon y utilizar las funciones implementadas en las plantillas de generación de código creadas. Se han desarrollado cinco Java Tools en total:
-
-\begin{figure}[!tb]
-  \centering
-  \includegraphics[width=.75\linewidth]{domainEngineering/images/SeleccionModelo.eps} \\
-  \caption{Ventana de selección de modelo}
-  \label{dom:fig:selecMod}
-\end{figure}
-
- \begin{figure}[!tb]
-  \centering
-  \includegraphics[width=.75\linewidth]{domainEngineering/images/VentanaDirectorio.eps} \\
-  \caption{Selección de directorio donde emplazar el proyecto a generar}
-  \label{dom:fig:dir}
-\end{figure}
-
-\begin{figure}[!tb]
-  \centering
-  \includegraphics[width=.75\linewidth]{domainEngineering/images/ErrorWindow.eps} \\
-  \caption{Ventana de error}
-  \label{dom:fig:error}
-\end{figure}
+Además, se crearon algunas \emph{Java Tool} para poder mostrar cuadros de diálogo que permitiesen inteactuar con el usuario durante el proceso de generación de código, ya fuese para mostrarle o requerirle información.
 
 \begin{figure}[!tb]
   \centering
   \includegraphics[width=.75\linewidth]{domainEngineering/images/FinalWindow.eps} \\
-  \caption{Ventana al final de la generación de código}
+  \caption{Log mostrado al finalizar el proceso}
   \label{dom:fig:final}
 \end{figure}
 
- \begin{itemize}
-   \item pluginCreateDirectories, genera los directorios en el sistema.
-   \item pluginCreateMessageWindow, genera la ventana con los errores y/o información oportunos (figura \ref{dom:fig:error}).
-   \item pluginCreateSelectDirectoryWindow, genera un entorno de exploración por el equipo para elegir el destino de la generación del proyecto (figura \ref{dom:fig:dir}).
-   \item pluginCreateWindowAndShowMessages, genera una ventana al final de la ejecución con información para el usuario (figura \ref{dom:fig:final}).
-   \item pluginWriteInFile, genera el fichero que contendrá la información para mostrar al usuario al final la ejecución, también implementa funciones para borrar ficheros y/o directorios en el caso de que fuera oportuno.
-   \item pluginChooseModel, genera la ventana de selección de modelo para aquellos proyectos que tienen varios (figura \ref{dom:fig:selecMod}).
- \end{itemize}
 
-Para utilizar los Java Tools en los generadores de código es necesario implementar funciones EOL para cada una de las funciones descritas ellos. El listing \ref{dom:code:writeinfile} muestra un ejemplo de cómo se realiza dicho proceso, en las líneas 1-4 se describe la creación de la función a utilizar en los generadores de código, en la línea 5 se importa dicho fichero EOL para hacer uso de las funciones implementadas en el generador \imp{ProjectCreation}, mientras que la línea 7 muestra la forma de uso de la función \imp{writeInFile}.
+Las Figuras~\ref{} y~\ref{dom:fig:final} muestra dos ejemplos de estos diálogos. El primero de ellos aparecería al utilizar como entrada para el generador de código un archivo UML que tuviese varios modelos. En este caso, el proceso de generación de código preguntaría al usuario cuál es el modelo a procesar, ya dentro de un fichero UML pueden coexistir modelos de diversa índole.
 
-\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
-                    caption=Uso de un Java Tool en los generadores de código,
-                    label=dom:code:writeinfile]
-File Operations.eol
---------------------------------------------------------
-01 operation writeInFile(path:String, message:String) {
-02     var sampleTool = new Native("pluginWriteInFile.WriteInFile");
-03     sampleTool.writeInFile(path, message);	
-04}
+El segundo diálogo (Figura~\ref{dom:fig:final}) muestra, al final del proceso de generación de código, las incidencias que hayan podido producirse durante dicho proceso. 
 
-File ProjectCreation.egl
---------------------------------------------------------
-05 import "Operations.eol"
-06 ...
-07 writeInFile(path+"\\log.txt", message);
-08 ...
-\end{lstlisting}
-
- Una vez explicado el funcionamiento de los generadores de código y los java tools implementados, en las siguientes secciones se procederá a explicar de forma detallada varios ejemplos de generadores. Primero uno sencillo que sea fácil de comprender para el lector no experto en el tema y después dos casos más complejos.
+La siguiente sección muestra, para el lector interesado, una plantilla de las descritas en esta sección a nivel de código. 

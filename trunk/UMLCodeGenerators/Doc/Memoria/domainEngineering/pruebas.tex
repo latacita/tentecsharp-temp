@@ -4,17 +4,14 @@
 %% Version: 2.0, 25/06/2013                                              %%   %%                                                                       %%
 %% Memoria del Proyecto Fin de Carrera                                   %% %% Domain Engineering/Pruebas con EUnit                                  %%   %%=======================================================================%%
 
-Una vez implementados los generadores de código, la siguiente tarea era comprobar su correcto funcionamiento. Para ello creamos, de forma sistemática, una serie de pruebas unitarias que permitiesen comprobar el correcto funcionamiento de los generadores de código para un exhaustivo conjunto de diferentes tipos de entrada. Estas pruebas unitarias se implementaron en \emph{EUnit}~\cite{kolovos:2008}, el lenguaje de definición de pruebas de la suite Epsilon. El funcionamiento de \emph{EUnit} es similar al de \emph{JUnit}, pero aplicado a los lenguajes de la suite Epsilon, como EGL. 
+Una vez implementados los generadores de código, la siguiente tarea era comprobar su correcto funcionamiento. Para ello creamos, de forma sistemática, una serie de pruebas unitarias que permitiesen comprobar el correcto funcionamiento de los generadores de código para un exhaustivo conjunto de diferentes tipos de entrada. Estas pruebas unitarias se implementaron en \emph{EUnit}~\cite{kolovos:2008}, el lenguaje de definición de pruebas de la suite Epsilon. El funcionamiento de \emph{EUnit} es similar al de \emph{JUnit}, pero aplicado a los lenguajes de la suite Epsilon, como EGL.
 
 Para comprobar que el funcionamiento del generador de código es correcto, se diseña el caso de prueba y se crea la salida de ese caso de prueba de forma manual. A continuación, se ejecuta el caso de prueba y se comprueba que la salida generada coincide con la esperada, que es la creada manualmente. Al intentar implementar estas pruebas en \emph{EUnit}, nos encontramos con el problema inicial de que este lenguaje no tenía implementada la comparación de fragmentos de texto en ficheros, que era precisamente la funcionalidad que nos hacía falta. No obstante, se cursó una petición a los creadores de Epsilon, los cuales, muy amablamente, incorporaron dicha funcionalidad a \emph{EUnit}. De igual forma, añadieron otra funcionalidad para comprobar que dos directorios contenían los mismos archivos (\imp{assertEqualDirectories}).
 
 Para el diseño de los casos de prueba se siguió inicialmente un enfoque de caja negra, basado en una adaptación de la técnica de clases de equivalencia y análisis de valores límite al entorno de los modelos software. Una vez ejecutadas estas pruebas, se analizó la cobertura alcanzada, definiendo pruebas adicionales, ya de caja blanca, de forma que la cobertura alcanzada fuese del 100\%.
- 
-La Tabla~\ref{dom:table:prueba} resume algunos de los casos de prueba
-ejecutados. Concretamente, se muestran los casos de prueba para analizar el comportamiento de las plantillas de generación de código para paquetes y clases. 
 
-%%======================================================================%%
-%%
+La Tabla~\ref{dom:table:prueba} resume algunos de los casos de prueba
+ejecutados. Concretamente, se muestran los casos de prueba para analizar el comportamiento de las plantillas de generación de código para paquetes y clases.
 
 \begin{table}%
 \begin{small}
@@ -38,46 +35,6 @@ ejecutados. Concretamente, se muestran los casos de prueba para analizar el comp
 & Clase con propiedades. &\\
 & Clase con métodos. &\\
 & Clase con propiedades y métodos. &\\
-\hline
-\multirow{4}{*}{Clase Enumerada} & Clase enumerada con nombre. & Clase enumerada sin nombre. \\
-& Clase enumerada con literales. & \\
-& Clase enumerada vacía. & \\
-\hline
-\multirow{3}{*}{Interfaz} & Interfaz con nombre. & Interfaz sin nombre. \\
-& Interfaz sin métodos. & Interfaz fuera de paquete.\\
-& Interfaz con métodos. & \\
-\hline
-\multirow{10}{*}{Propiedad} & Propiedad con nombre. & Propiedad sin tipo. \\
-& Propiedad sin nombre (se debe poner uno por defecto). & Asociaciones sin multiplicidad.\\
-& Propiedad estática (no lleva métodos getter ni setter). & \\
-& Propiedad protected (no lleva métodos getter ni setter). & \\
-& Propiedad no estática (lleva métodos getter ni setter). & \\
-& Propiedad es una colección. & \\
-& Propiedad es una asociación simple. & \\
-& Propiedad es una asociación bidireccional one to one. & \\
-& Propiedad es una asociación bidireccional one to many. & \\
-& Propiedad es una asociación bidireccional many to many. & \\
-\hline
-\multirow{14}{*}{Método} & Método con nombre. &  Método sin nombre. \\
-& Método sin tipo (se debe poner void por defecto). & \\
-& Método sin tipo (se debe poner void por defecto) y sin parámetros. & \\
-& Método sin tipo (se debe poner void por defecto) y con parámetros. &  \\
-& Método void sin parámetros. &  \\
-& Método void con parámetros. &  \\
-& Método retorna tipo primitivo sin parámetros. &  \\
-& Método retorna tipo primitivo con parámetros. &  \\
-& Método retorna colección sin parámetros. &  \\
-& Método retorna colección con parámetros. &  \\
-& Método estático. &  \\
-& Método abstracto. &  \\
-& Método protected. &  \\
-\hline
-\multirow{3}{*}{Parámetros de método} & Parámetro con nombre. & Parámetro sin tipo. \\
-& Parámetro sin nombre (se debe poner uno por defecto). & \\
-& Parámetro con tipo. & \\
-\hline
-\multirow{2}{*}{Herencia} & Herencia simple. &   \\
-& Herencia múltiple (se debe implementar interfaces y clases adicionales, si fuera necesario). & \\
 \hline
 \end{tabularx}
 \end{small}
@@ -111,6 +68,55 @@ ejecutados. Concretamente, se muestran los casos de prueba para analizar el comp
 16 }
 \end{lstlisting}
 
-
+%%======================================================================%%
+%% NOTA(Pablo): Esto es ya demasiado detalle                            %% 
+%%======================================================================%%
+%% \multirow{4}{*}{Clase Enumerada} & Clase enumerada con nombre. & Clase 
+%% enumerada sin nombre. \\
+%% & Clase enumerada con literales. & \\
+%% & Clase enumerada vacía. & \\
+%% \hline
+%% \multirow{3}{*}{Interfaz} & Interfaz con nombre. 
+%% & Interfaz sin nombre. \\
+%% & Interfaz sin métodos. & Interfaz fuera de paquete.\\
+%% & Interfaz con métodos. & \\
+%% \hline
+%% \multirow{10}{*}{Propiedad} & Propiedad con nombre. 
+%% & Propiedad sin tipo. \\
+%% & Propiedad sin nombre (se debe poner uno por defecto). 
+%% & Asociaciones sin multiplicidad.\\
+%% & Propiedad estática (no lleva métodos getter ni setter). & \\
+%% & Propiedad protected (no lleva métodos getter ni setter). & \\
+%% & Propiedad no estática (lleva métodos getter ni setter). & \\
+%% & Propiedad es una colección. & \\
+%% & Propiedad es una asociación simple. & \\
+%% & Propiedad es una asociación bidireccional one to one. & \\
+%% & Propiedad es una asociación bidireccional one to many. & \\
+%% & Propiedad es una asociación bidireccional many to many. & \\
+%% \hline
+%% \multirow{14}{*}{Método} & Método con nombre. &  Método sin nombre. \\
+%% & Método sin tipo (se debe poner void por defecto). & \\
+%% & Método sin tipo (se debe poner void por defecto) y sin parámetros. & \\
+%% & Método sin tipo (se debe poner void por defecto) 
+%% y con parámetros. &  \\
+%% & Método void sin parámetros. &  \\
+%% & Método void con parámetros. &  \\
+%% & Método retorna tipo primitivo sin parámetros. &  \\
+%% & Método retorna tipo primitivo con parámetros. &  \\
+%% & Método retorna colección sin parámetros. &  \\
+%% & Método retorna colección con parámetros. &  \\
+%% & Método estático. &  \\
+%% & Método abstracto. &  \\
+%% & Método protected. &  \\
+%% \hline
+%% \multirow{3}{*}{Parámetros de método} & Parámetro con nombre. 
+%% & Parámetro sin tipo. \\
+%% & Parámetro sin nombre (se debe poner uno por defecto). & \\
+%% & Parámetro con tipo. & \\
+%% \hline
+%% \multirow{2}{*}{Herencia} & Herencia simple. &   \\
+%% & Herencia múltiple (se debe implementar interfaces 
+%% y clases adicionales, si fuera necesario). & \\
+%% \hline
 
 

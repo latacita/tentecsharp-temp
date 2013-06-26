@@ -112,10 +112,10 @@
 % \input{background/background.tex}
 
 % Capítulo 3: Domain Engineering
-% \input{domainEngineering/domain.tex}
+\input{domainEngineering/domain.tex}
 
 % Capítulo 4: Application Engineering
-\input{applicationEngineering/application.tex}
+% \input{applicationEngineering/application.tex}
 
 % Capítulo 6: Discusión, Conclusiones y Trabajos Futuros
 % \todo{Capítulo 7: Discusión, Conclusiones y Trabajos Futuros}
