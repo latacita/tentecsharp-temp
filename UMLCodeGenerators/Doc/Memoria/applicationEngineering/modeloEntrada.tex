@@ -1,26 +1,26 @@
 %%==================================================================%%
-%% Author : Abascal Fern√°ndez, Patricia                             %%
-%% Author : S√°nchez Barreiro, Pablo                                 %%
+%% Author : Abascal Fern·ndez, Patricia                             %%
+%% Author : S·nchez Barreiro, Pablo                                 %%
 %% Version: 1.0, 24/06/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Application Engineering/Modelo de Entrada                        %%
 %%==================================================================%%
 
-La estrategia para crear un modelo arquitect√≥nico concreto consiste, tal como se describi√≥ en la Secci√≥n~\ref{}, en crear un paquete vac√≠o, el cual representa el producto a construir, y a√±adir relaciones \emph{merge} a aquellas caracter√≠sticas que se desean incluir en el producto final. De esta forma, el contenido de los paquetes correspondiente a caracter√≠sticas que se deben incluir en el producto final, se combinan o componen en el paquete que representa el producto final.
+La estrategia para crear un modelo arquitectÛnico concreto consiste, tal como se describiÛ en la SecciÛn~\ref{sec:back:uml}, en crear un paquete vacÌo, el cual representa el producto a construir, y aÒadir relaciones \emph{merge} a aquellas caracterÌsticas que se desean incluir en el producto final. De esta forma, el contenido de los paquetes correspondiente a caracterÌsticas que se deben incluir en el producto final, se combinan o componen en el paquete que representa el producto final.
 
-Para distinguir el paquete que representa el producto final de los paquetes que representan caracter√≠sticas, se ha creado un perfil de UML 2.0~\citep{omg:uml:2005}. Un perfil UML 2.0 es un mecanismo gen√©rico de extensi√≥n que permite personalizar los modelos UML para un prop√≥sito particular, mediante la especificaci√≥n de estereotipos y valores etiquetados que modifican la sem√°ntica original de los elementos del modelo UML 2.0.
+Para distinguir el paquete que representa el producto final de los paquetes que representan caracterÌsticas, se ha creado un perfil de UML 2.0~\citep{omg:uml:2005}. Un perfil UML 2.0 es un mecanismo genÈrico de extensiÛn que permite personalizar los modelos UML para un propÛsito particular, mediante la especificaciÛn de estereotipos y valores etiquetados que modifican la sem·ntica original de los elementos del modelo UML 2.0.
 
 \begin{figure}[!tb]
   \center
-  \includegraphics[width=\linewidth]{applicationEngineering/images/configuracion(1).eps} \\
-  \caption{Configuraci√≥n de un hogar inteligente completo}
+  \includegraphics[width=\linewidth]{applicationEngineering/images/Configuration(1).eps} \\
+  \caption{ConfiguraciÛn de un hogar inteligente completo}
   \label{app:fig:conf1}
 \end{figure}
 
-En nuestro caso, el perfil contiene un solo estereotipo, denominado \imp{SpecificProduct}, el cual se puede aplicar exclusivamente a paquetes UML tal como se puede apreciar en la Figura\ref{app:fig:conf1}. Adem√°s, por cada modelo UML 2.0 representando un producto concreto, s√≥lo puede existir un paquete estereotipado de dicha forma. Esta √∫ltima restricci√≥n se expresa por medio de OCL.
+En nuestro caso, el perfil contiene un solo estereotipo, denominado \imp{SpecificProduct}, el cual se puede aplicar exclusivamente a paquetes UML tal como se puede apreciar en la Figura\ref{app:fig:conf1}. Adem·s, por cada modelo UML 2.0 representando un producto concreto, sÛlo puede existir un paquete estereotipado de dicha forma. Esta ˙ltima restricciÛn se expresa por medio de OCL.
 
-La Figura~\ref{app:fig:conf1} muestra un ejemplo de creaci√≥n de un producto concreto dentro de la l√≠nea de productos software para hogares inteligentes. En este caso, se trata de un producto donde se ha incluido exclusivamente la caracter√≠stica de \imp{SmartEnergyMng}, lo que implica que deben seleccionarse adem√°s las caracter√≠sticas \imp{WindowMng} y \imp{HeaterMng}, ya que \imp{SmartEnergyMng} necesita que ambas caracter√≠sticas est√©n instaladas en un producto final para poder funcionar. Dicha dependencia queda especificada de forma expl√≠cita a trav√©s de las relaciones \emph{merge} existentes entre \imp{SmartEnergyMng} y \imp{WindowMng} y \imp{HeaterMng}. Debido a dichas relaciones, es imposible crear un producto que incluya \imp{SmartEnergyMng} pero no \imp{WindowMng} o \imp{HeaterMng}.
+La Figura~\ref{app:fig:conf1} muestra un ejemplo de creaciÛn de un producto concreto dentro de la lÌnea de productos software para hogares inteligentes. En este caso, se trata de un producto donde se ha incluido exclusivamente la caracterÌstica de \imp{SmartEnergyMng}, lo que implica que deben seleccionarse adem·s las caracterÌsticas \imp{WindowMng} y \imp{HeaterMng}, ya que \imp{SmartEnergyMng} necesita que ambas caracterÌsticas estÈn instaladas en un producto final para poder funcionar. Dicha dependencia queda especificada de forma explÌcita a travÈs de las relaciones \emph{merge} existentes entre \imp{SmartEnergyMng} y \imp{WindowMng} y \imp{HeaterMng}. Debido a dichas relaciones, es imposible crear un producto que incluya \imp{SmartEnergyMng} pero no \imp{WindowMng} o \imp{HeaterMng}.
 
-La siguiente secci√≥n describe como este modelo arquitect√≥nico puede transformarse autom√°ticamente en el c√≥digo necesario para crear una implementaci√≥n concreta y completamente funcional de un producto software concreto.
+La siguiente secciÛn describe como este modelo arquitectÛnico puede transformarse autom·ticamente en el cÛdigo necesario para crear una implementaciÛn concreta y completamente funcional de un producto software concreto.
 
