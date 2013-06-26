@@ -85,9 +85,16 @@ Si el atributo fuese un atributo un atributo multivaluado, es decir, la cota sup
 
 Las asociaciones en UML pueden ser de dos tipos:
 
+\begin{figure}[!tb]
+  \centering
+  \includegraphics[width=.55\linewidth]{domainEngineering/images/transfBidirec.eps} \\
+  \caption{Ejemplo de asociación bidireccional}
+  \label{dom:fig:transfBidirec}
+\end{figure}
+
 \begin{description}
-  \item[Unidireccionales] Sólo un extremo de la asociación aparece nombrado, y destacado con una flecha. Dicho extremo actúa como referencia entre clases. Por ejemplo, \imp{indoorTherm} (Figura~\ref{}, paquete \imp{SmartEnergyMng}) representa un referencia de la clase \imp{Gateway} a la clase \imp{ThermometerCtrl}. Dichas referencias pueden referirse a un solo objeto, como el caso de \imp{indoorTherm}, o a una colección de ellos, como el caso ed \imp{actuators} en la característica \imp{BaseSystem}.
-  \item[Bidireccional] Son los casos donde ambos extremos aparecen nombrados, pero no hay flechas en ninguno de los dos extremos. No se aprecian ejemplos de este tipo nuestro caso de estudio (Figura~\ref{}), por lo que se proporciona un ejemplo adicional (ver Figura~\ref{}), el cual describimos a continuación. En este caso, un objeto de tipo \imp{Mujer} posee una referencia \imp{marido} a un objeto de tipo \imp{Hombre}. A su vez, un objeto de tipo \imp{Hombre} posee una referencia \imp{esposa} a un objeto de tipo \imp{Mujer}. Se espera que ambas referencias estén relacionadas. Es decir, si un objeto \imp{m} de tipo \imp{Mujer} tiene una referencia a un objeto \imp{h} de tipo \imp{Hombre}, de acuerdo la restricción de integridad impuesta por las asociaciones bidireccionales, el objeto \imp{h} debe tener como valor para su referencia \imp{esposa} el objeto \imp{m} de tipo \imp{Mujer}. Dicho de forma más fácil de entender, si \imp{h} está casado con \imp{m}, \imp{m} debe de estar casado con \imp{h}.
+  \item[Unidireccionales] Sólo un extremo de la asociación aparece nombrado, y destacado con una flecha. Dicho extremo actúa como referencia entre clases. Por ejemplo, \imp{indoorTherm} (Figura~\ref{back:fig:smartHome}, paquete \imp{SmartEnergyMng}) representa un referencia de la clase \imp{Gateway} a la clase \imp{ThermometerCtrl}. Dichas referencias pueden referirse a un solo objeto, como el caso de \imp{indoorTherm}, o a una colección de ellos, como el caso ed \imp{actuators} en la característica \imp{BaseSystem}.
+  \item[Bidireccionales] Son los casos donde ambos extremos aparecen nombrados, pero no hay flechas en ninguno de los dos extremos. No se aprecian ejemplos de este tipo nuestro caso de estudio (Figura~\ref{back:fig:smartHome}), por lo que se proporciona un ejemplo adicional (ver Figura~\ref{back:fig:transfBidirec}), el cual describimos a continuación. En este caso, un objeto de tipo \imp{Mujer} posee una referencia \imp{marido} a un objeto de tipo \imp{Hombre}. A su vez, un objeto de tipo \imp{Hombre} posee una referencia \imp{esposa} a un objeto de tipo \imp{Mujer}. Se espera que ambas referencias estén relacionadas. Es decir, si un objeto \imp{m} de tipo \imp{Mujer} tiene una referencia a un objeto \imp{h} de tipo \imp{Hombre}, de acuerdo la restricción de integridad impuesta por las asociaciones bidireccionales, el objeto \imp{h} debe tener como valor para su referencia \imp{esposa} el objeto \imp{m} de tipo \imp{Mujer}. Dicho de forma más fácil de entender, si \imp{h} está casado con \imp{m}, \imp{m} debe de estar casado con \imp{h}.
 \end{description}
 
 En cualquier caso, los extremos de asociación navegables en UML 2.0 representan referencias entre clases. Por tanto, un extremo de asociación tiene el mismo tratamiento que el de un atributo, siendo su tipo es una clase. De esta forma, cada extremo navegable de una asociación entre clases en UML 2.0 se transforma en una propiedad en C\#, siguiendo un tratamiento similar al de los atributos.
@@ -97,7 +104,7 @@ Al igual que en los atributos de las clases, si el extremo de asociación tiene m
 %% NOTA(Pablo): Comenta aquí que facilidades adicionales se generan    %%
 %%              para las asociaciones bidireccionales                  %%                      %%=====================================================================%%
 
-Además, para el caso de las asociaciones bidireccionales, se genera cierta lógica adicional, la cual está encargada de mantener la restricción de integridad impuesta por la bidireccionalidad. 
+Además, para el caso de las asociaciones bidireccionales, se genera cierta lógica adicional, la cual está encargada de mantener la restricción de integridad impuesta por la bidireccionalidad.
 
 Por ejemplo, \todo{COMPLETAR CON DOS EJEMPLOS EXTRAIDOS DEL EJEMPLO PROPORCIONADO}
 
@@ -145,9 +152,9 @@ Los lenguajes de programación orientados a objetos modernos, como Java o C\#, no
 \begin{enumerate}
   \item Por cada una de las clases padre de las que se debe heredar, se crea una interfaz que contiene todos los métodos públicos de dicha clase. En nuestro caso, crearíamos interfaces para \imp{ParticulaPesada} y \imp{ParticulaCargada}, tal como se muestra e en la Figura~\ref{dom:fig:mixinPattern}.
   \item A continuación, hacemos que cada clase padre original, herede de la correspondiente interfaz recientemente creada. Con ello conseguimos que la interfaz (e.g., \imp{IParticulaPesada}) defina un \emph{tipo de datos} reutilizable, mientras que la clase (e.g., \imp{ParticulaPesada}) proporciona una implementación para dicho tipo.
-  \item La clase hija hereda ahora de las interfaces en lugar de las clases padre. Esta herencia múltiple si está permitida, y gracias a ella, la clase hija es del tipo de las interfaces heredadas. En nuestro caso, \imp{Electron} es también de los tipos \imp{IParticulaCargada} e \imp{IParticulaPesada} (ver Figura~\ref{dom:fig:mixinPattern}). 
-  \item Para reutilizar la implementación de dichos métodos proporcionada por las clases padre, se añade una referencia, denominada \emph{mixin}, de la clase hija a cada cada clase padre. en nuestro caso, se añaden las referencias \imp{particulaPesadaMixed} y \imp{particulaCargadaMixed}, de la clase \imp{Electron} a las clases \imp{particulaCargadaMixed}. 
-  \item A continuación, para cada método que la clase hija deba implementar como consecuencia de heredar de las interfaces que representan las clase padre, se hace que dicho método delegue en el método correspondiente de la clase padre. De esta forma, reutilizamos la implementación del método por \emph{composición y delegación}. 
+  \item La clase hija hereda ahora de las interfaces en lugar de las clases padre. Esta herencia múltiple si está permitida, y gracias a ella, la clase hija es del tipo de las interfaces heredadas. En nuestro caso, \imp{Electron} es también de los tipos \imp{IParticulaCargada} e \imp{IParticulaPesada} (ver Figura~\ref{dom:fig:mixinPattern}).
+  \item Para reutilizar la implementación de dichos métodos proporcionada por las clases padre, se añade una referencia, denominada \emph{mixin}, de la clase hija a cada cada clase padre. en nuestro caso, se añaden las referencias \imp{particulaPesadaMixed} y \imp{particulaCargadaMixed}, de la clase \imp{Electron} a las clases \imp{particulaCargadaMixed}.
+  \item A continuación, para cada método que la clase hija deba implementar como consecuencia de heredar de las interfaces que representan las clase padre, se hace que dicho método delegue en el método correspondiente de la clase padre. De esta forma, reutilizamos la implementación del método por \emph{composición y delegación}.
 \end{enumerate}
 
 \begin{figure}[!tb]
@@ -159,4 +166,4 @@ Los lenguajes de programación orientados a objetos modernos, como Java o C\#, no
 
 Cada vez que nuestro generador de código debe procesar una clase con herencia múltiple, se ejecutan todos los pasos previamente descritos, de forma que se automatiza la aplicación del \emph{mixin pattern}, lo que ahorra una gran cantidad de trabajo.
 
-Una vez que teníamos claramente definidas las reglas para la transformación de los elementos UML 2.0 a código C\#, el siguiente paso fue el de proceder a su implementación en EGL. La siguiente sección describe de forma superficial dicho proceso. 
+Una vez que teníamos claramente definidas las reglas para la transformación de los elementos UML 2.0 a código C\#, el siguiente paso fue el de proceder a su implementación en EGL. La siguiente sección describe de forma superficial dicho proceso.
