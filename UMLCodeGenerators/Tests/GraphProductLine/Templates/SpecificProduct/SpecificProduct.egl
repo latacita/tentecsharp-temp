@@ -59,7 +59,7 @@ operation specificClassFilesCreation(packages: Set, modelProject: Model, directo
 				if (element[0].type.name=="Interface"){
 					isInterface=true;
 				} 
-				var path=directory + pack.name + "\\"+ element[0].name +'.cs';
+				var path=directory + pack.name + "\\My"+ element[0].name +'.cs';
 				var t := TemplateFactory.load('SpecificProduct/CleanVersionClassCreation.egl');
 				t.populate ('currentElement', element[0].name);
 				t.populate('currentPackage', pack);

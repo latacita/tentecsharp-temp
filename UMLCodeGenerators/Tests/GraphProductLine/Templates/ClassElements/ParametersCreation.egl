@@ -20,10 +20,10 @@ operation Feature parameters(currentPackage: String, path: String, rootPath: Str
 	for (param in parameters){		
 		// If a parameter doesn't have name, put a default one
 		var par;
-		if (param.name==""){			
+		if (param.name==""){
 			par="param_"+iter; 
 		}else{
-			par=param.name;  
+			par=param.name;
 		} 
 		// Throws exception if a type is not assigned for a parameter
 		if (param.type==null){
@@ -41,12 +41,12 @@ operation Feature parameters(currentPackage: String, path: String, rootPath: Str
 				if(param.type.name=="Integer"){
 					params=params+toInt()+par+",";
 				}else{
-					params=params+" "+param.type.name+" "+par+",";	
+					params=params+" "+param.type.name+" "+par+",";
 				} 
-			}		
-		}		
+			}
+		}
 		// Increase the iterator
-		iter=iter+1;					
+		iter=iter+1;
 	}
 	// Deleting the last "," of the string, if needed
     if (not params.isEmpty()){	
