@@ -7,10 +7,10 @@
 %% Application Engineering/Pruebas                                          %%
 %%==========================================================================%%
 
-A diferencia de la fase de Ingeniería del Dominio, en esta fase no se utiliza EUnit para realizar las pruebas ya que la flexibilidad de dicha herramienta no se ajusta a las comprobaciones que deben realizarse. De tal forma se procede a crear todos los casos descritos en el cuadro \ref{app:table:pruebas} como modelos independientes y se prueba uno a uno si el código generado para los productos específicos se corresponde con el esperado.
+Una vez implementados los generadores de código para la fase de \emph{Ingeniería de Aplicaciones}, el siguiente paso era diseñar y ejecutar las pruebas necesarias que permitiesen comprobar el correcto funcionamiento de estos generadores. Para diseñar las pruebas,  siguiendo el mismo procedimiento que en el caso anterior, utilizando la técnica de clases de equivalencia y valores límites, para luego completar con casos específicos que permitiesen alcanzar el 100\% de la cobertura.  A diferencia de la fase de \emph{Ingeniería del Dominio}, en esta fase no se utilizó \emph{EUnit} para ejecutar dichas pruebas, ya que dicha herramienta no se ajustaba a nuestras necesidades. Por tanto, se crearon los casos de prueba y se ejecutaron a mano, analizando de forma también manual si la salida producida coincidía con la esperada. La Tabla~\ref{app:table:pruebas} muestra algunos de los casos de prueba ejecutados. 
 
 \begin{table}%
-\begin{tabularx}{13cm}{|X|l|}
+\begin{tabularx}{\linewidth}{|X|l|}
  \hline
 {Casos válidos}&{Casos no válidos} \\ \hline
 Un profile y un único camino. & Paquetes recursivos. \\
