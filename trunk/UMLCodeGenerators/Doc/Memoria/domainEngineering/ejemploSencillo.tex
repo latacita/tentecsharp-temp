@@ -35,58 +35,45 @@ Para introducir al lector en la implementación de los generadores de código, vam
 04 operation Element classMethods(currentPackage: String, path: String)
                      : String {   		
 05  ...
-06  opers=private()+void()+currentPackage+"_init"
-          +self.firstToUpperCase()+" ( ) {}\n\t\t";
+06  opers=self.generatePartialConstructor (currentPackage);
 07  ...
-08  for (oper in self.getOperations()){
+08  for (oper in self.getOperations()){ 
 09      for (par in oper.ownedParameter){
 10          ...	
 11          if (oper.type==null){
 12              isReturn=false;
 13          }else{
-14              if (par.direction.toString().equals("return")){
-15                  if (not par.type.name.isDefined()){
-16                      isReturn=false;
-17                  }else{
-18                      isReturn=true;
-19                  }//if-par-type
-20              }//if-par-direction
-21          }//if-oper-type
-22      }//for-parameters
-23      if (isReturn){
-24          operations_return.add(oper);
-25      }else{
-26          operations_void.add(oper);
-27      }		
-28  }//for-operations	
-29  for (oper in operations_void) {
-30      if (oper.name==""){
-31          methodname="method_"+iter;
-32      }else{
-33          methodname=oper.name;
-34      }
-35      opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()
-              +virtual()+void()+currentPackage+"_"+methodname
-              +" ("+oper.parameters(currentPackage, path)+") {}\n\t\t";
-36      // Increase the iterator
-37      iter=iter+1;
-38  }
-39  for (oper in operations_return) {
-40      if (oper.name==""){
-41          methodname="method_"+iter;
-42      }else{
-43          methodname=oper.name;
-44      }
-45      opers=opers+oper.visibility()+oper.abstract()+oper.esStatic()
-             +virtual()+oper.returnParameter(currentPackage, path)
-             +" "+currentPackage+"_"+methodname
-             +" ("+oper.parameters(currentPackage, path)
-             +") {}\n\t\t";
-46      // Increase the iterator
-47      iter=iter+1;
-48  }
-49  return opers;
-50 }\%]
+14                isReturn=par.isReturn(); 
+15          }//if-oper-type
+16      }//for-parameters
+17      if (isReturn){
+18          operations_return.add(oper);
+19      }else{
+20          operations_void.add(oper);
+21      }//if-isReturn		
+22  }//for-operations	
+23  for (oper in operations_void) {
+24      if (oper.name==""){
+25          methodname="method_"+iter;
+26      }else{
+27          methodname=oper.name;
+28      }
+29        opers=opers+oper.voidOperation(currentPackage, methodname, path); 
+30      // Increase the iterator
+31      iter=iter+1;
+32  }
+33  for (oper in operations_return) {
+34      if (oper.name==""){
+35          methodname="method_"+iter;
+36      }else{
+37          methodname=oper.name;
+38      } 
+39        opers=opers+oper.returnOperation(currentPackage, methodname, path);
+40      // Increase the iterator
+41      iter=iter+1;
+42  }
+43  return opers;
+44 }\%]
 \end{lstlisting}
 
 Un vez explicado un ejemplo sencillo, la siguiente sección \ref{domain:sec:ejcomplejo} explica ejemplos más complejos que quedan a la curiosidad del lector.
