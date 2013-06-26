@@ -12,6 +12,7 @@ import "../ClassElements/ModelCreation.egl";
 %]
 using System;
 using System.Collections.Generic;
+using [%=currentModel.name%];
 [%
 var p=currentPackage.name; 
 var name;
@@ -24,7 +25,7 @@ if (isInterface){
 // This is the content of the [%=name%] named "[%=currentElement%]", which is 
 // in the package: "[%=p%]", from the "My_[%=currentModel.name%]" model. 
 namespace My_[%=currentModel.name%]{
-	public [%=name%] [%=currentElement%]{ 
+	public [%=name%] My[%=currentElement%] : [%=currentElement%]{ 
 		// Constructor and methods from the from the current class		
 [% for (method in currentMethods){ %]
 [%=method%]

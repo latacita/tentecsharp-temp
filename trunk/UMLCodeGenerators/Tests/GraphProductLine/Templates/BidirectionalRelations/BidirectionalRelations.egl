@@ -58,7 +58,7 @@ operation bidirectionalRelations(rootPath: String): Set{
 					relation.add(nameRelations); 
 					// Save the packages
 					package.add(pack.name);
-					package.add(attrib.type.Package.name);
+					package.add(attrib.type.Package);
 					relation.add(package); 
 					// Save the multiplicity
 					if (attrib.upperBound > 1 or attrib.upperBound == -1){

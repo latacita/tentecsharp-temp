@@ -154,8 +154,8 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 			t.populate('currentPackage', parentsPackages[iter]);
 			t.populate('currentModel', modelProject);
 			t.populate('currentMethods', methods);
-			t.populate('currentProperties', properties[0]);      
-			t.populate('currentAditionalMethods', properties[1]);    
+			t.populate('currentProperties', properties[0]);
+			t.populate('currentAditionalMethods', properties[1]);
 			t.generate (path); 	
 			paths_notempty.add(path); 
 			var c;
@@ -173,7 +173,7 @@ operation classFilesCreation(packages: Set, modelProject: Model, directory: Stri
 			var path=directory + parentsPackages[iter].name + "\\"+ parent.name +'.cs'; 
 			t.populate ('currentElement', parent);	
 			t.populate('currentPackage', parentsPackages[iter]);
-			t.populate('currentModel', modelProject);  							
+			t.populate('currentModel', modelProject);
 			t.populate('currentMethods', methods); 
 			t.populate('currentParents', parent.hierarchy()); 
 			t.populate('currentCollections', c);  
