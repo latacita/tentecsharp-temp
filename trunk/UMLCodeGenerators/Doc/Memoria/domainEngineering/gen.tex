@@ -28,16 +28,28 @@ Si se trata de una clase enumerada, se invoca el template \imp{EnumerationClassC
 
 Se procesan todas las clases con herencia múltiple, para aplicar el \emph{mixin pattern}. Para ello se ejecutan las plantillas \imp{ParentImplMultipleInheritanceCase}, que se encarga de procesar las clases padre involucradas en herencias múltiples; y \imp{ParentInterfaceMultipleInheritanceCase}, que se encarga de crear las interfaces para estas clases padre. Ambas plantillas hacen uso de las plantillas \imp{MethodsCreation} y \imp{UtilityMethodsCreation}, encargadas de procesar los métodos de dichas clases e interfaces y de crear los métodos de infraestructura que fuesen necesarios, tal como \imp{Equals} o \imp{CompareTo}.
 
-A continuación, se ejecuta la plantilla \imp{ChildClassMultipleInheritance}, encargada de procesar una clase hija involucrada en herencia múltiple. Para ello se procesan el esqueleto de la clase \imp{ClassDeclaration}, sus atributos (\imp{PropertiesGeneration}), sus métodos \imp{MethodsCreation} y sus métodos de infraestructura \imp{UtilityMethodsCreation}.
+A continuación, se ejecuta la plantilla \imp{ChildClassMultipleInheritance}, encargada de procesar una clase hija involucrada en herencia múltiple. Para ello se procesan el esqueleto de la clase (\imp{ClassDeclaration}), sus atributos (\imp{PropertiesGeneration}), sus métodos (\imp{MethodsCreation}) y sus métodos de infraestructura (\imp{UtilityMethodsCreation}).
 
 Seguidamente, se procesan las clases no afectadas, como hijas o como padres, por herencia múltiple. Estas clases se procesan a través de la plantilla \imp{ClassCreation}, que funciona igual que la plantilla \imp{ChildClassMultipleInheritance}, a excepción de que no se genera el código de los delegados para los \emph{mixins}.
 
-Cada plantilla invocada hace uso a su vez de otras subplantillas, que por razones de claridad y espacio no detallamos. Por ejemplo, la plantilla \imp{PropertiesGeneration} encargada de procesar atributos y extremos de asociación, hace uso de diversas plantillas para procesar los extremos pertenecientes a asociaciones doblemente navegables, tal como se indica en la Figura~\ref{}.
+\begin{figure}[!tb]
+  \center
+  \includegraphics[width=\linewidth]{domainEngineering/images/PropertiesTemplates.eps} \\
+  \caption{Orden de ejecución en la plantilla de generación de código \imp{PropertiesGeneration}}
+  \label{dom:fig:propTemp}
+\end{figure}
+
+Cada plantilla invocada hace uso a su vez de otras subplantillas, que por razones de claridad y espacio no detallamos. Por ejemplo, la plantilla \imp{PropertiesGeneration} encargada de procesar atributos y extremos de asociación, hace uso de diversas plantillas para procesar los extremos pertenecientes a asociaciones doblemente navegables, tal como se indica en la Figura~\ref{dom:fig:propTemp}.
 
 Por último, comentar que todas las plantillas utilizan diversas funciones auxiliares especificadas en EOL. Por ejemplo, existen funciones para determinar si una clase está involucrada en una herencia múltiple o para devolver todas las clases padre de una clase dada. Además, junto con las funciones auxiliares de EOL, se han creado una serie de funciones auxiliares en Java, invocables desde EOL, y EGL, lo que se conoce en argot Epsilon como una \emph{Java Tool}, para poder manipular el sistema de ficheros. Esto era necesario, por ejemplo, para poder crear la estructura de carpetas del proyecto Visual Studio 2010.
 
-Además, se crearon algunas \emph{Java Tool} para poder mostrar cuadros de diálogo que permitiesen inteactuar con el usuario durante el proceso de generación de código, ya fuese para mostrarle o requerirle información.
-
+Además, se crearon algunas \emph{Java Tool} para poder mostrar cuadros de diálogo que permitiesen interactuar con el usuario durante el proceso de generación de código, ya fuese para mostrarle o requerirle información.
+\begin{figure}[!tb]
+  \centering
+  \includegraphics[width=.75\linewidth]{domainEngineering/images/SeleccionModelo.eps} \\
+  \caption{Selección de modelo en un proyecto con varios modelos}
+  \label{dom:fig:modelos}
+\end{figure}
 \begin{figure}[!tb]
   \centering
   \includegraphics[width=.75\linewidth]{domainEngineering/images/FinalWindow.eps} \\
@@ -46,8 +58,8 @@ Además, se crearon algunas \emph{Java Tool} para poder mostrar cuadros de diálog
 \end{figure}
 
 
-Las Figuras~\ref{} y~\ref{dom:fig:final} muestra dos ejemplos de estos diálogos. El primero de ellos aparecería al utilizar como entrada para el generador de código un archivo UML que tuviese varios modelos. En este caso, el proceso de generación de código preguntaría al usuario cuál es el modelo a procesar, ya dentro de un fichero UML pueden coexistir modelos de diversa índole.
+Las Figuras~\ref{dom:fig:modelos} y~\ref{dom:fig:final} muestra dos ejemplos de estos diálogos. El primero de ellos aparecería al utilizar como entrada para el generador de código un archivo UML que tuviese varios modelos. En este caso, el proceso de generación de código preguntaría al usuario cuál es el modelo a procesar, ya dentro de un fichero UML pueden coexistir modelos de diversa índole.
 
-El segundo diálogo (Figura~\ref{dom:fig:final}) muestra, al final del proceso de generación de código, las incidencias que hayan podido producirse durante dicho proceso. 
+El segundo diálogo (Figura~\ref{dom:fig:final}) muestra, al final del proceso de generación de código, las incidencias que hayan podido producirse durante dicho proceso.
 
-La siguiente sección muestra, para el lector interesado, una plantilla de las descritas en esta sección a nivel de código. 
+La siguiente sección muestra, para el lector interesado, una plantilla de las descritas en esta sección a nivel de código.
