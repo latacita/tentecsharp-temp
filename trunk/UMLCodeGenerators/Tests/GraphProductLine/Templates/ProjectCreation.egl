@@ -8,7 +8,7 @@
 //				directories and the files of all code classes.
 ////////////////////////////////////////////////////////////
 import "Operations.eol";
-import "ClassFilesCreation.egl"; 
+import "ProcessPackageContents.egl"; 
 import "SpecificProduct/SpecificProduct.egl";
 
 import "VisualStudioProjectFiles/SlnFileCreation.egl";

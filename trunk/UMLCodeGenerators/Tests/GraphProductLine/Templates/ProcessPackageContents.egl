@@ -1,0 +1,208 @@
+[%
+////////////////////////////////////////////////////////////
+//
+// Author: Patricia Abascal Fernández
+// Version: 2.3
+// Last modification: 02/05/2013 
+// Description: Generates the files of all code classes. And
+//				return a set of all the paths.
+////////////////////////////////////////////////////////////
+import "Operations.eol";
+import "ClassElements/MethodsCreation.egl";
+import "ClassElements/PropertiesGeneration.egl";
+import "BidirectionalRelations/BidirectionalRelations.egl";
+import "Classes/MultipleHierarchyClasses.egl";
+import "ClassElements/CollectionMultipleHierarchy.egl"; 
+
+operation classFilesCreation(packages: Set, modelProject: Model, directory: String, path: String, rootPath: String){
+	var paths_empty: Set; 
+	var paths_notempty: Set; 
+	var paths_notemptyMyProject: Set;
+	var isInterface=false;
+	
+	var isBidirectional=false;
+	var bidirectionalImplementations: List; 
+	
+	var packagesMerges;
+	// Select bidirectional relations
+	var bidirectionalRelations=bidirectionalRelations(rootPath);
+	for (pack in packages) {  
+		// If the package doesn't have name, throw an exception
+		if (pack.name=""){
+			var message = "EXCEPTION: There is a package which doesn't have a name. Please name it in order to generate the project.";
+			deleteProject(rootPath);
+			createErrorWindow(message);
+			throw (message);
+		}
+		// If the current package isn't the combination chosen by the user
+		if (pack.profileApplication.isEmpty()){
+			// Enumeration classes from the model
+			var enumClasses=pack.packagedElement.select(e|e.isTypeOf(Enumeration)); 
+			for (en in enumClasses){
+				if (en.name=""){
+					var message = "EXCEPTION: There is an enumeration class which doesn't have a name in the package \""+pack.name+"\". Please name it in order to generate the project.";
+					deleteProject(rootPath);
+					createErrorWindow(message);
+					throw (message);
+				}
+		    	var t := TemplateFactory.load('Classes/EnumerationClassCreation.egl');
+				t.populate ('currentClass', en);	
+				t.populate('currentPackage', pack);
+				t.populate('currentModel', modelProject); 
+				var path=directory+pack.name + "\\"+ en.name +'.cs'; 
+				t.generate (path); 
+				paths_notempty.add(path);
+		    }
+			// Classes from the model
+		    var classes=pack.packagedElement.select(e|e.isTypeOf(Class)); 
+		    // Interfaces from the model
+		    var interfaces=pack.packagedElement.select(e|e.isTypeOf(Interface));
+			// Packages from the model
+		    var packag=pack.packagedElement.select(e|e.isTypeOf(Package));
+		    if (packag.size>0){
+		    	for (p in packag){
+		    		var pa=classFilesCreation(packag, modelProject, directory + pack.name +"\\", path, rootPath); 
+					paths_empty=paths_empty+pa[0]; 
+					paths_notempty=paths_notempty+pa[1];   
+		    	}
+		    } 
+		    // If the package is empty
+		    if (classes.size()==0 and interfaces.size()==0){
+		    	var path = directory+pack.name + "\\"; 
+		    	directory(path);
+		    	// Pick the part from the path neccesary to generate empty VS folders
+		    	var position=directory.lastIndexOf("src") ;
+		    	path=path.substring(position, path.length()); 
+		    	paths_empty.add(path); 
+		    // If it's not empty, create all the classes and interfaces inside the package
+		    }else{ 	    	
+		    	// Create the classes (the ones which are child of none or one class).
+				for (class in classes) {
+					// If the class doesn't have name, throw an exception
+					if (class.name=""){
+						var message = "EXCEPTION: There is a class which doesn't have a name in the package \""+pack.name+"\". Please name it in order to generate the project.";
+						deleteProject(rootPath);
+						createErrorWindow(message);
+						throw (message);
+					}
+					var hierarchy = class.hierarchy(); 
+					if (hierarchy.size<=1){ 
+						isInterface=false;
+						var t := TemplateFactory.load('ClassCreation.egl');
+						t.populate ('currentElement', class);	
+						t.populate('currentPackage', pack);
+						t.populate('currentModel', modelProject);  
+						t.populate('path', path); 
+						t.populate('isInterface', isInterface);
+						t.populate('rootPath', rootPath); 
+						t.populate('bidirectionalRelations', bidirectionalRelations);  
+						var path=directory+pack.name + "\\"+ class.name +'.cs'; 
+						t.generate (path);
+						paths_notempty.add(path);
+					}//if-hiearchy
+				}//for-class 
+				// Create the interfaces
+				for (interface in interfaces) {
+					// If the interface doesn't have name, throw an exception
+					if (interface.name=""){
+						var message = "EXCEPTION: There is an interface which doesn't have a name in the package \""+pack.name+"\". Please name it in order to generate the project.";
+						deleteProject(rootPath);
+						createErrorWindow(message);
+						throw (message);
+					}
+			     	isInterface=true;
+			  		var t := TemplateFactory.load('ClassCreation.egl');
+					t.populate ('currentElement', interface);	
+					t.populate('currentPackage', pack);
+					t.populate('currentModel', modelProject);  
+					t.populate('path', path); 
+					t.populate('isInterface', isInterface); 
+					t.populate('rootPath', rootPath); 
+					t.populate('bidirectionalRelations', bidirectionalRelations);  
+					var path=directory + pack.name + "\\"+ interface.name +'.cs'; 
+					t.generate (path); 	
+					paths_notempty.add(path);
+			     }//for-interface 
+			}//if-classes-size 
+		}//if-pack-isn't-the-combination-chosen-by-user
+	}//for-package
+	
+	// Save the multiple hierarchy tuples  
+	var multipleHierarchyClasses = multipleHierarchyClasses(packages); 
+	for (element in multipleHierarchyClasses){
+		// Parents  
+		var parents=element[0];
+		// Child  
+		var child=element[1]; 
+		// Parents packages
+		var parentsPackages=element[2]; 
+		// Variable to iterate the parentsPackages
+		var iter=0; 
+		// Child package
+		var childPackages=element[3];
+		for (parent in parents){
+			var path=directory + parentsPackages[iter].name + "\\Interface_"+ parent.name +'.cs';  
+			// Need to create the appropiate interface 
+			// Extract properties from the parent class
+			var interfaceName="Interface_"+ parent.name;
+			var properties=parent.propertiesGeneration(true, bidirectionalRelations, parentsPackages[iter].name, path, rootPath);  
+			// Extract methods from the parent class
+			var methods=parent.classMethods(parentsPackages[iter].name, path, false, rootPath); 
+			// Create the interface (only implements the properties).
+			var t := TemplateFactory.load('Classes/ParentInterfaceMultipleInheritanceCase.egl');
+			t.populate ('currentInterface', parent);	
+			t.populate('currentPackage', parentsPackages[iter]);
+			t.populate('currentModel', modelProject);
+			t.populate('currentMethods', methods);
+			t.populate('currentProperties', properties[0]);
+			t.populate('currentAditionalMethods', properties[1]);
+			t.generate (path); 	
+			paths_notempty.add(path); 
+			var c;
+			if (parent.hierarchy().size>1){
+				var currentParents=parent.hierarchy();
+				var parentClassesNames: Set;
+				for (h in currentParents){ 
+					// Hierarchy classes for the current class declaration 
+					parentClassesNames.add(h.general.name);
+				} 
+				c=collectionMultipleHierarchy(parentClassesNames);
+			}  
+			// Create the class (only implements the methods). 
+			var t := TemplateFactory.load('ParentImplMultipleInheritanceCase .egl');
+			var path=directory + parentsPackages[iter].name + "\\"+ parent.name +'.cs'; 
+			t.populate ('currentElement', parent);	
+			t.populate('currentPackage', parentsPackages[iter]);
+			t.populate('currentModel', modelProject);
+			t.populate('currentMethods', methods); 
+			t.populate('currentParents', parent.hierarchy()); 
+			t.populate('currentCollections', c);  
+			t.populate('isInterface', false);   
+			t.generate (path); 	
+			paths_notempty.add(path); 
+			// Iterate the parentsPackages
+			iter=iter+1;
+		}//for-parents
+		// Create the child class with as many collections as parents has, so it can access the methods. 
+		if (not fileExists(directory+childPackages.name+"\\Interface_"+child.name+".cs")){ 
+			var path=directory+childPackages.name + "\\"+ child.name +'.cs'; 
+			var t := TemplateFactory.load('ChildClassMultipleInheritanceCase.egl');  
+			t.populate ('currentElement', child);
+			t.populate('currentPackage', childPackages);
+			t.populate('currentModel', modelProject);  
+			t.populate('currentParents', child.hierarchy()); 
+			t.populate('rootPath', rootPath); 
+			t.populate('bidirectionalRelations',bidirectionalRelations);
+			t.populate('path', path); 
+			t.generate (path); 	
+			paths_notempty.add(path); 
+		}
+	}//for-element-multipleHierarchyClasses  
+	// Set of three sets, empty and non empty paths and the specific one
+	var paths:List;
+	paths.add(paths_empty);
+	paths.add(paths_notempty);
+	paths.add(paths_notemptyMyProject);
+	return paths;
+}
+%]
