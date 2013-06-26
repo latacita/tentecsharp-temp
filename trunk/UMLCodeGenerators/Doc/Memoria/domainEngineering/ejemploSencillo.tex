@@ -66,3 +66,18 @@ Para introducir al lector en la implementación de los generadores de código, vam
 
 Un vez explicado un ejemplo sencillo, la siguiente sección \ref{domain:sec:ejcomplejo} explica ejemplos más complejos que quedan a la curiosidad del lector.
 
+Para utilizar una \emph{Java Tool} en Epsilon es necesario \emph{envolver} las funciones Java en funciones EOL. El Listado~\ref{dom:code:writeinfile} muestra un ejemplo de dicho proceso de envoltura.
+
+\begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
+                    caption=Uso de un Java Tool en los generadores de código,
+                    label=dom:code:writeinfile]
+File Operations.eol
+--------------------------------------------------------
+01 operation writeInFile(path:String, message:String) {
+02     var sampleTool = new Native("pluginWriteInFile.WriteInFile");
+03     sampleTool.writeInFile(path, message);	
+04}
+\end{lstlisting}
+
+
+

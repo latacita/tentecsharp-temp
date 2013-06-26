@@ -13,7 +13,7 @@ Para distinguir el paquete que representa el producto final de los paquetes que 
 
 \begin{figure}[!tb]
   \center
-  \includegraphics[width=\linewidth]{applicationEngineering/images/Configuracion1.eps} \\
+  \includegraphics[width=\linewidth]{applicationEngineering/images/configuracion(1).eps} \\
   \caption{Configuración de un hogar inteligente completo}
   \label{app:fig:conf1}
 \end{figure}
@@ -21,8 +21,6 @@ Para distinguir el paquete que representa el producto final de los paquetes que 
 En nuestro caso, el perfil contiene un solo estereotipo, denominado \imp{SpecificProduct}, el cual se puede aplicar exclusivamente a paquetes UML tal como se puede apreciar en la Figura\ref{app:fig:conf1}. Además, por cada modelo UML 2.0 representando un producto concreto, sólo puede existir un paquete estereotipado de dicha forma. Esta última restricción se expresa por medio de OCL.
 
 La Figura~\ref{app:fig:conf1} muestra un ejemplo de creación de un producto concreto dentro de la línea de productos software para hogares inteligentes. En este caso, se trata de un producto donde se ha incluido exclusivamente la característica de \imp{SmartEnergyMng}, lo que implica que deben seleccionarse además las características \imp{WindowMng} y \imp{HeaterMng}, ya que \imp{SmartEnergyMng} necesita que ambas características estén instaladas en un producto final para poder funcionar. Dicha dependencia queda especificada de forma explícita a través de las relaciones \emph{merge} existentes entre \imp{SmartEnergyMng} y \imp{WindowMng} y \imp{HeaterMng}. Debido a dichas relaciones, es imposible crear un producto que incluya \imp{SmartEnergyMng} pero no \imp{WindowMng} o \imp{HeaterMng}.
-
-%\todo{Meter una figura con la configuración, hacedla en MagicDraw y que utilice el caso de estudio del proyecto}
 
 La siguiente sección describe como este modelo arquitectónico puede transformarse automáticamente en el código necesario para crear una implementación concreta y completamente funcional de un producto software concreto.
 

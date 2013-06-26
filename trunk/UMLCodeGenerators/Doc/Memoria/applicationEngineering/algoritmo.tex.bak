@@ -12,9 +12,9 @@ Para obtener una implementación completamente funcional de un producto concreto,
 El primer paso en el proceso de transformación es crear un nuevo proyecto y una nueva carpeta que represente el producto final.
 
 Para calcular todas las clases que deben estar incluidas en el producto final, recorremos el modelo desde el paquete que representa el producto concreto, y que será siempre un paquete \emph{hoja}, hacia arriba, hasta llegar a la raíz, o raíces, del modelo orientado a características. Normalmente, siempre hay un modelo raíz que contiene los elementos que son comunes a todos los productos.
-En nuestro caso de la Figura~\ref{app:fig:model}, dicho recorrido generaría dos caminos distintos: (1) \imp{SmartEnergyMng}, \imp{WindowMng}, \imp{BaseSystem}; y (2) \imp{SmartEnergyMng}, \imp{HeaterMng}, \imp{BaseSystem}.
+En nuestro caso de la Figura~\ref{app:fig:conf1}, dicho recorrido generaría dos caminos distintos: (1) \imp{SmartEnergyMng}, \imp{WindowMng}, \imp{BaseSystem}; y (2) \imp{SmartEnergyMng}, \imp{HeaterMng}, \imp{BaseSystem}.
 
-Obviamente, una clase puede aparecer en más de un paquete. Por ejemplo, la clase \imp{Gateway} aparece en todos los paquetes, a excepción del que representa el producto final, de la Figura~\ref{app:fig:model}. No obstante, cada clase que esté en un camino desde el paquete hoja al paquete raíz, solo debe incluirse una vez en el producto final, aunque ésta aparezca varias veces. Por cada clase distinta presente en algunos de los caminos del paquete hoja a la raíz, generamos una nueva clase parcial, que colocamos en la carpeta que representa el producto final
+Obviamente, una clase puede aparecer en más de un paquete. Por ejemplo, la clase \imp{Gateway} aparece en todos los paquetes, a excepción del que representa el producto final, de la Figura~\ref{app:fig:conf1}. No obstante, cada clase que esté en un camino desde el paquete hoja al paquete raíz, solo debe incluirse una vez en el producto final, aunque ésta aparezca varias veces. Por cada clase distinta presente en algunos de los caminos del paquete hoja a la raíz, generamos una nueva clase parcial, que colocamos en la carpeta que representa el producto final
 
 A continuación, para cada clase, debemos calcular todos los métodos limpios que debemos generar. Para ello, al igual que ocurría con las clases parciales, recorremos todos los caminos existentes de raíz a hoja. Para cada clase, por cada método distinto, es decir, con diferente signatura, creamos una versión limpia de dicho método dentro de la clase parcial incluida en el producto final. El proceso de generación del esqueleto del método se realiza reutilizando las plantillas de generación de código y facilidades creadas para la Ingeniería de Dominio.
 
@@ -22,24 +22,32 @@ Por último, quedaría por generar el código de cada método, de forma que este del
 
 \subsection{Caso 1: Sólo existe una \emph{versión sucia} del método}
 
-Se trata del caso más simple. Sólo existe una \emph{versión sucia} del método, por lo que hay que hacer es delegar en él. En nuestro ejemplo de la Figura~\ref{app:fig:model}, para la clase \imp{Gateway}, el método \imp{openWindow} solo está implementado en la característica \imp{WindowMng} por lo que la generación de código interna de dicha \emph{versión limpia} del método se correspondería con la \emph{versión sucia} \imp{WindowMng_openWindow} de la característica \imp{WindowMng}.
+Se trata del caso más simple. Sólo existe una \emph{versión sucia} del método, por lo que hay que hacer es delegar en él. En nuestro ejemplo de la Figura~\ref{app:fig:conf1}, para la clase \imp{Gateway}, el método \imp{openWindow} solo está implementado en la característica \imp{WindowMng} por lo que la generación de código interna de dicha \emph{versión limpia} del método se correspondería con la \emph{versión sucia} \imp{WindowMng_openWindow} de la característica \imp{WindowMng}.
 
 \begin{figure}[!tb]
   \center
-  \includegraphics[scale=0.80,angle=0]{applicationEngineering/images/appModel1.eps} \\
+  \includegraphics[width=0.80\linewidth,keepaspectratio=true]{applicationEngineering/images/Configuracion2.eps} \\
   \caption{Creación de un producto específico en el diseño orientado a características del software para hogares inteligentes, configuración 2}
-  \label{app:fig:model2}
+  \label{app:fig:conf2}
 \end{figure}
 
 \subsection{Caso 2: Existen varias \emph{versiones sucias} independientes}
-Existen varias \emph{versiones sucias} independientes del método, lo que hay que hacer es delegar en ellas puesto que, al ser independientes, no suponen ningún tipo de conflicto. Para ilustrar este caso nos apoyaremos en la configuración de la Figura~\ref{app:fig:model2} donde existen sendas \emph{versiones sucias} de los métodos \imp{switchOn} y \imp{swithOff} para las características \imp{BlindSimulation} y \imp{LightSimulation}. Nos centraremos en el método \imp{switchOn}. En la \emph{versión limpia} del método se realizarán dos llamadas a cada una de las \emph{versiones sucias} del método en dichas características, \imp{BlindSimulation_switchOn} y \imp{LightSimulation_switchOn}, el orden de las llamadas es indiferente ya que al ser caminos independientes no entran en conflicto. Con el método \imp{switchOff} se procede de forma análoga.
+Existen varias \emph{versiones sucias} independientes del método, lo que hay que hacer es delegar en ellas puesto que, al ser independientes, no suponen ningún tipo de conflicto. Para ilustrar este caso nos apoyaremos en la configuración de la Figura~\ref{app:fig:conf2} donde existen sendas \emph{versiones sucias} de los métodos \imp{switchOn} y \imp{swithOff} para las características \imp{BlindSimulation} y \imp{LightSimulation}. Nos centraremos en el método \imp{switchOn}. En la \emph{versión limpia} del método se realizarán dos llamadas a cada una de las \emph{versiones sucias} del método en dichas características, \imp{BlindSimulation_switchOn} y \imp{LightSimulation_switchOn}, el orden de las llamadas es indiferente ya que al ser caminos independientes no entran en conflicto. Con el método \imp{switchOff} se procede de forma análoga.
 
 \subsection{Caso 3: Existen \emph{versiones sucias} dependientes de un método}
-Existen varias \emph{versiones sucias} dependientes de un método por lo que debemos quedarnos con la \imp{versión sucia} más cercana a la \emph{hoja}. En la Figura~\ref{app:fig:model}, para el constructor de la clase \imp{Gateway}
 
-\subsection{Caso 3: Existen \emph{versiones sucias} dependientes e independientes de un método}
+Existen varias \emph{versiones sucias} dependientes de un método por lo que debemos quedarnos con la \imp{versión sucia} más cercana a la \emph{hoja}. En la Figura~\ref{app:fig:conf1} para el constructor de la clase \imp{Gateway} disponemos de las \emph{versiones sucias} correspondientes a las características \imp{SmartEnergy}, \imp{WindowMng}, \imp{HeaterMng} y \imp{BaseSystem}. Tal como comentamos en la Sección~\ref{application:sec:mod} es imposible crear un producto que incluya \imp{SmartEnergyMng} pero no \imp{WindowMng} o \imp{HeaterMng} por lo que la implementación del constructor de la característica \imp{SmartEnergyMng} engloba las \emph{versiones sucias} de \imp{WindowMng} y \imp{HeaterMng}. De tal forma, la generación interna del constructor para la clase \imp{Gateway} para la configuración de la Figura~\ref{app:fig:conf1}  se corresponderá con una llamada al método \imp{SmartEnergyMng_initGateway} de la característica \imp{SmartEnergyMng}.
 
 
+\begin{figure}[!tb]
+  \center
+  \includegraphics[scale=0.80,angle=0]{applicationEngineering/images/Configuracion3.eps} \\
+  \caption{Creación de un producto específico en el diseño orientado a características del software para hogares inteligentes, configuración 3}
+  \label{app:fig:conf3}
+\end{figure}
+
+\subsection{Caso 4: Existen \emph{versiones sucias} dependientes e independientes de un método}
+Existen \emph{versiones sucias} dependientes e independientes de un método, es el caso más complejo para la generación de código de cada método, debemos por tanto seleccionar la \emph{versión sucia} más cercana a la \emph{hoja} en el caso de las versiones dependientes y delegar en las \emph{versiones sucias} de aquellos caminos independientes. Tomemos como ejemplo la clase \imp{Gateway} para la configuración mostrada en la Figura~\ref{app:fig:conf3}. Hay cuatro caminos distintos: (1) \imp{BlindSimulation}, \imp{BlindMng}, \imp{BaseSystem}; (2) \imp{SmartEnergyMng}, \imp{WindowMng}, \imp{BaseSystem}; (3) \imp{SmartEnergyMng}, \imp{HeaterMng}, \imp{BaseSystem} y (4) \imp{LightSimulation}, \imp{LightMng}, \imp{BaseSystem}. Los caminos (1) y (4) son independientes respecto a los caminos (2) y (3), por lo que la implementación interna del constructor de la clase \imp{Gateway} contendrá las llamadas correspondientes a las \emph{versiones sucias} de los métodos en sendas características: \imp{BlindSimulation\_initGateway} y \imp{LightSimulation\_initGateway}. Por otra parte, y tal como comentamos en el caso 3, debemos quedarnos con la \imp{versión sucia} de la característica \imp{SmartEnergyMng} por tanto realizamos también la llamada al método \imp{SmartEnergyMng_initGateway}. El orden de estas tres llamadas dentro de la \emph{versión limpia} del constructor es indiferente puesto que son independientes entre si.
 
 
 Así pues queda explicado en detalle el proceso de generación de código para un producto específico del modelo UML a código C\#. En la siguiente sección se profundizará en la implementación y generación de código C\#.
