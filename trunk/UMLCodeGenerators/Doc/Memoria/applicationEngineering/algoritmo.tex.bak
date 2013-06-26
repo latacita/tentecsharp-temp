@@ -22,7 +22,9 @@ Por último, quedaría por generar el código de cada método, de forma que este del
 
 \subsection{Caso 1: Sólo existe una \emph{versión sucia} del método}
 
-Se trata del caso más simple. Sólo existe una \emph{versión sucia} del método, por lo que hay que hacer es delegar en él. En nuestro ejemplo de la Figura~\ref{app:fig:conf1}, para la clase \imp{Gateway}, el método \imp{openWindow} solo está implementado en la característica \imp{WindowMng} por lo que la generación de código interna de dicha \emph{versión limpia} del método se correspondería con la \emph{versión sucia} \imp{WindowMng_openWindow} de la característica \imp{WindowMng}.
+Se trata del caso más simple. Sólo existe una \emph{versión sucia} del método, por lo que hay que hacer es delegar en él. En el ejemplo de la Figura~\ref{app:fig:conf1}, para la clase \imp{Gateway}, el método \imp{WindowCtrl.open}  solo está implementado en la característica \imp{WindowMng}, por lo que el código generado para la \emph{versión limpia} de dicho método simplemente contendría un delegado a la \emph{versión sucia} \imp{windowMng\_open} de dicho método.
+
+\subsection{Caso 2: Existen varias \emph{versiones sucias} independientes}
 
 \begin{figure}[!tb]
   \center
@@ -31,8 +33,9 @@ Se trata del caso más simple. Sólo existe una \emph{versión sucia} del método, p
   \label{app:fig:conf2}
 \end{figure}
 
-\subsection{Caso 2: Existen varias \emph{versiones sucias} independientes}
-Existen varias \emph{versiones sucias} independientes del método, lo que hay que hacer es delegar en ellas puesto que, al ser independientes, no suponen ningún tipo de conflicto. Para ilustrar este caso nos apoyaremos en la configuración de la Figura~\ref{app:fig:conf2} donde existen sendas \emph{versiones sucias} de los métodos \imp{switchOn} y \imp{swithOff} para las características \imp{BlindSimulation} y \imp{LightSimulation}. Nos centraremos en el método \imp{switchOn}. En la \emph{versión limpia} del método se realizarán dos llamadas a cada una de las \emph{versiones sucias} del método en dichas características, \imp{BlindSimulation_switchOn} y \imp{LightSimulation_switchOn}, el orden de las llamadas es indiferente ya que al ser caminos independientes no entran en conflicto. Con el método \imp{switchOff} se procede de forma análoga.
+En este caso, existen varias \emph{versiones sucias} independientes del método. Por independientes entendemos que dichas versiones se encuentran en caminos distintos, y ninguna es \emph{alcanzable} desde la otra. 
+ 
+ lo que hay que hacer es delegar en ellas puesto que, al ser independientes, no suponen ningún tipo de conflicto. Para ilustrar este caso nos apoyaremos en la configuración de la Figura~\ref{app:fig:conf2} donde existen sendas \emph{versiones sucias} de los métodos \imp{switchOn} y \imp{swithOff} para las características \imp{BlindSimulation} y \imp{LightSimulation}. Nos centraremos en el método \imp{switchOn}. En la \emph{versión limpia} del método se realizarán dos llamadas a cada una de las \emph{versiones sucias} del método en dichas características, \imp{BlindSimulation_switchOn} y \imp{LightSimulation_switchOn}, el orden de las llamadas es indiferente ya que al ser caminos independientes no entran en conflicto. Con el método \imp{switchOff} se procede de forma análoga.
 
 \subsection{Caso 3: Existen \emph{versiones sucias} dependientes de un método}
 
