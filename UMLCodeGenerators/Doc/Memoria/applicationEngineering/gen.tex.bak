@@ -1,34 +1,42 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %% Author : Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.1, 14/05/2013                                         %%
+%% Version: 1.2, 15/05/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Application Engineering/Generadores de Código C#                 %%
 %%==================================================================%%
-Tras explicar en detalle el algoritmo necesario para obtener las versiones clean de las clases y métodos en la sección \ref{app:sec:alg}, se procede a comentar la implementación de los generadores de código correspondientes. La figura \ref{app:fig:templates} muestra la jerarquía de los generadores de código implementados.
+
+Esta sección detalla la secuenciación de las plantillas de generación ed código creadas para implementar el algoritmo de la secciíon anterior. La Figura~\ref{app:fig:templates} muestra ficha secuenciación.
 
 \begin{figure}[!tb]
   \center
-  \includegraphics[scale=0.80,angle=90]{applicationEngineering/images/TemplatesAppEngineering.eps} \\
-  \caption{Jerarquía de los generadores de código implementados en la fase de Ingeniería de Aplicación}
+  \includegraphics[width=\linewidth]{applicationEngineering/images/TemplatesAppEngineering.eps} \\
+  \caption{Secuencia de ejecución de las plantillas de generación de código (Ingeniería de Aplicaciones)}
   \label{app:fig:templates}
 \end{figure}
 
-El punto de partida es idéntico al utilizado para la fase de \emph{Ingeniería del Dominio}; es decir, el generador de código llamado \imp{ProjectCreation}, a partir del cual se invoca a la plantilla \imp{SpecificProduct} que genera los ficheros fuente correspondientes a la implementación del caso concreto determinado por el profile del modelo. Para ello se hacen llamadas a las plantillas descritas en forma de árbol en la figura \ref{app:fig:templates}. Se procede a explicar brevemente el funcionamiento de cada una de ellas:
- \begin{enumerate}
-   \item MergeClasses, genera un listado de los paquetes del modelo y los paquetes directamente relacionados con los mismos.
-   \item SpecificPath, genera un conjunto que incluye aquellos paquetes que necesitan ser implementado para el camino específico seleccionado.
-   \item ExtractClassesAndOperations, genera un listado con cada paquete, por el camino específico, y sus correspondientes clases y versiones clean de las operaciones que implementa.
-   \item FuseElements, fusiona las operaciones de las clases, con el mismo nombre, que están en paquetes diferentes.
-   \item ImplementationCleanMethods, genera la implementación final de los métodos clean (con sus correspondientes implementaciones internas).
-   \item BranchFromSpecificProduct, extrae las versiones más profundas de cada método en una rama concreta.
-   \item IsThereMethod, indica si un método está implementado en el paquete dado.
-   \item RearrangeMethods, selecciona de todas las ramas del proyecto específico aquellas versiones de los métodos más profundas y elimina las redundancias mediante el análisis de la alcanzabilidad.
-   \item SpecificMethods, genera la implementación para la versión clean de cada clase y la implementación interna de sus métodos.
-   \item InternParams, genera los parámetros para las llamadas internas de los métodos.
-   \item CleanVersionClassCreation, una vez creados los elementos a generar, esta plantilla genera la estructura completa del fichero resultante.
-   \item SpecificProductOperations, implementa funciones de uso recurrente a lo largo del resto de plantillas para simplificar el proceso. Entre las funciones implementadas está la accesibilidad entre dos paquetes o la generación de los paquetes para el caso específico a analizar.
- \end{enumerate}
+El punto de partida es idéntico al utilizado para la fase de \emph{Ingeniería del Dominio}; es decir, el generador de código llamado \imp{ProjectCreation}, el cual crea el proyecto Visual Studio 2010 para el producto concreto. Este plantilla invoca a su vez a la plantilla \imp{SpecificProduct}, que es la que gobierna el proceso de generación de código a nivel de \emph{Ingeniería de la Aplicación}. Para ello, se invocan las siguientes plantillas:
 
-Una vez explicado el funcionamiento de los generadores de código, en las siguientes secciones se procederá a explicar de forma detallada varios ejemplos de generadores. Primero uno sencillo que sea fácil de comprender para el lector no experto en el tema y después dos casos más complejos.
+%%=============================================================================================================================%%
+%% NOTa(Pablo): Intenta aclarar esto, igual que hicimos para la fase de Inmgeniería del Dominio                                %%
+%%              y rearregla la figura                                                                                          %%
+%%              Los que sean muy específicos, te los cargas                                                                    %%
+%%=============================================================================================================================%%
+
+\begin{description}
+   \item[\imp{MergeClasses}]. genera un listado de los paquetes del modelo y los paquetes directamente relacionados con los mismos.
+   \item[ SpecificPath] genera un conjunto que incluye aquellos paquetes que necesitan ser implementado para el camino específico seleccionado.
+   \item[ExtractClassesAndOperations] genera un listado con cada paquete, por el camino específico, y sus correspondientes clases y versiones clean de las operaciones que implementa.
+   \item[FuseElements] fusiona las operaciones de las clases, con el mismo nombre, que están en paquetes diferentes.
+   \item ImplementationCleanMethods] genera la implementación final de los métodos clean (con sus correspondientes implementaciones internas).
+   \item[BranchFromSpecificProduct] extrae las versiones más profundas de cada método en una rama concreta.
+   \item[IsThereMethod] indica si un método está implementado en el paquete dado.
+   \item[RearrangeMethods] selecciona de todas las ramas del proyecto específico aquellas versiones de los métodos más profundas y elimina las redundancias mediante el análisis de la alcanzabilidad.
+   \item[SpecificMethods] genera la implementación para la versión clean de cada clase y la implementación interna de sus métodos.
+   \item[InternParams] genera los parámetros para las llamadas internas de los métodos.
+   \item[CleanVersionClassCreation] una vez creados los elementos a generar, esta plantilla genera la estructura completa del fichero resultante.
+   \item[SpecificProductOperations] implementa funciones de uso recurrente a lo largo del resto de plantillas para simplificar el proceso. Entre las funciones implementadas está la accesibilidad entre dos paquetes o la generación de los paquetes para el caso específico a analizar.
+ \end{description}
+
+Una vez explicado el funcionamiento de los generadores de código, en la siguiente sección se procederá a explicar la fase de pruebas de esta etapa del proyecto.
