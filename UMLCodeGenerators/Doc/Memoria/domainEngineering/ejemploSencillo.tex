@@ -53,27 +53,15 @@ Para introducir al lector en la implementación de los generadores de código, vam
 21      }//if-isReturn		
 22  }//for-operations	
 23  for (oper in operations_void) {
-24      if (oper.name==""){
-25          methodname="method_"+iter;
-26      }else{
-27          methodname=oper.name;
-28      }
-29        opers=opers+oper.voidOperation(currentPackage, methodname, path); 
-30      // Increase the iterator
-31      iter=iter+1;
-32  }
-33  for (oper in operations_return) {
-34      if (oper.name==""){
-35          methodname="method_"+iter;
-36      }else{
-37          methodname=oper.name;
-38      } 
-39        opers=opers+oper.returnOperation(currentPackage, methodname, path);
-40      // Increase the iterator
-41      iter=iter+1;
-42  }
-43  return opers;
-44 }\%]
+24       methodname=oper.methodName(); 
+25       opers=opers+oper.voidOperation(currentPackage, methodname, path);  
+26  }
+27  for (oper in operations_return) {
+28      methodname=oper.methodName();
+29      opers=opers+oper.returnOperation(currentPackage, methodname, path); 
+30  }
+32  return opers;
+32 }\%]
 \end{lstlisting}
 
 Un vez explicado un ejemplo sencillo, la siguiente sección \ref{domain:sec:ejcomplejo} explica ejemplos más complejos que quedan a la curiosidad del lector.
