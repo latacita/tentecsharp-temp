@@ -1,0 +1,11 @@
+\appendix
+\chapter{Descripción de los contenidos del CD adjunto}
+
+ A continuación se realiza una descripción del contenido del CD adjunto a esta memoria:
+ \begin{enumerate}
+ \item En la carpeta \emph{Instaladores} se encuentran los dos plugins desarrollados durante este proyecto.
+ \item En la carpeta \emph{Manuales} se encuentran disponibles los distintos manuales creados\footnote{Los manuales también se encuentran disponibles en la URL http://www.alumnos.unican.es/apr85/.}.
+ \item En la carpeta \emph{Fuentes} se halla todo el código fuente del proyecto.
+ \item En \emph{Disenos\_UML} se encuentran los diferentes diagramas UML que conforman el diseño del proyecto\footnote{Para abrir los diagramas UML es necesario el programa MagicDraw UML.}.
+ \item En la ubicación \emph{Otros/Capitulo\_2} están disponibles todos los artefactos desarrollados durante el Capítulo \ref{chap:background}. Por un lado existe una carpeta denominada \emph{Fuentes} que contiene todos los ficheros de código y otra carpeta llamada \emph{Disenos\_UML} que posee los distintos diagramas UML.
+ \end{enumerate}
