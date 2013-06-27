@@ -71,18 +71,22 @@ Gonz{\'a}lez, D.~T. (2013).
 
 \bibitem[\protect\astroncite{Herrmann}{2002}]{stephan:2002}
 Herrmann, S. (2002).
-\newblock Object teams: Improving modularity for crosscutting collaborations.
-\newblock page 248–264.
+\newblock {Object Teams: Improving Modularity for Crosscutting Collaborations}.
+\newblock In Aksit, M., Mezini, M., and Unland, R., editors, {\em Proc. of the
+  International Conference on Components, Architectures, Services and
+  Applications for a Networked World (NetObjectDays)}, volume 2591 of {\em
+  Lecture Notes in Computer Science}, Erfurt, Germany.
 
 \bibitem[\protect\astroncite{Hunt and Thomas}{2004}]{alasdair:2004}
 Hunt, A. and Thomas, D. (2004).
 \newblock {\em {Pragmatic Unit Testing in Java with JUnit}}.
 \newblock The Pragmatic Programmers.
 
-\bibitem[\protect\astroncite{Kakola and Dueñas}{2006}]{kakola:2006}
-Kakola, T. and Dueñas, J.~C. (2006).
-\newblock {\em Software Product Lines: Research Issues in Engineering and
-  Management}.
+\bibitem[\protect\astroncite{K{\"a}k{\"o}l{\"a} and
+  Due{\~n}as}{2010}]{kakola:2006}
+K{\"a}k{\"o}l{\"a}, T. and Due{\~n}as, J.~C., editors (2010).
+\newblock {\em {Software Product Lines: Research Issues in Engineering and
+  Management}}.
 \newblock Springer.
 
 \bibitem[\protect\astroncite{Kleppe}{2009}]{kleppe:2008}
@@ -110,9 +114,9 @@ Kolovos, D.~S., Paige, R.~F., Rose, L.~M., and Williams, J.~R. (2011).
 \bibitem[\protect\astroncite{Laguna et~al.}{2007}]{laguna:2007}
 Laguna, M.~A., Gonz{\'a}lez-Baixauli, B., and Marqu{\'e}s, J.~M. (2007).
 \newblock {Seamless Development of Software Product Lines}.
-\newblock In Consel, C. and Lawall, J.~L., editors, {\em 6th International
-  Conference on Generative Programming and Component Engineering (GPCE)}, pages
-  85--94.
+\newblock In Consel, C. and Lawall, J.~L., editors, {\em Proc. of the 6th
+  International Conference on Generative Programming and Component Engineering
+  (GPCE)}, pages 85--94.
 
 \bibitem[\protect\astroncite{Laguna and Marqu{\'e}s}{2010}]{laguna:2010}
 Laguna, M.~A. and Marqu{\'e}s, J.~M. (2010).
@@ -170,14 +174,9 @@ S{\'a}nchez, P., Loughran, N., Fuentes, L., and Garcia, A. (2008).
   5452 of {\em Lecture Notes in Computer Science}, pages 188--207, Toulouse,
   France.
 
-\bibitem[\protect\astroncite{Steinberg et~al.}{2008a}]{steinberg:2008}
-Steinberg, D., Budinsky, F., Paternostro, M., and Merks, E. (2008a).
+\bibitem[\protect\astroncite{Steinberg et~al.}{2008}]{steinberg:2008}
+Steinberg, D., Budinsky, F., Paternostro, M., and Merks, E. (2008).
 \newblock {\em {EMF: Eclipse Modeling Framework}}.
-\newblock Addison-Wesley Professional, 2 edition.
-
-\bibitem[\protect\astroncite{Steinberg et~al.}{2008b}]{}
-Steinberg, D., Budinsky, F., Paternostro, M., and Merks, E. (2008b).
-\newblock {\em EMF: Eclipse Modeling Framework (2nd edition)}.
 \newblock Addison-Wesley Professional, 2 edition.
 
 \bibitem[\protect\astroncite{Zschaler et~al.}{2011}]{sanchez:2011:tente}
