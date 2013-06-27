@@ -54,7 +54,7 @@ Dicha función, al ejecutarse, genera en primer lugar el constructor para dicha c
 
 Para procesar las operaciones, iteramos sobre ellas (línea 08). Para cada operación, comprobamos si dicha operación contiene o no parámetro de retorno (líneas 09-13). Aquellas operaciones que tienen parámetro de retorno definido (líneas 09-11) se añaden a la colección \imp{operations\_return}. Aquellas operaciones que tienen parámetro de retorno definido (líneas 12-13) se añaden a la colección \imp{operations\_void}. Para estas últimas, se utiliza \imp{void} como tipo de retorno. Una solución inteligente podría haber sido añadir \imp{void} como tipo de retorno a las operaciones que no tuviesen tipo de retorno, pero, recordemos, no podemos modificar el modelo de entrada a los generadores de código.
 
-Por último, se procesan ambas colecciones, \imp{operations\_return} y \imp{operations\_void}, invocando para ello las correspondientes subplantillas de generación de código (\imp{returnOperation} y \imp{voidOperation}), respectivamente (líneas 15-22). Finalmente, se retorna el texto generado, el cual se guardará en el fichero pertinente (línea 23).
+Por último, se procesan ambas colecciones, \imp{operations\_return}  y  \imp{operations-\_void}, invocando para ello las correspondientes subplantillas de generación de código (\imp{returnOperation} y \imp{voidOperation}), respectivamente (líneas 15-22). Finalmente, se retorna el texto generado, el cual se guardará en el fichero pertinente (línea 23).
 
 \subsection{Invocar código Java desde Epsilon}
 

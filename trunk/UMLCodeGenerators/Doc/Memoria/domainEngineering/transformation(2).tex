@@ -118,7 +118,7 @@ Toda esta lógica necesaria para mantener estas restricciones de integridad, tant
 
 Cada operación de una clase en UML 2.0 se transforma en un método de C\#, perteneciente a clase parcial correspondiente a la clase que posee la operación en el modelo UML 2.0. De acuerdo con los principios del \emph{Slicer Pattern}, el nombre de dicho método será el nombre de la operación UML, prefijado con el nombre del paquete donde se encuentra contenida la clase que posee dicha operación. Además, dicho método tendrá siempre la visibilidad privada (\emph{private}), de acuerdo a las exigencias del \emph{Slicer Pattern}.
 
-Por ejemplo, el método \imp{openWindow} de la clase \imp{Gateway} perteneciente a la característica \imp{SmartEnergyMng} se  renombraría como \imp{SmartEnergyMng\_openWindow} en la correspondiente clase parcial \imp{Gateway} dentro de la carpeta del proyecto \imp{SmartEnergyMng}.
+Por ejemplo, el método \imp{openWindow} de la clase \imp{Gateway} perteneciente a la característica  \imp{SmartEnergyMng}  se  renombraría  como \imp{SmartEnergyMng\_open-Window} en la correspondiente clase parcial \imp{Gateway} dentro de la carpeta del proyecto \imp{SmartEnergyMng}.
 
 Los parámetros de cada operación se transforman tal como se describe en la siguiente subsección.
 
