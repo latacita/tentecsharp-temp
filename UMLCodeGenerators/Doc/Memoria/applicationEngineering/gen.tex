@@ -18,9 +18,9 @@ Esta sección detalla la secuenciación de las plantillas de generación de código 
 
 El punto de partida es idéntico al utilizado para la fase de \emph{Ingeniería del Dominio}; es decir, el generador de código llamado \imp{ProjectCreation}, el cual crea el proyecto \emph{Visual Studio 2010} para el producto concreto. Este plantilla invoca a su vez a la plantilla \imp{SpecificProduct}, que es la que gobierna el proceso de generación de código a nivel de \emph{Ingeniería de la Aplicación}. Para ello, se invocan las dos siguientes plantillas principales.
 
-La plantilla \imp{CalculateClassesAndCleanMethods} recorre todos los caminos existentes en el modelo de la arquitectura concreta, desde el paquete hoja a la raíz, calculando las clases parciales que hay que crear, las versiones limpias de métodos a generar, así como las versiones sucias en las cuales delegar, teniendo en cuenta los conceptos de independencia y alcanzabilidad. 
+La plantilla \imp{CalculateClassesAndCleanMethods} recorre todos los caminos existentes en el modelo de la arquitectura concreta, desde el paquete hoja a la raíz, calculando las clases que hay que crear, las versiones limpias de métodos a generar, así como las versiones sucias en las cuales delegar, teniendo en cuenta los conceptos de independencia y alcanzabilidad.
 A continuación, se invoca la plantilla \imp{CleanVersionClassGeneration} para cada una de las clases calculadas anteriormente. Para cada clase calculada, se procede a generar todo el código fuente necesario. Resaltar que estas clases, a diferencia de las generadas a nivel de \emph{Ingeniería del Dominio}, sí son completamente ejecutables y contienen todo el código necesario para ejecutar el producto completo.
 
-Cada una d estas plantillas hace uso a su vez de otras subplantillas, que al igual que en la fase de \emph{Ingeniería del Dominio}, se han obviado por razones de espacio y claridad.
+Cada una de estas plantillas hace uso a su vez de otras subplantillas, que al igual que en la fase de \emph{Ingeniería del Dominio}, se han obviado por razones de espacio y claridad.
 
 Una vez implementados los generadores de código para la fase de \emph{Ingeniería de Aplicación}, procedimos a realizar las pruebas pertinentes.

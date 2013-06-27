@@ -18,9 +18,9 @@ Para distinguir el paquete que representa el producto final de los paquetes que 
   \label{app:fig:conf1}
 \end{figure}
 
-En nuestro caso, el perfil contiene un solo estereotipo, denominado \imp{SpecificProduct}, el cual se puede aplicar exclusivamente a paquetes UML tal como se puede apreciar en la Figura\ref{app:fig:conf1}. Además, por cada modelo UML 2.0 representando un producto concreto, sólo puede existir un paquete estereotipado de dicha forma. Esta última restricción se expresa por medio de OCL.
+En nuestro caso, el perfil contiene un solo estereotipo, denominado \imp{SpecificProduct}, el cual se puede aplicar exclusivamente a paquetes UML tal como se puede apreciar en la Figura~\ref{app:fig:conf1}. Además, por cada modelo UML 2.0 representando un producto concreto, sólo puede existir un paquete estereotipado de dicha forma. Esta última restricción se expresa por medio de OCL.
 
 La Figura~\ref{app:fig:conf1} muestra un ejemplo de creación de un producto concreto dentro de la línea de productos software para hogares inteligentes. En este caso, se trata de un producto donde se ha incluido exclusivamente la característica de \imp{SmartEnergyMng}, lo que implica que deben seleccionarse además las características \imp{WindowMng} y \imp{HeaterMng}, ya que \imp{SmartEnergyMng} necesita que ambas características estén instaladas en un producto final para poder funcionar. Dicha dependencia queda especificada de forma explícita a través de las relaciones \emph{merge} existentes entre \imp{SmartEnergyMng} y \imp{WindowMng} y \imp{HeaterMng}. Debido a dichas relaciones, es imposible crear un producto que incluya \imp{SmartEnergyMng} pero no \imp{WindowMng} o \imp{HeaterMng}.
 
-La siguiente sección describe como este modelo arquitectónico puede transformarse automáticamente en el código necesario para crear una implementación concreta y completamente funcional de un producto software concreto.
+La siguiente sección describe cómo este modelo arquitectónico puede transformarse automáticamente en el código necesario para crear una implementación concreta y completamente funcional de un producto software concreto.
 
