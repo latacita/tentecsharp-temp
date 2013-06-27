@@ -5,11 +5,24 @@
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Application Engineering/Introduccion                             %%
-%%==================================================================%% 
+%%==================================================================%%
 
-El primer paso para crear un producto concreto, de acuerdo con la metodología Te.Net (ver Sección~\ref{sec:intr:tenet}) es crear una selección de aquellas características que se desea incluir en el producto. Cómo se crea dicha selección de características está fuera del ámbito de este proyecto fin de carrera. Referimos al lector interesado en tal asunto a otros proyectos fin de carrera presentados en esta misma Facultad sobre dicho tema~\citep{}.
+Este capítulo describe el proceso de desarrollo de los generadores de código para la segunda fase del desarrollo de una línea de productos software (ver Figura~\ref{back:fig:domainAplicEng}), el proceso de \emph{Ingeniería de Aplicaciones}. El objetivo de esta fase, tal como comentamos, es obtener productos concretos y funcionales a partir de la composición, configuración y personalización de los elementos creados en la fase de \emph{Ingeniería del Dominio}. 
+ 
+Para ello, de acuerdo con la metodología Te.Net (ver Sección~\ref{sec:intr:tenet}), el primer paso es crear una selección de aquellas características que se desea incluir en el producto, de acuerdo a las necesidades particulares de cada clientes. Cómo se crea dicha selección de características está fuera del ámbito de este proyecto. Referimos al lector interesado al Proyecto Fin de Carrera de D. Daniel Tejedo, antiguo alumno de esta Facultad~\citep{}.
 
-Una vez que se tiene una selección de características válida, utilizando dicha selección de características, se configura la arquitectura de referencia creada en la fase de Ingeniería del Dominio para crear un modelo arquitectónico concreto, adaptado a las necesidades del cliente, del producto que queremos construir.  Dicho modelo arquitectónico se obtiene de forma automática mediante la utilización del lenguaje \emph{VML}~\citep{}, de acuerdo con la metodología Te.Net (ver Sección~\ref{sec:intr:tenet}).
+Una vez obtenida una selección de características válida, utilizando dicha selección, se configura la arquitectura de referencia creada en la fase de \emph{Ingeniería del Dominio} para crear un modelo arquitectónico concreto, adaptado a las necesidades del cliente, del producto que queremos construir.  Dicho modelo arquitectónico se obtiene de forma automática mediante la utilización del lenguaje \emph{VML}~\citep{}, de acuerdo con la metodología Te.Net (ver Sección~\ref{sec:intr:tenet}). Una descripción detallada del lenguaje VML también está fuera del ámbito de este proyecto, y referimos al lector interesado a los trabajos de~\cite{} y~\cite{}.
+
+Este modelo arquitectónico de un product concreto es el que sirve de entrada al generador de código que queremos desarrollar. Utilizando dicho modelo como entrada, el generador de código debe producir todo el código necesario para componer las clases parciales creadas a nivel de \emph{Ingeniería del Dominio} que correspondan. Para ello debe generar las clases parciales encargadas de llevar a cabo tal composición, las versiones limpias de los métodos requeridos, y las delegaciones a las versiones sucias adecuadas. 
+
+Para ello, el primer paso era diseñar un algoritmo que permitiese calcular estos tres elementos: (1) clases parciales requeridas; (2) versiones limpias necesarias; y, (3) delegaciones adecuadas. A continuación, debíamos implementar este algoritmo utilizando plantillas de generación de código, por lo que debíamos, igual que en capítulo anterior, prestar especial atención a su secuenciación. 
+
+Por último, debíamos diseñar y realizar las pruebas que permitiesen comprobar el correcto funcionamiento del generador de código. Tras estas pruebas, se daba por concluido el proceso de desarrollo de los generadores de código, y procedimos a su despliegue. 
+
+Para explicar este proceso de desarrollo, este Capítulo se estructura como sigue: La Sección~\ref{application:sec:alg} describe la estructura de los modelos de entrada que nuestro generador de código debe procesar. La Sección~\ref{application:sec:alg} describe el diseño del algoritmo encargado de calcular los elementos a componer, de acuerdo al modelo de entrada proporcionado. La Sección~\ref{application:sec:transf} explica cómo se han secuenciado las plantillas de generación de código para poder implementar dicho algoritmo. La Sección~\ref{application:sec:pruebas} describe el proceso de diseño y ejecución de las pruebas para el generador de código implementado. Por último, la Sección~\ref{application:sec:despliegue} detalla las acciones realizadas durante la fase de despliegue de la aplicación.
+
+
+
 
 
 
