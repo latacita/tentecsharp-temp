@@ -12,7 +12,7 @@ Como se ha comentado con anterioridad, el objetivo de este Proyecto Fin de Carre
 Por tanto, el proceso de desarrollo del presente proyecto queda gobernado por dichas fases. La Figura~\ref{fig:planning} muestra dicho proceso de desarrollo.
 
 \begin{figure}[!tb]
-    \includegraphics[scale=0.60\linewidth]]{background/images/planning.eps}
+    \includegraphics[width=.95\linewidth]{background/images/planning.eps}
     \caption{Proceso de desarrollo del Proyecto Fin de Carrera}
     \label{fig:planning}
 \end{figure}
@@ -21,7 +21,7 @@ Obviamente, la primera tarea (Figura~\ref{fig:planning}, \emph{T1A}), nada desde
 
 Dado que el proyecto se debía implementar con una herramienta para el desarrollo software dirigido por modelos, denominado \emph{Epsilon}~\cite{kolovos:2008}, el siguiente paso (Figura~\ref{fig:planning}, \emph{T1B}) fue familiarizarse con dicha herramienta.
 
-Para ello fue necesario adquirir ciertos conocimientos sobre EMF (\emph{Eclipse Modelling Framework})~\cite{steinberg:2008}, el lenguaje para la definición de lenguajes de modelado que constituye el corazón de Epsilon; así como con así como con EOL (\emph{Epsilon Object Language})~\citep{dimitrios:2012}, lenguaje que constituye la espina dorsal de Epsilon, y que es utilizado por la amplia mayoría de sus lenguajes y herramientas. A continuación, se debió adquirir destreza con el lenguajes a utilizar para la generación de código, EGL (\emph{Epsilon Generation Language})~\citep{dimitrios:2012}.
+Para ello fue necesario adquirir ciertos conocimientos sobre EMF (\emph{Eclipse Modelling Framework})~\cite{steinberg:2008}, el lenguaje para la definición de lenguajes de modelado que constituye el corazón de Epsilon; así como con EOL (\emph{Epsilon Object Language})~\citep{dimitrios:2012}, lenguaje que constituye la espina dorsal de Epsilon, y que es utilizado por la amplia mayoría de sus lenguajes y herramientas. A continuación, se debió adquirir destreza con el lenguajes a utilizar para la generación de código, EGL (\emph{Epsilon Generation Language})~\citep{dimitrios:2012}.
 
 Además, por exigencias de los usuarios finales de este producto, el código generado debía ser editable como un proyecto de Visual Studio 2010, por lo que a continuación se procedió a familiarizarse con la utilización de dicha herramienta. Para ello, se implementó una línea de productos software sencilla utilizando las técnicas aprendidas hasta este punto, como el \emph{Slicer Pattern}.
 
