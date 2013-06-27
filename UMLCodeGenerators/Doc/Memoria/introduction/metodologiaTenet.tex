@@ -6,7 +6,7 @@
 %% Introduccion/Metodologia TeNet                                   %%
 %%==================================================================%%
 
-Tal como se ha comentado en la sección anterior, la metodología Te.Net se trata de una variante de la tecnología TENTE. A diferencia de TENTE, la cual obliga a utilizar como lenguaje de programación final un lenguaje orientado a características que soporte el concepto de \emph{familia de clases}, al estilo de \emph{CaesarJ}~\cite{aracic:2006} u \emph{ObjectTeams}~\cite{stephan:2002}, Te.Net utiliza como lenguaje de programación destino un lenguaje convencional orientado a objetos, más concretamente C\#.
+Tal como se ha comentado en la sección anterior, la metodología Te.Net se trata de una variante de la tecnología TENTE. A diferencia de TENTE, la cual obliga a utilizar como lenguaje de programación final un lenguaje orientado a características que soporte el concepto de \emph{familia de clases}, al estilo de \emph{CaesarJ}~\citep{aracic:2006} u \emph{ObjectTeams}~\citep{stephan:2002}, Te.Net utiliza como lenguaje de programación destino un lenguaje convencional orientado a objetos, más concretamente C\#.
 
 El primer paso a realizar para llevar a cabo este rediseño de la metodología TENTE era analizar cómo se podía dar soporte a la orientación a aspectos en un lenguaje de programación orientado a objetos como C\#. Tras realizar una búsqueda de opciones en el estado del arte actual, se encontró un prometedor trabajo~\citep{laguna:2007,laguna:2010} en el cual se proponía la utilización de las clases parciales de C\# como mecanismos para dar soporte a la orientación características.
 
@@ -26,9 +26,9 @@ El primer paso a realizar para llevar a cabo este rediseño de la metodología TEN
 %%
 %%==================================================================%%
 
-Por tanto, se decidió evaluar dicho trabajo en profundidad con objeto de verificar las ideas propuestas en el mismo. Los experimentos realizados~\cite{sanchez:2010} revelaron diferentes debilidades de las clases parciales como mecanismo para la implementación de líneas de productos software.
+Por tanto, se decidió evaluar dicho trabajo en profundidad con objeto de verificar las ideas propuestas en el mismo. Los experimentos realizados por~\cite{sanchez:2010} revelaron diferentes debilidades de las clases parciales como mecanismo para la implementación de líneas de productos software.
 
-Para solventar los problemas detectados, se creó, como resultado de otro Proyecto Fin de Carrera presentado en esta misma Facultad, un patrón de diseño denominado \emph{Slicer Pattern}~\cite{perez:2011}. Dentro de dicho Proyecto Fin de Carrera se implementó una línea de productos software para el desarrollo de software de gestión de hogares inteligentes.
+Para solventar los problemas detectados, se creó, como resultado de otro Proyecto Fin de Carrera presentado en esta misma Facultad, un patrón de diseño denominado \emph{Slicer Pattern}~\citep{perez:2011}. Dentro de dicho Proyecto Fin de Carrera se implementó una línea de productos software para el desarrollo de software de gestión de hogares inteligentes.
 
 Una vez que se había solventado el problema de cómo soportar la orientación a características en C\#, la siguiente tarea a realizar era la de adaptar los generadores de código originales para que soportasen la generación de código en C\# en lugar de CaesarJ. Esta tarea constituye el objetivo principal de este proyecto, el cual se detalla en la siguiente sección.
 
