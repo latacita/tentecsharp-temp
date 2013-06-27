@@ -1,45 +1,40 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect\astroncite{dim}{}]{dimitrios:2012}
-{\em The Epsilon Generation Language (EGL)}.
+\bibitem[\protect\astroncite{Achour et~al.}{2013}]{mehdi:2013}
+Achour, M., Betz, F., Dovgal, A., Lopes, N., and Magnusson, H. (2013).
+\newblock {\em {PHP Manual}}.
+\newblock The PHP Documentation Group.
 
 \bibitem[\protect\astroncite{Albahari and Albahari}{2010}]{albahari:2010}
 Albahari, J. and Albahari, B. (2010).
 \newblock {\em C\# 4.0 in a Nutshell: The Definitive Reference}.
 
-\bibitem[\protect\astroncite{Alejandro~Pérez}{2011}]{perez:2011}
-Alejandro~Pérez, P.~S. (2011).
-\newblock The slicer pattern: Implementing software product lines using c'\#'
-  partial clases.
-
-\bibitem[\protect\astroncite{Allan}{2004}]{alasdair:2004}
-Allan, A. (2004).
-\newblock In Programmers, T.~P., editor, {\em Pragmatic Unit Testing in Java
-  with JUnit}.
+\bibitem[\protect\astroncite{Apel and K{\"a}stner}{2009}]{kastner:2008}
+Apel, S. and K{\"a}stner, C. (2009).
+\newblock {An Overview of Feature-Oriented Software Development}.
+\newblock {\em Journal of Object Technology}, 8(5):49--84.
 
 \bibitem[\protect\astroncite{Aracic et~al.}{2006}]{aracic:2006}
 Aracic, I., Gasiunas, V., Mezini, M., and Ostermann, K. (2006).
 \newblock {An Overview of CaesarJ}.
-\newblock pages 135--173.
+\newblock In Rashid, A. and Aksit, M., editors, {\em Transacations on
+  Aspect-Oriented Software Development I}, volume 3880 of {\em Lecture Notes in
+  Computer Science}, pages 135--173.
 
-\bibitem[\protect\astroncite{Benavides and Cortés}{2010}]{benavides:2010}
-Benavides, D., S.~S. and Cortés, A.~R. (2010).
-\newblock Automated analysis of feature models 20 years later: A literature
-  review.
+\bibitem[\protect\astroncite{Bergsten}{2003}]{bergsten:2003}
+Bergsten, H. (2003).
+\newblock {\em {JavaServer Pages}}.
+\newblock JavaServer Pages.
 
-\bibitem[\protect\astroncite{Chae and Blume}{}]{chae:2009}
-Chae, W. and Blume, M.
-\newblock Language support for feature-oriented product line engineering.
+\bibitem[\protect\astroncite{Beydeda et~al.}{2010}]{sami:2010}
+Beydeda, S., Book, M., and Gruhn, V. (2010).
+\newblock {\em {Model-Driven Software Development}}.
+\newblock Springer.
 
-\bibitem[\protect\astroncite{Chappell}{2006}]{david:2006}
+\bibitem[\protect\astroncite{Chappell}{2006}]{chappell:2006}
 Chappell, D. (2006).
-\newblock Understanding .net (2nd edition).
-
-\bibitem[\protect\astroncite{Eric~Jendrock}{2010}]{eric:2010}
-Eric~Jendrock, Jennifer~Ball, D. C. I. E. S. F. K.~H. (2010).
-\newblock {\em The Java EE 5Tutorial For Sun Java System Application Server
-  9.1}.
-\newblock Oracle.
+\newblock {\em {Understanding .NET}}.
+\newblock Addison-Wesley Professional.
 
 \bibitem[\protect\astroncite{Figueiredo et~al.}{2008}]{figueiredo:2008}
 Figueiredo, E., Cacho, N., Sant'Anna, C., Monteiro, M., Kulesza, U., Garcia,
@@ -58,88 +53,113 @@ Fuentes, L., Nebrera, C., and S{\'a}nchez, P. (2009).
   the Forum at the CAiSE 2009 Conference}, volume 453 of {\em CEUR Workshop
   Proceedings}, pages 67--72, Amsterdam (The Netherlands).
 
+\bibitem[\protect\astroncite{Garc\'{\i}a-Dom\'{\i}nguez
+  et~al.}{2011}]{garcia:2011}
+Garc\'{\i}a-Dom\'{\i}nguez, A., Kolovos, D.~S., Rose, L.~M., Paige, R.~F., and
+  Medina-Bulo, I. (2011).
+\newblock {EUnit: A Unit Testing Framework for Model Management Tasks}.
+\newblock In Whittle, J., Clark, T., and K{\"u}hne, T., editors, {\em Proc. of
+  the 14th Int. Conference on Model Driven Engineering Languages and Systems
+  (MODELS)}, volume 6981 of {\em Lecture Notes in Computer Science}, pages
+  395--409, Wellington (New Zealand).
+
 \bibitem[\protect\astroncite{Gonz{\'a}lez}{2013}]{daniel:2013}
 Gonz{\'a}lez, D.~T. (2013).
 \newblock {Desarrollo de un Entorno para la Especificaci{\'o}n y Validaci{\'o}n
   de Restricciones en {\'A}rboles de Caracter{\'i}sticas con Cardinalidad}.
-\newblock In {\em Proyecto Fin de Carrera}, Leipzig (Germany).
+\newblock Master's thesis, Facultad deCiencias, Universidad de Cantabria.
 
 \bibitem[\protect\astroncite{Herrmann}{2002}]{stephan:2002}
 Herrmann, S. (2002).
 \newblock Object teams: Improving modularity for crosscutting collaborations.
 \newblock page 248–264.
 
-\bibitem[\protect\astroncite{Ivica~Aracic and Ostermann}{2006}]{ivica:2006}
-Ivica~Aracic, Vaidas~Gasiunas, M.~M. and Ostermann, K. (2006).
-\newblock An overview of caesarj.
-\newblock page 135–173.
+\bibitem[\protect\astroncite{Hunt and Thomas}{2004}]{alasdair:2004}
+Hunt, A. and Thomas, D. (2004).
+\newblock {\em {Pragmatic Unit Testing in Java with JUnit}}.
+\newblock The Pragmatic Programmers.
 
 \bibitem[\protect\astroncite{Kakola and Dueñas}{2006}]{kakola:2006}
 Kakola, T. and Dueñas, J.~C. (2006).
-\newblock {\em {Software Product Lines: Research Issues in Engineering and
-  Management}}.
-\newblock Springer-Verlag Berlin.
+\newblock {\em Software Product Lines: Research Issues in Engineering and
+  Management}.
+\newblock Springer.
 
-\bibitem[\protect\astroncite{K{\"a}stner}{2008}]{kastner:2008}
-K{\"a}stner, C. (2008).
-\newblock {An Overview of Feature-Oriented Software Development}.
+\bibitem[\protect\astroncite{Kleppe}{2009}]{kleppe:2008}
+Kleppe, A. (2009).
+\newblock {\em Software Language Engineering: Creating domain-specific using
+  metamodels}.
+\newblock Addison-Wesley.
 
-\bibitem[\protect\astroncite{Kolovos et~al.}{2008}]{kolovos:2008}
-Kolovos, D.~S., Paige, R.~F., and Polack, F. (2008).
-\newblock {The Epsilon Transformation Language}.
-\newblock In Vallecillo, A., Gray, J., and Pierantonio, A., editors, {\em First
-  International Conference on Theory and Practice of Model Transformations
-  (ICMT)}, volume 5063 of {\em Lecture Notes in Computer Science}, pages
-  46--60, Z{\"u}rich (Switzerland).
+\bibitem[\protect\astroncite{Kolovos et~al.}{2006}]{kolovos:2006}
+Kolovos, D.~S., Paige, R.~F., and Polack, F. (2006).
+\newblock {The Epsilon Object Language (EOL)}.
+\newblock In Rensink, A. and Warmer, J., editors, {\em Proc. of the 2nd
+  European Conference on Model Driven Architecture - Foundations and
+  Applications (ECMDA-FA)}, volume 4066 of {\em Lecture Notes in Computer
+  Science (LNCS)}, pages 128--142, Bilbao (Spain).
+
+\bibitem[\protect\astroncite{Kolovos et~al.}{2011}]{kolovos:2011}
+Kolovos, D.~S., Paige, R.~F., Rose, L.~M., and Williams, J.~R. (2011).
+\newblock {Integrated Model Management with Epsilon}.
+\newblock In France, R.~B., K{\"u}ster, J.~M., Bordbar, B., and Paige, R.~F.,
+  editors, {\em Proc. of the 7th European Conference on Modelling Foundations
+  and Applications (ECMFA)}, Lecture Notes in Computer Science, pages 391--392,
+  Birmingham (England, United Kingdom).
 
 \bibitem[\protect\astroncite{Laguna et~al.}{2007}]{laguna:2007}
 Laguna, M.~A., Gonz{\'a}lez-Baixauli, B., and Marqu{\'e}s, J.~M. (2007).
-\newblock {Seamless development of software product lines}.
-\newblock In {\em GPCE}, pages 85--94.
+\newblock {Seamless Development of Software Product Lines}.
+\newblock In Consel, C. and Lawall, J.~L., editors, {\em 6th International
+  Conference on Generative Programming and Component Engineering (GPCE)}, pages
+  85--94.
 
 \bibitem[\protect\astroncite{Laguna and Marqu{\'e}s}{2010}]{laguna:2010}
 Laguna, M.~A. and Marqu{\'e}s, J.~M. (2010).
-\newblock Uml support for designing software product lines: The package merge
-  mechanism.
-\newblock {\em J. UCS}, 16(17):2313--2332.
+\newblock {UML Support for Designing Software Product Lines: The Package Merge
+  Mechanism}.
+\newblock {\em Journal of Universal Computer Science}, 16(17):2313--2332.
 
-\bibitem[\protect\astroncite{Loughran et~al.}{}]{loughran:2008}
-Loughran, N., S{\'a}nchez, P., Garcia, A., and Fuentes, L.
-\newblock Language support for managing variability in architectural models.
-\newblock In Springer, editor, {\em Proc. of the 7th Int. Symposium on Software
-  Composition (SC)}.
+\bibitem[\protect\astroncite{Loughran et~al.}{2008}]{loughran:2008}
+Loughran, N., S{\'a}nchez, P., Garcia, A., and Fuentes, L. (2008).
+\newblock {Language Support for Managing Variability in Architectural Models}.
+\newblock In Pautasso, C. and Tanter, {\'E}., editors, {\em Proc. of the 7th
+  Int. Symposium on Software Composition (SC)}, volume 4954 of {\em Lecture
+  Notes in Computer Science}, pages 36--51, Budapest, Hungary.
 
-\bibitem[\protect\astroncite{Madsen and Moller-pedersen}{1989}]{madsen:1989}
-Madsen, O.~L. and Moller-pedersen, B. (1989).
-\newblock Virtual classes: a powerful mechanism in object-oriented programming.
-\newblock In {\em Conference on Object-Oriented Programming Systems, Languages,
-  and Applications}, volume~24, pages 397--406.
-
-\bibitem[\protect\astroncite{Mehdi~Achour}{2013}]{mehdi:2013}
-Mehdi~Achour, Friedhelm~Betz, A. D. N. L. H.~M. (2013).
-\newblock {\em PHP Manual}.
-\newblock The PHP Documentation Group.
-
-\bibitem[\protect\astroncite{Om}{2005}]{omg:uml:2005}
-Om, G. (2005).
-\newblock {Unified Modeling Language: Superstructure version 2.0,
-  formal/05-07-04}.
-\newblock Technical report, Object Management Group.
-
-\bibitem[\protect\astroncite{Pablo~Sánchez}{2010}]{sanchez:2010}
-Pablo~Sánchez, Elio~López, L.~F. (2010).
-\newblock Are c'\#' partial classes suitable for implementing feature-oriented
-  decompositions? an exploratory study.
+\bibitem[\protect\astroncite{Pastor and Molina}{2010}]{pastor:2010}
+Pastor, O. and Molina, J.~C. (2010).
+\newblock {\em {Model-Driven Architecture in Practice: A Software Production
+  Environment Based on Conceptual Modeling}}.
+\newblock Springer.
 
 \bibitem[\protect\astroncite{Pohl}{2010}]{pohl:2010}
 Pohl, K. (2010).
-\newblock {\em Software Product Line Engineering: foundations, principles, and
-  techniques}.
+\newblock {\em Software Product Line Engineering: Foundations, Principles and
+  Techniques}.
 \newblock Springer.
 
-\bibitem[\protect\astroncite{Sami~Beydeda and Gruhn.}{2010}]{sami:2010}
-Sami~Beydeda, M.~B. and Gruhn., V. (2010).
-\newblock Model-driven software development.
+\bibitem[\protect\astroncite{P{�}rez and Sánchez}{2011}]{perez:2011}
+P{�}rez, A. and Sánchez, P. (2011).
+\newblock The \emph{Slicer Pattern}: Implementing software product lines using
+  c\# partial clases.
+\newblock {\em Computer Standards and Interfaces}.
+\newblock Submmited for being considered for publication.
+
+\bibitem[\protect\astroncite{Rose et~al.}{2008}]{rose:2008}
+Rose, L.~M., Paige, R.~F., Kolovos, D.~S., and Polack, F. (2008).
+\newblock {The Epsilon Generation Language}.
+\newblock In Schieferdecker, I. and Hartman, A., editors, {\em Proc. of the 4th
+  European Conference on Model Driven Architecture - Foundations and
+  Applications (ECMDA-FA)}, volume 5095 of {\em Lecture Notes in Computer
+  Science}, pages 1--16, Berlin (Germany).
+
+\bibitem[\protect\astroncite{S{\'a}nchez et~al.}{2010}]{sanchez:2010}
+S{\'a}nchez, P., L{\'o}pez, E., and Fuentes, L. (2010).
+\newblock {Implementing Feature-Oriented Decompositions Using C\# Partial
+  Classes: An Exploratory Study}.
+\newblock {\em Journal of Research and Practice in Information Technology}.
+\newblock Accepted for Publication.
 
 \bibitem[\protect\astroncite{S{\'a}nchez et~al.}{2008}]{sanchez:2008}
 S{\'a}nchez, P., Loughran, N., Fuentes, L., and Garcia, A. (2008).
@@ -150,14 +170,19 @@ S{\'a}nchez, P., Loughran, N., Fuentes, L., and Garcia, A. (2008).
   5452 of {\em Lecture Notes in Computer Science}, pages 188--207, Toulouse,
   France.
 
-\bibitem[\protect\astroncite{Steinberg et~al.}{2008}]{steinberg:2008}
-Steinberg, D., Budinsky, F., Paternostro, M., and Merks, E. (2008).
+\bibitem[\protect\astroncite{Steinberg et~al.}{2008a}]{steinberg:2008}
+Steinberg, D., Budinsky, F., Paternostro, M., and Merks, E. (2008a).
+\newblock {\em {EMF: Eclipse Modeling Framework}}.
+\newblock Addison-Wesley Professional, 2 edition.
+
+\bibitem[\protect\astroncite{Steinberg et~al.}{2008b}]{}
+Steinberg, D., Budinsky, F., Paternostro, M., and Merks, E. (2008b).
 \newblock {\em EMF: Eclipse Modeling Framework (2nd edition)}.
 \newblock Addison-Wesley Professional, 2 edition.
 
 \bibitem[\protect\astroncite{Zschaler et~al.}{2011}]{sanchez:2011:tente}
-Zschaler, S., Sánchez, P., Nebrera, C., Fuentes, L., Gasiunas, V., and Fiege,
-  L. (2011).
+Zschaler, S., S{\'a}nchez, P., Nebrera, C., Fuentes, L., Gasiunas, V., and
+  Fiege, L. (2011).
 \newblock {\em {Aspect-Oriented Model-Driven Software Product Lines}}, chapter
   {Product-Driven Software Product Line Engineering }.
 \newblock Cambridge University Press.
