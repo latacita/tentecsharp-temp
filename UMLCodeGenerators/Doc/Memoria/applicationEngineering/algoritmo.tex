@@ -41,7 +41,7 @@ En este caso, la versión limpia de los métodos \imp{startSimulation} y \imp{stop
 
 \subsection{Caso 3: Existen \emph{versiones sucias} dependientes de un método}
 
-En este caso, existen varias \emph{versiones sucias} de un método, pero dichas versiones están en el mismo camino, estando una situada a mayor profundidad, más cerca del paquete \emph{hoja} que la otra. Por ejemplo, en el caso de la Figura~\ref{app:fig:conf1}, existen dos versiones del método \imp{openWindow}, de la clase \imp{Gateway}, en las características \imp{SmartEnergyMng} y \imp{WindowMng}. Ambas están en el mismo camino del paquete hoja al paquete raíz (\imp{SmartEnergy}, \imp{WindowMng}, \imp{InitialModel}).
+En este caso, existen varias \emph{versiones sucias} de un método, pero dichas versiones están en el mismo camino, estando una situada a mayor profundidad, más cerca del paquete \emph{hoja} que la otra. Por ejemplo, en el caso de la Figura~\ref{app:fig:conf1}, existen dos versiones del método \imp{openWindow}, de la clase \imp{Gateway}, en las características \imp{SmartEnergyMng} y \imp{WindowMng}. Ambas están en el mismo camino del paquete hoja al paquete raíz (\imp{SmartEnergyMng}, \imp{WindowMng}, \imp{InitialModel}).
 
 En este caso, de acuerdo a la semántica del modelo UML 2.0, la versión del paquete \imp{SmartEnergyMng} debe sobrescribir la versión del paquete \imp{WindowMng}. Por tanto, la versión limpia del método debe invocar en este caso sólo a la versión sucia del paquete \imp{SmartEnergyMng}, ya que se entiende que esta versión \emph{más profunda} es la más actualizada. En caso de haber más de dos versiones dependientes, siempre se escogería la versión más profunda.
 
