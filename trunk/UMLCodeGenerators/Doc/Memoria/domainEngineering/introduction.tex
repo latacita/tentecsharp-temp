@@ -5,8 +5,15 @@
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Domain Engineering/Transformación UML a C#                       %%
-%%==================================================================%% 
+%%==================================================================%%
 
-El primer paso a la hora de desarrollar un generador de código es establecer una serie de correspondencias entre los distintos tipos de elementos que pueden aparecer en los modelos que sirven como entrada y los elementos del lenguaje de programación destino. En nuestro caso, se trata de establecer una correspondencia entre elementos UML 2.0 y el lenguaje C\#, teniendo en cuenta que los elementos de entrada como los de salida deben seguir un enfoque orientado a características.
+El primer paso a la hora de desarrollar un generador de código es establecer una serie de correspondencias entre los distintos tipos de elementos que pueden aparecer en los modelos que sirven como entrada y los elementos del lenguaje de programación destino. En nuestro caso, se trata de establecer una correspondencia entre elementos UML 2.0 y el lenguaje C\#, teniendo en cuenta que los elementos de entrada como los de salida deben seguir un enfoque orientado a características. Para el caso concreto de la implementación, se debe hacer uso, de acuerdo a los objetivos iniciales del proyecto, del \emph{Slicer Pattern}. 
+
+Una vez que las correspondencias estuviesen claramente definidas, el siguiente paso era implementar las plantillas de generación de código que debían establecer dichas correspondencias. El proceso de implementación de estas plantillas no es trivial. Ello se debe básicamente a que los proceso de generación de código, al generar texto, son secuenciales. Es decir, una vezx generado un elemento, no podemos volver atrás para modificarlo. Por ejemplo, si tras generar la cabecera de una clase descubriésemos que debemos añadir una relación de herencia a dicha clase, no podríamos realizar tal modificación. Por ello, cuando se implementan generadores de código, hay que prestar especial atención a su secuenciación. 
+
+Tras implementar los generadores de código, el siguiente paso es realizar las pruebas que correspondan para poder comprobar el correcto funcionamiento de los generados de código implementados. Para ello se debían diseñar un conjunto de pruebas de forma sistemática, y ejecutar dicho conjunto de pruebas para verificar el correcto funcionamiento de los generadores de código creados. La Sección~\ref{domain:sec:pruebas} describe dicho proceso de diseño y ejecución de las pruebas. 
+
+Este capítulo describe este proceso de desarrollo. Más concretamente, la Sección~\ref{domain:sec:transf} describe las correspondencias definidas ente elementos UML 2.0 y elementos de C\#. La Sección~\ref{domain:sec:gen} describe la secuenciación de las plantillas de generación de código, mientras que la Sección~\ref{domain:sec:ejsencillo} muestra a modo de ejemplo, una sencilla plantilla de generación de código.
+
 
 
