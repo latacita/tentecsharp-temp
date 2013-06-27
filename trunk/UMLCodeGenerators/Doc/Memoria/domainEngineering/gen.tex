@@ -20,7 +20,7 @@ Por tanto, antes de generar una clase, debemos asegurarnos de que no va a necesi
   \label{dom:fig:templates}
 \end{figure}
 
-El punto de partida es el generador de código llamado \imp{ProjectCreation}, encargado de procesar el elemento \emph{modelo}, que constituye la raíz del proyecto, así como los \emph{paquetes} que contiene dicho modelo, además de crear el proyecto \emph{Visual Studio 2010} que constituye la salida del generador.  Dicho \emph{template} tiene , por tanto, dos tareas claramente diferenciadas: (1) por una parte, debe generar el código correspondiente a la arquitectura de referencia, lo que se hace a través de la plantilla \imp{ClassFilesCreation}; y (2) por otra parte, debe generar todos los ficheros auxiliares y la estructura que constituyen un proyecto \emph{Visual Studio 2010}, como el fichero de construcción (fichero \emph{.csproj}) que indica que clases parciales deben compilarse cuando se construye el proyecto (ver Figura~\ref{back:code:partialClasses}). Para generar estos ficheros auxiliares, se utilizan las plantillas \imp{SlnFileCreation},  \imp{CsprojectFileCreation} y \imp{AssemblyInfoFileCreation}.
+El punto de partida es el generador de código llamado \imp{ProjectCreation}, encargado de procesar el elemento \emph{modelo}, que constituye la raíz del proyecto, así como los \emph{paquetes} que contiene dicho modelo, además de crear el proyecto \emph{Visual Studio 2010} que constituye la salida del generador.  Dicho \emph{template} tiene, por tanto, dos tareas claramente diferenciadas: (1) por una parte, debe generar el código correspondiente a la arquitectura de referencia, lo que se hace a través de la plantilla \imp{ProcessPackageContents}; y (2) por otra parte, debe generar todos los ficheros auxiliares y la estructura que constituyen un proyecto \emph{Visual Studio 2010}, como el fichero de construcción (fichero \emph{.csproj}) que indica que clases parciales deben compilarse cuando se construye el proyecto (ver Figura~\ref{back:code:partialClasses}). Para generar estos ficheros auxiliares, se utilizan las plantillas \imp{SlnFileCreation},  \imp{CsprojectFileCreation} y \imp{AssemblyInfoFileCreation}.
 
 La plantilla \imp{ProcessPackageContents} procesa por cada paquete, su contenido. Dependiendo del tipo de cada elemento, se realiza una acción diferente, tal como se describe a continuación.
 
@@ -60,7 +60,7 @@ Además, se crearon algunas \emph{Java Tool} para poder mostrar cuadros de diálog
 \end{figure}
 
 
-Las Figuras~\ref{dom:fig:modelos} y~\ref{dom:fig:final} muestra dos ejemplos de estos diálogos. El primero de ellos aparecería al utilizar como entrada para el generador de código un archivo UML que tuviese varios modelos. En este caso, el proceso de generación de código preguntaría al usuario cuál es el modelo a procesar, ya dentro de un fichero UML pueden coexistir modelos de diversa índole.
+Las Figuras~\ref{dom:fig:modelos} y~\ref{dom:fig:final} muestran dos ejemplos de estos diálogos. El primero de ellos aparecería al utilizar como entrada para el generador de código un archivo UML que tuviese varios modelos. En este caso, el proceso de generación de código preguntaría al usuario cuál es el modelo a procesar, ya que dentro de un fichero UML pueden coexistir modelos de diversa índole.
 
 El segundo diálogo (Figura~\ref{dom:fig:final}) muestra, al final del proceso de generación de código, las incidencias que hayan podido producirse durante dicho proceso.
 
