@@ -1,21 +1,17 @@
 This is BibTeX, Version 0.99cThe top-level auxiliary file: pfc.aux
 The style file: apa.bst
 Database file #1: references/references.bib
-Repeated entry---line 168 of file references/references.bib
- : @inproceedings{stephan:2002
- :                            ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 253 of file references/references.bib
+Repeated entry---line 239 of file references/references.bib
  : @inproceedings{kolovos:2006
  :                            ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 459 of file references/references.bib
+Repeated entry---line 427 of file references/references.bib
  : @inproceedings{sanchez:2008
  :                            ,
 I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for ""
 Warning--I didn't find a database entry for "uml:2005"
 Warning--empty publisher in albahari:2010
 Warning--empty publisher in aracic:2006
-Warning--empty booktitle in stephan:2002
 Warning--can't use both author and editor fields in sanchez:2011:tente
-(There were 3 error messages)
+(There were 2 error messages)
