@@ -7,7 +7,7 @@
 %% Domain Engineering/Ejemplo de Generación de Código C#: Caso Sencillo     %%
 %%==========================================================================%%
 
-Esta sección muestra, a modo de ejemplo, una de las plantillas de generación de código creadas en este Proyecto Fin de Carrera, así como un ejemplo de cómo se puede utilizar Java desde Epsilon. 
+Esta sección muestra, a modo de ejemplo, una de las plantillas de generación de código creadas en este Proyecto Fin de Carrera, así como un ejemplo de cómo se puede utilizar Java desde Epsilon.
 
 \subsection{Plantilla de generación de código}
 
@@ -18,15 +18,15 @@ Con objeto de no distraer al lector con detalles irrelevantes, hemos escogido un
 \begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
                     caption=Implementación del generador de código \imp{MethodsCreation},
                     label=dom:code:method]
-00 [% 
+00 [%
 01 import "ReturnParameterCreation.egl";
 02 import "ParametersCreation.egl";
 03 import "../Operations.eol";
 04 operation Classifier classMethods(package:String,path:String)
                      : String {   		
-05  
+05
 06  opers=self.generatePartialConstructor(package);
-07  
+07
 08  for (oper in self.getOperations()){
 09      if (oper.type==null){
 10          operations_return.add(oper);
@@ -48,11 +48,11 @@ Con objeto de no distraer al lector con detalles irrelevantes, hemos escogido un
 \end{small}
 \end{figure}
 
-La plantilla contiene una primera sección (líneas 1-3) donde se importan elementos,como funciones EOL, definidas en otros fichero. A continuación, se declara la cabecera de la plantilla, la cual, recordemos, puede ser invocada como una función. Esta función retorna el bloque de texto a generar, como un \imp{String}, y, en principio, es aplicable a cualquier \imp{Classifier}, de acuerdo con el sistema de tipos de UML 2.0. La función acepta dos parámetros que son necesarios para calcular ciertos elementos necesarios para la generación de código: (1) el nombre del paquete o característica donde se encuentra la clase que estamos procesando, necesario para poder prefijar el nombre de los métodos; y (2) la ruta donde se encuentra el fichero correspondiente a la clase parcial que estamos procesando. 
+La plantilla contiene una primera sección (líneas 01-03) donde se importan elementos,como funciones EOL, definidas en otros fichero. A continuación, se declara la cabecera de la plantilla, la cual, recordemos, puede ser invocada como una función. Esta función retorna el bloque de texto a generar, como un \imp{String}, y, en principio, es aplicable a cualquier \imp{Classifier}, de acuerdo con el sistema de tipos de UML 2.0. La función acepta dos parámetros que son necesarios para calcular ciertos elementos necesarios para la generación de código: (1) el nombre del paquete o característica donde se encuentra la clase que estamos procesando, necesario para poder prefijar el nombre de los métodos; y (2) la ruta donde se encuentra el fichero correspondiente a la clase parcial que estamos procesando.
 
-Dicha función, al ejecutarse, genera en primer lugar el constructor para dicha clase, mediante la invocación a una subplantilla encargada de dicha tarea (línea 06). A continuación, se procesan todas las operaciones contenidas en el elemento UML que estamos procesando (líneas 8-22). Este elemento (\imp{Classifier}) es el objeto que recibe la llamada, accesible a través de la palabra clave predefinida \imp{self}. 
+Dicha función, al ejecutarse, genera en primer lugar el constructor para dicha clase, mediante la invocación a una subplantilla encargada de dicha tarea (línea 06). A continuación, se procesan todas las operaciones contenidas en el elemento UML que estamos procesando (líneas 08-22). Este elemento (\imp{Classifier}) es el objeto que recibe la llamada, accesible a través de la palabra clave predefinida \imp{self}.
 
-Para procesar las operaciones, iteramos sobre ellas (línea 08). Para cada operación, comprobamos si dicha operación contiene o no parámetro de retorno (líneas 09-13). Aquellas operaciones que tienen parámetro de retorno definido (líneas 09-11) se añaden a la colección \imp{operations\_return}. Aquellas operaciones que tienen parámetro de retorno definido (líneas 12-13) se añaden a la colección \imp{operations\_void}. Para estas últimas, se utiliza \imp{void} como tipo de retorno. Una solución inteligente podría haber sido añadir \imp{void} como tipo de retorno a las operaciones que no tuviesen tipo de retorno, pero, recordemos, no podemos modificar el modelo de entrada a los generadores de código. 
+Para procesar las operaciones, iteramos sobre ellas (línea 08). Para cada operación, comprobamos si dicha operación contiene o no parámetro de retorno (líneas 09-13). Aquellas operaciones que tienen parámetro de retorno definido (líneas 09-11) se añaden a la colección \imp{operations\_return}. Aquellas operaciones que tienen parámetro de retorno definido (líneas 12-13) se añaden a la colección \imp{operations\_void}. Para estas últimas, se utiliza \imp{void} como tipo de retorno. Una solución inteligente podría haber sido añadir \imp{void} como tipo de retorno a las operaciones que no tuviesen tipo de retorno, pero, recordemos, no podemos modificar el modelo de entrada a los generadores de código.
 
 Por último, se procesan ambas colecciones, \imp{operations\_return} y \imp{operations\_void}, invocando para ello las correspondientes subplantillas de generación de código (\imp{returnOperation} y \imp{voidOperation}), respectivamente (líneas 15-22). Finalmente, se retorna el texto generado, el cual se guardará en el fichero pertinente (línea 23).
 
