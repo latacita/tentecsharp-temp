@@ -16,7 +16,7 @@ En el caso de ejecutar el generador de código correspondiente a la fase de \emph
 
 En el caso de ejecutar el generador de código correspondiente a la fase de \emph{Ingeniería de Aplicaciones}, se crearía un proyecto que contendría las clases parciales necesarias para componer las clases parciales adecuadas de la implementación de referencia, de acuerdo a las características seleccionadas.
 
-Para integrar los generadores de código en Eclipse, se ha hecho uso de su entorno \emph{Plug-in Development Environment} (PDE)~\footnote{http://projects.eclipse.org/projects/eclipse.pde}. Utilizando este entorno, añadimos una serie de elementos gráficos a Eclipse para permitir invocar las plantillas de generación de código desarrolladas.
+Para integrar los generadores de código en Eclipse, se ha hecho uso de su entorno \emph{Plug-in Development Environment} (PDE)~\ref{vogella:2013}. Utilizando este entorno, añadimos una serie de elementos gráficos a Eclipse para permitir invocar las plantillas de generación de código desarrolladas.
 
 El código asociado a dichos elementos gráficos realizaba varias tareas: (1) en primer lugar, se preprocesaba el modelo UML 2.0 para eliminar elementos innecesarios, como perfiles no utilizados, comúnmente introducidos por los editores comerciales. A continuación, se invocan las plantillas EGL desde código Java.
 
