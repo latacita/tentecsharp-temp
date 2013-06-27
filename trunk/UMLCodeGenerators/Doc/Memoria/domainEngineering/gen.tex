@@ -14,8 +14,8 @@ Uno de los mayores problemas que normalmente plantean los generadores de código 
 Por tanto, antes de generar una clase, debemos asegurarnos de que no va a necesitar ser modificada posteriormente. Ello implica que hay que tener especial cuidado a la hora de diseñar el orden en el cual se ejecutan las plantillas, o \emph{templates} de generación de código. La Figura~\ref{dom:fig:templates} muestra el orden de ejecución de las plantillas creadas en nuestro caso. Explicamos parte de dicha figura, aunque no la describiremos entera, por razones de espacio.
 
 \begin{figure}[!tb]
-  \center
-  \includegraphics[width=\linewidth]{domainEngineering/images/Templates.eps} \\
+  \centering
+  \includegraphics[width=0.9\linewidth]{domainEngineering/images/Templates.eps} \\
   \caption{Orden de ejecución de las plantillas de generación de código}
   \label{dom:fig:templates}
 \end{figure}
@@ -44,12 +44,14 @@ Cada plantilla invocada hace uso a su vez de otras subplantillas, que por razone
 Por último, comentar que todas las plantillas utilizan diversas funciones auxiliares especificadas en EOL. Por ejemplo, existen funciones para determinar si una clase está involucrada en una herencia múltiple o para devolver todas las clases padre de una clase dada. Además, junto con las funciones auxiliares de EOL, se han creado una serie de funciones auxiliares en Java, invocables desde EOL, y EGL, lo que se conoce en argot Epsilon como una \emph{Java Tool}, para poder manipular el sistema de ficheros. Esto era necesario, por ejemplo, para poder crear la estructura de carpetas del proyecto Visual Studio 2010.
 
 Además, se crearon algunas \emph{Java Tool} para poder mostrar cuadros de diálogo que permitiesen interactuar con el usuario durante el proceso de generación de código, ya fuese para mostrarle o requerirle información.
+
 \begin{figure}[!tb]
   \centering
-  \includegraphics[width=.75\linewidth]{domainEngineering/images/SeleccionModelo.eps} \\
+  \includegraphics[width=.50\linewidth]{domainEngineering/images/SeleccionModelo.eps} \\
   \caption{Selección de modelo en un proyecto con varios modelos}
   \label{dom:fig:modelos}
 \end{figure}
+
 \begin{figure}[!tb]
   \centering
   \includegraphics[width=.75\linewidth]{domainEngineering/images/FinalWindow.eps} \\
