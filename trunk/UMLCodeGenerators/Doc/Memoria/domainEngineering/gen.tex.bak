@@ -20,7 +20,7 @@ Por tanto, antes de generar una clase, debemos asegurarnos de que no va a necesi
   \label{dom:fig:templates}
 \end{figure}
 
-El punto de partida es el generador de código llamado \imp{ProjectCreation}, encargado de procesar el elemento \emph{modelo}, que constituye la raíz del proyecto, así como los \emph{paquetes} que contiene dicho modelo, además de crear el proyecto \emph{Visual Studio 2010} que constituye la salida del generador.  Dicho \emph{template} tiene , por tanto, dos tareas claramente diferenciadas: (1) por una parte, debe generar el código correspondiente a la arquitectura de referencia, lo que se hace a través de la plantilla \imp{ClassFilesCreation}; y (2) por otra parte, debe generar todos los ficheros auxiliares y la estructura que constituyen un proyecto \emph{Visual Studio 2010}, como el fichero de construcción (fichero \emph{.csproj}) que indica que clases parciales deben compilarse cuando se construye el proyecto (ver Figura~\ref{back:code:partialClasses}). Para generar estos ficheros auxiliares, se utilizan las plantillas \imp{SlnFileCreation},  \imp{CsprojectFileCreation} y \imp{AssemblyInfoFileCreation}.
+El punto de partida es el generador de código llamado \imp{ProjectCreation}, encargado de procesar el elemento \emph{modelo}, que constituye la raíz del proyecto, así como los \emph{paquetes} que contiene dicho modelo, además de crear el proyecto \emph{Visual Studio 2010} que constituye la salida del generador.  Dicho \emph{template} tiene, por tanto, dos tareas claramente diferenciadas: (1) por una parte, debe generar el código correspondiente a la arquitectura de referencia, lo que se hace a través de la plantilla \imp{ClassFilesCreation}; y (2) por otra parte, debe generar todos los ficheros auxiliares y la estructura que constituyen un proyecto \emph{Visual Studio 2010}, como el fichero de construcción (fichero \emph{.csproj}) que indica que clases parciales deben compilarse cuando se construye el proyecto (ver Figura~\ref{back:code:partialClasses}). Para generar estos ficheros auxiliares, se utilizan las plantillas \imp{SlnFileCreation},  \imp{CsprojectFileCreation} y \imp{AssemblyInfoFileCreation}.
 
 La plantilla \imp{ProcessPackageContents} procesa por cada paquete, su contenido. Dependiendo del tipo de cada elemento, se realiza una acción diferente, tal como se describe a continuación.
 
@@ -44,12 +44,14 @@ Cada plantilla invocada hace uso a su vez de otras subplantillas, que por razone
 Por último, comentar que todas las plantillas utilizan diversas funciones auxiliares especificadas en EOL. Por ejemplo, existen funciones para determinar si una clase está involucrada en una herencia múltiple o para devolver todas las clases padre de una clase dada. Además, junto con las funciones auxiliares de EOL, se han creado una serie de funciones auxiliares en Java, invocables desde EOL, y EGL, lo que se conoce en argot Epsilon como una \emph{Java Tool}, para poder manipular el sistema de ficheros. Esto era necesario, por ejemplo, para poder crear la estructura de carpetas del proyecto Visual Studio 2010.
 
 Además, se crearon algunas \emph{Java Tool} para poder mostrar cuadros de diálogo que permitiesen interactuar con el usuario durante el proceso de generación de código, ya fuese para mostrarle o requerirle información.
+
 \begin{figure}[!tb]
   \centering
-  \includegraphics[width=.75\linewidth]{domainEngineering/images/SeleccionModelo.eps} \\
+  \includegraphics[width=.50\linewidth]{domainEngineering/images/SeleccionModelo.eps} \\
   \caption{Selección de modelo en un proyecto con varios modelos}
   \label{dom:fig:modelos}
 \end{figure}
+
 \begin{figure}[!tb]
   \centering
   \includegraphics[width=.75\linewidth]{domainEngineering/images/FinalWindow.eps} \\
