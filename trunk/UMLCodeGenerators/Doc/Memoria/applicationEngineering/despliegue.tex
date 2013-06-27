@@ -10,15 +10,14 @@
 Una vez creados los generadores de código, el siguiente paso es empaquetarlos y distribuirlos de forma que puedan ser usados de la forma más cómoda posible por diferentes desarrolladores para la creación de productos concretos pertenecientes a nuestra familia de productos.
 
 La forma más fácil de distribuir nuestra infraestructura es crear un plugin,
-que se integre con la plataforma Eclipse, que permita la generación de un proyecto Visual Studio 2010 que contenga dos proyectos: (1) un proyecto que contiene todos los ficheros fuente para cada una de las características del modelo UML dado; y (2) otro proyecto que contiene los ficheros fuente específicos para las características seleccionadas en la creación de un producto específico del modelo UML proporcionado. Esta sección describe el proceso
-de creación de dichas extensiones.
+que se integre con la plataforma Eclipse, que permita la generación de un proyecto \emph{Visual Studio 2010} que contenga dos tipos de proyectos, en función del generador de código ejecutado. Se podría haber pensado en integrar los generadores de código en \emph{Visual Studio 2010} o un editor comercial de UML, pero ninguna de dichas herramientas ofrecía tales facilidades. Por ejemplo, desde \emph{Visual Studio 2010} resulta imposible invocar las plantillas de generación de código creadas. \emph{Visual Studio 2010} ofrece un lenguaje de generación de código, pero sus funcionalidades están a años luz de las ofrecidas por otros lenguajes de generación de código, como EGL.
 
-El ámbito de desarollo de plug-ins de Eclipse, \emph{Plug-in Development Environment} (PDE), proporciona un entorno cómodo para crear plug-ins e integrarlos con la plataforma Eclipse. De esta forma, realizamos el cambio de contexto necesario para poder invocar nuestro generador de código principal, escrito en EGL, desde el lenguaje de programación java que es el utilizado para la creación de plug-ins en dicho entorno. Además, debemos preprocesar el modelo UML de entrada y realizar ciertas modificaciones sobre el ya que algunas de sus directivas no son compatibles con dicho entorno. Una vez analizado el modelo de entrada procedemos a aplicar los generadores de código de igual forma que venimos haciendo en las etapas anteriores del desarrollo del Proyecto. Por último, añadimos el entorno gráfico que nos permitirá acceder al plug-in cómodamente desde un menú integrado con Eclipse o desde un botón en la barra de tareas del mismo. A continuación exportamos el proyecto como un plug-in y lo instalamos en nuestro sistema, de esta forma cuando iniciemos Eclipse podremos realizar la transformación de modelo UML a código C\# de forma sencilla.
+En el caso de ejecutar el generador de código correspondiente a la fase de \emph{Ingeniería del Dominio}, se crearía un proyecto que contendría los esqueletos de las clases parciales que conformarían la \emph{implementación de referencia}. Dichos esqueletos, como ya hemos comentado, han de completarse a mano. 
 
-Tanto los generadores de código como la documentación están disponibles a través de una página web, realizada con el único objetivo de dar a conocer el presente proyecto. Dicha web posee 5 secciones, las cuales se
-describen a continuación:
-\textbf{Introducción:} Contiene un breve resumen acerca del ámbito y los objetivos del proyecto.
-\textbf{Descargas:} Contiene los generadores de código creados.
-\textbf{Documentación:} Contiene la documentación de usuario y vídeos relacionados con el proyecto.
-\textbf{Publicaciones:} Contendrá todas las publicaciones relacionadas con el proyecto.
-\textbf{Contacto:} Datos de contacto con los participantes del proyecto.
+En el caso de ejecutar el generador de código correspondiente a la fase de \emph{Ingeniería de Aplicaciones}, se crearía un proyecto que contendría las las clases parciales necesarias para componer las clases parciales adecuadas de la implementación de referencia, de acuerdo a las características seleccionadas. 
+
+Para integrar los generadores de código en Eclipse, se ha hecho uso de su entorno \emph{Plug-in Development Environment} (PDE)~\citep{}. Utilizando este entorno, añadimos una serie de elementos gráficos a Eclipse para permitir invocar las plantillas de generación de código desarrolladas. 
+
+El código asociado a dichos elementos gráficos realizaba varias tareas: (1) en primer lugar, se preprocesaba el modelo UML 2.0 para eliminar elementos innecesarios, como perfiles no utilizados, comúnmente introducidos por los editores comerciales. A continuación, se invocan las plantillas EGL desde código Java. 
+
+Una vez desarrollado el plug-in, se procedió a su empaquetado (siguiendo las directrices impuestas por Eclipse), y a la creación del correspondiente instalador para Eclipse, conocido como \emph{update site}. Por último, se creó una página web para darle visibilidad al proyecto.

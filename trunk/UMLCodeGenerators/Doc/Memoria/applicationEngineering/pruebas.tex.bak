@@ -7,20 +7,26 @@
 %% Application Engineering/Pruebas                                          %%
 %%==========================================================================%%
 
-Una vez implementados los generadores de código para la fase de \emph{Ingeniería de Aplicaciones}, el siguiente paso era diseñar y ejecutar las pruebas necesarias que permitiesen comprobar el correcto funcionamiento de estos generadores. Para diseñar las pruebas,  siguiendo el mismo procedimiento que en el caso anterior, utilizando la técnica de clases de equivalencia y valores límites, para luego completar con casos específicos que permitiesen alcanzar el 100\% de la cobertura.  A diferencia de la fase de \emph{Ingeniería del Dominio}, en esta fase no se utilizó \emph{EUnit} para ejecutar dichas pruebas, ya que dicha herramienta no se ajustaba a nuestras necesidades. Por tanto, se crearon los casos de prueba y se ejecutaron a mano, analizando de forma también manual si la salida producida coincidía con la esperada. La Tabla~\ref{app:table:pruebas} muestra algunos de los casos de prueba ejecutados. 
+Una vez implementados los generadores de código para la fase de \emph{Ingeniería de Aplicaciones}, el siguiente paso era diseñar y ejecutar las pruebas necesarias que permitiesen comprobar el correcto funcionamiento de estos generadores. Para diseñar las pruebas,  siguiendo el mismo procedimiento que en el caso anterior, utilizando la técnica de clases de equivalencia y valores límites, para luego completar con casos específicos que permitiesen alcanzar el 100\% de la cobertura.  
 
-\begin{table}%
+A diferencia de la fase de \emph{Ingeniería del Dominio}, en esta fase no se utilizó \emph{EUnit} para ejecutar dichas pruebas, ya que dicha herramienta no se ajustaba a nuestras necesidades. Por tanto, se crearon los casos de prueba y se ejecutaron a mano, analizando de forma también manual si la salida producida coincidía con la esperada. La Tabla~\ref{app:table:pruebas} muestra algunos de los casos de prueba ejecutados.
+
+\begin{table}
+\begin{small}
 \begin{tabularx}{\linewidth}{|X|l|}
  \hline
 {Casos válidos}&{Casos no válidos} \\ \hline
-Un profile y un único camino. & Paquetes recursivos. \\
-Un profile y varios caminos independientes. &\\
-Un profile y varios caminos dependientes. &\\
-Varios profiles y varios caminos independientes. &\\
-Varios profiles y varios caminos dependientes. &\\
+Configuración con un solo camino hoja-raiz & Paquetes recursivos. \\
+Configuración con varios caminos y todos los métodos independientes &\\
+Configuración con varios caminos y algún método dependiente &\\
+Configuración con varios caminos, donde algún método tiene versiones dependientes e independientes &\\
 \hline
 \end{tabularx}
+\end{small}
 \caption{Casos de prueba para la fase de Ingeniería de la Aplicación}
 \label{app:table:pruebas}
 \end{table}%
+
+Una vez creados los generadores de código, el siguiente paso es empaquetarlos para posibilitar su distribución y uso. La siguiente sección describe como se realiza dicha fase de despliegue.
+Tras ejecutar estos casos de prueba y comprobar que los generadores de código funcionaban correctamente, dábamos por concluida la labore de desarrollo de los generadores de código, restando solo su empaquetado y despliegue.
 
