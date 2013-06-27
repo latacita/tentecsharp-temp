@@ -1,4 +1,100 @@
 This is BibTeX, Version 0.99cThe top-level auxiliary file: pfc.aux
-I found no \bibdata command---while reading file pfc.aux
-I found no \bibstyle command---while reading file pfc.aux
-(There were 2 error messages)
+The style file: apa.bst
+Database file #1: references/references.bib
+I was expecting a `,' or a `}'---line 33 of file references/references.bib
+ :   
+ :   booktitle = {The Epsilon Book},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 50 of file references/references.bib
+ :   
+ :   year = {2009},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 145 of file references/references.bib
+ :   
+ :   year      = {2008},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 305 of file references/references.bib
+ : @book{albahari:2010
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 326 of file references/references.bib
+ : @inproceedings{laguna:2007
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 351 of file references/references.bib
+ : @article{aracic:2006
+ :                     ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "uml:2005"
+Warning--I didn't find a database entry for ""
+Name 1 in "Sami Beydeda, Matthias Book, and Volker Gruhn." has a comma at the end for entry sami:2010
+while executing---line 1048 of file apa.bst
+Name 1 in "Sami Beydeda, Matthias Book, and Volker Gruhn." has a comma at the end for entry sami:2010
+while executing---line 1048 of file apa.bst
+Name 1 in "Ivica Aracic, Vaidas Gasiunas, Mira Mezini, and Klaus Ostermann" has a comma at the end for entry ivica:2006
+while executing---line 1048 of file apa.bst
+Name 1 in "Ivica Aracic, Vaidas Gasiunas, Mira Mezini, and Klaus Ostermann" has a comma at the end for entry ivica:2006
+while executing---line 1048 of file apa.bst
+Too many commas in name 1 of "Benavides, D., Segura, S. and Cortés, A. R." for entry benavides:2010
+while executing---line 1048 of file apa.bst
+Too many commas in name 1 of "Benavides, D., Segura, S. and Cortés, A. R." for entry benavides:2010
+while executing---line 1048 of file apa.bst
+Warning--to sort, need author, editor, or key in dimitrios:2012
+Too many commas in name 1 of "Eric Jendrock, Jennifer Ball, Debbie Carson, Ian Evans, Scott Fordin, Kim Haase" for entry eric:2010
+while executing---line 1048 of file apa.bst
+Too many commas in name 1 of "Eric Jendrock, Jennifer Ball, Debbie Carson, Ian Evans, Scott Fordin, Kim Haase" for entry eric:2010
+while executing---line 1048 of file apa.bst
+Too many commas in name 1 of "Eric Jendrock, Jennifer Ball, Debbie Carson, Ian Evans, Scott Fordin, Kim Haase" for entry eric:2010
+while executing---line 1048 of file apa.bst
+Too many commas in name 1 of "Eric Jendrock, Jennifer Ball, Debbie Carson, Ian Evans, Scott Fordin, Kim Haase" for entry eric:2010
+while executing---line 1048 of file apa.bst
+Too many commas in name 1 of "Eric Jendrock, Jennifer Ball, Debbie Carson, Ian Evans, Scott Fordin, Kim Haase" for entry eric:2010
+while executing---line 1048 of file apa.bst
+Too many commas in name 1 of "Eric Jendrock, Jennifer Ball, Debbie Carson, Ian Evans, Scott Fordin, Kim Haase" for entry eric:2010
+while executing---line 1048 of file apa.bst
+Too many commas in name 1 of "Mehdi Achour, Friedhelm Betz, Antony Dovgal, Nuno Lopes, Hannes Magnusson" for entry mehdi:2013
+while executing---line 1048 of file apa.bst
+Too many commas in name 1 of "Mehdi Achour, Friedhelm Betz, Antony Dovgal, Nuno Lopes, Hannes Magnusson" for entry mehdi:2013
+while executing---line 1048 of file apa.bst
+Too many commas in name 1 of "Mehdi Achour, Friedhelm Betz, Antony Dovgal, Nuno Lopes, Hannes Magnusson" for entry mehdi:2013
+while executing---line 1048 of file apa.bst
+Too many commas in name 1 of "Mehdi Achour, Friedhelm Betz, Antony Dovgal, Nuno Lopes, Hannes Magnusson" for entry mehdi:2013
+while executing---line 1048 of file apa.bst
+Warning--empty author and editor in dimitrios:2012
+Warning--empty year in dimitrios:2012
+Warning--empty publisher in dimitrios:2012
+Warning--empty publisher in albahari:2010
+Warning--empty journal in perez:2011
+Warning--empty title in alasdair:2004
+Warning--empty journal in aracic:2006
+Too many commas in name 1 of "Benavides, D., Segura, S. and Cortés, A. R." for entry benavides:2010
+while executing---line 1123 of file apa.bst
+Warning--empty journal in benavides:2010
+Warning--empty year in chae:2009
+Warning--empty journal in chae:2009
+Warning--empty booktitle in david:2006
+Too many commas in name 1 of "Eric Jendrock, Jennifer Ball, Debbie Carson, Ian Evans, Scott Fordin, Kim Haase" for entry eric:2010
+while executing---line 1123 of file apa.bst
+Too many commas in name 1 of "Eric Jendrock, Jennifer Ball, Debbie Carson, Ian Evans, Scott Fordin, Kim Haase" for entry eric:2010
+while executing---line 1123 of file apa.bst
+Too many commas in name 1 of "Eric Jendrock, Jennifer Ball, Debbie Carson, Ian Evans, Scott Fordin, Kim Haase" for entry eric:2010
+while executing---line 1123 of file apa.bst
+Warning--empty booktitle in stephan:2002
+Name 1 in "Ivica Aracic, Vaidas Gasiunas, Mira Mezini, and Klaus Ostermann" has a comma at the end for entry ivica:2006
+while executing---line 1123 of file apa.bst
+Warning--empty booktitle in ivica:2006
+Warning--empty journal in kastner:2008
+Warning--empty year in loughran:2008
+Too many commas in name 1 of "Mehdi Achour, Friedhelm Betz, Antony Dovgal, Nuno Lopes, Hannes Magnusson" for entry mehdi:2013
+while executing---line 1123 of file apa.bst
+Too many commas in name 1 of "Mehdi Achour, Friedhelm Betz, Antony Dovgal, Nuno Lopes, Hannes Magnusson" for entry mehdi:2013
+while executing---line 1123 of file apa.bst
+Warning--empty journal in sanchez:2010
+Name 1 in "Sami Beydeda, Matthias Book, and Volker Gruhn." has a comma at the end for entry sami:2010
+while executing---line 1123 of file apa.bst
+Warning--empty booktitle in sami:2010
+Warning--can't use both author and editor fields in sanchez:2011:tente
+(There were 30 error messages)
