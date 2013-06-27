@@ -1,12 +1,46 @@
 %%==================================================================%%
-%% Author : Abascal Fern�ndez, Patricia                             %%
-%% Author : S�nchez Barreiro, Pablo                                 %%
+%% Author : Abascal Fernández, Patricia                             %%
+%% Author : Sánchez Barreiro, Pablo                                 %%
 %% Version: 1.5, 15/05/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
-%% Antecedentes, Sumario                                            %%
+%% Conclusiones, Sunmario                                           %%  
 %%==================================================================%%
 
-Durante este cap�tulo se han descrito los conceptos necesarios para comprender el �mbito y el alcance de este proyecto. Se ha descrito el caso de estudio que se utilizar� a lo largo del documento adem�s se ha especificado qu� es una l�nea de productos software y la tecnolog�a TENTE utilizada para su desarrollo, el dise�o orientado a caracter�sticas UML, la respuesta a las limitaciones de las clases parciales en C\# mediante el uso del patr�n slicer y la generaci�n de c�digo con Epsilon.
+Esta memoria de Proyecto Fin de Carrera ha descrito el proceso de desarrollo de unos generadores de código para la metodología Te.Net. Dicha metodología es una variante de la metodología TENTE para la plataforma .Net~\citep{}. 
 
-En el siguiente cap�tulo profundizaremos acerca de la fase dedicada a la implementaci�n de los generadores de c�digo que se corresponde con la fase de \emph{Ingenier�a del Dominio} del desarrollo de l�neas de producto software.
+TENTE~\citep{} es una novedosa metodología, orientada a características y dirigida por modelos, para el desarrollo de líneas de productos software. El diseño original de TENTE obligaba a utilizar como lenguaje de programación destino un lenguaje orientado a características que soportase el concepto de familia de clases, al estilo de \emph{CaesarJ}~\citep{} u \emph{ObjectTeams}~\citep{}, lo que dificultaba su transferencia industrial, ya que diversas pequeñas y medianas empresas eran bastante reticentes a cambiar su lenguaje de programación habitual por un lenguaje de este estilo. 
+
+Por ello, se decidió crear la metodología Te.Net, la cual ofrecía una alternativa a TENTE, y que poseía dos claras características diferenciadoras con respecto a ella: (1) utilizaba como lenguaje de programación destino un lenguaje orientado a objetos convencional; y (2) era compatible con la plataforma .Net, que parece ser la plataforma preferida de las empresas software del sector industrial cántabro. 
+
+Para ello, se estudió primero, dentro del ámbito de otro Proyecto Fin de Carrera, como implementar líneas de productos software en C\#. Como fruto de dicho trabajo, se ideó el \emph{Slicer Pattern}, que es un patrón para la implementación de características en el lenguaje C\#, basado en la utilización de clases parciales. Dicho patrón es una extensión al trabajo iniciado por~\citep{laguna:2010}.
+
+La instanciación del \emph{Slicer Pattern} resulta bastante laboriosa, pues implica una larga lista de tareas repetitivas que deben ser ejecutadas a manos. El objetivo de este Proyecto Fin de Carrera ha sido el de crear una serie de generadores de código que eviten que dichas tareas tengan que ser realizadas a mano. 
+
+Para alcanzar dicho objetivo, primero tuvimos que realizar una intensa y ardua labor de formación previa. Tuvimos que familiarizarnos con los conceptos de línea de productos software, orientación a características, con el funcionamiento de las relaciones \emph{merge} en UML y con el \emph{Slicer Pattern}. Respecto a las tecnologías, tuvimos que adquirir destrezas con \emph{Visual Studio 2010}, le lenguaje C\#, la suite de desarrollo software dirigido por modelos Epsilon, y la arquitectura de plug-ins para Eclipse. 
+
+Tras esta formación previa, y siguiendo el esquema de desarrollo de las líneas de productos software (ver Figura~\ref{back:fig:domainAplicEng}), se han creado dos generadores de código diferentes: uno para la fase de \emph{Ingeniería del Dominio}, y otro par la fase de \emph{Ingeniería de Aplicaciones}.
+
+El primero de ellos, el de \emph{Ingeniería del Dominio}, tenía como objetivo transformar la \emph{arquitectura de referencia}, orientada a características, de una línea de productos software, expresada en UML 2.0, en el esqueleto de una \emph{implementación de referencia}. Dicho esqueleto contenía la estructura de clases y la cabecera de los métodos, que debían ser completados de forma manual por los programadores para producir una implementación de referencia completa. 
+
+Para desarrollar este generador de código, en primer lugar se estudiaron y analizaron las correspondencias entre los elementos de los modelos UML 2.0 orientados a características y los elementos disponibles en el lenguaje C\#, teniendo en cuenta que debíamos hacer uso del \emph{SlicerPattern}. Una vez identificadas estas correspondencias, las implementamos utilizando los lenguajes EGL y EOL. Posteriormente, se realizó un largo y sistemático proceso de pruebas que permitiese comprobar el correcto funcionamiento de los generadores de código creados. 
+
+El segundo generador de código, el de \emph{Ingeniería de Aplicaciones}, tenía como objetivo componer, configurar y personalizar los elementos de la implementación de referencia creada a nivel de \emph{Ingeniería del Dominio}, de forma que se genere automáticamente un producto específico, adaptado a las las necesidades particulares de un cliente concreto. Teniendo en cuenta esas necesidades, y de acuerdo a la metodología Te.Net, se crearía en primer lugar una arquitectura para el producto concreto que queremos generar. El generador de código para la fase de \emph{Ingeniería de Aplicaciones}, aceptaría este modelo arquitectónico concreto como entrada, y produciría todo el código necesario para componer, configurar y personalizar los elementos de la implementación de referencia, de forma que se obtenga una versión 100\% ejecutable de dicho producto concreto. 
+
+Para ello, primero diseñamos un algoritmo que especificaba, a alto nivel, las acciones a realizar durante dicho proceso de composición, configuración y personalización. A continuación, se implementó dicho algoritmo en EGL y EOL. Por último se realizaron las pruebas necesarias para comprobar el correcto funcionamiento del algoritmo implementado.
+
+Finalmente, se creó un plug-in para Eclipse que permitiese ejecutar dichos generadores de código. Para ello se extendió Eclipse con los correspondientes elementos gráficos y se implementaron los controladores de dichos elementos gráficos, de forma que se invocase desde Eclipse a las plantillas de generación de código. A continuación, se empaquetó el producto y se creó el instalador correspondiente. Por último, se creó una web para distribuir y dar publicidad al producto. 
+
+La siguiente sección describe las experiencias personales vividas a lo largo del proyecto.
+
+
+
+
+
+
+
+
+
+
+
+
