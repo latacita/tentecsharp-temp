@@ -7,7 +7,7 @@
 %% Background/Diseño Orientado a Características con UML            %%
 %===================================================================%%
 
-El \emph{diseño orientado a características}~\cite{kastner:2008} es un paradigma para la construcción, adaptación y síntesis de sistemas software a gran escala. Una \emph{característica} es una unidad coherente de funcionalidad de un sistema software. Una características proporciona una opción de configuración potencial, ya que dicha característica debe poder ser incluida o excluida del producto software, dando lugar a productos software con diferentes funcionalidades. Por ejemplo, en el caso del software de gestión de hogares inteligentes, toda la funcionalidad relacionada con la gestión automática de luces, sería considerada como una característica.
+El \emph{diseño orientado a características}~\citep{kastner:2008} es un paradigma para la construcción, adaptación y síntesis de sistemas software a gran escala. Una \emph{característica} es una unidad coherente de funcionalidad de un sistema software. Una características proporciona una opción de configuración potencial, ya que dicha característica debe poder ser incluida o excluida del producto software, dando lugar a productos software con diferentes funcionalidades. Por ejemplo, en el caso del software de gestión de hogares inteligentes, toda la funcionalidad relacionada con la gestión automática de luces, sería considerada como una característica.
 
 La idea básica del diseño orientado a características es descomponer un sistema software en módulos bien definidos, donde cada módulo encapsula una característica que el sistema ofrece. El objetivo de la descomposición es la construcción de software bien estructurado que puede ser adaptado a las necesidades del usuario y el entorno, mediante la selección y composición de las características adecuadas.
 
@@ -26,7 +26,7 @@ Dos conceptos comúnmente utilizados por los lenguajes orientados a característic
 
 Una \emph{familia de clases} es un nuevo tipo de módulo que se utiliza para encapsular y gestionar como una unidad de composición un conjunto de clases pertenecientes a una misma característica. Por ejemplo, en nuestro caso de estudio, todas las clases que estén relacionadas con la gestión automática de luces, deberían estar encapsuladas en una misma familia de clases. Estas familias de clases se representan en el modelo UML de la Figura~\ref{back:fig:smartHome} como paquetes que contienen clases. Por ejemplo, el paquete \emph{LightMng} representa la familia de clases que se correspondería con la característica \emph{gestión de luces automáticas}.
 
-Una \emph{clase virtual} es una clase perteneciente a una familia de clases y que es susceptible de ser heredada y sobreescrita por familias de clases, al estilo de los métodos virtuales de una clase en el paradigma orientado a objetos~\citep{}.
+Una \emph{clase virtual} es una clase perteneciente a una familia de clases y que es susceptible de ser heredada y sobreescrita por familias de clases, al estilo de los métodos virtuales de una clase en el paradigma orientado a objetos~\citep{madsen:1989}.
 
 La herencia entre familias de clases se representa en nuestro modelo UML mediante relaciones \emph{merge}, de acuerdo a la técnica expuesta por~\cite{laguna:2010}. Cuando una familia de clases hereda de otra, hereda implícitamente todas sus clases virtuales. Todas las clases de una familia de clases son implícitamente clases virtuales.
 

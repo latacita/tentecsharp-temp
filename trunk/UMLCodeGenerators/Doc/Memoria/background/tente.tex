@@ -7,15 +7,15 @@
 %% Background/TENTE                                                 %%
 %===================================================================%%
 
-TENTE~\cite{fuentes:2009:caise,sanchez:2011:tente} es una moderna metodología para el desarrollo de líneas de productos software desarrollada en el contexto del proyecto AMPLE\footnote{www.ample-project.net}. TENTE integra diversos avances para el desarrollo de líneas de productos software, tales como avanzadas técnicas de modularización y desarrollo software dirigido por modelos.
+TENTE~\citep{fuentes:2009:caise,sanchez:2011:tente} es una moderna metodología para el desarrollo de líneas de productos software desarrollada en el contexto del proyecto AMPLE\footnote{www.ample-project.net}. TENTE integra diversos avances para el desarrollo de líneas de productos software, tales como avanzadas técnicas de modularización y desarrollo software dirigido por modelos.
 
-Las técnicas avanzadas de modularización permiten el encapsulamiento en módulos bien definidos y fácilmente componibles de las diferentes características de una familia de productos software, lo cual simplifica el proceso de construcción de productos específicos. Dicha modularización de características se realiza desde la fase arquitectónica, usando mecanismos específicos del lenguaje de modelado UML~\cite{uml:2005}.
+Las técnicas avanzadas de modularización permiten el encapsulamiento en módulos bien definidos y fácilmente componibles de las diferentes características de una familia de productos software, lo cual simplifica el proceso de construcción de productos específicos. Dicha modularización de características se realiza desde la fase arquitectónica, usando mecanismos específicos del lenguaje de modelado UML~\citep{uml:2005}.
 
-Después, mediante el uso de generadores de código, a partir del diseño arquitectónico de una familia de productos software se genera el esqueleto de su implementación. Dicha implementación se realiza en el lenguaje \emph{CaesarJ}~\cite{aracic:2006}, una extensión de Java que incluye potentes mecanismos para soportar la separación y composición de características.
+Después, mediante el uso de generadores de código, a partir del diseño arquitectónico de una familia de productos software se genera el esqueleto de su implementación. Dicha implementación se realiza en el lenguaje \emph{CaesarJ}~\citep{aracic:2006}, una extensión de Java que incluye potentes mecanismos para soportar la separación y composición de características.
 
 Dichos esqueletos se han de completar manualmente, obteniéndose al final un conjunto de módulos software, o piezas, cuya composición da lugar a productos software concretos\footnote{El nombre de la metodología proviene del célebre juego de construcción TENTE, versión española del popular Lego, el cual permite realizar diferentes construcciones mediante el ensamblado de una serie de piezas predefinidas}. Dichos módulos constituyen lo que se conoce como la implementación de referencia de la línea de productos software.
 
-Para la derivación de productos concretos desde la infraestructura descrita en el párrafo anterior, TENTE usa un innovador lenguaje, denominado VML (\emph{Variability Management Language})~\cite{loughran:2008,sanchez:2008} para la especificación de las reglas que indican cómo se ha de configurar una arquitectura de referencia de acuerdo con la selección de características de cada cliente en particular.
+Para la derivación de productos concretos desde la infraestructura descrita en el párrafo anterior, TENTE usa un innovador lenguaje, denominado VML (\emph{Variability Management Language})~\citep{loughran:2008,sanchez:2008} para la especificación de las reglas que indican cómo se ha de configurar una arquitectura de referencia de acuerdo con la selección de características de cada cliente en particular.
 
 Posteriormente, a nivel de Ingeniería de Aplicaciones (ver Figura~\ref{back:fig:domainAplicEng}), se crea un modelo de configuración, el cual debe contener una lista con las características que el cliente desea incluir o excluir de su producto concreto. Utilizando este modelo de configuración como entrada, VML es capaz de ejecutar las reglas de derivación anteriormente especificadas para crear de forma automática el modelo de la arquitectónico del producto deseado por el cliente.
 
@@ -24,7 +24,7 @@ A continuación, se utiliza dicho modelo de un producto concreto como entrada par
 Esta metodología posee diversas ventajas:
 
 \begin{enumerate}
-	\item Gracias al uso de técnicas orientadas a características, como el operador \emph{merge} de UML y el lenguaje CaesarJ, se facilita la modularización y composición de características, lo que facilita no sólo el proceso de obtención de productos concretos, sino también la reutilización y evolución de dichas características~\cite{figueiredo:2008}.
+	\item Gracias al uso de técnicas orientadas a características, como el operador \emph{merge} de UML y el lenguaje CaesarJ, se facilita la modularización y composición de características, lo que facilita no sólo el proceso de obtención de productos concretos, sino también la reutilización y evolución de dichas características~\citep{figueiredo:2008}.
 	\item Gracias al uso de técnicas dirigidas por modelos, se automatiza gran parte del proceso, evitando tareas repetitivas, largas, tediosas y monótonas, usualmente propensas a errores.
 \end{enumerate}
 
