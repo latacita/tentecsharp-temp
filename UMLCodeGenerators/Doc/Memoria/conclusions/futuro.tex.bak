@@ -4,20 +4,11 @@
 %% Version: 1.5, 15/05/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
-%% Conclusiones, trabajos futuros                       %%
+%% Conclusiones, trabajos futuros                                   %%
 %%==================================================================%%
 
-Dado que los Árboles de Características son un concepto muy reciente en la historia de la computación, cada poco tiempo surgen nuevas ampliaciones e ideas para potenciar sus virtudes, además de nuevos conceptos adyacentes que permiten complementar su labor. Por eso esta herramienta tiene mucho margen de mejora en el futuro, ya que pronto será necesario incorporar muchas de esas mejoras a nuestro editor de restricciones.
+El proyecto desarrollado, aunque pequemos de falta de modestia, se trata de un proyecto bastante completo que deja pocos flecos por completar. De hecho, las cuestiones que nos han quedado por resolver han sido más debido a problemas con herramientas desarrolladas por terceros y que están fuera de nuestro alcance, que a problemas que podamos resolver por nosotros mismos.
 
-Por ejemplo, el editor podría mejorarse en el futuro incorporando las siguientes características:
+En concreto, una cuestión obvia que se debe resolver, en cuanto los desarrolladores de Epsilon solucionen los problemas planteados, es completar la integración con Eclipse, produciendo un plug-in que pueda ejecutar a los generadores de código sin que estos generen ningún tipo de excepción.
 
-\begin{enumerate}
-
-	\item Incorporar cierta capacidad de análisis a los modelos de características, de modo que a través del editor de restricciones podamos indicar que el árbol que estamos analizando algunos parámetros como un máximo de profundidad para sus ramas, o su anchura, etc.
-
-	\item Extender el lenguaje para soportar el novedoso concepto de características con atributos, y adaptar las restricciones posibles a esta novedad.
-
-	\item Extender el lenguaje para permitir especificar restricciones sobre árboles de características especificados en varios ficheros.
-
-	\item Implementar funcionalidad de \emph{Live Validation}, es decir, que una restricción sea evaluada a la vez que está siendo definida. De este modo se avisaría lo antes posible de que una restricción no está siendo satisfecha por la configuración.
-\end{enumerate}
+Como tareas más avanzadas, se podría plantear la integración de los generadores de código en \emph{Visual Studio 2010}, a través de un complejo sistema de \emph{wrappers} y servicios sobre componentes OSGi, o idear mecanismos que permitan la verificación formal de los generadores de código, de forma que se pueda demostrar matemáticamente que el proceso de generación de código preserva o mantiene una serie de invariantes identificados a nivel arquitectónico.

@@ -1,7 +1,7 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %%          Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.2, 17/04/2013                                         %%
+%% Version: 1.3, 18/06/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
 %% Background/Software Product Lines                                %%
@@ -24,16 +24,15 @@ El proceso de creación de líneas de producto software se estructura dos fases: (
 
 En la fase de Ingeniería del Dominio, el primer paso a realizar es un análisis de qué características de la familia de producto son variables y por qué son variables. Esta parte es la que se conoce como \emph{Análisis o Especificación de la Variabilidad} (Figura~\ref{back:fig:domainAplicEng}, etiqueta 1).
 
-A continuación, se ha de diseñar una arquitectura de referencia para la familia de producto software que permita soportar dicha variabilidad. Esta actividad se conoce como \emph{Realización o Diseño de la Variabilidad} (Figura~\ref{back:fig:domainAplicEng}, etiqueta 2). 
+A continuación, se ha de diseñar una arquitectura de referencia para la familia de producto software que permita soportar dicha variabilidad. Esta actividad se conoce como \emph{Realización o Diseño de la Variabilidad} (Figura~\ref{back:fig:domainAplicEng}, etiqueta 2).
 
 El siguiente paso es establecer una serie de reglas que especifiquen cómo hay que instanciar o configurar la arquitectura previamente creada de acuerdo con las características seleccionadas por cada cliente. Esta fase es la que se conoce como \emph{Correspondencia entre Especificación y Diseño de la Variabilidad} (Figura~\ref{back:fig:domainAplicEng}, etiqueta 3).
 
 Tras completar la fase de Ingeniería del Dominio, disponemos de una especie de línea de montaje, la cual podemos utilizar para construir productos concretos de forma más o menos automatizada.
 
-En la fase de Ingeniería de Aplicación, se crean productos concretos utilizando la infraestructura previamente creada. Para ello, el primer paso es crear una \emph{configuración}, que no es más que una selección de características que un usuario desea incluir en su producto concereto (Figura~\ref{back:fig:domainAplicEng}, etiqueta 4). 
+En la fase de Ingeniería de Aplicación, se crean productos concretos utilizando la infraestructura previamente creada. Para ello, el primer paso es crear una \emph{configuración}, que no es más que una selección de características que un usuario desea incluir en su producto concereto (Figura~\ref{back:fig:domainAplicEng}, etiqueta 4).
 
 En el caso ideal, usando esta configuración, se debe poder ejecutar las reglas de correspondencia entre especificación y diseño de la variabilidad para que la arquitectura creada en la fase de Ingeniería del Dominio se adapte automáticamente; generando un producto concreto específico acorde a las necesidades concretas del usuario (Figura~\ref{back:fig:domainAplicEng}, etiqueta 5). En el caso no ideal, dichas reglas de correspondencia deberán ejecutarse a mano, lo cual suele ser un proceso tedioso, largo, repetitivo y propenso a errores.
 
-\todo{Cambiar de sección}
+La siguiente sección describe el paradigma de desarrollo software orientada a características, el cual está íntimamente ligado al diseño e implementación de líneas de productos software.
 
-La siguiente sección proporciona una breve pero completa descripción sobre la tecnología TENTE, encargada de definir una serie de modelos y transformaciones de modelo a código para el desarrollo y configuración de líneas de producto software.

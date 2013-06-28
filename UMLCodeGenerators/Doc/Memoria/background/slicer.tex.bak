@@ -7,58 +7,58 @@
 %% Background/Slicer Pattern                                        %%
 %===================================================================%%
 
-El mecanismo utilizado por la metodología Te.Net para gestionar la variabilidad de una línea de productos a nivel de código es el \emph{Slicer Pattern}~\cite{perez:2011}. Dicho patrón se basa fuertemente en el concepto de clases parciales existente en C\#. Por tanto, antes de proceder a la descripción de dicho patrón, introduciremos al lector en el concepto de clase parcial. Más concretamente, nos centraremos en el concepto de clase parcial proporcionado por C\#.
+El mecanismo utilizado por la metodología Te.Net para gestionar la variabilidad de una línea de productos a nivel de código es el \emph{Slicer Pattern}~\citep{perez:2011}. Dicho patrón se basa fuertemente en el concepto de clases parciales existente en C\#. Por tanto, antes de proceder a la descripción de dicho patrón, introduciremos al lector en el concepto de clase parcial. Más concretamente, nos centraremos en el concepto de clase parcial proporcionado por C\#.
 
 \subsection{Clases Parciales C\#}
 
-Las clases parciales de C\#~\cite{albahari:2010} permiten dividir la implementación de una clase en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan, en tiempo de compilación, para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales.
+Las clases parciales de C\#~\citep{albahari:2010} permiten dividir la implementación de una clase en varios archivos de código fuente. Cada fragmento representa una parte de la funcionalidad global de la clase. Todos estos fragmentos se combinan, en tiempo de compilación, para crear una única clase, la cual contiene toda la funcionalidad especificada en las clases parciales.
 
-Por lo tanto, las clases parciales C\# parecen un mecanismo adecuado para implementar características, tal como ha sido identificado por diversos autores~\cite{laguna:2007,laguna:2010}. La idea es que cada incremento en funcionalidad perteneciente a una característica se podría encapsular en una clase parcial separada. Cuando un cliente solicita un producto con una serie de características concretas, se combinarían (compilarían) las clases parciales correspondientes a esas características. Esto daría lugar a un producto que contendría única y exclusivamente las características seleccionadas.
+Por lo tanto, las clases parciales C\# parecen un mecanismo adecuado para implementar características, tal como ha sido identificado por diversos autores~\citep{laguna:2007,laguna:2010}. La idea reside en que cada incremento en funcionalidad perteneciente a una característica se podría encapsular en una clase parcial separada. Cuando un cliente solicita un producto con una serie de características concretas, se combinarían (compilarían) las clases parciales correspondientes a esas características. Esto daría lugar a un producto que contendría única y exclusivamente las características seleccionadas.
 
-Ilustramos esta idea con un ejemplo basado en el caso de estudio del presente proyecto, expuesto en la Figura~\ref{back:fig:smartHome}. La Figura~\ref{back:code:partialClasses} muestra un ejemplo donde las clases parciales se aplican a la implementación de la clase \imp{Gateway}. La implementación de esta clase para las caracterísiticas \imp{BaseSystem} y \imp{LightMng} ha sido separada en dos ficheros (Figura~\ref{back:code:partialClasses} líneas 0-9 y líneas 10-15) con el mismo nombre, pero emplazados en distintos directorios (\imp{BaseSystem/Gateway.cs} y \imp{LightMng/Gateway.cs}). 
+Ilustramos esta idea con un ejemplo basado en el caso de estudio del presente proyecto, expuesto en la Figura~\ref{back:fig:smartHome}. La Figura~\ref{back:code:partialClasses} muestra un ejemplo donde las clases parciales se aplican a la implementación de la clase \imp{Gateway}. La implementación de esta clase para las caracterísiticas \imp{InitialModel} y \imp{LightMng} ha sido separada en dos ficheros (Figura~\ref{back:code:partialClasses} líneas 00-08 y líneas 09-14) con el mismo nombre, pero emplazados en distintos directorios (\imp{InitialModel/Gateway.cs} y \imp{LightMng/Gateway.cs}).
 
-La clase \imp{Gateway} para la característica \imp{BaseSystem} (Figura~\ref{back:code:partialClasses} líneas 0-9) contiene colecciones para sensores y actuadores (líneas 2 y 3), al igual que los métodos \imp{changeValue}, \imp{emergence} (líneas 5-6), acorde al modelo de la Figura~\ref{back:fig:smartHome}. La clase \imp{Gateway} para la característica \imp{LightMng} (Figura~\ref{back:code:partialClasses} líneas 10-15) contiene la colección \imp{ligthCtrl} (línea 12) y el método \imp{switchLigth} (línea 14).
+La clase \imp{Gateway} para la característica \imp{InitialModel} (Figura~\ref{back:code:partialClasses} líneas 00-08) contiene colecciones para sensores y actuadores (líneas 02 y 03), al igual que los métodos \imp{changeValue} y \imp{emergence} (líneas 05-06), acorde al modelo de la Figura~\ref{back:fig:smartHome}. La clase \imp{Gateway} para la característica \imp{LightMng} (Figura~\ref{back:code:partialClasses} líneas 09-14) contiene la colección \imp{ligths} (línea 11) y el método \imp{switchLight} (línea 13).
 
 \begin{figure}[!tb]
 \begin{center}
 \begin{footnotesize}
 \begin{verbatim}
-File BaseSystem/Gateway.cs
+File InitialModel/Gateway.cs
 --------------------------------------------------------
-0 namespace SmartHome {
-1    public partial class Gateway {
-2       protected IList<Sensor> sensors;
-3       protected IList<Actuator> actuators;
-4
-5       private void changeValue(Int id, float value) {...}
-6       private void emergence(Sensor a, float value) {...}
-7    }
-8 }
+00 namespace SmartHome {
+01    public partial class Gateway {
+02       protected IList<Sensor> sensors;
+03       protected IList<Actuator> actuators;
+04
+05       private void changeValue(Int id, float value) {...}
+06       private void emergence(Sensor a, float value) {...}
+07    }
+08 }
 
 File LightMng/Gateway.cs
 --------------------------------------------------------
-10 namespace SmartHome {
-11     public partial class Gateway {
-12        private ISet<LigthCtrl> ligthCtrl;
-13
-14        private void switchLight(Int id) {...}
-15 }
+09 namespace SmartHome {
+10     public partial class Gateway {
+11        private ISet<LigthCtrl> ligths;
+12
+13        private void switchLight(Int id) {...}
+14 }
 
 File SmartHome.csproj
 --------------------------------------------------------
-16 </Project>
-17 ...
-18 <ItemGroup>
-19 <Compile Include="BaseSystem\Gateway.cs" />
-20 <Compile Include="LightMng\Gateway.cs" />
-21 <!-- 
-22 <Compile Include="HeaterMng\Gateway.cs" />
-23 <Compile Include="WindowMng\Gateway.cs" />
-24 <Compile Include="SmartEnergyMng\Gateway.cs" />
-25 -->
-26 ...
-27 </ItemGroup>
-28 </Project>
+15 </Project>
+16 ...
+17 <ItemGroup>
+18 <Compile Include="InitialModel\Gateway.cs" />
+19 <Compile Include="LightMng\Gateway.cs" />
+20 <!--
+21 <Compile Include="HeaterMng\Gateway.cs" />
+22 <Compile Include="WindowMng\Gateway.cs" />
+23 <Compile Include="SmartEnergyMng\Gateway.cs" />
+24 -->
+25 ...
+26 </ItemGroup>
+27 </Project>
 \end{verbatim}
 \end{footnotesize}
 \end{center}
@@ -66,35 +66,36 @@ File SmartHome.csproj
 \label{back:code:partialClasses}
 \end{figure}
 
-La Figura~\ref{back:code:partialClasses} (líneas 16-28) muestra el fichero de construcción o compilación (\imp{SmartHome.csproj}) para este proyecto. Ese fichero indica que las clases parciales para las características \imp{BaseSystem} y \imp{LightMng} están incluidas en la unidad de compilación; pero las correspondientes clases parciales para las características \imp{HeaterMng}, \imp{WindowMng} y \imp{SmartEnergyMng} deben ser excluidas. Por tanto, el compilador generará una clase \imp{Gateway} con la funcionalidad para controlar las luces pero no para controlar las ventanas o las temperaturas.
+La Figura~\ref{back:code:partialClasses} (líneas 15-27) muestra el fichero de construcción o compilación (\imp{SmartHome.csproj}) para este proyecto. Ese fichero indica que las clases parciales para las características \imp{InitialModel} y \imp{LightMng} están incluidas en la unidad de compilación; pero las correspondientes clases parciales para las características \imp{HeaterMng}, \imp{WindowMng} y \imp{SmartEnergyMng} deben ser excluidas. Por tanto, el compilador generará una clase \imp{Gateway} con la funcionalidad para controlar las luces pero no para controlar las ventanas o las temperaturas.
 
 Inicialmente, las clases parciales de C\# parecen un mecanismo adecuado para dar soporte a la orientación a características, al permitir dividir una clase en varias porciones, cada una de ellas correspondientes con una característica del producto a implementar.
 
-Sin embargo, de acuerdo a una serie de experimentos realizados por~\cite{sanchez:2010} y \cite{perez:2011}, las clases parciales poseen una serie inconvenientes que necesitan ser resueltos para que puedan ser utilizadas para implementar características. El principal problema es que utilizando clases parciales, no podemos ni sobreescribir ni extender métodos ya existentes dentro de una clase parcial. Ilustramos este problema con un ejemplo.
+Sin embargo, de acuerdo a una serie de experimentos realizados por~\cite{perez:2011} y~\cite{sanchez:2010}, las clases parciales poseen una serie de inconvenientes que necesitan ser resueltos para que puedan ser utilizadas para implementar características. El principal problema es que utilizando clases parciales, no podemos ni sobreescribir ni extender métodos ya existentes dentro de una clase parcial. Ilustramos este problema con un ejemplo.
 
-De acuerdo al modelo de la Figura~\ref{back:fig:smartHome} cuando se implementa la característica \imp{LightMng}, debemos añadir una nueva colección, llamada \imp{LightCtrl}, para almacenar objetos de tipo \imp{LightCtrl} para la clase \imp{Gateway}. Sin embargo, debemos también extender el contructor de la clase \imp{Gateway} para inicializar apropiadamente dicha colección.
+De acuerdo al modelo de la Figura~\ref{back:fig:smartHome} cuando se implementa la característica \imp{LightMng}, debemos añadir una nueva colección, llamada \imp{lights}, para almacenar objetos de tipo \imp{LightCtrl} para la clase \imp{Gateway}. Sin embargo, debemos también extender el contructor de la clase \imp{Gateway} para inicializar apropiadamente dicha colección.
 
 \begin{figure}[!tb]
 \begin{center}
 \begin{footnotesize}
 \begin{verbatim}
-File BaseSystem/Gateway.cs
+File InitialModel/Gateway.cs
 --------------------------------------------------------
-1 public partial class Gateway {
-2 ...
-3    public Gateway() {
-4       this.floors = new List<Floor>();
-5       this.interfaces = new List<CentralGUI>();
-6    }
-7 }
+01 public partial class Gateway {
+02 ...
+03    public Gateway() {
+04       this.floors = new List<Floor>();
+05       this.interfaces = new List<CentralGUI>();
+06    }
+07 }
+
 File LightMng/Gateway.cs
 --------------------------------------------------------
-8 public partial class Gateway {
-9
-10    protected IList<LightCtrl> lightCtrl;
+08 public partial class Gateway {
+09 ...
+10    protected IList<LightCtrl> lights;
 11
 12    public Gateway() {
-13       this.lightCtrl = new List<LightCtrl>();
+13       this.lights = new List<LightCtrl>();
 14    }
 15 }
 \end{verbatim}
@@ -104,23 +105,19 @@ File LightMng/Gateway.cs
 \label{back:code:constructor}
 \end{figure}
 
-Siguiendo esta argumentación, se intenta escribir el código descrito en la Figura~\ref{back:code:constructor}. Dicho código contiene el constructor de la clase \imp{Gateway} para la característica \imp{BaseSystem} (Figura~\ref{back:code:constructor}, líneas 3-6). Este constructor debería poder ser extendido en la clase parcial \imp{Gateway} de la característica \imp{WindowMng} tal como se muestra en la  Figura~\ref{back:code:constructor}, líneas 10-12.
+Siguiendo esta argumentación, se intenta escribir el código descrito en la Figura~\ref{back:code:constructor}. Dicho código contiene el constructor de la clase \imp{Gateway} para la característica \imp{InitialModel} (Figura~\ref{back:code:constructor}, líneas 03-06). Este constructor debería poder ser extendido en la clase parcial \imp{Gateway} de la característica \imp{LightMng} tal como se muestra en la  Figura~\ref{back:code:constructor}, líneas 12-14.
 
-Sin embargo, esto no es posible puesto que el compilador reporta un error indicando que el método \imp{Gateway()} está duplicado y hay ambigüedad. Esto significa que no podemos separar la implementación de un método en varios archivos, ya que no se puede tener métodos con el mismo nombre en dos clases parciales distintas. Esto reduce las capacidades de extensión proporcionadas por las clases parciales a la adición de nuevos métodos y atributos, siendo imposible añadir funcionalidad o sobreescribir métodos existentes. 
+Sin embargo, esto no es posible puesto que el compilador reporta un error indicando que el método \imp{Gateway()} está duplicado y hay ambigüedad. Esto significa que no podemos separar la implementación de un método en varios archivos, ya que no se puede tener métodos con el mismo nombre en dos clases parciales distintas. Esto reduce las capacidades de extensión proporcionadas por las clases parciales a la adición de nuevos métodos y atributos, siendo imposible añadir funcionalidad o sobreescribir métodos existentes.
 
-Por ejemplo, el caso de la característica \imp{SmartEnergyMng}, la clase parcial \imp{Gateway} debe sobreescribir el método \imp{adjustTemperature} de la clase \imp{Gateway} de la característica \imp{HeaterMng} para comprobar si las ventanas deben cerrarse antes de cambiar la temperatura de los aparatos de frío calor. No obstante, como no podemos añadir un método \imp{adjustTemperature} a la clase parcial \imp{Gateway} de la característica \imp{SmartEnergyMng} con el mismo nombre que el declarado en la característica \imp{HeaterMng}, no hay forma de sobreescribir el método.
+Por ejemplo, el caso de la característica \imp{SmartEnergyMng}, la clase parcial \imp{Gateway} debe sobreescribir el método \imp{adjustTemperature} de la clase \imp{Gateway} de la característica \imp{HeaterMng} para comprobar si las ventanas deben cerrarse antes de cambiar la temperatura de los aparatos de frío o calor. No obstante, como no podemos añadir un método \imp{adjustTemperature} a la clase parcial \imp{Gateway} de la característica \imp{SmartEnergyMng} con el mismo nombre que el declarado en la característica \imp{HeaterMng}, no hay forma de sobreescribir el método.
 
+El \emph{Slicer Pattern} surge como solución para resolver estas limitaciones. Dicho patrón se describe en la siguiente subsección.
 
-El \emph{Slicer Pattern} surge como solución para resolver estas limitaciones. Para ello, el \emph{Slicer Pattern} se basa en la siguiente idea: dado que el problema es que no podíamos tener métodos con el mismo nombre en diferentes clases parciales, la solución consiste en añadir un prefijo a cada método, de forma que cada método tenga un nombre diferente. Dicho prefijo será el nombre de la características a la cual pertenece la clase parcial que contiene cada método.
+\subsection{\emph{Slicer Pattern}}
 
-La Figura~\ref{back:fig:slicerPattern} muestra como el ejemplo de la Figura~\ref{back:fig:smartHome} ha sido refactorizado siguiendo dicha idea.
+El \emph{Slicer Pattern} se basa en la siguiente idea: dado que el problema es que no podíamos tener métodos con el mismo nombre en diferentes clases parciales, la solución consiste en añadir un prefijo a cada método, de forma que cada método tenga un nombre diferente. Dicho prefijo será el nombre de la características a la cual pertenece la clase parcial que contiene cada método.
 
-%%==================================================================%%
-%% NOTA(Pablo): El ejemplo debe casar con el anterior. Cuando lo    %%
-%%              tengas listo, sigo mirando desde aquí,              %%
-%%              que necesito saber como casa todo                   %%
-%%                                                                  %%
-%%==================================================================%%
+La Figura~\ref{back:fig:slicerPattern} muestra un ejemplo de diseño para el hogar inteligente, el cual ha sido realizado siguiendo esta idea.
 
 \begin{figure}[!tb]
   \centering
@@ -129,23 +126,27 @@ La Figura~\ref{back:fig:slicerPattern} muestra como el ejemplo de la Figura~\ref
   \label{back:fig:slicerPattern}
 \end{figure}
 
-Usando esta estrategia se puede comprobar cómo, por ejemplo, las versiones del método \imp{thermometerChanged} correspondientes a las características \imp{HeaterMng} y \imp{SmartEnergyMng} han sido transformadas en \imp{heaterMng\_thermometerChanged} y \imp{smartEnergyMng\_thermometerChanged} respectivamente y por tanto pueden co-existir sin que sus nombres colisionen. Es más, el método \imp{smartEnergyMng\_thermometerChanged} puede extender del método \imp{heaterMng\_thermometerChanged}. Se dispone por tanto de varias versiones parciales de un mismo método.
+Usando esta estrategia se puede comprobar cómo, por ejemplo, las versiones del método \imp{thermometerChanged} correspondientes a las características \imp{HeaterMng} y \imp{SmartEnergyMng} han sido transformadas en  \imp{heaterMng\_thermometer-Changed} y \imp{smartEnergyMng\_thermometerChanged} respectivamente y por tanto pueden co-existir sin que sus nombres colisionen. Es más, el método \imp{smartEnergyMng\_thermometerChanged} puede extender del método \imp{heaterMng\_thermome-terChanged}. Se dispone por tanto de varias versiones parciales de un mismo método. A las versiones prefijadas de un método les denominaremos \emph{versiones sucias} de dicho método.
 
-Para generar un producto específico es necesario que, a nivel de Ingeniería de Aplicación, se cree la denominada "versión limpia" del método \imp{thermometerChanged}, es decir, sin el prefijo. Mientras que las versiones de dicho método creadas en el nivel de Ingeniería del Dominio que han sido prefijadas con el nombre de la característica a la que cada método pertenece pasarán a ser denominadas "versiones sucias" de dicho método. Además, para asegurar que se invoca la versión correcta del método, no se deberían poder invocar los métodos \imp{heaterMng\_thermometerChanged} y \imp{smartEnergyMng\_thermometerChanged} directamente y por dicha razón todas las versiones sucias de los métodos son privadas. De dicha forma los objetos de las demás clases sólo podrán invocar a la versión limpia del método y dicha versión, redireccionará la llamada a las versiones sucias de los métodos correspondientes de acuerdo a las características seleccionadas.
+Para generar un producto específico es necesario que, a nivel de Ingeniería de Aplicación, se compongan o combinen dichas versiones sucias. Para ello, cada vez que queramos configurar una nueva aplicación, debemos crear, por cada clase que deba ser incluida en el producto final, una nueva clase parcial, la cual se encargará de combinar o componer dichos métodos sucios de las clases parciales correspondientes a características. Dicha clase parcial contendría lo que denominaremos la \emph{versión limpia} de los métodos a componer, es decir, las versiones de los métodos sin prefijar, que serían además públicos.
 
-Sin embargo este patrón no puede ser utilizado para los constructores de la clase ya que los constructores no se pueden renombrar porque deben tener un nombre específico. De esta forma, la instanciación del Patrón Slicer en los constructores se realiza de forma diferente a la instanciación del resto de métodos. De esta forma, cada clase parcial X correspondiente a una caracterísica F tendrá un método privado llamado $<$F$>$\_init\_$<$X$>$ que contendrá el fragmento de la lógica del constructor correspondiente a la característica F.
+En nuestro caso, para configurar la clase \emph{Gateway} con control inteligente de la energía, se crearía una nueva clase parcial \emph{Gateway}. Dicho método contendría, por ejemplo, el método \imp{thermometerChanged} (sin prefijo alguno).
 
-La Figura~\ref{back:code:constSlicerPattern} muestra cómo se aplica dicha técnica. Se puede apreciar cómo la lógica del constructor para \emph{Gateway} ha sido encapsulada en un método llamado  \imp{baseSystem\_initGateway} (Figura~\ref{back:code:constSlicerPattern} líneas 03-06). La misma técnica ha sido usada en la Figura~\ref{back:code:constSlicerPattern} líneas 10-12 con la característica \imp{WindowMng}. El siguiente paso es encontrar un mecanismo que permita componer dichos fragmentos de acuerdo a una selección de  características dada, de esta forma, como se puede apreciar en la Figura~\ref{back:code:constSlicerPattern} líneas 16-20, el constructor para la clase Gateway es creado con las características seleccionadas por el usuario final, en el caso analizado, por ejemplo, solo se ha seleccionado la característica \imp{WindowMng}.
+A continuación, para componer los métodos, se hace que cada método limpio \emph{delegue} en tantos métodos sucios como fuere necesario, de acuerdo a las características seleccionadas para el producto que se está construyendo. En nuestro caso, \imp{thermometerChanged}  delegaría  en  \imp{smartEnergy\_thermometer-Changed}.
+
+Para evitar que los métodos sucios \imp{heaterMng\_thermometerChanged} y \imp{smartEnergyMng\_thermometerChanged} puedan ser invocados directamente por objetos que no sean de la clase \imp{Gateway}, todas las versiones sucias de un métodos serán privadas. De esta forma, sólo son invocables las versiones limpias de un método.
+
+Esta idea, tal cual, no puede utilizarse para los constructores de la clases, ya que dichos constructores no se pueden ser renombrados, al tener que seguir un patrón específico para su nombre. Por tanto, necesitamos utilizar una solución alternativa.
 
 \begin{figure}[tb!]
 \begin{center}
 \begin{footnotesize}
 \begin{verbatim}
-File BaseSystem/Gateway.cs
+File InitialModel/Gateway.cs
 --------------------------------------------------------
 01 public partial class Gateway {
 02      ...
-03      private void BaseSystem_initGateway() {
+03      private void InitialModel_initGateway() {
 04          this.floors = new List<Floors>();
 05          this.interfaces = new List<CentralGUI>();
 06      }
@@ -166,15 +167,26 @@ File MyHouse/Gateway.cs
 15      ...
 16      public Gateway() {
 17          // WindowMng has been selected
-18          baseSystem_initGateway();
+18          initialModel_initGateway();
 19          windowMng_initGateway();
 20      }
 21 }
 \end{verbatim}
 \end{footnotesize}
 \end{center}
-\caption{Código para el constructor de la clase Gateway usando clases parciales y patrón slicer}
+\caption{\emph{Slicer Pattern} para constructores}
 \label{back:code:constSlicerPattern}
 \end{figure}
 
-Concluyendo con el Patrón Slicer, tanto los métodos regulares como con los constructores pueden ser extendidos y reescritos usando dicho patrón y solucionando así las limitaciones ofrecidas por el uso de clases parciales~\cite{sanchez:2010} como mecanismo de soporte orientado a características. Utilizando todo lo expuesto en las secciones anteriores, en la siguiente sección se expone a grandes rasgos el funcionamiento de los generadores de código que serán empleados durante la fase de Ingeniería del Dominio del presente proyecto.
+
+Dicha solución se basa en hacer que la versión limpia de un constructor sólo se cree en el proceso de configuración de un producto software. En las clases parciales \emph{sucias}, en lugar de constructores, tendremos métodos \emph{especiales}, los cuales contendrán la lógica del constructor para dicha clase parcial. De esta forma, cada clase parcial $X$ correspondiente a una característica $F$ tendrá un método privado llamado $<$F$>$\_init\_$<$X$>$ que contendrá el fragmento de la lógica del constructor para la clase $X$ correspondiente a la característica $F$.
+
+La Figura~\ref{back:code:constSlicerPattern} muestra cómo se aplica dicha técnica. Se puede apreciar cómo la lógica del constructor para \emph{Gateway} ha sido encapsulada en un método llamado  \imp{initialModel\_initGateway} (Figura~\ref{back:code:constSlicerPattern} líneas 03-06). Se ha utilizado la misma técnica (Figura~\ref{back:code:constSlicerPattern}, líneas 10-12) para la característica \imp{WindowMng}. Estos métodos \emph{init} corresponderían a la \emph{versión sucia} del constructor.
+
+Para componer dichas \emph{versiones sucias} de un constructor de acuerdo a una selección de  características dada, se crea en la clase parcial que representa en producto a configurar el constructor de dicha clase. Dicho constructor constitute la \emph{versión limpia} del constructor de la clase. Al igual que en el caso de los métodos regulares, dicho constructor delegará en tantos métodos \emph{init} como sea necesario, de acuerdo a la selección de características realizada.
+
+La Figura~\ref{back:code:constSlicerPattern}, líneas 16-20, muestra esta solución aplicada al constructor de la clase \emph{Gateway}, entendiendo que sólo se ha seleccionado como característica a ser incluida en el producto final \imp{WindowMng}.
+
+Por tanto, a modo de resumen, se puede ver cómo utilizando el \emph{Slicer Pattern} se pueden extender y sobreescribir métodos regulares y constructores, solventado las limitaciones inicialmente identificadas de las clases parciales en relación a la implementación de diseños orientados a características.
+
+Por tanto, el objetivo de este proyecto es que todo el trabajo que es necesario realizar para instanciar este patrón, es decir, renombrado de los métodos para crear las versiones sucias, creación de las versiones limpias correspondientes, así como del código para delegar en los métodos que corresponda, sea generado automáticamente. Para ello es necesario crear una serie de generadores de código. La siguiente sección describe, a grandes rasgos, el funcionamiento de los lenguajes de generación de código.
