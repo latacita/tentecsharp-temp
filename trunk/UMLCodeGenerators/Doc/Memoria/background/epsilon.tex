@@ -60,7 +60,7 @@ Las Figuras~\ref{back:code:generacionClases}, \ref{back:fig:epsilonEGL} y~\ref{b
 
 Por ejemplo, las líneas 01 y 03 declaran un bucle que recorre todas las clases contenidas en el modelo de entrada. En cada iteración, se procesa la línea 02, que genera automáticamente el texto fuera de los caracteres de escape (``El modelo contiene la clase: ''). A continuación, se añade a la salida, por medio del operador \emph{=}, el nombre de la clase \emph{c}, que corresponda con la iteración realizada.
 
-La Figura~\ref{back:code:resultadogeneracionClases} muestra el resultado que produciría la plantilla de la Figura~\ref{back:code:generacionClases} para el modelo mostrado en la Figura~\ref{back:code:epsilonEGL}.
+La Figura~\ref{back:code:resultadogeneracionClases} muestra el resultado que produciría la plantilla de la Figura~\ref{back:code:generacionClases} para el modelo mostrado en la Figura~\ref{back:fig:epsilonEGL}.\\
 
 \begin{figure}[!tb]
 \begin{center}
@@ -77,7 +77,7 @@ La Figura~\ref{back:code:resultadogeneracionClases} muestra el resultado que pro
 \end{figure}
 \begin{figure}[!tb]
   \centering
-	\includegraphics[width=.55\linewidth]{background/images/epsilonEGL.eps} \\
+	\includegraphics[width=.45\linewidth]{background/images/epsilonEGL.eps} \\
   \caption{Ejemplo de modelo de entrada para generación de código con EGL}
   \label{back:fig:epsilonEGL}
 \end{figure}
@@ -97,7 +97,7 @@ La Figura~\ref{back:code:resultadogeneracionClases} muestra el resultado que pro
 
 Obviamente, EGL no sólo nos permite realizar estas sencillas operaciones. Por ejemplo, se pueden encapsular porciones reutilizables de código EGL en entidades bien definidas denominados \emph{templates}. Un \emph{template} tiene una funcionalidad similar a la de una \emph{función} o \emph{procedimiento} de un lenguaje de programación convencional.
 
-La Figura~\ref{back:code:generacionOperacion} muestra un ejemplo de template que sirve para generar la cabecera de una clase Java. La cabecera del template (línea 02) especifica que el template de aplica a objetos del tipo \imp{Class}, no precisando de ningún parámetro de entrada. La clase a la cual se aplica el template es un parámetro implícito de entrada a esta operación, a la cual se puede acceder a través del operador \imp{self}. Utilizando este operador, la línea 04 genera la cabecera de una clase java, de acuerdo a la visibilidad \imp{self.visibility} y nombre \imp{self.name} de la clase sobre la cual se invoca esta operación. Siendo $c$ un objeto de tipo \imp{Class}, invocar este template sería tan fácil como escribir \imp{c.getHeader()}.
+La Figura~\ref{back:code:generacionOperacion} muestra un ejemplo de template que genera la cabecera de una clase Java. La cabecera del template (línea 02) especifica que el template de aplica a objetos del tipo \imp{Class}, no precisando de ningún parámetro de entrada. La clase a la cual se aplica el template es un parámetro implícito de entrada a esta operación y se accede a ella a través del operador \imp{self}. Utilizando este operador, la línea 04 genera la cabecera de una clase java, de acuerdo a la visibilidad \imp{self.visibility} y nombre \imp{self.name} de la clase sobre la cual se invoca esta operación. Siendo $c$ un objeto de tipo \imp{Class}, invocar este template sería tan fácil como escribir \imp{c.getHeader()}.
 
 \begin{figure}[tb!]
 \begin{center}

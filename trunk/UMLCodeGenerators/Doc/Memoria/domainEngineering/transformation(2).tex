@@ -35,7 +35,7 @@ Por cada tipo primitivo de UML 2.0, se establece una correspondencia con los tip
 
 Cada clase enumerada UML 2.0, se transforma en un enumerado de C\#, con el mismo nombre que el enumerado UML 2.0. A continuación, se procesan los literales de la clase enumerado UML 2.0, añadiendo un literal con el mismo nombre al enumerado creado en C\#.
 
-Por ejemplo, la clase enumerada \imp{TempUnits} de la característica \imp{HeaterMng} se transformaría en un enumerado de C\#, con nombre \imp{TempUnits}, perteneciente al \emph{namespace} \imp{HeaterMng}, y con \imp{CELSIUS} y \imp{FARENHEIT} como literales. El Listado~\ref{dom:code:enum} muestra el código resultante de esta transformación.
+Por ejemplo, la clase enumerada \imp{TempUnits} de la característica \imp{HeaterMng} se transformaría en un enumerado de C\#, con nombre \imp{TempUnits}, perteneciente al \emph{namespace} \imp{HeaterMng}, y con \imp{CELSIUS} y \imp{FARENHEIT} como literales. El Listado~\ref{dom:code:enum} muestra el código resultante de esta transformación.\\
 
 \begin{lstlisting} [basicstyle=\ttfamily\scriptsize,language=CSharp, captionpos=b,
                     caption=Código generado para la clase enumerada \imp{TempUnits},
@@ -89,7 +89,7 @@ Las asociaciones en UML pueden ser de dos tipos:
 
 \begin{figure}[!tb]
   \centering
-  \includegraphics[width=.55\linewidth]{domainEngineering/images/transfBidirec.eps} \\
+  \includegraphics[width=.45\linewidth]{domainEngineering/images/transfBidirec.eps} \\
   \caption{Ejemplo de asociación bidireccional}
   \label{dom:fig:transfBidirec}
 \end{figure}
@@ -148,7 +148,7 @@ El \emph{mixin pattern} tiene como objetivo simular el funcionamiento de la here
 
 \begin{figure}[!tb]
   \centering
-  \includegraphics[width=.80\linewidth,keepaspectratio=true]{domainEngineering/images/electronMultiple.eps} \\
+  \includegraphics[width=.65\linewidth,keepaspectratio=true]{domainEngineering/images/electronMultiple.eps} \\
   \caption{Ejemplo de herencia múltiple}
   \label{dom:fig:herenciaMultiple}
 \end{figure}
@@ -165,7 +165,7 @@ Los lenguajes de programación orientados a objetos modernos, como Java o C\#, no
 
 \begin{figure}[!tb]
   \centering
-  \includegraphics[width=\linewidth,keepaspectratio=true]{domainEngineering/images/electronMixinPattern.eps} \\
+  \includegraphics[width=0.65\linewidth,keepaspectratio=true]{domainEngineering/images/electronMixinPattern.eps} \\
   \caption{Herencia múltiple mediante el \emph{mixin pattern}}
   \label{dom:fig:mixinPattern}
 \end{figure}

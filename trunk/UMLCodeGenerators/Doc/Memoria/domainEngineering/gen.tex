@@ -20,7 +20,7 @@ Por tanto, antes de generar una clase, debemos asegurarnos de que no va a necesi
   \label{dom:fig:templates}
 \end{figure}
 
-El punto de partida es el generador de código llamado \imp{ProjectCreation}, encargado de procesar el elemento \emph{modelo}, que constituye la raíz del proyecto, así como los \emph{paquetes} que contiene dicho modelo, además de crear el proyecto \emph{Visual Studio 2010} que constituye la salida del generador.  Dicho \emph{template} tiene, por tanto, dos tareas claramente diferenciadas: (1) por una parte, debe generar el código correspondiente a la arquitectura de referencia, lo que se hace a través de la plantilla \imp{ProcessPackageContents}; y (2) por otra parte, debe generar todos los ficheros auxiliares y la estructura que constituyen un proyecto \emph{Visual Studio 2010}, como el fichero de construcción (fichero \emph{.csproj}) que indica que clases parciales deben compilarse cuando se construye el proyecto (ver Figura~\ref{back:code:partialClasses}). Para generar estos ficheros auxiliares, se utilizan las plantillas \imp{SlnFileCreation},  \imp{CsprojectFileCreation} y \imp{AssemblyInfoFileCreation}.
+El punto de partida es el generador de código llamado \imp{ProjectCreation}, encargado de procesar el elemento \emph{modelo}, que constituye la raíz del proyecto, así como los \emph{paquetes} que contiene dicho modelo, además de crear el proyecto \emph{Visual Studio 2010} que constituye la salida del generador.  Dicho \emph{template} tiene, por tanto, dos tareas claramente diferenciadas: (1) por una parte, debe generar el código correspondiente a la arquitectura de referencia, lo que se hace a través de la plantilla \imp{ProcessPackageContents}; y (2) por otra parte, debe generar todos los ficheros auxiliares y la estructura que constituyen un proyecto \emph{Visual Studio 2010}, como el fichero de construcción (fichero \emph{.csproj}) que indica que clases parciales deben compilarse cuando se construye el proyecto (ver Figura~\ref{back:code:partialClasses}). Para generar estos ficheros auxiliares, se utilizan las plantillas \imp{SlnFileCreation},  \imp{CsprojectFileCreation} y \imp{AssemblyInfoFileCreation}.\\
 
 La plantilla \imp{ProcessPackageContents} procesa por cada paquete, su contenido. Dependiendo del tipo de cada elemento, se realiza una acción diferente, tal como se describe a continuación.
 
@@ -28,13 +28,13 @@ Si se trata de una clase enumerada, se invoca el template \imp{EnumerationClassC
 
 Se procesan todas las clases con herencia múltiple, para aplicar el \emph{mixin pattern}. Para ello se ejecutan las plantillas \imp{ParentImplMultipleInheritanceCase}, que se encarga de procesar las clases padre involucradas en herencias múltiples; y \imp{ParentInterfaceMultipleInheritanceCase}, que se encarga de crear las interfaces para estas clases padre. Ambas plantillas hacen uso de las plantillas \imp{MethodsCreation} y \imp{UtilityMethodsCreation}, encargadas de procesar los métodos de dichas clases e interfaces y de crear los métodos de infraestructura que fuesen necesarios, tal como \imp{Equals} o \imp{CompareTo}.
 
-A continuación, se ejecuta la plantilla \imp{ChildClassMultipleInheritance}, encargada de procesar una clase hija involucrada en herencia múltiple. Para ello se procesan el esqueleto de la clase (\imp{ClassDeclaration}), sus atributos (\imp{PropertiesGeneration}), sus métodos (\imp{MethodsCreation}) y sus métodos de infraestructura (\imp{UtilityMethodsCreation}).
+A continuación, se ejecuta la plantilla \imp{ChildClassMultipleInheritance}, encargada de procesar una clase hija involucrada en herencia múltiple. Para ello se procesan el esqueleto de la clase (\imp{ClassDeclaration}), sus atributos (\imp{PropertiesGeneration}), sus métodos (\imp{MethodsCreation}) y sus métodos de infraestructura (\imp{UtilityMethodsCreation}).\\
 
 Seguidamente, se procesan las clases no afectadas, como hijas o como padres, por herencia múltiple. Estas clases se procesan a través de la plantilla \imp{ClassCreation}, que funciona igual que la plantilla \imp{ChildClassMultipleInheritance}, a excepción de que no se genera el código de los delegados para los \emph{mixins}.
 
 \begin{figure}[!tb]
   \center
-  \includegraphics[width=\linewidth]{domainEngineering/images/PropertiesTemplates.eps} \\
+  \includegraphics[width=0.65\linewidth]{domainEngineering/images/PropertiesTemplates.eps} \\
   \caption{Orden de ejecución en la plantilla de generación de código \imp{PropertiesGeneration}}
   \label{dom:fig:propTemp}
 \end{figure}

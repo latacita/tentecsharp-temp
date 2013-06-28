@@ -1,16 +1,20 @@
 %%==================================================================%%
 %% Author : Abascal Fernández, Patricia                             %%
 %% Author : Sánchez Barreiro, Pablo                                 %%
-%% Version: 1.5, 15/05/2013                                         %%
+%% Version: 1.1, 27/06/2013                                         %%
 %%                                                                  %%
 %% Memoria del Proyecto Fin de Carrera                              %%
-%% Conclusiones, conclusiones personales                       %%
+%% Conclusiones/Lecciones aprendidas                                %%
 %%==================================================================%%
 
-Para el desarrollo de este editor se han utilizado herramientas que son estándares \emph{defacto} dentro de la comunidad de modelado, tales como Ecore o EMF. Estas herramientas ofrecen funcionalidades bastante potentes, pero dada su reciente aparición, aún presentan ciertas carencias que han de ser resueltas.
+Esta sección describe las experiencias personales, buenas y malas, vividas a lo largo del proyecto. Para el desarrollo de los generadores de código se utilizó la herramienta Epsilon que ofrece funcionalidades bastante potentes que facilitan bastante el trabajo de crear generadores de código. No obstante, dada su reciente aparición y su constante desarrollo, aún presentan ciertas carencias que dificultan su utilización.
 
-Por ejemplo, el editor gráfico para metamodelos de Ecore podría mejorarse en muchos aspectos.  No estaría mal poder ser capaz de editar algunos de los parámetros de las metaclases y sus relaciones sin tener que cambiar de ventana. También mejoraría la propia interfaz de colocación de las metaclases, pues colocar las relaciones del modo que uno desea es una tarea mucho más ardua de lo que debería ser.
+Por ejemplo, uno de los mayores problemas que hemos tenido en la fase final del proyecto, y que aún estamos a la espera de resolver, ha sido en relación a la integración de las plantillas de generación de código con Eclipse. Por desgracia, nos ha  resultado imposible empaquetar los generadores de código y ejecutarlos correctamente desde el plug-in creado, debido a una excepción interna producida por el propio Epsilon. Esta excepción estaba relacionado con un problema interno de Epsilon, que acaba siempre en un desbordamiento de memoria. Hemos reportado dicha incidencia a los creadores de Epsilon, estando actualmente a la espera de que la resuelvan.
 
-En el caso de la herramienta \emph{EMFText}, ni siquiera estamos hablando de una utilidad que esté reconocida como estándar \emph{de facto}. Tiene una vida muy corta y apenas se puede decir que esté en fase beta. En muchos momentos del desarrollo nos encontramos con errores que los propios desarrolladores desconocían, y tuve que intercambiar e-mails con ellos para poder solucionar ciertos aspectos de nuestra gramática.
+En ciertos momentos del desarrollo de los generadores de código, nos encontramos con ciertos errores en Epsilon, que los propios desarrolladores de Epsilon desconocían. Por ejemplo, a la hora de tratar modelos UML que tuvieran clases enumeradas se lanzaba una excepción que, tras reportarlo como bug y varios meses después, fue solucionado por los desarrolladores en la última versión de la herramienta.
 
-El mayor freno que sufrió el desarrollo fue debido en la mayoría de los casos a problemas con las propias aplicaciones. Aún así, fue muy edificante poder desarrollar un software siguiendo una metodología tan radicalmente distinta de lo que en muchas ocasiones aprendí a lo largo de mis estudios. Creo que la construcción de Software Dirigido por Modelos tiene mucho futuro, y en cuanto las herramientas consigan estandarizarse no me cabe duda que serán utilizadas de un modo mucho más frecuente en el futuro.
+Durante la fase de pruebas con \emph{EUnit}, encontramos que ciertas funcionalidades que eran necesarias para los casos de prueba, como el poder comparar dos ficheros, no habían sido implementadas. Por tanto, nos pusimos en contacto con los desarrolladores de Epsilon para solicitar la inclusión de tales funcionalidades en EUnit. Con agradecimiento a estos desarrolladores, podemos decir, con cierto orgullo, que dichas peticiones fueron atendidas con cierta presteza.
+
+Por último, comentar que EOL, el lenguaje que constituye el núcleo de Epsilon, se trata de un lenguaje parecido a OCL (\emph{Object Constraint Language})~\citep{kleppe:2008}, con un marcado carácter funcional que al principio, resultaba complejo de utilizar. Además, depurar el código creado era un proceso tedioso y laborioso, ya que la depuración debía realizarse mediante la mera inspección de la salida producida.
+
+No obstante, a pesar de estas dificultades, fue muy satisfactorio poder desarrollar los generadores de código utilizando un lenguaje funcional, ya que difiere del tipo de lenguaje utilizado en los estudios de Ingeniería Informática de esta Facultad. Personalmente creo que la construcción de software orientado a características y las líneas de producto software tienen bastante futuro, ya que permiten ahorrar tiempo, costes y crear productos acordes a las necesidades de cada usuario concreto. Por tanto, en cuanto las herramientas consigan estandarizarse, no me cabe duda que serán ampliamente utilizadas.

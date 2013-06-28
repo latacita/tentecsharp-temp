@@ -70,9 +70,9 @@ La Figura~\ref{back:code:partialClasses} (líneas 15-27) muestra el fichero de co
 
 Inicialmente, las clases parciales de C\# parecen un mecanismo adecuado para dar soporte a la orientación a características, al permitir dividir una clase en varias porciones, cada una de ellas correspondientes con una característica del producto a implementar.
 
-Sin embargo, de acuerdo a una serie de experimentos realizados por~\cite{sanchez:2010} y \cite{perez:2011}, las clases parciales poseen una serie de inconvenientes que necesitan ser resueltos para que puedan ser utilizadas para implementar características. El principal problema es que utilizando clases parciales, no podemos ni sobreescribir ni extender métodos ya existentes dentro de una clase parcial. Ilustramos este problema con un ejemplo.
+Sin embargo, de acuerdo a una serie de experimentos realizados por~\cite{perez:2011} y~\cite{sanchez:2010}, las clases parciales poseen una serie de inconvenientes que necesitan ser resueltos para que puedan ser utilizadas para implementar características. El principal problema es que utilizando clases parciales, no podemos ni sobreescribir ni extender métodos ya existentes dentro de una clase parcial.
 
-De acuerdo al modelo de la Figura~\ref{back:fig:smartHome} cuando se implementa la característica \imp{LightMng}, debemos añadir una nueva colección, llamada \imp{lights}, para almacenar objetos de tipo \imp{LightCtrl} para la clase \imp{Gateway}. Sin embargo, debemos también extender el contructor de la clase \imp{Gateway} para inicializar apropiadamente dicha colección.
+Por ejemplo, de acuerdo al modelo de la Figura~\ref{back:fig:smartHome} cuando se implementa la característica \imp{LightMng}, debemos añadir una nueva colección, llamada \imp{lights}, para almacenar objetos de tipo \imp{LightCtrl} para la clase \imp{Gateway}. Sin embargo, debemos también extender el contructor de la clase \imp{Gateway} para inicializar apropiadamente dicha colección.
 
 \begin{figure}[!tb]
 \begin{center}
@@ -136,7 +136,7 @@ A continuación, para componer los métodos, se hace que cada método limpio \emph{
 
 Para evitar que los métodos sucios \imp{heaterMng\_thermometerChanged} y \imp{smartEnergyMng\_thermometerChanged} puedan ser invocados directamente por objetos que no sean de la clase \imp{Gateway}, todas las versiones sucias de un métodos serán privadas. De esta forma, sólo son invocables las versiones limpias de un método.
 
-Esta idea, tal cual, no puede utilizarse para los constructores de la clases, ya que dichos constructores no se pueden ser renombrados, al tener que seguir un patrón específico para su nombre. Por tanto, necesitamos utilizar una solución alternativa.
+Esta idea, tal cual, no puede utilizarse para los constructores de la clases, ya que no pueden ser renombrados, al tener que seguir un patrón específico para su nombre. Por tanto, necesitamos utilizar una solución alternativa.
 
 \begin{figure}[tb!]
 \begin{center}
@@ -183,10 +183,10 @@ Dicha solución se basa en hacer que la versión limpia de un constructor sólo se 
 
 La Figura~\ref{back:code:constSlicerPattern} muestra cómo se aplica dicha técnica. Se puede apreciar cómo la lógica del constructor para \emph{Gateway} ha sido encapsulada en un método llamado  \imp{initialModel\_initGateway} (Figura~\ref{back:code:constSlicerPattern} líneas 03-06). Se ha utilizado la misma técnica (Figura~\ref{back:code:constSlicerPattern}, líneas 10-12) para la característica \imp{WindowMng}. Estos métodos \emph{init} corresponderían a la \emph{versión sucia} del constructor.
 
-Para componer dichas \emph{versiones sucias} de un constructor de acuerdo a una selección de  características dada, se crea en la clase parcial que representa en producto a configurar el constructor de dicha clase. Dicho constructor constitute la \emph{versión limpia} del constructor de la clase. Al igual que en el caso de los métodos regulares, dicho constructor delegará en tantos métodos \emph{init} como sea necesario, de acuerdo a la selección de características realizada.
+Para componer dichas \emph{versiones sucias} de un constructor de acuerdo a una selección de  características dada se crea, en la clase parcial que representa el producto a configurar, el constructor de dicha clase, que constituye la \emph{versión limpia} del constructor de la clase. Al igual que en el caso de los métodos regulares, dicho constructor delegará en tantos métodos \emph{init} como sea necesario, de acuerdo a la selección de características realizada.
 
 La Figura~\ref{back:code:constSlicerPattern}, líneas 16-20, muestra esta solución aplicada al constructor de la clase \emph{Gateway}, entendiendo que sólo se ha seleccionado como característica a ser incluida en el producto final \imp{WindowMng}.
 
-Por tanto, a modo de resumen, se puede ver cómo utilizando el \emph{Slicer Pattern} se pueden extender y sobreescribir métodos regulares y constructores, solventado las limitaciones inicialmente identificadas de las clases parciales en relación a la implementación de diseños orientados a características.
+A modo de resumen, se puede ver cómo utilizando el \emph{Slicer Pattern} se pueden extender y sobreescribir métodos regulares y constructores, solventado las limitaciones inicialmente identificadas de las clases parciales en relación a la implementación de diseños orientados a características.
 
-Por tanto, el objetivo de este proyecto es que todo el trabajo que es necesario realizar para instanciar este patrón, es decir, renombrado de los métodos para crear las versiones sucias, creación de las versiones limpias correspondientes, así como del código para delegar en los métodos que corresponda, sea generado automáticamente. Para ello es necesario crear una serie de generadores de código. La siguiente sección describe, a grandes rasgos, el funcionamiento de los lenguajes de generación de código.
+El objetivo de este proyecto es que todo el trabajo que es necesario realizar para instanciar este patrón, es decir, renombrado de los métodos para crear las versiones sucias, creación de las versiones limpias correspondientes, así como del código para delegar en los métodos que corresponda, sea generado automáticamente. Para ello es necesario crear una serie de generadores de código. La siguiente sección describe, a grandes rasgos, el funcionamiento de los lenguajes de generación de código.

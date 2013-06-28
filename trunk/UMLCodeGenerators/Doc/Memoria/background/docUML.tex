@@ -13,18 +13,18 @@ La idea básica del diseño orientado a características es descomponer un sistema 
 
 Por tanto, a partir de un conjunto de características, se pueden generar multitud de sistemas software compartiendo características comunes y diferenciándose en otras, lo que hace que este paradigma sea especialmente adecuado para el diseño e implementación de \emph{línea de productos software}.
 
-Para ilustrar cómo funciona el paradigma orientado a características, utilizaremos un diseño UML  (ver Figura~\ref{back:fig:smartHome}) orientado a características de nuestro caso de estudio, el software de gestión de hogares inteligentes~\ref{sec:back:casoEstudio}. Por razones de claridad, se ha simplificado dicho modelo de diseño, eliminando ciertas operaciones de la clase \emph{Gateway} y suprimiendo todas las clases relacionadas con la interfaz gráfica de usuario.
+Para ilustrar cómo funciona el paradigma orientado a características, utilizaremos un diseño UML  (ver Figura~\ref{back:fig:smartHome}) orientado a características de nuestro caso de estudio, el software de gestión de hogares inteligentes (ver Sección~\ref{sec:back:casoEstudio}). Por razones de claridad, se ha simplificado dicho modelo de diseño, eliminando ciertas operaciones de la clase \emph{Gateway} y suprimiendo todas las clases relacionadas con la interfaz gráfica de usuario.
 
 Dos conceptos comúnmente utilizados por los lenguajes orientados a características son el concepto de \emph{familia de clases} y de \emph{clase virtual}.
 
 \begin{figure}[!tb]
   \centering
-  \includegraphics[width=\linewidth]{background/images/umlDesign.eps} \\
+  \includegraphics[width=0.95\linewidth]{background/images/umlDesign.eps} \\
   \caption{Diseño orientado a características del software para hogares inteligentes}
   \label{back:fig:smartHome}
 \end{figure}
 
-Una \emph{familia de clases} es un nuevo tipo de módulo que se utiliza para encapsular y gestionar como una unidad de composición un conjunto de clases pertenecientes a una misma característica. Por ejemplo, en nuestro caso de estudio, todas las clases que estén relacionadas con la gestión automática de luces, deberían estar encapsuladas en una misma familia de clases. Estas familias de clases se representan en el modelo UML de la Figura~\ref{back:fig:smartHome} como paquetes que contienen clases. Por ejemplo, el paquete \emph{LightMng} representa la familia de clases que se correspondería con la característica \emph{gestión de luces automáticas}.
+Una \emph{familia de clases} es un nuevo tipo de módulo que se utiliza para encapsular y gestionar como una unidad de composición un conjunto de clases pertenecientes a una misma característica. Por ejemplo, en nuestro caso de estudio, todas las clases que estén relacionadas con la gestión automática de luces, deberían estar encapsuladas en una misma familia de clases. Estas familias de clases se representan en el modelo UML de la Figura~\ref{back:fig:smartHome} como paquetes que contienen clases. Por ejemplo, el paquete \imp{LightMng} representa la familia de clases que se correspondería con la característica \emph{gestión de luces automáticas}.
 
 Una \emph{clase virtual} es una clase perteneciente a una familia de clases y que es susceptible de ser heredada y sobreescrita por familias de clases, al estilo de los métodos virtuales de una clase en el paradigma orientado a objetos~\citep{madsen:1989}.
 

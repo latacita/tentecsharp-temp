@@ -14,7 +14,7 @@ El primer paso en el proceso de transformación es crear un nuevo proyecto y una 
 Para calcular todas las clases que deben estar incluidas en el producto final, recorremos el modelo desde el paquete que representa el producto concreto, y que será siempre un paquete \emph{hoja}, hacia arriba, hasta llegar a la raíz, o raíces, del modelo orientado a características. Normalmente, siempre hay un modelo raíz que contiene los elementos que son comunes a todos los productos.
 En nuestro caso de la Figura~\ref{app:fig:conf1}, dicho recorrido generaría dos caminos distintos: (1) \imp{SmartEnergyMng}, \imp{WindowMng}, \imp{InitialModel}; y (2) \imp{SmartEnergyMng}, \imp{HeaterMng}, \imp{InitialModel}.
 
-Obviamente, una clase puede aparecer en más de un paquete. Por ejemplo, la clase \imp{Gateway} aparece en todos los paquetes, a excepción del que representa el producto final, de la Figura~\ref{app:fig:conf1}. No obstante, cada clase que esté en un camino desde el paquete hoja al paquete raíz, solo debe incluirse una vez en el producto final, aunque ésta aparezca varias veces. Por cada clase distinta presente en algunos de los caminos del paquete hoja a la raíz, generamos una nueva clase, que colocamos en la carpeta que representa el producto final
+Obviamente, una clase puede aparecer en más de un paquete. Por ejemplo, la clase \imp{Gateway} aparece en todos los paquetes, a excepción del que representa el producto final, de la Figura~\ref{app:fig:conf1}. No obstante, cada clase que esté en un camino desde el paquete hoja al paquete raíz, solo debe incluirse una vez en el producto final, aunque ésta aparezca varias veces. Por cada clase distinta presente en algunos de los caminos del paquete hoja a la raíz, generamos una nueva clase, que colocamos en la carpeta que representa el producto final.
 
 A continuación, para cada clase, debemos calcular todos los métodos limpios que debemos generar. Para ello, al igual que ocurría con las clases parciales, recorremos todos los caminos existentes de raíz a hoja. Para cada clase, por cada método distinto, es decir, con diferente signatura, creamos una versión limpia de dicho método dentro de la clase parcial incluida en el producto final. El proceso de generación del esqueleto del método se realiza reutilizando las plantillas de generación de código y facilidades creadas para la Ingeniería de Dominio.
 
@@ -28,7 +28,7 @@ Se trata del caso más simple. Sólo existe una \emph{versión sucia} del método, p
 
 \begin{figure}[!tb]
   \center
-  \includegraphics[width=0.80\linewidth,keepaspectratio=true]{applicationEngineering/images/Configuration(2).eps} \\
+  \includegraphics[width=0.60\linewidth,keepaspectratio=true]{applicationEngineering/images/Configuration(2).eps} \\
   \caption{Configuración de una casa inteligente con versiones sucias independientes de un mismo método}
   \label{app:fig:conf2}
 \end{figure}
